@@ -118,7 +118,7 @@ All starting Cores are Medium size. **Player Cores are Small, Medium or Large**;
 5. **Calculate:** your four Defenses (2.2, 9.1), weapon and spell attack bonuses, passive Awareness (5.4).
 6. **Describe** who you are: name, look, a goal, a bond. No mechanics.
 
-> **Example: Mira.** Nimble Core (STR +0, DEX +3, INT +1, CHA +0, 11 HP, 35 ft). **Armor:** *Light Armor I*. **Hands:** *Finesse Blade I*, *Light Blade I*. **Jewelry:** *Ring of Warding I*. **Items:** *Potion of Healing* ×1, one empty. **Attributes:** *Cat Burglar I*, *Springheel I*, *Iron Will I*. Defenses: STR 12 (Light Armor +2), DEX 13, INT 11, CHA 10; weapons target her DEX 13. Speed 45 ft. Finesse Blade (Rank I): +5 to hit (DEX +3, Rank +2), 1d6 + 3. Sneaking: d20 + 5.
+> **Example: Mira.** Nimble Core (STR +0, DEX +3, INT +1, CHA +0, 11 HP, 35 ft). **Armor:** *Light Armor I*. **Hands:** *Finesse Blade I*, *Light Blade I*. **Jewelry:** *Ring of Warding I*. **Items:** *Potion of Healing* ×1, one empty. **Attributes:** *Cat Burglar I*, *Springheel I*, *Iron Will I*. Defenses: STR 12 (Light Armor +2), DEX 14 (Light Armor +1), INT 11, CHA 10; weapons target her DEX 14. Speed 40 ft. Finesse Blade (Rank I): +5 to hit (DEX +3, Rank +2), 1d6 + 3. Sneaking: d20 + 5.
 
 ## 3. Aspects & Slots
 
@@ -551,13 +551,13 @@ Weapons, armor and shields are **Aspects**. Anyone can use any of them; a weapon
 ### 9.1 Armor and Defense
 | Armor (Aspect) | Rank | Bonus | Requirement / Notes |
 |---|---|---|---|
-| None | — | — | — |
-| **Light Armor** | I | +2 STR Defense | +10 ft speed. |
+| **None** (empty Armor Slot) | — | — | +10 ft speed. |
+| **Light Armor** | I | +2 STR Defense, +1 DEX Defense | +5 ft speed. |
 | **Medium Armor** | I | +3 STR Defense | STR +2 or DEX +2 |
 | **Heavy Armor** | II | +4 STR Defense | STR +2. −10 ft speed. −3 on checks to sneak. |
 | **Shield** | I | +2 STR and DEX Defense | Takes one Hand Slot. |
 
-- **Armor adds only to STR Defense.** Weapons target your higher of STR and DEX Defense (2.2), so armor protects you when STR Defense is your best. Nimble characters dodge with DEX and wear Light Armor for speed.
+- **Armor adds mostly to STR Defense.** Weapons target your higher of STR and DEX Defense (2.2), so armor protects you when STR Defense is your best. Light Armor also adds +1 DEX Defense: nimble characters trade 5 ft of speed for it, or go unarmored to move faster.
 
 - Armor requirements are strict: if your Core doesn't meet them, you can't wear it.
 - Magic armor and shields are higher-Rank Aspects with a bigger bonus (e.g. *Heavy Armor III*, +5 STR Defense).
@@ -751,7 +751,7 @@ Multiply by the number of characters, then spend the budget on monsters' XP valu
 | STR or CON save | STR Defense |
 | WIS save | INT Defense, but CHA Defense against charm, fear, mind control, curses or polymorph |
 | CHA save | CHA Defense |
-| Armor Class | Weapons target the higher of STR and DEX Defense. Armor adds to STR Defense (9.1). |
+| Armor Class | Weapons target the higher of STR and DEX Defense. Armor adds to STR Defense; Light Armor also +1 DEX Defense (9.1). |
 | Spell save DC | None: every spell is a spell attack (INT + Rank bonus) |
 | Concentration saves | Maintain rolls (Chapter 8, 10.5) |
 | Legendary Resistance | Not used: Holds (Chapter 8) |
