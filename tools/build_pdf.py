@@ -172,7 +172,7 @@ def build_html(src, subtitle, header, figures):
     cover = (
         f'<section class="cover">{ill.cover_emblem()}<h1>ASPECTS</h1>'
         f'<p class="sub">{subtitle}</p>'
-        '<p class="tag">A classless, level-less game of loot and reinvention.<br>Compatible with fifth edition.</p>'
+        '<p class="tag">A game of loot and reinvention.</p>'
         '<p class="foot">Version 0.1 · Draft</p></section>'
     )
     return (

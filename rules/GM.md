@@ -56,13 +56,13 @@ Monsters are built like characters: a **Core** plus **Aspects**.
 | **Effect bonus** | +3 | +4 | +5 | +6 | +7 | +8 |
 
 - **Monster Aspects:** attacks, traits and actions. Monsters don't follow the player Slot structure (a dragon has no Hands).
-- Monsters may keep "Recharge 5–6" powers and "X/day" uses. Players use rest-based recharges only.
+- **Monster recharges:** a power marked **Recharge 5–6** comes back when the monster rolls 5 or 6 on a d6 at the start of its turn. A power marked **X/day** has X uses between long rests. Player Aspects recharge on rests (P 3.1).
 - Monsters act on their side's initiative like everyone else.
 - **At 0 HP**, monsters usually die. You may let important ones fall unconscious.
 
 ### 2.2 Monstrous
 Everything a monster has, its Core included, can drop **unless it's marked Monstrous**.
-- **Monstrous:** anatomy and innate powers (a dragon's breath, an ooze's acid body, legendary powers) and **every Boss Core**. They never drop: players can never obtain them.
+- **Monstrous:** anatomy and innate powers (a dragon's breath, an ooze's acid body, a Boss's signature powers) and **every Boss Core**. They never drop: players can never obtain them.
 
 > **OGRE** · Large · CR 2 (450 XP)
 > **Core** *(→ Ogre Core, Rank II: STR +4, DEX +0, INT +0, CHA +0, 35 HP, speed 35 ft, Large)*: Defenses STR 14 · DEX 9 · INT 8 · CHA 8 · HP 68 · Speed 40 ft · STR +4 · DEX −1 · INT −2 · CHA −2 · Darkvision 60 ft
@@ -74,7 +74,6 @@ Everything a monster has, its Core included, can drop **unless it's marked Monst
 
 ## 3. Bosses
 - A **Boss** takes a **half turn** once per round, during the characters' side: **its movement or one action**, between any two characters' turns, whenever you choose.
-- It has **no special resistance to Holds**. Holds (P Chapter 8) already stop a single spell from ending the fight.
 - It can't use the same Recharge power on its turn and its half turn in the same round.
 - **Its Core and signature powers are Monstrous.** Everything else drops, so give it gear and techniques you're willing to hand over: usually **at most one Rank above** the best Aspects the party already has.
 - Some Bosses carry a **Slot card** (P 3.3). It drops when they're defeated.

@@ -1,5 +1,5 @@
 # ASPECTS — Player Rules
-*Version 0.1 (draft). A streamlined, classless variant of fifth edition. The GM also reads the Game Master's Guide.*
+*Version 0.1 (draft). A game of loot and reinvention. The GM also reads the Game Master's Guide.*
 
 ---
 
@@ -24,7 +24,7 @@ One player is the **Game Master (GM)**, who describes the world, runs monsters a
 
 ### The Core Loop
 **Explore → Fight → Loot → Rest & Rebuild.**
-- You have **no class and no level.** A character is a **Core** plus a set of **Aspects** placed in **Slots**.
+- A character is a **Core** plus a set of **Aspects** placed in **Slots**.
 - Defeated enemies drop Aspects. Equip them (3.5) or keep them in your **Pack** or the **Party Stash**.
 - At a rest, you rearrange your Aspects and become a different build if you want.
 
@@ -104,7 +104,7 @@ A Core lists: **STR, DEX, INT, CHA modifiers · Hit Points · Speed · Size** (a
 | **Envoy** | +0 | +1 | +0 | +3 | 10 | 30 ft |
 | **Balanced** | +2 | +1 | +1 | +0 | 12 | 30 ft |
 
-All starting Cores are Medium size. **Player Cores are Small, Medium or Large**; only Rank V Aspects change that. Better Cores (Rank II–IV, never V) drop as loot: higher modifiers, more HP, special traits.
+All starting Cores are Medium size. **Player Cores are Small, Medium or Large**; only Rank V Aspects change that. Better Cores (Rank II–IV) drop as loot: higher modifiers, more HP, special traits.
 
 ### 2.5 Creating a Character
 1. **Choose a Core** from the table above.
@@ -124,10 +124,10 @@ All starting Cores are Medium size. **Player Cores are Small, Medium or Large**;
 > Effect.
 > *Uses / recharge* (if any)
 
-- **Rank (I–V):** how powerful it is. **Each card has one fixed Rank, written after its name** (*Cat Burglar II*). A stronger version is a different card (*Cat Burglar IV*), found as separate loot. Aspects never level up. Rank doesn't stop you from equipping anything. It sets the Aspect's **Rank bonus** (2.3).
+- **Rank (I–V):** how powerful it is. **Each card has one fixed Rank, written after its name** (*Cat Burglar II*). A stronger version is a different card (*Cat Burglar IV*), found as separate loot. Rank doesn't stop you from equipping anything. It sets the Aspect's **Rank bonus** (2.3).
 - **Tags:** describe what the Aspect is: *Armor, Weapon, Shield, Jewelry, Spellbook, Consumable, Recipe, Trait, Technique, Knack.* The tag decides which Slot it goes in (3.2).
 - **Requirement:** a minimum modifier (e.g. *STR +2*). **You can't equip the Aspect** unless your Core meets it.
-- **Uses:** limited uses recharge on a **short rest** (also regained on a long rest) or on a **long rest**. Nothing recharges "per day" or "at dawn".
+- **Uses:** limited uses recharge on a **short rest** (also regained on a long rest) or on a **long rest**.
 
 ### 3.2 Your Slots
 Every character has the same body. Only the number of Attributes grows much.
@@ -223,8 +223,8 @@ Each Slot has its own swap time. A swap moves one Aspect between a Slot and your
 - **Party Stash upgrades** come only as rewards (quests, Bosses), never from gold. Each replaces the previous one: *Pack Mule* 15, *Cart* 25, *Wagon* 40.
 - **Counting:** each Aspect counts as 1. A stack of up to 3 identical Consumables counts as 1 (as in an Item Slot).
 - **Full Pack or Party Stash:** you can't keep more. Leave the extra Aspect, give it to an ally, or sell it.
-- **Inventory:** you can carry **10 + STR** notable items (treasure, keys, quest objects). Ordinary gear (rope, torches, rations, ammunition, clothes, tools) is **assumed and never tracked**.
-- **Money:** gold pieces (gp) only. Gold buys consumables, services and, from some merchants, Aspects.
+- **Inventory:** you can carry **10 + STR** notable items (treasure, keys, quest objects). Ordinary gear (rope, torches, rations, ammunition, clothes, tools) is **assumed**: you have it when you need it.
+- **Money:** gold pieces (gp). Gold buys consumables, services and, from some merchants, Aspects.
 
 | Common purchases | Cost |
 |---|---|
@@ -238,10 +238,10 @@ Each Slot has its own swap time. A swap moves one Aspect between a Slot and your
 
 ## 4. Progression
 
-You never gain levels. You grow stronger mostly through **better Aspects** and a **better Core**, and a little through **more Slots**.
+You grow stronger mostly through **better Aspects** and a **better Core**, and a little through **more Slots**.
 
 ### 4.1 Milestones
-After a major victory or a story turning point, the GM grants **one new Attribute Slot** (up to 8). It's the closest thing to a level-up: characters have no Rank and no level of their own.
+After a major victory or a story turning point, the GM grants **one new Attribute Slot** (up to 8).
 
 ### 4.2 Other Ways to Grow
 - **Loot:** better Aspects and Cores drop from tougher enemies.
@@ -269,9 +269,9 @@ When the outcome is uncertain, roll **d20 + modifiers** and compare to a target 
 - **Contests:** when two creatures oppose each other, both roll; higher wins; a tie keeps the status quo.
 
 ### 5.2 Advantage & Disadvantage
-Only **situations** grant advantage or disadvantage: **location** (long range), **position** (unseen, an enemy within 5 ft of your bow, surprise) and **conditions** (Blinded, Prone, Restrained…).
+**Situations** grant advantage or disadvantage: **location** (long range), **position** (unseen, an enemy within 5 ft of your bow, surprise) and **conditions** (Blinded, Prone, Restrained…).
 - **Each source adds one d20.** Each disadvantage cancels one advantage. Roll **1 + what's left** in d20s: keep the **highest** if advantage is left, the **lowest** if disadvantage is left.
-- **No cap.** Stacking situations is part of the game. *Example: you're unseen and your target is Prone (within 5 ft) and Restrained: 3 advantage → roll 4d20, keep the highest.*
+- **Situations stack.** *Example: you're unseen and your target is Prone (within 5 ft) and Restrained: 3 advantage → roll 4d20, keep the highest.*
 - **A source counts once**, however many creatures or effects create it. *Exception: Outnumbered (6.5) gives one die per engaged ally.*
 - **Natural 20 / natural 1** are read on the kept die.
 - **Everything else gives a flat modifier**, such as Help and Dodge (+3 / −3). Flat modifiers stack like other bonuses (3.6) and are independent of dice. An Aspect that grants an advantage or disadvantage die says so; it counts as a source.
@@ -289,7 +289,7 @@ The GM uses **passive Awareness = 10 + INT + Aspect bonuses to noticing** to dec
 - On success, you have the **Invisible** condition against those creatures. It ends when you make a loud noise, attack, cast a spell, or someone finds you (an INT check that beats your result).
 
 ### 5.5 Light & Vision
-Only two light levels exist:
+There are two light levels:
 
 | Light | Effect |
 |---|---|
@@ -430,7 +430,7 @@ Your **HP maximum** comes from your Core (and some Aspects). Damage lowers your 
 | **Necrotic** | Life drain, rot, psychic harm, mind blasts |
 | **Radiant** | Holy light, searing energy, pure magical force |
 
-**Resistance:** take half damage of that type. **Vulnerability:** double. **Immunity:** none. Apply other modifiers first, then resistance, then vulnerability. Two sources of resistance to the same type count as one.
+**Resistance:** take half damage of that type. **Vulnerability:** double. Apply other modifiers first, then resistance, then vulnerability. Two sources of resistance to the same type count as one.
 
 ### 7.3 Temporary HP
 - A buffer: damage removes temporary HP first.
@@ -501,7 +501,7 @@ A **Hold** is a lasting effect that takes a creature out of the fight: **Incapac
 ---
 
 ## 9. Equipment
-Weapons, armor and shields are **Aspects**. Anyone can use any of them; a weapon adds its **Rank bonus** to attacks.
+Weapons, armor and shields are **Aspects**. A weapon adds its **Rank bonus** to attacks.
 
 ### 9.1 Armor and Defense
 | Armor (Aspect) | Rank | Bonus | Requirement / Notes |
@@ -539,7 +539,7 @@ All weapon damage is **Physical** unless the Aspect says otherwise.
 - **Heavy:** you need STR +1 (melee) or DEX +1 (ranged), or you have −3 on attacks.
 - **Reach:** your reach is 10 ft instead of 5 ft.
 - **Thrown (range):** throw it for a ranged attack.
-- **Range (normal/long):** a ranged weapon. Ammunition isn't tracked.
+- **Range (normal/long):** a ranged weapon.
 - **Loading:** one shot per action, bonus action or reaction, even with extra attacks.
 - **Two-Handed:** needs both hands.
 - **Versatile:** the second die applies when wielded with two hands.
@@ -567,18 +567,17 @@ A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must
 - **Upcasting:** pay the cost of a higher level (up to the book's max) to cast a spell at that level.
 - **One spell per turn:** you can spend spell points on only one spell per turn (cantrips don't count).
 - **High magic:** each book can cast **one spell of 5th or 6th level per long rest**.
-- No magic in this game goes above **6th level**.
+- Spells range from **1st to 6th level**.
 
 ### 10.3 Casting a Spell
 - **Casting time:** usually one action (Cast action). Some spells use a bonus action or a reaction.
-- **What you need:** the book and an empty Hand (10.1). Nothing else.
+- **What you need:** the book and an empty Hand (10.1).
 - **Obvious or Subtle:** casting a spell is **obvious** (light, sound, a visible gesture) to anyone who can see or hear you, unless the spell is marked **Subtle**. Nobody notices a Subtle spell being cast.
 - **Spell attack:** d20 + INT + the book's Rank bonus. **Every spell that affects a creature is a spell attack** against the Defense the spell names. Area spells roll once (6.6).
 - **Range and targets:** you need a clear path to the target, and the target must be within range. You can target yourself only if the spell says "you" or "a creature" within range.
 - **Duration:** instantaneous, timed, or until dispelled.
 
 ### 10.4 Lasting Spells
-You can keep any number of spells running, and taking damage never ends them.
 - **A spell on enemies** that holds them (a web, a paralysis, a charm) is a lasting effect: you make its maintain rolls (Chapter 8).
 - **Any other spell** (a wall, a blessing on allies, a light) has a **set duration** printed on it. It lasts that long unless it is dispelled or you end it (no action needed).
 
