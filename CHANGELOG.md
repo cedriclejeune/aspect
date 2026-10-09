@@ -7,10 +7,11 @@
 - Saves are plain ability saves (STR/DEX/INT/CHA), no save proficiency.
 - Side initiative: ambush exception (surprising side takes full turns in round 1).
 - Saves have no bonus; monster save DCs scale with CR (10–15).
-- All spellcasting uses INT; spellbooks print a Book DC (7–10); spell DC = Book DC + INT. CHA is purely social.
+- All spellcasting uses INT; spellbooks print a Book DC (7–10); spell DC = Book DC + INT.
 - Stunned no longer grants automatic critical hits (paralysis folded in).
 - Aspect requirements are strict (can't equip without them); Medium Armor needs STR +1 or DEX +1.
 - Concentration uses an INT save.
+- Saves split between INT and CHA: INT saves against illusions, confusion/madness and concentration; CHA (force of will) saves against charm, fear, mind control, possession, banishment, curses and polymorph. Sample Aspect *Iron Will* added.
 - Slot-Granters always grant restricted Slots; granted Slots never hold Slot-Granters.
 - Concentration DC capped at 15.
 - Loot: 1–3 Aspects per character per encounter; monster Cores are lootable.
@@ -22,3 +23,11 @@
 - Side initiative uses the side's average DEX; Finesse weapons deal one die size less.
 - Monster passive Awareness: 10 + INT (+5 if alert).
 - Advantage/disadvantage stack with no cap (net dice), but only from location, position and conditions. Other sources (Rank I–II Aspects, Help, Dodge) give +3/−3; Rank III–IV Aspects may grant a die. Reckless Attack converts to +3 / +3 against you.
+- Engagement (6.5): engaged = within 5 ft, not Incapacitated, within one size. **Outnumbered:** each of the attacker's allies engaged with the target adds one advantage die to any attack (exception to "a source counts once"). Symmetric for monsters; replaces Pack Tactics.
+- Disengage cost scales with enemies engaged with you: 0–1 free, 2 bonus action, 3 action, 4+ surrounded (impossible).
+- **Slot structure rework:** typed Slots replace untyped ones. Every character has Core, 1 Armor (never more), 2 Hands (weapons/shields), 1 Jewelry (active powers with uses), 2 Items (a Spellbook or a stack of 3 identical consumables) and 3 Attributes (traits, techniques, knacks; up to 8). The Pack is removed.
+- Spellbooks take an Item Slot; casting from a book needs an empty Hand Slot (a Two-Handed weapon fills both). **Gestured** spells need two empty Hand Slots (5e: 4th level+ with a Somatic component).
+- **Slot cards** (Boss drops, permanent, one of each): Third Hand, Second Jewel, Great Backpack.
+- **Shatter removed.** New Attribute Slots come only from milestones (GM grants an Attribute or a better Core). Slot-Granters and the 15-Slot cap removed. Power scaling comes mainly from Rank.
+- Bound renamed **Monster Attribute**; monsters don't use the player Slot structure.
+- Effective level for encounters is now a GM estimate (Core Rank, Aspect Ranks, open Slots).

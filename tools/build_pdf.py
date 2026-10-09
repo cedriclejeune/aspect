@@ -23,12 +23,11 @@ OUT = ROOT / "rules" / "Aspects-Core-Rules.pdf"
 # Figure placed right after the heading whose text starts with the key.
 FIGURES = {
     "The Core Loop": (ill.core_loop, "The core loop. Every session turns this wheel a few times.", "wide"),
-    "2.3 Rank Bonus": (ill.rank_ladder, "Higher Ranks give bigger bonuses and are worth more when Shattered.", "wide"),
-    "3. Aspects & Slots": (ill.character_anatomy, "Mira's build: a Core, five Slots, a Stash and a Pack.", "wide"),
+    "2.3 Rank Bonus": (ill.rank_ladder, "Higher Ranks give bigger bonuses and stronger books.", "wide"),
+    "3. Aspects & Slots": (ill.character_anatomy, "Mira's build: Core, Armor, two Hands, Jewelry, two Items and three Attributes.", "wide"),
     "3.1 Reading an Aspect": (ill.aspect_card_anatomy, "Every Aspect fits on a card.", "mid"),
-    "4.1 Shattering": (ill.shatter, "Shattering: Aspects worth 5 points open the sixth Slot.", "wide"),
     "6.1 Order of Combat": (ill.initiative_timeline, "Side initiative: the winners open with half a turn, then sides alternate full turns.", "full"),
-    "6.5 Opportunity Attacks": (ill.combat_grid, "Reach, opportunity attacks and cover on the grid.", "wide"),
+    "6.5 Engagement": (ill.combat_grid, "Reach, opportunity attacks and cover on the grid.", "wide"),
     "7.4 Dropping to 0 HP": (ill.death_saves, "The death save track.", "wide"),
     "9.1 Armor Class": (ill.armor_tiers, "The three armor tiers and the shield.", "wide"),
     "10.6 Areas of Effect": (ill.areas_of_effect, "Areas of effect. The black dot marks the point of origin.", "wide"),

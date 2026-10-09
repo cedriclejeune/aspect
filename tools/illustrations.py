@@ -226,38 +226,53 @@ def core_loop():
     return _svg(700, 400, "".join(body), "The core loop: explore, fight, loot, rest and rebuild")
 
 
+def icon_ring(cx, cy, s):
+    r = s / 2
+    return (
+        f'<g stroke="{INK}" stroke-width="2.2"><circle cx="{cx}" cy="{cy + r * .2}" r="{r * .65}" fill="none" stroke-width="3"/>'
+        f'<path d="M{cx} {cy - r}L{cx + r * .3} {cy - r * .55}L{cx} {cy - r * .3}L{cx - r * .3} {cy - r * .55}Z" fill="{CRIMSON}" stroke-width="1.4"/></g>'
+    )
+
+
+def icon_potion(cx, cy, s):
+    h = s / 2
+    return (
+        f'<path d="M{cx - h * .2} {cy - h}h{h * .4}v{h * .45}q{h * .6} {h * .3} {h * .6} {h * .85}v{h * .5}q0 {h * .2} -{h * .2} {h * .2}'
+        f'h-{h * .8}q-{h * .2} 0 -{h * .2} -{h * .2}v-{h * .5}q0 -{h * .55} {h * .6} -{h * .85}z" fill="{CRIMSON}" stroke="{INK}" stroke-width="2"/>'
+    )
+
+
 def character_anatomy():
-    cx, cy, R = 210, 190, 125
-    slots = [("Light Armor", icon_shield), ("Finesse Blade", icon_sword), ("Shortbow", icon_bow), ("Cat Burglar", icon_mask), ("Springheel", icon_jump)]
-    body = []
-    for i, (name, ic) in enumerate(slots):
-        a = math.radians(-90 + 72 * i)
-        x, y = cx + R * math.cos(a), cy + R * math.sin(a)
-        body.append(f'<line x1="{cx + 60 * math.cos(a):.1f}" y1="{cy + 60 * math.sin(a):.1f}" x2="{cx + (R - 40) * math.cos(a):.1f}" y2="{cy + (R - 40) * math.sin(a):.1f}" stroke="{GOLD}" stroke-width="2"/>')
-        body.append(_hex(x, y, 38, fill=PARCH, stroke=INK, sw=2.2))
-        body.append(ic(x, y, 34))
-        ty = y + 56 if y > cy - 20 else y - 46
-        body.append(_text(x, ty, name, 14, HEAD))
-    body.append(gem(cx, cy, 58, CRIMSON, "CORE", 16))
-    body.append(_text(cx, 368, "Core: STR · DEX · INT · CHA · HP · Speed", 14, BODY, MUTED, italic=True))
-    # stash + pack
-    sx = 480
-    body.append(_text(sx + 60, 52, "Stash", 18, HEAD))
+    body = [gem(95, 200, 58, CRIMSON, "CORE", 16),
+            _text(95, 290, "STR · DEX · INT · CHA", 13, BODY, MUTED, italic=True),
+            _text(95, 308, "HP · Speed", 13, BODY, MUTED, italic=True)]
+    groups = [  # (title, x0, y, [(name, icon or None)])
+        ("Armor", 230, 85, [("Light Armor", icon_shield)]),
+        ("Hands", 370, 85, [("Finesse Blade", icon_sword), ("Light Blade", icon_sword)]),
+        ("Jewelry", 230, 215, [("Ring of Warding", icon_ring)]),
+        ("Items", 370, 215, [("Potion ×1", icon_potion), ("empty", None)]),
+        ("Attributes", 230, 345, [("Cat Burglar", icon_mask), ("Springheel", icon_jump), ("Iron Will", icon_fire)]),
+    ]
+    for title, x0, y, slots in groups:
+        body.append(_text(x0 - 34, y - 42, title.upper(), 13, HEAD, GOLD, anchor="start"))
+        for i, (name, ic) in enumerate(slots):
+            x = x0 + i * 110
+            if ic:
+                body.append(_hex(x, y, 30, fill=PARCH, stroke=INK, sw=2.2))
+                body.append(ic(x, y, 28))
+            else:
+                body.append(_hex(x, y, 30, fill="none", stroke=INK, sw=2, dash="6 5"))
+            body.append(_text(x, y + 47, name, 12, HEAD, MUTED if not ic else INK))
+    body.append(f'<line x1="160" y1="40" x2="160" y2="370" stroke="{GOLD}" stroke-width="1.5"/>')
+    # stash
+    sx = 575
+    body.append(_text(sx + 50, 175, "Stash", 18, HEAD))
     for k in range(4):
-        body.append(f'<rect x="{sx + 18 + k * 9}" y="{74 + k * 9}" width="84" height="110" rx="6" fill="{PARCH}" stroke="{INK}" stroke-width="1.8"/>')
-    body.append(f'<rect x="{sx + 45}" y="{101}" width="84" height="26" rx="6" fill="{GOLD}" stroke="{INK}" stroke-width="1.8"/>')
-    body.append(_text(sx + 60, 222, "unequipped Aspects", 13, BODY, MUTED, italic=True))
-    body.append(f'<path d="M{sx - 10} 140 L{cx + 165} 165" stroke="{CRIMSON}" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrc)" marker-start="url(#arrc)"/>')
-    body.append(_text(sx - 50, 136, "swap at rests", 13, BODY, CRIMSON, italic=True))
-    # pack
-    py = 270
-    body.append(_text(sx + 60, py, "Pack", 18, HEAD))
-    for k in range(5):
-        x = sx + 4 + k * 24
-        fill = CRIMSON if k < 2 else "none"
-        body.append(f'<path d="M{x + 6} {py + 18}h8v8q8 6 8 16v14q0 6-6 6h-12q-6 0-6-6v-14q0-10 8-16z" fill="{fill}" stroke="{INK}" stroke-width="1.6"/>')
-    body.append(_text(sx + 60, py + 88, "up to 5 consumables", 13, BODY, MUTED, italic=True))
-    return _svg(660, 385, "".join(body), "A character: one Core, five Slots holding Aspects, a Stash and a Pack")
+        body.append(f'<rect x="{sx + 8 + k * 9}" y="{195 + k * 9}" width="70" height="90" rx="6" fill="{PARCH}" stroke="{INK}" stroke-width="1.8"/>')
+    body.append(f'<rect x="{sx + 35}" y="{222}" width="70" height="22" rx="6" fill="{GOLD}" stroke="{INK}" stroke-width="1.8"/>')
+    body.append(_text(sx + 50, 335, "unequipped Aspects", 12, BODY, MUTED, italic=True))
+    body.append(_text(sx + 50, 352, "swap at rests", 12, BODY, CRIMSON, italic=True))
+    return _svg(700, 400, "".join(body), "A character: Core, Armor, two Hands, Jewelry, two Items, three Attributes and a Stash")
 
 
 def aspect_card_anatomy():
@@ -272,15 +287,15 @@ def aspect_card_anatomy():
             f'<line x1="{x + 20}" y1="{y + 205}" x2="{x + w - 20}" y2="{y + 205}" stroke="{GOLD}" stroke-width="1.5"/>',
             _text(x + 20, y + 232, "1d6 Physical, Finesse.", 15, BODY, INK, anchor="start"),
             _text(x + 20, y + 256, "Sap: on a hit, the target has", 15, BODY, INK, anchor="start"),
-            _text(x + 20, y + 276, "disadvantage on its next attack.", 15, BODY, INK, anchor="start"),
+            _text(x + 20, y + 276, "−3 on its next attack.", 15, BODY, INK, anchor="start"),
             f'<line x1="{x + 20}" y1="{y + 310}" x2="{x + w - 20}" y2="{y + 310}" stroke="{GOLD}" stroke-width="1.5"/>',
-            _text(x + w / 2, y + 337, "Rank bonus +2 · Shatter value 1", 13, BODY, MUTED, italic=True)]
+            _text(x + w / 2, y + 337, "Rank bonus +2 · Hand Slot", 13, BODY, MUTED, italic=True)]
     callouts = [  # (point y, point x, label y, label)
         (y + 40, x + 150, y + 6, "Name"),
         (y + 31, x + w - 8, y + 46, "Rank (I–IV)"),
         (y + 84, x + w / 2 + 30, y + 92, "Tags"),
         (y + 252, x + w - 20, y + 252, "Effect"),
-        (y + 333, x + w - 30, y + 333, "Bonus &amp; Shatter value"),
+        (y + 333, x + w - 30, y + 333, "Bonus &amp; Slot"),
     ]
     for py, px, ly, label in callouts:
         body.append(f'<polyline points="{px},{py} {x + w + 30},{ly} {x + w + 50},{ly}" fill="none" stroke="{INK}" stroke-width="1" stroke-dasharray="3 3"/>')
@@ -300,31 +315,9 @@ def rank_ladder():
         body.append(f'<line x1="{x}" y1="{base + 4}" x2="{x}" y2="{base + 26}" stroke="{GOLD}" stroke-width="1.5"/>')
         body.append(gem(x, base - size, size, colors[i], r, 13 + i * 2))
         body.append(_text(x, base + 50, f"Rank bonus {b}", 15, HEAD))
-        body.append(_text(x, base + 72, f"Shatter value {v}", 14, BODY, MUTED, italic=True))
+        body.append(_text(x, base + 72, f"Book DC {6 + int(v)}", 14, BODY, MUTED, italic=True))
     body.append(f'<line x1="40" y1="{176}" x2="560" y2="{176}" stroke="{INK}" stroke-width="1.5" marker-end="url(#arr)"/>')
     return _svg(600, 240, "".join(body), "The four Ranks and their bonuses")
-
-
-def shatter():
-    body = []
-    cards = [("I", 1, -14), ("II", 2, 0), ("II", 2, 14)]
-    for i, (r, v, rot) in enumerate(cards):
-        x, y = 40 + i * 70, 50
-        body.append(f'<g transform="rotate({rot} {x + 45} {y + 65})">{card(x, y, 90, 130, "ASPECT", "Rank " + r, "Stash")}</g>')
-    # shards
-    import random
-    rng = random.Random(4)
-    for k in range(16):
-        sx, sy = 300 + rng.uniform(-25, 45), 115 + rng.uniform(-50, 50)
-        s = rng.uniform(6, 13)
-        body.append(f'<polygon points="{sx},{sy - s} {sx + s * .7},{sy + s * .2} {sx - s * .3},{sy + s * .8}" fill="{GOLD if k % 3 else CRIMSON}" stroke="{INK}" stroke-width="1"/>')
-    body.append(f'<line x1="355" y1="115" x2="445" y2="115" stroke="{INK}" stroke-width="2.2" marker-end="url(#arr)"/>')
-    body.append(_text(400, 102, "1 + 2 + 2 = 5", 15, HEAD))
-    body.append(_hex(510, 115, 50, fill="none", stroke=INK, sw=2.4, dash="7 5"))
-    body.append(_text(510, 124, "+1", 26, HEAD, CRIMSON))
-    body.append(_text(510, 195, "6th Slot (cost 5)", 15, HEAD))
-    body.append(_text(130, 225, "Destroy Aspects from your Stash at a long rest", 14, BODY, MUTED, italic=True))
-    return _svg(600, 240, "".join(body), "Shattering three Aspects worth 5 points opens a sixth Slot")
 
 
 def initiative_timeline():

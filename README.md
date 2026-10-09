@@ -12,7 +12,7 @@ Characters are built from interchangeable **Aspects** placed in **Slots**: weapo
 |---|---|
 | [rules/RULES.md](rules/RULES.md) | The core rulebook (standalone, source) |
 | [rules/Aspects-Core-Rules.pdf](rules/Aspects-Core-Rules.pdf) | Illustrated PDF of the rulebook |
-| [tools/](tools/) | `build_pdf.py` (PDF), `illustrations.py` (SVG art), `shatter_sim.py` (economy simulation) |
+| [tools/](tools/) | `build_pdf.py` (PDF), `illustrations.py` (SVG art), `shatter_sim.py` (economy simulation, obsolete since Shatter was removed) |
 | [ATTRIBUTION.md](ATTRIBUTION.md) | SRD 5.2.1 CC-BY-4.0 attribution |
 | [CHANGELOG.md](CHANGELOG.md) | Version history |
 
