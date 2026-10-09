@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+build/
+# Reference PDF (CC-BY-4.0, 6 MB) kept locally, not versioned
+SRD_CC_v5.2.1.pdf
