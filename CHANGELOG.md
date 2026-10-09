@@ -53,3 +53,4 @@
 - Natural 20 / natural 1 apply to attack rolls and maintain rolls.
 - **Underwater (5.8):** half speed (unless a swim speed), no spells and no weapons: unarmed attacks only (monsters' natural attacks count as unarmed). No more disadvantage on attacks. New weapon property **Aquatic** (trident, net) and Aquatic Attributes or spells lift the ban. Fire damage is reduced to 0 underwater (was halved).
 - **Unarmored:** an empty Armor Slot gives +10 ft speed. Light Armor becomes +2 STR Defense, +1 DEX Defense and +5 ft speed (was +2 STR Defense and +10 ft).
+- **No spell components, ever:** costly and consumed materials removed; **Gestured** spells removed (every spell needs only the book and one empty Hand).

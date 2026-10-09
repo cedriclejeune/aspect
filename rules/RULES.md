@@ -165,8 +165,6 @@ A **Slot card** permanently adds one Slot to a character. Bosses carry them, and
 ### 3.4 Spellbooks
 A **Spellbook** takes an **Item Slot**. To cast a spell from a book, **one of your Hand Slots must be empty** (it holds the book). A Two-Handed weapon fills both Hands.
 
-**Gestured spells** (marked in their description) also need a hand for the gestures: **two empty Hand Slots**.
-
 ### 3.5 Sample Aspects
 > **CONJURER'S BOOK I** · Spellbook
 > Spell points: 4 · Max spell level: 2nd
@@ -632,7 +630,8 @@ Cantrips and other effects that grow in power use the **Rank of their Aspect**:
 
 ### 10.4 Casting a Spell
 - **Casting time:** usually one action (Cast action). Some spells use a bonus action or a reaction.
-- **No components:** you don't need words or materials, and gestures only for **Gestured** spells (3.4). A spell that consumes a **costly item** still requires it (the item goes in your Inventory).
+- **No components, ever:** no words, no gestures, no materials and no costly items. You only need the book and an empty Hand (3.4).
+<!-- Hidden design note (not shown in the PDF): costly components (Revivify's diamond, etc.) are gone; powerful spells are gated by the Spellbook's Rank and by loot instead of gold. -->
 - **Obvious or Subtle:** casting a spell is **obvious** (light, sound, a visible gesture) to anyone who can see or hear you, unless the spell is marked **Subtle**. Nobody notices a Subtle spell being cast.
 - **No rituals.**
 - **Spell attack bonus:** INT + the book's Rank bonus.
@@ -775,7 +774,7 @@ Multiply by the number of characters, then spend the budget on monsters' XP valu
 | Darkness, heavily obscured | Dark |
 | Spell slots | Spell points (cost = spell level) |
 | Spells above 6th level | Not used |
-| Verbal, somatic, material components | None (costly consumed items still required). A spell **without a Verbal component** is **Subtle**. A spell of **4th level or higher with a Somatic component** is **Gestured**. |
+| Verbal, somatic, material components | None, including costly and consumed materials. A spell **without a Verbal component** is **Subtle**. |
 | Ritual casting | Not used |
 | Cantrip scaling at levels 5/11/17 | Aspect Rank III / IV |
 | Attunement | None: equipped = attuned |
