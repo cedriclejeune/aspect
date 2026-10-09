@@ -1,5 +1,5 @@
-# ASPECTS — Core Rules
-*Version 0.1 (draft). A streamlined, classless variant of fifth edition.*
+# ASPECTS — Player Rules
+*Version 0.1 (draft). A streamlined, classless variant of fifth edition. The GM also reads the Game Master's Guide.*
 
 ---
 
@@ -14,8 +14,7 @@
 8. [Conditions](#8-conditions)
 9. [Equipment](#9-equipment)
 10. [Magic](#10-magic)
-11. [Game Master](#11-game-master)
-12. [Attribution](#attribution)
+11. [Attribution](#attribution)
 
 ---
 
@@ -26,7 +25,7 @@ One player is the **Game Master (GM)**, who describes the world, runs monsters a
 ### The Core Loop
 **Explore → Fight → Loot → Rest & Rebuild.**
 - You have **no class and no level.** A character is a **Core** plus a set of **Aspects** placed in **Slots**.
-- Defeated enemies drop Aspects. Equip them (3.6) or keep them in your **Pack** or the **Party Stash**.
+- Defeated enemies drop Aspects. Equip them (3.5) or keep them in your **Pack** or the **Party Stash**.
 - At a rest, you rearrange your Aspects and become a different build if you want.
 
 ### Terminology
@@ -40,7 +39,6 @@ One player is the **Game Master (GM)**, who describes the world, runs monsters a
 | **Pack** | Your personal bag: up to 5 Aspects you carry but haven't equipped. |
 | **Party Stash** | The group's mule or wagon: Aspects the party owns but nobody carries. |
 | **Rank** | An Aspect's power: I, II, III, IV or V. |
-| **Monstrous** | A tag on a monster's Core or Aspect: it never drops, and players can never obtain it. |
 | **Rank bonus** | +2 to +6, set by an Aspect's Rank. Added to rolls made with that Aspect. |
 | **Defense** | The number an attack must reach: 10 + ability modifier + bonuses. Every creature has a STR, DEX, INT and CHA Defense. |
 | **Hold** | A lasting effect that takes a creature out of the fight (Chapter 8). |
@@ -70,16 +68,15 @@ Every creature has **four abilities**, each written as a **modifier** (typically
 
 ### 2.2 Checks, Attacks and Defenses
 - **Ability check** = d20 + ability modifier + bonuses from Aspects. The GM picks the ability that fits the action.
-- **The attacker always rolls.** Anything that harms or hinders a creature (a sword, an arrow, a spell, a breath weapon, a poison) is an **attack roll** against one of the target's **Defenses**. There are **no saving throws**.
+- **The attacker always rolls.** Anything that harms or hinders a creature (a sword, an arrow, a spell, a breath weapon, a poison) is an **attack roll** against one of the target's **Defenses**.
 - **Defense** = 10 + ability modifier + bonuses (armor, shield, Aspects). Every creature has four: **STR, DEX, INT and CHA Defense**.
   - **Weapon attacks**, melee or ranged, target the defender's **higher** of STR and DEX Defense.
   - **Other effects** name the Defense they target. *A cannon shot targets DEX Defense only: plate doesn't help.*
 - **Modifier or Defense bonus:** an Aspect that raises an **ability modifier** improves everything that uses it (checks, attacks, damage, Defense). One that raises a **Defense** (armor, a shield) improves only that Defense.
-- There are **no skills and no proficiencies.** What you're good at comes from your Core's modifiers and your Aspects.
-- **Aspect bonuses** apply to a narrow activity and use the Rank bonus (2.3). *Example: Cat Burglar (Rank I): +2 on checks to sneak, climb or pick locks.* Some Aspects impose penalties instead.
+- What you're good at comes from your Core's modifiers and your Aspects. *Example: Cat Burglar I: +2 on checks to sneak, climb or pick locks.*
 
 ### 2.3 Rank Bonus
-Every Aspect has a **Rank bonus** set by its Rank. It replaces fifth edition's proficiency bonus.
+Every Aspect has a **Rank bonus** set by its Rank.
 
 | Aspect Rank | I | II | III | IV | V |
 |---|---|---|---|---|---|
@@ -89,7 +86,6 @@ Every Aspect has a **Rank bonus** set by its Rank. It replaces fifth edition's p
 |---|---|
 | **Weapon attack** | d20 + ability modifier + the **weapon's** Rank bonus |
 | **Spell attack** | d20 + INT + the **spellbook's** Rank bonus |
-| **Check boosted by an Aspect** | d20 + ability modifier + **that Aspect's** Rank bonus |
 
 **A better Core** raises your modifiers. **A better weapon or book** raises its Rank bonus. That's how you grow.
 
@@ -108,14 +104,14 @@ A Core lists: **STR, DEX, INT, CHA modifiers · Hit Points · Speed · Size** (a
 | **Envoy** | +0 | +1 | +0 | +3 | 10 | 30 ft |
 | **Balanced** | +2 | +1 | +1 | +0 | 12 | 30 ft |
 
-All starting Cores are Medium size. **Player Cores are Small, Medium or Large**; only Rank V Aspects change that. Better Cores (Rank II–IV, never V) drop as loot (11.2): higher modifiers, more HP, special traits.
+All starting Cores are Medium size. **Player Cores are Small, Medium or Large**; only Rank V Aspects change that. Better Cores (Rank II–IV, never V) drop as loot: higher modifiers, more HP, special traits.
 
 ### 2.5 Creating a Character
 1. **Choose a Core** from the table above.
 2. **Choose your Aspects** from the GM's starter list (all Rank I): **1 Armor**, up to **2 Hand** Aspects (weapons or a shield), **1 Jewelry** and **3 Attributes**. A caster also picks a **Spellbook** (it takes an Item Slot and needs an empty Hand Slot to cast).
 3. **Fill your Item Slots**: one *Potion of Healing* (in the free Item Slot).
 4. **Take 50 gp.**
-5. **Calculate:** your four Defenses (2.2, 9.1), weapon and spell attack bonuses, passive Awareness (5.4).
+5. **Calculate:** your four Defenses (2.2, 9.1), weapon and spell attack bonuses, passive Awareness (5.3).
 6. **Describe** who you are: name, look, a goal, a bond. No mechanics.
 
 > **Example: Mira.** Nimble Core (STR +0, DEX +3, INT +1, CHA +0, 11 HP, 35 ft). **Armor:** *Light Armor I*. **Hands:** *Finesse Blade I*, *Light Blade I*. **Jewelry:** *Ring of Warding I*. **Items:** *Potion of Healing* ×1, one empty. **Attributes:** *Cat Burglar I*, *Springheel I*, *Iron Will I*. Defenses: STR 12 (Light Armor +2), DEX 14 (Light Armor +1), INT 11, CHA 10; weapons target her DEX 14. Speed 40 ft. Finesse Blade (Rank I): +5 to hit (DEX +3, Rank +2), 1d6 + 3. Sneaking: d20 + 5.
@@ -128,7 +124,7 @@ All starting Cores are Medium size. **Player Cores are Small, Medium or Large**;
 > Effect.
 > *Uses / recharge* (if any)
 
-- **Rank (I–V):** how powerful it is. **Each card has one fixed Rank, written after its name** (*Cat Burglar II*). A stronger version is a different card (*Cat Burglar IV*), found as separate loot. Aspects never level up. Rank doesn't stop you from equipping anything. It sets the Aspect's **Rank bonus** (+2/+3/+4/+5/+6) and how some effects scale.
+- **Rank (I–V):** how powerful it is. **Each card has one fixed Rank, written after its name** (*Cat Burglar II*). A stronger version is a different card (*Cat Burglar IV*), found as separate loot. Aspects never level up. Rank doesn't stop you from equipping anything. It sets the Aspect's **Rank bonus** (2.3).
 - **Tags:** describe what the Aspect is: *Armor, Weapon, Shield, Jewelry, Spellbook, Consumable, Recipe, Trait, Technique, Knack.* The tag decides which Slot it goes in (3.2).
 - **Requirement:** a minimum modifier (e.g. *STR +2*). **You can't equip the Aspect** unless your Core meets it.
 - **Uses:** limited uses recharge on a **short rest** (also regained on a long rest) or on a **long rest**. Nothing recharges "per day" or "at dawn".
@@ -162,10 +158,7 @@ A **Slot card** permanently adds one Slot to a character. Bosses carry them, and
 - You can have **one of each**, at most. There is no card for a second Armor.
 - A Slot card is applied when taken and **can't be removed, traded or put in the Pack or Party Stash**. It doesn't occupy a Slot.
 
-### 3.4 Spellbooks
-A **Spellbook** takes an **Item Slot**. To cast a spell from a book, **one of your Hand Slots must be empty** (it holds the book). A Two-Handed weapon fills both Hands.
-
-### 3.5 Sample Aspects
+### 3.4 Sample Aspects
 > **CONJURER'S BOOK I** · Spellbook
 > Spell points: 4 · Max spell level: 2nd
 > Cantrips: *Fire Bolt, Mage Hand*
@@ -201,7 +194,7 @@ A **Spellbook** takes an **Item Slot**. To cast a spell from a book, **one of yo
 > **CAT BURGLAR I** · Knack
 > +2 on checks to sneak, climb or pick locks.
 
-### 3.6 Equipping and Swapping
+### 3.5 Equipping and Swapping
 Each Slot has its own swap time. A swap moves one Aspect between a Slot and your Pack, the Party Stash or the ground.
 
 | Slot | Swap time | In combat |
@@ -215,20 +208,17 @@ Each Slot has its own swap time. A swap moves one Aspect between a Slot and your
 | **Core** | Long rest | No |
 
 - **Pack in combat:** taking an Aspect out of your Pack (or putting one away) costs **1 action and all your movement** for the turn, **plus** the Slot's swap time. The Party Stash can't be reached in combat.
-- **Out of combat**, the Pack and the Party Stash cost nothing to reach (the Party Stash only where it is, 3.8). The Slot's swap time still applies (Armor: 10 minutes; Attribute: long rest).
+- **Out of combat**, the Pack and the Party Stash cost nothing to reach (the Party Stash only where it is, 3.7). The Slot's swap time still applies.
 - **The Core changes only at a long rest.** A looted Core waits in the Party Stash until then. When you change Core, your HP becomes the new Core's maximum.
 - **Expended Aspects are locked:** an Aspect with any of its uses or spell points spent can be swapped out **only at a long rest**.
-- **Overrides:** some Aspects change a swap time. Their text says so (e.g. *swap Hand Aspects without using your object interaction*).
 - Aspects keep their state in the Pack and Party Stash: a newly looted Aspect is fully charged.
 
-<!-- Hidden design note (not shown in the PDF): fast Slots (Hand, Jewelry, Item) keep fights tactical; slow Slots (Armor, Attribute, Core) fix the build between rests. The Pack cost (action + all movement) makes mid-fight swaps a real trade-off; the expended lock stops cycling spent books and jewels between fights. -->
-
-### 3.7 Stacking Rules
+### 3.6 Stacking Rules
 - You can't equip **two copies** of the same Aspect, even at different Ranks (*Cat Burglar II* and *Cat Burglar IV*). Identical Consumables in one stack are fine.
-- **Every bonus stacks.** A weapon's Rank bonus, a Knack's bonus and a Jewelry's bonus all add to the same roll. Balance comes from each card's Rank (11.5), not from stacking limits.
+- **Every bonus stacks.** A weapon's Rank bonus, a Knack's bonus and a Jewelry's bonus all add to the same roll.
 
-### 3.8 Pack, Party Stash, Inventory & Gold
-- **Pack:** up to **5 Aspects**, on your back: weapons, jewels, spellbooks, consumables, Attributes. **No Armor and no Cores** (too big). Reachable in combat at a cost (3.6).
+### 3.7 Pack, Party Stash, Inventory & Gold
+- **Pack:** up to **5 Aspects**, on your back: weapons, jewels, spellbooks, consumables, Attributes. **No Armor and no Cores** (too big). Reachable in combat at a cost (3.5).
 - **Party Stash:** up to **10 Aspects**, shared by the group. It's a mule, a cart or a wagon: it stays **where the party leaves it** (outside the dungeon, at the inn) and can't be reached in combat. The GM may threaten it (thieves, ambush, a river crossing).
 - **Party Stash upgrades** come only as rewards (quests, Bosses), never from gold. Each replaces the previous one: *Pack Mule* 15, *Cart* 25, *Wagon* 40.
 - **Counting:** each Aspect counts as 1. A stack of up to 3 identical Consumables counts as 1 (as in an Item Slot).
@@ -250,8 +240,6 @@ Each Slot has its own swap time. A swap moves one Aspect between a Slot and your
 
 You never gain levels. You grow stronger mostly through **better Aspects** and a **better Core**, and a little through **more Slots**.
 
-<!-- Hidden design note (not shown in the PDF): power scaling should come mainly from Rank (better Aspects and Cores). Slot count grows slowly: 3 → 8 Attributes, plus at most three Slot cards. -->
-
 ### 4.1 Milestones
 After a major victory or a story turning point, the GM grants **one new Attribute Slot** (up to 8). It's the closest thing to a level-up: characters have no Rank and no level of their own.
 
@@ -259,9 +247,7 @@ After a major victory or a story turning point, the GM grants **one new Attribut
 - **Loot:** better Aspects and Cores drop from tougher enemies.
 - **Slot cards:** dropped by Bosses (3.3).
 
-### 4.3 Power Ceiling
-A Rank IV Core, Rank IV Aspects, 8 Attributes and all three Slot cards represent the **peak** of this game, roughly a level-12 hero in fifth edition.
-
+### 4.3 The Endgame
 **Rank IV** Aspects start to bend the rules. **Rank V** Aspects break them: rare Boss treasures that change how the game plays for you or your party. Hunting them is the endgame.
 
 ---
@@ -270,19 +256,17 @@ A Rank IV Core, Rank IV Aspects, 8 Attributes and all three Slot cards represent
 
 ### 5.1 The d20 Test
 When the outcome is uncertain, roll **d20 + modifiers** and compare to a target number.
-- **Ability check:** vs a **Difficulty Class (DC)** set by the GM.
+- **Ability check:** vs a **Difficulty Class (DC)** set by the GM, from 5 (very easy) to 30 (nearly impossible). 15 is medium.
 - **Attack roll:** vs the target's **Defense** (2.2).
 
 **Equal or higher = success.** On **attack rolls and maintain rolls** (Chapter 8), a **natural 20** always succeeds and a **natural 1** always fails.
 
-| Task | DC |
-|---|---|
-| Very easy | 5 |
-| Easy | 10 |
-| Medium | 15 |
-| Hard | 20 |
-| Very hard | 25 |
-| Nearly impossible | 30 |
+**Outside combat:**
+- **Roll only when** failure is interesting and success is possible. Otherwise just say what happens.
+- **Fail forward:** a failed check still moves the story, at a cost: time, noise, damage, a lost resource, a complication. **You can't retry the same task** unless the situation changes.
+- **Group checks:** when the whole party attempts something together (sneaking, climbing, searching), everyone rolls. **If at least half succeed, the group succeeds.**
+- **Help:** a character who could plausibly assist gives one ally **+3** on the check.
+- **Contests:** when two creatures oppose each other, both roll; higher wins; a tie keeps the status quo.
 
 ### 5.2 Advantage & Disadvantage
 Only **situations** grant advantage or disadvantage: **location** (long range), **position** (unseen, an enemy within 5 ft of your bow, surprise) and **conditions** (Blinded, Prone, Restrained…).
@@ -290,29 +274,21 @@ Only **situations** grant advantage or disadvantage: **location** (long range), 
 - **No cap.** Stacking situations is part of the game. *Example: you're unseen and your target is Prone (within 5 ft) and Restrained: 3 advantage → roll 4d20, keep the highest.*
 - **A source counts once**, however many creatures or effects create it. *Exception: Outnumbered (6.5) gives one die per engaged ally.*
 - **Natural 20 / natural 1** are read on the kept die.
-- **Everything else gives a flat modifier:** Rank I–II Aspects (their spells included) give **their Rank bonus** (+2 or +3) instead of advantage, and the same as a penalty instead of disadvantage. The Help and Dodge actions give **+3 / −3**. These stack like other bonuses (3.7) and are independent of dice.
-- **Rank III–V Aspects** may grant a real advantage or disadvantage die. It counts as a source and stacks with situations.
+- **Everything else gives a flat modifier**, such as Help and Dodge (+3 / −3). Flat modifiers stack like other bonuses (3.6) and are independent of dice. An Aspect that grants an advantage or disadvantage die says so; it counts as a source.
 
 | d20s kept | 6 low | 5 low | 4 low | 3 low | 2 low | 1 | 2 high | 3 high | 4 high | 5 high | 6 high |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | **Average** | 3.4 | 3.9 | 4.5 | 5.5 | 7.2 | 10.5 | 13.8 | 15.5 | 16.5 | 17.2 | 17.6 |
 
-### 5.3 Checks Outside Combat
-- **Roll only when** failure is interesting and success is possible. Otherwise just say what happens.
-- **Fail forward:** a failed check still moves the story, at a cost: time, noise, damage, a lost resource, a complication. **You can't retry the same task** unless the situation changes.
-- **Group checks (default):** when the whole party attempts something together (sneaking, climbing, searching), everyone rolls. **If at least half succeed, the group succeeds.**
-- **Help:** a character who could plausibly assist gives one ally **+3** on the check.
-- **Contests:** when two creatures oppose each other, both roll; higher wins; a tie keeps the status quo.
-
-### 5.4 Passive Awareness
+### 5.3 Passive Awareness
 The GM uses **passive Awareness = 10 + INT + Aspect bonuses to noticing** to decide what you notice without trying. Each advantage die left adds +5, each disadvantage die −5; flat modifiers add normally. You roll an **INT check** only when **actively searching**.
 
-### 5.5 Hiding
+### 5.4 Hiding
 - To hide, you must be **out of sight** of the creatures you're hiding from (behind full cover or in Dark), then make a **DEX check** to sneak.
 - **Fail** if the result is below 15 or below the passive Awareness of a creature that could notice you.
 - On success, you have the **Invisible** condition against those creatures. It ends when you make a loud noise, attack, cast a spell, or someone finds you (an INT check that beats your result).
 
-### 5.6 Light & Vision
+### 5.5 Light & Vision
 Only two light levels exist:
 
 | Light | Effect |
@@ -325,7 +301,7 @@ Only two light levels exist:
 - **Blindsight (range):** you perceive everything within range without sight.
 - **Truesight (range):** as Darkvision, plus you see invisible creatures and through illusions and shapechanges.
 
-### 5.7 Movement Outside Combat
+### 5.6 Movement Outside Combat
 - **Jumping:** long jump = **10 + 2 × STR** feet; high jump = **3 + STR** feet. Halve both without a 10-ft running start.
 - **Climbing and swimming:** each foot costs 1 extra foot of movement unless you have a climb or swim speed. Hard surfaces or rough water call for a STR check.
 - **Travel pace:**
@@ -336,21 +312,6 @@ Only two light levels exist:
 | Normal | 3 miles | 24 miles | — |
 | Slow | 2 miles | 18 miles | You can sneak |
 
-**Travel:** the GM splits a journey into **legs**. Each leg, the party makes one **group INT check**. Success means a smooth leg; failure brings an event (getting lost, an encounter, bad weather, exhaustion).
-
-### 5.8 Hazards
-- **Falling:** **1d6 Physical damage per 10 ft** fallen (max 20d6). You land Prone unless you take no damage.
-- **Holding your breath:** **1 + STR** minutes (minimum 30 seconds). After that, you gain **1 Exhaustion** at the end of each of your turns until you can breathe.
-- **Underwater:**
-  - **Half speed**, unless you have a swim speed.
-  - **No spells and no weapons:** you can only make **unarmed** attacks (Grapple and Shove included). Monsters' natural attacks (bites, claws, tails) count as unarmed.
-  - **Exceptions:** an Aspect can allow it, such as an **Aquatic** weapon (a trident, a net) or an Attribute or spell marked Aquatic.
-  - **No Fire damage:** Fire damage is reduced to 0, unless an Aspect says otherwise.
-- **Extreme heat or cold, starvation, thirst:** a STR check (DC 10–15) each hour or day, as the GM sees fit; on a failure, gain 1 Exhaustion.
-
-### 5.9 Objects
-Objects have one Defense and HP set by the GM (e.g. wooden door Defense 15, 18 HP; stone wall Defense 17, 50+ HP). Objects are immune to Poison and Necrotic damage and to conditions.
-
 ---
 
 ## 6. Combat
@@ -358,7 +319,7 @@ Objects have one Defense and HP set by the GM (e.g. wooden door Defense 15, 18 H
 ### 6.1 Order of Combat
 1. **Surprise check:** the GM decides whether anyone is caught unaware.
 2. **Side initiative:** each side rolls **one d20 + the average DEX of its members** (rounded down). A **surprised** side rolls with disadvantage. Re-roll ties. The higher side **goes first**.
-3. **Rounds:** the first side takes all its turns, then the second side. Then a new round starts. A round is about 6 seconds. **Bosses** also take a half turn during the characters' side (11.3).
+3. **Rounds:** the first side takes all its turns, then the second side. Then a new round starts. A round is about 6 seconds. **Bosses** also take a half turn during the characters' side: their movement or one action.
 4. **Within a side**, creatures act **in any order** they agree on, one full turn at a time.
 
 **First-mover rule:** in the **first round only**, each creature on the side that goes first gets **either its movement or its action** on its turn, not both. It keeps its bonus action and reaction.
@@ -384,7 +345,7 @@ On your turn you can:
 | **Disengage** | Your movement doesn't provoke opportunity attacks this turn. Its cost depends on how many enemies are engaged with you (6.5). |
 | **Dodge** | Until your next turn, you have +3 to all your Defenses. Lost if you're Incapacitated or your speed is 0. |
 | **Help** | Give an ally +3 on its next check for a task, or on its next attack against a creature within 5 ft of you, before your next turn. |
-| **Hide** | Make a DEX check to hide (5.5). |
+| **Hide** | Make a DEX check to hide (5.4). |
 | **Use Item** | Use an object or a magic item that requires an action. *Drinking or giving a potion is a bonus action.* |
 | **Other** | **Ready** (choose a trigger and an action or move; when it happens, use your reaction to do it), **Search** (INT check), **Recall** (INT check), **First Aid** (INT check DC 10 to stabilize a dying creature), **Escape** a grapple, or anything else you describe. |
 
@@ -478,7 +439,6 @@ Your **HP maximum** comes from your Core (and some Aspects). Damage lowers your 
 - They last until you finish a long rest unless an effect says otherwise.
 
 ### 7.4 Dropping to 0 HP
-- **Monsters** usually die at 0 HP. The GM may let important ones fall unconscious.
 - **Instant death:** if damage drops you to 0 HP and the **remaining damage ≥ your HP maximum**, you die.
 - Otherwise you fall **Unconscious** and start making death saves.
 
@@ -488,8 +448,7 @@ Your **HP maximum** comes from your Core (and some Aspects). Damage lowers your 
 - **3 successes:** you're **stable** (unconscious, no more saves; you regain 1 HP after 1d4 hours).
 - **3 failures:** you die.
 - **Taking damage** at 0 HP is one failure (two on a critical hit). If the damage ≥ your HP maximum, you die.
-- **Any healing** brings you back to consciousness and resets your successes and failures.
-- **First Aid** (INT check DC 10, an action) stabilizes a dying creature.
+- **Any healing** brings you back to consciousness and resets your successes and failures. **First Aid** (6.3) stabilizes you.
 
 ### 7.5 Resting
 | | Short Rest | Long Rest |
@@ -539,8 +498,6 @@ A **Hold** is a lasting effect that takes a creature out of the fight: **Incapac
 - **Harming the target:** a **Charmed** target breaks free at once if the source or its allies harm it. For other Holds, **each hit** on the target adds one disadvantage die to the next maintain roll. A **banished** target is gone and can't be hit.
 - **Bosses** trigger a maintain roll at the start of their turn **and** of their half turn.
 
-<!-- Hidden design note (not shown in the PDF): Holds replace Legendary Resistance. Stacking bonuses helps a Hold land (attack roll), never last (maintain rolls use the bare modifier). With a 50% maintain chance, a Boss loses about 1.5 turns: the spell always matters, never ends the fight alone. -->
-
 ---
 
 ## 9. Equipment
@@ -555,15 +512,10 @@ Weapons, armor and shields are **Aspects**. Anyone can use any of them; a weapon
 | **Heavy Armor** | II | +4 STR Defense | STR +2. −10 ft speed. −3 on checks to sneak. |
 | **Shield** | I | +2 STR and DEX Defense | Takes one Hand Slot. |
 
-- **Armor adds mostly to STR Defense.** Weapons target your higher of STR and DEX Defense (2.2), so armor protects you when STR Defense is your best. Light Armor also adds +1 DEX Defense: nimble characters trade 5 ft of speed for it, or go unarmored to move faster.
-
-- Armor requirements are strict: if your Core doesn't meet them, you can't wear it.
-- Magic armor and shields are higher-Rank Aspects with a bigger bonus (e.g. *Heavy Armor III*, +5 STR Defense).
-- Magic weapons are simply higher-Rank weapons: their Rank bonus improves your attacks, and they often carry a special effect.
-- Putting on or taking off armor takes 10 minutes (3.6), so it never happens in combat.
+Armor adds mostly to **STR Defense**. Weapons target your higher of STR and DEX Defense (2.2), so armor protects you when STR Defense is your best.
 
 ### 9.2 Weapons
-The name is flavour: a "Versatile weapon" can be a longsword, a battleaxe or a spear. **Special effects are printed on each weapon Aspect.**
+The name is flavour: a "Versatile weapon" can be a longsword, a battleaxe or a spear.
 
 | Weapon (Aspect) | Damage | Properties |
 |---|---|---|
@@ -582,7 +534,7 @@ The name is flavour: a "Versatile weapon" can be a longsword, a battleaxe or a s
 All weapon damage is **Physical** unless the Aspect says otherwise.
 
 **Properties:**
-- **Finesse:** use STR or DEX for attack and damage. Finesse weapons deal one die size less than their non-Finesse equivalents.
+- **Finesse:** use STR or DEX for attack and damage.
 - **Light:** enables two-weapon fighting (6.9).
 - **Heavy:** you need STR +1 (melee) or DEX +1 (ranged), or you have −3 on attacks.
 - **Reach:** your reach is 10 ft instead of 5 ft.
@@ -591,22 +543,20 @@ All weapon damage is **Physical** unless the Aspect says otherwise.
 - **Loading:** one shot per action, bonus action or reaction, even with extra attacks.
 - **Two-Handed:** needs both hands.
 - **Versatile:** the second die applies when wielded with two hands.
-- **Aquatic:** works underwater (5.8). *Example: a Versatile Weapon (trident) with Aquatic.*
+- **Aquatic:** works underwater. *Example: a Versatile Weapon (trident) with Aquatic.*
 
 ---
 
 ## 10. Magic
 
 ### 10.1 Spellbooks
-Spells come from **Spellbook Aspects**. Each book lists:
-- All spellcasting uses **INT**.
+Spells come from **Spellbook Aspects**. All spellcasting uses **INT**. Each book lists:
 - **Cantrips:** cast at will.
-- **Spells:** a **fixed list**. There's no preparing; to change spells, equip a different book.
-- **Slot and Hand:** a book takes an **Item Slot**, and you need an **empty Hand Slot** to cast from it (3.4).
+- **Spells:** a **fixed list**. To change spells, equip a different book.
 - **Spell points:** the book's pool, regained on a long rest.
 - **Max spell level:** the highest level you can cast (or upcast to) with this book.
 
-A book's spell points can pay only for **that book's** spells. You may equip several books, one per Item Slot.
+A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must be empty** (it holds the book). A Two-Handed weapon fills both Hands. A book's spell points pay only for **that book's** spells. You may equip several books, one per Item Slot.
 
 ### 10.2 Spell Points
 | Spell level | 1st | 2nd | 3rd | 4th | 5th | 6th |
@@ -619,34 +569,20 @@ A book's spell points can pay only for **that book's** spells. You may equip sev
 - **High magic:** each book can cast **one spell of 5th or 6th level per long rest**.
 - No magic in this game goes above **6th level**.
 
-### 10.3 Scaling with Rank
-Cantrips and other effects that grow in power use the **Rank of their Aspect**:
-
-| Aspect Rank | I–II | III | IV–V |
-|---|---|---|---|
-| **Damage dice** | ×1 | ×2 | ×3 |
-
-*Example: Fire Bolt (1d10) from a Rank III book deals 2d10.*
-
-### 10.4 Casting a Spell
+### 10.3 Casting a Spell
 - **Casting time:** usually one action (Cast action). Some spells use a bonus action or a reaction.
-- **No components, ever:** no words, no gestures, no materials and no costly items. You only need the book and an empty Hand (3.4).
-<!-- Hidden design note (not shown in the PDF): costly components (Revivify's diamond, etc.) are gone; powerful spells are gated by the Spellbook's Rank and by loot instead of gold. -->
+- **What you need:** the book and an empty Hand (10.1). Nothing else.
 - **Obvious or Subtle:** casting a spell is **obvious** (light, sound, a visible gesture) to anyone who can see or hear you, unless the spell is marked **Subtle**. Nobody notices a Subtle spell being cast.
-- **No rituals.**
-- **Spell attack bonus:** INT + the book's Rank bonus.
-- **Every spell that affects a creature is a spell attack** against the Defense it names (10.7). Area spells roll once (6.6).
+- **Spell attack:** d20 + INT + the book's Rank bonus. **Every spell that affects a creature is a spell attack** against the Defense the spell names. Area spells roll once (6.6).
 - **Range and targets:** you need a clear path to the target, and the target must be within range. You can target yourself only if the spell says "you" or "a creature" within range.
 - **Duration:** instantaneous, timed, or until dispelled.
 
-### 10.5 Lasting Spells
-There is **no concentration**. You can keep any number of spells running, and taking damage never ends them.
+### 10.4 Lasting Spells
+You can keep any number of spells running, and taking damage never ends them.
 - **A spell on enemies** that holds them (a web, a paralysis, a charm) is a lasting effect: you make its maintain rolls (Chapter 8).
 - **Any other spell** (a wall, a blessing on allies, a light) has a **set duration** printed on it. It lasts that long unless it is dispelled or you end it (no action needed).
 
-<!-- Hidden design note (not shown in the PDF): concentration removed for snappiness. Without a one-spell limit, buffs stack; keep their durations short (1 minute = 10 rounds) when converting, and watch stacked blessings in playtests. -->
-
-### 10.6 Areas of Effect
+### 10.5 Areas of Effect
 | Shape | Description |
 |---|---|
 | **Cone** | Widens from you; its width at any point equals its distance from you. |
@@ -657,139 +593,6 @@ There is **no concentration**. You can keep any number of spells running, and ta
 | **Sphere** | Extends from a point to the stated radius. |
 
 Full cover blocks an area's effect.
-
-### 10.7 Spell Defenses
-Spells target **STR, DEX, INT or CHA Defense** (2.1). Spell descriptions are in the **Spell Compendium** (separate book). Until it's ready, convert fifth-edition spells with the table in 11.6.
-
----
-
-## 11. Game Master
-
-### 11.1 Monsters
-Monsters are built like characters: a **Core** plus **Aspects**.
-
-- **Monster Core:** size, the four Defenses, HP, speed, the four modifiers, senses, **Challenge Rating (CR)**, XP value. Defenses are 10 + modifier; armor or a thick hide raises STR Defense.
-- **Monster passive Awareness:** 10 + INT, **+5 for alert creatures** (guards, scouts, predators, most beasts).
-- Monster attack bonuses are **written out** on each Aspect. For effects (spells, breath, poison, grapples), use this **effect bonus** by CR:
-
-| CR | 0–1 | 2–3 | 4–5 | 6–7 | 8–10 | 11+ |
-|---|---|---|---|---|---|---|
-| **Effect bonus** | +3 | +4 | +5 | +6 | +7 | +8 |
-
-- **Monster Aspects:** attacks, traits and actions. Monsters don't follow the player Slot structure (a dragon has no Hands). Everything a monster has, its Core included, can drop **unless it's marked Monstrous**.
-  - **Monstrous:** anatomy and innate powers (a dragon's breath, an ooze's acid body, legendary powers) and **every Boss Core**. They never drop: players can never obtain them.
-  - **Slot cards:** some Bosses carry one (3.3). It drops when they're defeated.
-- Monsters may keep "Recharge 5–6" powers and "X/day" uses. Players use rest-based recharges only.
-- Monsters act on their side's initiative like everyone else.
-
-> **OGRE** · Large · CR 2 (450 XP)
-> **Core** *(→ Ogre Core, Rank II: STR +4, DEX +0, INT +0, CHA +0, 35 HP, speed 35 ft, Large)*: Defenses STR 14 · DEX 9 · INT 8 · CHA 8 · HP 68 · Speed 40 ft · STR +4 · DEX −1 · INT −2 · CHA −2 · Darkvision 60 ft
-> **Greatclub** *(→ Heavy Weapon, Rank I, "Crushing: on a critical hit the target is knocked Prone")*: +6 to hit, reach 5 ft, 13 (2d8 + 4) Physical.
-> **Javelins** *(→ Javelins, Rank I)*: +6 to hit, range 30/120, 11 (2d6 + 4) Physical.
-> **Giant Strength** *(Monstrous)*: its weapons use bigger damage dice than the player versions (included above).
-
-### 11.2 Loot
-- **Each encounter drops 1–3 Aspects per character**, taken from the defeated monsters' Aspects and Cores that aren't Monstrous (GM's choice or random). Bosses add their best Aspects and may drop a **Slot card** (3.3). A Boss's Core never drops.
-- Looted Aspects and Cores are **player-scaled**: the GM gives the player version, with the tag of the Slot it fits (a giant's club becomes a Heavy Weapon with a special effect; a lich's phylactery shard becomes Jewelry). A looted Core uses the player Core table for its Rank (11.5).
-- **Spread strong Cores across the party.** HP comes only from the Core, so one player with a much better Core than the others unbalances encounters.
-- **Most drops are ordinary:** a goblin's Core, a bandit's crossbow, a wolf's bite. They're rarely worth equipping, but they fill the Party Stash with options for future builds.
-- **Pacing guide:** grant a milestone (4.1) roughly every **15 encounters**. Five milestones (3 → 8 Attributes) take about as long as fifth edition to level 12. *Provisional until the balance pass.*
-
-### 11.3 Bosses
-- A **Boss** takes a **half turn** once per round, during the characters' side: **its movement or one action**, between any two characters' turns, whenever the GM chooses.
-- It has **no Legendary Resistance**. Holds (Chapter 8) already stop a single spell from ending the fight.
-- It can't use the same Recharge power on its turn and its half turn in the same round.
-
-### 11.4 Building Encounters
-**Effective level** (1–12) is a GM yardstick for encounters, not a character stat: the **GM estimates** it from the character's Core, Aspects and Attribute Slots. A new character is level 1; the peak (4.3) is level 12. Use the party's average.
-
-**XP budget per character:**
-
-| Level | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **Low** | 50 | 100 | 150 | 250 | 500 | 600 | 750 | 1,000 | 1,300 | 1,600 | 1,900 | 2,200 |
-| **Moderate** | 75 | 150 | 225 | 375 | 750 | 1,000 | 1,300 | 1,700 | 2,000 | 2,300 | 2,900 | 3,700 |
-| **High** | 100 | 200 | 400 | 500 | 1,100 | 1,400 | 1,700 | 2,100 | 2,600 | 3,100 | 4,100 | 4,700 |
-
-Multiply by the number of characters, then spend the budget on monsters' XP values.
-- **Low:** one or two scary moments, no casualties. **Moderate:** could go badly. **High:** potentially lethal.
-- More than two monsters per character? Make most of them fragile.
-- A monster with a CR above the party's level can drop a character in one hit.
-- *Values are provisional until the balance pass.*
-
-### 11.5 Designing Aspects and Cores
-| Rank | Bonus | Power reference | Spellbook (typical) | Core (typical) |
-|---|---|---|---|---|
-| **I** | +2 | A small edge: a narrow check bonus, a basic weapon or armor, a minor trait | 4 points, max 2nd | Modifiers total +4 (max +3), 9–14 HP |
-| **II** | +3 | A defining feature: an extra attack, heavy armor, a reliable power | 7 points, max 3rd | Total +6 (max +4), 25–35 HP |
-| **III** | +4 | A strong feature: a magic weapon or armor, a signature power | 11 points, max 5th | Total +8 (max +5), 50–65 HP |
-| **IV** | +5 | Slightly game-breaking: a legendary item, a power that bends a core rule | 16 points, max 6th | Total +10 (max +5), 80–100 HP |
-| **V** | +6 | Game-breaking: changes the balance of play (meta Attributes, rule-breaking items, size beyond Large) | 20 points, max 6th, plus one rule-breaking power | None: Cores stop at IV |
-
-- Keep each Aspect to **one clear idea** that fits on a card.
-- **Size every number by Rank.** All bonuses stack (3.7), so a card's bonus or penalty equals its **Rank bonus**, and a card that attacks on its own uses an **ability modifier + its Rank bonus**, like a weapon (*Alchemist's Fire Recipe II*: DEX + 3).
-- **Advantage dice** are a Rank III–V feature. Below that, use the Rank bonus (5.2).
-- Check-boosting Aspects should cover a **narrow activity** (sneaking, climbing, lying), not a whole ability.
-- Give DEX and CHA real value. DEX already has a weapon Defense, initiative and ranged attacks. CHA has its Defense against charm and fear but few combat uses, so it needs social Aspects with teeth (allies, discounts, rallying, demoralizing) to be worth investing in.
-- Give every Aspect a tag that names its Slot (3.2). **Jewelry** holds worn magic (rings, amulets, cloaks, gloves, boots), usually active powers with limited uses; other passive bonuses belong in Attributes.
-- **Building a Boss:** mark its Core and signature powers **Monstrous**. Everything else drops, so give it gear and techniques you're willing to hand over: usually **at most one Rank above** the best Aspects the party already has. **Rank V** Aspects drop only from Bosses, and rarely.
-- **Slot cards** are Boss rewards only. Never more than one of each per character, and never a second Armor.
-- **Party Stash upgrades** (Pack Mule, Cart, Wagon) are quest or Boss rewards. Give the next one when the party starts leaving good Aspects behind.
-
-<!-- Hidden design note (not shown in the PDF): Outnumbered (6.5) rewards ganging up on one enemy. Counter it by giving most monsters at least one area attack (a sweep, a burst, a breath) so clustering around a single target has a cost. To be made explicit later in a "Building monsters and balanced fights" section. -->
-
-<!-- Hidden design note (not shown in the PDF): no cap on stacking bonuses. Limited Slots are the limit: a card spent on one number isn't spent elsewhere. Offense saturates (natural 1/20 cap success at 95%, so stacking to-hit beyond ~90% is wasted). Lopsided defenders are answered by the GM choosing another angle: a STR/DEX stacker gets attacked on INT or CHA, or with area effects; any stacker has other Defenses. Fight-ending spells are limited by Holds (Chapter 8): stacking helps them land, never last. -->
-
-### 11.6 Converting Fifth-Edition Material
-| Fifth edition | This game |
-|---|---|
-| Ability score | Modifier only. "Strength 15" → "STR +2" |
-| Constitution | STR |
-| Wisdom | INT |
-| Any save | The source makes an attack against the matching Defense. "Half damage on a success" → half damage on a miss. A repeated save to end an effect → a lasting effect (Chapter 8). |
-| STR or CON save | STR Defense |
-| WIS save | INT Defense, but CHA Defense against charm, fear, mind control, curses or polymorph |
-| CHA save | CHA Defense |
-| Armor Class | Weapons target the higher of STR and DEX Defense. Armor adds to STR Defense; Light Armor also +1 DEX Defense (9.1). |
-| Spell save DC | None: every spell is a spell attack (INT + Rank bonus) |
-| Concentration | None (10.5). A concentration spell on enemies → a lasting effect (Chapter 8); any other → it lasts its full listed duration. |
-| Legendary Resistance | Not used: Holds (Chapter 8) |
-| Spellcasting ability (any) | INT |
-| Monster save DCs | Effect bonus = DC − 10 (or the CR table, 11.1) |
-| Proficiency bonus | Rank bonus of the Aspect used (players). Monsters keep their written-out attack bonuses. |
-| Save proficiency | None. Defense = 10 + modifier. |
-| Monster stats | STR = higher of STR/CON; INT = higher of INT/WIS. Defenses = 10 + modifier; STR Defense = the fifth-edition AC if that's higher. |
-| Skills | Removed: use the ability. Athletics → STR · Acrobatics, Sleight of Hand, Stealth → DEX · Perception, Insight, Investigation, Arcana, History, Nature, Religion, Medicine, Survival, Animal Handling → INT · Persuasion, Deception, Performance, Intimidation → CHA. Skill proficiency → a narrow Aspect bonus. |
-| Bludgeoning, Piercing, Slashing | Physical |
-| Thunder | Lightning |
-| Acid | Poison |
-| Psychic | Necrotic |
-| Force | Radiant |
-| Resistances & immunities | **Don't copy them automatically.** Apply each one only if it fits the creature (a zombie resists Necrotic life drain, but not psychic attacks). |
-| Deafened | Blinded (lesser form) |
-| Paralyzed | Stunned |
-| Petrified | Stunned + resistance to all damage |
-| Half / three-quarters cover | Cover (+2) |
-| Dim light, lightly obscured | Bright |
-| Darkness, heavily obscured | Dark |
-| Spell slots | Spell points (cost = spell level) |
-| Spells above 6th level | Not used |
-| Verbal, somatic, material components | None, including costly and consumed materials. A spell **without a Verbal component** is **Subtle**. |
-| Ritual casting | Not used |
-| Cantrip scaling at levels 5/11/17 | Aspect Rank III / IV |
-| Attunement | None: equipped = attuned |
-| Magic items | By Slot: armor → Armor · weapons, shields → Hand · rings, amulets, cloaks, gloves, boots, wands with charges → Jewelry · potions, scrolls → Consumable (Item) · crafting features (e.g. an artificer's infusions) → Recipe (Item) · other passive wondrous items → Attribute |
-| +1 / +2 / +3 weapon | Rank II / III / IV weapon (its Rank bonus does the work) |
-| Per day / at dawn (player features) | Long rest |
-| Legendary actions | Boss half turn (11.3) |
-| Hit Dice | None: short rest heals half missing HP |
-| Heroic Inspiration | Not used |
-| Advantage / disadvantage from a location, position or condition | Kept as dice (they stack, 5.2) |
-| Advantage / disadvantage from anything else (features, spells, items) | The Aspect's Rank bonus, as a bonus or a penalty. Rank III–V Aspects may keep the die. Help and Dodge: +3 / −3. |
-| Pack Tactics | Removed: Outnumbered (6.5) gives it to everyone |
-| Reckless Attack | You gain the Aspect's Rank bonus on attacks this turn; attacks against you gain the same until your next turn |
-| Weapon mastery | Printed on each weapon Aspect, if any |
-| Mounted combat | Not used (for now) |
 
 ---
 

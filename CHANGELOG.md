@@ -55,3 +55,4 @@
 - **Unarmored:** an empty Armor Slot gives +10 ft speed. Light Armor becomes +2 STR Defense, +1 DEX Defense and +5 ft speed (was +2 STR Defense and +10 ft).
 - **No spell components, ever:** costly and consumed materials removed; **Gestured** spells removed (every spell needs only the book and one empty Hand).
 - **Concentration removed (10.5):** no one-spell limit and damage never ends spells. Spells holding enemies are lasting effects (maintain rolls); walls, ally blessings and other spells have a set duration.
+- Split `RULES.md` into Player Rules (`PLAYERS.md`), Game Master's Guide (`GM.md`, two PDFs) and internal `DESIGN.md`. Design constraints that cards already print (Rank damage scaling, Rank I–II flat bonus vs III+ advantage dice, narrow check bonuses, Finesse die size, power ceiling) and all hidden design notes moved to `DESIGN.md`; redundant "the card says so" lines and fifth-edition comparisons removed from the Player Rules; duplicates merged.

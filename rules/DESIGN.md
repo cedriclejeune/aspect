@@ -1,0 +1,100 @@
+# ASPECTS — Design Rules
+*Internal. Not built to PDF. Constraints for writing Aspects, Cores, monsters and spells, the reasons behind the rules, and fifth-edition conversion. "(P 6.5)" points to the Player Rules, "(GM 3)" to the Game Master's Guide.*
+
+---
+
+## 1. Pillars
+Simpler than D&D · quick and snappy · interactive · lots of character customization · balanced. Power comes 100% from Core + Attributes + items; characters have no Rank or level.
+
+## 2. Power Ceiling
+A Rank IV Core, Rank IV Aspects, 8 Attributes and all three Slot cards are the **peak**, roughly a level-12 hero in fifth edition. Rank IV is slightly game-breaking; Rank V is meta and game-breaking, a Boss treasure players hunt for.
+
+Power scaling comes mainly from Rank (better Aspects and Cores). Slot count grows slowly: 3 → 8 Attributes, plus at most three Slot cards. Five milestones at ~15 encounters each ≈ fifth edition to level 12.
+
+## 3. Rank Scaling
+| Rank | Bonus | Power reference | Spellbook (typical) | Core (typical) |
+|---|---|---|---|---|
+| **I** | +2 | A small edge: a narrow check bonus, a basic weapon or armor, a minor trait | 4 points, max 2nd | Modifiers total +4 (max +3), 9–14 HP |
+| **II** | +3 | A defining feature: an extra attack, heavy armor, a reliable power | 7 points, max 3rd | Total +6 (max +4), 25–35 HP |
+| **III** | +4 | A strong feature: a magic weapon or armor, a signature power | 11 points, max 5th | Total +8 (max +5), 50–65 HP |
+| **IV** | +5 | Slightly game-breaking: a legendary item, a power that bends a core rule | 16 points, max 6th | Total +10 (max +5), 80–100 HP |
+| **V** | +6 | Game-breaking: changes the balance of play (meta Attributes, rule-breaking items, size beyond Large) | 20 points, max 6th, plus one rule-breaking power | None: Cores stop at IV |
+
+- **Damage dice scale with Rank.** Cantrips and other growing effects print dice already scaled for their Aspect's Rank:
+
+| Aspect Rank | I–II | III | IV–V |
+|---|---|---|---|
+| **Damage dice** | ×1 | ×2 | ×3 |
+
+  *Fire Bolt (1d10) in a Rank III book prints 2d10.*
+- **Advantage dice are a Rank III–V feature.** Rank I–II Aspects (their spells included) give their Rank bonus (+2 / +3) as a flat bonus instead of advantage, and as a penalty instead of disadvantage. A Rank III–V die counts as a source and stacks with situations.
+- **Check bonuses** cover a **narrow activity** (sneaking, climbing, lying), never a whole ability, and equal the Aspect's Rank bonus (*Cat Burglar I*: +2).
+- **Finesse weapons** deal one die size less than their non-Finesse equivalents.
+- **Magic armor, shields and weapons** are just higher-Rank versions with a bigger bonus and often a special effect (*Heavy Armor III*, +5 STR Defense).
+
+## 4. Designing Aspects and Cores
+- Keep each Aspect to **one clear idea** that fits on a card. The card says what it does: anything that overrides a rule (swap time, underwater use, size) is printed on it.
+- **Size every number by Rank.** All bonuses stack, so a card's bonus or penalty equals its **Rank bonus**, and a card that attacks on its own uses an **ability modifier + its Rank bonus**, like a weapon (*Alchemist's Fire Recipe II*: DEX + 3).
+- Give DEX and CHA real value. DEX already has a weapon Defense, initiative and ranged attacks. CHA has its Defense against charm and fear but few combat uses, so it needs social Aspects with teeth (allies, discounts, rallying, demoralizing) to be worth investing in.
+- Give every Aspect a tag that names its Slot (P 3.2). **Jewelry** holds worn magic (rings, amulets, cloaks, gloves, boots), usually active powers with limited uses; other passive bonuses belong in Attributes.
+- Armor adds mostly to STR Defense; Light Armor's +1 DEX Defense lets nimble characters trade 5 ft of speed for it or go unarmored to move faster.
+- Card design should keep the **bookkeeping cost of a swap** low (how much math a swap triggers).
+
+## 5. Design Notes
+- **Swap times.** Fast Slots (Hand, Jewelry, Item) keep fights tactical; slow Slots (Armor, Attribute, Core) fix the build between rests. The Pack cost (action + all movement) makes mid-fight swaps a real trade-off; the expended lock stops cycling spent books and jewels between fights.
+- **Holds replace Legendary Resistance.** Stacking bonuses helps a Hold land (attack roll), never last (maintain rolls use the bare modifier). With a 50% maintain chance, a Boss loses about 1.5 turns: the spell always matters, never ends the fight alone.
+- **No costly components.** Powerful spells are gated by the Spellbook's Rank and by loot instead of gold.
+- **No concentration**, for snappiness. Without a one-spell limit, buffs stack; keep their durations short (1 minute = 10 rounds) when converting, and watch stacked blessings in playtests.
+- **Outnumbered vs area attacks.** Outnumbered (P 6.5) rewards ganging up on one enemy. Counter it by giving most monsters at least one area attack (a sweep, a burst, a breath) so clustering around a single target has a cost. To be made explicit later in a "Building monsters and balanced fights" section of the GM's Guide.
+- **No stacking cap.** Limited Slots are the limit: a card spent on one number isn't spent elsewhere. Offense saturates (natural 1/20 cap success at 95%, so stacking to-hit beyond ~90% is wasted). Lopsided defenders are answered by the GM choosing another angle: a STR/DEX stacker gets attacked on INT or CHA, or with area effects; any stacker has other Defenses. Fight-ending spells are limited by Holds: stacking helps them land, never last.
+
+## 6. Converting Fifth-Edition Material
+| Fifth edition | This game |
+|---|---|
+| Ability score | Modifier only. "Strength 15" → "STR +2" |
+| Constitution | STR |
+| Wisdom | INT |
+| Any save | The source makes an attack against the matching Defense. "Half damage on a success" → half damage on a miss. A repeated save to end an effect → a lasting effect (P Chapter 8). |
+| STR or CON save | STR Defense |
+| WIS save | INT Defense, but CHA Defense against charm, fear, mind control, curses or polymorph |
+| CHA save | CHA Defense |
+| Armor Class | Weapons target the higher of STR and DEX Defense. Armor adds to STR Defense; Light Armor also +1 DEX Defense (P 9.1). |
+| Spell save DC | None: every spell is a spell attack (INT + Rank bonus) |
+| Concentration | None (P 10.4). A concentration spell on enemies → a lasting effect (P Chapter 8); any other → it lasts its full listed duration. |
+| Legendary Resistance | Not used: Holds (P Chapter 8) |
+| Spellcasting ability (any) | INT |
+| Monster save DCs | Effect bonus = DC − 10 (or the CR table, GM 2.1) |
+| Proficiency bonus | Rank bonus of the Aspect used (players). Monsters keep their written-out attack bonuses. |
+| Save proficiency | None. Defense = 10 + modifier. |
+| Monster stats | STR = higher of STR/CON; INT = higher of INT/WIS. Defenses = 10 + modifier; STR Defense = the fifth-edition AC if that's higher. |
+| Skills | Removed: use the ability. Athletics → STR · Acrobatics, Sleight of Hand, Stealth → DEX · Perception, Insight, Investigation, Arcana, History, Nature, Religion, Medicine, Survival, Animal Handling → INT · Persuasion, Deception, Performance, Intimidation → CHA. Skill proficiency → a narrow Aspect bonus. |
+| Bludgeoning, Piercing, Slashing | Physical |
+| Thunder | Lightning |
+| Acid | Poison |
+| Psychic | Necrotic |
+| Force | Radiant |
+| Resistances & immunities | **Don't copy them automatically.** Apply each one only if it fits the creature (a zombie resists Necrotic life drain, but not psychic attacks). |
+| Deafened | Blinded (lesser form) |
+| Paralyzed | Stunned |
+| Petrified | Stunned + resistance to all damage |
+| Half / three-quarters cover | Cover (+2) |
+| Dim light, lightly obscured | Bright |
+| Darkness, heavily obscured | Dark |
+| Spell slots | Spell points (cost = spell level) |
+| Spells above 6th level | Not used |
+| Verbal, somatic, material components | None, including costly and consumed materials. A spell **without a Verbal component** is **Subtle**. |
+| Ritual casting | Not used |
+| Cantrip scaling at levels 5/11/17 | Aspect Rank III / IV (section 3) |
+| Attunement | None: equipped = attuned |
+| Magic items | By Slot: armor → Armor · weapons, shields → Hand · rings, amulets, cloaks, gloves, boots, wands with charges → Jewelry · potions, scrolls → Consumable (Item) · crafting features (e.g. an artificer's infusions) → Recipe (Item) · other passive wondrous items → Attribute |
+| +1 / +2 / +3 weapon | Rank II / III / IV weapon (its Rank bonus does the work) |
+| Per day / at dawn (player features) | Long rest |
+| Legendary actions | Boss half turn (GM 3) |
+| Hit Dice | None: short rest heals half missing HP |
+| Heroic Inspiration | Not used |
+| Advantage / disadvantage from a location, position or condition | Kept as dice (they stack, P 5.2) |
+| Advantage / disadvantage from anything else (features, spells, items) | The Aspect's Rank bonus, as a bonus or a penalty. Rank III–V Aspects may keep the die. Help and Dodge: +3 / −3. |
+| Pack Tactics | Removed: Outnumbered (P 6.5) gives it to everyone |
+| Reckless Attack | You gain the Aspect's Rank bonus on attacks this turn; attacks against you gain the same until your next turn |
+| Weapon mastery | Printed on each weapon Aspect, if any |
+| Mounted combat | Not used (for now) |

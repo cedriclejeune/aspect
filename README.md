@@ -10,8 +10,10 @@ Characters are built from interchangeable **Aspects** placed in **Slots**: weapo
 ## Contents
 | Path | What |
 |---|---|
-| [rules/RULES.md](rules/RULES.md) | The core rulebook (standalone, source) |
-| [rules/Aspects-Core-Rules.pdf](rules/Aspects-Core-Rules.pdf) | Illustrated PDF of the rulebook |
+| [rules/PLAYERS.md](rules/PLAYERS.md) | Player Rules (standalone, source) |
+| [rules/GM.md](rules/GM.md) | Game Master's Guide: running the world, monsters, Bosses, loot, encounters |
+| [rules/DESIGN.md](rules/DESIGN.md) | Internal design rules: Rank scaling, card constraints, design notes, fifth-edition conversion (no PDF) |
+| [rules/Aspects-Player-Rules.pdf](rules/Aspects-Player-Rules.pdf) · [rules/Aspects-GM-Guide.pdf](rules/Aspects-GM-Guide.pdf) | Illustrated PDFs |
 | [tools/](tools/) | `build_pdf.py` (PDF), `illustrations.py` (SVG art), `shatter_sim.py` (economy simulation, obsolete since Shatter was removed) |
 | [ATTRIBUTION.md](ATTRIBUTION.md) | SRD 5.2.1 CC-BY-4.0 attribution |
 | [CHANGELOG.md](CHANGELOG.md) | Version history |

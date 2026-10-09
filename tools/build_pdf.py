@@ -1,7 +1,8 @@
-"""Build the illustrated PDF rulebook from rules/RULES.md.
+"""Build the illustrated PDF rulebooks from rules/PLAYERS.md and rules/GM.md.
 
 Usage: .venv/bin/python tools/build_pdf.py
-Output: rules/Aspects-Core-Rules.pdf (and build/rules.html for inspection)
+Output: rules/Aspects-Player-Rules.pdf, rules/Aspects-GM-Guide.pdf (and build/*.html for inspection)
+rules/DESIGN.md is internal and never built.
 Needs: the `markdown` package and Chromium (headless printing).
 """
 import html
@@ -16,11 +17,9 @@ sys.path.insert(0, str(Path(__file__).parent))
 import illustrations as ill  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "rules" / "RULES.md"
 BUILD = ROOT / "build"
-OUT = ROOT / "rules" / "Aspects-Core-Rules.pdf"
 
-# Figure placed right after the heading whose text starts with the key.
+# Figure placed right after the heading whose text starts with the key (Player Rules only).
 FIGURES = {
     "The Core Loop": (ill.core_loop, "The core loop. Every session turns this wheel a few times.", "wide"),
     "2.3 Rank Bonus": (ill.rank_ladder, "Higher Ranks give bigger bonuses and stronger books.", "wide"),
@@ -29,14 +28,14 @@ FIGURES = {
     "6.1 Order of Combat": (ill.initiative_timeline, "Side initiative: the winners open with half a turn, then sides alternate full turns.", "full"),
     "6.5 Engagement": (ill.combat_grid, "Reach, opportunity attacks and cover on the grid.", "wide"),
     "7.4 Dropping to 0 HP": (ill.death_saves, "The death save track.", "wide"),
-    "9.1 Armor Class": (ill.armor_tiers, "The three armor tiers and the shield.", "wide"),
-    "10.6 Areas of Effect": (ill.areas_of_effect, "Areas of effect. The black dot marks the point of origin.", "wide"),
+    "9.1 Armor": (ill.armor_tiers, "The three armor tiers and the shield.", "wide"),
+    "10.5 Areas of Effect": (ill.areas_of_effect, "Areas of effect. The black dot marks the point of origin.", "wide"),
 }
 
 CSS = """
 @page { size: Letter; margin: 0.8in 0.85in 0.9in 0.85in; background: #f6efdd;
   @bottom-center { content: counter(page); font-family: Cinzel, serif; font-size: 9pt; color: #7a6648; }
-  @top-right { content: "ASPECTS · Core Rules"; font-family: Cinzel, serif; font-size: 8pt; color: #b07d2b; } }
+  @top-right { content: "ASPECTS · %HEADER%"; font-family: Cinzel, serif; font-size: 8pt; color: #b07d2b; } }
 @page :first { margin: 0; @bottom-center { content: none; } @top-right { content: none; } }
 @page toc { @bottom-center { content: none; } }
 html { background: #f6efdd; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -100,6 +99,13 @@ def slug(text):
     return text.replace(" ", "-")
 
 
+BOOKS = [
+    # (source, output, cover subtitle, running header, figures)
+    ("PLAYERS.md", "Aspects-Player-Rules.pdf", "Player Rules", "Player Rules", FIGURES),
+    ("GM.md", "Aspects-GM-Guide.pdf", "Game Master's Guide", "GM's Guide", {}),
+]
+
+
 def figure(key):
     fn, caption, size = FIGURES[key]
     return f'<figure class="{size}">{fn()}<figcaption>{caption}</figcaption></figure>'
@@ -121,18 +127,17 @@ def classify_blockquotes(body):
     body = re.sub(r"<blockquote>(.*?)</blockquote>", repl, body, flags=re.S)
     # Sample Aspects: lay consecutive cards out in two columns
     return re.sub(
-        r'(<h3[^>]*>3\.2 Sample Aspects</h3>)\s*((?:<blockquote class="card">.*?</blockquote>\s*)+)',
+        r'(<h3[^>]*>[\d.]+ Sample Aspects</h3>)\s*((?:<blockquote class="card">.*?</blockquote>\s*)+)',
         lambda m: m.group(1) + '<div class="cards">' + m.group(2) + "</div>",
         body,
         flags=re.S,
     )
 
 
-def build_html():
-    md_text = SRC.read_text(encoding="utf-8")
+def build_html(src, subtitle, header, figures):
+    md_text = src.read_text(encoding="utf-8")
     # Drop the Markdown title block and Contents list: the PDF has its own cover and TOC.
-    md_text = md_text.split("## 1. Introduction", 1)[1]
-    md_text = "## 1. Introduction" + md_text
+    md_text = "## 1. " + md_text.split("## 1. ", 1)[1]
     # Each line of a blockquote becomes its own paragraph (card header, stats, effect...).
     md_text = re.sub(r"^(>.*)\n(?=>)", r"\1\n>\n", md_text, flags=re.M)
     # Keep consecutive blockquotes (sample cards) as separate cards.
@@ -152,7 +157,7 @@ def build_html():
             toc.append((hid, text))
             out += f'<div class="ornament">{ill.ornament()}</div>'
         plain = html.unescape(re.sub(r"<[^>]+>", "", text))
-        for key in FIGURES:
+        for key in figures:
             if plain.startswith(key):
                 out += figure(key)
         return out
@@ -166,13 +171,13 @@ def build_html():
     toc_html = "".join(f'<li><a href="#{hid}">{text}</a></li>' for hid, text in toc)
     cover = (
         f'<section class="cover">{ill.cover_emblem()}<h1>ASPECTS</h1>'
-        '<p class="sub">Core Rules</p>'
+        f'<p class="sub">{subtitle}</p>'
         '<p class="tag">A classless, level-less game of loot and reinvention.<br>Compatible with fifth edition.</p>'
         '<p class="foot">Version 0.1 · Draft</p></section>'
     )
     return (
-        f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Aspects · Core Rules</title>{FONTS}'
-        f"<style>{CSS}</style></head><body>{cover}"
+        f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Aspects · {subtitle}</title>{FONTS}'
+        f"<style>{CSS.replace('%HEADER%', header)}</style></head><body>{cover}"
         f'<section class="toc"><h2>Contents</h2><div class="ornament">{ill.ornament()}</div><ol>{toc_html}</ol></section>'
         f"{body}</body></html>"
     )
@@ -180,16 +185,18 @@ def build_html():
 
 def main():
     BUILD.mkdir(exist_ok=True)
-    html_path = BUILD / "rules.html"
-    html_path.write_text(build_html(), encoding="utf-8")
-    subprocess.run(
-        [
-            "chromium", "--headless", "--disable-gpu", "--no-sandbox", "--no-pdf-header-footer",
-            "--virtual-time-budget=20000", f"--print-to-pdf={OUT}", html_path.as_uri(),
-        ],
-        check=True, capture_output=True,
-    )
-    print(f"Wrote {OUT.relative_to(ROOT)}")
+    for src, out, subtitle, header, figures in BOOKS:
+        out = ROOT / "rules" / out
+        html_path = BUILD / (Path(src).stem.lower() + ".html")
+        html_path.write_text(build_html(ROOT / "rules" / src, subtitle, header, figures), encoding="utf-8")
+        subprocess.run(
+            [
+                "chromium", "--headless", "--disable-gpu", "--no-sandbox", "--no-pdf-header-footer",
+                "--virtual-time-budget=20000", f"--print-to-pdf={out}", html_path.as_uri(),
+            ],
+            check=True, capture_output=True,
+        )
+        print(f"Wrote {out.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
