@@ -513,7 +513,7 @@ Conditions don't stack with themselves. Each lasts until its source ends it or i
 | **Charmed** | You can't attack or harm the charmer. The charmer has advantage on CHA checks against you. |
 | **Frightened** | Disadvantage on checks and attacks while the source of fear is in sight. You can't willingly move closer to it. |
 | **Grappled** | Speed 0. Disadvantage on attacks against anyone except the grappler. Ends if the grappler is Incapacitated or you're moved out of its reach. |
-| **Incapacitated** | You can't take actions, bonus actions or reactions. Your concentration ends. You can't speak. |
+| **Incapacitated** | You can't take actions, bonus actions or reactions. You can't speak. |
 | **Invisible** | You can't be seen. Attacks against you have disadvantage; your attacks have advantage. Your side has advantage on initiative if all its members are Invisible. |
 | **Poisoned** | Disadvantage on attack rolls and ability checks. |
 | **Prone** | You can only crawl or stand up. Your attacks have disadvantage. Attacks against you have advantage within 5 ft, disadvantage otherwise. |
@@ -639,12 +639,12 @@ Cantrips and other effects that grow in power use the **Rank of their Aspect**:
 - **Range and targets:** you need a clear path to the target, and the target must be within range. You can target yourself only if the spell says "you" or "a creature" within range.
 - **Duration:** instantaneous, timed, or until dispelled.
 
-### 10.5 Concentration
-Some spells require **concentration** to maintain.
-- You can concentrate on **one spell at a time**, whichever book it comes from.
-- Concentration ends if you cast another concentration spell, become **Incapacitated**, die, or choose to end it (no action needed).
-- **A concentration spell on enemies** is a lasting effect: you make its maintain rolls (Chapter 8), with one disadvantage die for each time you took damage.
-- **Any other concentration spell** (a wall, a blessing on allies): at the start of your turn, if you took damage since your last turn, make a maintain roll against **10**, with one disadvantage die for each time you took damage. On a miss, the spell ends.
+### 10.5 Lasting Spells
+There is **no concentration**. You can keep any number of spells running, and taking damage never ends them.
+- **A spell on enemies** that holds them (a web, a paralysis, a charm) is a lasting effect: you make its maintain rolls (Chapter 8).
+- **Any other spell** (a wall, a blessing on allies, a light) has a **set duration** printed on it. It lasts that long unless it is dispelled or you end it (no action needed).
+
+<!-- Hidden design note (not shown in the PDF): concentration removed for snappiness. Without a one-spell limit, buffs stack; keep their durations short (1 minute = 10 rounds) when converting, and watch stacked blessings in playtests. -->
 
 ### 10.6 Areas of Effect
 | Shape | Description |
@@ -752,7 +752,7 @@ Multiply by the number of characters, then spend the budget on monsters' XP valu
 | CHA save | CHA Defense |
 | Armor Class | Weapons target the higher of STR and DEX Defense. Armor adds to STR Defense; Light Armor also +1 DEX Defense (9.1). |
 | Spell save DC | None: every spell is a spell attack (INT + Rank bonus) |
-| Concentration saves | Maintain rolls (Chapter 8, 10.5) |
+| Concentration | None (10.5). A concentration spell on enemies → a lasting effect (Chapter 8); any other → it lasts its full listed duration. |
 | Legendary Resistance | Not used: Holds (Chapter 8) |
 | Spellcasting ability (any) | INT |
 | Monster save DCs | Effect bonus = DC − 10 (or the CR table, 11.1) |
