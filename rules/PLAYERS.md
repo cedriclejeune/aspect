@@ -14,7 +14,8 @@
 8. [Conditions](#8-conditions)
 9. [Equipment](#9-equipment)
 10. [Magic](#10-magic)
-11. [Attribution](#attribution)
+11. [Keywords](#11-keywords)
+12. [Attribution](#attribution)
 
 ---
 
@@ -39,7 +40,7 @@ One player is the **Game Master (GM)**, who describes the world, runs monsters a
 | **Pack** | Your personal bag: up to 5 Aspects you carry but haven't equipped. |
 | **Party Stash** | The group's mule or wagon: Aspects the party owns but nobody carries. |
 | **Rank** | An Aspect's power: I, II, III, IV or V. |
-| **Rank bonus** | +2 to +6, set by an Aspect's Rank. Added to rolls made with that Aspect. |
+| **Keyword** | A word printed along the bottom of a card, with a fixed meaning (Chapter 11). |
 | **Defense** | The number an attack must reach: 10 + ability modifier + bonuses. Every creature has a STR, DEX, INT and CHA Defense. |
 | **Hold** | A lasting effect that takes a creature out of the fight (Chapter 8). |
 
@@ -75,24 +76,22 @@ Every creature has **four abilities**, each written as a **modifier** (typically
 - **Modifier or Defense bonus:** an Aspect that raises an **ability modifier** improves everything that uses it (checks, attacks, damage, Defense). One that raises a **Defense** (armor, a shield) improves only that Defense.
 - What you're good at comes from your Core's modifiers and your Aspects. *Example: Cat Burglar I: +2 on checks to sneak, climb or pick locks.*
 
-### 2.3 Rank Bonus
-Every Aspect has a **Rank bonus** set by its Rank.
-
-| Aspect Rank | I | II | III | IV | V |
-|---|---|---|---|---|---|
-| **Rank bonus** | +2 | +3 | +4 | +5 | +6 |
+### 2.3 Rank
+Every Aspect has a **Rank**, from I to V: how powerful it is. Higher Ranks print bigger numbers and stronger effects.
 
 | Roll | Formula |
 |---|---|
-| **Weapon attack** | d20 + ability modifier + the **weapon's** Rank bonus |
-| **Spell attack** | d20 + INT + the **spellbook's** Rank bonus |
+| **Weapon attack** | d20 + ability modifier + the weapon's **Attack** bonus |
+| **Spell attack** | d20 + INT + the spellbook's **Spell attack** bonus |
 
-**A better Core** raises your modifiers. **A better weapon or book** raises its Rank bonus. That's how you grow.
+**A better Core** raises your modifiers. **A better weapon or book** prints a bigger bonus. That's how you grow.
 
 ### 2.4 The Core
 The Core is a special Aspect. It sits in its own **Core Slot** and changes only at a long rest.
 
 A Core lists: **STR, DEX, INT, CHA modifiers · Hit Points · Speed · Size** (and sometimes a special trait).
+
+The Core card is also your **sheet**. Its strip has two columns: the Core's own values (Defenses printed as 10 + modifier), then a **Total** column where you write the sum of all your cards (3.8). Use a pencil or a dry-erase sleeve.
 
 **Starting Cores (Rank I)** (pick one):
 
@@ -111,23 +110,23 @@ All starting Cores are Medium size. **Player Cores are Small, Medium or Large**;
 2. **Choose your Aspects** from the GM's starter list (all Rank I): **1 Armor**, up to **2 Hand** Aspects (weapons or a shield), **1 Jewelry** and **3 Attributes**. A caster also picks a **Spellbook** (it takes an Item Slot and needs an empty Hand Slot to cast).
 3. **Fill your Item Slots**: one *Potion of Healing* (in the free Item Slot).
 4. **Take 50 gp.**
-5. **Calculate:** your four Defenses (2.2, 9.1), weapon and spell attack bonuses, passive Awareness (5.3).
+5. **Calculate:** add up your cards' strips and write the ten totals in your Core's Total column (3.8). Then work out your weapon and spell attack bonuses and passive Awareness (5.3).
 6. **Describe** who you are: name, look, a goal, a bond. No mechanics.
 
-> **Example: Mira.** Nimble Core (STR +0, DEX +3, INT +1, CHA +0, 11 HP, 35 ft). **Armor:** *Light Armor I*. **Hands:** *Finesse Blade I*, *Light Blade I*. **Jewelry:** *Ring of Warding I*. **Items:** *Potion of Healing* ×1, one empty. **Attributes:** *Cat Burglar I*, *Springheel I*, *Iron Will I*. Defenses: STR 12 (Light Armor +2), DEX 14 (Light Armor +1), INT 11, CHA 10; weapons target her DEX 14. Speed 40 ft. Finesse Blade (Rank I): +5 to hit (DEX +3, Rank +2), 1d6 + 3. Sneaking: d20 + 5.
+> **Example: Mira.** Nimble Core (STR +0, DEX +3, INT +1, CHA +0, 11 HP, 35 ft). **Armor:** *Light Armor I*. **Hands:** *Finesse Blade I*, *Light Blade I*. **Jewelry:** *Ring of Warding I*. **Items:** *Potion of Healing* ×1, one empty. **Attributes:** *Cat Burglar I*, *Springheel I*, *Iron Will I*. Defenses: STR 12 (Light Armor +2), DEX 14 (Light Armor +1), INT 11, CHA 10; weapons target her DEX 14. Speed 40 ft. Finesse Blade I: +5 to hit (DEX +3, Attack +2), 1d6 + 3. Sneaking: d20 + 5.
 
 ## 3. Aspects & Slots
 
 ### 3.1 Reading an Aspect
-> **NAME + RANK** · Tags
-> *Requirement* (if any)
-> Effect.
-> *Uses / recharge* (if any)
+Every Aspect is a card with four parts:
+- **Name and Rank** across the top (*Cat Burglar II*).
+- **Bonus strip** down the right side: the ten numbers a card can change. The four ability modifiers (STR, DEX, INT, CHA), the four Defense bonuses (the same symbols inside a shield), HP maximum and Speed. Most cards leave it empty. A card that raises an ability modifier also shows the same number in the matching Defense row (+1 STR and +1 STR Defense), so each row adds up on its own.
+- **Effect** in the center, if the card has one.
+- **Keywords** along the bottom: the **type** first (it sets the Slot, 3.2), then properties, requirement and uses. Each keyword has one fixed meaning (Chapter 11).
 
-- **Rank (I–V):** how powerful it is. **Each card has one fixed Rank, written after its name** (*Cat Burglar II*). A stronger version is a different card (*Cat Burglar IV*), found as separate loot. Rank doesn't stop you from equipping anything. It sets the Aspect's **Rank bonus** (2.3).
-- **Tags:** describe what the Aspect is: *Armor, Weapon, Shield, Jewelry, Spellbook, Consumable, Recipe, Trait, Technique, Knack.* The tag decides which Slot it goes in (3.2).
-- **Requirement:** a minimum modifier (e.g. *STR +2*). **You can't equip the Aspect** unless your Core meets it.
-- **Uses:** limited uses recharge on a **short rest** (also regained on a long rest) or on a **long rest**.
+- **Rank (I–V):** how powerful it is. **Each card has one fixed Rank, written after its name.** A stronger version is a different card (*Cat Burglar IV*), found as separate loot. Rank doesn't stop you from equipping anything (2.3).
+- **Requirement** (*Req STR +2*): **you can't equip the Aspect** unless your Core meets it.
+- **Uses** (*Uses 2, short rest*): limited uses recharge on a **short rest** (also regained on a long rest) or on a **long rest**.
 
 ### 3.2 Your Slots
 Every character has the same body. Only the number of Attributes grows much.
@@ -142,7 +141,7 @@ Every character has the same body. Only the number of Attributes grows much.
 | **Attribute** | 3 | 8 | One *Trait*, *Technique* or *Knack* |
 
 - A Slot can stay empty.
-- An Aspect fits only the Slot type its tag names.
+- An Aspect fits only the Slot its type keyword names (11.1).
 - **Consumables** are gone once used. **Recipes** are the stronger version: a Recipe is a stack that **refills at each long rest**. Unused items from a Recipe vanish when it refills; until then you can hand them to allies.
 - **Extra Attributes** come from milestones (4.1). **Extra Hand, Jewelry and Item Slots** come only from Slot cards (3.3).
 
@@ -159,40 +158,48 @@ A **Slot card** permanently adds one Slot to a character. Bosses carry them, and
 - A Slot card is applied when taken and **can't be removed, traded or put in the Pack or Party Stash**. It doesn't occupy a Slot.
 
 ### 3.4 Sample Aspects
-> **CONJURER'S BOOK I** · Spellbook
-> Spell points: 4 · Max spell level: 2nd
-> Cantrips: *Fire Bolt, Mage Hand*
-> Spells: *Magic Missile* (1st), *Shield* (1st), *Grease* (1st), *Misty Step* (2nd), *Web* (2nd)
+Each sample shows the name, the bonus strip (if any), the effect, then the keywords in italics.
 
-> **HEAVY ARMOR II** · Armor
-> *Requirement: STR +2*
-> +4 STR Defense. −10 ft speed. −3 on checks to sneak.
+> **CONJURER'S BOOK I**
+> Spell attack: INT + 2 · Spell points: 4 · Max spell level: 2nd
+> Spell cards: *Fire Bolt, Mage Hand* (cantrips) · *Magic Missile, Shield, Grease* (1st) · *Misty Step, Web* (2nd)
+> *Spellbook*
 
-> **FINESSE BLADE I** · Weapon
-> 1d6 Physical, Finesse. **Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn.
+> **HEAVY ARMOR II**
+> Strip: +4 STR Defense · −10 Speed
+> *Armor · Noisy 3 · Req STR +2*
 
-> **RING OF WARDING I** · Jewelry
+> **FINESSE BLADE I**
+> 1d6 Physical · Attack +2. **Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn.
+> *Weapon · Finesse*
+
+> **RING OF WARDING I**
 > **Reaction**, when an attack hits you: +2 to the targeted Defense against that attack, possibly turning it into a miss.
-> *2 uses, short rest*
+> *Jewelry · Uses 2, short rest*
 
-> **ALCHEMIST'S FIRE RECIPE II** · Recipe
-> Bonus action: throw a flask up to 30 ft. Make one attack (DEX + Rank bonus) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss.
-> *3 flasks, refill on a long rest*
+> **ALCHEMIST'S FIRE RECIPE II**
+> Bonus action: throw a flask up to 30 ft. Make one attack (DEX + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss.
+> *Recipe · 3 flasks*
 
-> **SPRINGHEEL I** · Trait
+> **SPRINGHEEL I**
 > Your jump distances are doubled, and you never need a running start.
+> *Trait*
 
-> **TWIN STRIKE II** · Technique
+> **TWIN STRIKE II**
 > When you take the Attack action, you make two attacks instead of one.
+> *Technique*
 
-> **STONE BLOOD I** · Trait
-> Resistance to Poison damage. +2 STR Defense against poison.
+> **STONE BLOOD I**
+> +2 STR Defense against poison.
+> *Trait · Resist Poison*
 
-> **IRON WILL I** · Trait
+> **IRON WILL I**
 > +2 CHA Defense against fear and mind control.
+> *Trait*
 
-> **CAT BURGLAR I** · Knack
+> **CAT BURGLAR I**
 > +2 on checks to sneak, climb or pick locks.
+> *Knack*
 
 ### 3.5 Equipping and Swapping
 Each Slot has its own swap time. A swap moves one Aspect between a Slot and your Pack, the Party Stash or the ground.
@@ -215,7 +222,7 @@ Each Slot has its own swap time. A swap moves one Aspect between a Slot and your
 
 ### 3.6 Stacking Rules
 - You can't equip **two copies** of the same Aspect, even at different Ranks (*Cat Burglar II* and *Cat Burglar IV*). Identical Consumables in one stack are fine.
-- **Every bonus stacks.** A weapon's Rank bonus, a Knack's bonus and a Jewelry's bonus all add to the same roll.
+- **Every bonus stacks.** A weapon's Attack bonus, a Knack's bonus and a Jewelry's bonus all add to the same roll.
 
 ### 3.7 Pack, Party Stash, Inventory & Gold
 - **Pack:** up to **5 Aspects**, on your back: weapons, jewels, spellbooks, consumables, Attributes. **No Armor and no Cores** (too big). Reachable in combat at a cost (3.5).
@@ -233,6 +240,17 @@ Each Slot has its own swap time. A swap moves one Aspect between a Slot and your
 | Night at an inn, meals included | 1 gp |
 | Rank I Aspect (if a merchant sells it) | 100 gp |
 | Rank II Aspect | 500 gp |
+
+### 3.8 Keeping Your Totals
+Your Core card holds the ten totals in its **Total** column (2.4). You only touch them at two moments.
+
+**In play**, lay your cards out by Slot so every effect and keyword is readable.
+
+**When you swap**, subtract the old card's strip from the Total, then add the new card's. An empty Armor Slot adds +10 Speed.
+
+> **Example: Bram swaps armor.** He takes off *Medium Armor I* (+3 STR Defense) and puts on *Heavy Armor II* (+4 STR Defense, −10 Speed). STR Defense: 18 − 3 + 4 = 19. Speed: 30 − 10 = 20.
+
+**Adding up from scratch** (a new Core, or a lost total): put your Core down first. Lay each card that has something in its strip on top of the previous one, one strip to the left, at the same height, so every strip stays visible and the rows line up. Cards with an empty strip stay out. Each row now reads like a written sum, left to right, ending on the Core's own value and its Total.
 
 ---
 
@@ -379,10 +397,10 @@ On your turn you can:
 
 ### 6.6 Making an Attack
 1. **Choose a target** within range.
-2. **Roll:** d20 + ability modifier + the weapon's **Rank bonus** + other bonuses.
+2. **Roll:** d20 + ability modifier + the weapon's **Attack** bonus + other bonuses.
    - Melee: STR (or DEX for Finesse weapons).
    - Ranged: DEX (thrown weapons use the modifier of their melee use).
-   - Spell attack: INT + the book's Rank bonus.
+   - Spell attack: INT + the book's Spell attack bonus.
 3. **Hit** if the total ≥ the target's Defense: the higher of STR and DEX Defense for weapons, the named Defense for other effects. **Natural 20: always hits and is a critical hit. Natural 1: always misses.**
 4. **Damage:** weapon die + the same ability modifier you used to attack.
 
@@ -392,9 +410,9 @@ On your turn you can:
 
 **Unseen:** attacking a target you can't see gives you disadvantage. Attacking while unseen gives you advantage.
 
-**Unarmed strike:** +2 Rank bonus, 1 + STR Physical damage. No Aspect needed.
+**Unarmed strike:** Attack +2, 1 + STR Physical damage. No Aspect needed.
 
-**Improvised weapon:** 1d4 Physical, no Rank bonus.
+**Improvised weapon:** 1d4 Physical, no Attack bonus.
 
 ### 6.7 Ranged Attacks
 - Weapons have a **normal / long range**. Beyond normal range: disadvantage. Beyond long range: impossible.
@@ -501,15 +519,15 @@ A **Hold** is a lasting effect that takes a creature out of the fight: **Incapac
 ---
 
 ## 9. Equipment
-Weapons, armor and shields are **Aspects**. A weapon adds its **Rank bonus** to attacks.
+Weapons, armor and shields are **Aspects**. A weapon prints its **Attack** bonus, added to its attack rolls.
 
 ### 9.1 Armor and Defense
 | Armor (Aspect) | Rank | Bonus | Requirement / Notes |
 |---|---|---|---|
 | **None** (empty Armor Slot) | — | — | +10 ft speed. |
 | **Light Armor** | I | +2 STR Defense, +1 DEX Defense | +5 ft speed. |
-| **Medium Armor** | I | +3 STR Defense | STR +2 or DEX +2 |
-| **Heavy Armor** | II | +4 STR Defense | STR +2. −10 ft speed. −3 on checks to sneak. |
+| **Medium Armor** | I | +3 STR Defense | STR +1 |
+| **Heavy Armor** | II | +4 STR Defense | STR +2. −10 ft speed. Noisy 3. |
 | **Shield** | I | +2 STR and DEX Defense | Takes one Hand Slot. |
 
 Armor adds mostly to **STR Defense**. Weapons target your higher of STR and DEX Defense (2.2), so armor protects you when STR Defense is your best.
@@ -531,19 +549,9 @@ The name is flavour: a "Versatile weapon" can be a longsword, a battleaxe or a s
 | **Bow** (short or long) | 1d8 | Range (150/600), Two-Handed |
 | **Crossbow** (heavy) | 1d10 | Heavy, Loading, Range (100/400), Two-Handed |
 
-All weapon damage is **Physical** unless the Aspect says otherwise.
+These are the Rank I versions: each prints **Attack +2**. Higher-Rank weapons print a bigger bonus and often a special effect. All weapon damage is **Physical** unless the Aspect says otherwise.
 
-**Properties:**
-- **Finesse:** use STR or DEX for attack and damage.
-- **Light:** enables two-weapon fighting (6.9).
-- **Heavy:** you need STR +1 (melee) or DEX +1 (ranged), or you have −3 on attacks.
-- **Reach:** your reach is 10 ft instead of 5 ft.
-- **Thrown (range):** throw it for a ranged attack.
-- **Range (normal/long):** a ranged weapon.
-- **Loading:** one shot per action, bonus action or reaction, even with extra attacks.
-- **Two-Handed:** needs both hands.
-- **Versatile:** the second die applies when wielded with two hands.
-- **Aquatic:** works underwater. *Example: a Versatile Weapon (trident) with Aquatic.*
+**Properties** are keywords (Chapter 11): Aquatic, Finesse, Heavy, Light, Loading, Range, Reach, Thrown, Two-Handed, Versatile.
 
 ---
 
@@ -551,10 +559,13 @@ All weapon damage is **Physical** unless the Aspect says otherwise.
 
 ### 10.1 Spellbooks
 Spells come from **Spellbook Aspects**. All spellcasting uses **INT**. Each book lists:
+- **Spell attack:** the bonus added to INT for its spell attacks.
 - **Cantrips:** cast at will.
 - **Spells:** a **fixed list**. To change spells, equip a different book.
 - **Spell points:** the book's pool, regained on a long rest.
 - **Max spell level:** the highest level you can cast (or upcast to) with this book.
+
+**A book is a deck of cards:** a **cover card** (Rank, spell attack, spell points, max spell level) on top, then **one card per cantrip and spell**, each marked with the book's name. The deck counts as **one Aspect** wherever it goes (Item Slot, Pack, Party Stash), and its spell cards never move to another book. Mark spent spell points with tokens on the cover.
 
 A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must be empty** (it holds the book). A Two-Handed weapon fills both Hands. A book's spell points pay only for **that book's** spells. You may equip several books, one per Item Slot.
 
@@ -573,7 +584,7 @@ A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must
 - **Casting time:** usually one action (Cast action). Some spells use a bonus action or a reaction.
 - **What you need:** the book and an empty Hand (10.1).
 - **Obvious or Subtle:** casting a spell is **obvious** (light, sound, a visible gesture) to anyone who can see or hear you, unless the spell is marked **Subtle**. Nobody notices a Subtle spell being cast.
-- **Spell attack:** d20 + INT + the book's Rank bonus. **Every spell that affects a creature is a spell attack** against the Defense the spell names. Area spells roll once (6.6).
+- **Spell attack:** d20 + INT + the book's Spell attack bonus. **Every spell that affects a creature is a spell attack** against the Defense the spell names. Area spells roll once (6.6).
 - **Range and targets:** you need a clear path to the target, and the target must be within range. You can target yourself only if the spell says "you" or "a creature" within range.
 - **Duration:** instantaneous, timed, or until dispelled.
 
@@ -592,6 +603,88 @@ A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must
 | **Sphere** | Extends from a point to the stated radius. |
 
 Full cover blocks an area's effect.
+
+---
+
+## 11. Keywords
+A keyword always means the same thing, on every card. A number or word after it (*Thrown 20/60*, *Resist Fire*) fills in the detail. Conditions (Chapter 8) and damage types (7.2) are also reserved words.
+
+### 11.1 Types
+The first keyword on a card. It sets the Slot (3.2).
+
+| Keyword | Meaning |
+|---|---|
+| **Core** | Core Slot. Holds the four modifiers, HP maximum, Speed and Size. Changes only at a long rest. |
+| **Armor** | Armor Slot. Takes 10 minutes to don or doff. Never in the Pack. |
+| **Weapon** | Hand Slot. Attack: d20 + modifier + its printed Attack bonus, against the higher of STR and DEX Defense. |
+| **Shield** | Hand Slot. |
+| **Jewelry** | Jewelry Slot. Rings, amulets, circlets, cloaks, gloves, boots. |
+| **Spellbook** | Item Slot. A deck: a cover card and one card per spell (10.1). Casting needs an empty Hand. |
+| **Spell** | A card in a spellbook deck, not an Aspect. Its **level** (1st–6th) is its cost in spell points. |
+| **Cantrip** | A spell card that costs nothing. Cast at will. |
+| **Consumable** | Item Slot, a stack of up to 3 identical cards. Gone once used. |
+| **Recipe** | Item Slot. A stack that refills at each long rest. Unused items vanish when it refills. |
+| **Trait** | Attribute Slot. Something you are: a body, a blood, a blessing. |
+| **Technique** | Attribute Slot. Something you trained: a fighting move. |
+| **Knack** | Attribute Slot. A bonus on checks for one narrow activity. |
+| **Slot card** | Adds one Slot for good (3.3). Never removed, traded or stored. |
+
+### 11.2 Use and Timing
+| Keyword | Meaning |
+|---|---|
+| **Action** | Using it takes your action. |
+| **Bonus action** | Using it takes your bonus action. |
+| **Reaction** | Using it takes your reaction, when the trigger in its text happens. |
+| **Uses N, short rest** | N uses. All come back on a short or long rest. |
+| **Uses N, long rest** | N uses. All come back on a long rest. |
+| **Req X +N** | Requirement: your Core needs at least +N in ability X to equip it. |
+
+### 11.3 Weapons and Armor
+| Keyword | Meaning |
+|---|---|
+| **Aquatic** | Works underwater, where other weapons and spells don't. |
+| **Finesse** | Use STR or DEX for attack and damage. |
+| **Heavy** | Needs STR +1 (melee) or DEX +1 (ranged), or −3 on attacks. |
+| **Light** | Allows two-weapon fighting (6.9). |
+| **Loading** | One shot per action, bonus action or reaction, even with extra attacks. |
+| **Noisy N** | −N on checks to sneak. |
+| **Range N/M** | A ranged attack. Beyond N: disadvantage. Beyond M: impossible. A single number is a spell's maximum range. |
+| **Reach** | Your reach is 10 ft instead of 5 ft. |
+| **Thrown N/M** | Can be thrown as a ranged attack, using the modifier of its melee use. |
+| **Two-Handed** | Takes two Hand Slots. |
+| **Versatile (die)** | Uses the bigger damage die when held in two hands. |
+
+### 11.4 Spells and Effects
+| Keyword | Meaning |
+|---|---|
+| **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or CHA). |
+| **Cone, Cube, Cylinder, Emanation, Line, Sphere N** | An area of that shape and size (10.5). Roll once against every creature in it. Half damage on a miss. |
+| **Lasting** | Holds a creature until it breaks free. The source makes maintain rolls (Chapter 8). |
+| **Hold** | A Lasting effect that takes a creature out of the fight. Adds first bite and weakening (Chapter 8). |
+| **Duration T** | Lasts T (*1 minute*, *1 hour*), then ends. You can end it early, no action needed. |
+| **Subtle** | Nobody notices you casting it. |
+| **Resist (type)** | Take half damage of that type. |
+| **Vulnerable (type)** | Take double damage of that type. |
+
+### 11.5 Senses, Movement and Size
+| Keyword | Meaning |
+|---|---|
+| **Darkvision N** | Treat Dark as Bright within N ft. |
+| **Blindsight N** | Perceive everything within N ft without sight. |
+| **Truesight N** | As Darkvision, and see invisible creatures and through illusions and shapechanges. |
+| **Climb N** | A climb speed: climbing costs no extra movement. |
+| **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
+| **Small, Medium, Large** | Size, on a Core. Only Rank V Aspects make a player bigger. |
+
+### 11.6 Monster Keywords
+Defined in full in the Game Master's Guide.
+
+| Keyword | Meaning |
+|---|---|
+| **Monstrous** | Never drops. Players can never obtain it. |
+| **Boss** | Takes a half turn during the characters' side. |
+| **Recharge 5–6** | Comes back on a 5 or 6 on a d6 at the start of the monster's turn. |
+| **N/day** | N uses between long rests. |
 
 ---
 

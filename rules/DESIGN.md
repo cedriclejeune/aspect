@@ -20,6 +20,8 @@ Power scaling comes mainly from Rank (better Aspects and Cores). Slot count grow
 | **IV** | +5 | Slightly game-breaking: a legendary item, a power that bends a core rule | 16 points, max 6th | Total +10 (max +5), 80–100 HP |
 | **V** | +6 | Game-breaking: changes the balance of play (meta Attributes, rule-breaking items, size beyond Large) | 20 points, max 6th, plus one rule-breaking power | None: Cores stop at IV |
 
+- **The Rank bonus is hidden.** Players never see the term: cards print their numbers directly (weapon *Attack +3*, book *Spell attack: INT + 3*, Knack *+3*, *Noisy 3*). Use the table's Bonus column to size every printed bonus or penalty.
+- **Modifier boosts print twice.** A card that raises an ability modifier also prints the same number in the matching Defense row of its strip (+1 STR and +1 STR Defense), because Defense = 10 + modifier + bonuses. Every strip row then sums on its own.
 - **Damage dice scale with Rank.** Cantrips and other growing effects print dice already scaled for their Aspect's Rank:
 
 | Aspect Rank | I–II | III | IV–V |
@@ -36,9 +38,13 @@ Power scaling comes mainly from Rank (better Aspects and Cores). Slot count grow
 - Keep each Aspect to **one clear idea** that fits on a card. The card says what it does: anything that overrides a rule (swap time, underwater use, size) is printed on it.
 - **Size every number by Rank.** All bonuses stack, so a card's bonus or penalty equals its **Rank bonus**, and a card that attacks on its own uses an **ability modifier + its Rank bonus**, like a weapon (*Alchemist's Fire Recipe II*: DEX + 3).
 - Give DEX and CHA real value. DEX already has a weapon Defense, initiative and ranged attacks. CHA has its Defense against charm and fear but few combat uses, so it needs social Aspects with teeth (allies, discounts, rallying, demoralizing) to be worth investing in.
-- Give every Aspect a tag that names its Slot (P 3.2). **Jewelry** holds worn magic (rings, amulets, cloaks, gloves, boots), usually active powers with limited uses; other passive bonuses belong in Attributes.
+- Give every Aspect a type keyword that names its Slot (P 11.1). **Jewelry** holds worn magic (rings, amulets, cloaks, gloves, boots), usually active powers with limited uses; other passive bonuses belong in Attributes.
 - Armor adds mostly to STR Defense; Light Armor's +1 DEX Defense lets nimble characters trade 5 ft of speed for it or go unarmored to move faster.
 - Card design should keep the **bookkeeping cost of a swap** low (how much math a swap triggers).
+- **Card layout (P 3.1):** name and Rank on top, bonus strip on the right, effect in the center, keywords at the bottom. The Core card's strip has a second, blank Total column: the Core card is the character sheet. A card may have both a strip and an effect: players spread cards out to play and stack them (Core first, each card on top one strip to the left, no vertical offset, so the rows line up) only to add up, so the strips read as a sum ending on the Core's Total. A swap is one subtraction and one addition.
+- **Keywords carry the rules.** When several cards share a mechanic, make it a keyword instead of repeating text, and add it to P Chapter 11. Never reuse a reserved word with another meaning. Keyword order: type, properties, requirement, uses.
+- **Conditional bonuses** (*+2 STR Defense against poison*) go in the effect text, never in the strip: the strip holds only what always applies.
+- **Spellbook decks (P 10.1):** the cover card sits in front of the fan; spell cards fan behind it. Each spell card has a **left-edge index** that stays visible in a hand fan or a sideways spread: spell point cost at the top corner, casting-time and target-Defense icons, the name running down the edge, and the book's name. Order spells by cost. Keep a deck small enough to fan in one hand (cover + 6 to 10 spells).
 
 ## 5. Design Notes
 - **Swap times.** Fast Slots (Hand, Jewelry, Item) keep fights tactical; slow Slots (Armor, Attribute, Core) fix the build between rests. The Pack cost (action + all movement) makes mid-fight swaps a real trade-off; the expended lock stops cycling spent books and jewels between fights.

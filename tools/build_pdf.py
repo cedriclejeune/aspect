@@ -22,9 +22,10 @@ BUILD = ROOT / "build"
 # Figure placed right after the heading whose text starts with the key (Player Rules only).
 FIGURES = {
     "The Core Loop": (ill.core_loop, "The core loop. Every session turns this wheel a few times.", "wide"),
-    "2.3 Rank Bonus": (ill.rank_ladder, "Higher Ranks give bigger bonuses and stronger books.", "wide"),
+    "2.3 Rank": (ill.rank_ladder, "Rank I is a small edge; Rank V breaks the rules.", "wide"),
     "3. Aspects & Slots": (ill.character_anatomy, "Mira's build: Core, Armor, two Hands, Jewelry, two Items and three Attributes.", "wide"),
-    "3.1 Reading an Aspect": (ill.aspect_card_anatomy, "Every Aspect fits on a card.", "mid"),
+    "3.1 Reading an Aspect": (ill.aspect_card_anatomy, "Name on top, bonus strip on the right, keywords at the bottom.", "mid"),
+    "3.8 Keeping Your Totals": (ill.keeping_totals, "Bram's cards in play (top) and stacked to add up (bottom). The Total column of the Core card is his sheet.", "full"),
     "6.1 Order of Combat": (ill.initiative_timeline, "Side initiative: the winners open with half a turn, then sides alternate full turns.", "full"),
     "6.5 Engagement": (ill.combat_grid, "Reach, opportunity attacks and cover on the grid.", "wide"),
     "7.4 Dropping to 0 HP": (ill.death_saves, "The death save track.", "wide"),
@@ -118,7 +119,7 @@ def classify_blockquotes(body):
         lead = re.sub(r"<[^>]+>", "", first.group(1)) if first else ""
         if lead.startswith("Example"):
             cls = "example"
-        elif re.match(r"^[A-Z'’ ]{3,}·", lead):
+        elif re.match(r"^[A-Z'’ ]{3,}(·|\n|$)", lead):
             cls = "card monster" if "CR " in lead else "card"
         else:
             cls = "callout"

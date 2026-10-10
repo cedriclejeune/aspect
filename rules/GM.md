@@ -84,7 +84,7 @@ Everything a monster has, its Core included, can drop **unless it's marked Monst
 
 ### 4.1 Drops
 - **Each encounter drops 1–3 Aspects per character**, taken from the defeated monsters' Aspects and Cores that aren't Monstrous (your choice or random). Bosses add their best Aspects and may drop a Slot card.
-- Looted Aspects and Cores are **player-scaled**: give the player version, with the tag of the Slot it fits (a giant's club becomes a Heavy Weapon with a special effect; a lich's phylactery shard becomes Jewelry).
+- Looted Aspects and Cores are **player-scaled**: give the player version, with the type keyword of the Slot it fits (a giant's club becomes a Heavy Weapon with a special effect; a lich's phylactery shard becomes Jewelry).
 - **Spread strong Cores across the party.** HP comes only from the Core, so one player with a much better Core than the others unbalances encounters.
 - **Most drops are ordinary:** a goblin's Core, a bandit's crossbow, a wolf's bite. They're rarely worth equipping, but they fill the Party Stash with options for future builds.
 - **Rank V** Aspects drop only from Bosses, and rarely.
