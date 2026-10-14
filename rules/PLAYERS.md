@@ -23,15 +23,23 @@
 
 One player is the **Game Master (GM)**, who describes the world, runs monsters and adjudicates rules. Everyone else plays one **character**.
 
+### The Bearers
+Your character is a **Bearer**. A few humanoids carry a gift, a blessing or a curse depending on who you ask: they can **feed on the Aspects of other beings**. When a creature is defeated, its strength, skills and powers linger as a **shard**, and a Bearer can take it in.
+- **Absorbed:** your **Core** (your body's potential: strength, speed, endurance) and your **Attributes** (traits, techniques, knacks). A new one settles while you sleep, which is why they change only at a long rest (3.5). An Aspect you aren't using waits as a shard in your Pack or the Party Stash.
+- **Objects:** weapons, armor, jewels, spellbooks and consumables are real objects, often still marked by their old owner. Anyone can use them.
+- **You stay yourself.** Your look and personality never change: with an ogre's Core, you're the same person with an ogre's strength. *Exception: a Core of another size makes your body grow or shrink to match it, but your features stay yours.*
+- **Your soul holds only so much.** Your Slots are its limit. It grows at the turning points of your story (milestones, 4.1).
+
 ### The Core Loop
-**Explore → Fight → Loot → Rest & Rebuild.**
+**Explore → Adventure → Gather → Rest & Rebuild.**
 - A character is a **Core** plus a set of **Aspects** placed in **Slots**.
-- Defeated enemies drop Aspects. Equip them (3.5) or keep them in your **Pack** or the **Party Stash**.
+- Adventures bring Aspects: defeated enemies drop them, and deals, favors and heists can earn them too. Equip them (3.5) or keep them in your **Pack** or the **Party Stash**.
 - At a rest, you rearrange your Aspects and become a different build if you want.
 
 ### Terminology
 | Term | Meaning |
 |---|---|
+| **Bearer** | A character who can absorb the Aspects of defeated creatures. Every player character is one. |
 | **Core** | The special Aspect that holds your four ability modifiers, Hit Points and speed. You always have exactly one. |
 | **Aspect** | Anything that gives you a capability: a weapon, armor, a jewel, a spellbook, a potion, a trait, a technique, a knack. |
 | **Slot** | A space that holds one Aspect. Each Slot type (Armor, Hand, Jewelry, Item, Attribute) accepts only matching Aspects (3.2). |
@@ -65,7 +73,7 @@ Every creature has **four abilities**, each written as a **modifier** (typically
 | **Strength (STR)** | Climb, jump, swim, lift, break, grapple, endure pain, march | **Weapons** (or DEX), poison, disease, being pushed or grappled |
 | **Dexterity (DEX)** | Sneak, hide, balance, tumble, pick locks and pockets, escape bonds | **Weapons** (or STR), explosions, traps, breath weapons, area effects |
 | **Intelligence (INT)** | Notice, search, read intentions, recall lore, track, navigate, treat wounds, handle animals. **All spellcasting.** | Illusions, confusion and madness |
-| **Charisma (CHA)** | Persuade, deceive, perform, intimidate. **Social, and your force of will.** | Charm, fear, mind control, possession, banishment, curses, polymorph |
+| **Charisma (CHA)** | Persuade, deceive, perform, intimidate. **Social, your force of will, Presence and healing magic (10.6).** | Charm, fear, mind control, possession, banishment, curses, polymorph |
 
 ### 2.2 Checks, Attacks and Defenses
 - **Ability check** = d20 + ability modifier + bonuses from Aspects. The GM picks the ability that fits the action.
@@ -107,11 +115,11 @@ All starting Cores are Medium size. **Player Cores are Small, Medium or Large**;
 
 ### 2.5 Creating a Character
 1. **Choose a Core** from the table above.
-2. **Choose your Aspects** from the GM's starter list (all Rank I): **1 Armor**, up to **2 Hand** Aspects (weapons or a shield), **1 Jewelry** and **3 Attributes**. A caster also picks a **Spellbook** (it takes an Item Slot and needs an empty Hand Slot to cast).
+2. **Choose your Aspects** from the GM's starter list (all Rank I): **1 Armor**, up to **2 Hand** Aspects (weapons or a shield), **1 Jewelry** and **3 Attributes**. A caster also picks a **Spellbook** (it takes an Item Slot and needs an empty Hand Slot to cast); a performer, a **Repertoire** (an Item Slot, no Hand needed).
 3. **Fill your Item Slots**: one *Potion of Healing* (in the free Item Slot).
 4. **Take 50 gp.**
 5. **Calculate:** add up your cards' strips and write the ten totals in your Core's Total column (3.8). Then work out your weapon and spell attack bonuses and passive Awareness (5.3).
-6. **Describe** who you are: name, look, a goal, a bond. No mechanics.
+6. **Describe** who you are: name, look, a **goal** and a bond. Completing your goal grants a milestone (4.1).
 
 > **Example: Mira.** Nimble Core (STR +0, DEX +3, INT +1, CHA +0, 11 HP, 35 ft). **Armor:** *Light Armor I*. **Hands:** *Finesse Blade I*, *Light Blade I*. **Jewelry:** *Ring of Warding I*. **Items:** *Potion of Healing* ×1, one empty. **Attributes:** *Cat Burglar I*, *Springheel I*, *Iron Will I*. Defenses: STR 12 (Light Armor +2), DEX 14 (Light Armor +1), INT 11, CHA 10; weapons target her DEX 14. Speed 40 ft. Finesse Blade I: +5 to hit (DEX +3, Attack +2), 1d6 + 3. Sneaking: d20 + 5.
 
@@ -126,6 +134,7 @@ Every Aspect is a card with four parts:
 
 - **Rank (I–V):** how powerful it is. **Each card has one fixed Rank, written after its name.** A stronger version is a different card (*Cat Burglar IV*), found as separate loot. Rank doesn't stop you from equipping anything (2.3).
 - **Requirement** (*Req STR +2*): **you can't equip the Aspect** unless your Core meets it.
+- **Two abilities** (*DEX or INT + 3*): use whichever you prefer.
 - **Uses** (*Uses 2, short rest*): limited uses recharge on a **short rest** (also regained on a long rest) or on a **long rest**.
 
 ### 3.2 Your Slots
@@ -137,7 +146,7 @@ Every character has the same body. Only the number of Attributes grows much.
 | **Armor** | 1 | **1** (never more) | One *Armor* |
 | **Hand** | 2 | 3 | One *Weapon* or *Shield* each. A Two-Handed weapon takes two Hands. |
 | **Jewelry** | 1 | 2 | One *Jewelry* (rings, amulets, circlets, cloaks, gloves, boots) |
-| **Item** | 2 | 3 | One *Spellbook*, one *Recipe*, or a stack of up to **3 identical** *Consumables* (potions, scrolls, bombs, oils) |
+| **Item** | 2 | 3 | One *Spellbook*, one *Repertoire*, one *Recipe*, or a stack of up to **3 identical** *Consumables* (potions, scrolls, bombs, oils) |
 | **Attribute** | 3 | 8 | One *Trait*, *Technique* or *Knack* |
 
 - A Slot can stay empty.
@@ -178,7 +187,7 @@ Each sample shows the name, the bonus strip (if any), the effect, then the keywo
 > *Jewelry · Uses 2, short rest*
 
 > **ALCHEMIST'S FIRE RECIPE II**
-> Bonus action: throw a flask up to 30 ft. Make one attack (DEX + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss.
+> Bonus action: throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss.
 > *Recipe · 3 flasks*
 
 > **SPRINGHEEL I**
@@ -189,9 +198,21 @@ Each sample shows the name, the bonus strip (if any), the effect, then the keywo
 > When you take the Attack action, you make two attacks instead of one.
 > *Technique*
 
+> **SECOND WIND II**
+> Bonus action: regain 1d10 + 3 HP.
+> *Trait · Uses 1, short rest*
+
+> **BATTLE HYMN I**
+> When you hit with a weapon attack, up to 3 allies within 30 ft who can hear you have +2 on their next attack before the end of your next turn.
+> *Technique · Uses 2, short rest*
+
+> **SPELLGUARD STAFF I**
+> 1d8 / 1d10 Physical · Attack +2. While you hold it, it counts as an empty Hand for casting from a Spellbook.
+> *Weapon · Versatile (1d10)*
+
 > **STONE BLOOD I**
 > +2 STR Defense against poison.
-> *Trait · Resist Poison*
+> *Trait*
 
 > **IRON WILL I**
 > +2 CHA Defense against fear and mind control.
@@ -201,6 +222,44 @@ Each sample shows the name, the bonus strip (if any), the effect, then the keywo
 > +2 on checks to sneak, climb or pick locks.
 > *Knack*
 
+> **WRIT OF FAVOR I**
+> A sealed letter from a noble house, a guild or a temple. Show it to one of its members: they grant one reasonable request (shelter, an audience, safe passage, a loan up to 100 gp).
+> *Consumable*
+
+> **GUILD SIGNET I**
+> Action, in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night.
+> *Jewelry · Uses 1, long rest*
+
+> **RENOWNED I**
+> Choose a city, guild or order when you gain this. +2 on CHA checks with its people.
+> *Knack*
+
+> **WANDERER'S REPERTOIRE I**
+> Presence attack: CHA + 2 · Presence points: 3 + CHA (short rest)
+> Piece cards: *Jeer* (0) · *Rally*, *Hold the Line*, *Cutting Words*, *Steady Now* (1) · *Dread* (2)
+> - *Jeer* (Dirge, 0): until the end of the target's next turn, it has −2 on its next attack.
+> - *Rally* (Anthem, 1): Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks.
+> - *Hold the Line* (Anthem, 1): Duration 1 minute. Allies within 30 ft have +2 to STR and DEX Defense.
+> - *Cutting Words* (Cue, 1): −2 to an enemy's attack roll or check.
+> - *Steady Now* (Cue, 1): +2 to an ally's roll, or to the Defense an attack targets.
+> - *Dread* (Dirge, 2): Lasting. The target is Frightened of you.
+> *Repertoire*
+
+> **ACOLYTE'S LITANY I**
+> Presence attack: CHA + 2 · Presence points: 3 + CHA (short rest)
+> Piece cards: *Guidance* (0) · *Bless*, *Bane*, *Twist Fate* (1) · *Healing Word*, *Cure Wounds* (2)
+> - *Guidance* (Cue, 0): add 1d4 to an ally's check.
+> - *Bless* (Anthem, 1): Duration 1 minute. Up to 3 allies within 30 ft add 1d4 to their attack rolls.
+> - *Bane* (Dirge, 1): Lasting. The target subtracts 1d4 from its attack rolls.
+> - *Twist Fate* (Cue, 1): Reroll. Make an ally or an enemy reroll an attack roll or a check.
+> - *Healing Word* (Mend, 2): bonus action, 60 ft. A creature regains 2d4 + CHA HP.
+> - *Cure Wounds* (Mend, 2): action, touch. A creature regains 2d8 + CHA HP.
+> *Repertoire*
+
+> **RALLYING CRY I**
+> *Rally* as a loose Anthem: bonus action, Duration 1 minute, up to 3 allies within 30 ft have +2 on attacks.
+> *Technique · Anthem · Uses 1, short rest*
+
 ### 3.5 Equipping and Swapping
 Each Slot has its own swap time. A swap moves one Aspect between a Slot and your Pack, the Party Stash or the ground.
 
@@ -209,7 +268,7 @@ Each Slot has its own swap time. A swap moves one Aspect between a Slot and your
 | **Hand** | Your free object interaction (6.2) | Yes. Dropping a weapon or shield is always free. |
 | **Jewelry** | Free, once per turn | Yes |
 | **Item: Consumable, Recipe** | Your free object interaction | Yes. Using it costs what it says (drinking a potion: bonus action). |
-| **Item: Spellbook** | 1 action | Yes |
+| **Item: Spellbook, Repertoire** | 1 action | Yes |
 | **Armor** | 10 minutes to don or doff | No |
 | **Attribute** | Long rest | No |
 | **Core** | Long rest | No |
@@ -259,10 +318,12 @@ Your Core card holds the ten totals in its **Total** column (2.4). You only touc
 You grow stronger mostly through **better Aspects** and a **better Core**, and a little through **more Slots**.
 
 ### 4.1 Milestones
-After a major victory or a story turning point, the GM grants **one new Attribute Slot** (up to 8).
+A milestone grants **one new Attribute Slot** (up to 8). You gain one:
+- **At the end of a major story arc** (every character).
+- **When your character completes their goal** (that character only). Then write a new goal.
 
 ### 4.2 Other Ways to Grow
-- **Loot:** better Aspects and Cores drop from tougher enemies.
+- **Loot:** better Aspects and Cores drop from tougher enemies. Talking, sneaking or tricking your way through can pay too: a reward, a favor, a gift.
 - **Slot cards:** dropped by Bosses (3.3).
 
 ### 4.3 The Endgame
@@ -578,6 +639,7 @@ A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must
 - **Upcasting:** pay the cost of a higher level (up to the book's max) to cast a spell at that level.
 - **One spell per turn:** you can spend spell points on only one spell per turn (cantrips don't count).
 - **High magic:** each book can cast **one spell of 5th or 6th level per long rest**.
+- **Extra spell points** from Traits form a small pool of their own: spend them on **any** equipped Spellbook. They return on a long rest.
 - Spells range from **1st to 6th level**.
 
 ### 10.3 Casting a Spell
@@ -604,6 +666,24 @@ A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must
 
 Full cover blocks an area's effect.
 
+### 10.6 Presence
+**Presence** is a second kind of magic: force of will, voice, performance and prayer. It never deals damage. It **lifts allies, heals them and breaks enemies**. **All healing magic is Presence.** It uses **CHA**, and it isn't spellcasting: spell rules (10.1–10.4) don't apply to it.
+
+- **Be heard:** you must be able to speak, and targets must be able to hear you. No Presence while Incapacitated or underwater. No Hand needed. Presence is always **obvious**.
+- **Presence attack:** d20 + CHA + the Repertoire's **Presence attack** bonus.
+- **Repertoire:** a deck like a Spellbook (10.1). A **cover card** (Rank, Presence attack, Presence points) and one card per piece. It takes an **Item Slot**. Your **Presence points** = the number printed on the cover **+ your CHA** (minimum 1). They return on a **short rest** (and a long rest). If your CHA changes, your maximum changes; points already spent stay spent. A piece costing **0** is used at will. **Extra Presence points** from Traits form a small pool of their own: spend them on **any** equipped Repertoire; they return on a short rest.
+- **Loose pieces:** some Attributes carry a single piece, with uses instead of points.
+- **Two traditions:** **performers** (bards, commanders) give **flat bonuses**; the **faithful** (clerics, oracles) **alter fate**: rerolls and **fate dice** (a d4 at Rank I–II, d6 at III, d8 at IV–V) added to or taken from a roll. A Repertoire can mix both.
+
+Four kinds of pieces:
+
+| Piece | When | What it does |
+|---|---|---|
+| **Anthem** | Bonus action | Buffs allies who can hear you, for a **Duration**. No roll. |
+| **Dirge** | Action | A Presence attack against **CHA Defense**. Most are **Lasting**: you make the maintain rolls (Chapter 8) with your CHA. |
+| **Cue** | Reaction | Changes a roll made by a creature within 60 ft who can hear you, **after the roll** and before the GM says if it succeeds. No roll. |
+| **Mend** | As printed | Restores HP. The target needs only to be in range, not to hear you: Mend reaches Unconscious allies. No roll. |
+
 ---
 
 ## 11. Keywords
@@ -620,6 +700,7 @@ The first keyword on a card. It sets the Slot (3.2).
 | **Shield** | Hand Slot. |
 | **Jewelry** | Jewelry Slot. Rings, amulets, circlets, cloaks, gloves, boots. |
 | **Spellbook** | Item Slot. A deck: a cover card and one card per spell (10.1). Casting needs an empty Hand. |
+| **Repertoire** | Item Slot. A deck of Presence pieces (10.6). Uses CHA. You must be heard; no Hand needed. |
 | **Spell** | A card in a spellbook deck, not an Aspect. Its **level** (1st–6th) is its cost in spell points. |
 | **Cantrip** | A spell card that costs nothing. Cast at will. |
 | **Consumable** | Item Slot, a stack of up to 3 identical cards. Gone once used. |
@@ -663,6 +744,11 @@ The first keyword on a card. It sets the Slot (3.2).
 | **Hold** | A Lasting effect that takes a creature out of the fight. Adds first bite and weakening (Chapter 8). |
 | **Duration T** | Lasts T (*1 minute*, *1 hour*), then ends. You can end it early, no action needed. |
 | **Subtle** | Nobody notices you casting it. |
+| **Anthem** | Presence (10.6). Bonus action: a buff for allies who hear you, for a Duration. |
+| **Dirge** | Presence (10.6). Action: a Presence attack against CHA Defense. |
+| **Cue** | Presence (10.6). Reaction: changes a roll after it's made, before its result. |
+| **Mend** | Presence (10.6). Restores HP to a creature in range, even one who can't hear you. |
+| **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
 | **Vulnerable (type)** | Take double damage of that type. |
 

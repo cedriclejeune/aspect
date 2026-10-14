@@ -6,10 +6,14 @@
 ## 1. Pillars
 Simpler than D&D · quick and snappy · interactive · lots of character customization · balanced. Power comes 100% from Core + Attributes + items; characters have no Rank or level.
 
+## 1b. Lore Constraints
+- Player characters are **Bearers** (P 1): they absorb **Cores and Attributes**; everything else is a real object. A Bearer's **look and personality never change**, except that a Core's size reshapes the body.
+- Write absorbed Aspects (Cores, Attributes) as something a being *is* or *knows*; write the other types as objects someone could pick up.
+
 ## 2. Power Ceiling
 A Rank IV Core, Rank IV Aspects, 8 Attributes and all three Slot cards are the **peak**, roughly a level-12 hero in fifth edition. Rank IV is slightly game-breaking; Rank V is meta and game-breaking, a Boss treasure players hunt for.
 
-Power scaling comes mainly from Rank (better Aspects and Cores). Slot count grows slowly: 3 → 8 Attributes, plus at most three Slot cards. Five milestones at ~15 encounters each ≈ fifth edition to level 12.
+Power scaling comes mainly from Rank (better Aspects and Cores). Slot count grows slowly: 3 → 8 Attributes, plus at most three Slot cards. Five milestones (end of story arcs, plus each character's completed goal; about one per ~15 encounters) ≈ fifth edition to level 12.
 
 ## 3. Rank Scaling
 | Rank | Bonus | Power reference | Spellbook (typical) | Core (typical) |
@@ -20,6 +24,7 @@ Power scaling comes mainly from Rank (better Aspects and Cores). Slot count grow
 | **IV** | +5 | Slightly game-breaking: a legendary item, a power that bends a core rule | 16 points, max 6th | Total +10 (max +5), 80–100 HP |
 | **V** | +6 | Game-breaking: changes the balance of play (meta Attributes, rule-breaking items, size beyond Large) | 20 points, max 6th, plus one rule-breaking power | None: Cores stop at IV |
 
+- **Repertoires (Presence, P 10.6):** Presence points = printed points + CHA (minimum 1); printed by Rank: I 3 · II 4 · III 5 · IV 6 · V 7, back on a short rest. Pieces work the same for everyone (Anthems and Cues don't roll), so anyone can splash Presence; CHA buys **more uses**, not more power per use. Watch healing: an Envoy (CHA +3) with a Rank I Litany has 6 points, three Mends per short rest. Pieces cost 0–3. Anthem and Dirge bonuses and penalties equal the Rank bonus; Rank III+ pieces may grant an advantage or disadvantage die. Two traditions: performers give flat bonuses (the Rank bonus); the faithful alter fate with rerolls and fate dice (d4 at I–II, d6 at III, d8 at IV–V). **Mend** pieces cost at least 2 points, since points come back on a short rest and a short rest already heals half your missing HP; heal by Rank like a 5e spell of the book's max level. Anthems stack like every bonus: keep them narrow (one roll type) and watch two-performer parties in playtests. *Provisional until the balance pass.*
 - **The Rank bonus is hidden.** Players never see the term: cards print their numbers directly (weapon *Attack +3*, book *Spell attack: INT + 3*, Knack *+3*, *Noisy 3*). Use the table's Bonus column to size every printed bonus or penalty.
 - **Modifier boosts print twice.** A card that raises an ability modifier also prints the same number in the matching Defense row of its strip (+1 STR and +1 STR Defense), because Defense = 10 + modifier + bonuses. Every strip row then sums on its own.
 - **Damage dice scale with Rank.** Cantrips and other growing effects print dice already scaled for their Aspect's Rank:
@@ -36,8 +41,12 @@ Power scaling comes mainly from Rank (better Aspects and Cores). Slot count grow
 
 ## 4. Designing Aspects and Cores
 - Keep each Aspect to **one clear idea** that fits on a card. The card says what it does: anything that overrides a rule (swap time, underwater use, size) is printed on it.
-- **Size every number by Rank.** All bonuses stack, so a card's bonus or penalty equals its **Rank bonus**, and a card that attacks on its own uses an **ability modifier + its Rank bonus**, like a weapon (*Alchemist's Fire Recipe II*: DEX + 3).
-- Give DEX and CHA real value. DEX already has a weapon Defense, initiative and ranged attacks. CHA has its Defense against charm and fear but few combat uses, so it needs social Aspects with teeth (allies, discounts, rallying, demoralizing) to be worth investing in.
+- **Size every number by Rank.** All bonuses stack, so a card's bonus or penalty equals its **Rank bonus**, and a card that attacks on its own uses a **choice of two abilities + its Rank bonus** (*Alchemist's Fire Recipe II*: DEX or INT + 3). Pick two abilities that serve different Cores. Weapons and Spellbooks keep their single ability.
+- **Trait budget (GM 4.3).** For Traits and Knacks, **Rank = budget** (I 1 … V 5). A bonus (+1 modifier) costs 1, a perk 1, a strong perk 2, an activity ¼ (at most 4 per card, from at least two abilities). Never a lone bonus. Rank I has no bonus or perk (activities or one narrow edge). Families: Cross, Dual, Gifted (from Rank II). Concept cards in GM 4.4, random generator in GM 4.5. Techniques, weapons, Jewelry and other types are sized by the Rank table, not by the budget. *Provisional until the balance pass.*
+- **Classless by default: encourage multiclassing.** About **half** of all Aspects are **Core-free**: no roll and no modifier (flat bonuses, reactions, rerolls, movement, senses, uses). The other half (weapons, Spellbooks, Presence, attack cards, a few signature Attributes) use a modifier. Any character should find most loot worth considering.
+  - **Requirements are rare:** only on Medium and Heavy Armor and Heavy weapons.
+  - **Bridge Aspects** link two styles: a Technique that buffs allies when you hit (*Battle Hymn*), a weapon that lets you cast (*Spellguard Staff*). Put some in every loot table.
+- Give DEX and CHA real value. DEX already has a weapon Defense, initiative and ranged attacks. CHA has its Defense against charm and fear but few combat uses, so it needs social Aspects with teeth (allies, discounts, rallying, demoralizing) to be worth investing in. Presence (P 10.6) is CHA's magic: buffs, debuffs and reactions, never damage. Social rewards are cards that take real Slots: favors (Consumable), contacts (Jewelry with uses), titles and renown (Knack).
 - Give every Aspect a type keyword that names its Slot (P 11.1). **Jewelry** holds worn magic (rings, amulets, cloaks, gloves, boots), usually active powers with limited uses; other passive bonuses belong in Attributes.
 - Armor adds mostly to STR Defense; Light Armor's +1 DEX Defense lets nimble characters trade 5 ft of speed for it or go unarmored to move faster.
 - Card design should keep the **bookkeeping cost of a swap** low (how much math a swap triggers).
@@ -69,6 +78,8 @@ Power scaling comes mainly from Rank (better Aspects and Cores). Slot count grow
 | Concentration | None (P 10.4). A concentration spell on enemies → a lasting effect (P Chapter 8); any other → it lasts its full listed duration. |
 | Legendary Resistance | Not used: Holds (P Chapter 8) |
 | Spellcasting ability (any) | INT |
+| Healing spells (*Cure Wounds*, *Healing Word*, *Mass Cure Wounds*…) | **Mend** pieces (Presence, CHA): never Spellbook spells. Spellcasting modifier → CHA |
+| Buff and debuff spells without damage (*Bless*, *Bane*, *Guidance*, *Bardic Inspiration*) | Presence pieces: Anthem, Dirge or Cue. Bards: flat bonuses; clerics: rerolls and fate dice |
 | Monster save DCs | Effect bonus = DC − 10 (or the CR table, GM 2.1) |
 | Proficiency bonus | Rank bonus of the Aspect used (players). Monsters keep their written-out attack bonuses. |
 | Save proficiency | None. Defense = 10 + modifier. |
