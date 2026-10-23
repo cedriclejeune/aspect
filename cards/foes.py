@@ -29,10 +29,10 @@ FOES = [
     foe("Legionary", ["Pilum", "Gladius", "Shield Wall", "Mail", "Shield"], core="Brute",
         own=["Throws its *Pilum*, then draws its *Gladius*."]),
     foe("Bandit Captain", ["Finesse Blade", "Dagger", "Twin Strike", "Leather", "Coin Pouch"], core="Bandit Captain"),
-    foe("Ogre", ["Greatclub", "Javelins"], core="Ogre",
+    foe("Ogre", ["Greatclub", "Javelins", "Sweeping Blow"], core="Ogre",
         own=["**Giant Strength:** +33 HP. Its weapons roll one extra damage die (included)."],
         bonus={"HP": 33}, extra_dice=1, senses="Darkvision 60"),
-    foe("Ogre Chieftain", ["Greatclub", "Cleave", "Second Wind", "Plate"], body=(5, 0, 0, 1, 110, 40, "Large"),
+    foe("Ogre Chieftain", ["Greatclub", "Cleave", "Second Wind", "Sweeping Blow", "Plate"], body=(5, 0, 0, 1, 110, 40, "Large"),
         own=["**Giant Strength:** its weapons roll one extra damage die (included).",
              "**Bellow (Recharge 5–6):** action. Attack (+5) against the WIL Defense of each enemy within 30 ft: "
              "Frightened of the chieftain until the end of its next turn."],

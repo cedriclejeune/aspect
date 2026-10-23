@@ -1043,6 +1043,36 @@ globalThis.BEARERS_CARDS = {
     }
    ]
   },
+  "Q-II-02": {
+   "id": "Q-II-02",
+   "name": "Sweeping Blow",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "When you take the Attack action with a Heavy or Reach weapon, you can make one attack roll against each enemy within your reach instead. Half damage on a miss."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": [
+    {
+     "id": "Q-II-02#0",
+     "name": "Sweeping Blow",
+     "use": "action",
+     "target": "enemies",
+     "hook": "sweep",
+     "params": {
+      "props": [
+       "heavy",
+       "reach"
+      ]
+     }
+    }
+   ]
+  },
   "R-II-01": {
    "id": "R-II-01",
    "name": "Alchemist's Fire Recipe",
@@ -2857,7 +2887,8 @@ globalThis.BEARERS_CARDS = {
    "body": null,
    "carries": [
     "W-I-13",
-    "W-I-11"
+    "W-I-11",
+    "Q-II-02"
    ],
    "bonus": {
     "HP": 33
@@ -2902,6 +2933,7 @@ globalThis.BEARERS_CARDS = {
     "W-I-13",
     "Q-I-01",
     "T-II-01",
+    "Q-II-02",
     "A-II-01"
    ],
    "bonus": {},

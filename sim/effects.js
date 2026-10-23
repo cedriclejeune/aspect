@@ -6,6 +6,8 @@
  *   brace        Boarspear  rider on its opportunity attacks: +params.dmg damage
  *   pierce       Pilum      rider on a hit: the target's Shield gives no bonus until it pulls the pilum free
  *                           (a "Pierced" condition; the engine offers the action to end it)
+ *   sweep        Sweeping Blow  action power: the Attack action as one roll against each enemy within the reach of a
+ *                           held melee weapon with one of params.props (Heavy, Reach); half damage on a miss
  */
 (function (root, factory) {
   const Eng = root.BearersEngine || (typeof require === "function" ? require("./engine.js") : null);
@@ -50,5 +52,47 @@
     },
   });
 
-  return { hooks: ["close_order", "brace", "pierce"] };
+  // Sweeping Blow: an Attack action made as an area roll (Eng areaWeaponAttack). cmd.weapon picks the weapon when
+  // several qualify (default: the first one in hand); cmd.targets may name a subset of the enemies in reach.
+  // RULING R601: "each enemy within your reach" counts enemies within the chosen weapon's reach that the attacker has
+  // a clear line to; by default it leaves out enemies at 0 HP (the attacker may still name them in cmd.targets).
+  // RULING R602: the sweep is the whole Attack action: no extra attacks (Twin Strike) and no two-weapon bonus attack
+  // after it, and it can't follow an attack already made with the action. Triggers on taking the Attack action fire.
+  const sweepWeapon = (ctx) => {
+    const a = ctx.actor, props = params(ctx).props || ["heavy", "reach"];
+    if (a.form) return null;
+    const ok = (id) => { const cd = ctx.cards.cards[id]; return cd && cd.atk && !cd.atk.range && props.some((k) => cd.atk[k]); };
+    const id = ctx.cmd && ctx.cmd.weapon ? ctx.cmd.weapon : a.hands.find(ok);
+    return id && a.hands.includes(id) && ok(id) ? ctx.weapon(id) : null;
+  };
+  const sweepTargets = (ctx, w) => {
+    const a = ctx.actor, reach = ctx.weaponReach(w);
+    const pool = ctx.creatures().filter((t) => t.side !== a.side && !t.dead && ctx.distance(a, t) <= reach && ctx.sees(a, t) &&
+      !a.conds.some((k) => k.name === "Charmed" && k.source === t.id));
+    const ids = ctx.cmd && ctx.cmd.targets && ctx.cmd.targets.length ? ctx.cmd.targets : null;
+    if (!ids) return pool.filter((t) => t.hp > 0);
+    const out = ids.map((id) => pool.find((t) => t.id === id));
+    return out.some((t) => !t) ? null : out;
+  };
+  Eng.registerHook("sweep", {
+    plan(ctx) {
+      const w = sweepWeapon(ctx);
+      if (!w) return `${ctx.power.name} needs a ${(params(ctx).props || ["heavy", "reach"]).map((k) => k[0].toUpperCase() + k.slice(1)).join(" or ")} melee weapon in hand`;
+      const targets = sweepTargets(ctx, w);
+      if (!targets) return "Pick enemies within your reach";
+      if (!targets.length) return `No enemy within reach of ${w.name}`;
+      const info = ctx.attackInfo(targets[0], { w, area: true });
+      const dice = w.two && ctx.actor.hands.length < ctx.actor.build.slots.hand ? w.two : w.dice;
+      const mod = ctx.actor.totals[info.abil];
+      return { targets, info: { weapon: w.id, toHit: info.bonus, dice: info.dice, adv: info.adv, dis: info.dis, why: info.why.concat(info.parts), vs: "weapon",
+        defense: targets.map((t) => `${t.name} ${ctx.attackInfo(t, { w, area: true }).def}`).join(", "),
+        damage: `${dice}${mod ? (mod > 0 ? "+" : "−") + Math.abs(mod) : ""} ${w.type || "Physical"} (half on a miss)`, range: ctx.weaponReach(w) } };
+    },
+    onUse(ctx) {
+      const w = sweepWeapon(ctx);
+      ctx.areaWeaponAttack(w, ctx.targets, { attackAction: true, label: `sweeps with ${w.name}` });
+    },
+  });
+
+  return { hooks: ["close_order", "brace", "pierce", "sweep"] };
 });

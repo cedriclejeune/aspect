@@ -237,8 +237,9 @@ def foe_card(f):
     tag = f'<span class="tag">{"Boss" if f["boss"] else "Foe"}</span>'
     art = card_art.foe_art(f["name"]) or ""
     paras = "".join(f"<p>{md(t)}</p>" for t in lines)
+    size = 7.4 if sum(len(t) for t in lines) + 25 * (len(lines) - 1) > 760 else fit(lines, "") + 1  # the longest foe cards
     return (f'<div class="card foe">{band(f["name"], COLOR["foe"], tag)}<div class="pic">{art}</div>{strip(values, own=True)}'
-            f'<div class="body" style="font-size:{fit(lines, "") + 1}pt">{paras}<p class="ids">{md(ids)}</p></div>'
+            f'<div class="body" style="font-size:{size}pt">{paras}<p class="ids">{md(ids)}</p></div>'
             f'<div class="kw">{kw}</div><div class="set">FOE</div></div>')
 
 

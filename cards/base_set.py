@@ -132,6 +132,7 @@ ASPECTS = [
     card("Pack Hunter", "I", "aspect", "Trait", ["**1/S.R.**, when you hit a creature one of your allies is engaged with: it falls Prone."], group="loot"),
     card("Slippery", "I", "aspect", "Technique", ["**Bonus action (2/S.R.):** move up to half your Speed. This movement doesn't provoke opportunity attacks."], group="loot"),
     card("Hedge Witch", "II", "aspect", "Trait", ["1 extra spell point (long rest).", "+3 on checks to handle animals, recall lore, treat wounds or deceive."], group="loot"),
+    card("Sweeping Blow", "II", "aspect", "Technique", ["When you take the Attack action with a Heavy or Reach weapon, you can make one attack roll against each enemy within your reach instead. Half damage on a miss."], group="loot"),
 ]
 
 
@@ -339,6 +340,8 @@ CARD_FX = {
     "Pack Hunter": [dict(use="trigger", uses="1/SR", on="hitEngaged", do=[dict(cond="Prone")])],
     "Slippery": [dict(use="bonus", uses="2/SR", target="self", do=[dict(move="safe", ft="half")])],
     "Hedge Witch": [dict(use="passive", extraSp=1)],
+    # an Attack action of its own: one roll against each enemy in the weapon's reach (sim/effects.js)
+    "Sweeping Blow": [dict(use="action", target="enemies", hook="sweep", params=dict(props=["heavy", "reach"]))],
 }
 for _name in CARD_FX:
     assert _name in {c["name"] for c in CARDS}, _name

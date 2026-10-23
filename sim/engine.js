@@ -51,10 +51,15 @@
  *   modifyDamage(ctx) before damage is rolled: ctx.damage = { parts: [{ dice, type }], flat, crit, type }; push
  *                     parts or change flat. Same callers as modifyAttack.
  *   passive(ctx)      once at `start`, for each passive hook power.
+ *   plan(ctx)         optional, for a power with `hook`: pure, runs when the power is planned (preview, legal, use).
+ *                     Returns an error text (refused) or { targets: [creature], info } (its own targets; info is
+ *                     merged into the preview). ctx.cmd is the command.
  *   ctx = { fight, state, cards, actor, target, targets, point, power, entry, cmd, attack, damage, trigger,
  *           role, roll(dice) → total, d20(adv, dis) → { dice, kept }, emit(event), ask(prompt) → answer,
  *           dealDamage(t, n, type, opts), heal(t, n), addCond(t, name, opts), removeCond(t, name),
- *           addMod(t, mod), apply(effects, target), distance(a, b), engaged(a, b), creature(id), creatures() }
+ *           addMod(t, mod), apply(effects, target), distance(a, b), engaged(a, b), creature(id), creatures(),
+ *           weapon(id) → weapon spec of a held weapon, weaponReach(w), sees(a, b) → clear line, attackInfo(t, src) (pure),
+ *           areaWeaponAttack(w, targets, { label, attackAction }) one weapon roll against each target, half on a miss }
  *   Creatures in ctx are live state objects; change them only through the helpers.
  */
 (function (root, factory) {
@@ -747,6 +752,11 @@
     ctx.addMod = (t, m) => addMod(need(), t, Object.assign({ source: ctx.actor && ctx.actor.id }, m));
     ctx.apply = (effects, target) => applyDo(need(), ctx.actor, ctx.entry, effects, target, { hit: true });
     ctx.distance = dist; ctx.engaged = engaged;
+    ctx.weapon = (id) => weaponOf(F, ctx.actor, id);
+    ctx.weaponReach = weaponReach;
+    ctx.sees = (a, b) => sight(F.state, a, b).los;
+    ctx.attackInfo = (t, src) => attackInfo(F, ctx.actor, t, src);
+    ctx.areaWeaponAttack = (w, targets, o) => areaWeaponAttack(need(), ctx.actor, w, targets, o);
     ctx.creature = (id) => F.state.creatures[id];
     ctx.creatures = () => Object.values(F.state.creatures);
     return ctx;
@@ -1270,17 +1280,67 @@
     afterHit(X, a, t, { weapon: true, melee: info.melee, crit, engaged: engagedNow });
     return res;
   }
+  // An area weapon attack (Sweeping Blow): one attack roll compared to each target's Defense, as an area roll (P 6.6:
+  // no Outnumbered or target situations, no cover); one damage roll shared by all; half damage on a miss.
+  // o: { label, attackAction: true (takes the Attack action: its triggers fire, no further attacks with it) }
+  // RULING R600: a shared roll crits only on a natural 20 (an Unconscious target doesn't turn it into a crit); the
+  // crit doubles the dice for every target. On a miss, half of the whole damage (the per-target bonuses too); weapon
+  // riders and hit triggers (Crushing, weaponHit, meleeDrop) apply per target hit.
+  function areaWeaponAttack(X, a, w, targets, o) {
+    const F = X.F, st = X.st;
+    o = o || {};
+    targets = targets.filter((t) => !t.dead);
+    if (o.attackAction) {
+      a.turn.attackAction = true; a.turn.attacksLeft = 0;
+      fireTriggers(X, a, "attackAction", { target: targets[0] });
+    }
+    if (!targets.length) { emit(X, { t: "note", actor: a.id, text: "No enemy within reach." }); return; }
+    const res = rollAttack(X, a, null, attackInfo(F, a, targets[0], { w, area: true }), { label: o.label || `sweeps with ${w.name}` });
+    const shared = {};
+    const dice = w.two && otherHandEmpty(F, a, w) ? w.two : w.dice;
+    for (const t of targets) {
+      if (t.dead) continue;
+      const info = attackInfo(F, a, t, { w, area: true });
+      const r = Object.assign({}, res, { t, defs: info.defs });
+      decide(r);
+      if (r.hit) hitReactions(X, r, true);
+      const crit = r.hit && r.crit;
+      emit(X, { t: r.hit ? (crit ? "crit" : "hit") : "miss", actor: a.id, target: t.id, text: `${a.name} ${r.hit ? (crit ? "critically hits" : "hits") : "misses"} ${t.name} (${r.total} vs ${best(r.defs)})${r.hit ? "" : ": half damage"}.` });
+      if (r.hit) { stat(X, a.id).hits++; markSubdueHit(t); if (crit) stat(X, a.id).crits++; }
+      const engagedNow = r.hit && allyEngaged(st, a, t);
+      const riders = r.hit && w.card ? (F.cards.cards[w.card].fx || []).map((p) => ({ p, card: w.card, deck: null, src: "hand" })).filter((e) => e.p.use === "trigger" &&
+        (e.p.on === "hit" || (e.p.on === "crit" && crit))) : [];
+      const dmg = { parts: [{ key: "w", dice, type: w.type || "Physical", extra: w.card || w.natural ? a.build.extraDice || 0 : 0 }],
+        flat: a.totals[info.abil], crit, type: w.type || "Physical" };
+      a.mods.forEach((m, i) => { if (m.kind === "dmg") { dmg.flat += m.n || 0; if (m.dice) dmg.parts.push({ key: "m" + i, dice: m.dice, type: dmg.type }); } });
+      for (const rd of riders) if (!rd.p.hook) (rd.p.do || []).forEach((d, i) => { if (d.dmg) dmg.parts.push({ key: rd.p.id + i, dice: d.dmg, type: d.type || dmg.type }); });
+      runHooks(F, X, a, t, "modifyDamage", { damage: dmg, weapon: w, attack: info });
+      for (const rd of riders) { const h = rd.p.hook && HOOKS[rd.p.hook]; if (h && h.modifyDamage) h.modifyDamage(makeCtx(F, X, { actor: a, target: t, role: "attacker", power: rd.p, entry: rd, damage: dmg, weapon: w, attack: info, trigger: { on: rd.p.on, attacker: a, target: t, hit: true, crit, weapon: w } })); }
+      dealParts(X, a, t, dmg, true, { shared, half: !r.hit });
+      if (!r.hit) continue;
+      for (const rd of riders) {
+        if (rd.p.hook) { const h = HOOKS[rd.p.hook]; if (!h || h.onTrigger || !h.modifyDamage) hookTrigger(X, a, rd, { on: rd.p.on, attacker: a, target: t, hit: true, crit, weapon: w }); continue; }
+        applyDo(X, a, rd, (rd.p.do || []).filter((d) => !d.dmg), t, { hit: true });
+      }
+      afterHit(X, a, t, { weapon: true, melee: true, crit, engaged: engagedNow });
+    }
+  }
   // RULING R233: a Versatile weapon uses its bigger die whenever the wielder's other Hand Slot is empty.
   function otherHandEmpty(F, a, w) { return !a.form && w.card && handsUsed(F, a) < a.build.slots.hand; }
-  function dealParts(X, a, t, dmg, melee) {
+  // o: { shared: {} rolls of the parts with a `key`, reused across targets (area weapon attack); half: true on a miss }
+  function dealParts(X, a, t, dmg, melee, o) {
+    o = o || {};
     let total = dmg.flat;
     const byType = {};
     for (const p of dmg.parts) {
-      const r = rollDice(X, p.dice, { crit: dmg.crit, extra: p.extra, mods: a.totals, why: "damage" });
+      const keep = o.shared && p.key != null;
+      const r = keep && o.shared[p.key] ? o.shared[p.key] : rollDice(X, p.dice, { crit: dmg.crit, extra: p.extra, mods: a.totals, why: "damage" });
+      if (keep) o.shared[p.key] = r;
       if (p.type === dmg.type || !p.type) total += r.total; else byType[p.type] = (byType[p.type] || 0) + r.total;
     }
-    applyDamage(X, t, Math.max(0, total), dmg.type, { source: a.id, crit: dmg.crit, melee });
-    for (const [ty, n] of Object.entries(byType)) applyDamage(X, t, Math.max(0, n), ty, { source: a.id, crit: dmg.crit, melee });
+    const cut = (n) => Math.max(0, o.half ? Math.floor(n / 2) : n);
+    applyDamage(X, t, cut(total), dmg.type, { source: a.id, crit: dmg.crit, melee });
+    for (const [ty, n] of Object.entries(byType)) applyDamage(X, t, cut(n), ty, { source: a.id, crit: dmg.crit, melee });
   }
   // hitEngaged is judged when the hit lands, before damage.
   const allyEngaged = (st, a, t) => living(st).some((c) => c.side === a.side && c !== a && engaged(c, t));
@@ -1471,7 +1531,11 @@
       if (condsNamed(c, "Charmed").some((k) => k.source === t.id) && (p.atk || (p.do || []).some((d) => d.dmg || d.cond))) fail(`${c.name} is Charmed by ${t.name}`);
     };
     const tg = p.target || (p.area ? "point" : "self");
-    if (tg === "self") targets = [c];
+    // a hook power may pick its own targets and add preview info (Sweeping Blow): plan(ctx) → error text | { targets, info }
+    const hp = p.hook && HOOKS[p.hook] && HOOKS[p.hook].plan ? HOOKS[p.hook].plan(makeCtx(F, null, { actor: c, power: p, entry: e, cmd })) : null;
+    if (typeof hp === "string") fail(hp);
+    if (hp) targets = hp.targets;
+    else if (tg === "self") targets = [c];
     else if (tg === "creature" || tg === "ally" || tg === "enemy") {
       targets = pick(cmd.targets && cmd.targets.slice(0, 1));
       if (!targets.length) fail("Pick a target");
@@ -1512,6 +1576,7 @@
     if ((p.do || []).some((d) => d.shove)) targets.forEach((t) => { if (sizeGap(t, c) > 1 && SIZE_N[t.size] > SIZE_N[c.size]) fail(`${t.name} is too big to shove`); });
     const info = { use: p.use, cost: cost ? `${cost} ${deck && deck.kind === "spellbook" ? "spell point" + (cost > 1 ? "s" : "") : "Resolve"}` : null,
       targets: targets.map((t) => t.id), range: reach, cells: cells ? cells.map((q) => key(q[0], q[1])) : null };
+    if (hp && hp.info) Object.assign(info, hp.info);
     if (p.atk && targets.length) {
       const area = !!p.area || tg === "allies" || tg === "enemies";
       const first = attackInfo(F, c, targets[0], { entry: e, area });
