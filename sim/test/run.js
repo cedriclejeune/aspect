@@ -2,6 +2,7 @@
 "use strict";
 const path = require("path");
 const Eng = require("../engine.js");
+require("../effects.js");
 const FIX = require("./fixture-cards.js");
 let REAL = null;
 try { REAL = require(path.join(__dirname, "..", "cards.js")); } catch (e) { REAL = null; }
@@ -682,6 +683,13 @@ function realTests() {
   });
 }
 
+// Card-effect tests (agent D): sim/test/effects/*.test.js, real cards only.
+function effectTests() {
+  const fs = require("fs"), dir = path.join(__dirname, "effects");
+  const H = { Eng, eq, ok, run, refused, start, C, evs, cards: () => CARDS };
+  for (const f of fs.readdirSync(dir).filter((n) => n.endsWith(".test.js")).sort()) require(path.join(dir, f))(T, H);
+}
+
 // Bot helper: skip help and buffs on allies when looking for "hit something" templates.
 function c0(st, id, t) { return t.type === "act" || t.candidates.every((x) => st.creatures[x].side === st.creatures[id].side); }
 
@@ -702,6 +710,7 @@ let total = res;
 if (REAL) {
   tests.length = 0;
   realTests();
+  effectTests();
   const r2 = runAll("cards.js", REAL);
   console.log(`sim/cards.js:  ${r2.pass}/${tests.length} passed`);
   total = { pass: res.pass + r2.pass, fail: res.fail + r2.fail };

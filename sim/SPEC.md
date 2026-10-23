@@ -257,3 +257,4 @@ CSV export: one row per creature with those columns.
 - Weapon riders: Boarspear is `use: "trigger", on: "opportunity", hook: "brace"`; Pilum `on: "hit", hook: "pierce"`; Gladius `passive, hook: "close_order"`.
 - Foe `ownFx` ids: `foe-<slug>#<i>`. Deck spell/power cards have no card ID and live only in `decks[*].powers`.
 - `frames` lists only the five base Slots.
+- `act` action `endCond` (field `cond`): spend the action a condition names to end it (Pilum: pull it free). Conditions may carry `card` and `endAction`.

@@ -27,6 +27,7 @@
  *
  * Commands: SPEC 4.2, plus these extras: act "revert" (leave a Form, free) and act "prone" (drop prone, free);
  *   move `safe: true` spends movement granted by a `move: "safe"` effect (no opportunity attacks);
+ *   act "endCond" + `cond: "<condition id>"` (an action that ends a condition with `endAction`, Pierce: pull the pilum free);
  *   interact `drop: "<card id>"` (free); power `pool: "extra"` pays from the extra spell point / Resolve pool;
  *   power/shove `mode: "push"|"prone"` for shove effects; adjust `temp`, `exhaustion`.
  *
@@ -216,6 +217,14 @@
     t.errors = [];
     return t;
   }
+  // Totals from the gear in hand now (a dropped Shield stops counting); a condition with `card` (Pierce)
+  // switches that card's bonuses off.
+  function retally(F, c) {
+    const off = c.conds.filter((k) => k.card).map((k) => k.card);
+    const t = totals(Object.assign({}, c.build, { hands: c.hands.filter((id) => !off.includes(id)) }), F.cards);
+    c.own = t;
+    if (!c.form) { c.totals = t; c.size = t.size; }
+  }
   function validate(build, cards) {
     build = normBuild(build);
     const out = totals(build, cards).errors.slice();
@@ -275,6 +284,9 @@
       if (need <= free) { b.hands.push(c.id); free -= need; } else b.carried.push(c.id);
     }
     shields.forEach((c) => b.hands.push(c.id));
+    // RULING R408: a foe built on a body (a beast) that carries no Hand gear has no Hand Slots: it can't pick up,
+    // draw or wield gear, nor grapple with a hand (Wolf).
+    if (foe.body && !hand.length) b.slots.hand = 0;
     b.slots.jewelry = Math.max(b.slots.jewelry, b.jewelry.length);
     b.slots.item = Math.max(b.slots.item, b.items.length);
     b.slots.aspect = Math.max(b.slots.aspect, b.aspects.length);
@@ -528,8 +540,9 @@
     if (old) removeCond(X, t, old, null, true);
     const k = { id: "k" + X.st.nextId++, name, source: o.source || null, until: o.until || null, lasting: !!o.lasting,
       subdue: !!o.subdue, rolls: 0, hurt: 0, hits: 0, bite: !!o.subdue, abil: o.abil || null, vs: o.vs || null,
-      flat: !!o.flat, power: o.power || null, effect: !!o.effect };
+      flat: !!o.flat, power: o.power || null, effect: !!o.effect, card: o.card || null, endAction: o.endAction || null };
     t.conds.push(k);
+    if (k.card) retally(X.F, t);
     emit(X, { t: "cond", target: t.id, actor: k.source, cond: name, lasting: k.lasting, text: `${t.name} is ${name}${k.source && k.source !== t.id ? " (" + nm(X, k.source) + ")" : ""}${k.lasting ? ", Lasting" : ""}.` });
     if (INCAP.includes(name) || SPEED0.includes(name)) { t.turn.dodging = false; }
     if (name === "Unconscious" || name === "Stunned" || name === "Petrified") dropHeld(X, t, name === "Unconscious");
@@ -540,12 +553,14 @@
     for (const id of t.hands) X.st.ground.push({ card: id, pos: t.pos.slice(), owner: t.id });
     emit(X, { t: "note", target: t.id, text: `${t.name} drops ${t.hands.map((id) => X.F.cards.cards[id].name).join(", ")}.` });
     t.hands = [];
+    retally(X.F, t);
   }
   function removeCond(X, t, k, why, silent) {
     const i = t.conds.indexOf(k);
     if (i < 0) return;
     t.conds.splice(i, 1);
     t.mods = t.mods.filter((m) => !(m.until && m.until.lasting === k.id));
+    if (k.card) retally(X.F, t);
     if (!silent) emit(X, { t: "condEnd", target: t.id, cond: k.name, text: `${t.name} is no longer ${k.name}${why ? " (" + why + ")" : ""}.` });
   }
   function addMod(X, t, m) {
@@ -590,7 +605,6 @@
     return Object.assign({ id: wid, name: cd.name, card: wid }, cd.atk);
   }
   const bestAbil = (c, list) => list.reduce((b, ab) => (c.totals[ab] > c.totals[b] ? ab : b), list[0]);
-  const highestMod = (c) => Math.max(...ABILS.map((a) => c.totals[a]));
   function meleeWeapons(F, c) {
     if (c.form) return c.form.weapon ? ["natural"] : ["unarmed"];
     const ws = c.hands.filter((id) => { const cd = F.cards.cards[id]; return cd && cd.atk && !cd.atk.range; });
@@ -608,7 +622,11 @@
     const flat = (n, why) => { if (!n) return; info.bonus += n; info.parts.push(`${signed(n)} ${why}`); };
     const d = dist(a, t);
     info.distance = d;
-    if (a.dead || t.dead) fail("Not a living creature");
+    // RULING R405: a zone's later attacks (a creature entering it or ending its turn there) use only its source's
+    // attack bonus: the source isn't making an attack then, so its own mods and situations don't apply, and a
+    // dead source's zone still attacks.
+    const zone = !!src.zone;
+    if ((a.dead && !zone) || t.dead) fail("Not a living creature");
     if (condsNamed(a, "Charmed").some((k) => k.source === t.id)) fail(`${a.name} is Charmed by ${t.name}`);
     const sg = sight(st, a, t);
     // RULING R231: Unconscious and Stunned creatures still "see" for unseen/advantage purposes; only Blinded,
@@ -652,17 +670,23 @@
     info.ranged = ranged; info.melee = melee; info.vs = vs;
     // RULING R234: Exhaustion's −2 per level applies to attack and maintain rolls, not to death saves or side initiative.
     if (a.exhaustion) flat(-2 * a.exhaustion, "Exhaustion");
-    for (const m of a.mods) {
+    for (const m of zone ? [] : a.mods) {
       if (m.kind !== "attack" && m.kind !== "roll") continue;
       if (m.only === "ranged" && !ranged) continue;
       if (m.only === "melee" && !melee) continue;
       if (m.near) { const h = st.creatures[m.near]; if (!h || dist(h, t) > 5) continue; }
       if (m.n) flat(m.n, m.power || m.kind);
-      if (m.dice) info.diceMods.push(m.dice);
+      if (m.dice) { info.diceMods.push(m.dice); info.parts.push(`${/^[-−]/.test(m.dice) ? "−" + m.dice.slice(1) : "+" + m.dice} ${m.power || m.kind}`); }
       if (m.next) info.nextMods.push(m);
     }
-    // situations (P 5.2): each source once
-    if (!canSee(F, a, t)) add(-1, "can't see the target");
+    // situations (P 5.2): each source once. An area roll skips the target's situations (P 6.6).
+    if (zone) {
+      info.cover = 0; info.ranged = false; info.melee = false; info.vs = vs; info.tags = src.entry.p.tags || [];
+      info.defs = defsOf(F, t, vs, { tags: info.tags }); info.def = best(info.defs);
+      info.dice = 1; info.keep = null;
+      return info;
+    }
+    if (!src.area && !canSee(F, a, t)) add(-1, "can't see the target");
     if (!src.area && !canSee(F, t, a)) add(1, "unseen");
     if (has(a, "Prone")) add(-1, "Prone");
     if (has(a, "Restrained")) add(-1, "Restrained");
@@ -812,7 +836,7 @@
       if (!pick) {
         const asks = opts.filter((o) => o.c.react === "ask");
         if (!asks.length) return;
-        const ch = ask(X, { kind: "reaction", text: `${roller.name} rolled ${res.total}${res.t ? " vs " + res.t.name : ""}. Use a Cue?`,
+        const ch = ask(X, { kind: "reaction", text: `${roller.name} rolled ${res.total}${res.t ? " vs " + res.t.name + " (Defense " + best(res.defs) + ")" : ""}. Use a Cue?`,
           trigger: { on: "rollNear", roller: roller.id, target: res.t ? res.t.id : null, total: res.total }, options: asks.map((o) => ({ actor: o.actor, power: o.power, label: o.label })) });
         if (ch == null) return;
         pick = asks[ch];
@@ -850,7 +874,9 @@
           const p = e.p;
           if (p.use !== "reaction") continue;
           const ok = (p.on === "hitSelf" && c === t) || (p.on === "hitAlly5" && c !== t && c.side === t.side && dist(c, t) <= 5) ||
-            (p.on === "meleeHitSelf5" && c === t && melee && dist(a, t) <= 5);
+            // RULING R400: "a creature within 5 ft hits you" (Ring of Sparks) counts any attack from within 5 ft,
+            // a ranged one or a spell too, as printed and as SPEC 2.1 defines meleeHitSelf5.
+            (p.on === "meleeHitSelf5" && c === t && a !== t && dist(a, t) <= 5);
           if (!ok) continue;
           if (!canPay(F, c, e, p.cost || 0).ok || !needsOk(F, c, e)) continue;
           if (deckOf(F, e) && deckOf(F, e).kind === "spellbook" && (!canCastBook(F, c) || (p.cost > 0 && c.spellTurn === st.turnNo))) continue;
@@ -931,7 +957,7 @@
       else if (sp) c.sp[e.deck] -= cost;
       else { c.spentResolve[e.deck] = (c.spentResolve[e.deck] || 0) + cost; refreshPools(F, c); }
       s.spent[sp ? "sp" : "resolve"] += cost;
-      emit(X, { t: "resource", actor: c.id, what: sp ? "sp" : "resolve", n: -cost, text: `${c.name} spends ${cost} ${sp ? "spell point" : "Resolve"}${cost > 1 ? "s" : ""}${r.pool === "extra" ? " (extra pool)" : ""}.` });
+      emit(X, { t: "resource", actor: c.id, what: sp ? "sp" : "resolve", n: -cost, text: `${c.name} spends ${cost} ${sp ? "spell point" + (cost > 1 ? "s" : "") : "Resolve"}${r.pool === "extra" ? " (extra pool)" : ""}.` });
     }
     if (e.src === "item") {
       const cd = F.cards.cards[e.card], it = c.items.find((i) => i.id === e.card);
@@ -1060,20 +1086,27 @@
   }
 
   // ---------- Forms ----------
+  // RULING R403: shifting or reverting on your turn changes the movement you have left by the change in Speed
+  // (ft already moved stay spent; a Dash keeps its bonus).
+  function respeed(X, c, before) { if (X.st.active === c.id) c.turn.speed += speedOf(c) - before; }
   function shift(X, c, e) {
     const F = X.F, fm = e.p.form;
     const ft = formTotals(c.build, F.cards, fm);
     const probe = { size: ft.size, pos: c.pos };
     if (!fits(X.st, probe, c.pos, c.id)) fail(`No room for a ${ft.size} Form here`);
-    c.form = { power: e.p.id, name: e.p.name, hp: ft.HP, maxHp: ft.HP, totals: ft, weapon: fm.weapon || null, fly: fm.fly || 0, climb: fm.climb || 0, until: { ev: "start", who: c.id, rounds: 600 } };
+    const before = speedOf(c);
+    c.form = { power: e.p.id, name: e.p.name, strip: clone(fm.strip), hp: ft.HP, maxHp: ft.HP, totals: ft, weapon: fm.weapon || null, fly: fm.fly || 0, climb: fm.climb || 0, until: { ev: "start", who: c.id, rounds: 600 } };
     c.totals = ft; c.size = ft.size;
+    respeed(X, c, before);
     refreshPools(F, c);
     emit(X, { t: "shift", actor: c.id, power: e.p.id, text: `${c.name} shifts into ${e.p.name} (${ft.HP} HP, ${ft.size}).` });
   }
   function revert(X, c, why) {
     if (!c.form) return;
     const name = c.form.name;
+    const before = speedOf(c);
     c.form = null; c.totals = c.own; c.size = c.own.size;
+    respeed(X, c, before);
     refreshPools(X.F, c);
     emit(X, { t: "revert", actor: c.id, text: `${c.name} reverts from ${name}${why ? " (" + why + ")" : ""}.` });
   }
@@ -1174,6 +1207,7 @@
       // RULING R215: movement stops when a zone or reaction leaves the mover Prone, at speed 0 or down.
       if (c.dead || incap(c) || speedOf(c) === 0 || (!wasProne && has(c, "Prone"))) { emit(X, { t: "note", actor: c.id, text: `${c.name}'s movement stops.` }); break; }
     }
+    if (plan.steps.length && c.turn.bonusMelee) { c.turn.bonusMelee = 0; emit(X, { t: "note", actor: c.id, text: `${c.name} moves: the extra attack is lost.` }); }
     if (plan.steps.length) emit(X, { t: "move", actor: c.id, from: start, to: c.pos.slice(), path: cmd.path, text: `${c.name} moves to ${c.pos.join(",")} (${plan.cost - plan.standCost} ft).` });
     if (!plan.safe) c.turn.moveUsed = true;
   }
@@ -1213,7 +1247,8 @@
     if (o.grapple || o.shove || o.escape) return res;
     const engagedNow = allyEngaged(X.st, a, t);
     // damage
-    const riders = w.card ? powerList(F.cards, a, false).filter((e) => e.card === w.card && e.p.use === "trigger" &&
+    // riders come from the weapon card itself: a thrown weapon has already left the Hand (Pilum)
+    const riders = w.card ? (F.cards.cards[w.card].fx || []).map((p) => ({ p, card: w.card, deck: null, src: "hand" })).filter((e) => e.p.use === "trigger" &&
       (e.p.on === "hit" || (e.p.on === "crit" && crit) || (e.p.on === "opportunity" && o.opportunity))) : [];
     const dice = w.two && otherHandEmpty(F, a, w) ? w.two : w.dice;
     const mod = a.totals[info.abil];
@@ -1222,10 +1257,12 @@
     for (const m of a.mods) if (m.kind === "dmg") { dmg.flat += m.n || 0; if (m.dice) dmg.parts.push({ dice: m.dice, type: dmg.type }); }
     for (const r of riders) if (!r.p.hook) for (const d of r.p.do || []) if (d.dmg) dmg.parts.push({ dice: d.dmg, type: d.type || dmg.type });
     runHooks(F, X, a, t, "modifyDamage", { damage: dmg, weapon: w, attack: info });
+    // a rider hook may add damage too (Brace)
+    for (const r of riders) { const h = r.p.hook && HOOKS[r.p.hook]; if (h && h.modifyDamage) h.modifyDamage(makeCtx(F, X, { actor: a, target: t, role: "attacker", power: r.p, entry: r, damage: dmg, weapon: w, attack: info, trigger: { on: r.p.on, attacker: a, target: t, hit: true, crit, weapon: w } })); }
     dealParts(X, a, t, dmg, info.melee);
     // weapon riders (non-damage), then triggers
     for (const r of riders) {
-      if (r.p.hook) { hookTrigger(X, a, r, { on: r.p.on, attacker: a, target: t, hit: true, crit, weapon: w }); continue; }
+      if (r.p.hook) { const h = HOOKS[r.p.hook]; if (!h || h.onTrigger || !h.modifyDamage) hookTrigger(X, a, r, { on: r.p.on, attacker: a, target: t, hit: true, crit, weapon: w }); continue; }
       applyDo(X, a, r, (r.p.do || []).filter((d) => !d.dmg), t, { hit: true });
     }
     afterHit(X, a, t, { weapon: true, melee: info.melee, crit, engaged: engagedNow });
@@ -1318,8 +1355,9 @@
       } else if (d.heal) heal(X, t, Math.max(0, rollDice(X, d.heal, { mods: user.totals, why: "healing" }).total), user);
       else if (d.temp) { const n = rollDice(X, d.temp, { mods: user.totals }).total; if (n > t.temp) { t.temp = n; emit(X, { t: "temp", target: t.id, n, text: `${t.name} has ${n} temporary HP.` }); } }
       else if (d.cond) {
-        // RULING R238: "Lasting" holds enemies only (P 10.4); on an ally the condition just uses its duration.
-        const lasting = !!p.lasting && t.side !== user.side;
+        // RULING R238: a Lasting effect is Lasting on anyone it holds, allies and its own source included: maintain
+        // rolls each turn, as for enemies (P 8 "holds a creature until it breaks free").
+        const lasting = !!p.lasting;
         let until = d.until ? mkUntil(X, d.until, user, t, p) : null;
         if (!until && !lasting && p.dur && p.dur !== "instant") until = durUntil(p.dur, user);
         const flat = p.atk && p.atk.flat != null;
@@ -1346,14 +1384,35 @@
       } else if (d.shove) {
         shoveAttack(X, user, t, o.mode || "push");
       } else if (d.attack) {
-        user.turn.bonusMelee++;
+        // RULING R409: Cleave's attack is made at once: against another creature than the one that dropped,
+        // before moving (moving forfeits it).
+        user.turn.bonusMelee++; user.turn.extraNot = t ? t.id : null;
         emit(X, { t: "note", actor: user.id, text: `${user.name} may make one extra ${d.attack} attack.` });
       } else if (d.reroll) { /* Cues only */ }
     }
   }
-  function burnZones(X, cells) {
+  // RULING R402: fire burns a burning zone (Web) away one 5-ft square per round (zone.burnFt): the square of the
+  // impact point or of the burned creature, else the first one the fire touches. A creature no longer standing in
+  // any square of the zone is free of the effect it held.
+  function burnZones(X, cells, center) {
     const ks = cells.map((p) => key(p[0], p[1]));
-    for (const z of X.st.zones) if (z.burns) { const n = z.cells.length; z.cells = z.cells.filter((k) => !ks.includes(k)); if (z.cells.length < n) emit(X, { t: "note", text: `Fire burns part of ${z.name} away.` }); }
+    if (center) ks.unshift(key(center[0], center[1]));
+    for (const z of X.st.zones) {
+      if (!z.burns) continue;
+      if (!z.burnt || z.burnt.round !== X.st.round) z.burnt = { round: X.st.round, n: 0 };
+      const cap = Math.max(1, Math.round((z.burnFt || 5) / 5));
+      const gone = [];
+      for (const k of ks) if (z.burnt.n + gone.length < cap && z.cells.includes(k) && !gone.includes(k)) gone.push(k);
+      if (!gone.length) continue;
+      z.burnt.n += gone.length;
+      z.cells = z.cells.filter((k) => !gone.includes(k));
+      emit(X, { t: "note", text: `Fire burns ${gone.length * 5} ft of ${z.name} away (${gone.join(" ")}).` });
+      for (const c of living(X.st)) {
+        if (cellsOf(c).some((p) => z.cells.includes(key(p[0], p[1])))) continue;
+        for (const k of c.conds.slice()) if (k.source === z.source && k.power === z.name) removeCond(X, c, k, "the fire frees it");
+      }
+    }
+    X.st.zones = X.st.zones.filter((z) => !z.burns || z.cells.length);
   }
 
   // ---------- areas ----------
@@ -1447,7 +1506,7 @@
       if (!fits(st, { size: ft.size, pos: c.pos }, c.pos, c.id)) fail(`No room for a ${ft.size} Form here`);
     }
     if ((p.do || []).some((d) => d.shove)) targets.forEach((t) => { if (sizeGap(t, c) > 1 && SIZE_N[t.size] > SIZE_N[c.size]) fail(`${t.name} is too big to shove`); });
-    const info = { use: p.use, cost: cost ? `${cost} ${deck && deck.kind === "spellbook" ? "spell point" : "Resolve"}${cost > 1 ? "s" : ""}` : null,
+    const info = { use: p.use, cost: cost ? `${cost} ${deck && deck.kind === "spellbook" ? "spell point" + (cost > 1 ? "s" : "") : "Resolve"}` : null,
       targets: targets.map((t) => t.id), range: reach, cells: cells ? cells.map((q) => key(q[0], q[1])) : null };
     if (p.atk && targets.length) {
       const area = !!p.area || tg === "allies" || tg === "enemies";
@@ -1497,6 +1556,7 @@
     // RULING R225: an attack power on "allies"/"enemies" without an area (Bellow: each enemy within 30 ft) rolls
     // once like an area (P 6.6). Darts roll once per target creature.
     const area = !!p.area || pl.tg === "allies" || pl.tg === "enemies";
+    if (p.area && pl.cells && ((p.tags || []).includes("fire") || (p.do || []).some((d) => d.type === "Fire"))) burnZones(X, pl.cells, pl.point);
     if (area) {
       // P 6.6: one roll for every target; no Outnumbered or target situations.
       if (!targets.length) { emit(X, { t: "note", actor: c.id, text: "No creature in the area." }); return; }
@@ -1524,9 +1584,9 @@
       const info = attackInfo(F, c, t, { entry: e });
       const r = rollAttack(X, c, t, info, { label: p.name });
       if (r.hit) hitReactions(X, r, info.melee);
-      emit(X, { t: r.hit ? (r.crit ? "crit" : "hit") : "miss", actor: c.id, target: t.id, text: `${p.name} ${r.hit ? (r.crit ? "critically hits" : "hits") : "misses"} ${t.name}.` });
-      if (r.hit) { stat(X, c.id).hits++; markSubdueHit(t); if (r.crit) stat(X, c.id).crits++; }
       const crit = r.hit && (r.crit || (has(t, "Unconscious") && dist(c, t) <= 5));
+      emit(X, { t: r.hit ? (crit ? "crit" : "hit") : "miss", actor: c.id, target: t.id, text: `${p.name} ${r.hit ? (crit ? "critically hits" : "hits") : "misses"} ${t.name}.` });
+      if (r.hit) { stat(X, c.id).hits++; markSubdueHit(t); if (crit) stat(X, c.id).crits++; }
       const eng = r.hit && allyEngaged(st, c, t);
       applyDo(X, c, e, p.do || [], t, { hit: r.hit, crit, darts: counts[id], mode: cmd.mode });
       // RULING R219: a power attack against "weapon" Defense within 5 ft (a foe's Bite) is a melee weapon attack
@@ -1545,7 +1605,7 @@
     const e = { p: z.p, card: z.entry.card, deck: z.entry.deck, src: z.entry.src };
     emit(X, { t: "power", actor: s.id, target: t.id, power: z.power, text: `${t.name} ${why} ${z.name}.` });
     if (!z.p.atk) { applyDo(X, s, e, z.p.do || [], t, { hit: true }); return; }
-    const info = attackInfo(F, s, t, { entry: e, area: true });
+    const info = attackInfo(F, s, t, { entry: e, area: true, zone: true });
     const r = rollAttack(X, s, t, info, { label: z.name });
     if (r.hit) hitReactions(X, r, false);
     emit(X, { t: r.hit ? "hit" : "miss", actor: s.id, target: t.id, text: `${z.name} ${r.hit ? "catches" : "misses"} ${t.name}.` });
@@ -1579,14 +1639,17 @@
     const F = X.F, st = X.st;
     st.turnNo++;
     st.active = c.id; st.halfActive = !!half;
-    c.turn = freshTurn({ reaction: false, dodging: false });
+    // RULING R407: a Boss half turn isn't "your turn" for the reaction (P 6.2), Dodge ("until your next turn") or
+    // Recharge 5–6 ("at the start of the monster's turn"): it keeps its spent reaction and its Dodge, and rolls no
+    // Recharge.
+    c.turn = freshTurn(half ? c.turn : { reaction: false, dodging: false });
     emit(X, { t: "turn", actor: c.id, half: !!half, text: `${c.name}${half ? " takes a half turn" : "'s turn"}.` });
     if (!half) tick(X, "start", c.id);
     let lose = false;
     if (c.hp === 0 && !c.dead && !c.stable && !c.form) deathSave(X, c);
     if (c.dead) return { lose: true };
     // Recharge 5–6 (GM 2.1)
-    for (const e of powerList(F.cards, c, true)) {
+    if (!half) for (const e of powerList(F.cards, c, true)) {
       if (e.p.recharge && !(c.uses[e.p.id] > 0)) {
         const r = die(X, 6, "recharge");
         if (r >= e.p.recharge) c.uses[e.p.id] = 1;
@@ -1610,13 +1673,21 @@
     c.turn.half = !!half;
     return { lose: lose || incap(c) };
   }
+  function bareMods(F, c) {
+    const base = coreStrip(c.build, F.cards), out = {};
+    ABILS.forEach((a) => (out[a] = base ? base.strip[a] || 0 : c.totals[a]));
+    if (c.form && c.form.strip) ["STR", "DEX"].forEach((a) => (out[a] = c.form.strip[a] || 0));
+    return out;
+  }
   function maintain(X, t, k) {
     const st = X.st, F = X.F, s = st.creatures[k.source];
     if (!s || s.dead || incap(s)) { removeCond(X, t, k, "its source can't hold it"); return; }
     const dis = k.hurt + k.hits + (k.subdue ? k.rolls : 0);
-    // RULING R221: maintain rolls use the source's total ability modifier (tally card) for the effect's ability;
-    // foes and flat-bonus effects use their highest modifier (P 8). Exhaustion applies; nothing else does.
-    const mod = s.side === "foe" || k.flat || !k.abil ? highestMod(s) : s.totals[k.abil];
+    // RULING R221: maintain rolls use the source's bare modifier for the effect's ability, with no Rank, gear or
+    // Aspect bonus (P 8): its Core's (or foe body's), or its Form's STR and DEX while shifted. Foes and flat-bonus
+    // effects use their highest bare modifier. Exhaustion applies; nothing else does.
+    const bare = bareMods(F, s);
+    const mod = s.side === "foe" || k.flat || !k.abil ? Math.max(...ABILS.map((a) => bare[a])) : bare[k.abil];
     const r = rollD20(X, 0, dis, "maintain");
     const total = r.kept + mod - 2 * (s.exhaustion || 0);
     const def = best(defsOf(F, t, k.vs || "weapon", {}));
@@ -1650,6 +1721,9 @@
     for (const id of Object.keys(st.halfTurn)) st.halfTurn[id] = false;
     for (const c of living(st)) stat(X, c.id).roundsAlive++;
     emit(X, { t: "round", text: `Round ${st.round}.` });
+    // RULING R404: a dead source takes no more turns, so each new round counts as its turn start and end for the
+    // Durations and "until" timers it left (Bless, Grease, Help, Bellow's Frightened).
+    for (const c of Object.values(st.creatures)) if (c.dead) { tick(X, "start", c.id); tick(X, "end", c.id); }
   }
   function sweep(X) {
     const st = X.st;
@@ -1659,6 +1733,8 @@
         if (!t.conds.includes(k)) continue;
         const s = k.source && st.creatures[k.source];
         if (k.lasting && (!s || s.dead || incap(s))) removeCond(X, t, k, "its source can't hold it");
+        // RULING R406: fear and charm need a living source (P 8 "while the source of fear is in sight").
+        else if (["Frightened", "Charmed"].includes(k.name) && s && s.dead) removeCond(X, t, k, "its source is dead");
         else if (k.name === "Grappled" && s && (s.dead || incap(s) || dist(s, t) > 5)) removeCond(X, t, k, "grapple ends");
       }
       if (t.turn.dodging && (incap(t) || speedOf(t) === 0)) t.turn.dodging = false;
@@ -1704,6 +1780,7 @@
     const w = weaponOf(F, c, cmd.weapon || "unarmed");
     const melee = !w.range && !cmd.thrown;
     const slot = planAttackSlot(F, c, cmd, melee);
+    if (slot === "extra" && c.turn.extraNot === t.id) fail("The extra attack must target another creature");
     if (cmd.offhand) {
       if (!w.light || !w.card) fail("The off-hand weapon must be Light");
       if (w.card === c.turn.lightWeapon) fail("Use a different Light weapon in your other Hand");
@@ -1734,6 +1811,7 @@
     if (cmd.thrown && w.card && !/javelin/i.test(w.name)) {
       c.hands.splice(c.hands.indexOf(w.card), 1);
       st.ground.push({ card: w.card, pos: t.pos.slice(), owner: c.id });
+      retally(F, c);
     }
     let mod;
     if (slot === "offhand") mod = { offhand: true };
@@ -1789,6 +1867,13 @@
       if (cost === "action" && !canAct(c)) fail(actionWhy(c));
       return { cost, engaged: n };
     }
+    if (a === "endCond") {
+      // A condition that ends when its holder spends an action (Pierce: pull the pilum free).
+      const k = c.conds.find((x) => x.id === cmd.cond && x.endAction);
+      if (!k) fail("Nothing to end that way");
+      if (!canAct(c)) fail(actionWhy(c));
+      return { cost: "action", k };
+    }
     if (!["dash", "dodge", "help"].includes(a)) fail(`Unknown action ${a}`);
     if (!canAct(c)) fail(actionWhy(c));
     if (a === "help") {
@@ -1810,7 +1895,8 @@
       // RULING R237: Help is a +3 mod on the ally's next attack against a creature within 5 ft of the helper, until
       // the start of the helper's next turn.
       addMod(X, pl.t, { kind: "attack", n: 3, next: true, near: c.id, until: { ev: "start", who: c.id, skip: 0 }, source: c.id, power: "Help" });
-    } else if (a === "revert") revert(X, c, null);
+    } else if (a === "endCond") removeCond(X, c, c.conds.find((x) => x.id === cmd.cond), pl.k.endAction.toLowerCase());
+    else if (a === "revert") revert(X, c, null);
     else if (a === "prone") addCond(X, c, "Prone", { source: null });
   }
   function planInteract(F, c, cmd) {
@@ -1845,6 +1931,7 @@
       else st.ground.splice(st.ground.findIndex((g) => g.card === cmd.draw && distToCell(c, g.pos) <= 5), 1);
       c.hands.push(cmd.draw);
     }
+    if (cmd.draw || cmd.stow || cmd.drop) retally(F, c);
     if (cmd.draw || cmd.stow) c.turn.interact = true;
     if (cmd.draw || cmd.stow) emit(X, { t: "note", actor: c.id, text: `${c.name}${cmd.stow ? " stows " + name(cmd.stow) : ""}${cmd.stow && cmd.draw ? " and" : ""}${cmd.draw ? (from === "ground" ? " picks up " : " draws ") + name(cmd.draw) : ""}.` });
   }
@@ -1886,6 +1973,8 @@
       if (!c.boss) fail("Only a Boss takes a half turn");
       if (c.side === st.side) fail("A Boss's half turn comes during the other side's turns (GM 3)");
       if (st.halfTurn[c.id]) fail("Half turn already used this round");
+      // GM 3: between two characters' turns (with a single character left, any time on its side)
+      if (!st.done.length && living(st).filter((o) => o.side === st.side).length > 1) fail("The half turn comes between two characters' turns: let one act first");
     } else {
       if (c.side !== st.side) fail(`It's the ${st.side === "pc" ? "Bearers'" : "foes'"} side`);
       if (st.done.includes(c.id)) fail(`${c.name} has already acted this round`);
@@ -1902,7 +1991,17 @@
   function doAdjust(X, cmd) {
     const c = actor(X.F, cmd);
     const bits = [];
-    if (cmd.hp != null) { c.hp = Math.max(0, Math.min(c.maxHp, cmd.hp)); if (c.hp > 0 && c.down) { c.down = false; c.death = { ok: 0, fail: 0 }; condsNamed(c, "Unconscious").forEach((k) => removeCond(X, c, k)); } bits.push(`HP ${c.hp}`); }
+    if (cmd.hp != null) {
+      const was = c.hp;
+      c.hp = Math.max(0, Math.min(c.maxHp, cmd.hp));
+      if (c.hp > 0 && c.down) { c.down = false; c.death = { ok: 0, fail: 0 }; condsNamed(c, "Unconscious").forEach((k) => removeCond(X, c, k)); }
+      bits.push(`HP ${c.hp}`);
+      // 0 HP by hand follows the usual rules: a foe dies (R213), anyone else falls Unconscious (P 7.4)
+      if (c.hp === 0 && was > 0 && !c.dead) {
+        if (c.side === "foe" && !c.build.important) die_(X, c, "adjusted to 0 HP");
+        else { c.down = true; c.death = { ok: 0, fail: 0 }; c.stable = false; addCond(X, c, "Unconscious", { source: null }); addCond(X, c, "Prone", { source: null }); }
+      }
+    }
     if (cmd.temp != null) { c.temp = Math.max(0, cmd.temp); bits.push(`temp ${c.temp}`); }
     if (cmd.exhaustion != null) { c.exhaustion = Math.max(0, Math.min(6, cmd.exhaustion)); bits.push(`Exhaustion ${c.exhaustion}`); }
     if (cmd.remove === true && cmd.cond) { condsNamed(c, cmd.cond).forEach((k) => removeCond(X, c, k, "adjusted")); bits.push(`−${cmd.cond}`); }
@@ -2057,7 +2156,10 @@
         if (cs3.length) out.push(Object.assign({ label: name + " (off-hand, bonus action)", candidates: cs3, offhand: true }, base));
       }
     }
-    for (const a of ["dash", "disengage", "dodge"]) { const pv = this.preview({ type: "act", actor: id, action: a }); if (pv.ok) out.push({ type: "act", actor: id, action: a, label: a[0].toUpperCase() + a.slice(1) + (pv.info.cost !== "action" ? ` (${pv.info.cost})` : "") }); }
+    for (const a of ["dash", "disengage", "dodge"]) {
+      if (a === "disengage" && !engagedEnemies(st, c).length) continue; // nothing to disengage from
+      const pv = this.preview({ type: "act", actor: id, action: a }); if (pv.ok) out.push({ type: "act", actor: id, action: a, label: a[0].toUpperCase() + a.slice(1) + (pv.info.cost !== "action" ? ` (${pv.info.cost})` : "") }); }
+    for (const k of c.conds) if (k.endAction && ok({ type: "act", actor: id, action: "endCond", cond: k.id })) out.push({ type: "act", actor: id, action: "endCond", cond: k.id, label: `${k.endAction} (action)` });
     const allies = all.filter((o) => o.side === c.side && o !== c);
     const hc = cands({ type: "act", actor: id, action: "help" }, allies);
     if (hc.length) out.push({ type: "act", actor: id, action: "help", label: "Help", candidates: hc });

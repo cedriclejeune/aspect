@@ -176,7 +176,7 @@ main.fight { grid-template-columns: 1fr 400px 340px; }
 .who-row button.go { background: var(--crimson); color: var(--parch); border-color: var(--crimson); padding: 0 8px; }
 .who-row button.half { background: var(--gold); color: var(--ink); padding: 0 8px; }
 .action-panel { margin-top: 8px; border-top: 2px solid var(--gold); padding-top: 6px; }
-.ap-head { font-size: 16px; }
+.ap-head { font-size: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .pills { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0; }
 .pill { font-size: 11px; border: 1px solid var(--green); color: var(--green); border-radius: 9px; padding: 0 7px; }
 .pill.used { border-color: var(--line); color: #b5a684; text-decoration: line-through; }

@@ -10,7 +10,7 @@ Interpretations the sim makes where the rules are unclear or silent. Each one is
 | R103 | Natural weapon vs Defense | Foe plain-text attacks (Wolf Bite) use `vs: "weapon"` = the higher of STR and DEX Defense, with `flat` as the total bonus. | P 6.6, 10.7 |
 | R104 | Ring of Warding / Shield Wall | The +2 is a `mod def` with `defs: ["targeted"]` (whichever Defense the attack targets) and `next: true` (this attack only). | P 3.4 |
 | R105 | Ring of Sparks | The 2d6 Lightning goes to the creature that hit you (target `enemy` = the trigger's attacker). | P 3.4 |
-| R106 | Steady Aim | "Next ranged attack this turn": `mod attack +2`, `next`, `until endSourceTurn`, `params.ranged`. | P 3.4 |
+| R106 | Steady Aim | "Next ranged attack this turn": `mod attack +2`, `next`, `until endThisTurn`, `params.ranged`. | P 3.4 |
 | R107 | Web burning | Fire burns a 5-ft square a round: `zone.burns` plus `zone.burnFt: 5`. Lasting Restrained, Duration 1 hour. | P 10.4 |
 | R108 | Instrument reach | Traveler's Lute / Holy Amulet carry the base reach in `params.default` (30 / 60 ft) so every printed number lives in the data. | P 10.6 |
 | R109 | Mage Hand | A power with `do: []`: listed in the deck, no combat effect. | P 10.3 |
@@ -35,7 +35,7 @@ Interpretations the sim makes where the rules are unclear or silent. Each one is
 | R218 | Cube placement | A cube of side N covers N/5 squares a side, centered on the chosen square (an even side extends right and down). Spheres use 5-ft diagonals (radius 5 = 3×3). Full cover from the point blocks squares. | P 10.5 |
 | R219 | Natural attack powers | A power attack against "weapon" Defense within 5 ft (Wolf's Bite) is a melee weapon attack for triggers (weaponHit, hitEngaged, meleeDrop, Ring of Sparks). | P 6.6 |
 | R220 | Zone triggers | A zone attacks a given creature at most once per turn (entering, then ending the turn there). | P 10.5 |
-| R221 | Maintain modifier | Maintain rolls use the source's total ability modifier (tally card) for the effect's ability (deck ability, or the better of the two printed); foes and flat-bonus effects use their highest modifier. Exhaustion applies, nothing else. | P 8 |
+| R221 | Maintain modifier | Maintain rolls use the source's bare modifier for the effect's ability (deck ability, or the better of the two printed): its Core's or foe body's, or its Form's STR and DEX while shifted; no Rank, gear or Aspect bonus. Foes and flat-bonus effects use their highest bare modifier. Exhaustion applies, nothing else. | P 8 |
 | R222 | Thrown weapons | A thrown weapon leaves the Hand and lands in the target's square (pick it up within 5 ft with the free interaction). Javelins are a bundle: they stay in hand. | P 6.7 |
 | R223 | Outnumbered vs Incapacitated | Read as written: an Incapacitated creature engages no one, so a lone Stunned or Unconscious target gives its attackers Outnumbered 1 vs 0. | P 6.5 |
 | R224 | Ranged powers | A power attack with a range above 5 ft is a ranged attack (enemy within 5 ft: disadvantage); long range doesn't apply to powers. | P 6.7 |
@@ -52,9 +52,19 @@ Interpretations the sim makes where the rules are unclear or silent. Each one is
 | R235 | The dead | The dead drop what they hold; dead bodies never block movement. | P 6.4 |
 | R236 | "End of the source's next turn" | `endSourceTurn` set during the source's own turn lasts to the end of its next turn; extra value `endThisTurn` = the current turn (Steady Aim should use it). | P 3.4 |
 | R237 | Help | +3 on the ally's next attack against a creature within 5 ft of the helper, until the start of the helper's next turn. | P 6.3 |
-| R238 | Lasting on allies | "Lasting" holds enemies only; on an ally the condition just uses its Duration. | P 10.4 |
+| R238 | Lasting on allies | A Lasting effect is Lasting on anyone it holds, allies and its own source included (Web): maintain rolls each turn, as for enemies. | P 8, P 10.4 |
 | R239 | Resistances | Come from `build.resist` / `build.vuln` (or a passive `resist`/`vuln` list); Petrified resists everything. | P 7.2 |
 | R240 | Auto opportunity attacks | "auto" uses the first melee weapon in hand (else unarmed or the Form's natural weapon). | P 6.5 |
 | R241 | Standing up | Costs exactly half speed, no rounding (35 ft → 17.5 ft). | P 6.4 |
 | R242 | Carried weapons | `Build.carried` weapons swap into a Hand with the free object interaction, like drawing. | P 3.5, SPEC 3 |
 | R243 | Zones after their source falls | A zone keeps attacking with its source's current bonus, even while the source is down. | P 10.5 |
+| R400 | Ring of Sparks trigger | "When a creature within 5 ft hits you" counts any attack from within 5 ft (ranged, spell or melee). | P 3.4 |
+| R401 | Pierce | Any hit with the Pilum (thrown or in melee) pierces a Shield the target holds: a "Pierced" condition switches the Shield's bonuses off until the target spends an action to pull the pilum free (`act` action `endCond`). No Shield in hand, no effect. | P 3.4 |
+| R402 | Fire on a Web | Fire burns one 5-ft square of a burning zone a round (`zone.burnFt`): the impact point's or the burned creature's square, else the first one the fire touches. A creature no longer standing in any square of the zone is free of it. | P 10.4 |
+| R403 | Speed when shifting | Shifting or reverting on your turn changes the movement left by the change in Speed; feet already moved stay spent. | P 10.7 |
+| R404 | Dead sources | A dead source takes no more turns: each new round counts as its turn start and end for the Durations and timers it left. | P 10.4 |
+| R405 | Zone attacks | A zone's later attacks (entering, ending a turn there) use only its source's attack bonus: the source's mods (Bless, Battle Hymn) and situations don't apply, and a dead source's zone still attacks. | P 10.5 |
+| R406 | Fear and charm | Frightened and Charmed end when their source dies. | P 8 |
+| R407 | Boss half turn | A half turn doesn't restore the reaction, end a Dodge or roll Recharge 5–6; it comes only between two characters' turns (any time if one character is left). | GM 3, P 6.2 |
+| R408 | Beasts' Hands | A foe built on a body that carries no Hand gear has no Hand Slots (Wolf): no picking up, drawing or wielding gear. | GM 2.1 |
+| R409 | Cleave | The extra attack targets another creature than the one that dropped and is lost if the attacker moves first. | P 3.4 |

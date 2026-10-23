@@ -234,7 +234,7 @@
     if (A.view === "setup") app.appendChild(setupView());
     else if (A.view === "fight") app.appendChild(fightView());
     else app.appendChild(summaryView());
-    if (A.fight && A.fight.pending) app.appendChild(promptModal());
+    if (A.fight && A.fight.pending && A.view === "fight") app.appendChild(promptModal());
     app.querySelectorAll("[data-scroll]").forEach((el) => { if (keep[el.dataset.scroll] != null) el.scrollTop = keep[el.dataset.scroll]; });
     const log = app.querySelector(".log-list");
     if (log && atBottom) log.scrollTop = log.scrollHeight;
@@ -540,7 +540,7 @@
         h("label.check", h("input", { type: "checkbox", checked: b.boss, onchange: (e) => set(() => (b.boss = e.target.checked)) }), "Boss"),
         h("label.check", h("input", { type: "checkbox", checked: b.alert, onchange: (e) => set(() => (b.alert = e.target.checked)) }), "Alert"),
         h("label.field", "Darkvision", num((b.senses || {}).darkvision || 0, (v) => set(() => { b.senses = b.senses || {}; if (v) b.senses.darkvision = v; else delete b.senses.darkvision; }), { class: "count", min: 0, step: 30 }))),
-      deckPowers.map(({ cover, deck }) => h("div.deck-pick",
+      (c.side === "foe" ? deckPowers : []).map(({ cover, deck }) => h("div.deck-pick",
         h("div.subhead", `${cover.name}: powers used`, h("span.hint", b.powers.length ? "" : " (all)")),
         h("div.chips", deck.powers.map((p) => h("label.check.small",
           h("input", { type: "checkbox", checked: !b.powers.length || b.powers.includes(p.name), onchange: (e) => set(() => {
@@ -983,7 +983,7 @@
         h("button", { onclick: () => { resetFightUI(); render(); } }, "Cancel")));
   }
   const INFO_LABEL = { toHit: "To hit", defense: "Defense", dice: "Dice", cost: "Cost", left: "Left after", provokes: "Provokes", outnumbered: "Outnumbered",
-    cover: "Cover", distance: "Distance", damage: "Damage", why: "Why", vs: "Against", targets: "Targets", weapon: "Weapon", abil: "Ability", power: "Power", use: "Use", adv: "Advantage dice", dis: "Disadvantage dice" };
+    cover: "Cover", distance: "Distance", damage: "Damage", why: "Why", vs: "Against", targets: "Targets", weapon: "Weapon", abil: "Ability", power: "Power", use: "Use", adv: "Advantage dice", dis: "Disadvantage dice", range: "Range", keep: "Keep" };
   function previewBlock(pv) {
     if (!pv.ok) return h("div.preview.bad", pv.error || "Not possible.", pv.info ? infoTable(pv.info) : null);
     return h("div.preview", infoTable(pv.info || {}));
@@ -997,7 +997,7 @@
       let val = v;
       if (k === "outnumbered" && typeof v === "object") val = `${v.us} vs ${v.them}` + (v.n != null ? ` (${sign(v.n)})` : "");
       else if (k === "toHit") val = sign(v);
-      else if (k === "cost" || k === "left" || k === "distance") val = typeof v === "number" ? v + " ft" : v;
+      else if (k === "cost" || k === "left" || k === "distance" || k === "range") val = typeof v === "number" ? v + " ft" : v;
       else if (k === "cover") val = v ? sign(v) + " Defense" : "none";
       else if (Array.isArray(v)) val = v.map((x) => (typeof x === "object" ? JSON.stringify(x) : (cr(x) ? cr(x).name : x))).join(", ");
       else if (typeof v === "object") val = Object.entries(v).map(([a, b]) => `${a} ${typeof b === "object" ? JSON.stringify(b) : b}`).join(" · ");
