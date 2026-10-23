@@ -191,7 +191,7 @@
   };
   const F = { sel: null, armed: null, path: [], preview: null, hoverArea: null };
 
-  const DEMO = DEV && params.get("demo");
+  const DEMO = params.get("demo");
   function saveSetup() { if (!DEMO) store.set(LS.setup, A.setup); }
   function saveFight() { if (A.fight && !DEMO) store.set(LS.fight, A.fight.export()); }
   function toast(msg, bad) {
@@ -1192,7 +1192,7 @@
     try { A.setup = saved ? materialize(saved) : (globalThis.BEARERS_SCENARIOS || [])[0] ? materialize(globalThis.BEARERS_SCENARIOS[0]) : blankScenario(); }
     catch (e) { A.setup = blankScenario(); }
     A.sel = A.setup.creatures[0] ? A.setup.creatures[0].id : null;
-    if (DEV && params.get("demo")) { try { demo(params.get("demo")); } catch (e) { console.error(e); toast("Demo failed: " + e.message, true); } }
+    if (params.get("demo")) { try { demo(params.get("demo")); } catch (e) { console.error(e); toast("Demo failed: " + e.message, true); } }
     render();
     if ((globalThis.BEARERS_MISSING || []).length && !DEV) toast("Missing: " + globalThis.BEARERS_MISSING.join(", "), true);
   }

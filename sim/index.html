@@ -16,7 +16,7 @@
       ? ["cards.js", "dev/fake-cards.js?if-missing", "dev/stub-engine.js"]
       : ["cards.js", "engine.js", "effects.js?optional"];
     files = files.concat(["scenarios/party.js", "scenarios/skirmish.js", "scenarios/ogre-den.js", "scenarios/chieftain.js", "ui.js"]);
-    if (dev && /[?&]demo=selftest\b/.test(location.search)) files.push("dev/selftest.js");
+    if (/[?&]demo=selftest\b/.test(location.search)) files.push("dev/selftest.js");
     files.forEach(function (f) {
       var s = document.createElement("script");
       var name = f.split("?")[0], flag = f.split("?")[1];

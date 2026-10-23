@@ -834,7 +834,7 @@ globalThis.BEARERS_CARDS = {
        "mod": "attack",
        "n": 2,
        "next": true,
-       "until": "endSourceTurn"
+       "until": "endThisTurn"
       }
      ]
     }

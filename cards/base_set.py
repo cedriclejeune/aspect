@@ -325,7 +325,7 @@ CARD_FX = {
     "Clear Mind": [dict(use="passive", defVs=dict(INT=2), tags=["illusion", "confusion"])],
     "Cleave": [dict(use="trigger", uses="1/SR", on="meleeDrop", do=[dict(attack="melee")])],
     "Steady Aim": [dict(use="bonus", uses="2/SR", target="self", params=dict(ranged=True),
-                        do=[dict(mod="attack", n=2, next=True, until="endSourceTurn")])],
+                        do=[dict(mod="attack", n=2, next=True, until="endThisTurn")])],
     "Shield Bash": [dict(use="bonus", uses="1/SR", need=["shield", "attackAction"], reach=5, target="enemy",
                          do=[dict(shove=True)])],
     "Battle Hymn": [dict(use="trigger", uses="2/SR", on="weaponHit", target="allies", count=3, reach=30, need=VOICE,
