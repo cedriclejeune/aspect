@@ -1053,7 +1053,7 @@ globalThis.BEARERS_CARDS = {
     "Technique"
    ],
    "text": [
-    "When you take the Attack action with a Heavy or Reach weapon, you can make one attack roll against each enemy within your reach instead. Half damage on a miss."
+    "**1/S.R.**, when you take the Attack action with a Heavy or Reach weapon: make one attack roll against each enemy within your reach instead. Half damage on a miss."
    ],
    "strip": {},
    "group": "loot",
@@ -1062,6 +1062,7 @@ globalThis.BEARERS_CARDS = {
      "id": "Q-II-02#0",
      "name": "Sweeping Blow",
      "use": "action",
+     "uses": "1/SR",
      "target": "enemies",
      "hook": "sweep",
      "params": {

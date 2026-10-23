@@ -456,7 +456,7 @@
       conds: [], mods: [], turn: freshTurn(), hands: build.hands.slice(), carried: build.carried.slice(),
       items: build.items.map((it) => { const cd = cards.cards[it.id]; return { id: it.id, n: it.n != null ? it.n : cd && typeOf(cd) === "Recipe" ? cd.uses || 1 : 1 }; }),
       uses: {}, sp: {}, resolve: {}, spentResolve: {}, extra: { sp: 0, resolve: 0 }, highMagic: {},
-      react: sc.react || "ask", boss: !!build.boss, build, exhaustion: 0, spellTurn: -1, rechargeUsed: {} };
+      react: sc.react || "ask", boss: !!build.boss, build, exhaustion: 0, spellTurn: -1, rechargeUsed: {}, turnUsed: {} };
     for (const e of powerList(cards, c, true)) {
       if (e.p.uses) c.uses[e.p.id] = parseUses(e.p.uses);
       if (e.p.recharge) c.uses[e.p.id] = 1;
@@ -931,12 +931,19 @@
   }
 
   // ---------- resources ----------
+  const bossOnce = (st, c, p) => c.boss && st.active === c.id && (["action", "bonus", "free"].includes(p.use) || !!(p.uses || p.cost || p.recharge));
   function canPay(F, c, e, cost, o) {
     o = o || {};
     const p = e.p;
     if (p.uses && !(c.uses[p.id] > 0)) return { ok: false, why: `${p.name}: no uses left` };
     if (p.recharge && !(c.uses[p.id] > 0)) return { ok: false, why: `${p.name}: not recharged` };
     if (p.recharge && c.boss && c.rechargeUsed[p.id] === F.state.round) return { ok: false, why: `${p.name}: already used this round (GM 3)` };
+    // RULING R603 (designer-approved, GM 3 text to follow): a Boss can't use the same power on its turn and on its
+    // half turn in the same round. Any power used while it is the active creature counts (card powers, deck powers,
+    // own powers, limited triggers like Cleave); reactions on others' turns and free unlimited triggers don't. Uses
+    // within one turn are limited only by the power.
+    const tu = bossOnce(F.state, c, p) && c.turnUsed && c.turnUsed[p.id];
+    if (tu && tu.round === F.state.round && tu.half !== !!c.turn.half) return { ok: false, why: `${p.name}: already used on its ${tu.half ? "half turn" : "turn"} this round` };
     const deck = deckOf(F, e);
     if (deck && cost > 0) {
       if (deck.kind === "spellbook") {
@@ -962,6 +969,7 @@
     const r = canPay(F, c, e, cost, o);
     if (p.uses) { c.uses[p.id]--; s.spent.uses++; emit(X, { t: "resource", actor: c.id, what: "uses", n: -1, power: p.id, text: `${c.name}: ${p.name} ${c.uses[p.id]} use(s) left.` }); }
     if (p.recharge) { c.uses[p.id] = 0; c.rechargeUsed[p.id] = X.st.round; }
+    if (bossOnce(X.st, c, p)) (c.turnUsed = c.turnUsed || {})[p.id] = { round: X.st.round, half: !!c.turn.half };
     const deck = deckOf(F, e);
     if (deck && cost > 0) {
       const sp = deck.kind === "spellbook";

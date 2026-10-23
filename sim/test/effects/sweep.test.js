@@ -74,6 +74,39 @@ module.exports = function register(T, H) {
     ok(/Heavy or Reach/.test(refused(k, sweep("p"))));
   });
 
+  T("[sweep] 1/S.R.: a foe sweeps once per fight", () => {
+    const f = ring();
+    foeTurn(f, "o");
+    run(f, sweep("o"), [10, 3, 4]);
+    run(f, { type: "endTurn", actor: "o" });
+    for (const id of ["a", "b", "c", "d"]) skip(f, id);
+    run(f, { type: "beginTurn", actor: "o" });
+    ok(!f.legal("o").some((x) => x.power === SWEEP));
+    ok(/no uses left/.test(refused(f, sweep("o"))));
+  });
+
+  T("[R603] a Boss can't use the same power on its turn and its half turn in one round", () => {
+    const stomp = { id: "own-stomp#0", name: "Stomp", use: "free", uses: "3/SR", target: "self", do: [] };
+    const boss = { id: "x", side: "foe", name: "x", pos: [10, 5], react: "never", build: B({ boss: true, ownFx: [stomp] }) };
+    const f = fight([pc("a", [2, 2]), pc("b", [2, 8]), boss]);
+    start(f);
+    skip(f, "a");
+    run(f, { type: "beginTurn", actor: "x", half: true });
+    run(f, { type: "power", actor: "x", power: stomp.id });
+    run(f, { type: "power", actor: "x", power: stomp.id }); // twice in one turn: only its uses limit it
+    run(f, { type: "endTurn", actor: "x" });
+    skip(f, "b");
+    run(f, { type: "beginTurn", actor: "x" });
+    ok(/half turn this round/.test(refused(f, { type: "power", actor: "x", power: stomp.id })));
+    ok(!f.legal("x").some((t) => t.power === stomp.id));
+    run(f, { type: "endTurn", actor: "x" });
+    run(f, { type: "beginTurn", actor: "a" }); // round 2
+    run(f, { type: "endTurn", actor: "a" });
+    run(f, { type: "beginTurn", actor: "x", half: true });
+    run(f, { type: "power", actor: "x", power: stomp.id });
+    eq(C(f, "x").uses[stomp.id], 0);
+  });
+
   T("[sweep] allies and enemies at 0 HP are left out unless named; no enemy in reach: not offered", () => {
     const f = fight([pc("a", [5, 5]), pc("b", [8, 5]), tmpl("o", "Ogre", [6, 5]), tmpl("g", "Bandit", [6, 7])]);
     foeTurn(f, "o");
