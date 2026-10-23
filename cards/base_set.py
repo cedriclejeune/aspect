@@ -4,6 +4,7 @@ Built into rules/Bearers-Base-Set.pdf by tools/build_cards.py.
 Strip keys: STR DEX INT WIL (modifiers), STRd DEXd INTd WILd (Defenses), HP, SPD.
 Text uses **bold** and *italic*; each list item is one paragraph.
 """
+import re
 
 PLAYERS = 4
 
@@ -38,10 +39,23 @@ ARMOR = [
 ]
 
 
+def weapon_atk(dice, kw, attack):
+    """Structured attack of a weapon, read from its own args (SPEC 2, WeaponAtk)."""
+    parts = kw.split(" · ")
+    pair = lambda key: next(([int(a), int(b)] for p in parts if p.startswith(key) for a, b in [re.findall(r"\d+", p)]), None)
+    two = re.search(r"Versatile \((\d+d\d+)\)", kw)
+    ranged = pair("Range")
+    finesse = "Finesse" in parts
+    return dict(hit=int(attack.replace("−", "-")), dice=dice.split(" / ")[0], two=two[1] if two else None,
+                abil=["DEX"] if ranged else ["STR", "DEX"] if finesse else ["STR"], type="Physical",
+                finesse=finesse, light="Light" in parts, heavy="Heavy" in parts, reach="Reach" in parts,
+                twoHanded="Two-Handed" in parts, loading="Loading" in parts, thrown=pair("Thrown"), range=ranged)
+
+
 def weapon(name, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter"):
     attr = "STR or DEX" if "Finesse" in kw else "DEX" if "Range" in kw else "STR"
     text = [f"{attack} to hit, {dice} + {attr} Physical." + (f" {effect}" if effect else "")]
-    return card(name, rank, "gear", f"Weapon · {kw}", text, copies=copies, group=group)
+    return card(name, rank, "gear", f"Weapon · {kw}", text, copies=copies, group=group, atk=weapon_atk(dice, kw, attack))
 
 
 HANDS = [
@@ -80,7 +94,7 @@ ITEMS = [
     card("Writ of Favor", "I", "gear", "Consumable", ["A sealed letter from a noble house, a guild or a temple. Show it to one of its members: they grant one reasonable request (shelter, an audience, safe passage, a loan up to 100 gp)."]),
     card("Greater Potion of Healing", "II", "gear", "Consumable", ["**Bonus action:** drink it, or give it to a creature within 5 ft. It regains 4d4 + 4 HP."], copies=2, group="loot"),
     card("Pocket Sand", "I", "gear", "Consumable", ["**Bonus action:** throw it at a creature within 5 ft. Attack (DEX or WIL + 2) against its DEX Defense: on a hit, it has −2 on attacks until the end of its next turn."], group="loot"),
-    card("Alchemist's Fire Recipe", "II", "gear", "Recipe · 3 flasks", ["**Bonus action:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss."], group="loot"),
+    card("Alchemist's Fire Recipe", "II", "gear", "Recipe · 3 flasks", ["**Bonus action:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss."], group="loot", uses=3),
 ]
 
 
@@ -122,16 +136,68 @@ ASPECTS = [
 
 
 # ---------- decks: a cover card, then one card per spell or power ----------
+# ---------- mechanics of decks (SPEC 2.1): name → Power, id/name/kind/cost are filled in by spell() / power() ----------
+VOICE = ["voice"]
+POWER_FX = {
+    "Fire Bolt": dict(use="action", reach=120, target="enemy", atk=dict(abil="deck", vs="DEX"),
+                      do=[dict(dmg="1d10", type="Fire")], tags=["fire"]),
+    "Mage Hand": dict(use="action", reach=30, dur="1 minute", do=[]),
+    "Magic Missile": dict(use="action", reach=120, target="darts", count=3, atk=dict(abil="deck", vs="DEX"), half=True,
+                          do=[dict(dmg="1d4+1", type="Radiant")], upcast=dict(darts=1)),
+    "Shield": dict(use="reaction", on="hitSelf", target="self", dur="1 round",
+                   do=[dict(mod="def", n=5, defs=["STR", "DEX"], until="startSourceTurn")]),
+    "Grease": dict(use="action", reach=60, target="point", area=dict(shape="cube", size=10), atk=dict(abil="deck", vs="DEX"),
+                   zone=dict(terrain="difficult", on=["enter", "endTurn"]), do=[dict(cond="Prone")], dur="1 minute"),
+    "Misty Step": dict(use="bonus", target="self", do=[dict(move="teleport", ft=30)]),
+    "Web": dict(use="action", reach=60, target="point", area=dict(shape="cube", size=20), atk=dict(abil="deck", vs="DEX"),
+                zone=dict(terrain="difficult", on=["enter"], burns=True, burnFt=5), do=[dict(cond="Restrained")],
+                lasting=True, dur="1 hour"),
+    "Jeer": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"),
+                 do=[dict(mod="attack", n=-2, next=True, until="endTargetTurn")]),
+    "Rally": dict(use="bonus", reach=30, target="allies", count=3, need=VOICE, dur="1 minute",
+                  do=[dict(mod="attack", n=2, until="dur")]),
+    "Hold the Line": dict(use="bonus", reach=30, target="allies", need=VOICE, dur="1 minute",
+                          do=[dict(mod="def", n=2, defs=["STR", "DEX"], until="dur")]),
+    "Cutting Words": dict(use="reaction", on="rollNear", reach=60, target="enemy", need=VOICE,
+                          do=[dict(mod="roll", n=-2)], params=dict(rollKinds=["attack", "check"])),
+    "Steady Now": dict(use="reaction", on="rollNear", reach=60, target="ally", need=VOICE,
+                       do=[dict(mod="roll", n=2)], params=dict(orDefense=True)),
+    "Dread": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"),
+                  do=[dict(cond="Frightened")], lasting=True, tags=["fear"]),
+    "Guidance": dict(use="reaction", on="rollNear", reach=60, target="ally", need=VOICE,
+                     do=[dict(mod="roll", dice="1d4")], params=dict(rollKinds=["check"])),
+    "Bless": dict(use="bonus", reach=30, target="allies", count=3, need=VOICE, dur="1 minute",
+                  do=[dict(mod="attack", dice="1d4", until="dur")]),
+    "Bane": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"),
+                 do=[dict(mod="attack", dice="-1d4", until="lasting")], lasting=True),
+    "Twist Fate": dict(use="reaction", on="rollNear", reach=60, target="creature", need=VOICE,
+                       do=[dict(reroll=True)], params=dict(rollKinds=["attack", "check"])),
+    "Healing Word": dict(use="bonus", reach=60, target="creature", need=VOICE, do=[dict(heal="2d4+WIL")]),
+    "Cure Wounds": dict(use="action", reach=5, target="creature", need=VOICE, do=[dict(heal="2d8+WIL")]),
+    "Mossbalm": dict(use="action", reach=5, target="creature", do=[dict(heal="2d8+WIL")]),
+    "Hawk": dict(use="bonus", target="self", form=dict(
+        strip={"STR": -2, "DEX": 3, "STRd": 8, "DEXd": 13, "HP": 4, "SPD": 10}, size="Tiny", fly=60, climb=0,
+        weapon=dict(name="Talons", hit=2, dice="1d4", abil=["DEX"], type="Physical"))),
+    "Wolf": dict(use="bonus", target="self", form=dict(
+        strip={"STR": 1, "DEX": 3, "STRd": 11, "DEXd": 13, "HP": 8, "SPD": 40}, size="Medium", fly=0, climb=0,
+        weapon=dict(name="Bite", hit=2, dice="1d6", abil=["DEX"], type="Physical"))),
+    "Bear": dict(use="bonus", target="self", form=dict(
+        strip={"STR": 3, "DEX": 1, "STRd": 15, "DEXd": 11, "HP": 12, "SPD": 30}, size="Large", fly=0, climb=30,
+        weapon=dict(name="Claws", hit=2, dice="1d8", abil=["STR"], type="Physical"))),
+}
+
+
 def spell(name, level, text, kw):
     cost = 0 if level == "Cantrip" else int(level[0])
-    return dict(name=name, level=level, cost=cost, text=list(text), kw=kw, strip={})
+    fx = dict(name=name, kind="Cantrip" if cost == 0 else "Spell", cost=cost, **POWER_FX[name])
+    return dict(name=name, level=level, cost=cost, text=list(text), kw=kw, strip={}, fx=fx)
 
 
 CONJURER = dict(
     cover=card("Conjurer's Book", "I", "gear", "Spellbook", [
         "Spell attack: **INT + 2**", "Spell points: **4** (long rest)", "Max spell level: **2nd**",
         "Casting needs an empty Hand."]),
-    color="gear",
+    color="gear", stats=dict(kind="spellbook", atk=2, sp=4, maxLevel=2),
     cards=[
         spell("Fire Bolt", "Cantrip", ["**Action**, range 120 ft.", "Spell attack against DEX Defense: **1d10 Fire**. A flammable object it hits catches fire."], "Cantrip · Targets DEX · Range 120"),
         spell("Mage Hand", "Cantrip", ["**Action**, range 30 ft, Duration 1 minute.", "A spectral hand lifts, carries or works an object up to 10 lb. It can't attack. Move it as a bonus action."], "Cantrip · Duration 1 minute"),
@@ -145,13 +211,14 @@ CONJURER = dict(
 
 
 def power(name, kind, cost, text, strip=None):
-    return dict(name=name, level=kind, cost=cost, text=list(text), kw=kind, strip=strip or {})
+    fx = dict(name=name, kind=kind, cost=cost, **POWER_FX[name])
+    return dict(name=name, level=kind, cost=cost, text=list(text), kw=kind, strip=strip or {}, fx=fx)
 
 
 REPERTOIRE = dict(
     cover=card("Wanderer's Repertoire", "I", "aspect", "Glamour", [
         "Attack: **WIL + 2**", "Resolve: **3 + WIL** (short rest)", "Songs, poems and dances."]),
-    color="aspect",
+    color="aspect", stats=dict(kind="glamour", atk=2, resolve=3),
     cards=[
         power("Jeer", "Dirge", 0, ["**Action.** Attack against WIL Defense: until the end of the target's next turn, it has −2 on its next attack."]),
         power("Rally", "Anthem", 1, ["**Bonus action**, Duration 1 minute.", "Up to 3 allies within 30 ft have +2 on attacks."]),
@@ -165,7 +232,7 @@ REPERTOIRE = dict(
 LITANY = dict(
     cover=card("Acolyte's Litany", "I", "aspect", "Divine", [
         "Attack: **WIL + 2**", "Resolve: **3 + WIL** (short rest)", "Prayers. Fate dice: **d4**."]),
-    color="aspect",
+    color="aspect", stats=dict(kind="divine", atk=2, resolve=3, fate="1d4"),
     cards=[
         power("Guidance", "Cue", 0, ["**Reaction**, after an ally within 60 ft rolls a check.", "Add 1d4 to it."]),
         power("Bless", "Anthem", 1, ["**Bonus action**, Duration 1 minute.", "Up to 3 allies within 30 ft add 1d4 to their attack rolls."]),
@@ -185,7 +252,7 @@ def form(s, d, hp, spd, hide=0):
 REMEMBRANCE = dict(
     cover=card("Wildheart's Remembrance", "I", "aspect", "Nature", [
         "Resolve: **3 + WIL** (short rest)", "Beasts your body remembers. Shift: bonus action."]),
-    color="aspect",
+    color="aspect", stats=dict(kind="nature", resolve=3),
     cards=[
         power("Hawk", "Form", 1, ["**Tiny** · Fly 60 ft.", "Talons: +2 to hit, 1d4 + DEX Physical.", "+2 on checks to notice."], form(-2, 3, 4, 10)),
         power("Wolf", "Form", 2, ["**Medium**.", "Bite: +2 to hit, 1d6 + DEX Physical.", "+2 on checks to track."], form(1, 3, 8, 40)),
@@ -227,6 +294,57 @@ TYPE_LETTER = {"Core": "C", "Armor": "A", "Weapon": "W", "Shield": "S", "Instrum
                "Consumable": "P", "Recipe": "R", "Purse": "U", "Spellbook": "B", "Trait": "T", "Technique": "Q",
                "Knack": "K", "Divine": "D", "Glamour": "G", "Nature": "N"}
 CARDS = CORES + ARMOR + HANDS + JEWELRY + ITEMS + ASPECTS + [d["cover"] for d in DECKS]
+
+# ---------- mechanics of cards (SPEC 2.1): card name → list of Powers; ids are added by tools/export_sim.py ----------
+TWO_SHIELD_MOD = [dict(mod="def", n=2, defs=["targeted"], next=True)]  # +2 to the Defense the attack targets, this attack only
+CARD_FX = {
+    # weapon riders
+    "Finesse Blade": [dict(use="trigger", on="hit", do=[dict(mod="attack", n=-2, next=True, until="startSourceTurn")])],
+    "Spellguard Staff": [dict(use="passive", castingHand=True)],
+    "Greatclub": [dict(use="trigger", on="crit", do=[dict(cond="Prone")])],
+    "Gladius": [dict(use="passive", hook="close_order", params=dict(dmg="1d4"))],
+    "Boarspear": [dict(use="trigger", on="opportunity", hook="brace", params=dict(dmg="1d8"))],
+    "Pilum": [dict(use="trigger", on="hit", hook="pierce")],
+    # gear
+    "Traveler's Lute": [dict(use="passive", extraResolve=1, anthemReach=60, params=dict(default=30))],
+    "Holy Amulet": [dict(use="passive", extraResolve=1, cueReach=90, params=dict(default=60))],
+    "Ring of Warding": [dict(use="reaction", uses="2/SR", on="hitSelf", target="self", do=TWO_SHIELD_MOD)],
+    "Ring of Sparks": [dict(use="reaction", uses="1/SR", on="meleeHitSelf5", target="enemy",
+                            do=[dict(dmg="2d6", type="Lightning")])],
+    "Boots of the Long Stride": [dict(use="bonus", uses="1/SR", target="self", do=[dict(dash=True)])],
+    "Potion of Healing": [dict(use="bonus", reach=5, target="creature", do=[dict(heal="2d4+2")])],
+    "Greater Potion of Healing": [dict(use="bonus", reach=5, target="creature", do=[dict(heal="4d4+4")])],
+    "Pocket Sand": [dict(use="bonus", reach=5, target="enemy", atk=dict(abil=["DEX", "WIL"], hit=2, vs="DEX"),
+                         do=[dict(mod="attack", n=-2, until="endTargetTurn")])],
+    "Alchemist's Fire Recipe": [dict(use="bonus", reach=30, target="point", area=dict(shape="sphere", size=5),
+                                     atk=dict(abil=["DEX", "INT"], hit=3, vs="DEX"), half=True,
+                                     do=[dict(dmg="2d6", type="Fire")], tags=["fire"])],
+    # aspects
+    "Iron Will": [dict(use="passive", defVs=dict(WIL=2), tags=["fear", "mind control"])],
+    "Stone Blood": [dict(use="passive", defVs=dict(STR=2), tags=["poison"])],
+    "Clear Mind": [dict(use="passive", defVs=dict(INT=2), tags=["illusion", "confusion"])],
+    "Cleave": [dict(use="trigger", uses="1/SR", on="meleeDrop", do=[dict(attack="melee")])],
+    "Steady Aim": [dict(use="bonus", uses="2/SR", target="self", params=dict(ranged=True),
+                        do=[dict(mod="attack", n=2, next=True, until="endSourceTurn")])],
+    "Shield Bash": [dict(use="bonus", uses="1/SR", need=["shield", "attackAction"], reach=5, target="enemy",
+                         do=[dict(shove=True)])],
+    "Battle Hymn": [dict(use="trigger", uses="2/SR", on="weaponHit", target="allies", count=3, reach=30, need=VOICE,
+                         do=[dict(mod="attack", n=2, next=True, until="endSourceTurn")])],
+    "Rallying Cry": [dict(kind="Anthem", use="bonus", uses="1/SR", reach=30, target="allies", count=3, need=VOICE,
+                          dur="1 minute", do=[dict(mod="attack", n=2, until="dur")])],
+    "Shield Wall": [dict(use="reaction", uses="1/SR", on="hitAlly5", need=["shield"], target="ally", do=TWO_SHIELD_MOD)],
+    "Twin Strike": [dict(use="passive", attacks=2)],
+    "Second Wind": [dict(use="bonus", uses="1/SR", target="self", do=[dict(heal="1d10+3")])],
+    "Night Eyes": [dict(use="passive", darkvision=60)],
+    "Pack Hunter": [dict(use="trigger", uses="1/SR", on="hitEngaged", do=[dict(cond="Prone")])],
+    "Slippery": [dict(use="bonus", uses="2/SR", target="self", do=[dict(move="safe", ft="half")])],
+    "Hedge Witch": [dict(use="passive", extraSp=1)],
+}
+for _name in CARD_FX:
+    assert _name in {c["name"] for c in CARDS}, _name
+for _c in CARDS:
+    _c["fx"] = CARD_FX.get(_c["name"], [])
+
 _count = {}
 for _c in CARDS:
     _key = (TYPE_LETTER[_c["kw"].split(" · ")[0]], _c["rank"])

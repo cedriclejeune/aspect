@@ -247,3 +247,13 @@ Eng.replay(exported, cards)     // → Fight
   "creatures": { "<id>": { "name", "side", "dmgDealt", "dmgTaken", "healed", "attacks", "hits", "crits", "kills", "downs", "roundsAlive", "spent": { "sp": 0, "resolve": 0, "uses": 0, "consumables": 0 }, "endHp" } } }
 ```
 CSV export: one row per creature with those columns.
+
+## 7. Schema extensions (from agent A, accepted)
+- `mod.defs: ["targeted"]`: the Defense the triggering attack targets (Ring of Warding, Shield Wall). Usually with `next: true` (this attack only).
+- `atk.vs: "weapon"`: the higher of STR and DEX Defense (foe natural weapons).
+- `cond` effects may carry `until`, like `mod` (Bellow: `endSourceTurn`).
+- `zone.burnFt: 5` (Web: fire burns a 5-ft square each round).
+- Extra `params`: Steady Aim `{ranged: true}`; Cues `{rollKinds: ["attack","check"], orDefense: true}` (Steady Now can add to the targeted Defense); Lute/Amulet `{default: 30|60}` (base reach being replaced).
+- Weapon riders: Boarspear is `use: "trigger", on: "opportunity", hook: "brace"`; Pilum `on: "hit", hook: "pierce"`; Gladius `passive, hook: "close_order"`.
+- Foe `ownFx` ids: `foe-<slug>#<i>`. Deck spell/power cards have no card ID and live only in `decks[*].powers`.
+- `frames` lists only the five base Slots.

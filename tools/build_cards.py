@@ -326,6 +326,8 @@ def main():
     subprocess.run(["chromium", "--headless", "--disable-gpu", "--no-sandbox", "--no-pdf-header-footer",
                     "--virtual-time-budget=20000", f"--print-to-pdf={OUT}", page.as_uri()], check=True, capture_output=True)
     print(f"Wrote {OUT.relative_to(ROOT)}: {len(cards)} cards, {len(foe_cards)} foe cards, {len(frames)} frames")
+    import export_sim
+    export_sim.main()
 
 
 if __name__ == "__main__":
