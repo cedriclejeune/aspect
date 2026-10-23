@@ -456,7 +456,7 @@
       conds: [], mods: [], turn: freshTurn(), hands: build.hands.slice(), carried: build.carried.slice(),
       items: build.items.map((it) => { const cd = cards.cards[it.id]; return { id: it.id, n: it.n != null ? it.n : cd && typeOf(cd) === "Recipe" ? cd.uses || 1 : 1 }; }),
       uses: {}, sp: {}, resolve: {}, spentResolve: {}, extra: { sp: 0, resolve: 0 }, highMagic: {},
-      react: sc.react || "ask", boss: !!build.boss, build, exhaustion: 0, spellTurn: -1, rechargeUsed: {} };
+      react: sc.react || "ask", boss: !!build.boss, build, exhaustion: 0, spellTurn: -1 };
     for (const e of powerList(cards, c, true)) {
       if (e.p.uses) c.uses[e.p.id] = parseUses(e.p.uses);
       if (e.p.recharge) c.uses[e.p.id] = 1;
@@ -936,7 +936,6 @@
     const p = e.p;
     if (p.uses && !(c.uses[p.id] > 0)) return { ok: false, why: `${p.name}: no uses left` };
     if (p.recharge && !(c.uses[p.id] > 0)) return { ok: false, why: `${p.name}: not recharged` };
-    if (p.recharge && c.boss && c.rechargeUsed[p.id] === F.state.round) return { ok: false, why: `${p.name}: already used this round (GM 3)` };
     const deck = deckOf(F, e);
     if (deck && cost > 0) {
       if (deck.kind === "spellbook") {
@@ -961,7 +960,7 @@
     const F = X.F, p = e.p, s = stat(X, c.id);
     const r = canPay(F, c, e, cost, o);
     if (p.uses) { c.uses[p.id]--; s.spent.uses++; emit(X, { t: "resource", actor: c.id, what: "uses", n: -1, power: p.id, text: `${c.name}: ${p.name} ${c.uses[p.id]} use(s) left.` }); }
-    if (p.recharge) { c.uses[p.id] = 0; c.rechargeUsed[p.id] = X.st.round; }
+    if (p.recharge) c.uses[p.id] = 0;
     const deck = deckOf(F, e);
     if (deck && cost > 0) {
       const sp = deck.kind === "spellbook";

@@ -120,7 +120,7 @@ You run each kind of monster from its **foe card**: its Core, its totals and eve
 
 ## 3. Bosses
 - A **Boss** has the **Boss** tag on its foe card. It takes a **half turn** once per round, during the characters' side: **its movement or one action**, between any two characters' turns, whenever you choose.
-- It can't use the same Recharge power on its turn and its half turn in the same round.
+- On its half turn, it can use any power it could use on its turn; only the power's own uses and Recharge limit it.
 - **Its Core and signature powers are plain text:** they never drop. Its gear and Aspects are italic, so give it cards you're willing to hand over: usually **at most one Rank above** the party's best gear and Aspects.
 - Some Bosses grant an **extra Gear Slot** (P 3.3) when defeated.
 

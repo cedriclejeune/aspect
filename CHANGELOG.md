@@ -122,3 +122,4 @@
 - **Foe totals are final (GM 2.1):** an unarmored foe doesn't add the empty Armor Slot's +10 Speed.
 - **Combat sim (`sim/`):** a browser playtest tool (open `sim/index.html`) with a headless rules engine, built from the same card data as the printed base set (`cards/*.py` → `sim/cards.js`). Interpretations it makes are listed in `sim/RULINGS.md`.
 - **Sweeping Blow (Technique, Rank II, loot):** 1/S.R., when you take the Attack action with a Heavy or Reach weapon: one attack roll against each enemy within your reach, half damage on a miss. Being an area roll, it ignores Outnumbered, so crowding a big foe has a cost. The Ogre and the Ogre Chieftain carry it. Tuned in the sim: a lone Ogre now wins about 30% of fights against four starters (it lost every one before).
+- **Boss half turn (GM 3):** a Boss may use any power on its half turn, limited only by the power's own uses and Recharge (the rule against repeating a Recharge power in the same round is gone).

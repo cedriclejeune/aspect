@@ -768,7 +768,7 @@ module.exports = function register(T, H) {
   });
 
   // ---------- Ogre Chieftain ----------
-  T("[fx] Ogre Chieftain Bellow: Recharge 5–6, +5 vs WIL of each enemy within 30 ft, Frightened until the end of its next turn; not twice in a round with the half turn", () => {
+  T("[fx] Ogre Chieftain Bellow: Recharge 5–6, +5 vs WIL of each enemy within 30 ft, Frightened until the end of its next turn; recharged, it can be used again the same round", () => {
     const f = fight([pc("a", [3, 5]), pc("b", [3, 8]), pc("c", [14, 12]), tmpl("boss", "Ogre Chieftain", [5, 5])]);
     eq([C(f, "boss").maxHp, C(f, "boss").totals.SPD], [110, 30]);
     start(f);
@@ -781,7 +781,7 @@ module.exports = function register(T, H) {
     skip(f, "b"); skip(f, "c");
     run(f, { type: "beginTurn", actor: "boss" }, [6]); // recharges on a 6
     eq(C(f, "boss").uses["foe-ogre-chieftain#0"], 1);
-    ok(/already used this round/.test(refused(f, power(f, "boss", "foe-ogre-chieftain#0"))), "GM 3");
+    ok(f.legal("boss").some((t) => t.power === "foe-ogre-chieftain#0"), "recharged: usable again the same round (a Boss only respects uses)");
     ok(has(C(f, "a"), "Frightened"), "used on the half turn: lasts to the end of its next turn, this full turn");
     end(f, "boss");
     ok(!has(C(f, "a"), "Frightened"));
