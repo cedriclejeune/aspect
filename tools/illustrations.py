@@ -151,6 +151,11 @@ def icon_swords(cx, cy, s):
     return out + "</g>"
 
 
+def icon_die(cx, cy, s):
+    """A d20: any trial, not only a fight."""
+    return _hex(cx, cy, s / 2, fill=PARCH, stroke=INK, sw=2.2) + _text(cx, cy + s * .15, "20", s * .42, HEAD, CRIMSON)
+
+
 def icon_chest(cx, cy, s):
     h = s / 2
     w = h * 1.2
@@ -200,30 +205,40 @@ def cover_emblem():
             body.append(_hex(x, y, 38, fill="none", stroke=INK, sw=2, dash="6 5"))
             body.append(_text(x, y + 9, "+", 28, HEAD, MUTED))
     body.append(gem(cx, cy, 56, CRIMSON))
-    return _svg(400, 400, "".join(body), "A Core gem surrounded by five Slots holding Aspects")
+    return _svg(400, 400, "".join(body), "A Core gem surrounded by five Slots holding cards")
 
 
-def core_loop():
-    cx, cy, R = 350, 200, 125
-    steps = [("Explore", icon_compass), ("Fight", icon_swords), ("Loot", icon_chest), ("Rest &amp; Rebuild", icon_fire)]
-    body = []
-    for i in range(4):
-        a1, a2 = math.radians(-90 + 90 * i + 22), math.radians(-90 + 90 * (i + 1) - 22)
-        body.append(
-            f'<path d="M{cx + R * math.cos(a1):.1f} {cy + R * math.sin(a1):.1f} A{R} {R} 0 0 1 {cx + R * math.cos(a2):.1f} {cy + R * math.sin(a2):.1f}" '
-            f'fill="none" stroke="{INK}" stroke-width="2" marker-end="url(#arr)"/>'
-        )
-    for i, (name, ic) in enumerate(steps):
-        a = math.radians(-90 + 90 * i)
-        x, y = cx + R * math.cos(a), cy + R * math.sin(a)
+def play_loop():
+    ox, oy, ax, ay = 350, 200, 120, 130  # oval: Trial on top, Gather below, Rest & Rebuild on the left
+    pt = lambda a: (ox + ax * math.cos(math.radians(a)), oy + ay * math.sin(math.radians(a)))
+
+    def leave(a, step):  # angle where the oval exits a node's circle (r 34) plus a gap
+        b = a
+        while math.dist(pt(a), pt(b)) < 42:
+            b += step
+        return b
+
+    def arc(a1, a2, extra=""):
+        (x1, y1), (x2, y2) = pt(leave(a1, 1)), pt(leave(a2, -1))
+        return f'<path d="M{x1:.1f} {y1:.1f} A{ax} {ay} 0 0 1 {x2:.1f} {y2:.1f}" fill="none" stroke="{INK}" stroke-width="2"{extra} marker-end="url(#arr)"/>'
+
+    dotted = ' stroke-dasharray="6 5"'
+    (cx, cy), (gx, gy), (rx, ry) = pt(-90), pt(90), pt(180)
+    body = [
+        arc(-90, 90),  # Trial → Gather
+        arc(90, 180, dotted), arc(180, 270, dotted),  # the side path through Rest & Rebuild
+        # Gather → Trial: chain trials without resting.
+        f'<line x1="{gx:.1f}" y1="{gy - 42:.1f}" x2="{cx:.1f}" y2="{cy + 44:.1f}" stroke="{INK}" stroke-width="2" marker-end="url(#arr)"/>',
+    ]
+    for (x, y), name, ic, (dx, dy, anchor) in [
+        ((cx, cy), "Trial", icon_die, (0, -44, "middle")),
+        ((gx, gy), "Gather", icon_chest, (0, 56, "middle")),
+        ((rx, ry), "Rest &amp; Rebuild", icon_fire, (-48, 6, "end")),
+    ]:
         body.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="34" fill="{PARCH}" stroke="{INK}" stroke-width="2.2"/>')
         body.append(ic(x, y, 34))
-        lx = x + (62 if i == 1 else -62 if i == 3 else 0)
-        ly = y + (6 if i in (1, 3) else -44 if i == 0 else 56)
-        body.append(_text(lx, ly, name, 17, HEAD, INK, anchor="start" if i == 1 else "end" if i == 3 else "middle"))
-    body.append(_text(cx, cy - 6, "No class.", 17, BODY, MUTED, italic=True))
-    body.append(_text(cx, cy + 16, "No level.", 17, BODY, MUTED, italic=True))
-    return _svg(700, 400, "".join(body), "The core loop: explore, fight, loot, rest and rebuild")
+        body.append(_text(x + dx, y + dy, name, 17, HEAD, INK, anchor=anchor))
+    return _svg(700, 400, "".join(body), "The play loop: face a trial and gather, again and again; rest and rebuild when needed")
 
 
 def icon_ring(cx, cy, s):
@@ -242,16 +257,112 @@ def icon_potion(cx, cy, s):
     )
 
 
+# ---------- stat symbols: four abilities, their Defenses (same symbol in a shield), HP, Speed ----------
+def sym_str(cx, cy, s):
+    """Clenched fist."""
+    h = s / 2
+    out = [f'<g stroke="{INK}" stroke-width="{s * .045:.2f}" stroke-linejoin="round">',
+           f'<rect x="{cx - h * .45}" y="{cy + h * .45}" width="{h * .9}" height="{h * .55}" fill="{SHADE}"/>',
+           f'<rect x="{cx - h * .8}" y="{cy - h * .4}" width="{h * 1.6}" height="{h * .95}" rx="{h * .25}" fill="{SHADE}"/>']
+    for i in range(4):
+        out.append(f'<rect x="{cx - h * .8 + i * h * .4:.2f}" y="{cy - h * .85}" width="{h * .4:.2f}" height="{h * .75}" rx="{h * .2:.2f}" fill="{SHADE}"/>')
+    out.append(f'<rect x="{cx - h * .95}" y="{cy - h * .1}" width="{h * 1.15}" height="{h * .34}" rx="{h * .17}" fill="{PARCH}"/></g>')
+    return "".join(out)
+
+
+def sym_dex(cx, cy, s):
+    """Feather."""
+    h = s / 2
+    return (
+        f'<g transform="rotate(35 {cx} {cy})" stroke="{INK}" stroke-width="{s * .045:.2f}" stroke-linecap="round">'
+        f'<path d="M{cx} {cy - h}C{cx + h * .6} {cy - h * .55} {cx + h * .5} {cy + h * .3} {cx} {cy + h * .6}'
+        f'C{cx - h * .5} {cy + h * .3} {cx - h * .6} {cy - h * .55} {cx} {cy - h}Z" fill="{SHADE}"/>'
+        f'<path d="M{cx + h * .42} {cy - h * .3}L{cx + h * .2} {cy - h * .25}M{cx - h * .45} {cy + h * .05}L{cx - h * .2} {cy + h * .05}" fill="none"/>'
+        f'<line x1="{cx}" y1="{cy - h * .75}" x2="{cx}" y2="{cy + h * 1.05}"/></g>'
+    )
+
+
+def sym_int(cx, cy, s):
+    """Open eye."""
+    h = s / 2
+    return (
+        f'<g stroke="{INK}" stroke-width="{s * .045:.2f}">'
+        f'<path d="M{cx - h} {cy}Q{cx} {cy - h * .95} {cx + h} {cy}Q{cx} {cy + h * .95} {cx - h} {cy}Z" fill="{PARCH}"/>'
+        f'<circle cx="{cx}" cy="{cy}" r="{h * .4}" fill="{GOLD}"/>'
+        f'<circle cx="{cx}" cy="{cy}" r="{h * .17}" fill="{INK}" stroke="none"/>'
+        f'<circle cx="{cx + h * .12}" cy="{cy - h * .14}" r="{h * .07}" fill="{PARCH}" stroke="none"/></g>'
+    )
+
+
+def sym_wil(cx, cy, s):
+    """Radiant star: presence."""
+    h = s / 2
+    pts = " ".join(
+        f"{cx + (h if i % 2 == 0 else h * .42) * math.sin(math.radians(22.5 * i)):.2f},"
+        f"{cy - (h if i % 2 == 0 else h * .42) * math.cos(math.radians(22.5 * i)):.2f}"
+        for i in range(16)
+    )
+    return (f'<polygon points="{pts}" fill="{GOLD}" stroke="{INK}" stroke-width="{s * .045:.2f}" stroke-linejoin="round"/>'
+            f'<circle cx="{cx}" cy="{cy}" r="{h * .2}" fill="{PARCH}" stroke="{INK}" stroke-width="{s * .035:.2f}"/>')
+
+
+def sym_hp(cx, cy, s):
+    """Heart."""
+    h = s / 2
+    return (
+        f'<path d="M{cx} {cy + h * .85}C{cx - h * 1.35} {cy - h * .05} {cx - h * .65} {cy - h * 1.1} {cx} {cy - h * .4}'
+        f'C{cx + h * .65} {cy - h * 1.1} {cx + h * 1.35} {cy - h * .05} {cx} {cy + h * .85}Z" '
+        f'fill="{CRIMSON}" stroke="{INK}" stroke-width="{s * .045:.2f}" stroke-linejoin="round"/>'
+        f'<path d="M{cx - h * .55} {cy - h * .35}Q{cx - h * .5} {cy - h * .6} {cx - h * .25} {cy - h * .6}" fill="none" stroke="{PARCH}" stroke-width="{s * .04:.2f}" stroke-linecap="round" opacity=".7"/>'
+    )
+
+
+def sym_speed(cx, cy, s):
+    """Boot with motion lines."""
+    h = s / 2
+    bx = cx + h * .2
+    return (
+        f'<g stroke="{INK}" stroke-width="{s * .045:.2f}" stroke-linecap="round" stroke-linejoin="round">'
+        f'<path d="M{bx - h * .35} {cy - h * .9}L{bx + h * .15} {cy - h * .9}L{bx + h * .15} {cy + h * .1}'
+        f'Q{bx + h * .8} {cy + h * .2} {bx + h * .8} {cy + h * .55}L{bx + h * .8} {cy + h * .75}L{bx - h * .4} {cy + h * .75}Z" fill="{SHADE}"/>'
+        f'<line x1="{bx - h * .42}" y1="{cy - h * .6}" x2="{bx + h * .22}" y2="{cy - h * .6}"/>'
+        f'<path d="M{cx - h * .55} {cy - h * .5}H{cx - h * 1.05}M{cx - h * .5} {cy}H{cx - h * .9}M{cx - h * .55} {cy + h * .5}H{cx - h * 1.05}" fill="none"/></g>'
+    )
+
+
+def defense(sym):
+    """A Defense symbol: the ability's symbol inside a shield."""
+    def draw(cx, cy, s):
+        h = s / 2
+        w = h * .85
+        return (
+            f'<path d="M{cx - w} {cy - h * .85}Q{cx} {cy - h * 1.05} {cx + w} {cy - h * .85}'
+            f'L{cx + w} {cy - h * .1}Q{cx + w * .9} {cy + h * .6} {cx} {cy + h}Q{cx - w * .9} {cy + h * .6} {cx - w} {cy - h * .1}Z" '
+            f'fill="{PARCH}" stroke="{INK}" stroke-width="{s * .05:.2f}"/>' + sym(cx, cy - h * .1, s * .62)
+        )
+    return draw
+
+
+STAT_SYMBOLS = {"STR": sym_str, "DEX": sym_dex, "INT": sym_int, "WIL": sym_wil, "HP": sym_hp, "SPD": sym_speed}
+
+
+def stat_symbol(key, shield=False):
+    """One stat symbol as a small standalone SVG, for tables. shield=True draws the Defense."""
+    sym = defense(STAT_SYMBOLS[key]) if shield else STAT_SYMBOLS[key]
+    label = f"{key} Defense" if shield else key
+    return _svg(40, 40, sym(20, 20, 36 if shield else 32), label)
+
+
 def character_anatomy():
     body = [gem(95, 200, 58, CRIMSON, "CORE", 16),
-            _text(95, 290, "STR · DEX · INT · CHA", 13, BODY, MUTED, italic=True),
+            _text(95, 290, "STR · DEX · INT · WIL", 13, BODY, MUTED, italic=True),
             _text(95, 308, "HP · Speed", 13, BODY, MUTED, italic=True)]
     groups = [  # (title, x0, y, [(name, icon or None)])
-        ("Armor", 230, 85, [("Light Armor", icon_shield)]),
-        ("Hands", 370, 85, [("Finesse Blade", icon_sword), ("Light Blade", icon_sword)]),
+        ("Armor", 230, 85, [("Leather", icon_shield)]),
+        ("Hands", 370, 85, [("Finesse Blade", icon_sword), ("Dagger", icon_sword)]),
         ("Jewelry", 230, 215, [("Ring of Warding", icon_ring)]),
         ("Items", 370, 215, [("Potion ×1", icon_potion), ("empty", None)]),
-        ("Attributes", 230, 345, [("Cat Burglar", icon_mask), ("Springheel", icon_jump), ("Iron Will", icon_fire)]),
+        ("Aspects", 230, 345, [("Cat Burglar", icon_mask), ("Springheel", icon_jump), ("Iron Will", icon_fire)]),
     ]
     for title, x0, y, slots in groups:
         body.append(_text(x0 - 34, y - 42, title.upper(), 13, HEAD, GOLD, anchor="start"))
@@ -270,98 +381,246 @@ def character_anatomy():
     for k in range(4):
         body.append(f'<rect x="{sx + 8 + k * 9}" y="{195 + k * 9}" width="70" height="90" rx="6" fill="{PARCH}" stroke="{INK}" stroke-width="1.8"/>')
     body.append(f'<rect x="{sx + 35}" y="{222}" width="70" height="22" rx="6" fill="{GOLD}" stroke="{INK}" stroke-width="1.8"/>')
-    body.append(_text(sx + 50, 335, "unequipped Aspects", 12, BODY, MUTED, italic=True))
+    body.append(_text(sx + 50, 335, "unequipped cards", 12, BODY, MUTED, italic=True))
     body.append(_text(sx + 50, 352, "swap at rests", 12, BODY, CRIMSON, italic=True))
-    return _svg(700, 400, "".join(body), "A character: Core, Armor, two Hands, Jewelry, two Items, three Attributes and a Stash")
+    return _svg(700, 400, "".join(body), "A character: Core, Armor, two Hands, Jewelry, two Items, three Aspects and a Stash")
 
 
-def aspect_card_anatomy():
-    x, y, w, h = 40, 20, 270, 380
-    sw, top = 50, y + 56  # bonus strip, right edge
-    sx = x + w - sw
-    row = (h - 56 - 40) / 10
+def _callout(px, py, lx, ly, label, sub=None, side=1):
+    """Dotted leader from a point on a card to a label beside it (side 1 = right, -1 = left)."""
+    ex = lx + 16 * side
+    out = [f'<polyline points="{px:.1f},{py:.1f} {lx:.1f},{ly:.1f} {ex:.1f},{ly:.1f}" fill="none" stroke="{INK}" stroke-width="1" stroke-dasharray="3 3"/>',
+           f'<circle cx="{px:.1f}" cy="{py:.1f}" r="3" fill="{CRIMSON}"/>']
+    anchor = "start" if side > 0 else "end"
+    tx = ex + 6 * side
+    if label:
+        out.append(_text(tx, ly + 5, label, 16, HEAD, INK, anchor=anchor))
+        if sub:
+            out.append(_text(tx, ly + 22, sub, 13, BODY, MUTED, anchor=anchor, italic=True))
+    else:
+        out.append(_text(tx, ly + 5, sub, 13, BODY, MUTED, anchor=anchor, italic=True))
+    return "".join(out)
+
+
+def core_card():
+    """A starting Core card: its own ten values beside the symbols, and nothing to write in."""
+    x, y, w, h = 150, 20, 300, 400
+    th, kh = 54, 40
+    cw = 64  # strip: symbol + own value
+    sx, top = x + w - cw, y + th
+    row = (h - th - kh) / 10
     body = [f'<rect x="{x + 6}" y="{y + 6}" width="{w}" height="{h}" rx="12" fill="{SHADE}"/>',
             f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="12" fill="{PARCH}" stroke="{INK}" stroke-width="2.5"/>',
-            f'<rect x="{x}" y="{y}" width="{w}" height="56" rx="12" fill="{GOLD}" stroke="{INK}" stroke-width="2.5"/>',
-            _text(x + 16, y + 36, "HEAVY ARMOR", 19, HEAD, PARCH, anchor="start"),
-            gem(x + w - 28, y + 28, 18, CRIMSON, "II", 13),
-            f'<rect x="{sx}" y="{top}" width="{sw}" height="{row * 10}" fill="{SHADE}" stroke="{INK}" stroke-width="1"/>']
-    labels = ["STR", "DEX", "INT", "CHA", "STR", "DEX", "INT", "CHA", "HP", "SPD"]
-    values = {4: "+4", 9: "−10"}
-    for i, lab in enumerate(labels):
+            f'<rect x="{x}" y="{y}" width="{w}" height="{th}" rx="12" fill="{CRIMSON}" stroke="{INK}" stroke-width="2.5"/>',
+            _text(x + 16, y + 35, "NIMBLE", 19, HEAD, PARCH, anchor="start"),
+            gem(x + w - 28, y + th / 2, 18, GOLD, "I", 13),
+            f'<rect x="{sx}" y="{top}" width="{cw}" height="{row * 10}" fill="{SHADE}" stroke="{INK}" stroke-width="1"/>']
+    keys = ["STR", "DEX", "INT", "WIL"] * 2 + ["HP", "SPD"]
+    own = ["+0", "+3", "+1", "+0", "10", "13", "11", "10", "11", "35"]
+    for i, k in enumerate(keys):
         cy = top + row * i + row / 2
         if i:
-            body.append(f'<line x1="{sx}" y1="{top + row * i}" x2="{sx + sw}" y2="{top + row * i}" stroke="{MUTED}" stroke-width="0.5"/>')
-        faded = "" if i in values else ' opacity="0.3"'
-        if 4 <= i <= 7:
-            body.append(f'<path d="M{sx + 5},{cy - 10} h22 v8 c0,7 -5,11 -11,13 c-6,-2 -11,-6 -11,-13 z" fill="none" stroke="{GOLD}" stroke-width="1.3"{faded}/>')
-        body.append(f'<g{faded}>' + _text(sx + 16, cy + 3.5, lab, 8.5, HEAD, INK) + '</g>')
+            body.append(f'<line x1="{sx}" y1="{top + row * i:.1f}" x2="{sx + cw}" y2="{top + row * i:.1f}" stroke="{MUTED}" stroke-width=".5"/>')
+        sym = defense(STAT_SYMBOLS[k]) if 4 <= i <= 7 else STAT_SYMBOLS[k]
+        body.append(sym(sx + 13, cy, row * .72))
+        body.append(_text(sx + cw - 4, cy + 5, own[i], 14, HEAD, INK, anchor="end"))
+    cx = x + (w - cw) / 2
+    body += [gem(cx, y + 150, 34, CRIMSON),
+             _text(cx, y + 236, "(special effect,", 13, BODY, MUTED, italic=True),
+             _text(cx, y + 253, "if any)", 13, BODY, MUTED, italic=True),
+             f'<line x1="{x + 14}" y1="{y + h - kh}" x2="{x + w - 14}" y2="{y + h - kh}" stroke="{GOLD}" stroke-width="1.5"/>',
+             _text(x + w / 2, y + h - 14, "Core · Medium", 13, BODY, INK, italic=True)]
+    # brackets beside the card group the own values: modifiers, Defenses, HP and Speed
+    bx = x + w + 12
+    for r0, r1 in ((0, 4), (4, 8), (8, 10)):
+        y0, y1 = top + row * r0 + 4, top + row * r1 - 4
+        body.append(f'<path d="M{bx - 5} {y0:.1f}H{bx}V{y1:.1f}H{bx - 5}" fill="none" stroke="{INK}" stroke-width="1.2"/>')
+    R = x + w + 40
+    body += [_callout(x + w - 10, y + th / 2, R, y + 30, "Rank", "I to V"),
+             _callout(bx, top + row * 2, R, top + row * 2, "Own values", "four modifiers"),
+             _callout(bx, top + row * 6, R, top + row * 6, "", "four Defenses (10 + modifier)"),
+             _callout(bx, top + row * 9, R, top + row * 9, "", "HP, Speed"),
+             _callout(x + w / 2 - 48, y + h - 18, x - 34, y + h - 18, "Keywords", "Core · Size", side=-1),
+             _callout(x + 12, y + 29, x - 34, y + 29, "Name", side=-1),
+             _callout(cx - 52, y + 245, x - 34, y + 245, "Trait", side=-1)]
+    return _svg(710, h + 30, "".join(body), "A Core card: its own values beside the symbols, and the Core keyword with its size")
+
+
+def card_elements():
+    """A sample card with every element of 3.1 called out; the bonus strip uses the stat symbols."""
+    x, y, w, h = 120, 20, 300, 400
+    th, kh, sw = 54, 46, 46
+    sx, top = x + w - sw, y + th
+    row = (h - th - kh) / 10
+    body = [f'<rect x="{x + 6}" y="{y + 6}" width="{w}" height="{h}" rx="12" fill="{SHADE}"/>',
+            f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="12" fill="{PARCH}" stroke="{INK}" stroke-width="2.5"/>',
+            f'<rect x="{x}" y="{y}" width="{w}" height="{th}" rx="12" fill="{GOLD}" stroke="{INK}" stroke-width="2.5"/>',
+            _text(x + 16, y + 35, "WARDEN'S PLATE", 18, HEAD, PARCH, anchor="start"),
+            gem(x + w - 28, y + th / 2, 18, CRIMSON, "II", 13),
+            f'<rect x="{sx}" y="{top}" width="{sw}" height="{row * 10}" fill="{SHADE}" stroke="{INK}" stroke-width="1"/>']
+    keys = ["STR", "DEX", "INT", "WIL"] * 2 + ["HP", "SPD"]
+    values = {4: "+4", 9: "−10"}
+    for i, k in enumerate(keys):
+        cy = top + row * i + row / 2
+        if i:
+            body.append(f'<line x1="{sx}" y1="{top + row * i:.1f}" x2="{sx + sw}" y2="{top + row * i:.1f}" stroke="{MUTED}" stroke-width=".5"/>')
+        sym = defense(STAT_SYMBOLS[k]) if 4 <= i <= 7 else STAT_SYMBOLS[k]
+        op = "" if i in values else ' opacity=".3"'
+        body.append(f'<g{op}>{sym(sx + 13, cy, row * .72)}</g>')
         if i in values:
             body.append(_text(sx + sw - 3, cy + 5, values[i], 13, HEAD, CRIMSON, anchor="end"))
     cx = x + (w - sw) / 2
-    body += [icon_shield(cx, y + 150, 90),
-             _text(cx, y + 250, "Plate, scarred by", 14, BODY, MUTED, italic=True),
-             _text(cx, y + 268, "a hundred blades.", 14, BODY, MUTED, italic=True),
-             f'<line x1="{x + 14}" y1="{y + h - 40}" x2="{x + w - 14}" y2="{y + h - 40}" stroke="{GOLD}" stroke-width="1.5"/>',
-             _text(x + w / 2, y + h - 16, "Armor · Noisy · Req STR +2", 14, BODY, INK, italic=True)]
-    callouts = [  # (point y, point x, label y, label)
-        (y + 36, x + 150, y + 10, "Name"),
-        (y + 28, x + w - 10, y + 52, "Rank"),
-        (top + row * 4.5, sx + sw - 6, y + 130, "Bonus strip"),
-        (y + 210, cx + 40, y + 215, "Effect / art"),
-        (y + h - 20, x + w - 30, y + h - 20, "Keywords"),
+    body += [icon_shield(cx, y + 130, 76),
+             _text(cx, y + 214, "Reaction (1/S.R.),", 13.5, BODY, INK),
+             _text(cx, y + 232, "when an attack hits you:", 13.5, BODY, INK),
+             _text(cx, y + 250, "reduce its damage by 5.", 13.5, BODY, INK),
+             f'<line x1="{x + 14}" y1="{y + h - kh}" x2="{x + w - 14}" y2="{y + h - kh}" stroke="{GOLD}" stroke-width="1.5"/>']
+    # keywords, laid out by estimated width so each one can be pointed at
+    kws = [("Armor", "Type"), ("Noisy 3", "Property"), ("Req STR +2", "Requirement")]
+    fs, gap = 11, 20
+    def width(t):  # rough italic Garamond advance widths
+        return sum(fs * (.26 if c in " ,.1ilrt" else .6 if c.isupper() or c == "+" else .45) for c in t)
+    widths = [width(t) for t, _ in kws]
+    kx = x + w / 2 - (sum(widths) + gap * (len(kws) - 1)) / 2
+    ky = y + h - 18
+    for k, (t, lab) in enumerate(kws):
+        mid = kx + widths[k] / 2
+        body.append(_text(mid, ky, t, fs, BODY, INK, italic=True))
+        if k < len(kws) - 1:
+            body.append(_text(kx + widths[k] + gap / 2, ky, "·", fs, BODY, INK))
+        lx = x + w / 2 + (k - (len(kws) - 1) / 2) * 125  # labels spread wider than the card so they never touch
+        body.append(f'<line x1="{mid:.1f}" y1="{ky + 5}" x2="{lx:.1f}" y2="{y + h + 28}" stroke="{INK}" stroke-width="1" stroke-dasharray="3 3"/>')
+        body.append(f'<circle cx="{mid:.1f}" cy="{ky + 5}" r="2.5" fill="{CRIMSON}"/>')
+        body.append(_text(lx, y + h + 44, lab, 13, HEAD, INK))
+        kx += widths[k] + gap
+    right = [  # (point x, point y, label y, label, sub)
+        (x + w - 10, y + th / 2, y + 30, "Rank", "I to V"),
+        (sx + sw - 4, top + row * 2, top + row * 1.8, "Bonus strip", "abilities"),
+        (sx + sw - 4, top + row * 6, top + row * 6, "", "Defenses (in a shield)"),
+        (sx + sw - 4, top + row * 8.5, top + row * 8.5, "", "HP, Speed"),
+        (x + w - 6, y + h - kh / 2, y + h - 10, "Keywords", "type first"),
     ]
-    for py, px, ly, label in callouts:
-        body.append(f'<polyline points="{px},{py} {x + w + 30},{ly} {x + w + 50},{ly}" fill="none" stroke="{INK}" stroke-width="1" stroke-dasharray="3 3"/>')
-        body.append(f'<circle cx="{px}" cy="{py}" r="3" fill="{CRIMSON}"/>')
-        body.append(_text(x + w + 58, ly + 5, label, 16, HEAD, INK, anchor="start"))
-    return _svg(620, 420, "".join(body), "Anatomy of an Aspect card")
+    for px, py, ly, lab, sub in right:
+        body.append(f'<polyline points="{px:.1f},{py:.1f} {x + w + 34},{ly:.1f} {x + w + 50},{ly:.1f}" fill="none" stroke="{INK}" stroke-width="1" stroke-dasharray="3 3"/>')
+        body.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="3" fill="{CRIMSON}"/>')
+        if lab:
+            body.append(_text(x + w + 56, ly + 5, lab, 16, HEAD, INK, anchor="start"))
+            body.append(_text(x + w + 56, ly + 22, sub, 13, BODY, MUTED, anchor="start", italic=True))
+        else:
+            body.append(_text(x + w + 56, ly + 5, sub, 13, BODY, MUTED, anchor="start", italic=True))
+    left = [(x + 12, y + 29, y + 29, "Name"), (x + 36, y + 228, y + 228, "Effect")]
+    for px, py, ly, lab in left:
+        body.append(f'<polyline points="{px:.1f},{py:.1f} {x - 34},{ly:.1f} {x - 50},{ly:.1f}" fill="none" stroke="{INK}" stroke-width="1" stroke-dasharray="3 3"/>')
+        body.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="3" fill="{CRIMSON}"/>')
+        body.append(_text(x - 56, ly + 5, lab, 16, HEAD, INK, anchor="end"))
+    return _svg(680, h + 70, "".join(body), "A card: name and Rank on top, bonus strip on the right, effect in the center, keywords at the bottom")
 
 
-STRIP_LABELS = ["STR", "DEX", "INT", "CHA", "STR", "DEX", "INT", "CHA", "HP", "SPD"]
+STRIP_LABELS = ["STR", "DEX", "INT", "WIL", "STR", "DEX", "INT", "WIL", "HP", "SPD"]
+
+
+def _strip_label(out, sx, cy, rh, fs, i, op=""):
+    if 4 <= i <= 7:
+        out.append(f'<rect x="{sx + 1.5}" y="{cy - rh * .38}" width="{fs * 2.1}" height="{rh * .76}" rx="{rh * .3}" fill="none" stroke="{GOLD}" stroke-width=".8"{op}/>')
+    out.append(f'<g{op}>' + _text(sx + 2.5 + fs * 1.05, cy + fs * .35, STRIP_LABELS[i], fs * .8, HEAD, INK) + '</g>')
 
 
 def strip_card(x, y, w, h, name, vals, kw, art=None, core=None):
-    """An Aspect card with its bonus strip on the right. vals: {row: "+3"}. core: {row: (own, total)}."""
+    """An Aspect card with its bonus strip on the right. vals: {row: "+3"}. core: {row: own value}."""
     th, kh = h * .13, h * .1
     sw = w * .2
-    sx = x + w - (2 * sw if core else sw)
+    sx = x + w - sw
     rh = (h - th - kh) / 10
     fs = rh * .42
     out = [f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="7" fill="{PARCH}" stroke="{INK}" stroke-width="1.6"/>',
-           f'<rect x="{x}" y="{y}" width="{w}" height="{th}" rx="7" fill="{GOLD}" stroke="{INK}" stroke-width="1.6"/>',
-           _text(x + 6, y + th * .68, name, min(th * .5, (w - (2 * sw if core else 0) - 12) / (len(name) * .66)), HEAD, PARCH, anchor="start"),
-           f'<rect x="{sx}" y="{y + th}" width="{x + w - sx}" height="{rh * 10}" fill="{SHADE}" stroke="{INK}" stroke-width=".8"/>',
+           f'<rect x="{x}" y="{y}" width="{w}" height="{th}" rx="7" fill="{CRIMSON if core else GOLD}" stroke="{INK}" stroke-width="1.6"/>',
+           _text(x + 6, y + th * .68, name, min(th * .5, (w - 12) / (len(name) * .66)), HEAD, PARCH, anchor="start"),
+           f'<rect x="{sx}" y="{y + th}" width="{sw}" height="{rh * 10}" fill="{SHADE}" stroke="{INK}" stroke-width=".8"/>',
            f'<line x1="{x}" y1="{y + h - kh}" x2="{x + w}" y2="{y + h - kh}" stroke="{GOLD}" stroke-width="1"/>',
            _text(x + w / 2, y + h - kh * .32, kw, kh * .5, BODY, INK, italic=True)]
-    if core:
-        out.append(f'<line x1="{sx + sw}" y1="{y + th}" x2="{sx + sw}" y2="{y + th + rh * 10}" stroke="{INK}" stroke-width=".8"/>')
-    for i, lab in enumerate(STRIP_LABELS):
+    for i in range(10):
         cy = y + th + rh * (i + .5)
         if i:
             out.append(f'<line x1="{sx}" y1="{y + th + rh * i}" x2="{x + w}" y2="{y + th + rh * i}" stroke="{MUTED}" stroke-width=".4"/>')
         shown = i in vals or core
-        op = "" if shown else ' opacity="0.3"'
-        if 4 <= i <= 7:
-            out.append(f'<rect x="{sx + 1.5}" y="{cy - rh * .38}" width="{fs * 2.1}" height="{rh * .76}" rx="{rh * .3}" fill="none" stroke="{GOLD}" stroke-width=".8"{op}/>')
-        out.append(f'<g{op}>' + _text(sx + 2.5 + fs * 1.05, cy + fs * .35, lab, fs * .8, HEAD, INK) + '</g>')
+        _strip_label(out, sx, cy, rh, fs, i, "" if shown else ' opacity="0.3"')
         if core:
-            own, tot = core[i]
-            out.append(_text(sx + sw - 2, cy + fs * .4, own, fs * 1.15, HEAD, INK, anchor="end"))
-            out.append(f'<rect x="{sx + sw + 2}" y="{cy - rh * .4}" width="{sw - 4}" height="{rh * .8}" rx="2" fill="{PARCH}" stroke="{MUTED}" stroke-width=".7" stroke-dasharray="2 1.5"/>')
-            out.append(_text(sx + sw * 1.5, cy + fs * .45, tot, fs * 1.35, BODY, CRIMSON, italic=True, weight=600))
+            out.append(_text(sx + sw - 2, cy + fs * .4, core[i], fs * 1.15, HEAD, INK, anchor="end"))
         elif i in vals:
             out.append(_text(sx + sw - 2, cy + fs * .4, vals[i], fs * 1.15, HEAD, CRIMSON, anchor="end"))
-    if core:
-        out.append(_text(sx + sw * .5, y + th * .7, "own", th * .36, BODY, PARCH, italic=True))
-        out.append(_text(sx + sw * 1.5, y + th * .7, "total", th * .36, BODY, PARCH, italic=True))
     if art:
         out.append(art((x + sx) / 2, y + th + (h - th - kh) * .45, (sx - x) * .5))
     return "".join(out)
 
 
-BRAM_CORE = {0: ("+3", "+3"), 1: ("+1", "+1"), 2: ("+0", "+0"), 3: ("+0", "+0"), 4: ("13", "18"),
-             5: ("11", "13"), 6: ("10", "10"), 7: ("10", "10"), 8: ("14", "14"), 9: ("30", "30")}
+def tally_small(x, y, w, h, totals, hp=None):
+    """The tally card at card size: written totals in the strip, current HP, temp HP and death saves beside it."""
+    th, kh = h * .13, h * .1
+    sw = w * .2
+    sx = x + w - sw
+    rh = (h - th - kh) / 10
+    fs = rh * .42
+    out = [f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="7" fill="#fffaf0" stroke="{INK}" stroke-width="1.6"/>',
+           f'<rect x="{x}" y="{y}" width="{w}" height="{th}" rx="7" fill="{INK}" stroke="{INK}" stroke-width="1.6"/>',
+           _text(x + 6, y + th * .68, "TALLY", th * .5, HEAD, PARCH, anchor="start"),
+           f'<rect x="{sx}" y="{y + th}" width="{sw}" height="{rh * 10}" fill="#fffaf0" stroke="{INK}" stroke-width=".8"/>']
+    for i in range(10):
+        cy = y + th + rh * (i + .5)
+        if i:
+            out.append(f'<line x1="{sx}" y1="{y + th + rh * i}" x2="{x + w}" y2="{y + th + rh * i}" stroke="{MUTED}" stroke-width=".4"/>')
+        _strip_label(out, sx, cy, rh, fs, i, ' opacity="0.45"')
+        if i in totals:
+            out.append(_text(sx + sw - 2, cy + fs * .45, totals[i], fs * 1.35, BODY, CRIMSON, anchor="end", italic=True, weight=600))
+    # left area: current HP, temp HP, death saves
+    lx, lw = x + w * .06, sx - x - w * .12
+    by = y + th + rh * .6
+    lab = rh * .36
+    out += [_text(lx, by, "CURRENT HP", lab, HEAD, MUTED, anchor="start"),
+            f'<rect x="{lx}" y="{by + rh * .2}" width="{lw}" height="{rh * 3.2}" rx="3" fill="none" stroke="{MUTED}" stroke-width=".7" stroke-dasharray="2 1.5"/>']
+    if hp:
+        for k, v in enumerate(hp):
+            last = k == len(hp) - 1
+            tx = lx + lw * (.2 + .3 * k)
+            out.append(_text(tx, by + rh * 2.1, v, fs * 1.5, BODY, CRIMSON if last else MUTED, italic=True, weight=600))
+            if not last:
+                out.append(f'<line x1="{tx - fs * .8}" y1="{by + rh * 1.9}" x2="{tx + fs * .8}" y2="{by + rh * 1.5}" stroke="{MUTED}" stroke-width=".9"/>')
+    by += rh * 4.2
+    out += [_text(lx, by, "TEMP HP", lab, HEAD, MUTED, anchor="start"),
+            f'<rect x="{lx}" y="{by + rh * .2}" width="{lw * .55}" height="{rh * 1.3}" rx="3" fill="none" stroke="{MUTED}" stroke-width=".7" stroke-dasharray="2 1.5"/>']
+    by += rh * 2.4
+    out.append(_text(lx, by, "DEATH SAVES", lab, HEAD, MUTED, anchor="start"))
+    for r, (mark, col) in enumerate((("✓", GOLD), ("✗", CRIMSON))):
+        yy = by + rh * (.8 + r * .95)
+        out.append(_text(lx + lab * .5, yy + lab * .4, mark, lab * 1.2, BODY, col))
+        for k in range(3):
+            out.append(f'<rect x="{lx + lab * 1.6 + k * rh * .9}" y="{yy - rh * .3}" width="{rh * .6}" height="{rh * .6}" rx="1.5" fill="none" stroke="{INK}" stroke-width=".7"/>')
+    return "".join(out)
+
+
+def tally_card():
+    """The tally card, called out: the one card you write on."""
+    x, y, w, h = 200, 20, 300, 400
+    body = [f'<rect x="{x + 6}" y="{y + 6}" width="{w}" height="{h}" rx="12" fill="{SHADE}"/>',
+            tally_small(x, y, w, h, {0: "+3", 1: "+1", 2: "+0", 3: "+0", 4: "18", 5: "13", 6: "10", 7: "10", 8: "14", 9: "30"}, ["14", "9", "11"])]
+    th, kh = h * .13, h * .1
+    rh = (h - th - kh) / 10
+    top, sx = y + th, x + w - w * .2
+    R = x + w + 40
+    bx = x + w + 12
+    for r0, r1 in ((0, 4), (4, 8), (8, 10)):
+        y0, y1 = top + rh * r0 + 4, top + rh * r1 - 4
+        body.append(f'<path d="M{bx - 5} {y0:.1f}H{bx}V{y1:.1f}H{bx - 5}" fill="none" stroke="{INK}" stroke-width="1.2"/>')
+    body += [_callout(bx, top + rh * 2, R, top + rh * 2, "Totals", "four modifiers"),
+             _callout(bx, top + rh * 6, R, top + rh * 6, "", "four Defenses"),
+             _callout(bx, top + rh * 9, R, top + rh * 9, "", "HP maximum, Speed"),
+             _callout(x + 20, top + rh * 2, x - 34, top + rh * 2, "Current HP", "cross out, rewrite", side=-1),
+             _callout(x + 20, top + rh * 5, x - 34, top + rh * 5.2, "Temp HP", side=-1),
+             _callout(x + 20, top + rh * 7.6, x - 34, top + rh * 8, "Death saves", "successes, failures", side=-1)]
+    return _svg(740, h + 30, "".join(body), "The tally card: ten totals lined up with the bonus strip, current HP, temporary HP and death saves")
+
+
+BRAM_CORE = {0: "+3", 1: "+1", 2: "+0", 3: "+0", 4: "13", 5: "11", 6: "10", 7: "10", 8: "14", 9: "30"}
+BRAM_TOTALS = {0: "+3", 1: "+1", 2: "+0", 3: "+0", 4: "18", 5: "13", 6: "10", 7: "10", 8: "14", 9: "30"}
 
 
 def keeping_totals():
@@ -369,15 +628,15 @@ def keeping_totals():
     # Panel 1: in play
     body.append(_text(10, 22, "IN PLAY: SPREAD OUT BY SLOT", 15, HEAD, CRIMSON, anchor="start"))
     w, h, gap = 104, 146, 14
-    row1 = [("CORE", "Brute I", {}, "Core · Medium", None, BRAM_CORE),
-            ("ARMOR", "Medium Armor I", {4: "+3"}, "Armor · Req STR +1", icon_shield, None),
-            ("HANDS", "Shield I", {4: "+2", 5: "+2"}, "Shield", lambda cx, cy, s: icon_shield(cx, cy, s, 2), None),
-            ("", "Versatile Weapon I", {}, "Weapon · Versatile", icon_sword, None),
-            ("JEWELRY", "Ring of Warding I", {}, "Jewelry · Reaction", None, None)]
+    row1 = [("CORE", "Brute", {}, "Core · Medium", None, BRAM_CORE),
+            ("ARMOR", "Mail", {4: "+3"}, "Armor · Req STR +1", icon_shield, None),
+            ("HANDS", "Shield", {4: "+2", 5: "+2"}, "Shield", lambda cx, cy, s: icon_shield(cx, cy, s, 2), None),
+            ("", "Versatile Weapon", {}, "Weapon · Versatile", icon_sword, None),
+            ("JEWELRY", "Ring of Warding", {}, "Jewelry · Reaction", None, None)]
     row2 = [("ITEM", "Potion of Healing", {}, "Consumable", None, None),
-            ("ATTRIBUTES", "Stone Blood I", {}, "Trait · Resist Poison", None, None),
-            ("", "Iron Will I", {}, "Trait", None, None),
-            ("", "Cat Burglar I", {}, "Knack", None, None)]
+            ("ASPECTS", "Stone Blood", {}, "Trait · Resist Poison", None, None),
+            ("", "Iron Will", {}, "Trait", None, None),
+            ("", "Cat Burglar", {}, "Knack", None, None)]
     for r, cards in enumerate([row1, row2]):
         y = 52 + r * (h + 34)
         for i, (slot, name, vals, kw, art, core) in enumerate(cards):
@@ -385,27 +644,31 @@ def keeping_totals():
             if slot:
                 body.append(_text(x, y - 7, slot, 10, HEAD, GOLD, anchor="start"))
             body.append(strip_card(x, y, w, h, name, vals, kw, art, core))
+    x = 12 + 4 * (w + gap)
+    y = 52 + h + 34
+    body.append(_text(x, y - 7, "TALLY", 10, HEAD, INK, anchor="start"))
+    body.append(tally_small(x, y, w, h, BRAM_TOTALS, ["14", "9"]))
     # Panel 2: adding up
     top = 52 + 2 * (h + 34) + 14
     body.append(f'<line x1="10" y1="{top - 22}" x2="610" y2="{top - 22}" stroke="{GOLD}" stroke-width="1"/>')
-    body.append(_text(10, top, "ADDING UP: CORE FIRST, EACH CARD ON TOP", 15, HEAD, CRIMSON, anchor="start"))
+    body.append(_text(10, top, "ADDING UP: TALLY, CORE, THEN EACH CARD ON TOP", 15, HEAD, CRIMSON, anchor="start"))
     W, H = 150, 210
-    dx, dy = W * .2, H * .13
+    dx = W * .2
     x0, y0 = 12, top + 16
-    stack = [("Medium Armor I", {4: "+3"}, "Armor · Req STR +1"), ("Shield I", {4: "+2", 5: "+2"}, "Shield")]
+    stack = [("Mail", {4: "+3"}, "Armor · Req STR +1"), ("Shield", {4: "+2", 5: "+2"}, "Shield")]
     m = len(stack)
-    cxs = x0 + m * dx + dx
-    body.append(strip_card(cxs, y0, W, H, "Brute I", {}, "Core · Medium", None, BRAM_CORE))
+    cxs = x0 + m * dx  # the Core, one strip left of the tally
+    body.append(tally_small(cxs + dx, y0, W, H, BRAM_TOTALS))
+    body.append(strip_card(cxs, y0, W, H, "Brute", {}, "Core · Medium", None, BRAM_CORE))
     rh = (H - H * .13 - H * .1) / 10
     for j, (name, vals, kw) in enumerate(stack):
-        cx, cy = x0 + (m - 1 - j) * dx, y0
-        body.append(strip_card(cx, cy, W, H, name, vals, kw))
+        body.append(strip_card(x0 + (m - 1 - j) * dx, y0, W, H, name, vals, kw))
     ry = y0 + H * .13 + rh * 4
-    body.append(f'<rect x="{x0 + W - dx}" y="{ry:.1f}" width="{cxs + W - (x0 + W - dx):.1f}" height="{rh:.1f}" fill="{CRIMSON}" fill-opacity=".12" stroke="{CRIMSON}" stroke-width="1.6"/>')
-    names = ["Shield", "Armor", "Core", "Total"]
+    body.append(f'<rect x="{x0 + W - dx}" y="{ry:.1f}" width="{cxs + dx + W - (x0 + W - dx):.1f}" height="{rh:.1f}" fill="{CRIMSON}" fill-opacity=".12" stroke="{CRIMSON}" stroke-width="1.6"/>')
+    names = ["Shield", "Armor", "Core", "Tally"]
     for k, nm in enumerate(names):
         body.append(_text(x0 + W - dx / 2 + k * dx, y0 + H + 16, nm, 9, BODY, MUTED, italic=True))
-    tx = cxs + W + 26
+    tx = cxs + dx + W + 22
     lines = [("Each row reads left to right,", BODY, INK, False),
              ("like a written sum:", BODY, INK, False),
              ("", BODY, INK, False),
@@ -420,24 +683,128 @@ def keeping_totals():
              ("stay out of the stack.", BODY, MUTED, True)]
     for k, (t, st, col, it) in enumerate(lines):
         if t:
-            body.append(_text(tx, y0 + 30 + k * 19, t, 15, st, col, anchor="start", italic=it))
-    return _svg(620, max(y0 + H + 26, y0 + 30 + 12 * 19), "".join(body), "Cards spread out by Slot in play, and stacked to add up the bonus strips into the Core card's Total column")
+            body.append(_text(tx, y0 + 30 + k * 19, t, 14, st, col, anchor="start", italic=it))
+    return _svg(620, max(y0 + H + 26, y0 + 30 + 12 * 19), "".join(body), "Cards spread out by Slot in play beside the tally card, and stacked on the tally card to add up the bonus strips into its totals")
+
+
+# ---------- Slot frames (P 12.2): drawn at 10 units per mm, 67 × 98 mm ----------
+ASPECT_GREEN = "#3f6b4f"
+CRYSTAL = "#3d6b7a"
+FRAME_W, FRAME_H = 670, 980
+FRAME_CARD = (25, 80, 655, 960)  # where the 63 × 88 mm card sits: flush with the right border's inside edge
+FRAME_BAND = {"armor": INK, "hand": INK, "jewelry": INK, "item": INK, "aspect": ASPECT_GREEN, "shard": CRYSTAL}
+
+
+def _frame_icon(key, cx, cy, s):
+    if key == "armor":
+        return icon_shield(cx, cy, s, bands=2)
+    if key == "hand":
+        return icon_sword(cx, cy, s)
+    if key == "jewelry":
+        return icon_ring(cx, cy, s)
+    if key == "item":
+        return icon_potion(cx, cy, s)
+    return gem(cx, cy, s * .5, ASPECT_GREEN if key == "aspect" else CRYSTAL)
+
+
+def _md_tspans(s):
+    """**bold** inside SVG text."""
+    parts = s.split("**")
+    return "".join(f'<tspan font-weight="700">{p}</tspan>' if i % 2 else p for i, p in enumerate(parts))
+
+
+def _wrap(s, n):
+    words, lines, cur = s.split(), [], ""
+    for w in words:
+        if len((cur + " " + w).replace("**", "")) > n and cur:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = (cur + " " + w).strip()
+    return lines + [cur]
+
+
+def frame_body(key, name, swap, reminder, slits=True):
+    """One Slot frame (or Shard frame) as SVG elements in 0.1 mm units."""
+    x0, y0, x1, y1 = FRAME_CARD
+    band = FRAME_BAND[key]
+    out = [f'<rect x="0" y="0" width="{FRAME_W}" height="{FRAME_H}" fill="{PARCH}" stroke="{INK}" stroke-width="4"/>',
+           f'<rect x="0" y="0" width="{FRAME_W}" height="{y0}" fill="{band}"/>',
+           f'<circle cx="52" cy="{y0 / 2}" r="31" fill="{PARCH}" stroke="{GOLD}" stroke-width="3"/>',
+           _frame_icon(key, 52, y0 / 2, 40),
+           _text(98, y0 / 2 + 12, name.upper(), 34, HEAD, PARCH, anchor="start"),
+           _text(FRAME_W - 24, y0 / 2 + 9, swap, 24, BODY, SHADE, anchor="end", italic=True),
+           # the card's place: visible only when the Slot is empty
+           f'<rect x="{x0}" y="{y0}" width="{x1 - x0}" height="{y1 - y0}" rx="30" fill="#fbf6e9" stroke="{MUTED}" stroke-width="2.5" stroke-dasharray="14 9"/>',
+           f'<g opacity=".16">{_frame_icon(key, (x0 + x1) / 2, y0 + 330, 300)}</g>']
+    ty = y0 + 600
+    for para in reminder:
+        for line in _wrap(para, 38):
+            out.append(_text((x0 + x1) / 2, ty, _md_tspans(line), 30, BODY, INK))
+            ty += 38
+        ty += 16
+    if key == "armor":  # an empty Armor Slot adds +10 Speed: the frame's own strip, under the card's strip
+        sw, top, rh = 126, y0 + 114.4, 67.76
+        out.append(f'<rect x="{x1 - sw}" y="{top}" width="{sw}" height="{rh * 10}" fill="{SHADE}" stroke="{MUTED}" stroke-width="1.5"/>')
+        cy = top + rh * 9.5
+        out.append(f'<line x1="{x1 - sw}" y1="{top + rh * 9}" x2="{x1}" y2="{top + rh * 9}" stroke="{MUTED}" stroke-width="1.5"/>')
+        out.append(sym_speed(x1 - sw + 30, cy, 44))
+        out.append(_text(x1 - 10, cy + 12, "+10", 34, HEAD, CRIMSON, anchor="end"))
+    if slits:  # photo-corner slits at the top-right and bottom-left corners of the card
+        for (ax, ay), (bx, by) in (((x1 - 105, y0 - 12), (x1 + 12, y0 + 105)), ((x0 - 12, y1 - 105), (x0 + 105, y1 + 12))):
+            out.append(f'<line x1="{ax}" y1="{ay}" x2="{bx}" y2="{by}" stroke="{CRIMSON}" stroke-width="7" stroke-linecap="round"/>')
+        out.append(_text(x1 - 70, y0 + 90, "cut", 20, BODY, CRIMSON, italic=True))
+        out.append(_text(x0 + 66, y1 - 66, "cut", 20, BODY, CRIMSON, italic=True))
+    return "".join(out)
+
+
+def slot_frame(key, name, swap, reminder):
+    """A printable Slot frame, sized 67 × 98 mm by its viewBox."""
+    return _svg(FRAME_W, FRAME_H, frame_body(key, name, swap, reminder), f"{name} Slot frame")
+
+
+def frame_figure():
+    """P 12.2: an empty Armor frame beside a Hand frame holding a weapon, parts called out."""
+    s = .34  # figure scale: 0.34 px per 0.1 mm
+    W, H = FRAME_W * s, FRAME_H * s
+    ax, hx, y = 20, 330, 20
+    x0, y0, x1, y1 = FRAME_CARD
+    body = [f'<g transform="translate({ax} {y}) scale({s})">{frame_body("armor", "Armor", "Swap: 10 minutes", ["Empty: **+10 ft Speed**."], slits=False)}</g>',
+            f'<g transform="translate({hx} {y}) scale({s})">{frame_body("hand", "Hand", "Swap: free interaction", [], slits=False)}</g>']
+    # the tucked card, its corners under the slits
+    cw, ch = (x1 - x0) * s, (y1 - y0) * s
+    cx, cy = hx + x0 * s, y + y0 * s
+    body.append(strip_card(cx, cy, cw, ch, "Finesse Blade", {}, "Weapon · Finesse", icon_sword))
+    for (px, py), (qx, qy) in (((x1 - 105, y0 - 12), (x1 + 12, y0 + 105)), ((x0 - 12, y1 - 105), (x0 + 105, y1 + 12))):
+        P, Q = (hx + px * s, y + py * s), (hx + qx * s, y + qy * s)
+        tri = (f"{P[0]:.1f},{P[1]:.1f} {Q[0]:.1f},{Q[1]:.1f} {hx + (x1 if px > x0 else x0) * s:.1f},{y + (y0 if py < y0 + 50 else y1) * s:.1f}")
+        body.append(f'<polygon points="{tri}" fill="{PARCH}" stroke="{INK}" stroke-width="1"/>')
+        body.append(f'<line x1="{P[0]:.1f}" y1="{P[1]:.1f}" x2="{Q[0]:.1f}" y2="{Q[1]:.1f}" stroke="{CRIMSON}" stroke-width="2.2"/>')
+    R = hx + W + 30
+    body += [_callout(hx + 200 * s, y + 40 * s, R, y + 14, "Slot", "symbol and name"),
+             _callout(hx + 600 * s, y + 40 * s, R, y + 58, "Swap time", "3.5"),
+             _callout(hx + (x1 - 40) * s, y + (y0 + 40) * s, R, y + 112, "Slit", "the card's corner tucks under it"),
+             _callout(hx + (x1 - 20) * s, y + (y0 + 400) * s, R, y + 190, "Bonus strip", "on the frame's edge"),
+             _callout(hx + (x0 + 40) * s, y + (y1 - 40) * s, R, y + H - 20, "Slit", "opposite corner"),
+             _text(ax + W / 2, y + H + 24, "Empty: it shows what the Slot does", 14, BODY, MUTED, italic=True),
+             _text(hx + W / 2, y + H + 24, "Framed: the card is equipped", 14, BODY, MUTED, italic=True)]
+    return _svg(R + 230, H + 56, "".join(body), "An empty Armor Slot frame showing +10 ft Speed, and a Hand Slot frame holding a weapon card by two corner slits")
 
 
 def rank_ladder():
+    """Vertical ladder, Rank I at the bottom to V at the top, sized to sit beside a list."""
     body = []
     data = [("I", "Small edge"), ("II", "Defining"), ("III", "Strong"), ("IV", "Bends rules"), ("V", "Breaks rules")]
     colors = ["#9a8a6a", GOLD, CRIMSON, "#4b2a6b", INK]
+    step, gx = 62, 52
     for i, (r, label) in enumerate(data):
-        x = 64 + i * 118
-        size = 20 + i * 6
-        base = 150
-        body.append(f'<line x1="{x}" y1="{base + 4}" x2="{x}" y2="{base + 26}" stroke="{GOLD}" stroke-width="1.5"/>')
-        body.append(gem(x, base - size, size, colors[i], r, 13 + i * 2))
-        body.append(_text(x, base + 50, label, 15, HEAD))
-    body.append(f'<line x1="20" y1="{176}" x2="580" y2="{176}" stroke="{INK}" stroke-width="1.5" marker-end="url(#arr)"/>')
-    body.append(_text(300, 230, "Higher Ranks print bigger numbers", 14, BODY, MUTED, italic=True))
-    return _svg(600, 245, "".join(body), "The five Ranks, from a small edge to rule-breaking")
+        cy = 40 + (4 - i) * step
+        size = 16 + i * 3.5
+        body.append(f'<line x1="18" y1="{cy}" x2="{gx - size - 4:.1f}" y2="{cy}" stroke="{GOLD}" stroke-width="1.5"/>')
+        body.append(gem(gx, cy, size, colors[i], r, 11 + i * 1.5))
+        body.append(_text(gx + 40, cy + 5, label, 15, HEAD, anchor="start"))
+    body.append(f'<line x1="14" y1="{40 + 4 * step + 24}" x2="14" y2="14" stroke="{INK}" stroke-width="1.5" marker-end="url(#arr)"/>')
+    return _svg(215, 40 + 4 * step + 34, "".join(body), "The five Ranks, from a small edge at the bottom to rule-breaking at the top")
 
 
 def initiative_timeline():
@@ -538,12 +905,12 @@ def death_saves():
 
 def armor_tiers():
     body = []
-    data = [("Light", "12 + DEX", 0, "—"), ("Medium", "14 + DEX (max +2)", 1, "STR +1 or DEX +1"), ("Heavy", "17", 2, "STR +2"), ("Shield", "+2", 0, "one hand")]
-    for i, (name, ac, bands, req) in enumerate(data):
+    data = [("Leather", "+2 STR · +1 DEX", 0, "+5 ft speed"), ("Mail", "+3 STR", 1, "Req STR +1"), ("Plate", "+4 STR", 2, "Req STR +2 · −10 ft"), ("Shield", "+2 STR · +2 DEX", 0, "one Hand")]
+    for i, (name, bonus, bands, req) in enumerate(data):
         x = 90 + i * 150
         body.append(icon_shield(x, 70, 70 + bands * 10, bands=bands if name != "Shield" else 0))
         body.append(_text(x, 140, name, 16, HEAD))
-        body.append(_text(x, 162, f"AC {ac}", 14, BODY, INK, weight=600))
+        body.append(_text(x, 162, bonus, 13.5, BODY, INK, weight=600))
         body.append(_text(x, 182, req, 13, BODY, MUTED, italic=True))
     return _svg(620, 200, "".join(body), "Armor tiers")
 

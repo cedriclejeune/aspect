@@ -1,8 +1,8 @@
 """Build the illustrated PDF rulebooks from rules/PLAYERS.md and rules/GM.md.
 
 Usage: .venv/bin/python tools/build_pdf.py
-Output: rules/Aspects-Player-Rules.pdf, rules/Aspects-GM-Guide.pdf (and build/*.html for inspection)
-rules/DESIGN.md is internal and never built.
+Output: rules/Bearers-Player-Rules.pdf, rules/Bearers-GM-Guide.pdf (and build/*.html for inspection)
+rules/DESIGN.md is internal and never built. The Glossary chapters are first synced from GLOSSARY.md.
 Needs: the `markdown` package and Chromium (headless printing).
 """
 import html
@@ -15,28 +15,33 @@ import markdown
 
 sys.path.insert(0, str(Path(__file__).parent))
 import illustrations as ill  # noqa: E402
+import sync_glossary  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 BUILD = ROOT / "build"
 
-# Figure placed right after the heading whose text starts with the key (Player Rules only).
+# Figure placed right after the heading whose text starts with the key (Player Rules only),
+# or wherever the Markdown has a <!-- figure: key --> line.
 FIGURES = {
-    "The Core Loop": (ill.core_loop, "The core loop. Every session turns this wheel a few times.", "wide"),
-    "2.3 Rank": (ill.rank_ladder, "Rank I is a small edge; Rank V breaks the rules.", "wide"),
-    "3. Aspects & Slots": (ill.character_anatomy, "Mira's build: Core, Armor, two Hands, Jewelry, two Items and three Attributes.", "wide"),
-    "3.1 Reading an Aspect": (ill.aspect_card_anatomy, "Name on top, bonus strip on the right, keywords at the bottom.", "mid"),
-    "3.8 Keeping Your Totals": (ill.keeping_totals, "Bram's cards in play (top) and stacked to add up (bottom). The Total column of the Core card is his sheet.", "full"),
+    "Story, Quests & Trials": (ill.play_loop, "Chain trials straight from Gather; rest (dotted) when the party needs it. A few trials make a quest; a few quests make a story.", "wide"),
+    "core": (ill.core_card, "A starting Core: its own values in the strip. Your totals go on the tally card (12.3).", "full"),
+    "card": (ill.card_elements, "Where each element sits on a card.", "wide"),
+    "rank": (ill.rank_ladder, "Rank I is a small edge; Rank V breaks the rules.", "side"),
+    "3.2 Your Slots": (ill.character_anatomy, "A starting build: Core, Armor, two Hands, Jewelry, two Items and three Aspects.", "wide"),
+    "tally": (ill.tally_card, "The tally card, the one card you write on.", "full"),
+    "frame": (ill.frame_figure, "An empty Armor frame, and a Hand frame holding a weapon by two corner slits.", "wide"),
+    "totals": (ill.keeping_totals, "Bram's cards in play beside his tally card (top), and stacked on it to add up (bottom).", "full"),
     "6.1 Order of Combat": (ill.initiative_timeline, "Side initiative: the winners open with half a turn, then sides alternate full turns.", "full"),
     "6.5 Engagement": (ill.combat_grid, "Reach, opportunity attacks and cover on the grid.", "wide"),
-    "7.4 Dropping to 0 HP": (ill.death_saves, "The death save track.", "wide"),
-    "9.1 Armor": (ill.armor_tiers, "The three armor tiers and the shield.", "wide"),
+    "7.4 Falling to 0 HP": (ill.death_saves, "The death save track.", "wide"),
+    "9.1 Armor": (ill.armor_tiers, "Leather, Mail, Plate and the shield, with their Defense bonuses.", "wide"),
     "10.5 Areas of Effect": (ill.areas_of_effect, "Areas of effect. The black dot marks the point of origin.", "wide"),
 }
 
 CSS = """
 @page { size: Letter; margin: 0.8in 0.85in 0.9in 0.85in; background: #f6efdd;
   @bottom-center { content: counter(page); font-family: Cinzel, serif; font-size: 9pt; color: #7a6648; }
-  @top-right { content: "ASPECTS · %HEADER%"; font-family: Cinzel, serif; font-size: 8pt; color: #b07d2b; } }
+  @top-right { content: "BEARERS · %HEADER%"; font-family: Cinzel, serif; font-size: 8pt; color: #b07d2b; } }
 @page :first { margin: 0; @bottom-center { content: none; } @top-right { content: none; } }
 @page toc { @bottom-center { content: none; } }
 html { background: #f6efdd; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -44,6 +49,7 @@ body { font-family: 'EB Garamond', Georgia, serif; font-size: 11.2pt; line-heigh
 h1, h2, h3, h4 { font-family: Cinzel, serif; color: #8a1c1c; line-height: 1.15; break-after: avoid; }
 h2 { font-size: 24pt; margin: 0 0 4pt; break-before: page; text-align: center; letter-spacing: .04em; }
 h2 + .ornament { text-align: center; margin: 0 0 14pt; }
+hr { display: none; }  /* chapters already start a new page; a divider can spill onto a blank one */
 h2 + .ornament svg { width: 2.6in; }
 h3 { font-size: 13.5pt; margin: 16pt 0 5pt; border-bottom: 1.5px solid #b07d2b; padding-bottom: 2pt; }
 p { margin: 0 0 6pt; }
@@ -53,8 +59,15 @@ strong { color: #3a1f10; }
 a { color: inherit; text-decoration: none; }
 code { font-family: 'DejaVu Sans Mono', monospace; font-size: 8.5pt; }
 table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; font-size: 10pt; break-inside: avoid; }
+table:has(tbody tr:nth-child(25)) { break-inside: auto; }  /* long tables (the Glossary) may span pages */
+tr { break-inside: avoid; }
 th { font-family: Cinzel, serif; font-size: 8.8pt; background: #8a1c1c; color: #f6efdd; text-align: left; padding: 4pt 6pt; }
 td { padding: 3.2pt 6pt; border-bottom: 1px solid #e0cfa6; vertical-align: top; }
+img.sym, .sym { display: inline-block; width: 1.7em; height: 1.7em; vertical-align: -0.55em; }
+.sym svg { width: 100%; height: 100%; }
+td:has(> .sym:only-child) { width: 1.7em; padding-right: 0; }
+td:has(> .sym:only-child) .sym { vertical-align: top; margin-top: -1pt; }
+td:first-child:has(> .sym:only-child) + td { white-space: nowrap; }
 tr:nth-child(even) td { background: rgba(176,125,43,.09); }
 blockquote { margin: 8pt 0 10pt; break-inside: avoid; }
 blockquote p { margin: 0 0 3pt; }
@@ -72,7 +85,9 @@ blockquote.callout { text-align: center; font-family: Cinzel, serif; font-size: 
 .cards blockquote.card { max-width: none; margin: 0 0 12pt; }
 figure { margin: 10pt auto 12pt; text-align: center; break-inside: avoid; }
 figure svg { width: 100%; height: auto; }
-figure.wide svg { width: 88%; } figure.mid svg { width: 70%; } figure.full svg { width: 100%; }
+figure.wide svg { width: 88%; } figure.mid svg { width: 70%; } figure.small svg { width: 50%; }
+figure:not(.side) { clear: both; }
+figure.side { float: right; width: 28%; margin: 4pt 0 6pt 14pt; } figure.side svg { width: 100%; } figure.full svg { width: 100%; }
 figcaption { font-style: italic; font-size: 9.8pt; color: #7a6648; margin-top: 3pt; }
 .cover { height: 11in; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
   background: radial-gradient(ellipse at center, #fbf6e9 0%, #f0e3c4 70%, #e3cf9f 100%); break-after: page; }
@@ -102,8 +117,8 @@ def slug(text):
 
 BOOKS = [
     # (source, output, cover subtitle, running header, figures)
-    ("PLAYERS.md", "Aspects-Player-Rules.pdf", "Player Rules", "Player Rules", FIGURES),
-    ("GM.md", "Aspects-GM-Guide.pdf", "Game Master's Guide", "GM's Guide", {}),
+    ("PLAYERS.md", "Bearers-Player-Rules.pdf", "Player Rules", "Player Rules", FIGURES),
+    ("GM.md", "Bearers-GM-Guide.pdf", "Game Master's Guide", "GM's Guide", {}),
 ]
 
 
@@ -126,13 +141,33 @@ def classify_blockquotes(body):
         return f'<blockquote class="{cls}">{inner}</blockquote>'
 
     body = re.sub(r"<blockquote>(.*?)</blockquote>", repl, body, flags=re.S)
-    # Sample Aspects: lay consecutive cards out in two columns
+    # Sample Cards: lay consecutive cards out in two columns
     return re.sub(
-        r'(<h3[^>]*>[\d.]+ Sample Aspects</h3>)\s*((?:<blockquote class="card">.*?</blockquote>\s*)+)',
+        r'(<h3[^>]*>[\d.]+ Sample Cards</h3>)\s*((?:<blockquote class="card">.*?</blockquote>\s*)+)',
         lambda m: m.group(1) + '<div class="cards">' + m.group(2) + "</div>",
         body,
         flags=re.S,
     )
+
+
+SYMBOLS = {f"{k.lower()}{'-def' if d else ''}": (k, d) for k in ill.STAT_SYMBOLS for d in (False, True)
+           if not d or k in ("STR", "DEX", "INT", "WIL")}
+
+
+def write_symbols():
+    """rules/symbols/*.svg, so the Markdown previews show the stat symbols too."""
+    out = ROOT / "rules" / "symbols"
+    out.mkdir(exist_ok=True)
+    for name, (key, shield) in SYMBOLS.items():
+        (out / f"{name}.svg").write_text(ill.stat_symbol(key, shield), encoding="utf-8")
+
+
+def inline_symbols(body):
+    """Swap each <img src="symbols/x.svg"> for the inline SVG, so the PDF needs no files."""
+    def repl(m):
+        key, shield = SYMBOLS[m.group(1)]
+        return f'<span class="sym">{ill.stat_symbol(key, shield)}</span>'
+    return re.sub(r'<img[^>]*src="symbols/([\w-]+)\.svg"[^>]*>', repl, body)
 
 
 def build_html(src, subtitle, header, figures):
@@ -164,20 +199,22 @@ def build_html(src, subtitle, header, figures):
         return out
 
     body = re.sub(r"<h([234])>(.*?)</h\1>", heading, body)
+    body = re.sub(r"<!-- figure: (.+?) -->", lambda m: figure(m.group(1)), body)
     body = classify_blockquotes(body)
+    body = inline_symbols(body)
     body = body.replace('<h2 id="attribution">Attribution</h2>', '<h2 id="attribution">Attribution</h2><div class="attribution">', 1)
     if '<div class="attribution">' in body:
         body += "</div>"
 
     toc_html = "".join(f'<li><a href="#{hid}">{text}</a></li>' for hid, text in toc)
     cover = (
-        f'<section class="cover">{ill.cover_emblem()}<h1>ASPECTS</h1>'
+        f'<section class="cover">{ill.cover_emblem()}<h1>BEARERS</h1>'
         f'<p class="sub">{subtitle}</p>'
-        '<p class="tag">A game of loot and reinvention.</p>'
+        '<p class="tag">What Lingers Matters</p>'
         '<p class="foot">Version 0.1 · Draft</p></section>'
     )
     return (
-        f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Aspects · {subtitle}</title>{FONTS}'
+        f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Bearers · {subtitle}</title>{FONTS}'
         f"<style>{CSS.replace('%HEADER%', header)}</style></head><body>{cover}"
         f'<section class="toc"><h2>Contents</h2><div class="ornament">{ill.ornament()}</div><ol>{toc_html}</ol></section>'
         f"{body}</body></html>"
@@ -185,7 +222,10 @@ def build_html(src, subtitle, header, figures):
 
 
 def main():
+    for name in sync_glossary.sync():
+        print(f"Synced the glossary into {name}")
     BUILD.mkdir(exist_ok=True)
+    write_symbols()
     for src, out, subtitle, header, figures in BOOKS:
         out = ROOT / "rules" / out
         html_path = BUILD / (Path(src).stem.lower() + ".html")
