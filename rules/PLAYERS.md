@@ -280,6 +280,7 @@ Each Slot has its own swap time. A swap moves one piece of gear between a Slot a
 
 - You can't equip **two copies** of the same gear or Aspect, Identical Consumables in one stack are fine.
 - **Every bonus stacks.** A weapon's to-hit bonus, a Knack's bonus and a Jewelry's bonus all add to the same roll.
+- **A power doesn't stack with itself.** Using a power on a creature that is already under it replaces the old one and starts its Duration again. Different powers stack (*Bless* and *Rally*).
 
 ### 3.7 Pack, Party Stash, Objects & Gold
 

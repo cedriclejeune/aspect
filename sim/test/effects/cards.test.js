@@ -657,6 +657,15 @@ module.exports = function register(T, H) {
     ok(C(f, "a").mods.length === 1, "every attack for the Duration");
   });
 
+  T("[fx] R500: the same power doesn't stack — a second Bless on an ally replaces the first", () => {
+    const f = fight([pc("p", [1, 5], priest()), pc("q", [1, 6], priest()), pc("a", [7, 5]), foe("x", [20, 5])]);
+    pcTurn(f, "p");
+    run(f, power(f, "p", "D-I-01#bless"));
+    end(f, "p"); go(f, "q");
+    run(f, power(f, "q", "D-I-01#bless"));
+    eq(C(f, "a").mods.filter((m) => m.dice === "1d4").length, 1);
+  });
+
   T("[fx] Bane: Dirge, 1 Resolve, the target subtracts 1d4 from its attack rolls (Lasting, maintained with WIL)", () => {
     const f = fight([pc("p", [1, 5], priest(), { react: "never" }), pc("a", [7, 5]), foe("x", [8, 5], { hands: ["W-I-05"] })]);
     pcTurn(f, "p");

@@ -82,6 +82,7 @@ You run each kind of monster from its **foe card**: its Core, its totals and eve
 
 - **Italics name a real card.** An *italic* name is a card from the loot pool, exactly as a Bearer would have it: a Core, gear or an Aspect. The foe card prints its ID (*W-I-03*) so you can find its copy. **Only italic cards drop** (4.1).
 - **Plain text is the monster's own:** anatomy and innate powers (a dragon's breath, an ooze's acid body, giant strength). It never drops. It may change how the monster's italic cards perform (an ogre swings a *Greatclub* harder than a Bearer); the card that drops is always the normal one.
+- **Totals are final.** A foe card's totals already include everything: an unarmored foe doesn't add the empty Armor Slot's +10 Speed.
 - **Same rules as Bearers.** A monster has one action, a bonus action only if a card gives it one, and a reaction. It attacks with its modifier + the weapon's to-hit bonus, and swaps gear like a Bearer. Its uses (S.R. and L.R.) come back at the start of each fight.
 - **Keywords** along the bottom, type first: *Foe* (or *Foe · Boss*), then size and senses (*Foe · Large · Darkvision 60*). Challenge Rating (CR) and XP value (5) aren't printed: judge them yourself while foe difficulty is reworked.
 - **Passive Awareness:** 10 + INT, **+5 for alert creatures** (guards, scouts, predators, most beasts).

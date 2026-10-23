@@ -565,6 +565,8 @@
   }
   function addMod(X, t, m) {
     const mod = Object.assign({ kind: "attack", n: 0, dice: null, next: false, until: null, source: null, power: null }, m);
+    // RULING R500: the same power doesn't stack with itself (P 3.6): a new use replaces the old one, refreshing it.
+    if (mod.power && !(mod.until && mod.until.lasting)) t.mods = t.mods.filter((o) => !(o.power === mod.power && o.kind === mod.kind && !(o.until && o.until.lasting)));
     t.mods.push(mod);
     const what = mod.kind === "def" ? `${(mod.defs || ["all"]).join("/")} Defense` : mod.kind;
     emit(X, { t: "cond", target: t.id, actor: mod.source, mod: mod.kind, text: `${t.name}: ${mod.n ? signed(mod.n) : ""}${mod.dice ? (mod.n ? " " : "") + mod.dice : ""} ${what}${mod.next ? " (next roll)" : ""}${mod.power ? " — " + mod.power : ""}.` });
@@ -1367,6 +1369,8 @@
         if (d.until === "lasting") {
           // lasting mod (Bane): held by a Lasting effect record named after the power
           let k = t.conds.find((c) => c.effect && c.power === p.name && c.source === user.id);
+          // RULING R500: another source's copy of the same power ends; the newest one holds.
+          t.conds.filter((c) => c.effect && c.power === p.name && c !== k).forEach((c) => removeCond(X, t, c, "replaced"));
           if (!k) k = addCond(X, t, p.name, { source: user.id, lasting: true, subdue: !!p.subdue, abil: atkAbil(F, user, e) || "WIL", vs: p.atk ? p.atk.vs || "weapon" : null, flat: p.atk && p.atk.flat != null, power: p.name, effect: true });
           until = { lasting: k.id };
         } else if (d.until) until = mkUntil(X, d.until, user, t, p);

@@ -15,7 +15,7 @@ Interpretations the sim makes where the rules are unclear or silent. Each one is
 | R108 | Instrument reach | Traveler's Lute / Holy Amulet carry the base reach in `params.default` (30 / 60 ft) so every printed number lives in the data. | P 10.6 |
 | R109 | Mage Hand | A power with `do: []`: listed in the deck, no combat effect. | P 10.3 |
 | R110 | Foe senses | Foe cards keep the printed string ("Darkvision 60"); the export turns it into `senses.darkvision`. Wolf's Keen Nose is `alert: true`. | GM 2.1 |
-| R201 | Foe Speed | Builds from a foe template (`build.foe`) skip the empty Armor Slot's +10 Speed: foe cards print totals without it (Ogre 35 ft). | P 12.3, GM 2.1 |
+| R201 | Foe Speed | Builds from a foe template (`build.foe`) skip the empty Armor Slot's +10 Speed: foe cards print totals without it (Ogre 35 ft). **Approved; now in GM 2.1.** | P 12.3, GM 2.1 |
 | R202 | fromFoe Hands | A Shield always goes in a Hand; other Hand gear fills the rest in `carries` order, the remainder is carried (Legionary: Pilum + Shield, Gladius carried). Slots grow to fit. | GM 2.1 |
 | R203 | Requirements | Count the Core plus every other equipped card's positive bonuses; an unmet card adds nothing to the totals and is reported. | P 3.1 |
 | R204 | Line of sight, cover | Center-to-center lines between any squares of both creatures; walls block; "cover" squares on every clear line give +2; creatures never give cover; no clear line = full cover. | P 6.8 |
@@ -68,3 +68,4 @@ Interpretations the sim makes where the rules are unclear or silent. Each one is
 | R407 | Boss half turn | A half turn doesn't restore the reaction, end a Dodge or roll Recharge 5–6; it comes only between two characters' turns (any time if one character is left). | GM 3, P 6.2 |
 | R408 | Beasts' Hands | A foe built on a body that carries no Hand gear has no Hand Slots (Wolf): no picking up, drawing or wielding gear. | GM 2.1 |
 | R409 | Cleave | The extra attack targets another creature than the one that dropped and is lost if the attacker moves first. | P 3.4 |
+| R500 | Same power | The same power doesn't stack with itself: a new use on a creature replaces the old one (mods, and Lasting effects from another source). **Approved; now in P 3.6.** | P 3.6 |
