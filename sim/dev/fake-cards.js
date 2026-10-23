@@ -1,0 +1,2553 @@
+// DEV FIXTURE: a rough card pool in the SPEC section 2 format, for building the UI before sim/cards.js exists.
+// Not the real export (tools/export_sim.py); mechanics (fx) are filled in for a few cards only.
+// Loaded after cards.js in ?dev mode: it only fills in when cards.js is missing.
+globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
+ "version": 1,
+ "cards": {
+  "C-I-01": {
+   "id": "C-I-01",
+   "name": "Brute",
+   "rank": "I",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Medium"
+   ],
+   "text": [],
+   "strip": {
+    "STR": 3,
+    "DEX": 1,
+    "INT": 0,
+    "WIL": 0,
+    "STRd": 13,
+    "DEXd": 11,
+    "INTd": 10,
+    "WILd": 10,
+    "HP": 14,
+    "SPD": 30
+   },
+   "group": "starter",
+   "size": "Medium",
+   "fx": []
+  },
+  "C-I-02": {
+   "id": "C-I-02",
+   "name": "Nimble",
+   "rank": "I",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Medium"
+   ],
+   "text": [],
+   "strip": {
+    "STR": 0,
+    "DEX": 3,
+    "INT": 1,
+    "WIL": 0,
+    "STRd": 10,
+    "DEXd": 13,
+    "INTd": 11,
+    "WILd": 10,
+    "HP": 11,
+    "SPD": 35
+   },
+   "group": "starter",
+   "size": "Medium",
+   "fx": []
+  },
+  "C-I-03": {
+   "id": "C-I-03",
+   "name": "Scholar",
+   "rank": "I",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Medium"
+   ],
+   "text": [],
+   "strip": {
+    "STR": 0,
+    "DEX": 1,
+    "INT": 3,
+    "WIL": 0,
+    "STRd": 10,
+    "DEXd": 11,
+    "INTd": 13,
+    "WILd": 10,
+    "HP": 9,
+    "SPD": 30
+   },
+   "group": "starter",
+   "size": "Medium",
+   "fx": []
+  },
+  "C-I-04": {
+   "id": "C-I-04",
+   "name": "Envoy",
+   "rank": "I",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Medium"
+   ],
+   "text": [],
+   "strip": {
+    "STR": 0,
+    "DEX": 1,
+    "INT": 0,
+    "WIL": 3,
+    "STRd": 10,
+    "DEXd": 11,
+    "INTd": 10,
+    "WILd": 13,
+    "HP": 10,
+    "SPD": 30
+   },
+   "group": "starter",
+   "size": "Medium",
+   "fx": []
+  },
+  "C-I-05": {
+   "id": "C-I-05",
+   "name": "Balanced",
+   "rank": "I",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Medium"
+   ],
+   "text": [],
+   "strip": {
+    "STR": 2,
+    "DEX": 1,
+    "INT": 1,
+    "WIL": 0,
+    "STRd": 12,
+    "DEXd": 11,
+    "INTd": 11,
+    "WILd": 10,
+    "HP": 12,
+    "SPD": 30
+   },
+   "group": "starter",
+   "size": "Medium",
+   "fx": []
+  },
+  "C-II-01": {
+   "id": "C-II-01",
+   "name": "Ogre",
+   "rank": "II",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Large"
+   ],
+   "text": [],
+   "strip": {
+    "STR": 4,
+    "DEX": 0,
+    "INT": 0,
+    "WIL": 0,
+    "STRd": 14,
+    "DEXd": 10,
+    "INTd": 10,
+    "WILd": 10,
+    "HP": 35,
+    "SPD": 35
+   },
+   "group": "loot",
+   "size": "Large",
+   "fx": []
+  },
+  "C-II-02": {
+   "id": "C-II-02",
+   "name": "Bandit Captain",
+   "rank": "II",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Medium"
+   ],
+   "text": [],
+   "strip": {
+    "STR": 2,
+    "DEX": 3,
+    "INT": 0,
+    "WIL": 1,
+    "STRd": 12,
+    "DEXd": 13,
+    "INTd": 10,
+    "WILd": 11,
+    "HP": 30,
+    "SPD": 30
+   },
+   "group": "loot",
+   "size": "Medium",
+   "fx": []
+  },
+  "A-I-01": {
+   "id": "A-I-01",
+   "name": "Leather",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Armor",
+   "kw": [
+    "Armor"
+   ],
+   "text": [
+    "Supple hide, oiled and stitched."
+   ],
+   "strip": {
+    "STRd": 2,
+    "DEXd": 1,
+    "SPD": 5
+   },
+   "group": "starter",
+   "fx": []
+  },
+  "A-I-02": {
+   "id": "A-I-02",
+   "name": "Mail",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Armor",
+   "kw": [
+    "Armor",
+    "Req STR +1"
+   ],
+   "text": [
+    "Riveted rings over a padded coat."
+   ],
+   "strip": {
+    "STRd": 3
+   },
+   "group": "starter",
+   "req": {
+    "STR": 1
+   },
+   "fx": []
+  },
+  "A-II-01": {
+   "id": "A-II-01",
+   "name": "Plate",
+   "rank": "II",
+   "kind": "gear",
+   "type": "Armor",
+   "kw": [
+    "Armor",
+    "Noisy 3",
+    "Req STR +2"
+   ],
+   "text": [
+    "Full steel, fitted to you."
+   ],
+   "strip": {
+    "STRd": 4,
+    "SPD": -10
+   },
+   "group": "loot",
+   "noisy": 3,
+   "req": {
+    "STR": 2
+   },
+   "fx": []
+  },
+  "S-I-01": {
+   "id": "S-I-01",
+   "name": "Shield",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Shield",
+   "kw": [
+    "Shield"
+   ],
+   "text": [
+    "Takes one Hand."
+   ],
+   "strip": {
+    "STRd": 2,
+    "DEXd": 2
+   },
+   "group": "starter",
+   "fx": []
+  },
+  "W-I-01": {
+   "id": "W-I-01",
+   "name": "Dagger",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Finesse",
+    "Light",
+    "Thrown 20/60"
+   ],
+   "text": [
+    "+4 to hit, 1d4 + STR or DEX Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 4,
+    "dice": "1d4",
+    "two": null,
+    "abil": [
+     "STR",
+     "DEX"
+    ],
+    "type": "Physical",
+    "finesse": true,
+    "light": true,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": [
+     20,
+     60
+    ],
+    "range": null
+   },
+   "fx": []
+  },
+  "W-I-02": {
+   "id": "W-I-02",
+   "name": "Shortsword",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Finesse",
+    "Light"
+   ],
+   "text": [
+    "+3 to hit, 1d4 + STR or DEX Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 3,
+    "dice": "1d4",
+    "two": null,
+    "abil": [
+     "STR",
+     "DEX"
+    ],
+    "type": "Physical",
+    "finesse": true,
+    "light": true,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
+  "W-I-03": {
+   "id": "W-I-03",
+   "name": "Handaxe",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Light",
+    "Thrown 20/60"
+   ],
+   "text": [
+    "+2 to hit, 1d6 + STR Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 2,
+    "dice": "1d6",
+    "two": null,
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": true,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": [
+     20,
+     60
+    ],
+    "range": null
+   },
+   "fx": []
+  },
+  "W-I-04": {
+   "id": "W-I-04",
+   "name": "Finesse Blade",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Finesse"
+   ],
+   "text": [
+    "+2 to hit, 1d6 + STR or DEX Physical. **Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 2,
+    "dice": "1d6",
+    "two": null,
+    "abil": [
+     "STR",
+     "DEX"
+    ],
+    "type": "Physical",
+    "finesse": true,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
+  "W-I-05": {
+   "id": "W-I-05",
+   "name": "Longsword",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Versatile (1d10)"
+   ],
+   "text": [
+    "+2 to hit, 1d8 / 1d10 + STR Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 2,
+    "dice": "1d8",
+    "two": "1d10",
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
+  "W-I-06": {
+   "id": "W-I-06",
+   "name": "Battleaxe",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Versatile (1d10)"
+   ],
+   "text": [
+    "+2 to hit, 1d8 / 1d10 + STR Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 2,
+    "dice": "1d8",
+    "two": "1d10",
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
+  "W-I-07": {
+   "id": "W-I-07",
+   "name": "Greatsword",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Heavy",
+    "Two-Handed"
+   ],
+   "text": [
+    "+2 to hit, 2d6 + STR Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 2,
+    "dice": "2d6",
+    "two": null,
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": true,
+    "reach": false,
+    "twoHanded": true,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
+  "W-I-08": {
+   "id": "W-I-08",
+   "name": "Glaive",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Heavy",
+    "Reach",
+    "Two-Handed"
+   ],
+   "text": [
+    "+2 to hit, 1d10 + STR Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 2,
+    "dice": "1d10",
+    "two": null,
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": true,
+    "reach": true,
+    "twoHanded": true,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
+  "W-I-09": {
+   "id": "W-I-09",
+   "name": "Longbow",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Range 150/600",
+    "Two-Handed"
+   ],
+   "text": [
+    "+2 to hit, 1d8 + DEX Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 2,
+    "dice": "1d8",
+    "two": null,
+    "abil": [
+     "DEX"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": true,
+    "loading": false,
+    "thrown": null,
+    "range": [
+     150,
+     600
+    ]
+   },
+   "fx": []
+  },
+  "W-I-10": {
+   "id": "W-I-10",
+   "name": "Sling",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Light",
+    "Range 30/120"
+   ],
+   "text": [
+    "+2 to hit, 1d6 + DEX Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 2,
+    "dice": "1d6",
+    "two": null,
+    "abil": [
+     "DEX"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": true,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": [
+     30,
+     120
+    ]
+   },
+   "fx": []
+  },
+  "W-I-11": {
+   "id": "W-I-11",
+   "name": "Javelins",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Thrown 30/120"
+   ],
+   "text": [
+    "+2 to hit, 1d6 + STR Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 2,
+    "dice": "1d6",
+    "two": null,
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": [
+     30,
+     120
+    ],
+    "range": null
+   },
+   "fx": []
+  },
+  "W-I-12": {
+   "id": "W-I-12",
+   "name": "Spellguard Staff",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Versatile (1d10)"
+   ],
+   "text": [
+    "+2 to hit, 1d8 / 1d10 + STR Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook."
+   ],
+   "strip": {},
+   "group": "starter",
+   "atk": {
+    "hit": 2,
+    "dice": "1d8",
+    "two": "1d10",
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
+  "M-I-01": {
+   "id": "M-I-01",
+   "name": "Traveler's Lute",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Instrument",
+   "kw": [
+    "Instrument",
+    "Focus"
+   ],
+   "text": [
+    "1 extra Resolve (short rest).",
+    "Your Anthems reach 60 ft instead of 30 ft."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "W-I-13": {
+   "id": "W-I-13",
+   "name": "Greatclub",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Heavy",
+    "Two-Handed"
+   ],
+   "text": [
+    "+2 to hit, 1d10 + STR Physical. **Crushing:** on a critical hit, the target is knocked Prone."
+   ],
+   "strip": {},
+   "group": "loot",
+   "atk": {
+    "hit": 2,
+    "dice": "1d10",
+    "two": null,
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": true,
+    "reach": false,
+    "twoHanded": true,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
+  "W-I-14": {
+   "id": "W-I-14",
+   "name": "Gladius",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Light"
+   ],
+   "text": [
+    "+2 to hit, 1d6 + STR Physical. **Close Order:** +1d4 damage while an ally is engaged with the same creature."
+   ],
+   "strip": {},
+   "group": "loot",
+   "atk": {
+    "hit": 2,
+    "dice": "1d6",
+    "two": null,
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": true,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
+  "W-II-01": {
+   "id": "W-II-01",
+   "name": "Boarspear",
+   "rank": "II",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Versatile (1d10)"
+   ],
+   "text": [
+    "+3 to hit, 1d8 / 1d10 + STR Physical. **Brace:** your opportunity attacks with it deal +1d8 damage."
+   ],
+   "strip": {},
+   "group": "loot",
+   "atk": {
+    "hit": 3,
+    "dice": "1d8",
+    "two": "1d10",
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
+  "W-II-02": {
+   "id": "W-II-02",
+   "name": "Pilum",
+   "rank": "II",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Thrown 30/120"
+   ],
+   "text": [
+    "+3 to hit, 1d6 + STR Physical. **Pierce:** on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free."
+   ],
+   "strip": {},
+   "group": "loot",
+   "atk": {
+    "hit": 3,
+    "dice": "1d6",
+    "two": null,
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": [
+     30,
+     120
+    ],
+    "range": null
+   },
+   "fx": []
+  },
+  "J-I-01": {
+   "id": "J-I-01",
+   "name": "Ring of Warding",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Jewelry",
+   "kw": [
+    "Jewelry"
+   ],
+   "text": [
+    "**Reaction (2/S.R.)**, when an attack hits you: +2 to the targeted Defense against that attack, possibly turning it into a miss."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": [
+    {
+     "name": "Ring of Warding",
+     "use": "reaction",
+     "uses": "2/SR",
+     "on": "hitSelf",
+     "target": "self",
+     "do": [
+      {
+       "mod": "def",
+       "n": 2,
+       "next": true
+      }
+     ],
+     "id": "J-I-01#0"
+    }
+   ]
+  },
+  "J-I-02": {
+   "id": "J-I-02",
+   "name": "Guild Signet",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Jewelry",
+   "kw": [
+    "Jewelry"
+   ],
+   "text": [
+    "**Action (1/L.R.)**, in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "J-I-03": {
+   "id": "J-I-03",
+   "name": "Shard Bandolier",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Jewelry",
+   "kw": [
+    "Jewelry"
+   ],
+   "text": [
+    "Leather straps padded for crystal. You can carry 2 more Shards in your Pack (5 in all). They still count toward its 8 pieces."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "J-I-04": {
+   "id": "J-I-04",
+   "name": "Holy Amulet",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Jewelry",
+   "kw": [
+    "Jewelry",
+    "Focus"
+   ],
+   "text": [
+    "1 extra Resolve (short rest).",
+    "Your Cues reach 90 ft instead of 60 ft."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "J-I-05": {
+   "id": "J-I-05",
+   "name": "Boots of the Long Stride",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Jewelry",
+   "kw": [
+    "Jewelry"
+   ],
+   "text": [
+    "**Bonus action (1/S.R.):** Dash."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": [
+    {
+     "name": "Boots of the Long Stride",
+     "use": "bonus",
+     "uses": "1/SR",
+     "target": "self",
+     "do": [
+      {
+       "dash": true
+      }
+     ],
+     "id": "J-I-05#0"
+    }
+   ]
+  },
+  "J-II-01": {
+   "id": "J-II-01",
+   "name": "Ring of Sparks",
+   "rank": "II",
+   "kind": "gear",
+   "type": "Jewelry",
+   "kw": [
+    "Jewelry"
+   ],
+   "text": [
+    "**Reaction (1/S.R.)**, when a creature within 5 ft hits you: it takes 2d6 Lightning."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": [
+    {
+     "name": "Ring of Sparks",
+     "use": "reaction",
+     "uses": "1/SR",
+     "on": "meleeHitSelf5",
+     "do": [
+      {
+       "dmg": "2d6",
+       "type": "Lightning"
+      }
+     ],
+     "id": "J-II-01#0"
+    }
+   ]
+  },
+  "P-I-01": {
+   "id": "P-I-01",
+   "name": "Potion of Healing",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Consumable",
+   "kw": [
+    "Consumable"
+   ],
+   "text": [
+    "**Bonus action:** drink it, or give it to a creature within 5 ft. It regains 2d4 + 2 HP."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": [
+    {
+     "name": "Potion of Healing",
+     "use": "bonus",
+     "reach": 5,
+     "target": "creature",
+     "do": [
+      {
+       "heal": "2d4+2"
+      }
+     ],
+     "id": "P-I-01#0"
+    }
+   ]
+  },
+  "U-I-01": {
+   "id": "U-I-01",
+   "name": "Coin Pouch",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Purse",
+   "kw": [
+    "Purse"
+   ],
+   "text": [
+    "Holds up to **100 gp**."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "P-I-02": {
+   "id": "P-I-02",
+   "name": "Writ of Favor",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Consumable",
+   "kw": [
+    "Consumable"
+   ],
+   "text": [
+    "A sealed letter from a noble house, a guild or a temple. Show it to one of its members: they grant one reasonable request (shelter, an audience, safe passage, a loan up to 100 gp)."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "P-II-01": {
+   "id": "P-II-01",
+   "name": "Greater Potion of Healing",
+   "rank": "II",
+   "kind": "gear",
+   "type": "Consumable",
+   "kw": [
+    "Consumable"
+   ],
+   "text": [
+    "**Bonus action:** drink it, or give it to a creature within 5 ft. It regains 4d4 + 4 HP."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": []
+  },
+  "P-I-03": {
+   "id": "P-I-03",
+   "name": "Pocket Sand",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Consumable",
+   "kw": [
+    "Consumable"
+   ],
+   "text": [
+    "**Bonus action:** throw it at a creature within 5 ft. Attack (DEX or WIL + 2) against its DEX Defense: on a hit, it has −2 on attacks until the end of its next turn."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": [
+    {
+     "name": "Pocket Sand",
+     "use": "bonus",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "abil": [
+       "DEX",
+       "WIL"
+      ],
+      "hit": 2,
+      "vs": "DEX"
+     },
+     "do": [
+      {
+       "mod": "attack",
+       "n": -2,
+       "until": "endTargetTurn"
+      }
+     ],
+     "id": "P-I-03#0"
+    }
+   ]
+  },
+  "R-II-01": {
+   "id": "R-II-01",
+   "name": "Alchemist's Fire Recipe",
+   "rank": "II",
+   "kind": "gear",
+   "type": "Recipe",
+   "kw": [
+    "Recipe",
+    "3 flasks"
+   ],
+   "text": [
+    "**Bonus action:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": [
+    {
+     "name": "Alchemist's Fire",
+     "use": "bonus",
+     "reach": 30,
+     "target": "point",
+     "area": {
+      "shape": "sphere",
+      "size": 5
+     },
+     "atk": {
+      "abil": [
+       "DEX",
+       "INT"
+      ],
+      "hit": 3,
+      "vs": "DEX"
+     },
+     "half": true,
+     "do": [
+      {
+       "dmg": "1d6",
+       "type": "Fire"
+      }
+     ],
+     "id": "R-II-01#0"
+    }
+   ]
+  },
+  "T-I-01": {
+   "id": "T-I-01",
+   "name": "Springheel",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "Your jump distances are doubled, and you never need a running start."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "T-I-02": {
+   "id": "T-I-02",
+   "name": "Stone Blood",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "+2 STR Defense against poison."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "T-I-03": {
+   "id": "T-I-03",
+   "name": "Iron Will",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "+2 WIL Defense against fear and mind control."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "T-I-04": {
+   "id": "T-I-04",
+   "name": "Clear Mind",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "+2 INT Defense against illusions and confusion."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "Q-I-01": {
+   "id": "Q-I-01",
+   "name": "Cleave",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "**1/S.R.**, when your melee attack drops a creature to 0 HP: make one melee attack against another creature within your reach."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": [
+    {
+     "name": "Cleave",
+     "use": "trigger",
+     "uses": "1/SR",
+     "on": "meleeDrop",
+     "do": [
+      {
+       "attack": "melee"
+      }
+     ],
+     "id": "Q-I-01#0"
+    }
+   ]
+  },
+  "Q-I-02": {
+   "id": "Q-I-02",
+   "name": "Steady Aim",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "**Bonus action (2/S.R.):** your next ranged attack this turn has +2 to hit."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": [
+    {
+     "name": "Steady Aim",
+     "use": "bonus",
+     "uses": "2/SR",
+     "target": "self",
+     "do": [
+      {
+       "mod": "attack",
+       "n": 2,
+       "next": true
+      }
+     ],
+     "id": "Q-I-02#0"
+    }
+   ]
+  },
+  "Q-I-03": {
+   "id": "Q-I-03",
+   "name": "Shield Bash",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "**Bonus action (1/S.R.)**, when you take the Attack action while holding a Shield: Shove a creature within 5 ft."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "Q-I-04": {
+   "id": "Q-I-04",
+   "name": "Battle Hymn",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "**2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 on their next attack before the end of your next turn."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "Q-I-05": {
+   "id": "Q-I-05",
+   "name": "Rallying Cry",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique",
+    "Anthem"
+   ],
+   "text": [
+    "*Rally* as a loose Anthem.",
+    "**Bonus action (1/S.R.):** Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "Q-I-06": {
+   "id": "Q-I-06",
+   "name": "Shield Wall",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "**Reaction (1/S.R.)**, when an attack hits an ally within 5 ft while you hold a Shield: +2 to the targeted Defense against that attack, possibly turning it into a miss."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": [
+    {
+     "name": "Shield Wall",
+     "use": "reaction",
+     "uses": "1/SR",
+     "on": "hitAlly5",
+     "need": [
+      "shield"
+     ],
+     "do": [
+      {
+       "mod": "def",
+       "n": 2,
+       "next": true
+      }
+     ],
+     "id": "Q-I-06#0"
+    }
+   ]
+  },
+  "K-I-01": {
+   "id": "K-I-01",
+   "name": "Cat Burglar",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Knack",
+   "kw": [
+    "Knack"
+   ],
+   "text": [
+    "+2 on checks to sneak, climb or pick locks."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "K-I-02": {
+   "id": "K-I-02",
+   "name": "Renowned",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Knack",
+   "kw": [
+    "Knack"
+   ],
+   "text": [
+    "Choose a city, guild or order when you gain this. +2 on WIL checks with its people."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "K-I-03": {
+   "id": "K-I-03",
+   "name": "Sailor",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Knack",
+   "kw": [
+    "Knack"
+   ],
+   "text": [
+    "+2 on checks to swim, climb, navigate or gather rumors."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "K-I-04": {
+   "id": "K-I-04",
+   "name": "Street Urchin",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Knack",
+   "kw": [
+    "Knack"
+   ],
+   "text": [
+    "+2 on checks to pick pockets, sneak, read intentions or gather rumors."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "K-I-05": {
+   "id": "K-I-05",
+   "name": "Hunter",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Knack",
+   "kw": [
+    "Knack"
+   ],
+   "text": [
+    "+2 on checks to track, notice, sneak or handle animals."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "K-I-06": {
+   "id": "K-I-06",
+   "name": "Physician",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Knack",
+   "kw": [
+    "Knack"
+   ],
+   "text": [
+    "+2 on checks to treat wounds, recall lore, read intentions or persuade."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "K-I-07": {
+   "id": "K-I-07",
+   "name": "Barkeep",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Knack",
+   "kw": [
+    "Knack"
+   ],
+   "text": [
+    "+2 on checks to read intentions, gather rumors, intimidate or lift."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "K-I-08": {
+   "id": "K-I-08",
+   "name": "Smith",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Knack",
+   "kw": [
+    "Knack"
+   ],
+   "text": [
+    "+2 on checks to lift, break, haggle or recall lore."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "K-I-09": {
+   "id": "K-I-09",
+   "name": "Mountaineer",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Knack",
+   "kw": [
+    "Knack"
+   ],
+   "text": [
+    "+2 on checks to climb, endure, navigate or balance."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": []
+  },
+  "Q-II-01": {
+   "id": "Q-II-01",
+   "name": "Twin Strike",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "When you take the Attack action, you make two attacks instead of one."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": [
+    {
+     "name": "Twin Strike",
+     "use": "passive",
+     "attacks": 2,
+     "id": "Q-II-01#0"
+    }
+   ]
+  },
+  "T-II-01": {
+   "id": "T-II-01",
+   "name": "Second Wind",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "**Bonus action (1/S.R.):** regain 1d10 + 3 HP."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": [
+    {
+     "name": "Second Wind",
+     "use": "bonus",
+     "uses": "1/SR",
+     "target": "self",
+     "do": [
+      {
+       "heal": "1d10+3"
+      }
+     ],
+     "id": "T-II-01#0"
+    }
+   ]
+  },
+  "T-II-02": {
+   "id": "T-II-02",
+   "name": "Wiry",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "Lean, ropy strength."
+   ],
+   "strip": {
+    "STR": 1,
+    "STRd": 1,
+    "SPD": 5
+   },
+   "group": "loot",
+   "fx": []
+  },
+  "T-II-03": {
+   "id": "T-II-03",
+   "name": "Night Eyes",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait",
+    "Darkvision 60"
+   ],
+   "text": [
+    "You see in the Dark within 60 ft as if it were Bright."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": []
+  },
+  "T-II-04": {
+   "id": "T-II-04",
+   "name": "Sellsword",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "+3 on checks to intimidate, endure, haggle or gather rumors."
+   ],
+   "strip": {
+    "STR": 1,
+    "STRd": 1
+   },
+   "group": "loot",
+   "fx": []
+  },
+  "T-II-05": {
+   "id": "T-II-05",
+   "name": "Acrobat",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "+3 on checks to tumble, balance, jump or perform."
+   ],
+   "strip": {
+    "DEX": 1,
+    "DEXd": 1
+   },
+   "group": "loot",
+   "fx": []
+  },
+  "T-I-05": {
+   "id": "T-I-05",
+   "name": "Pack Hunter",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "**1/S.R.**, when you hit a creature one of your allies is engaged with: it falls Prone."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": [
+    {
+     "name": "Pack Hunter",
+     "use": "trigger",
+     "uses": "1/SR",
+     "on": "hitEngaged",
+     "do": [
+      {
+       "cond": "Prone"
+      }
+     ],
+     "id": "T-I-05#0"
+    }
+   ]
+  },
+  "Q-I-07": {
+   "id": "Q-I-07",
+   "name": "Slippery",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "**Bonus action (2/S.R.):** move up to half your Speed. This movement doesn't provoke opportunity attacks."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": [
+    {
+     "name": "Slippery",
+     "use": "bonus",
+     "uses": "2/SR",
+     "target": "self",
+     "do": [
+      {
+       "move": "safe",
+       "ft": "half"
+      }
+     ],
+     "id": "Q-I-07#0"
+    }
+   ]
+  },
+  "T-II-06": {
+   "id": "T-II-06",
+   "name": "Hedge Witch",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "1 extra spell point (long rest).",
+    "+3 on checks to handle animals, recall lore, treat wounds or deceive."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": []
+  },
+  "B-I-01": {
+   "id": "B-I-01",
+   "name": "Conjurer's Book",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Spellbook",
+   "kw": [
+    "Spellbook"
+   ],
+   "text": [
+    "Spell attack: **INT + 2**",
+    "Spell points: **4** (long rest)",
+    "Max spell level: **2nd**",
+    "Casting needs an empty Hand."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": [],
+   "deck": "B-I-01"
+  },
+  "G-I-01": {
+   "id": "G-I-01",
+   "name": "Wanderer's Repertoire",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Glamour",
+   "kw": [
+    "Glamour"
+   ],
+   "text": [
+    "Attack: **WIL + 2**",
+    "Resolve: **3 + WIL** (short rest)",
+    "Songs, poems and dances."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": [],
+   "deck": "G-I-01"
+  },
+  "D-I-01": {
+   "id": "D-I-01",
+   "name": "Acolyte's Litany",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Divine",
+   "kw": [
+    "Divine"
+   ],
+   "text": [
+    "Attack: **WIL + 2**",
+    "Resolve: **3 + WIL** (short rest)",
+    "Prayers. Fate dice: **d4**."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": [],
+   "deck": "D-I-01"
+  },
+  "N-I-01": {
+   "id": "N-I-01",
+   "name": "Wildheart's Remembrance",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Nature",
+   "kw": [
+    "Nature"
+   ],
+   "text": [
+    "Resolve: **3 + WIL** (short rest)",
+    "Beasts your body remembers. Shift: bonus action."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": [],
+   "deck": "N-I-01"
+  }
+ },
+ "decks": {
+  "B-I-01": {
+   "cover": "B-I-01",
+   "kind": "spellbook",
+   "powers": [
+    {
+     "id": "B-I-01#fire-bolt",
+     "name": "Fire Bolt",
+     "kind": "Cantrip",
+     "cost": 0,
+     "use": "action",
+     "reach": 120,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "DEX"
+     },
+     "do": [
+      {
+       "dmg": "1d10",
+       "type": "Fire"
+      }
+     ]
+    },
+    {
+     "id": "B-I-01#mage-hand",
+     "name": "Mage Hand",
+     "kind": "Cantrip",
+     "cost": 0,
+     "use": "action"
+    },
+    {
+     "id": "B-I-01#magic-missile",
+     "name": "Magic Missile",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 120,
+     "target": "darts",
+     "count": 3,
+     "atk": {
+      "abil": "deck",
+      "vs": "DEX"
+     },
+     "do": [
+      {
+       "dmg": "1d4+1",
+       "type": "Radiant"
+      }
+     ],
+     "upcast": {
+      "darts": 1
+     }
+    },
+    {
+     "id": "B-I-01#shield",
+     "name": "Shield",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "reaction",
+     "on": "hitSelf",
+     "target": "self",
+     "do": [
+      {
+       "mod": "def",
+       "n": 5,
+       "defs": [
+        "STR",
+        "DEX"
+       ],
+       "until": "startSourceTurn"
+      }
+     ]
+    },
+    {
+     "id": "B-I-01#grease",
+     "name": "Grease",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 60,
+     "target": "point",
+     "area": {
+      "shape": "cube",
+      "size": 10
+     },
+     "atk": {
+      "abil": "deck",
+      "vs": "DEX"
+     },
+     "zone": {
+      "terrain": "difficult",
+      "on": [
+       "enter"
+      ]
+     },
+     "dur": "1 minute",
+     "do": [
+      {
+       "cond": "Prone"
+      }
+     ]
+    },
+    {
+     "id": "B-I-01#misty-step",
+     "name": "Misty Step",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "bonus",
+     "target": "self",
+     "do": [
+      {
+       "move": "teleport",
+       "ft": 30
+      }
+     ]
+    },
+    {
+     "id": "B-I-01#web",
+     "name": "Web",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "action",
+     "reach": 60,
+     "target": "point",
+     "area": {
+      "shape": "cube",
+      "size": 20
+     },
+     "atk": {
+      "abil": "deck",
+      "vs": "DEX"
+     },
+     "zone": {
+      "terrain": "difficult",
+      "on": [
+       "enter"
+      ],
+      "burns": true
+     },
+     "lasting": true,
+     "do": [
+      {
+       "cond": "Restrained"
+      }
+     ]
+    }
+   ],
+   "atk": 2,
+   "sp": 4,
+   "maxLevel": 2
+  },
+  "G-I-01": {
+   "cover": "G-I-01",
+   "kind": "glamour",
+   "powers": [
+    {
+     "id": "G-I-01#jeer",
+     "name": "Jeer",
+     "kind": "Dirge",
+     "cost": 0,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "mod": "attack",
+       "n": -2,
+       "next": true,
+       "until": "endTargetTurn"
+      }
+     ]
+    },
+    {
+     "id": "G-I-01#rally",
+     "name": "Rally",
+     "kind": "Anthem",
+     "cost": 1,
+     "use": "bonus",
+     "reach": 30,
+     "target": "allies",
+     "count": 3,
+     "dur": "1 minute",
+     "do": [
+      {
+       "mod": "attack",
+       "n": 2,
+       "until": "dur"
+      }
+     ]
+    },
+    {
+     "id": "G-I-01#hold-the-line",
+     "name": "Hold the Line",
+     "kind": "Anthem",
+     "cost": 1,
+     "use": "action"
+    },
+    {
+     "id": "G-I-01#cutting-words",
+     "name": "Cutting Words",
+     "kind": "Cue",
+     "cost": 1,
+     "use": "action"
+    },
+    {
+     "id": "G-I-01#steady-now",
+     "name": "Steady Now",
+     "kind": "Cue",
+     "cost": 1,
+     "use": "action"
+    },
+    {
+     "id": "G-I-01#dread",
+     "name": "Dread",
+     "kind": "Dirge",
+     "cost": 2,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "lasting": true,
+     "tags": [
+      "fear"
+     ],
+     "do": [
+      {
+       "cond": "Frightened"
+      }
+     ]
+    }
+   ],
+   "atk": 2,
+   "resolve": 3
+  },
+  "D-I-01": {
+   "cover": "D-I-01",
+   "kind": "divine",
+   "powers": [
+    {
+     "id": "D-I-01#guidance",
+     "name": "Guidance",
+     "kind": "Cue",
+     "cost": 0,
+     "use": "action"
+    },
+    {
+     "id": "D-I-01#bless",
+     "name": "Bless",
+     "kind": "Anthem",
+     "cost": 1,
+     "use": "bonus",
+     "reach": 30,
+     "target": "allies",
+     "count": 3,
+     "dur": "1 minute",
+     "do": [
+      {
+       "mod": "attack",
+       "dice": "1d4",
+       "until": "dur"
+      }
+     ]
+    },
+    {
+     "id": "D-I-01#bane",
+     "name": "Bane",
+     "kind": "Dirge",
+     "cost": 1,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "lasting": true,
+     "do": [
+      {
+       "mod": "attack",
+       "dice": "-1d4",
+       "until": "lasting"
+      }
+     ]
+    },
+    {
+     "id": "D-I-01#twist-fate",
+     "name": "Twist Fate",
+     "kind": "Cue",
+     "cost": 1,
+     "use": "reaction",
+     "on": "rollNear",
+     "reach": 60,
+     "do": [
+      {
+       "reroll": true
+      }
+     ]
+    },
+    {
+     "id": "D-I-01#healing-word",
+     "name": "Healing Word",
+     "kind": "Mend",
+     "cost": 2,
+     "use": "bonus",
+     "reach": 60,
+     "target": "creature",
+     "do": [
+      {
+       "heal": "2d4+WIL"
+      }
+     ]
+    },
+    {
+     "id": "D-I-01#cure-wounds",
+     "name": "Cure Wounds",
+     "kind": "Mend",
+     "cost": 2,
+     "use": "action",
+     "reach": 5,
+     "target": "creature",
+     "do": [
+      {
+       "heal": "2d8+WIL"
+      }
+     ]
+    }
+   ],
+   "atk": 2,
+   "resolve": 3,
+   "fate": "1d4"
+  },
+  "N-I-01": {
+   "cover": "N-I-01",
+   "kind": "nature",
+   "powers": [
+    {
+     "id": "N-I-01#hawk",
+     "name": "Hawk",
+     "kind": "Form",
+     "cost": 1,
+     "use": "bonus",
+     "target": "self",
+     "form": {
+      "strip": {
+       "STR": -2,
+       "DEX": 3,
+       "STRd": 8,
+       "DEXd": 13,
+       "HP": 4,
+       "SPD": 10
+      },
+      "size": "Tiny"
+     }
+    },
+    {
+     "id": "N-I-01#wolf",
+     "name": "Wolf",
+     "kind": "Form",
+     "cost": 2,
+     "use": "bonus",
+     "target": "self",
+     "form": {
+      "strip": {
+       "STR": 1,
+       "DEX": 3,
+       "STRd": 11,
+       "DEXd": 13,
+       "HP": 8,
+       "SPD": 40
+      },
+      "size": "Medium"
+     }
+    },
+    {
+     "id": "N-I-01#mossbalm",
+     "name": "Mossbalm",
+     "kind": "Mend",
+     "cost": 2,
+     "use": "action",
+     "reach": 5,
+     "target": "creature",
+     "do": [
+      {
+       "heal": "2d8+WIL"
+      }
+     ]
+    },
+    {
+     "id": "N-I-01#bear",
+     "name": "Bear",
+     "kind": "Form",
+     "cost": 3,
+     "use": "bonus",
+     "target": "self",
+     "form": {
+      "strip": {
+       "STR": 3,
+       "DEX": 1,
+       "STRd": 15,
+       "DEXd": 11,
+       "HP": 12,
+       "SPD": 30
+      },
+      "size": "Large"
+     }
+    }
+   ],
+   "resolve": 3
+  }
+ },
+ "foes": [
+  {
+   "name": "Bandit",
+   "core": "C-I-05",
+   "body": null,
+   "carries": [
+    "W-I-03",
+    "P-I-03",
+    "A-I-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "powers": [],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "own": [],
+   "ownFx": [],
+   "totals": {}
+  },
+  {
+   "name": "Archer",
+   "core": "C-I-02",
+   "body": null,
+   "carries": [
+    "W-I-09",
+    "W-I-01",
+    "Q-I-02",
+    "A-I-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "powers": [],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "own": [],
+   "ownFx": [],
+   "totals": {}
+  },
+  {
+   "name": "Goblin",
+   "core": null,
+   "body": {
+    "STR": -1,
+    "DEX": 2,
+    "INT": 0,
+    "WIL": -1,
+    "HP": 7,
+    "SPD": 30,
+    "size": "Small"
+   },
+   "carries": [
+    "W-I-10",
+    "W-I-01",
+    "Q-I-07",
+    "A-I-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "own": [],
+   "ownFx": [],
+   "totals": {}
+  },
+  {
+   "name": "Wolf",
+   "core": null,
+   "body": {
+    "STR": 1,
+    "DEX": 2,
+    "INT": -1,
+    "WIL": -2,
+    "HP": 11,
+    "SPD": 40,
+    "size": "Medium"
+   },
+   "carries": [
+    "T-I-05"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "powers": [],
+   "senses": {},
+   "alert": true,
+   "boss": false,
+   "own": [
+    "**Bite:** +4 to hit, 1d6 + 2 Physical.",
+    "**Keen Nose:** alert (passive Awareness +5)."
+   ],
+   "ownFx": [
+    {
+     "id": "foe:wolf#bite",
+     "name": "Bite",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 4,
+      "vs": "STR"
+     },
+     "do": [
+      {
+       "dmg": "1d6+2",
+       "type": "Physical"
+      }
+     ]
+    }
+   ],
+   "totals": {}
+  },
+  {
+   "name": "Cultist",
+   "core": "C-I-04",
+   "body": null,
+   "carries": [
+    "W-I-01",
+    "D-I-01",
+    "T-I-03"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "powers": [
+    "Bane",
+    "Twist Fate",
+    "Healing Word"
+   ],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "own": [],
+   "ownFx": [],
+   "totals": {}
+  },
+  {
+   "name": "Legionary",
+   "core": "C-I-01",
+   "body": null,
+   "carries": [
+    "W-II-02",
+    "W-I-14",
+    "Q-I-06",
+    "A-I-02",
+    "S-I-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "powers": [],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "own": [
+    "Throws its *Pilum*, then draws its *Gladius*."
+   ],
+   "ownFx": [],
+   "totals": {}
+  },
+  {
+   "name": "Bandit Captain",
+   "core": "C-II-02",
+   "body": null,
+   "carries": [
+    "W-I-04",
+    "W-I-01",
+    "Q-II-01",
+    "A-I-01",
+    "U-I-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "powers": [],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "own": [],
+   "ownFx": [],
+   "totals": {}
+  },
+  {
+   "name": "Ogre",
+   "core": "C-II-01",
+   "body": null,
+   "carries": [
+    "W-I-13",
+    "W-I-11"
+   ],
+   "bonus": {
+    "HP": 33
+   },
+   "extraDice": 1,
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "own": [
+    "**Giant Strength:** +33 HP. Its weapons roll one extra damage die (included)."
+   ],
+   "ownFx": [],
+   "totals": {}
+  },
+  {
+   "name": "Ogre Chieftain",
+   "core": null,
+   "body": {
+    "STR": 5,
+    "DEX": 0,
+    "INT": 0,
+    "WIL": 1,
+    "HP": 110,
+    "SPD": 40,
+    "size": "Large"
+   },
+   "carries": [
+    "W-I-13",
+    "Q-I-01",
+    "T-II-01",
+    "A-II-01"
+   ],
+   "bonus": {},
+   "extraDice": 1,
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": true,
+   "own": [
+    "**Giant Strength:** its weapons roll one extra damage die (included).",
+    "**Bellow (Recharge 5–6):** action. Attack (+5) against the WIL Defense of each enemy within 30 ft: Frightened of the chieftain until the end of its next turn."
+   ],
+   "ownFx": [],
+   "totals": {}
+  }
+ ],
+ "frames": [
+  {
+   "key": "armor",
+   "name": "Armor",
+   "perPlayer": 1
+  },
+  {
+   "key": "hand",
+   "name": "Hand",
+   "perPlayer": 2
+  },
+  {
+   "key": "jewelry",
+   "name": "Jewelry",
+   "perPlayer": 1
+  },
+  {
+   "key": "item",
+   "name": "Item",
+   "perPlayer": 2
+  },
+  {
+   "key": "aspect",
+   "name": "Aspect",
+   "perPlayer": 3
+  }
+ ],
+ "starter": {
+  "Armor": [
+   "A-I-01",
+   "A-I-02"
+  ],
+  "Hands": [
+   "S-I-01",
+   "W-I-01",
+   "W-I-02",
+   "W-I-03",
+   "W-I-04",
+   "W-I-05",
+   "W-I-06",
+   "W-I-07",
+   "W-I-08",
+   "W-I-09",
+   "W-I-10",
+   "W-I-11",
+   "W-I-12",
+   "M-I-01"
+  ],
+  "Jewelry": [
+   "J-I-01",
+   "J-I-02",
+   "J-I-03",
+   "J-I-04",
+   "J-I-05"
+  ],
+  "Items": [
+   "B-I-01",
+   "P-I-01",
+   "U-I-01",
+   "P-I-02"
+  ],
+  "Aspects": [
+   "T-I-01",
+   "T-I-02",
+   "T-I-03",
+   "T-I-04",
+   "Q-I-01",
+   "Q-I-02",
+   "Q-I-03",
+   "Q-I-04",
+   "Q-I-05",
+   "K-I-01",
+   "K-I-02",
+   "K-I-03",
+   "K-I-04",
+   "K-I-05",
+   "K-I-06",
+   "K-I-07",
+   "K-I-08",
+   "K-I-09",
+   "G-I-01",
+   "D-I-01",
+   "N-I-01"
+  ]
+ }
+};
+if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
