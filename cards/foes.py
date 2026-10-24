@@ -35,12 +35,12 @@ FOES = [
         own=["**Giant Strength:** +60 HP. Its *Javelins* roll one extra damage die (included). "
              "Its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R."],
         bonus={"HP": 60}, extra_dice={"Javelins": 1}, recharge={"Sweeping Blow": 5}, senses="Darkvision 60"),
-    foe("Ogre Chieftain", ["Greatclub", "Cleave", "Second Wind", "Sweeping Blow", "Plate"], body=(5, 0, 0, 1, 110, 40, "Large"),
-        own=["**Giant Strength:** its weapons roll one extra damage die (included).",
-             "**Bellow (Recharge 5–6):** action. Attack (+5) against the WIL Defense of each enemy within 30 ft: "
+    foe("Ogre Chieftain", ["Greatclub", "Cleave", "Second Wind", "Sweeping Blow", "Plate"], body=(5, 0, 0, 1, 70, 40, "Large"),
+        own=["**Warlord:** its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R.",
+             "**Bellow (Recharge 5–6):** bonus action. Attack (+5) against the WIL Defense of each enemy within 30 ft: "
              "Frightened of the chieftain until the end of its next turn."],
-        extra_dice=1, senses="Darkvision 60", boss=True,
-        own_fx=[dict(name="Bellow", use="action", recharge=5, target="enemies", reach=30, atk=dict(flat=5, vs="WIL"),
+        recharge={"Sweeping Blow": 5}, senses="Darkvision 60", boss=True,
+        own_fx=[dict(name="Bellow", use="bonus", recharge=5, target="enemies", reach=30, atk=dict(flat=5, vs="WIL"),
                      do=[dict(cond="Frightened", until="endSourceTurn")], tags=["fear"])]),
 ]
 

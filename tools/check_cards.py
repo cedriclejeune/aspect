@@ -21,6 +21,7 @@ IGNORE = [
     r"\+\d+ on checks to [^.]*",            # Knack-style check bonuses
     r"passive Awareness \+\d+",             # Keen Nose
     r"[Rr]echarges?(?: on a)? (\d)–\d",     # "Recharge 5–6", "recharges on a 5–6": the data holds 5
+    r"instead of \d/[SL]\.R\.",            # the printed limit a recharge override replaces
 ]
 SKIP_KEYS = {"id", "name", "text", "kw", "deck", "cover"}
 DICE = re.compile(r"\b(\d*)d(\d+)\b")

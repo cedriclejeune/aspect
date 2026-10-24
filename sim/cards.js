@@ -2938,7 +2938,7 @@ globalThis.BEARERS_CARDS = {
     "DEX": 0,
     "INT": 0,
     "WIL": 1,
-    "HP": 110,
+    "HP": 70,
     "SPD": 40,
     "size": "Large"
    },
@@ -2950,8 +2950,10 @@ globalThis.BEARERS_CARDS = {
     "A-II-01"
    ],
    "bonus": {},
-   "extraDice": 1,
-   "recharge": {},
+   "extraDice": 0,
+   "recharge": {
+    "Q-II-02#0": 5
+   },
    "powers": [],
    "senses": {
     "darkvision": 60
@@ -2959,14 +2961,14 @@ globalThis.BEARERS_CARDS = {
    "alert": false,
    "boss": true,
    "own": [
-    "**Giant Strength:** its weapons roll one extra damage die (included).",
-    "**Bellow (Recharge 5–6):** action. Attack (+5) against the WIL Defense of each enemy within 30 ft: Frightened of the chieftain until the end of its next turn."
+    "**Warlord:** its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R.",
+    "**Bellow (Recharge 5–6):** bonus action. Attack (+5) against the WIL Defense of each enemy within 30 ft: Frightened of the chieftain until the end of its next turn."
    ],
    "ownFx": [
     {
      "id": "foe-ogre-chieftain#0",
      "name": "Bellow",
-     "use": "action",
+     "use": "bonus",
      "recharge": 5,
      "target": "enemies",
      "reach": 30,
@@ -2994,7 +2996,7 @@ globalThis.BEARERS_CARDS = {
     "DEXd": 10,
     "INTd": 10,
     "WILd": 11,
-    "HP": 110,
+    "HP": 70,
     "SPD": 30
    }
   }

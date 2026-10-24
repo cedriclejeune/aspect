@@ -800,26 +800,21 @@ module.exports = function register(T, H) {
   });
 
   // ---------- Ogre Chieftain ----------
-  T("[fx] Ogre Chieftain Bellow: Recharge 5–6, +5 vs WIL of each enemy within 30 ft, Frightened until the end of its next turn; recharged, it can be used again the same round", () => {
+  T("[fx] Ogre Chieftain Bellow: bonus action, Recharge 5–6, +5 vs WIL of each enemy within 30 ft, Frightened until the end of its next turn; not on a half turn", () => {
     const f = fight([pc("a", [3, 5]), pc("b", [3, 8]), pc("c", [14, 12]), tmpl("boss", "Ogre Chieftain", [5, 5])]);
-    eq([C(f, "boss").maxHp, C(f, "boss").totals.SPD], [110, 30]);
+    eq([C(f, "boss").maxHp, C(f, "boss").totals.SPD], [70, 30]);
     start(f);
     go(f, "a"); end(f, "a");
     run(f, { type: "beginTurn", actor: "boss", half: true });
+    ok(!f.legal("boss").some((t) => t.power === "foe-ogre-chieftain#0"), "a half turn has no bonus action");
+    end(f, "boss");
+    skip(f, "b"); skip(f, "c");
+    run(f, { type: "beginTurn", actor: "boss" }); // ready at the start of the fight: no recharge roll
     const r = run(f, power(f, "boss", "foe-ogre-chieftain#0"), [6]); // 11 vs WIL 10
     eq(evs(r, "roll").length, 1); ok(has(C(f, "a"), "Frightened") && has(C(f, "b"), "Frightened")); ok(!has(C(f, "c"), "Frightened"), "out of 30 ft");
     eq(C(f, "boss").uses["foe-ogre-chieftain#0"], 0);
-    end(f, "boss");
-    skip(f, "b"); skip(f, "c");
-    run(f, { type: "beginTurn", actor: "boss" }, [6]); // recharges on a 6
-    eq(C(f, "boss").uses["foe-ogre-chieftain#0"], 1);
-    ok(f.legal("boss").some((t) => t.power === "foe-ogre-chieftain#0"), "recharged: usable again the same round (a Boss only respects uses)");
-    ok(has(C(f, "a"), "Frightened"), "used on the half turn: lasts to the end of its next turn, this full turn");
-    end(f, "boss");
-    ok(!has(C(f, "a"), "Frightened"));
-    go(f, "a"); end(f, "a");
-    run(f, { type: "beginTurn", actor: "boss", half: true });
-    run(f, power(f, "boss", "foe-ogre-chieftain#0"), [1]);
+    eq([C(f, "boss").turn.bonus, C(f, "boss").turn.action], [true, false], "it spends its bonus action, not its action");
     end(f, "boss");
   });
+
 };
