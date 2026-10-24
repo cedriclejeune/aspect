@@ -2639,6 +2639,7 @@ globalThis.BEARERS_CARDS = {
    "senses": {},
    "alert": false,
    "boss": false,
+   "leader": false,
    "own": [],
    "ownFx": [],
    "totals": {
@@ -2671,6 +2672,7 @@ globalThis.BEARERS_CARDS = {
    "senses": {},
    "alert": false,
    "boss": false,
+   "leader": false,
    "own": [],
    "ownFx": [],
    "totals": {
@@ -2713,6 +2715,7 @@ globalThis.BEARERS_CARDS = {
    },
    "alert": false,
    "boss": false,
+   "leader": false,
    "own": [],
    "ownFx": [],
    "totals": {
@@ -2750,6 +2753,7 @@ globalThis.BEARERS_CARDS = {
    "senses": {},
    "alert": true,
    "boss": false,
+   "leader": false,
    "own": [
     "**Bite:** +4 to hit, 1d6 + 2 Physical.",
     "**Keen Nose:** alert (passive Awareness +5)."
@@ -2806,6 +2810,7 @@ globalThis.BEARERS_CARDS = {
    "senses": {},
    "alert": false,
    "boss": false,
+   "leader": false,
    "own": [],
    "ownFx": [],
    "totals": {
@@ -2839,6 +2844,7 @@ globalThis.BEARERS_CARDS = {
    "senses": {},
    "alert": false,
    "boss": false,
+   "leader": false,
    "own": [
     "Throws its *Pilum*, then draws its *Gladius*."
    ],
@@ -2874,6 +2880,7 @@ globalThis.BEARERS_CARDS = {
    "senses": {},
    "alert": false,
    "boss": false,
+   "leader": true,
    "own": [],
    "ownFx": [],
    "totals": {
@@ -2913,6 +2920,7 @@ globalThis.BEARERS_CARDS = {
    },
    "alert": false,
    "boss": false,
+   "leader": false,
    "own": [
     "**Giant Strength:** +60 HP. Its *Javelins* roll one extra damage die (included). Its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R."
    ],
@@ -2960,6 +2968,7 @@ globalThis.BEARERS_CARDS = {
    },
    "alert": false,
    "boss": true,
+   "leader": true,
    "own": [
     "**Warlord:** its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R.",
     "**Bellow (Recharge 5–6):** bonus action. Attack (+5) against the WIL Defense of each enemy within 30 ft: Frightened of the chieftain until the end of its next turn."

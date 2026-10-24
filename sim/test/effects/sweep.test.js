@@ -74,27 +74,27 @@ module.exports = function register(T, H) {
     ok(/Heavy or Reach/.test(refused(k, sweep("p"))));
   });
 
-  T("[sweep] the Ogre's Sweeping Blow recharges on a 5–6: spent after use, rolled for at the start of its turn", () => {
+  T("[sweep] the Ogre's Sweeping Blow recharges on a 5–6: spent after use, rolled for at the end of its turn", () => {
     const f = ring();
     eq(C(f, "o").build.recharge, { [SWEEP]: 5 });
     eq(C(f, "o").uses[SWEEP], 1, "ready at the start of the fight");
     foeTurn(f, "o");
     run(f, sweep("o"), [10, 3]);
     eq(C(f, "o").uses[SWEEP], 0);
-    run(f, { type: "endTurn", actor: "o" });
-    for (const id of ["a", "b", "c", "d"]) skip(f, id);
-    const r = run(f, { type: "beginTurn", actor: "o" }, [4]); // recharge roll 4: not back
+    const r = run(f, { type: "endTurn", actor: "o" }, [4]); // recharge roll 4 at the end of its turn: not back
     ok(evs(r, "roll").some((e) => e.kind === "recharge"));
+    for (const id of ["a", "b", "c", "d"]) skip(f, id);
+    eq(evs(run(f, { type: "beginTurn", actor: "o" }), "roll").length, 0, "nothing rolled at the start of its turn");
     ok(!f.legal("o").some((x) => x.power === SWEEP));
     ok(/not recharged/.test(refused(f, sweep("o"))));
-    run(f, { type: "endTurn", actor: "o" });
-    for (const id of ["a", "b", "c", "d"]) skip(f, id);
-    run(f, { type: "beginTurn", actor: "o" }, [5]); // a 5: back
+    run(f, { type: "endTurn", actor: "o" }, [5]); // a 5: back
     eq(C(f, "o").uses[SWEEP], 1);
+    for (const id of ["a", "b", "c", "d"]) skip(f, id);
+    run(f, { type: "beginTurn", actor: "o" });
     ok(f.legal("o").some((x) => x.power === SWEEP));
-    f.undo();
-    run(f, { type: "beginTurn", actor: "o" }, [6]);
-    ok(f.legal("o").some((x) => x.power === SWEEP), "a 6 too");
+    for (let i = 0; i < 10; i++) f.undo(); // back to before the 5: beginTurn, 4 skipped turns, endTurn
+    run(f, { type: "endTurn", actor: "o" }, [6]);
+    eq(C(f, "o").uses[SWEEP], 1, "a 6 too");
   });
 
   T("[sweep] a Bearer's Sweeping Blow stays 1/S.R.", () => {

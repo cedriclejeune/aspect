@@ -32,6 +32,10 @@
  *   interact `drop: "<card id>"` (free); power `pool: "extra"` pays from the extra spell point / Resolve pool;
  *   power/shove `mode: "push"|"prone"` for shove effects; adjust `temp`, `exhaustion`.
  *
+ * Morale (P 6.11, RULING R800): checked after every command. A foe that flees gets `dead` + `fled` (it leaves the
+ *   map with its gear; the UI hides it) and a `flee` event; state.morale = { group, leader, half } holds the triggers
+ *   already fired. Summary rows gain `fled`.
+ *
  * Answers and re-runs (SPEC 4.2 recommended design)
  *   Every external input (a reaction choice, a manual die) is an *answer*, consumed in order by the running
  *   command. When resolution needs an answer that isn't there yet, it throws NeedInput: the engine restores the
@@ -152,7 +156,7 @@
   // ---------- cards and builds ----------
   function normBuild(b) {
     b = Object.assign({ core: null, body: null, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [],
-      slots: {}, bonus: {}, extraDice: 0, recharge: {}, ownFx: [], powers: [], boss: false, senses: {}, alert: false, foe: null }, clone(b || {}));
+      slots: {}, bonus: {}, extraDice: 0, recharge: {}, ownFx: [], powers: [], boss: false, leader: false, senses: {}, alert: false, foe: null }, clone(b || {}));
     b.slots = Object.assign({}, DEFAULT_SLOTS, b.slots);
     b.items = b.items.map((it) => (typeof it === "string" ? { id: it, n: 1 } : it));
     return b;
@@ -270,7 +274,7 @@
   // Shield in hand, Gladius carried; Ogre: Greatclub in hand, Javelins carried). Slots grow to fit.
   function fromFoe(foe, cards) {
     const b = normBuild({ core: foe.core || null, body: foe.body ? clone(foe.body) : null, bonus: clone(foe.bonus || {}),
-      extraDice: clone(foe.extraDice || 0), recharge: clone(foe.recharge || {}), ownFx: clone(foe.ownFx || []), powers: (foe.powers || []).slice(), boss: !!foe.boss,
+      extraDice: clone(foe.extraDice || 0), recharge: clone(foe.recharge || {}), ownFx: clone(foe.ownFx || []), powers: (foe.powers || []).slice(), boss: !!foe.boss, leader: !!foe.leader,
       senses: clone(foe.senses || {}), alert: !!foe.alert, foe: foe.name });
     const hand = [];
     for (const id of foe.carries || []) {
@@ -303,8 +307,8 @@
   function deckAbil(deck) { return deck && deck.kind === "spellbook" ? "INT" : "WIL"; }
   // Every power a creature has: { p, card, deck, src } ; `all` includes carried weapons (for uses).
   // RULING R701: a foe's `recharge` override ({ power id: n }) replaces that card power's limited uses with
-  // Recharge n–6 for this creature only: ready at the start of the fight, spent on use, rolled for at the start of
-  // its turns like any Recharge power.
+  // Recharge n–6 for this creature only: ready at the start of the fight, spent on use, rolled for at the end of
+  // its full turns like any Recharge power.
   function withRecharge(b, p) {
     const n = b.recharge && b.recharge[p.id];
     if (!n) return p;
@@ -437,13 +441,14 @@
     return true;
   }
   const sizeGap = (a, b) => Math.abs((SIZE_N[a.size] || 2) - (SIZE_N[b.size] || 2));
-  // P 6.5: a is engaged with enemy b when within 5 ft, a isn't Incapacitated, sizes at most one apart.
+  // P 6.5: a is engaged with enemy b when within 5 ft, neither is Incapacitated, sizes at most one apart.
   function engaged(a, b) {
-    return a.side !== b.side && !a.dead && !b.dead && !incap(a) && dist(a, b) <= 5 && sizeGap(a, b) <= 1;
+    return a.side !== b.side && !a.dead && !b.dead && !incap(a) && !incap(b) && dist(a, b) <= 5 && sizeGap(a, b) <= 1;
   }
   // P 6.5 Outnumbered, with DESIGN 5 "compares sides".
-  // RULING R223: read as written: an Incapacitated creature engages no one, so it never counts for its own side
-  // (attacking a lone Stunned or Unconscious target gives Outnumbered 1 vs 0).
+  // RULING R223: an Incapacitated creature isn't engaged with anyone and no one is engaged with it (P 6.5), so it
+  // counts for neither side: attacking a lone Stunned or Unconscious target gives no Outnumbered dice (0 vs 0), and
+  // foes standing next to a downed Bearer no longer count against its allies.
   function outnumbered(st, attacker, target) {
     const all = living(st), mine = all.filter((c) => c.side === attacker.side);
     const us = mine.filter((c) => engaged(c, target)).map((c) => c.id);
@@ -491,7 +496,7 @@
   function initState(F, sc) {
     const st = { version: 1, round: 0, side: null, first: null, phase: "setup", winner: null, active: null, done: [],
       halfTurn: {}, map: clone(sc.map || { w: 12, h: 12, cells: {} }), zones: [], creatures: {}, ground: [],
-      surprise: sc.surprise || null, ambush: false, turnNo: 0, nextId: 1,
+      surprise: sc.surprise || null, ambush: false, turnNo: 0, nextId: 1, morale: null,
       rng: { seed: sc.seed != null ? sc.seed : 1, s: (sc.seed != null ? sc.seed : 1) | 0 }, stats: {} };
     st.map.cells = st.map.cells || {};
     F.state = st;
@@ -1727,7 +1732,7 @@
     st.turnNo++;
     st.active = c.id; st.halfActive = !!half;
     // RULING R407: a Boss half turn isn't "your turn" for the reaction (P 6.2), Dodge ("until your next turn") or
-    // Recharge 5–6 ("at the start of the monster's turn"): it keeps its spent reaction and its Dodge, and rolls no
+    // Recharge 5–6 ("at the end of the monster's turn"): it keeps its spent reaction and its Dodge, and rolls no
     // Recharge.
     c.turn = freshTurn(half ? c.turn : { reaction: false, dodging: false });
     emit(X, { t: "turn", actor: c.id, half: !!half, text: `${c.name}${half ? " takes a half turn" : "'s turn"}.` });
@@ -1735,14 +1740,6 @@
     let lose = false;
     if (c.hp === 0 && !c.dead && !c.stable && !c.form) deathSave(X, c);
     if (c.dead) return { lose: true };
-    // Recharge 5–6 (GM 2.1)
-    if (!half) for (const e of powerList(F.cards, c, true)) {
-      if (e.p.recharge && !(c.uses[e.p.id] > 0)) {
-        const r = die(X, 6, "recharge");
-        if (r >= e.p.recharge) c.uses[e.p.id] = 1;
-        emit(X, { t: "roll", actor: c.id, kind: "recharge", dice: [r], kept: r, bonus: 0, total: r, why: [], text: `${c.name} ${e.p.name} recharge: ${r}${r >= e.p.recharge ? ", ready" : ""}.` });
-      }
-    }
     // Lasting effects on c: first bite or maintain roll (P 8); Bosses also on their half turn.
     for (const k of c.conds.slice()) {
       if (!k.lasting || !c.conds.includes(k)) continue;
@@ -1788,6 +1785,14 @@
     const half = st.halfActive;
     if (!half) for (const z of zonesAt(st, c)) if ((z.on || []).includes("endTurn") && !c.dead) triggerZone(X, z, c, "ends its turn in");
     if (!half) tick(X, "end", c.id);
+    // Recharge 5–6 (GM 2.1): rolled at the end of the monster's full turn
+    if (!half && !c.dead) for (const e of powerList(X.F.cards, c, true)) {
+      if (e.p.recharge && !(c.uses[e.p.id] > 0)) {
+        const r = die(X, 6, "recharge");
+        if (r >= e.p.recharge) c.uses[e.p.id] = 1;
+        emit(X, { t: "roll", actor: c.id, kind: "recharge", dice: [r], kept: r, bonus: 0, total: r, why: [], text: `${c.name} ${e.p.name} recharge: ${r}${r >= e.p.recharge ? ", ready" : ""}.` });
+      }
+    }
     for (const m of c.mods.slice()) if (m.until && m.until.ev === "end" && m.until.who === c.id && m.until.thisTurn) c.mods.splice(c.mods.indexOf(m), 1);
     emit(X, { t: "turn", actor: c.id, end: true, text: `${c.name} ends ${half ? "its half turn" : "its turn"}.` });
     st.active = null; st.halfActive = false;
@@ -1825,6 +1830,40 @@
         else if (k.name === "Grappled" && s && (s.dead || incap(s) || dist(s, t) > 5)) removeCond(X, t, k, "grapple ends");
       }
       if (t.turn.dodging && (incap(t) || speedOf(t) === 0)) t.turn.dodging = false;
+    }
+  }
+  // ---------- morale (P 6.11) ----------
+  // RULING R800: the group is the foe side as it stood at `start`; its Leader is a foe whose build sets `leader`
+  // (foe card keyword Leader). When a Leader drops to 0 HP, and once when half (rounded up) of the group is down
+  // or fled, each remaining conscious non-Boss foe rolls d20 + WIL vs 10; on a failure it flees: it leaves the
+  // fight with what it holds and counts as defeated (state: dead + fled). Each trigger fires once per fight, after
+  // the command that caused it. Bearers never check.
+  const MORALE_DC = 10;
+  function flee(X, c) {
+    c.dead = true; c.fled = true;
+    for (const k of c.conds.slice()) removeCond(X, c, k, null, true);
+    c.mods = [];
+    emit(X, { t: "flee", actor: c.id, target: c.id, text: `${c.name} flees.` });
+    if (X.st.active === c.id) endTurn(X, c);
+  }
+  function morale(X) {
+    const st = X.st, m = st.morale;
+    if (!m || st.phase !== "fight") return;
+    const group = m.group.map((id) => st.creatures[id]).filter(Boolean);
+    for (;;) {
+      let why = null;
+      if (!m.leader && group.some((c) => c.build.leader && !c.fled && c.hp === 0)) { m.leader = true; why = "a Leader falls"; }
+      else if (!m.half && group.filter((c) => c.dead || c.hp === 0).length >= Math.ceil(group.length / 2)) { m.half = true; why = "half of the group is down"; }
+      if (!why) return;
+      const left = group.filter((c) => conscious(c) && !c.boss);
+      emit(X, { t: "morale", why, actors: left.map((c) => c.id), text: `Morale: ${why}.` });
+      for (const c of left) {
+        const r = die(X, 20, "morale");
+        const wil = c.totals.WIL || 0, total = r + wil, held = total >= MORALE_DC;
+        emit(X, { t: "roll", actor: c.id, kind: "morale", dice: [r], kept: r, bonus: wil, total, vs: MORALE_DC, why: [why],
+          text: `${c.name} morale (WIL check): ${r} ${signed(wil)} = ${total} vs ${MORALE_DC}: ${held ? "holds" : "fails"}.` });
+        if (!held) flee(X, c);
+      }
     }
   }
   function checkOver(X) {
@@ -2027,23 +2066,32 @@
     if (st.phase !== "setup") fail("The fight has already started");
     const sides = ["pc", "foe"].filter((s) => living(st).some((c) => c.side === s));
     if (sides.length < 2) fail("Both sides need creatures");
-    let r;
-    for (let guard = 0; guard < 50; guard++) {
-      r = {};
-      for (const s of sides) {
-        const m = living(st).filter((c) => c.side === s);
-        const avg = Math.floor(m.reduce((n, c) => n + c.totals.DEX, 0) / m.length);
-        const adv = m.every((c) => has(c, "Invisible")) ? 1 : 0, dis = st.surprise === s ? 1 : 0;
-        const d = rollD20(X, adv, dis, "initiative");
-        r[s] = d.kept + avg;
-        emit(X, { t: "initiative", actor: s, dice: d.dice, kept: d.kept, bonus: avg, total: r[s], text: `Initiative (${s === "pc" ? "Bearers" : "foes"}): ${d.dice.length > 1 ? "[" + d.dice.join(", ") + "] keeps " : ""}${d.kept} ${signed(avg)} = ${r[s]}${dis ? " (surprised)" : ""}.` });
+    // P 6.1: a surprised side (scenario `surprise`) means the other side sneaked up: it goes first with full turns
+    // (Ambush), no roll. Otherwise each side rolls d20 + its best DEX (advantage if all its members are Invisible,
+    // P 8); ties re-roll.
+    const name = (s) => (s === "pc" ? "the Bearers" : "the foes");
+    if (st.surprise === "pc" || st.surprise === "foe") {
+      st.first = other(st.surprise); st.ambush = true;
+    } else {
+      let r;
+      for (let guard = 0; guard < 50; guard++) {
+        r = {};
+        for (const s of sides) {
+          const m = living(st).filter((c) => c.side === s);
+          const best = Math.max(...m.map((c) => c.totals.DEX));
+          const adv = m.every((c) => has(c, "Invisible")) ? 1 : 0;
+          const d = rollD20(X, adv, 0, "initiative");
+          r[s] = d.kept + best;
+          emit(X, { t: "initiative", actor: s, dice: d.dice, kept: d.kept, bonus: best, total: r[s], text: `Initiative (${s === "pc" ? "Bearers" : "foes"}): ${d.dice.length > 1 ? "[" + d.dice.join(", ") + "] keeps " : ""}${d.kept} ${signed(best)} = ${r[s]}.` });
+        }
+        if (r.pc !== r.foe) break;
       }
-      if (r.pc !== r.foe) break;
+      st.first = r.pc > r.foe ? "pc" : "foe";
+      st.ambush = false;
     }
-    st.first = r.pc > r.foe ? "pc" : "foe";
-    st.ambush = !!st.surprise && st.surprise !== st.first;
     st.phase = "fight"; st.round = 0;
-    emit(X, { t: "initiative", winner: st.first, text: `Initiative: ${st.first === "pc" ? "the Bearers" : "the foes"} go first${st.ambush ? " (ambush: full turns)" : ""}.` });
+    st.morale = { group: living(st).filter((c) => c.side === "foe").map((c) => c.id), leader: false, half: false };
+    emit(X, { t: "initiative", winner: st.first, ambush: st.ambush, text: st.ambush ? `Ambush: ${name(st.first)} go first, with full turns.` : `Initiative: ${name(st.first)} go first.` });
     for (const c of living(st)) for (const e of powersOf(F, c)) if (e.p.use === "passive" && e.p.hook) {
       const h = HOOKS[e.p.hook];
       if (h && h.passive) h.passive(makeCtx(F, X, { actor: c, power: e.p, entry: e }));
@@ -2113,6 +2161,7 @@
       case "adjust": doAdjust(X, cmd); break;
       default: fail(`Unknown command ${cmd.type}`);
     }
+    morale(X);
     sweep(X);
     checkOver(X);
     for (const c of Object.values(X.st.creatures)) X.st.stats[c.id].endHp = c.hp;
@@ -2283,14 +2332,14 @@
   };
   Fight.prototype.summary = function () {
     const st = this.state, out = { rounds: st.round, winner: st.winner, seed: st.rng.seed, creatures: {} };
-    for (const [id, s] of Object.entries(st.stats)) out.creatures[id] = Object.assign(clone(s), { endHp: st.creatures[id] ? st.creatures[id].hp : 0 });
+    for (const [id, s] of Object.entries(st.stats)) out.creatures[id] = Object.assign(clone(s), { endHp: st.creatures[id] ? st.creatures[id].hp : 0, fled: !!(st.creatures[id] && st.creatures[id].fled) });
     return out;
   };
   Fight.prototype.summaryRows = function () { return summaryRows(this.summary()); };
   Fight.prototype.export = function () {
     return { version: 1, scenario: clone(this.scenario), commands: clone(this.commands), events: clone(this.events), summary: this.summary() };
   };
-  const COLS = ["id", "name", "side", "dmgDealt", "dmgTaken", "healed", "attacks", "hits", "crits", "kills", "downs", "roundsAlive", "sp", "resolve", "uses", "consumables", "endHp"];
+  const COLS = ["id", "name", "side", "dmgDealt", "dmgTaken", "healed", "attacks", "hits", "crits", "kills", "downs", "roundsAlive", "sp", "resolve", "uses", "consumables", "endHp", "fled"];
   function summaryRows(sum) {
     const rows = [COLS.slice()];
     for (const [id, s] of Object.entries(sum.creatures)) rows.push(COLS.map((k) => (k === "id" ? id : ["sp", "resolve", "uses", "consumables"].includes(k) ? s.spent[k] : s[k])));

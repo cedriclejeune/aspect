@@ -92,6 +92,18 @@ T("Engagement ignores Incapacitated creatures and sizes two apart", () => {
   ok(Eng.geometry.engaged(C(f, "a"), C(f, "o1")));
   run(f, { type: "adjust", actor: "a", cond: "Stunned" });
   ok(!Eng.geometry.engaged(C(f, "a"), C(f, "o1")));
+  ok(!Eng.geometry.engaged(C(f, "o1"), C(f, "a")), "and no one is engaged with it (R223)");
+});
+T("A downed creature counts for neither side of Outnumbered (P 6.5, R223)", () => {
+  // b is down next to o1 and o2; the archer shooting o1 compares only the creatures still engaged
+  const f = fight([pc("b", [5, 5]), pc("c", [6, 6]), pc("arch", [5, 12], { core: "C-I-02", hands: ["W-I-09"] }), orc("o1", [6, 5]), orc("o2", [4, 5])]);
+  const G = Eng.geometry, st = f.state;
+  eq(G.outnumbered(st, C(f, "arch"), C(f, "o1")).n, 0, "b and c vs o1 and o2: 2 vs 2");
+  run(f, { type: "adjust", actor: "b", hp: 0 });
+  const o = G.outnumbered(st, C(f, "arch"), C(f, "o1"));
+  eq([o.us, o.them, o.n], [1, 1, 0], "c vs o1; o2 stands only next to the downed b");
+  const d = G.outnumbered(st, C(f, "o2"), C(f, "b"));
+  eq([d.us, d.them], [0, 1], "attacking the downed b: no foe is engaged with it, its ally c still is with o1 (P 6.5 as written)");
 });
 T("Disengage costs by engaged enemies; 4 = surrounded (P 6.5)", () => {
   const costs = [];
@@ -140,20 +152,28 @@ T("First-mover rule: round 1 first side gets movement or action", () => {
   run(f, { type: "beginTurn", actor: "o1" });
   ok(!C(f, "o1").turn.firstMover, "second side takes full turns");
 });
-T("Ambush: the other side surprised, first side takes full turns", () => {
-  const f = fight([pc("a", [5, 5], { hands: ["W-I-05"] }), orc("o1", [6, 5])], { surprise: "foe" });
-  f.setManualDice(true);
-  run(f, { type: "start" }, [19, 1, 1]); // foe rolls 2d20 (disadvantage)
-  ok(f.state.ambush && f.state.first === "pc");
-  run(f, { type: "beginTurn", actor: "a" });
-  ok(!C(f, "a").turn.firstMover);
+T("Ambush: a surprised side means the other goes first automatically, full turns, no roll (P 6.1)", () => {
+  for (const [surprised, first] of [["foe", "pc"], ["pc", "foe"]]) {
+    const f = fight([pc("a", [5, 5], { hands: ["W-I-05"] }), orc("o1", [6, 5])], { surprise: surprised });
+    f.setManualDice(true);
+    const r = run(f, { type: "start" }, []); // no die rolled
+    ok(f.state.ambush && f.state.first === first);
+    eq(evs(r, "initiative").filter((e) => e.total != null).length, 0, "no initiative roll");
+    ok(/^Ambush: the (Bearers|foes) go first/.test(evs(r, "initiative").pop().text));
+    const id = first === "pc" ? "a" : "o1";
+    run(f, { type: "beginTurn", actor: id });
+    ok(!C(f, id).turn.firstMover, "full turns");
+  }
 });
-T("Initiative: d20 + average DEX rounded down, ties re-rolled", () => {
+T("Initiative: d20 + the side's best DEX, no surprise disadvantage, ties re-rolled", () => {
   const f = fight([pc("a", [1, 1], { core: "C-I-02" }), pc("b", [2, 1]), orc("o1", [9, 9])]);
   f.setManualDice(true);
-  const r = run(f, { type: "start" }, [10, 11, 15, 3]); // pc 10+2=12 vs foe 11+1=12: tie, re-roll
-  eq(evs(r, "initiative").filter((e) => e.total != null).map((e) => e.total), [12, 12, 17, 4]);
-  eq(f.state.first, "pc");
+  const r = run(f, { type: "start" }, [10, 12, 15, 3]); // pc 10 + 3 (a's DEX) = 13 vs foe 12 + 1 = 13: tie, re-roll
+  eq(evs(r, "initiative").filter((e) => e.total != null).map((e) => [e.dice.length, e.total]), [[1, 13], [1, 13], [1, 18], [1, 4]]);
+  eq(f.state.first, "pc"); ok(!f.state.ambush);
+  eq(evs(r, "initiative").pop().text, "Initiative: the Bearers go first.");
+  run(f, { type: "beginTurn", actor: "a" });
+  ok(C(f, "a").turn.firstMover, "first-mover rule unchanged");
 });
 T("Boss half turn: during the other side, once per round, movement or one action (GM 3)", () => {
   const chief = { id: "boss", side: "foe", name: "Chief", pos: [8, 8], build: Eng.fromFoe(CARDS.foes.find((x) => x.name === "Chief"), CARDS), react: "never" };
@@ -323,8 +343,9 @@ T("Death saves: falling to 0, natural 1, damage at 0, crit within 5 ft on Uncons
   run(f, { type: "beginTurn", actor: "b" }); run(f, { type: "endTurn", actor: "b" });
   run(f, { type: "beginTurn", actor: "o1" });
   const pv = f.preview({ type: "attack", actor: "o1", weapon: "W-I-05", target: "a" });
-  eq(pv.info.adv, 3, "Prone within 5 ft + Stunned + Outnumbered 1 vs 0");
-  const r = run(f, { type: "attack", actor: "o1", weapon: "W-I-05", target: "a" }, [5, 6, 7, 8], 1);
+  eq(pv.info.adv, 2, "Prone + Stunned; no Outnumbered: no one is engaged with a downed creature (R223)");
+  eq([pv.info.outnumbered.us, pv.info.outnumbered.them], [0, 0]);
+  const r = run(f, { type: "attack", actor: "o1", weapon: "W-I-05", target: "a" }, [5, 6, 8], 1);
   ok(evs(r, "crit").length === 1, "hit within 5 ft is a crit");
   ok(C(f, "a").dead);
 });
@@ -401,7 +422,7 @@ T("Subdue: first bite, weakening, hits add disadvantage", () => {
   eq(f.state.active, null, "loses its turn");
   run(f, { type: "beginTurn", actor: "w" }); run(f, { type: "endTurn", actor: "w" });
   run(f, { type: "beginTurn", actor: "a" });
-  run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" }, [10, 10, 10, 1]); // Stunned + Outnumbered 1 vs 0
+  run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" }, [10, 10, 1]); // Stunned; no Outnumbered against an Incapacitated target (R223)
   run(f, { type: "endTurn", actor: "a" });
   const r2 = run(f, { type: "beginTurn", actor: "o1" }, [15, 15]);
   eq(evs(r2, "maintain")[0].dice.length, 2, "first maintain roll: 1 die per hit");
@@ -589,7 +610,7 @@ T("Hooks: registered onUse runs with ctx; unknown hook logs not automated", () =
   eq(seen, "a"); ok(evs(r2, "note").some((e) => e.text === "mystery 3"));
   delete Eng.hooks.mystery;
 });
-T("Boss Recharge rolls at turn start; Bellow is one roll against each enemy in 30 ft", () => {
+T("Boss Recharge rolls at the end of its turn; Bellow is one roll against each enemy in 30 ft", () => {
   const chief = { id: "boss", side: "foe", name: "Chief", pos: [5, 5], build: Eng.fromFoe(CARDS.foes.find((x) => x.name === "Chief"), CARDS), react: "never" };
   const f = fight([pc("a", [3, 5]), pc("b", [5, 9], { aspects: ["T-I-03"] }), pc("c", [13, 13]), chief]);
   start(f, "foe");
@@ -598,12 +619,15 @@ T("Boss Recharge rolls at turn start; Bellow is one roll against each enemy in 3
   eq(evs(r, "roll").length, 1);
   ok(C(f, "a").conds.some((k) => k.name === "Frightened"), "11 vs 10"); ok(!C(f, "b").conds.length, "Iron Will: 11 vs 10+2"); ok(!C(f, "c").conds.length);
   eq(C(f, "boss").uses["foe-chief#0"], 0);
-  run(f, { type: "endTurn", actor: "boss" });
+  const e1 = run(f, { type: "endTurn", actor: "boss" }, [4]);
+  ok(evs(e1, "roll").some((e) => e.kind === "recharge"), "rolled at the end of the turn it was used");
+  eq(C(f, "boss").uses["foe-chief#0"], 0, "a 4: not back");
   ok(C(f, "a").conds.some((k) => k.name === "Frightened"), "until end of the chief's NEXT turn");
   for (const id of ["a", "b", "c"]) { run(f, { type: "beginTurn", actor: id }); run(f, { type: "endTurn", actor: id }); }
-  run(f, { type: "beginTurn", actor: "boss" }, [5]);
+  const b2 = run(f, { type: "beginTurn", actor: "boss" });
+  eq(evs(b2, "roll").length, 0, "no roll at the start of the turn");
+  run(f, { type: "endTurn", actor: "boss" }, [5]);
   eq(C(f, "boss").uses["foe-chief#0"], 1, "recharged on a 5");
-  run(f, { type: "endTurn", actor: "boss" });
   ok(!C(f, "a").conds.some((k) => k.name === "Frightened"));
 });
 T("legal(): templates and candidates", () => {

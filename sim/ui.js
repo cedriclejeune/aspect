@@ -723,7 +723,7 @@
     return x >= o.pos[0] && x < o.pos[0] + n && y >= o.pos[1] && y < o.pos[1] + n;
   }
   function creatureAt(x, y) {
-    return Object.values(S().creatures).find((o) => !o.dead && occupies(o, x, y)) || Object.values(S().creatures).find((o) => occupies(o, x, y));
+    return Object.values(S().creatures).find((o) => !o.dead && occupies(o, x, y)) || Object.values(S().creatures).find((o) => !o.fled && occupies(o, x, y));
   }
   function localArea(p, pt) {
     const out = [], n = Math.max(1, Math.round(p.area.size / 5));
@@ -804,6 +804,7 @@
       }
     }
     for (const o of Object.values(st.creatures)) {
+      if (o.fled) continue; // a fled foe has left the map
       const n = o.size === "Large" ? 2 : o.size === "Huge" ? 3 : o.size === "Gargantuan" ? 4 : 1;
       const hp = o.form ? o.form.hp : o.hp, max = o.form ? o.form.maxHp : o.maxHp;
       const pct = max ? Math.max(0, Math.min(100, (100 * hp) / max)) : 0;
@@ -844,7 +845,7 @@
           h("button", { onclick: () => { A.view = "summary"; render(); } }, "Summary"))),
       init ? h("div.init", init.text) : null,
     ];
-    if (st.phase === "setup") out.push(h("button.primary", { onclick: () => send({ type: "start" }) }, "Roll initiative"));
+    if (st.phase === "setup") out.push(h("button.primary", { onclick: () => send({ type: "start" }) }, st.surprise ? `Start: ambush (${st.surprise === "pc" ? "the Bearers are" : "the foes are"} surprised)` : "Roll initiative"));
     if (st.phase === "over") out.push(h("p.hint", "Undo to step back into the fight, or see the summary."));
 
     // Who acts
@@ -853,7 +854,7 @@
       out.push(h("div.subhead", st.active ? "Acting" : "Choose who acts next"),
         h("div.who", list.map((o) => {
           const bt = st.active ? [] : f.legal(o.id).filter((t) => t.type === "beginTurn");
-          const status = o.dead ? "dead" : o.down ? "down" : st.active === o.id ? "acting" : (st.done || []).includes(o.id) ? "done" : o.side === st.side ? "ready" : "";
+          const status = o.fled ? "fled" : o.dead ? "dead" : o.down ? "down" : st.active === o.id ? "acting" : (st.done || []).includes(o.id) ? "done" : o.side === st.side ? "ready" : "";
           return h("div.who-row", { class: (F.sel === o.id ? "on " : "") + "side-" + o.side + " st-" + status, onclick: () => { F.sel = o.id; render(); } },
             h("span.dot"), h("span.who-name", o.name), hpText(o), h("span.status", status),
             bt.map((t) => h("button", { class: t.half ? "half" : "go", onclick: (e) => { e.stopPropagation(); send(t); } }, t.label || (t.half ? "Half turn" : "Begin"))));
@@ -1022,7 +1023,7 @@
     let hpIn = hp, condPick = CONDS[0];
     return h("div.ccard", { class: "side-" + c.side },
       h("div.cc-head", h("b", c.name), h("span.tag", SIDE[c.side].slice(0, -1)), buildOf(id) && buildOf(id).boss ? h("span.boss", "Boss") : null,
-        c.form ? h("span.tag", "Form: " + formName(c)) : null, c.dead ? h("span.tag.bad", "dead") : c.down ? h("span.tag.bad", c.stable ? "stable" : "down") : null),
+        c.form ? h("span.tag", "Form: " + formName(c)) : null, c.fled ? h("span.tag", "fled") : c.dead ? h("span.tag.bad", "dead") : c.down ? h("span.tag.bad", c.stable ? "stable" : "down") : null),
       h("div.cc-grid",
         h("div", h("div.big", `${hp}/${max}`), h("small", "HP" + (c.temp ? ` · +${c.temp} temp` : "")), c.down && !c.dead ? h("small", ` · saves ${c.death.ok}✓ ${c.death.fail}✗`) : null),
         h("div", h("div.big", `${t.SPD != null ? t.SPD : "?"} ft`), h("small", "Speed · " + (c.size || ""))),
@@ -1094,7 +1095,7 @@
   // ---------- summary ----------
   const SUM_COLS = [["name", "Creature"], ["side", "Side"], ["dmgDealt", "Dmg dealt"], ["dmgTaken", "Dmg taken"], ["healed", "Healed"], ["attacks", "Attacks"], ["hits", "Hits"],
     ["crits", "Crits"], ["kills", "Kills"], ["downs", "Downs"], ["roundsAlive", "Rounds alive"], ["spent.sp", "Spell points"], ["spent.resolve", "Resolve"], ["spent.uses", "Uses"],
-    ["spent.consumables", "Consumables"], ["endHp", "End HP"]];
+    ["spent.consumables", "Consumables"], ["endHp", "End HP"], ["fled", "Fled"]];
   const pick = (o, path) => path.split(".").reduce((x, k) => (x == null ? x : x[k]), o);
   function summaryView() {
     if (!A.fight) return h("main.empty", h("p", "No fight yet."));
@@ -1114,7 +1115,7 @@
           h("button", { onclick: () => { A.setup.seed = randomSeed(); saveSetup(); startFight(); } }, "Rematch (new seed)"))),
       h("table.sum",
         h("tr", SUM_COLS.map(([, l]) => h("th", l)), h("th", "Hit %")),
-        rows.map(([, c]) => h("tr", { class: "side-" + c.side }, SUM_COLS.map(([k]) => h("td", k === "side" ? SIDE[c.side] : pick(c, k) == null ? "–" : pick(c, k))),
+        rows.map(([, c]) => h("tr", { class: "side-" + c.side }, SUM_COLS.map(([k]) => h("td", k === "side" ? SIDE[c.side] : k === "fled" ? (c.fled ? "fled" : "") : pick(c, k) == null ? "–" : pick(c, k))),
           h("td", c.attacks ? Math.round((100 * c.hits) / c.attacks) + "%" : "–"))),
         ["pc", "foe"].map((side) => h("tr.total", h("td", "Total"), h("td", SIDE[side]), SUM_COLS.slice(2).map(([k]) => h("td", k === "endHp" ? tot(side, k) : tot(side, k))), h("td", ""))))) ;
   }
@@ -1149,7 +1150,7 @@
     };
     if (name === "builder" || name === "selftest") { load(0); A.sel = "pc3"; }
     else if (name === "map") { load(1); A.sel = "foe1"; A.brush = "dark"; }
-    else if (name === "fight" || name === "attack" || name === "area" || name === "summary") {
+    else if (name === "fight" || name === "attack" || name === "area" || name === "summary" || name === "fled") {
       load(name === "area" ? 0 : 0);
       A.prefs.manual = false; startFight(); toPcSide();
       if (name === "fight") { send({ type: "beginTurn", actor: "pc1" }); F.sel = "pc1"; onCell(4, 5); onCell(6, 4); }
@@ -1159,7 +1160,7 @@
         const t = A.fight.legal("pc3").find((x) => x.type === "power" && /grease|web/.test(x.power));
         if (t) { arm(t); onCell(10, 5); }
       }
-      if (name === "summary") {
+      if (name === "summary" || name === "fled") { // four foes fall: Morale (P 6.11) may make others flee
         for (const id of ["foe2", "foe3", "foe4", "foe5"]) send({ type: "adjust", actor: id, hp: 0 });
         send({ type: "adjust", actor: "foe1", hp: 1 });
         for (const pc of ["pc2", "pc3", "pc4", "pc1"]) {
@@ -1169,7 +1170,7 @@
           if (t) send(Object.assign(strip(t), t.type === "power" ? { targets: ["foe1"] } : { target: "foe1" }));
           if (S().phase === "fight") send({ type: "endTurn", actor: pc });
         }
-        A.view = "summary";
+        A.view = name === "fled" ? "fight" : "summary";
       }
     } else if (name === "manual") { load(0); A.prefs.manual = true; startFight(); }
     else if (name === "boss") { load(2); A.prefs.manual = false; startFight(); toPcSide(); F.sel = "foe1"; }

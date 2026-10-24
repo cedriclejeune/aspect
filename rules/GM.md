@@ -84,7 +84,7 @@ You run each kind of monster from its **foe card**: its Core, its totals and eve
 - **Plain text is the monster's own:** anatomy and innate powers (a dragon's breath, an ooze's acid body, giant strength). It never drops. It may change how the monster's italic cards perform (an ogre swings a *Greatclub* harder than a Bearer); the card that drops is always the normal one.
 - **Totals are final.** A foe card's totals already include everything: an unarmored foe doesn't add the empty Armor Slot's +10 Speed.
 - **Same rules as Bearers.** A monster has one action, a bonus action only if a card gives it one, and a reaction. It attacks with its modifier + the weapon's to-hit bonus, and swaps gear like a Bearer. Its uses (S.R. and L.R.) come back at the start of each fight.
-- **Keywords** along the bottom, type first: *Foe* (or *Foe · Boss*), then size and senses (*Foe · Large · Darkvision 60*). Challenge Rating (CR) and XP value (5) aren't printed: judge them yourself while foe difficulty is reworked.
+- **Keywords** along the bottom, type first: *Foe* (or *Foe · Boss*), then *Leader*, size and senses (*Foe · Boss · Leader · Large · Darkvision 60*). A **Leader** leads its group: when it falls, and when half the group is down, the rest check Morale (P 6.11). Challenge Rating (CR) and XP value (5) aren't printed: judge them yourself while foe difficulty is reworked.
 - **Passive Awareness:** 10 + INT, **+5 for alert creatures** (guards, scouts, predators, most beasts).
 - **Effect bonus:** a plain-text effect that attacks (a breath, a poison, a grapple) uses this bonus by CR:
 
@@ -92,8 +92,9 @@ You run each kind of monster from its **foe card**: its Core, its totals and eve
 |---|---|---|---|---|---|---|
 | **Effect bonus** | +3 | +4 | +5 | +6 | +7 | +8 |
 
-- **Recharge 5–6:** the power comes back when the monster rolls 5 or 6 on a d6 at the start of its turn.
+- **Recharge 5–6:** the power comes back when the monster rolls 5 or 6 on a d6 at the end of its turn (not a Boss's half turn). When it comes back, describe it to the players (an ogre draws back its club), so they can react.
 - Monsters act on their side's initiative like everyone else. **At 0 HP**, they usually die. You may let important ones fall unconscious.
+- **Tactics:** when cunning foes win initiative and the Bearers are out of reach, they hold their ground and let the Bearers come (first-mover rule, P 6.1). Beasts and fools charge.
 
 > **OGRE** · *Ogre Core* (C-II-01)
 > STR +4 · DEX +0 · INT +0 · WIL +0 · Defenses STR 14 · DEX 10 · INT 10 · WIL 10 · HP 95 · Speed 35 ft
@@ -118,6 +119,15 @@ You run each kind of monster from its **foe card**: its Core, its totals and eve
 - **Plain text sparingly.** Give a monster its own powers only for what no card could be: anatomy, a curse, a god's touch. Everything else is a card the party could win.
 - **The base set** has 9 foe cards to start from (Bandit, Archer, Goblin, Wolf, Cultist, Legionary, Bandit Captain, Ogre, and the Ogre Chieftain Boss) and 4 blank ones.
 - **How strong a foe is** (how many cards, which Ranks) is still judged by its CR and your call (5).
+
+### 2.3 Spying on Foes
+A hidden Bearer (P 5.4) can watch a group of foes before a fight: an **INT check** against the INT Defense of one of them.
+- **On a success,** read them one line of its foe card, or its strip. If the check beats the Defense by 5 or more, show them the whole card.
+- **One try** per spy and group of foes. Identical foes share a card, so what the spy learns covers them all.
+- **Spotted:** if the spy's hiding fails, choose one or both:
+  - the foes ambush the party: the party is surprised, so the foes go first with full turns (P 6.1);
+  - the spy is spotted alone, and the fight starts with them cut off from the party.
+- A party that spies unseen can set up an **ambush** (P 6.1).
 
 ## 3. Bosses
 - A **Boss** has the **Boss** tag on its foe card. It takes a **half turn** once per round, during the characters' side: **its movement or one action**, between any two characters' turns, whenever you choose.
@@ -386,6 +396,7 @@ Each game term has one meaning, in both books.
 | **Keyword** | A word with one fixed meaning that gear and Aspects list, type first. |
 | **Knack** | An Aspect type: a bonus on checks for one narrow activity. |
 | **Lasting effect** | An effect on a creature that ends when the creature breaks free, not after a set time. |
+| **Leader** | A foe keyword: the foe leads its group, and its fall calls for Morale. |
 | **Leather, Mail, Plate** | The three armors, from lightest to heaviest. |
 | **Light** | A weapon keyword: allows two-weapon fighting. |
 | **Lingering** | The state of a defeated creature's Aspects and Core for 1 minute, before they fade for good. |
@@ -393,6 +404,7 @@ Each game term has one meaning, in both books.
 | **Maintain roll** | The source's roll, at the start of each of the target's turns, to keep a lasting effect going. |
 | **Mend** | A Divine or Nature power that restores HP to a creature in range, even one who can't hear you. |
 | **Milestone** | One new Aspect Slot for every character, granted when the party completes a story. |
+| **Morale** | A WIL check (DC 10) that each remaining member of a foe group makes when its Leader falls and when half the group is down. On a failure, it flees or surrenders. A Boss never checks. |
 | **Nature** | An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and a pool of Resolve. |
 | **Noisy N** | −N on checks to sneak. |
 | **Object** | A small non-magical thing that isn't gear: a key, a letter, treasure, rope, a torch. Carried freely, with no limit. |
@@ -407,7 +419,7 @@ Each game term has one meaning, in both books.
 | **Rank** | The fixed power of a piece of gear, an Aspect or a Core, from I to V. Characters have none. |
 | **Reach** | A weapon keyword: your reach is 10 ft instead of 5 ft. |
 | **Reaction** | Using it takes your reaction, when the trigger in its text happens. |
-| **Recharge 5–6** | A monster power that comes back on a 5 or 6 on a d6 at the start of the monster's turn. |
+| **Recharge 5–6** | A monster power that comes back on a 5 or 6 on a d6 at the end of the monster's turn. |
 | **Recipe** | An item: a stack that refills at each long rest. Unused items vanish when it refills. |
 | **Release** | Emptying a Shard. Its Aspect or Core is gone for good. |
 | **Requirement** | A minimum ability modifier needed to equip gear or an Aspect (*Req STR +2*). |

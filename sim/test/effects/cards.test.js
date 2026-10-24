@@ -341,7 +341,7 @@ module.exports = function register(T, H) {
     f.undo();
     const r2 = run(f, power(f, "w1", "foe-wolf#0", { targets: ["a"] }), [9, 9, 3, { c: null }]);
     ok(!has(C(f, "a"), "Prone"), "declined"); ok(r2);
-    run(f, { type: "adjust", actor: "w2", dead: true });
+    run(f, { type: "adjust", actor: "w2", dead: true }, [15]); // half the pack is down: w1's morale check holds
     f.undo(); f.undo();
     // alone: no trigger
     const g = fight([pc("a", [5, 5]), tmpl("w1", "Wolf", [6, 5], { react: "auto" })]);
@@ -380,7 +380,7 @@ module.exports = function register(T, H) {
     const f = fight([pc("a", [5, 5], { hands: ["W-I-05"], aspects: ["Q-I-01"] }), foe("x", [6, 5]), foe("y", [5, 6])]);
     run(f, { type: "adjust", actor: "x", hp: 1 });
     pcTurn(f, "a");
-    const r = run(f, atk("a", "W-I-05", "x"), [15, 15, 1, { c: 0 }]); // 1 vs 2: disadvantage; Cleave asks (optional: it has uses)
+    const r = run(f, atk("a", "W-I-05", "x"), [15, 15, 1, { c: 0 }, 15]); // 1 vs 2: disadvantage; Cleave asks (optional: it has uses); y's morale holds
     ok(C(f, "x").dead); eq(r.prompts.filter((p) => /Cleave/.test(p.text)).length, 1);
     eq(C(f, "a").uses["Q-I-01#0"], 0);
     ok(C(f, "a").turn.action, "the Attack action is spent");
@@ -814,7 +814,8 @@ module.exports = function register(T, H) {
     eq(evs(r, "roll").length, 1); ok(has(C(f, "a"), "Frightened") && has(C(f, "b"), "Frightened")); ok(!has(C(f, "c"), "Frightened"), "out of 30 ft");
     eq(C(f, "boss").uses["foe-ogre-chieftain#0"], 0);
     eq([C(f, "boss").turn.bonus, C(f, "boss").turn.action], [true, false], "it spends its bonus action, not its action");
-    end(f, "boss");
+    const e = end(f, "boss", [5]); // Recharge rolled at the end of its turn: a 5, ready again
+    ok(evs(e, "roll").some((x) => x.kind === "recharge")); eq(C(f, "boss").uses["foe-ogre-chieftain#0"], 1);
   });
 
 };

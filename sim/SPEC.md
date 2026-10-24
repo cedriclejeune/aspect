@@ -75,7 +75,7 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
   "carries": ["W-I-13", "..."],        // card IDs it equips (Slots inferred from type)
   "bonus": { "HP": 33 }, "extraDice": 1,
   "powers": ["Bane", "Twist Fate"],    // deck powers it uses ([] = all)
-  "senses": { "darkvision": 60 }, "alert": false, "boss": false,
+  "senses": { "darkvision": 60 }, "alert": false, "boss": false, "leader": false,   // leader: keyword Leader (Morale, P 6.11)
   "own": ["plain text"], "ownFx": [Power],   // plain-text powers as mechanics
   "totals": { "STR": 4, "...": 0 }     // as printed on the foe card (for cross-checking)
 }
@@ -151,7 +151,7 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
 {
   "version": 1, "name": "4 starters vs bandits", "seed": 12345,
   "map": { "w": 16, "h": 12, "cells": { "3,4": "wall", "5,5": "difficult", "6,2": "cover", "7,7": "dark" } },
-  "surprise": null | "pc" | "foe",            // which side is surprised
+  "surprise": null | "pc" | "foe",            // which side is surprised: the other side sneaked up, goes first with full turns, no roll (P 6.1)
   "creatures": [ {
     "id": "pc1", "side": "pc" | "foe", "name": "Bram",
     "build": Build, "pos": [2, 3],              // top-left square; Large = 2×2
@@ -168,7 +168,7 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
   "carried": ["W-II-02"],                                // weapons on the belt (swap with the free interaction)
   "jewelry": ["J-I-01"], "items": [{ "id": "P-I-01", "n": 1 }], "aspects": ["Q-I-05"],
   "slots": { "hand": 2, "jewelry": 1, "item": 2, "aspect": 3 },
-  "bonus": {}, "extraDice": 0, "ownFx": [], "powers": [], "boss": false, "senses": {}, "alert": false,
+  "bonus": {}, "extraDice": 0, "ownFx": [], "powers": [], "boss": false, "leader": false, "senses": {}, "alert": false,
   "foe": "Ogre" | null                                   // template it came from, if any
 }
 ```
@@ -216,7 +216,7 @@ Eng.replay(exported, cards)     // → Fight
 ### 4.2 Commands (`{ type, actor, ... }`)
 | type | fields | rule |
 |---|---|---|
-| `start` | — | side initiative: d20 + average DEX (rounded down), surprise = disadvantage, re-roll ties (P 6.1) |
+| `start` | — | a surprised side: the other goes first with full turns (Ambush), no roll; otherwise side initiative: d20 + the side's best DEX, re-roll ties (P 6.1) |
 | `beginTurn` | `actor` | pick who acts next on the active side; `half: true` for a Boss half turn on the other side (GM 3) |
 | `move` | `actor, path: [[x,y],...]` | cost, difficult terrain, Prone crawl, stand up (`stand: true`), provoked OAs (P 6.4–6.5) |
 | `attack` | `actor, weapon: "<card id>" \| "unarmed" \| "improvised" \| "natural", target, thrown: bool` | P 6.6–6.9; two-weapon bonus attack: `offhand: true` |
@@ -236,7 +236,7 @@ Eng.replay(exported, cards)     // → Fight
 **Implementation note (recommended):** make every external input (reaction choices, manual rolls) an *answer* consumed in order. When resolution needs one that isn't there yet, raise `pending`, restore the snapshot taken before the command, and re-run the command with the answers so far once it comes. Because the RNG lives in `state.rng`, the re-run rolls the same dice. Undo = restore the snapshot before the last command.
 
 ### 4.3 Events
-`{ "t": type, "round", "actor", "target", "text": "human-readable log line", ...data }`. Types: `round`, `turn`, `initiative`, `move`, `roll` (`dice: [..], kept, bonus, total, vs, adv, dis, why: [...]`), `hit`, `miss`, `crit`, `damage` (`n, type, resisted`), `heal`, `temp`, `cond`, `condEnd`, `maintain`, `down`, `death`, `deathSave`, `stable`, `power`, `reaction`, `resource` (`what, n`), `shift`, `revert`, `note`, `adjust`, `over`.
+`{ "t": type, "round", "actor", "target", "text": "human-readable log line", ...data }`. Types: `round`, `turn`, `initiative`, `move`, `roll` (`dice: [..], kept, bonus, total, vs, adv, dis, why: [...]`), `hit`, `miss`, `crit`, `damage` (`n, type, resisted`), `heal`, `temp`, `cond`, `condEnd`, `maintain`, `down`, `death`, `deathSave`, `stable`, `power`, `reaction`, `resource` (`what, n`), `shift`, `revert`, `note`, `adjust`, `over`, `morale` (`why`, `actors`: who checks; each check is a `roll` with `kind: "morale"`), `flee`.
 
 ## 5. Effects plug-in (`sim/effects.js`, phase 2)
 `BearersEngine.registerHook(name, { onUse?, onTrigger?, modifyAttack?, modifyDamage?, passive? })`. B defines the hook points and the context object (`ctx.fight, ctx.actor, ctx.power, ctx.attack, ctx.roll(dice), ctx.emit(event), ctx.ask(prompt)`) and documents them at the top of `engine.js`. Unknown hooks log `"<card>: not automated"` and offer a manual note.
@@ -244,7 +244,7 @@ Eng.replay(exported, cards)     // → Fight
 ## 6. Summary
 ```jsonc
 { "rounds": 4, "winner": "pc", "seed": 1,
-  "creatures": { "<id>": { "name", "side", "dmgDealt", "dmgTaken", "healed", "attacks", "hits", "crits", "kills", "downs", "roundsAlive", "spent": { "sp": 0, "resolve": 0, "uses": 0, "consumables": 0 }, "endHp" } } }
+  "creatures": { "<id>": { "name", "side", "dmgDealt", "dmgTaken", "healed", "attacks", "hits", "crits", "kills", "downs", "roundsAlive", "spent": { "sp": 0, "resolve": 0, "uses": 0, "consumables": 0 }, "endHp", "fled" } } }
 ```
 CSV export: one row per creature with those columns.
 
@@ -259,4 +259,5 @@ CSV export: one row per creature with those columns.
 - `frames` lists only the five base Slots.
 - `act` action `endCond` (field `cond`): spend the action a condition names to end it (Pilum: pull it free). Conditions may carry `card` and `endAction`.
 - Foe `extraDice`: a number (extra damage dice on every weapon, as before) or `{ "<weapon card id>": n }` (only those weapons; natural and Form weapons get none). Ogre: `{ "W-I-11": 1 }` (Javelins). `fromFoe` copies it into `Build.extraDice`, which takes the same two shapes.
-- Foe `recharge: { "<power id>": 5 }`: for this creature the card power loses its `uses` and becomes Recharge 5–6 (ready at the start of the fight, rolled for at the start of its turns). Ogre: `{ "Q-II-02#0": 5 }` (Sweeping Blow). `fromFoe` copies it into `Build.recharge`. In `cards/foes.py` it is `recharge={card name: 5}`; the export maps it to every limited-use power of that card.
+- Foe `recharge: { "<power id>": 5 }`: for this creature the card power loses its `uses` and becomes Recharge 5–6 (ready at the start of the fight, rolled for at the start of its turns). Ogre: `{ "Q-II-02#0": 5 }` (Sweeping Blow). `fromFoe` copies it into `Build.recharge`. In `cards/foes.py` it is `recharge={card name: 5}`; the export maps it to every limited-use power of that card. Recharge is rolled at the end of the creature's full turn (GM 2.1).
+- Foe `leader: true` (keyword Leader): `fromFoe` copies it into `Build.leader`. Morale (P 6.11, R800) runs after each command; a foe that flees gets `dead: true, fled: true` in its state (it takes its gear) and a `flee` event; `state.morale = { group: [foe ids at start], leader, half }` records the triggers already fired.

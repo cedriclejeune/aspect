@@ -233,7 +233,7 @@ def foe_lines(f):
     if also:
         lines.append("Also carries " + ", ".join(also) + ".")
     drops = [c for c in ([core] if f["core"] else []) + cards]
-    kw = " · ".join(["Foe"] + (["Boss"] if f["boss"] else []) + [size] + ([f["senses"]] if f["senses"] else []))
+    kw = " · ".join(["Foe"] + (["Boss"] if f["boss"] else []) + (["Leader"] if f["leader"] else []) + [size] + ([f["senses"]] if f["senses"] else []))
     return values, lines, kw, "Drops: " + " · ".join(f'*{c["name"]}*{" Core" if c["kind"] == "core" else ""} ({c["id"]})' for c in drops)
 
 

@@ -428,8 +428,8 @@ There are two light levels:
 
 ### 6.1 Order of Combat
 
-1. **Surprise check:** the GM decides whether anyone is caught unaware.
-2. **Side initiative:** each side rolls **one d20 + the average DEX of its members** (rounded down). A **surprised** side rolls with disadvantage. Re-roll ties. The higher side **goes first**.
+1. **Surprise:** the GM decides whether anyone is caught unaware. A side that sneaks up unnoticed (5.4) **surprises** the other and goes first, without rolling.
+2. **Side initiative:** if no one is surprised, each side rolls **one d20 + the best DEX among its members**. Re-roll ties. The higher side **goes first**.
 3. **Rounds:** the first side takes all its turns, then the second side. Then a new round starts. A round is about 6 seconds. **Bosses** also take a half turn during the characters' side: their movement or one action.
 4. **Within a side**, creatures act **in any order** they agree on, one full turn at a time.
 
@@ -481,13 +481,13 @@ On your turn you can:
 
 ### 6.5 Engagement & Opportunity Attacks
 
-**Engaged:** a creature is engaged with an enemy when it's **within 5 ft** of it, **isn't Incapacitated**, and is **no more than one size larger or smaller** than it. Creatures two or more sizes apart slip past or step over each other (6.4) and don't engage each other.
+**Engaged:** a creature is engaged with an enemy when it's **within 5 ft** of it, **neither of them is Incapacitated**, and it's **no more than one size larger or smaller** than it. An Incapacitated creature isn't engaged with anyone, and no one is engaged with it. Creatures two or more sizes apart slip past or step over each other (6.4) and don't engage each other.
 
 **Outnumbered:** any attack against a creature (melee, ranged or spell) compares the two sides of the fight around the target:
 - **Your side:** every creature on your side engaged with the target, you included if you are.
 - **Its side:** the target, if it's engaged with your side, and every one of its allies engaged with your side.
 
-Each creature your side has over its side gives your attack **one advantage die**; each one its side has over yours, **one disadvantage die**. Everyone attacking the same target rolls the same Outnumbered dice, in melee or from afar. This works the same for monsters and characters. *Example: three fighters surround an orc: 3 against 1, so each of them and an archer behind them attack with 2 advantage (3d20, keep the highest). A second orc steps up beside one fighter: 3 against 2, so every attack on the first orc drops to 1 advantage (2d20).*
+Only engaged creatures count, so an Incapacitated creature counts for neither side. Each creature your side has over its side gives your attack **one advantage die**; each one its side has over yours, **one disadvantage die**. Everyone attacking the same target rolls the same Outnumbered dice, in melee or from afar. This works the same for monsters and characters. *Example: three fighters surround an orc: 3 against 1, so each of them and an archer behind them attack with 2 advantage (3d20, keep the highest). A second orc steps up beside one fighter: 3 against 2, so every attack on the first orc drops to 1 advantage (2d20).*
 
 **Disengage:** the cost depends on how many enemies are engaged with you when you take it.
 
@@ -537,6 +537,10 @@ Replace one attack with an unarmed **Grapple** or **Shove** against a creature w
 - **Grapple** (you need a free hand): on a hit, the target is **Grappled** by you. You can move it with you, but each foot costs 1 extra foot unless it's two or more sizes smaller than you.
 - **Shove:** on a hit, push the target 5 ft away or knock it **Prone**.
 - **Escape:** a Grappled creature can use its action to make an unarmed attack (STR or DEX + 2) against the grappler's higher of STR and DEX Defense. On a hit, it's free.
+
+### 6.11 Morale
+
+A foe with the **Leader** keyword leads its group. When a Leader falls, and again when half of its group (rounded up) is down (dead, fled or out of the fight), each remaining member makes a **WIL check (DC 10)**. On a failure, it flees or surrenders, as the GM judges. Each happens once per fight. A **Boss** never checks.
 
 ---
 
@@ -869,7 +873,8 @@ Defined in full in the Game Master's Guide.
 | Keyword | Meaning |
 |---|---|
 | **Boss** | Takes a half turn during the characters' side. |
-| **Recharge 5–6** | Comes back on a 5 or 6 on a d6 at the start of the monster's turn. |
+| **Leader** | Leads its group: when it falls, the rest check Morale (6.11). |
+| **Recharge 5–6** | Comes back on a 5 or 6 on a d6 at the end of the monster's turn. |
 
 ## 12. At the Table
 
@@ -1008,6 +1013,7 @@ Each game term has one meaning, in both books.
 | **Keyword** | A word with one fixed meaning that gear and Aspects list, type first. |
 | **Knack** | An Aspect type: a bonus on checks for one narrow activity. |
 | **Lasting effect** | An effect on a creature that ends when the creature breaks free, not after a set time. |
+| **Leader** | A foe keyword: the foe leads its group, and its fall calls for Morale. |
 | **Leather, Mail, Plate** | The three armors, from lightest to heaviest. |
 | **Light** | A weapon keyword: allows two-weapon fighting. |
 | **Lingering** | The state of a defeated creature's Aspects and Core for 1 minute, before they fade for good. |
@@ -1015,6 +1021,7 @@ Each game term has one meaning, in both books.
 | **Maintain roll** | The source's roll, at the start of each of the target's turns, to keep a lasting effect going. |
 | **Mend** | A Divine or Nature power that restores HP to a creature in range, even one who can't hear you. |
 | **Milestone** | One new Aspect Slot for every character, granted when the party completes a story. |
+| **Morale** | A WIL check (DC 10) that each remaining member of a foe group makes when its Leader falls and when half the group is down. On a failure, it flees or surrenders. A Boss never checks. |
 | **Nature** | An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and a pool of Resolve. |
 | **Noisy N** | −N on checks to sneak. |
 | **Object** | A small non-magical thing that isn't gear: a key, a letter, treasure, rope, a torch. Carried freely, with no limit. |
@@ -1029,7 +1036,7 @@ Each game term has one meaning, in both books.
 | **Rank** | The fixed power of a piece of gear, an Aspect or a Core, from I to V. Characters have none. |
 | **Reach** | A weapon keyword: your reach is 10 ft instead of 5 ft. |
 | **Reaction** | Using it takes your reaction, when the trigger in its text happens. |
-| **Recharge 5–6** | A monster power that comes back on a 5 or 6 on a d6 at the start of the monster's turn. |
+| **Recharge 5–6** | A monster power that comes back on a 5 or 6 on a d6 at the end of the monster's turn. |
 | **Recipe** | An item: a stack that refills at each long rest. Unused items vanish when it refills. |
 | **Release** | Emptying a Shard. Its Aspect or Core is gone for good. |
 | **Requirement** | A minimum ability modifier needed to equip gear or an Aspect (*Req STR +2*). |

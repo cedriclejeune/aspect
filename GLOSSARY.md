@@ -369,6 +369,13 @@ Tiny, Small, Medium or Large, printed on a Core or a Form.
 A strong monster with special abilities, including a half turn during the characters' side.
 _Avoid_: legendary monster, elite
 
+**Leader**:
+A foe keyword: the foe leads its group, and its fall calls for Morale.
+
+**Morale**:
+A WIL check (DC 10) that each remaining member of a foe group makes when its Leader falls and when half the group is down. On a failure, it flees or surrenders. A Boss never checks.
+_Avoid_: rout, nerve, fear check
+
 **Drop**:
 Gear, an Aspect or a Core that a trial yields as loot; to drop is to yield it.
 _Avoid_: drop (for falling to 0 HP: "fall")
@@ -382,7 +389,7 @@ The GM's card for one kind of monster: its Core, totals and powers. Cards named 
 _Avoid_: enemy card, monster card, kit, stat block, Monstrous
 
 **Recharge 5–6**:
-A monster power that comes back on a 5 or 6 on a d6 at the start of the monster's turn.
+A monster power that comes back on a 5 or 6 on a d6 at the end of the monster's turn.
 
 ### At the Table
 

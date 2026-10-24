@@ -94,7 +94,7 @@ def export_foe(f):
         recharge.update({i: n for i in ids})
     return {"name": f["name"], "core": core, "body": body, "carries": [bs.BY_NAME[n]["id"] for n in f["carries"]],
             "bonus": f["bonus"], "extraDice": extra, "recharge": recharge, "powers": f["powers"], "senses": senses,
-            "alert": f["alert"], "boss": f["boss"], "own": f["own"],
+            "alert": f["alert"], "boss": f["boss"], "leader": f["leader"], "own": f["own"],
             "ownFx": powers(f["own_fx"], f"foe-{slug(f['name'])}", f["name"]),
             "totals": {k: num(v) for k, v in values.items()}}
 

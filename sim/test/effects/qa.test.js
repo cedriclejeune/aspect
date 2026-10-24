@@ -64,14 +64,15 @@ module.exports = function register(T, H) {
   T("[qa B5] Half turn: no Recharge roll, the reaction stays spent", () => {
     const f = fight([pc("a", [3, 5]), pc("b", [3, 12]), tmpl("boss", "Ogre Chieftain", [4, 5], { react: "auto" })]);
     start(f, "foe");
-    run(f, { type: "beginTurn", actor: "boss" }); run(f, { type: "power", actor: "boss", power: "foe-ogre-chieftain#0" }, [1]); run(f, { type: "endTurn", actor: "boss" });
-    eq(C(f, "boss").uses["foe-ogre-chieftain#0"], 0);
+    run(f, { type: "beginTurn", actor: "boss" }); run(f, { type: "power", actor: "boss", power: "foe-ogre-chieftain#0" }, [1]); run(f, { type: "endTurn", actor: "boss" }, [2]);
+    eq(C(f, "boss").uses["foe-ogre-chieftain#0"], 0, "a 2 at the end of its turn: not back");
     run(f, { type: "beginTurn", actor: "a" });
     run(f, { type: "move", actor: "a", path: [[2, 5], [1, 5]] }, [1]); // the boss's opportunity attack
     ok(C(f, "boss").turn.reaction);
     run(f, { type: "endTurn", actor: "a" });
     const r = run(f, { type: "beginTurn", actor: "boss", half: true });
     eq(evs(r, "roll").length, 0, "no Recharge roll"); ok(C(f, "boss").turn.reaction, "reaction still spent");
+    eq(evs(run(f, { type: "endTurn", actor: "boss" }), "roll").length, 0, "nor at the end of the half turn");
   });
 
   T("[qa B7] A power hit within 5 ft on an Unconscious creature is logged and counted as a crit", () => {
@@ -79,7 +80,7 @@ module.exports = function register(T, H) {
     run(f, { type: "adjust", actor: "a", hp: 0 });
     start(f, "foe");
     run(f, { type: "beginTurn", actor: "w" });
-    const r = run(f, { type: "power", actor: "w", power: "foe-wolf#0", targets: ["a"] }, [15, 15, 15, 15, 2, 2]); // Prone, Stunned, Outnumbered 1 vs 0: 4d20
+    const r = run(f, { type: "power", actor: "w", power: "foe-wolf#0", targets: ["a"] }, [15, 15, 15, 2, 2]); // Prone, Stunned; no Outnumbered against a downed target (R223): 3d20
     ok(evs(r, "crit").length === 1); eq(f.summary().creatures.w.crits, 1); eq(C(f, "a").death.fail, 2);
   });
 
@@ -134,7 +135,7 @@ module.exports = function register(T, H) {
     start(f, "foe");
     for (const id of ["x", "y"]) skip(f, id);
     run(f, { type: "beginTurn", actor: "a" });
-    run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "x" }, [15, 15, 1]); // 1 vs 2: disadvantage
+    run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "x" }, [15, 15, 1, 15]); // 1 vs 2: disadvantage; y's morale holds
     ok(C(f, "x").dead); eq(C(f, "a").turn.bonusMelee, 1);
     run(f, { type: "move", actor: "a", path: [[4, 5]] });
     eq(C(f, "a").turn.bonusMelee, 0, "moving forfeits it");
