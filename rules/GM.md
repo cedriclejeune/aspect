@@ -158,6 +158,7 @@ A hidden Bearer (P 5.4) can watch a group of foes before a fight: an **INT check
 | **Items** | *Conjurer's Book*, *Potion of Healing*, *Coin Pouch*, *Writ of Favor* |
 | **Aspects** | *Springheel*, *Stone Blood*, *Iron Will*, *Clear Mind*, *Cleave*, *Steady Aim*, *Shield Bash*, *Battle Hymn*, *Rallying Cry*, *Cat Burglar*, *Renowned*, *Sailor*, *Street Urchin*, *Hunter*, *Physician*, *Barkeep*, *Smith*, *Mountaineer*, *Wanderer's Repertoire*, *Acolyte's Litany*, *Wildheart's Remembrance* |
 
+- **Wishlists:** each player writes **3 cards** they'd like to find on the back of their tally card (P 12.3) and updates it when they want. Glance at it when you pick drops (4.1) and rewards: grant a wish now and then, at its Rank, from a fitting monster or trial. *Provisional: the card backs aren't designed yet.*
 - **Extra Gear Slots** are Boss rewards only. Never more than one of each per character. At the table, hand the player its Slot frame (P 12.2).
 - **Empty Shards** count as one piece of the loot budget when they drop. Give one when the party keeps losing Aspects it wanted. A *Shard Bandolier* (P 3.8) is a good early Jewelry reward.
 - **Party Stash upgrades** (Pack Mule, Cart, Wagon) are quest rewards (1.6) or Boss rewards. Give the next one when the party starts leaving good loot behind.
@@ -300,6 +301,7 @@ To make a new Trait or Knack at any Rank:
 Multiply by the number of characters, then spend the budget on monsters' XP values.
 - **Low:** one or two scary moments, no casualties. **Moderate:** could go badly. **High:** potentially lethal.
 - More than two monsters per character? Make most of them fragile.
+- **Give most groups a shooter** (an archer, a slinger, a caster): a group that only fights in melee can be waited out from afar.
 - A monster with a CR above the party's level can drop a character in one hit.
 - *Values are provisional until the balance pass.*
 
