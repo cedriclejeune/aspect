@@ -135,3 +135,4 @@
 - **DESIGN 5:** notes on information design (public rules, partly hidden state, announced intentions), Recharge at the end of the turn, Morale and target priority, downed creatures and engagement, and the simpler initiative.
 - **Building encounters (GM 5):** give most foe groups a shooter, so a group that only fights in melee can't be waited out.
 - **Building encounters (GM 5):** start most fights 30–40 ft apart; from 60 ft or more, both sides prefer to wait.
+- **Full cover blocks sight (P 6.8):** behind full cover you can hide and move unseen; a side that closes in unseen surprises the other. **GM 5:** break up the ground with cover between the sides and full cover that hides a way around.

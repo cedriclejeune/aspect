@@ -302,6 +302,7 @@ Multiply by the number of characters, then spend the budget on monsters' XP valu
 - **Low:** one or two scary moments, no casualties. **Moderate:** could go badly. **High:** potentially lethal.
 - More than two monsters per character? Make most of them fragile.
 - **Start most fights 30–40 ft apart.** From 60 ft or more, neither side can move and attack in one turn, so both prefer to wait.
+- **Break up the ground.** Put cover between the two sides, so a side can advance from shelter to shelter, and full cover (walls, hedges, buildings) that hides a way around, so a side can close in unseen. On open ground, the side that waits wins.
 - **Give most groups a shooter** (an archer, a slinger, a caster): a group that only fights in melee can be waited out from afar.
 - A monster with a CR above the party's level can drop a character in one hit.
 - *Values are provisional until the balance pass.*
