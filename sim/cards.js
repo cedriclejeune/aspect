@@ -2634,6 +2634,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "bonus": {},
    "extraDice": 0,
+   "recharge": {},
    "powers": [],
    "senses": {},
    "alert": false,
@@ -2665,6 +2666,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "bonus": {},
    "extraDice": 0,
+   "recharge": {},
    "powers": [],
    "senses": {},
    "alert": false,
@@ -2704,6 +2706,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "bonus": {},
    "extraDice": 0,
+   "recharge": {},
    "powers": [],
    "senses": {
     "darkvision": 60
@@ -2742,6 +2745,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "bonus": {},
    "extraDice": 0,
+   "recharge": {},
    "powers": [],
    "senses": {},
    "alert": true,
@@ -2793,6 +2797,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "bonus": {},
    "extraDice": 0,
+   "recharge": {},
    "powers": [
     "Bane",
     "Twist Fate",
@@ -2829,6 +2834,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "bonus": {},
    "extraDice": 0,
+   "recharge": {},
    "powers": [],
    "senses": {},
    "alert": false,
@@ -2863,6 +2869,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "bonus": {},
    "extraDice": 0,
+   "recharge": {},
    "powers": [],
    "senses": {},
    "alert": false,
@@ -2892,9 +2899,14 @@ globalThis.BEARERS_CARDS = {
     "Q-II-02"
    ],
    "bonus": {
-    "HP": 33
+    "HP": 60
    },
-   "extraDice": 1,
+   "extraDice": {
+    "W-I-11": 1
+   },
+   "recharge": {
+    "Q-II-02#0": 5
+   },
    "powers": [],
    "senses": {
     "darkvision": 60
@@ -2902,7 +2914,7 @@ globalThis.BEARERS_CARDS = {
    "alert": false,
    "boss": false,
    "own": [
-    "**Giant Strength:** +33 HP. Its weapons roll one extra damage die (included)."
+    "**Giant Strength:** +60 HP. Its *Javelins* roll one extra damage die (included). Its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R."
    ],
    "ownFx": [],
    "totals": {
@@ -2914,7 +2926,7 @@ globalThis.BEARERS_CARDS = {
     "DEXd": 10,
     "INTd": 10,
     "WILd": 10,
-    "HP": 68,
+    "HP": 95,
     "SPD": 35
    }
   },
@@ -2939,6 +2951,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "bonus": {},
    "extraDice": 1,
+   "recharge": {},
    "powers": [],
    "senses": {
     "darkvision": 60

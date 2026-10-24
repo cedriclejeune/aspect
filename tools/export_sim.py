@@ -82,8 +82,18 @@ def export_foe(f):
         senses["darkvision"] = int(m[1])
     elif f["senses"]:
         raise ValueError(f"unknown sense: {f['senses']}")
+    extra = f["extra_dice"]
+    if isinstance(extra, dict):  # per weapon: {card id: n}
+        extra = {bs.BY_NAME[n]["id"]: k for n, k in extra.items()}
+    recharge = {}  # {power id: n}: the card's limited-use powers become Recharge n–6
+    for name, n in f["recharge"].items():
+        c = bs.BY_NAME[name]
+        ids = [p["id"] for p in powers(c.get("fx", []), c["id"], c["name"]) if "uses" in p]
+        if not ids:
+            raise ValueError(f"{f['name']}: {name} has no limited-use power to recharge")
+        recharge.update({i: n for i in ids})
     return {"name": f["name"], "core": core, "body": body, "carries": [bs.BY_NAME[n]["id"] for n in f["carries"]],
-            "bonus": f["bonus"], "extraDice": f["extra_dice"], "powers": f["powers"], "senses": senses,
+            "bonus": f["bonus"], "extraDice": extra, "recharge": recharge, "powers": f["powers"], "senses": senses,
             "alert": f["alert"], "boss": f["boss"], "own": f["own"],
             "ownFx": powers(f["own_fx"], f"foe-{slug(f['name'])}", f["name"]),
             "totals": {k: num(v) for k, v in values.items()}}

@@ -258,3 +258,5 @@ CSV export: one row per creature with those columns.
 - Foe `ownFx` ids: `foe-<slug>#<i>`. Deck spell/power cards have no card ID and live only in `decks[*].powers`.
 - `frames` lists only the five base Slots.
 - `act` action `endCond` (field `cond`): spend the action a condition names to end it (Pilum: pull it free). Conditions may carry `card` and `endAction`.
+- Foe `extraDice`: a number (extra damage dice on every weapon, as before) or `{ "<weapon card id>": n }` (only those weapons; natural and Form weapons get none). Ogre: `{ "W-I-11": 1 }` (Javelins). `fromFoe` copies it into `Build.extraDice`, which takes the same two shapes.
+- Foe `recharge: { "<power id>": 5 }`: for this creature the card power loses its `uses` and becomes Recharge 5–6 (ready at the start of the fight, rolled for at the start of its turns). Ogre: `{ "Q-II-02#0": 5 }` (Sweeping Blow). `fromFoe` copies it into `Build.recharge`. In `cards/foes.py` it is `recharge={card name: 5}`; the export maps it to every limited-use power of that card.

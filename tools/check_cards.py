@@ -20,7 +20,7 @@ IGNORE = [
     r"\d+ gp",                              # gold amounts
     r"\+\d+ on checks to [^.]*",            # Knack-style check bonuses
     r"passive Awareness \+\d+",             # Keen Nose
-    r"Recharge (\d)–\d",                    # "Recharge 5–6": the data holds 5
+    r"[Rr]echarges?(?: on a)? (\d)–\d",     # "Recharge 5–6", "recharges on a 5–6": the data holds 5
 ]
 SKIP_KEYS = {"id", "name", "text", "kw", "deck", "cover"}
 DICE = re.compile(r"\b(\d*)d(\d+)\b")
@@ -45,7 +45,7 @@ def dice_in(text):
 
 def text_numbers(text):
     for pat in IGNORE:
-        text = re.sub(pat, lambda m: f"Recharge {m[1]}" if m.re.pattern.startswith("Recharge") else "", text)
+        text = re.sub(pat, lambda m: f"Recharge {m[1]}" if "echarge" in m.re.pattern else "", text)
     return dice_in(text), {int(n) for n in re.findall(r"\d+", DICE.sub("", text))}
 
 
@@ -79,7 +79,7 @@ def main():
         if f["own"]:
             checked += 1
             problems += compare(f'foe {f["name"]}', " ".join(f["own"]),
-                                {"bonus": f["bonus"], "extraDice": f["extraDice"], "ownFx": f["ownFx"]})
+                                {"bonus": f["bonus"], "extraDice": f["extraDice"], "recharge": f.get("recharge", {}), "ownFx": f["ownFx"]})
     for p in problems:
         print(p)
     print(f"{checked} cards and powers checked, {len(problems)} problems")

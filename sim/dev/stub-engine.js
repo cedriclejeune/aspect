@@ -226,7 +226,7 @@
     if (on.n) why.push(`Outnumbered ${on.us.length} vs ${on.them.length}`);
     if (ranged && d > range[0]) { dis++; why.push("long range"); }
     if (ranged && this.foesOf(c).some((o) => this.dist(c, o) <= 5)) { dis++; why.push("enemy within 5 ft"); }
-    if (t.conds.some((x) => x.name === "Prone")) { if (d <= 5) { adv++; why.push("target Prone (adv)"); } else { dis++; why.push("target Prone (dis)"); } }
+    if (t.conds.some((x) => x.name === "Prone")) { adv++; why.push("target Prone (adv)"); }
     if (c.conds.some((x) => ["Prone", "Poisoned", "Restrained", "Blinded"].includes(x.name))) { dis++; why.push("attacker hampered"); }
     const cover = this.cellsOf(t).some((p) => this.state.map.cells[key(p)] === "cover") && d > 5 ? 2 : 0;
     const bonus = mod + wpn.hit + c.mods.filter((m) => m.kind === "attack").reduce((n, m) => n + (m.n || 0), 0);

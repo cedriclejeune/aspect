@@ -65,21 +65,53 @@ module.exports = function register(T, H) {
     ok(!C(g, "x").mods.length, "ends at the start of a's next turn");
   });
 
-  T("[fx] Greatclub Crushing and Ogre Giant Strength: one extra die; a crit knocks Prone", () => {
+  T("[fx] Greatclub Crushing and Ogre Giant Strength: +60 HP, the extra die on the Javelins only; a crit knocks Prone", () => {
     const f = fight([pc("a", [5, 5]), tmpl("o", "Ogre", [6, 5])]);
-    eq([C(f, "o").maxHp, C(f, "o").size], [68, "Large"]);
+    eq([C(f, "o").maxHp, C(f, "o").size], [95, "Large"]);
+    eq(C(f, "o").build.extraDice, { "W-I-11": 1 }, "per weapon: Javelins");
     foeTurn(f, "o");
     const info = pv(f, atk("o", "W-I-13", "a"));
     eq([info.toHit, info.damage], [6, "1d10+4 Physical"]);
-    const r = run(f, atk("o", "W-I-13", "a"), [15, 1, 1]); // 2d10 + 4
-    eq(dmgs(r), [6]); ok(!has(C(f, "a"), "Prone"));
+    const r = run(f, atk("o", "W-I-13", "a"), [15, 1]); // Greatclub 1d10 + 4: no extra die
+    eq(dmgs(r), [5]); ok(!has(C(f, "a"), "Prone"));
     f.undo();
-    const r2 = run(f, atk("o", "W-I-13", "a"), [20, 1, 1, 1, 1]); // crit: 4d10 + 4
-    eq(dmgs(r2), [8]); ok(has(C(f, "a"), "Prone"), "Crushing");
+    const r2 = run(f, atk("o", "W-I-13", "a"), [20, 1, 1]); // crit: 2d10 + 4
+    eq(dmgs(r2), [6]); ok(has(C(f, "a"), "Prone"), "Crushing");
     f.undo();
     run(f, { type: "interact", actor: "o", stow: "W-I-13", draw: "W-I-11" });
     const r3 = run(f, atk("o", "W-I-11", "a", { thrown: true }), [15, 15, 1, 1]); // thrown within 5 ft: disadvantage; Javelins 2d6 + 4
     eq(dmgs(r3), [6]);
+  });
+
+  T("[fx] Per-weapon extra dice: only the named weapon rolls them; a number still means every weapon", () => {
+    const mk = (extraDice) => {
+      const b = Eng.fromFoe(CARDS().foes.find((x) => x.name === "Ogre"), CARDS());
+      b.extraDice = extraDice;
+      return fight([pc("a", [5, 5]), { id: "o", side: "foe", name: "o", pos: [6, 5], build: b, react: "never" }]);
+    };
+    const f = mk({ "W-I-13": 2 });
+    foeTurn(f, "o");
+    eq(dmgs(run(f, atk("o", "W-I-13", "a"), [15, 1, 1, 1])), [7], "Greatclub named: 3d10 + 4");
+    f.undo();
+    run(f, { type: "interact", actor: "o", stow: "W-I-13", draw: "W-I-11" });
+    eq(dmgs(run(f, atk("o", "W-I-11", "a", { thrown: true }), [15, 15, 1])), [5], "Javelins not named: 1d6 + 4");
+    const g = mk(1);
+    foeTurn(g, "o");
+    eq(dmgs(run(g, atk("o", "W-I-13", "a"), [15, 1, 1])), [6], "a number: every weapon, 2d10 + 4");
+  });
+
+  T("[rules] Prone target: one advantage die at any range, melee or ranged (P 8)", () => {
+    const f = fight([pc("a", [2, 5], { core: "C-I-02", hands: ["W-I-10"] }), pc("b", [9, 6]), foe("x", [8, 5], { hands: ["W-I-05"] })]);
+    pcTurn(f, "a");
+    run(f, { type: "adjust", actor: "x", cond: "Prone" });
+    const far = pv(f, atk("a", "W-I-10", "x"));
+    eq([far.distance, far.adv, far.dis], [30, 1, 0], "Sling from 30 ft: advantage (was disadvantage beyond 5 ft)");
+    ok(far.why.some((w) => /target Prone/.test(w)));
+    const r = run(f, atk("a", "W-I-10", "x"), [3, 18, 1]);
+    eq(evs(r, "roll")[0].dice.length, 2, "rolled 2d20");
+    end(f, "a");
+    go(f, "b");
+    eq(pv(f, atk("b", "unarmed", "x")).adv, 1, "melee within 5 ft: advantage");
   });
 
   T("[fx] Gladius Close Order: +1d4 while an ally is engaged with the same creature", () => {

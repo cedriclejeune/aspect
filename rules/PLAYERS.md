@@ -376,7 +376,7 @@ The **ability check** is the heart of the game: whenever you try something and t
 With **advantage**, you roll extra d20s and keep the **highest**. With **disadvantage**, you roll extra d20s and keep the **lowest**. Gear, Aspects, the GM and **situations** grant them. Situations are **location** (long range), **position** (unseen, an enemy within 5 ft of your bow, surprise) and **conditions** (Blinded, Prone, Restrained…).
 
 - **Each source adds one d20.** Each disadvantage cancels one advantage. Roll **1 + what's left** in d20s: keep the **highest** if advantage is left, the **lowest** if disadvantage is left.
-- **Situations stack.** *Example: you're unseen and your target is Prone (within 5 ft) and Restrained: 3 advantage → roll 4d20, keep the highest.*
+- **Situations stack.** *Example: you're unseen and your target is Prone and Restrained: 3 advantage → roll 4d20, keep the highest.*
 - **A source counts once**, however many creatures or effects create it. *Exception: Outnumbered (6.5) gives one die per creature one side has over the other.*
 - **Natural 20 / natural 1** are read on the kept die.
 - **Everything else gives a flat modifier**, such as Help and Dodge (+3 / −3). Flat modifiers stack like other bonuses (3.6) and are independent of dice. Gear or an Aspect that grants an advantage or disadvantage die says so; it counts as a source.
@@ -608,7 +608,7 @@ Conditions don't stack with themselves. Each lasts until its source ends it or i
 | **Incapacitated** | You can't take actions, bonus actions or reactions. You can't speak. |
 | **Invisible** | You can't be seen. Attacks against you have disadvantage; your attacks have advantage. Your side has advantage on initiative if all its members are Invisible. |
 | **Poisoned** | Disadvantage on attack rolls and ability checks. |
-| **Prone** | You can only crawl or stand up. Your attacks have disadvantage. Attacks against you have advantage within 5 ft, disadvantage otherwise. |
+| **Prone** | You can only crawl or stand up. Your attacks have disadvantage. Attacks against you have one advantage die. |
 | **Restrained** | Speed 0. Attacks against you have advantage; your attacks have disadvantage. |
 | **Stunned** | Incapacitated, speed 0. Attacks against you have advantage. *Also covers paralysis. Petrified = Stunned + resistance to all damage + turned to stone.* |
 | **Unconscious** | Stunned and Prone. You drop what you're holding and are unaware of your surroundings. **Any hit from within 5 ft is a critical hit.** |

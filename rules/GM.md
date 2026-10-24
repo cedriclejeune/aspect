@@ -96,10 +96,11 @@ You run each kind of monster from its **foe card**: its Core, its totals and eve
 - Monsters act on their side's initiative like everyone else. **At 0 HP**, they usually die. You may let important ones fall unconscious.
 
 > **OGRE** · *Ogre Core* (C-II-01)
-> STR +4 · DEX +0 · INT +0 · WIL +0 · Defenses STR 14 · DEX 10 · INT 10 · WIL 10 · HP 68 · Speed 35 ft
-> **Giant Strength:** +33 HP; its weapons roll one extra damage die (included below).
-> *Greatclub* (W-I-13): +6 to hit, 2d10 + 4 Physical. **Crushing:** on a critical hit, the target is knocked Prone.
+> STR +4 · DEX +0 · INT +0 · WIL +0 · Defenses STR 14 · DEX 10 · INT 10 · WIL 10 · HP 95 · Speed 35 ft
+> **Giant Strength:** +60 HP. Its *Javelins* roll one extra damage die (included below). Its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R.
+> *Greatclub* (W-I-13): +6 to hit, 1d10 + 4 Physical. **Crushing:** on a critical hit, the target is knocked Prone.
 > *Javelins* (W-I-11): +6 to hit, Thrown 30/120, 2d6 + 4 Physical.
+> *Sweeping Blow* (Q-II-02): **Recharge 5–6**, when you take the Attack action with a Heavy or Reach weapon: make one attack roll against each enemy within your reach instead. Half damage on a miss.
 > *Foe · Large · Darkvision 60*
 
 > **LEGIONARY** · *Brute* Core (C-I-01)

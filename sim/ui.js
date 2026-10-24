@@ -90,7 +90,12 @@
   function findPower(id, build) {
     const src = String(id).split("#")[0];
     const c = card(src);
-    if (c && c.fx) { const p = c.fx.find((x) => x.id === id); if (p) return p; }
+    if (c && c.fx) {
+      const p = c.fx.find((x) => x.id === id);
+      const n = p && build && build.recharge && build.recharge[id];
+      if (n) { const q = Object.assign({}, p, { recharge: n }); delete q.uses; return q; }  // foe Recharge override (R701)
+      if (p) return p;
+    }
     const d = CARDS.decks[src];
     if (d) { const p = d.powers.find((x) => x.id === id); if (p) return p; }
     return ((build && build.ownFx) || []).find((x) => x.id === id) || null;
@@ -105,7 +110,7 @@
   // ---------- builds and scenarios ----------
   function blankBuild() {
     return { core: "C-I-05", body: null, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [],
-      slots: { hand: 2, jewelry: 1, item: 2, aspect: 3 }, bonus: {}, extraDice: 0, ownFx: [], powers: [], boss: false, senses: {}, alert: false, foe: null };
+      slots: { hand: 2, jewelry: 1, item: 2, aspect: 3 }, bonus: {}, extraDice: 0, recharge: {}, ownFx: [], powers: [], boss: false, senses: {}, alert: false, foe: null };
   }
   function normBuild(b) {
     const out = Object.assign(blankBuild(), clone(b || {}));
@@ -536,7 +541,8 @@
       h("div.subhead", "Foe tweaks"),
       h("div.row.slots",
         h("label.field", "Bonus HP", num(b.bonus.HP || 0, (v) => set(() => { if (v) b.bonus.HP = v; else delete b.bonus.HP; }), { class: "count" })),
-        h("label.field", "Extra dice", num(b.extraDice || 0, (v) => set(() => (b.extraDice = Math.max(0, v || 0))), { class: "count", min: 0 })),
+        h("label.field", "Extra dice", num(typeof b.extraDice === "number" ? b.extraDice : 0, (v) => set(() => (b.extraDice = Math.max(0, v || 0))), { class: "count", min: 0 })),
+        b.extraDice && typeof b.extraDice === "object" ? h("span.hint", "Per weapon: " + Object.entries(b.extraDice).map(([id, n]) => `${cardName(id)} +${n}`).join(", ") + " (a number here applies to every weapon)") : null,
         h("label.check", h("input", { type: "checkbox", checked: b.boss, onchange: (e) => set(() => (b.boss = e.target.checked)) }), "Boss"),
         h("label.check", h("input", { type: "checkbox", checked: b.alert, onchange: (e) => set(() => (b.alert = e.target.checked)) }), "Alert"),
         h("label.field", "Darkvision", num((b.senses || {}).darkvision || 0, (v) => set(() => { b.senses = b.senses || {}; if (v) b.senses.darkvision = v; else delete b.senses.darkvision; }), { class: "count", min: 0, step: 30 }))),

@@ -29,7 +29,7 @@ module.exports = function register(T, H) {
     ok(t && !t.target && !t.targets, "offered as a power with no target to pick");
     const info = f.preview(sweep("o")).info;
     eq([info.toHit, info.dice, info.dis, info.targets, info.defense], [6, 1, 0, ["a", "b", "c"], "a 13, b 16, c 17"]);
-    const r = run(f, sweep("o"), [10, 3, 4]); // 16: hits a and b, misses c; one damage roll 2d10 + 4 = 11
+    const r = run(f, sweep("o"), [10, 7]); // 16: hits a and b, misses c; one damage roll 1d10 + 4 = 11 (no extra die on the Greatclub)
     eq(evs(r, "roll").length, 1, "one attack roll");
     eq(evs(r, "roll")[0].dice.length, 1, "no Outnumbered dice");
     eq([dmgOf(r, "a"), dmgOf(r, "b"), dmgOf(r, "c"), dmgOf(r, "d")], [[11], [11], [5], []], "half (rounded down) on a miss");
@@ -40,18 +40,18 @@ module.exports = function register(T, H) {
   T("[sweep] a natural 20 crits every target: shared doubled dice, Crushing knocks each one Prone", () => {
     const f = ring();
     foeTurn(f, "o");
-    const r = run(f, sweep("o"), [20, 1, 1, 1, 1]); // 4d10 + 4 = 8
-    eq([dmgOf(r, "a"), dmgOf(r, "b"), dmgOf(r, "c")], [[8], [8], [8]]);
+    const r = run(f, sweep("o"), [20, 1, 1]); // 2d10 + 4 = 6
+    eq([dmgOf(r, "a"), dmgOf(r, "b"), dmgOf(r, "c")], [[6], [6], [6]]);
     ok(["a", "b", "c"].every((id) => has(C(f, id), "Prone")) && !has(C(f, "d"), "Prone"));
     f.undo();
-    const r2 = run(f, sweep("o"), [1, 5, 5]); // a natural 1 misses all: half of 14
+    const r2 = run(f, sweep("o"), [1, 10]); // a natural 1 misses all: half of 14
     eq([dmgOf(r2, "a"), dmgOf(r2, "b"), dmgOf(r2, "c")], [[7], [7], [7]]);
   });
 
   T("[sweep] uses the whole Attack action; only a held Heavy or Reach melee weapon; Reach sweeps 10 ft", () => {
     const f = ring();
     foeTurn(f, "o");
-    run(f, sweep("o"), [10, 3, 4]);
+    run(f, sweep("o"), [10, 3]);
     ok(!C(f, "o").turn.attacksLeft && C(f, "o").turn.attackAction);
     refused(f, { type: "attack", actor: "o", weapon: "W-I-13", target: "a" });
     refused(f, sweep("o"));
@@ -74,15 +74,38 @@ module.exports = function register(T, H) {
     ok(/Heavy or Reach/.test(refused(k, sweep("p"))));
   });
 
-  T("[sweep] 1/S.R.: a foe sweeps once per fight", () => {
+  T("[sweep] the Ogre's Sweeping Blow recharges on a 5–6: spent after use, rolled for at the start of its turn", () => {
     const f = ring();
+    eq(C(f, "o").build.recharge, { [SWEEP]: 5 });
+    eq(C(f, "o").uses[SWEEP], 1, "ready at the start of the fight");
     foeTurn(f, "o");
-    run(f, sweep("o"), [10, 3, 4]);
+    run(f, sweep("o"), [10, 3]);
+    eq(C(f, "o").uses[SWEEP], 0);
     run(f, { type: "endTurn", actor: "o" });
     for (const id of ["a", "b", "c", "d"]) skip(f, id);
-    run(f, { type: "beginTurn", actor: "o" });
+    const r = run(f, { type: "beginTurn", actor: "o" }, [4]); // recharge roll 4: not back
+    ok(evs(r, "roll").some((e) => e.kind === "recharge"));
     ok(!f.legal("o").some((x) => x.power === SWEEP));
-    ok(/no uses left/.test(refused(f, sweep("o"))));
+    ok(/not recharged/.test(refused(f, sweep("o"))));
+    run(f, { type: "endTurn", actor: "o" });
+    for (const id of ["a", "b", "c", "d"]) skip(f, id);
+    run(f, { type: "beginTurn", actor: "o" }, [5]); // a 5: back
+    eq(C(f, "o").uses[SWEEP], 1);
+    ok(f.legal("o").some((x) => x.power === SWEEP));
+    f.undo();
+    run(f, { type: "beginTurn", actor: "o" }, [6]);
+    ok(f.legal("o").some((x) => x.power === SWEEP), "a 6 too");
+  });
+
+  T("[sweep] a Bearer's Sweeping Blow stays 1/S.R.", () => {
+    const f = fight([pc("p", [5, 5], { hands: ["W-I-08"], aspects: ["Q-II-02"] }), tmpl("x", "Bandit", [6, 5])]);
+    pcTurn(f, "p");
+    eq(C(f, "p").uses[SWEEP], 1);
+    run(f, sweep("p"), [1, 1]); // a miss: half damage
+    run(f, { type: "endTurn", actor: "p" });
+    skip(f, "x");
+    run(f, { type: "beginTurn", actor: "p" });
+    ok(/no uses left/.test(refused(f, sweep("p"))));
   });
 
   T("[sweep] allies and enemies at 0 HP are left out unless named; no enemy in reach: not offered", () => {

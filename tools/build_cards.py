@@ -215,8 +215,10 @@ def foe_lines(f):
     for c in cards:
         kind = c["kw"].split(" · ")[0]
         deck = next((d for d in bs.DECKS if d["cover"] is c), None)
+        n = f["recharge"].get(c["name"])
         if kind == "Weapon":
-            lines.append(foe_attack(c, mods, f["extra_dice"]))
+            extra = f["extra_dice"]
+            lines.append(foe_attack(c, mods, extra.get(c["name"], 0) if isinstance(extra, dict) else extra))
         elif kind in ("Armor", "Shield", "Purse"):
             also.append(f'*{c["name"]}*')
         elif deck:
@@ -224,7 +226,10 @@ def foe_lines(f):
             lines += [f'**{p["name"]}** ({p["cost"]}): ' + resolve(" ".join(p["text"]), mods)
                       for p in deck["cards"] if p["name"] in f["powers"]]
         else:
-            lines.append(f'*{c["name"]}*: ' + resolve(" ".join(c["text"]), mods))
+            text = resolve(" ".join(c["text"]), mods)
+            if n:  # the foe's plain text turns the card's limited uses into Recharge n–6
+                text = re.sub(r"\d+/[SL]\.R\.", f"Recharge {n}–6", text, count=1)
+            lines.append(f'*{c["name"]}*: ' + text)
     if also:
         lines.append("Also carries " + ", ".join(also) + ".")
     drops = [c for c in ([core] if f["core"] else []) + cards]

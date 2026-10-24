@@ -5,7 +5,8 @@
  * API
  *   Eng.totals(build, cards)       → { STR … SPD, size, errors }   tally card (P 12.3)
  *   Eng.validate(build, cards)     → [string]   Slot limits, types, Requirements, copies ("Warning: …" lines don't block)
- *   Eng.fromFoe(foe, cards)        → Build      (Shield first in Hand, other weapons in carries order, rest carried)
+ *   Eng.fromFoe(foe, cards)        → Build      (Shield first in Hand, other weapons in carries order, rest carried;
+ *                                                 extraDice number | { card id: n }, recharge { power id: n }: SPEC 7)
  *   Eng.createFight(scenario, cards) → Fight
  *   Eng.replay(exported, cards)    → Fight      re-runs every exported command with its recorded answers
  *   Eng.registerHook(name, h)      hook plug-in point (below)
@@ -151,7 +152,7 @@
   // ---------- cards and builds ----------
   function normBuild(b) {
     b = Object.assign({ core: null, body: null, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [],
-      slots: {}, bonus: {}, extraDice: 0, ownFx: [], powers: [], boss: false, senses: {}, alert: false, foe: null }, clone(b || {}));
+      slots: {}, bonus: {}, extraDice: 0, recharge: {}, ownFx: [], powers: [], boss: false, senses: {}, alert: false, foe: null }, clone(b || {}));
     b.slots = Object.assign({}, DEFAULT_SLOTS, b.slots);
     b.items = b.items.map((it) => (typeof it === "string" ? { id: it, n: 1 } : it));
     return b;
@@ -269,7 +270,7 @@
   // Shield in hand, Gladius carried; Ogre: Greatclub in hand, Javelins carried). Slots grow to fit.
   function fromFoe(foe, cards) {
     const b = normBuild({ core: foe.core || null, body: foe.body ? clone(foe.body) : null, bonus: clone(foe.bonus || {}),
-      extraDice: foe.extraDice || 0, ownFx: clone(foe.ownFx || []), powers: (foe.powers || []).slice(), boss: !!foe.boss,
+      extraDice: clone(foe.extraDice || 0), recharge: clone(foe.recharge || {}), ownFx: clone(foe.ownFx || []), powers: (foe.powers || []).slice(), boss: !!foe.boss,
       senses: clone(foe.senses || {}), alert: !!foe.alert, foe: foe.name });
     const hand = [];
     for (const id of foe.carries || []) {
@@ -301,11 +302,29 @@
   // ---------- powers ----------
   function deckAbil(deck) { return deck && deck.kind === "spellbook" ? "INT" : "WIL"; }
   // Every power a creature has: { p, card, deck, src } ; `all` includes carried weapons (for uses).
+  // RULING R701: a foe's `recharge` override ({ power id: n }) replaces that card power's limited uses with
+  // Recharge n–6 for this creature only: ready at the start of the fight, spent on use, rolled for at the start of
+  // its turns like any Recharge power.
+  function withRecharge(b, p) {
+    const n = b.recharge && b.recharge[p.id];
+    if (!n) return p;
+    const q = Object.assign({}, p, { recharge: n });
+    delete q.uses;
+    return q;
+  }
+  // Extra damage dice for a weapon (Giant Strength): a number for every weapon, or { card id: n } per weapon.
+  // RULING R702: a per-weapon map gives natural and Form weapons none.
+  function extraDiceFor(b, w) {
+    const x = b.extraDice;
+    if (!x) return 0;
+    if (typeof x === "object") return (w.card && x[w.card]) || 0;
+    return w.card || w.natural ? x : 0;
+  }
   function powerList(cards, c, all) {
     const b = c.build, out = [];
     const fromCard = (src, id) => {
       const cd = cards.cards[id]; if (!cd) return;
-      (cd.fx || []).forEach((p) => out.push({ p, card: id, deck: null, src }));
+      (cd.fx || []).forEach((p) => out.push({ p: withRecharge(b, p), card: id, deck: null, src }));
       const deck = cards.decks && cards.decks[cd.deck || id];
       if (deck) deck.powers.filter((p) => !(b.powers && b.powers.length) || b.powers.includes(p.name))
         .forEach((p) => out.push({ p, card: id, deck: cd.deck || id, src }));
@@ -702,8 +721,8 @@
     if (condsNamed(a, "Grappled").some((k) => k.source !== t.id)) add(-1, "Grappled");
     if (ranged && living(st).some((e) => e.side !== a.side && !incap(e) && dist(e, a) <= 5 && canSee(F, e, a))) add(-1, "enemy within 5 ft");
     if (!src.area) {
-      // RULING R208: Unconscious counts as Stunned and Prone (two sources); Petrified as Stunned.
-      if (proneLike(t)) add(d <= 5 ? 1 : -1, d <= 5 ? "target Prone" : "target Prone, beyond 5 ft");
+      // RULING R208: Unconscious counts as Stunned and Prone (two advantage sources at any range); Petrified as Stunned.
+      if (proneLike(t)) add(1, "target Prone");
       if (has(t, "Restrained")) add(1, "target Restrained");
       if (stunnedLike(t)) add(1, "target Stunned");
       const o = outnumbered(st, a, t);
@@ -1263,7 +1282,7 @@
       (e.p.on === "hit" || (e.p.on === "crit" && crit) || (e.p.on === "opportunity" && o.opportunity))) : [];
     const dice = w.two && otherHandEmpty(F, a, w) ? w.two : w.dice;
     const mod = a.totals[info.abil];
-    const dmg = { parts: [{ dice, type: w.type || "Physical", extra: w.card || w.natural ? a.build.extraDice || 0 : 0 }],
+    const dmg = { parts: [{ dice, type: w.type || "Physical", extra: extraDiceFor(a.build, w) }],
       flat: o.offhand && mod > 0 ? 0 : mod, crit, type: w.type || "Physical" };
     for (const m of a.mods) if (m.kind === "dmg") { dmg.flat += m.n || 0; if (m.dice) dmg.parts.push({ dice: m.dice, type: dmg.type }); }
     for (const r of riders) if (!r.p.hook) for (const d of r.p.do || []) if (d.dmg) dmg.parts.push({ dice: d.dmg, type: d.type || dmg.type });
@@ -1309,7 +1328,7 @@
       const engagedNow = r.hit && allyEngaged(st, a, t);
       const riders = r.hit && w.card ? (F.cards.cards[w.card].fx || []).map((p) => ({ p, card: w.card, deck: null, src: "hand" })).filter((e) => e.p.use === "trigger" &&
         (e.p.on === "hit" || (e.p.on === "crit" && crit))) : [];
-      const dmg = { parts: [{ key: "w", dice, type: w.type || "Physical", extra: w.card || w.natural ? a.build.extraDice || 0 : 0 }],
+      const dmg = { parts: [{ key: "w", dice, type: w.type || "Physical", extra: extraDiceFor(a.build, w) }],
         flat: a.totals[info.abil], crit, type: w.type || "Physical" };
       a.mods.forEach((m, i) => { if (m.kind === "dmg") { dmg.flat += m.n || 0; if (m.dice) dmg.parts.push({ key: "m" + i, dice: m.dice, type: dmg.type }); } });
       for (const rd of riders) if (!rd.p.hook) (rd.p.do || []).forEach((d, i) => { if (d.dmg) dmg.parts.push({ key: rd.p.id + i, dice: d.dmg, type: d.type || dmg.type }); });
