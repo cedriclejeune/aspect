@@ -301,6 +301,7 @@ To make a new Trait or Knack at any Rank:
 Multiply by the number of characters, then spend the budget on monsters' XP values.
 - **Low:** one or two scary moments, no casualties. **Moderate:** could go badly. **High:** potentially lethal.
 - More than two monsters per character? Make most of them fragile.
+- **Start most fights 30–40 ft apart.** From 60 ft or more, neither side can move and attack in one turn, so both prefer to wait.
 - **Give most groups a shooter** (an archer, a slinger, a caster): a group that only fights in melee can be waited out from afar.
 - A monster with a CR above the party's level can drop a character in one hit.
 - *Values are provisional until the balance pass.*

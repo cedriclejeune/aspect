@@ -134,3 +134,4 @@
 - **Initiative simplified (P 6.1):** a side that sneaks up unnoticed surprises the other and goes first automatically with full turns (Ambush), no roll. Surprise no longer gives disadvantage on initiative. Otherwise each side rolls d20 + the **best DEX** among its members (was: the average, rounded down); ties re-roll; the first-mover rule is unchanged. Sim: `surprise` names the surprised side, the other side goes first with no roll.
 - **DESIGN 5:** notes on information design (public rules, partly hidden state, announced intentions), Recharge at the end of the turn, Morale and target priority, downed creatures and engagement, and the simpler initiative.
 - **Building encounters (GM 5):** give most foe groups a shooter, so a group that only fights in melee can't be waited out.
+- **Building encounters (GM 5):** start most fights 30–40 ft apart; from 60 ft or more, both sides prefer to wait.
