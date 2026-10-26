@@ -4,6 +4,8 @@ Usage: .venv/bin/python tools/build_cards.py
 Output: rules/Bearers-Base-Set.pdf (and build/base-set.html for inspection)
 Cards are 63 × 88 mm, 9 per Letter page; foe cards 126 × 88 mm, 3 per page; Slot frames are 67 × 98 mm, 8 per landscape page.
 Card geometry matches the tally card (P 12.3): title band 13 %, keywords 10 %, bonus strip 20 % wide.
+Cards are black and white ("Ledger"): stat symbols are Brush Ink PNGs from rules/symbols/brush/ (made by tools/symbol_gen.html),
+an Aspect's type symbol sits at the bottom left, and a foe's drawing is rules/art/<name>.png when there is one.
 Foe cards (GM 2.1) come from cards/foes.py: their totals and attacks are added up from the cards they name.
 """
 import html
@@ -23,12 +25,13 @@ from build_pdf import FONTS  # noqa: E402
 
 BUILD = ROOT / "build"
 OUT = ROOT / "rules" / "Bearers-Base-Set.pdf"
+SYMBOLS = ROOT / "rules" / "symbols" / "brush"
+ART = ROOT / "rules" / "art"
 
 ROWS = ["STR", "DEX", "INT", "WIL", "STRd", "DEXd", "INTd", "WILd", "HP", "SPD"]
-SYM = [("STR", False), ("DEX", False), ("INT", False), ("WIL", False),
-       ("STR", True), ("DEX", True), ("INT", True), ("WIL", True), ("HP", False), ("SPD", False)]
-COLOR = {"core": ill.CRIMSON, "gear": ill.GOLD, "aspect": ill.ASPECT_GREEN, "foe": ill.INK}
-RANK_COLOR = {"I": "#9a8a6a", "II": ill.GOLD, "III": ill.CRIMSON, "IV": "#4b2a6b", "V": ill.INK}
+SYM_FILE = {"STR": "str", "DEX": "dex", "INT": "int", "WIL": "wil", "STRd": "str-def", "DEXd": "dex-def", "INTd": "int-def",
+            "WILd": "wil-def", "HP": "hp", "SPD": "spd"}
+TYPE_SYMBOL = {"Trait": "trait", "Technique": "technique", "Knack": "knack"}  # more types get symbols as they are drawn
 
 CSS = f"""
 @page {{ size: Letter; margin: 0; }}
@@ -48,49 +51,54 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
 .intro td {{ padding: 2pt 6pt; border-bottom: 1px solid #e0cfa6; vertical-align: top; }}
 .intro td:first-child {{ font-family: Cinzel, serif; font-size: 9pt; white-space: nowrap; }}
 
-.card {{ position: relative; width: 63mm; height: 88mm; box-sizing: border-box; border: .35mm solid {ill.INK}; border-radius: 3mm;
-  background: #fbf6e9; overflow: hidden; }}
-.band {{ position: absolute; left: 0; right: 0; top: 0; height: 11.44mm; background: var(--c); color: {ill.PARCH};
-  display: flex; align-items: center; padding: 0 9.5mm 0 2.2mm; box-sizing: border-box; border-bottom: .35mm solid {ill.INK};
-  font-family: Cinzel, serif; font-weight: 700; line-height: 1.05; }}
-.band .gem {{ position: absolute; right: 1.4mm; top: 1.6mm; width: 8.2mm; height: 8.2mm; }}
-.band .lvl {{ position: absolute; right: 2mm; top: 2.2mm; font-size: 6.2pt; font-family: 'EB Garamond', serif; font-style: italic; font-weight: 400; }}
-.strip {{ position: absolute; right: 0; top: 11.44mm; width: 12.6mm; height: 67.76mm; background: {ill.SHADE};
-  border-left: .25mm solid {ill.INK}; display: grid; grid-template-rows: repeat(10, 1fr); }}
-.strip div {{ display: flex; align-items: center; justify-content: space-between; padding: 0 .7mm; border-top: .12mm solid {ill.MUTED}; }}
+.card {{ position: relative; width: 63mm; height: 88mm; box-sizing: border-box; border: .35mm solid #000; border-radius: 3mm;
+  background: #fff; color: #000; overflow: hidden; }}
+.band {{ position: absolute; left: 0; right: 0; top: 0; height: 11.44mm; background: #fff; color: #000;
+  display: flex; align-items: center; padding: 0 10mm 0 2.4mm; box-sizing: border-box; border-bottom: .7mm solid #000;
+  font-family: Cinzel, serif; font-weight: 700; line-height: 1.05; letter-spacing: .04em; }}
+.band .rank {{ position: absolute; right: 1.6mm; top: 50%; transform: translateY(-50%); width: 7.6mm; height: 7.6mm; box-sizing: border-box;
+  border: .35mm solid #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8pt; letter-spacing: 0; }}
+.band .lvl {{ position: absolute; right: 2mm; top: 50%; transform: translateY(-50%); font-size: 6.6pt; font-family: 'EB Garamond', serif; font-style: italic; font-weight: 400; letter-spacing: 0; }}
+.strip {{ position: absolute; right: 0; top: 11.44mm; bottom: 8.8mm; width: 12.6mm; background: #fff;
+  border-left: .3mm solid #000; display: grid; grid-template-rows: repeat(10, 1fr); }}
+.strip div {{ display: flex; align-items: center; justify-content: space-between; padding: 0 .7mm; border-top: .12mm solid #b5b5b5; }}
 .strip div:first-child {{ border-top: 0; }}
-.strip svg {{ width: 4.6mm; height: 4.6mm; }}
-.strip .off svg {{ opacity: .25; }}
-.strip b {{ font-family: Cinzel, serif; font-size: 7.4pt; color: {ill.CRIMSON}; }}
-.strip.own b {{ color: {ill.INK}; }}
+.strip div:nth-child(5), .strip div:nth-child(9) {{ border-top: .3mm solid #000; }}
+.strip img {{ width: 4.8mm; height: 4.8mm; }}
+.strip .off img {{ opacity: .28; }}
+.strip b {{ font-family: Cinzel, serif; font-size: 7.4pt; color: #000; }}
 .body {{ position: absolute; left: 0; right: 12.6mm; top: 11.44mm; bottom: 8.8mm; padding: 2mm 2.2mm; box-sizing: border-box;
   display: flex; flex-direction: column; justify-content: center; gap: 1.4mm; }}
 .body p {{ margin: 0; line-height: 1.2; }}
 .body .art {{ display: flex; justify-content: center; opacity: .9; }}
+.body .main {{ flex: 1 0 auto; display: flex; flex-direction: column; justify-content: center; gap: 1.4mm; }}
+.body .lore {{ font-size: 6.4pt; font-style: italic; line-height: 1.15; color: #555; text-align: center; }}
 .wide .body {{ right: 0; }}
 .deck .body {{ left: 8mm; }}
-.index {{ position: absolute; left: 0; top: 11.44mm; bottom: 8.8mm; width: 8mm; border-right: .25mm solid {ill.GOLD};
-  background: rgba(176,125,43,.08); display: flex; flex-direction: column; align-items: center; padding-top: 1.6mm; gap: 2mm; }}
-.index .cost {{ width: 6mm; height: 6mm; border-radius: 50%; background: var(--c); color: {ill.PARCH}; display: flex;
+.index {{ position: absolute; left: 0; top: 11.44mm; bottom: 8.8mm; width: 8mm; border-right: .25mm solid #000;
+  background: #fff; display: flex; flex-direction: column; align-items: center; padding-top: 1.6mm; gap: 2mm; }}
+.index .cost {{ width: 6mm; height: 6mm; border-radius: 50%; background: #000; color: #fff; display: flex;
   align-items: center; justify-content: center; font-family: Cinzel, serif; font-weight: 700; font-size: 9pt; }}
-.index .name {{ writing-mode: vertical-rl; transform: rotate(180deg); font-family: Cinzel, serif; font-size: 6.4pt; color: {ill.MUTED};
+.index .name {{ writing-mode: vertical-rl; transform: rotate(180deg); font-family: Cinzel, serif; font-size: 6.4pt; color: #555;
   white-space: nowrap; }}
-.kw {{ position: absolute; left: 0; right: 0; bottom: 0; height: 8.8mm; border-top: .35mm solid {ill.GOLD}; display: flex;
-  align-items: center; justify-content: center; padding: 0 3mm; box-sizing: border-box; text-align: center;
+.kw {{ position: absolute; left: 0; right: 0; bottom: 0; height: 8.8mm; border-top: .3mm solid #000; display: flex;
+  align-items: center; justify-content: flex-start; gap: 1.4mm; padding: 0 19mm 0 2.4mm; box-sizing: border-box;
   font-style: italic; font-size: 7.6pt; line-height: 1.1; }}
-.set {{ position: absolute; left: 1.6mm; bottom: .9mm; font-family: Cinzel, serif; font-size: 4.6pt; color: {ill.MUTED}; letter-spacing: .05em; }}
+.kw img {{ width: 4.4mm; height: 4.4mm; flex: none; }}
+.set {{ position: absolute; right: 2mm; bottom: 3.3mm; font-family: Cinzel, serif; font-size: 4.6pt; color: #777; letter-spacing: .05em; }}
 .coin {{ display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2mm; }}
 .coin svg {{ width: 30mm; height: 30mm; }}
 .tally svg {{ width: 63mm; height: 88mm; display: block; }}
 .tally {{ border: 0; border-radius: 0; background: none; }}
 .card.foe {{ width: 126mm; }}
-.foe .pic {{ position: absolute; left: 0; top: 11.44mm; bottom: 8.8mm; width: 50mm; border-right: .25mm solid {ill.GOLD};
-  background: rgba(176,125,43,.06); display: flex; align-items: center; justify-content: center; }}
+.foe .pic {{ position: absolute; left: 0; top: 11.44mm; bottom: 8.8mm; width: 50mm; border-right: .3mm solid #000;
+  background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }}
+.foe .pic img {{ width: 100%; height: 100%; object-fit: cover; display: block; }}
 .foe .pic svg {{ width: 42mm; height: 42mm; }}
 .foe .body {{ left: 50mm; justify-content: flex-start; gap: .9mm; }}
 .foe .tag {{ position: absolute; right: 2mm; top: 3.4mm; font-size: 6.4pt; font-family: 'EB Garamond', serif; font-style: italic; font-weight: 400; }}
-.foe .ids {{ font-size: 6.4pt; color: {ill.MUTED}; }}
-.blank .line {{ border-bottom: .2mm solid {ill.MUTED}; height: 4.2mm; font-size: 6pt; color: {ill.MUTED}; font-style: italic; }}
+.foe .ids {{ font-size: 6.4pt; color: #555; }}
+.blank .line {{ border-bottom: .2mm solid #999; height: 4.2mm; font-size: 6pt; color: {ill.MUTED}; font-style: italic; }}
 """
 
 
@@ -106,54 +114,61 @@ def fit(text, room):
     return 9.4 if n < 90 else 8.8 if n < 170 else 8.2 if n < 250 else 7.7 if n < 330 else 7.2
 
 
-def art_block(svg, text):
-    """The card's drawing, smaller as its text grows."""
-    if not svg:
-        return ""
-    n = sum(len(t) for t in text)
-    size = 30 if n == 0 else 24 if n < 90 else 19 if n < 170 else 15 if n < 250 else 12
-    sized = svg.replace("<svg ", f'<svg style="width:{size}mm;height:{size}mm;overflow:visible" ', 1)
-    return f'<div class="art" style="height:{size}mm">{sized}</div>'
+def symbol(name, alt=""):
+    return f'<img src="{(SYMBOLS / f"{name}.png").as_uri()}" alt="{alt}">'
 
 
-def rank_gem(rank):
-    return ill._svg(40, 40, ill.gem(20, 20, 18, RANK_COLOR[rank], rank, 12 if len(rank) < 3 else 10), f"Rank {rank}").replace("<svg ", '<svg class="gem" ', 1)
+def keywords(kw):
+    """The keyword line: the Aspect type's symbol (when it has one) at the left, then the keywords."""
+    sym = TYPE_SYMBOL.get(kw.split(" · ")[0])
+    return f'<div class="kw">{symbol(sym) if sym else ""}<span>{md(kw)}</span></div>'
+
+
+def lore(c):
+    """The lore line (DESIGN 4), printed at the bottom of the effect area if space permits (FIT_LORE)."""
+    return f'<p class="lore">{md(c["lore"])}</p>' if c.get("lore") else ""
+
+
+FIT_LORE = """<script>document.fonts.ready.then(() => document.querySelectorAll('.body .lore').forEach(l => {
+  const b = l.parentNode; if (b.scrollHeight > b.clientHeight + 1) l.remove();
+}));</script>"""
+
+
+def rank_mark(rank):
+    return f'<span class="rank">{rank}</span>'
 
 
 def strip(values, own=False):
     rows = []
-    for key, (sym, shield) in zip(ROWS, SYM):
+    for key in ROWS:
         v = values.get(key)
-        rows.append(f'<div class="{"" if v or own else "off"}">{ill.stat_symbol(sym, shield)}{f"<b>{v}</b>" if v else ""}</div>')
+        rows.append(f'<div class="{"" if v or own else "off"}">{symbol(SYM_FILE[key], key)}{f"<b>{v}</b>" if v else ""}</div>')
     return f'<div class="strip{" own" if own else ""}">{"".join(rows)}</div>'
 
 
-def band(name, color, right):
+def band(name, right):
     size = 9.2 if len(name) <= 14 else 8 if len(name) <= 18 else 7
-    return f'<div class="band" style="--c:{color};font-size:{size}pt">{html.escape(name.upper())}{right}</div>'
+    return f'<div class="band" style="font-size:{size}pt">{html.escape(name.upper())}{right}</div>'
 
 
 def item_card(c, group):
-    color = COLOR[c["kind"]]
     paras = "".join(f"<p>{md(t)}</p>" for t in c["text"])
-    art_html = art_block(card_art.art(c["name"]), c["text"])
-    return (f'<div class="card">{band(c["name"], color, rank_gem(c["rank"]))}'
+    return (f'<div class="card">{band(c["name"], rank_mark(c["rank"]))}'
             f'{strip(c["strip"], own=c["kind"] == "core")}'
-            f'<div class="body" style="font-size:{fit(c["text"], "")}pt">{art_html}{paras}</div>'
-            f'<div class="kw">{md(c["kw"])}</div><div class="set">{group} · {c["id"]}</div></div>')
+            f'<div class="body" style="font-size:{fit(c["text"], "")}pt"><div class="main">{paras}</div>{lore(c)}</div>'
+            f'{keywords(c["kw"])}<div class="set">{group} · {c["id"]}</div></div>')
 
 
 def deck_card(s, deck):
     cover = deck["cover"]
-    color = COLOR[deck["color"]]
     has_strip = bool(s["strip"]) or s["level"] == "Form"
-    paras = art_block(card_art.art(s["name"], deck=True), s["text"]) + "".join(f"<p>{md(t)}</p>" for t in s["text"])
+    paras = "".join(f"<p>{md(t)}</p>" for t in s["text"])
     level = f'<span class="lvl">{s["level"]}</span>'
-    return (f'<div class="card deck{"" if has_strip else " wide"}">{band(s["name"], color, level)}'
-            f'<div class="index" style="--c:{color}"><div class="cost">{s["cost"]}</div><div class="name">{html.escape(cover["name"])}</div></div>'
+    return (f'<div class="card deck{"" if has_strip else " wide"}">{band(s["name"], level)}'
+            f'<div class="index"><div class="cost">{s["cost"]}</div><div class="name">{html.escape(cover["name"])}</div></div>'
             f'{strip(s["strip"]) if has_strip else ""}'
-            f'<div class="body" style="font-size:{fit(s["text"], "deck")}pt">{paras}</div>'
-            f'<div class="kw">{md(s["kw"])}</div></div>')
+            f'<div class="body" style="font-size:{fit(s["text"], "deck")}pt"><div class="main">{paras}</div>{lore(s)}</div>'
+            f'{keywords(s["kw"])}</div>')
 
 
 def total(values):
@@ -200,7 +215,7 @@ def foe_lines(f):
     """Totals and text of a foe card, from the cards it names (cards/foes.py)."""
     if f["core"]:
         core = bs.BY_NAME[f["core"]]
-        size = core["kw"].split(" · ")[-1]
+        size = core["kw"].split(" · ")[1]
         head = [f'*{core["name"]}* Core']
     else:
         *mods_, hp, spd, size = f["body"]
@@ -240,27 +255,28 @@ def foe_lines(f):
 def foe_card(f):
     values, lines, kw, ids = foe_lines(f)
     tag = f'<span class="tag">{"Boss" if f["boss"] else "Foe"}</span>'
-    art = card_art.foe_art(f["name"]) or ""
+    drawing = ART / f'{f["name"].lower().replace(" ", "-")}.png'
+    art = f'<img src="{drawing.as_uri()}" alt="">' if drawing.exists() else card_art.foe_art(f["name"]) or ""
     paras = "".join(f"<p>{md(t)}</p>" for t in lines)
     size = 7.4 if sum(len(t) for t in lines) + 25 * (len(lines) - 1) > 760 else fit(lines, "") + 1  # the longest foe cards
-    return (f'<div class="card foe">{band(f["name"], COLOR["foe"], tag)}<div class="pic">{art}</div>{strip(values, own=True)}'
+    return (f'<div class="card foe">{band(f["name"], tag)}<div class="pic">{art}</div>{strip(values, own=True)}'
             f'<div class="body" style="font-size:{size}pt">{paras}<p class="ids">{md(ids)}</p></div>'
             f'<div class="kw">{kw}</div><div class="set">FOE</div></div>')
 
 
 def blank_foe_card():
     rows = "".join(f'<div class="line">{t}</div>' for t in ("Core", "Attacks", "", "", "Powers", "", "", "", "Drops", "", ""))
-    return (f'<div class="card foe blank">{band("", COLOR["foe"], "<span class=tag>Foe</span>")}<div class="pic"></div>{strip({}, own=True)}'
+    return (f'<div class="card foe blank">{band("", "<span class=tag>Foe</span>")}<div class="pic"></div>{strip({}, own=True)}'
             f'<div class="body">{rows}</div><div class="kw">Foe · size · senses</div><div class="set">FOE</div></div>')
 
 
 def gold_card(value):
-    coin = ill._svg(40, 40, f'<circle cx="20" cy="20" r="17" fill="{ill.GOLD}" stroke="{ill.INK}" stroke-width="1.6"/>'
-                    f'<circle cx="20" cy="20" r="13" fill="none" stroke="{ill.PARCH}" stroke-width=".8"/>'
-                    + ill._text(20, 24.5, f"{value:,}", 12 if value < 1000 else 9.5, ill.HEAD, ill.PARCH), "gold")
-    return (f'<div class="card wide">{band(f"{value:,} gp", ill.GOLD, "")}'
+    coin = ill._svg(40, 40, '<circle cx="20" cy="20" r="17" fill="#000" stroke="#000" stroke-width="1.6"/>'
+                    '<circle cx="20" cy="20" r="13.5" fill="none" stroke="#fff" stroke-width=".8"/>'
+                    + ill._text(20, 24.5, f"{value:,}", 12 if value < 1000 else 9.5, ill.HEAD, "#fff"), "gold")
+    return (f'<div class="card wide">{band(f"{value:,} gp", "")}'
             f'<div class="body coin">{coin}<p style="font-size:8pt;text-align:center"><i>In a Purse, it takes no room. Loose, it is a bag of coins: 1 piece.</i></p></div>'
-            f'<div class="kw">Gold</div></div>')
+            f'{keywords("Gold")}</div>')
 
 
 def tally_card():
@@ -283,7 +299,7 @@ def build_cards():
     for c in bs.ASPECTS:
         add(c)
     for deck in bs.DECKS:
-        out.append(item_card(deck["cover"], "STARTER"))
+        out.append(item_card(deck["cover"], deck["cover"]["group"].upper()))
         out.extend(deck_card(s, deck) for s in deck["cards"])
     for value, n in bs.GOLD:
         out.extend([gold_card(value)] * n)
@@ -312,7 +328,7 @@ def intro(n_cards, n_frames):
 <li>Cut out each card and frame. On each frame, cut the two <b style="color:{ill.CRIMSON}">red slits</b> with a craft knife.</li>
 <li>Tuck a card's top-right and bottom-left corners under the slits to equip it (Player Rules 12.2).</li></ul>
 <h2>Contents</h2>
-<p>{n_cards} cards: 7 Cores, the starter list below, a pool of Rank I–II loot (marked LOOT at the bottom left), four decks, gold, {bs.TALLIES} tally cards.</p>
+<p>{n_cards} cards: {len(bs.CORES)} Cores, the starter list below, a pool of Rank I–II loot (marked LOOT at the bottom left), four decks, gold, {bs.TALLIES} tally cards.</p>
 <p>For the GM: {len(foes.FOES)} foe cards and {foes.BLANKS} blank ones (marked FOE: keep them apart from the loot pool).</p>
 <p>Each card shows its ID at the bottom left (<i>W-II-02</i>: type, Rank, number). Foe cards list the IDs of the cards they drop; every card a foe drops has one extra copy, so the loot pool still holds it after players take their starting gear.</p>
 <p>{n_frames} frames: {frames}.</p>
@@ -326,7 +342,7 @@ def main():
     BUILD.mkdir(exist_ok=True)
     cards, frames, foe_cards = build_cards(), build_frames(), build_foes()
     doc = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Bearers · Base Set</title>{FONTS}'
-           f"<style>{CSS}</style></head><body>{intro(len(cards), len(frames))}{sheets(cards)}{sheets(foe_cards, 'foes', 3)}{sheets(frames, 'frames', 8)}</body></html>")
+           f"<style>{CSS}</style></head><body>{intro(len(cards), len(frames))}{sheets(cards)}{sheets(foe_cards, 'foes', 3)}{sheets(frames, 'frames', 8)}{FIT_LORE}</body></html>")
     page = BUILD / "base-set.html"
     page.write_text(doc, encoding="utf-8")
     subprocess.run(["chromium", "--headless", "--disable-gpu", "--no-sandbox", "--no-pdf-header-footer",

@@ -5,6 +5,7 @@ crimson and gold accents. art(name) returns a full <svg>, or None when a card ha
 Weapons are drawn upright, then turned to a diagonal.
 """
 import math
+import re
 
 from illustrations import CRIMSON, GOLD, INK, PARCH, SHADE, MUTED, ASPECT_GREEN, CRYSTAL, gem, sym_int, sym_str, sym_dex, sym_wil
 
@@ -15,9 +16,21 @@ DARK = "#4a3a2c"
 MOSS = "#6f8f4e"
 
 
+def grey(m):
+    """A hex colour as its grey of the same lightness (the cards print in black and white); ink turns pure black."""
+    h = m.group(1)
+    if len(h) == 3:
+        h = "".join(c * 2 for c in h)
+    if "#" + h.lower() == INK:
+        return "#000"
+    r, g, b = (int(h[i:i + 2], 16) for i in (0, 2, 4))
+    return "#{0:02x}{0:02x}{0:02x}".format(round(.299 * r + .587 * g + .114 * b))
+
+
 def svg(body, label):
-    return (f'<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{label}">'
-            f'<g stroke="{INK}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">{body}</g></svg>')
+    return re.sub(r"#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b", grey,
+                  f'<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{label}">'
+                  f'<g stroke="{INK}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">{body}</g></svg>')
 
 
 def rot(body, a=45, s=1.2):
@@ -582,9 +595,73 @@ def ogre_chieftain():
             + P("M30 26 L30 8 L40 18 L50 4 L60 18 L70 8 L70 26 Z", GOLD) + C(50, 20, 3, CRIMSON, 1.2))
 
 
+def guard():
+    return (P("M24 52 Q24 14 50 14 Q76 14 76 52 Z", STEEL) + R(46, 14, 8, 40, STEEL, 0) + C(50, 60, 22, SKIN) + eyes(56, 8, INK, 2.6)
+            + P("M42 70 L58 70", sw=2) + P("M18 52 L82 52", sw=3))
+
+
+def scout():
+    ear = SKIN
+    return (P("M50 8 L84 82 L16 82 Z", MOSS) + P("M33 54 L18 40 L36 62 Z", ear) + P("M67 54 L82 40 L64 62 Z", ear)
+            + C(50, 58, 16, SKIN) + eyes(56, 6, MOSS, 2.4) + P("M44 66 Q50 70 56 66", sw=1.6))
+
+
+def mage():
+    return (P("M50 4 L70 40 L30 40 Z", "#3a3f6a") + C(50, 56, 18, SKIN) + eyes(54, 7, INK, 2.4)
+            + P("M34 62 Q50 96 66 62 Q50 72 34 62 Z", PARCH) + star(50, 24, 6, 5, .45, GOLD))
+
+
+def orc_face(skin="#7f9a5a"):
+    return (C(50, 54, 32, skin) + P("M28 42 L46 46 M72 42 L54 46", sw=3) + eyes(52, 12, CRIMSON, 3)
+            + P("M32 72 Q50 64 68 72", sw=2.6) + P("M36 72 L34 58 L42 70 Z", PARCH, 1.4) + P("M64 72 L66 58 L58 70 Z", PARCH, 1.4))
+
+
+def orc():
+    return orc_face() + P("M18 30 Q50 10 82 30", sw=3, extra=f' stroke="{DARK}"')
+
+
+def hobgoblin():
+    return (P("M30 46 L8 34 L28 58 Z", "#b0603a") + P("M70 46 L92 34 L72 58 Z", "#b0603a") + C(50, 54, 26, "#b0603a")
+            + P("M22 44 Q22 16 50 16 Q78 16 78 44 Z", STEEL) + eyes(54, 10, GOLD, 3) + P("M38 70 L62 70", sw=2.2))
+
+
+def skeleton():
+    return skull() + L(30, 88, 70, 88, 2.4) + L(50, 80, 50, 96, 2.4)
+
+
+def zombie():
+    return (P("M24 30 Q26 10 50 12 Q76 12 76 34 Q80 70 66 82 Q50 92 34 82 Q20 66 24 30 Z", "#8fa08a")
+            + C(40, 44, 6, PARCH) + C(40, 44, 2, INK, 0) + C(62, 46, 4, INK, 0) + P("M36 70 Q50 62 64 72", sw=2.2)
+            + P("M58 18 L64 30 L58 34", sw=1.6))
+
+
+def kobold():
+    return (P("M50 18 Q78 22 86 50 L70 58 Q66 80 50 84 Q34 80 30 58 L14 50 Q22 22 50 18 Z", "#a8573a")
+            + P("M36 22 L28 6 L44 18 M64 22 L72 6 L56 18", sw=2, extra=f' fill="{PARCH}"') + eyes(46, 12, GOLD, 3.2)
+            + P("M40 70 L50 76 L60 70", sw=1.8))
+
+
+def giant_rat():
+    return (P("M14 60 Q30 30 62 34 Q84 38 92 58 Q80 66 62 66 Q40 74 14 60 Z", "#7d7468") + C(40, 36, 9, "#9a8f84")
+            + C(86, 56, 3, CRIMSON, 0) + C(60, 48, 3, INK, 0) + P("M14 60 Q2 74 12 92", sw=2.4, extra=f' stroke="{CRIMSON}"'))
+
+
+def giant_spider():
+    legs = "".join(P(f"M50 52 Q{50 + dx * 22} {30 + k * 12} {50 + dx * 44} {38 + k * 16}", sw=2.6) for k in range(4) for dx in (-1, 1))
+    return legs + C(50, 64, 18, DARK) + C(50, 42, 12, DARK) + eyes(40, 5, CRIMSON, 2.2) + eyes(46, 3, CRIMSON, 1.6)
+
+
+def troll():
+    return (P("M22 62 Q16 18 50 14 Q84 18 78 62 Q74 88 50 90 Q26 88 22 62 Z", "#6b8a6a") + P("M28 40 Q40 30 46 40 M54 40 Q60 30 72 40", sw=3)
+            + eyes(46, 12, GOLD, 3.4) + P("M50 50 L44 64 L56 64 Z", "#5a7a5a") + P("M32 74 Q50 84 68 74", sw=2.4)
+            + P("M30 20 Q24 4 36 10 M70 20 Q76 4 64 10", sw=2.4))
+
+
 FOE_ART = {
-    "Bandit": bandit, "Archer": archer, "Goblin": goblin, "Wolf": wolf, "Cultist": cultist, "Legionary": legionary,
+    "Bandit": bandit, "Bandit Archer": archer, "Goblin": goblin, "Wolf": wolf, "Cultist": cultist, "Legionary": legionary,
     "Bandit Captain": bandit_captain, "Ogre": ogre, "Ogre Chieftain": ogre_chieftain,
+    "Guard": guard, "Scout": scout, "Mage": mage, "Orc": orc, "Hobgoblin": hobgoblin, "Skeleton": skeleton, "Zombie": zombie,
+    "Kobold": kobold, "Giant Rat": giant_rat, "Giant Spider": giant_spider, "Troll": troll,
 }
 
 
@@ -597,15 +674,21 @@ ART = {
     # Cores
     "Brute": lambda: core(sym_str), "Nimble": lambda: core(sym_dex), "Scholar": lambda: core(sym_int), "Envoy": lambda: core(sym_wil),
     "Balanced": balanced, "Ogre": lambda: core(sym_str, big=True) + R(6, 6, 10, 30, WOOD, 4), "Bandit Captain": bandit_core,
+    "Human": balanced, "Elf": lambda: core(sym_dex) + P("M8 30 L24 8 L26 34 Z", SKIN), "Dwarf": lambda: core(sym_str) + P("M6 56 Q16 90 30 56 Z", WOOD),
+    "Halfling": lambda: core(sym_dex) + C(16, 16, 9, GOLD), "Orc": lambda: core(sym_str) + P("M10 30 L14 10 L20 30 Z", PARCH, 1.4),
+    "Hobgoblin": lambda: core(sym_str) + P("M6 30 Q20 6 34 30 Z", STEEL),
     # armor and Hands
     "Leather": leather, "Mail": mail, "Plate": plate, "Shield": round_shield,
     "Dagger": dagger, "Shortsword": shortsword, "Handaxe": handaxe, "Finesse Blade": rapier, "Longsword": longsword, "Battleaxe": battleaxe,
     "Greatsword": greatsword, "Glaive": glaive, "Longbow": longbow, "Sling": sling, "Javelins": javelins, "Spellguard Staff": staff,
     "Traveler's Lute": lute, "Boarspear": lambda: spear(lugs=True),
+    "Shortbow": lambda: f'<g transform="translate(10 10) scale(.8)">{longbow()}</g>',
+    "Greataxe": lambda: rot(haft(6, 96) + P("M53 10 Q92 0 90 34 Q88 60 53 48 Z", STEEL), -30),
     "Greatclub": greatclub, "Gladius": gladius, "Pilum": pilum,
     # Jewelry and Items
     "Ring of Warding": ring_of_warding, "Guild Signet": guild_signet, "Shard Bandolier": bandolier, "Holy Amulet": amulet,
     "Boots of the Long Stride": boots, "Ring of Sparks": ring_of_sparks,
+    "Dancer's Bells": lambda: P("M14 30 Q50 60 86 30", sw=2.4, extra=f' stroke="{CRIMSON}"') + "".join(C(x, y, 9, GOLD) + C(x, y + 4, 2, INK, 0) for x, y in ((26, 48), (50, 58), (74, 48))),
     "Potion of Healing": flask, "Greater Potion of Healing": lambda: flask(CRIMSON, big=True) + star(50, 62, 10, 5, .45, GOLD),
     "Coin Pouch": pouch, "Pocket Sand": pocket_sand, "Writ of Favor": scroll, "Alchemist's Fire Recipe": fire_flask,
     # Aspects
@@ -613,7 +696,7 @@ ART = {
     "Steady Aim": steady_aim, "Shield Bash": shield_bash, "Battle Hymn": battle_hymn, "Rallying Cry": banner, "Shield Wall": shield_wall, "Pack Hunter": pack_hunter, "Slippery": slippery,
     "Cat Burglar": padlock, "Renowned": laurel, "Sailor": anchor, "Street Urchin": street_urchin, "Hunter": tracks,
     "Physician": mortar, "Barkeep": tankard, "Smith": smith, "Mountaineer": mountains, "Twin Strike": crossed_swords,
-    "Second Wind": second_wind, "Wiry": wiry, "Night Eyes": night_eyes, "Sellsword": sellsword, "Acrobat": acrobat, "Hedge Witch": cauldron,
+    "Second Wind": second_wind, "Relentless": lambda: heart(50, 54, .8) + L(50, 20, 50, 88, 3, CRIMSON), "Wiry": wiry, "Night Eyes": night_eyes, "Sellsword": sellsword, "Acrobat": acrobat, "Hedge Witch": cauldron,
     # deck covers
     "Conjurer's Book": lambda: book(star(53, 50, 14, 5, .45, GOLD)), "Wanderer's Repertoire": lambda: lute(),
     "Acolyte's Litany": lambda: book(f'<g transform="translate(53 50) scale(.5) translate(-50 -50)">{sun()}</g>'),
@@ -624,7 +707,7 @@ DECK_ART = {
     "Fire Bolt": fire_bolt, "Mage Hand": mage_hand, "Magic Missile": magic_missile, "Shield": shield_spell, "Grease": grease,
     "Misty Step": misty_step, "Web": web,
     "Jeer": comedy_mask, "Rally": horn, "Hold the Line": hold_the_line, "Cutting Words": cutting_words, "Steady Now": steady_now, "Dread": skull,
-    "Guidance": compass, "Bless": sun, "Bane": bane, "Twist Fate": twist_fate, "Healing Word": healing_word, "Cure Wounds": cure_wounds,
+    "Guidance": compass, "Bless": sun, "Bane": bane, "Twist Fate": twist_fate, "Healing Word": healing_word, "Rousing Verse": lambda: lute() + heart(70, 26, .3), "Cure Wounds": cure_wounds,
     "Hawk": hawk, "Wolf": wolf, "Mossbalm": mossbalm, "Bear": bear,
 }
 
