@@ -51,14 +51,14 @@ module.exports = function register(T, H) {
     ok(!has(C(f, "a"), "Frightened"));
   });
 
-  T("[qa B4] Web on an ally (and its caster) is Lasting with maintain rolls", () => {
+  T("[qa B4] Web holds an ally (and its caster) too, for 2 of their turns, with no maintain roll", () => {
     const f = fight([pc("w", [7, 5], { core: "C-I-03", items: [{ id: "B-I-01" }] }), pc("a", [8, 6]), foe("x", [9, 5])]);
     start(f);
     run(f, { type: "beginTurn", actor: "w" }); run(f, { type: "power", actor: "w", power: "B-I-01#web", point: [8, 5] }, [15]);
-    for (const id of ["w", "a", "x"]) ok(C(f, id).conds.some((k) => k.name === "Restrained" && k.lasting), id);
+    for (const id of ["w", "a", "x"]) ok(C(f, id).conds.some((k) => k.name === "Restrained" && !k.lasting), id);
     run(f, { type: "endTurn", actor: "w" });
-    const r = run(f, { type: "beginTurn", actor: "a" }, [2]); // maintain 2 + 3 = 5 vs DEX 11: breaks
-    eq(evs(r, "maintain").length, 1); ok(!has(C(f, "a"), "Restrained"));
+    const r = run(f, { type: "beginTurn", actor: "a" });
+    eq(evs(r, "maintain").length, 0); ok(has(C(f, "a"), "Restrained"));
   });
 
   T("[qa B5] Half turn: no Recharge roll, the reaction stays spent", () => {
@@ -67,8 +67,7 @@ module.exports = function register(T, H) {
     run(f, { type: "beginTurn", actor: "boss" }); run(f, { type: "power", actor: "boss", power: "foe-ogre-chieftain#0" }, [1]); run(f, { type: "endTurn", actor: "boss" }, [2]);
     eq(C(f, "boss").uses["foe-ogre-chieftain#0"], 0, "a 2 at the end of its turn: not back");
     run(f, { type: "beginTurn", actor: "a" });
-    run(f, { type: "move", actor: "a", path: [[2, 5], [1, 5]] }, [1]); // the boss's opportunity attack
-    ok(C(f, "boss").turn.reaction);
+    ok(C(f, "boss").turn.reaction, "Bellow took its reaction");
     run(f, { type: "endTurn", actor: "a" });
     const r = run(f, { type: "beginTurn", actor: "boss", half: true });
     eq(evs(r, "roll").length, 0, "no Recharge roll"); ok(C(f, "boss").turn.reaction, "reaction still spent");
@@ -80,7 +79,7 @@ module.exports = function register(T, H) {
     run(f, { type: "adjust", actor: "a", hp: 0 });
     start(f, "foe");
     run(f, { type: "beginTurn", actor: "w" });
-    const r = run(f, { type: "power", actor: "w", power: "foe-wolf#0", targets: ["a"] }, [15, 15, 15, 2, 2]); // Prone, Stunned; no Outnumbered against a downed target (R223): 3d20
+    const r = run(f, { type: "power", actor: "w", power: "foe-wolf#0", targets: ["a"] }, [15, 15, 2, 2]); // Target: Prone and Stunned count once; no Outnumbered against a downed target (R223): 2d20
     ok(evs(r, "crit").length === 1); eq(f.summary().creatures.w.crits, 1); eq(C(f, "a").death.fail, 2);
   });
 
@@ -165,16 +164,5 @@ module.exports = function register(T, H) {
     eq(f.preview({ type: "power", actor: "d", power: "N-I-01#bear" }).info.cost, "3 Resolve");
     const r = run(f, { type: "power", actor: "d", power: "N-I-01#bear" });
     ok(r.events.some((e) => e.text === "d spends 3 Resolve."));
-  });
-
-  T("[qa R221] Maintain rolls use the bare modifier: no gear or Aspect bonus", () => {
-    const f = fight([pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01" }], bonus: { INT: 2 } }), foe("x", [8, 5])]);
-    start(f);
-    run(f, { type: "beginTurn", actor: "w" });
-    eq(f.preview({ type: "power", actor: "w", power: "B-I-01#web", point: [8, 5] }).info.toHit, 7, "the attack uses INT 5");
-    run(f, { type: "power", actor: "w", power: "B-I-01#web", point: [8, 5] }, [10]);
-    run(f, { type: "endTurn", actor: "w" });
-    const r = run(f, { type: "beginTurn", actor: "x" }, [10]);
-    eq(evs(r, "maintain")[0].bonus, 3, "Scholar Core INT 3");
   });
 };

@@ -28,12 +28,12 @@
     gear("W-I-14", "Gladius", "Weapon", { atk: W(2, "1d6", { light: true }), fx: [{ id: "W-I-14#0", name: "Close Order", use: "passive", hook: "close_order", params: { dmg: "1d4" } }] }),
     gear("J-I-01", "Ring of Warding", "Jewelry", { fx: [{ id: "J-I-01#0", name: "Ring of Warding", use: "reaction", uses: "2/SR", on: "hitSelf", target: "self", do: [{ mod: "def", n: 2, defs: ["targeted"], next: true }] }] }),
     gear("J-II-01", "Ring of Sparks", "Jewelry", { fx: [{ id: "J-II-01#0", name: "Ring of Sparks", use: "reaction", uses: "1/SR", on: "meleeHitSelf5", target: "enemy", do: [{ dmg: "2d6", type: "Lightning" }] }] }),
-    gear("P-I-01", "Potion of Healing", "Consumable", { fx: [{ id: "P-I-01#0", name: "Potion of Healing", use: "bonus", reach: 5, target: "creature", do: [{ heal: "2d4+2" }] }] }),
+    gear("P-I-01", "Potion of Healing", "Consumable", { fx: [{ id: "P-I-01#0", name: "Potion of Healing", use: "action", reach: 5, target: "creature", do: [{ heal: "2d4+2" }] }] }),
     gear("B-I-01", "Test Book", "Spellbook", { deck: "B-I-01" }),
     asp("Q-II-01", "Twin Strike", "Technique", [{ id: "Q-II-01#0", name: "Twin Strike", use: "passive", attacks: 2 }]),
     asp("T-I-03", "Iron Will", "Trait", [{ id: "T-I-03#0", name: "Iron Will", use: "passive", defVs: { WIL: 2 }, tags: ["fear", "mind control"] }]),
     asp("T-II-03", "Night Eyes", "Trait", [{ id: "T-II-03#0", name: "Night Eyes", use: "passive", darkvision: 60 }]),
-    asp("T-X-01", "Mystery", "Trait", [{ id: "T-X-01#0", name: "Mystery", use: "bonus", target: "self", hook: "mystery" }]),
+    asp("T-X-01", "Mystery", "Trait", [{ id: "T-X-01#0", name: "Mystery", use: "action", target: "self", hook: "mystery" }]),
     asp("G-I-01", "Test Repertoire", "Glamour", [], { deck: "G-I-01" }),
     asp("N-I-01", "Test Remembrance", "Nature", [], { deck: "N-I-01" }),
   ];
@@ -46,15 +46,15 @@
         { id: "B-I-01#fire-bolt", name: "Fire Bolt", kind: "Cantrip", cost: 0, use: "action", reach: 120, target: "enemy", atk: { abil: "deck", vs: "DEX" }, do: [{ dmg: "1d10", type: "Fire" }], tags: ["fire"] },
         { id: "B-I-01#shield", name: "Shield", kind: "Spell", cost: 1, use: "reaction", on: "hitSelf", target: "self", dur: "1 round", do: [{ mod: "def", n: 5, defs: ["STR", "DEX"], until: "startSourceTurn" }] },
         { id: "B-I-01#magic-missile", name: "Magic Missile", kind: "Spell", cost: 1, use: "action", reach: 120, target: "darts", count: 3, atk: { abil: "deck", vs: "DEX" }, half: true, do: [{ dmg: "1d4+1", type: "Radiant" }], upcast: { darts: 1 } },
-        { id: "B-I-01#web", name: "Web", kind: "Spell", cost: 2, use: "action", reach: 60, target: "point", area: { shape: "cube", size: 10 }, atk: { abil: "deck", vs: "DEX" }, zone: { terrain: "difficult", on: ["enter"], burns: true, burnFt: 5 }, do: [{ cond: "Restrained" }], lasting: true, dur: "1 hour" },
+        { id: "B-I-01#web", name: "Web", kind: "Spell", cost: 2, use: "action", reach: 60, target: "point", area: { shape: "cube", size: 10 }, atk: { abil: "deck", vs: "DEX" }, zone: { terrain: "difficult", on: ["enter"], burns: true, burnFt: 5 }, do: [{ cond: "Restrained", until: "targetTurns2" }], dur: "1 hour" },
         { id: "B-I-01#hold", name: "Hold", kind: "Spell", cost: 2, use: "action", reach: 60, target: "enemy", atk: { abil: "deck", vs: "WIL" }, do: [{ cond: "Stunned" }], lasting: true, subdue: true },
       ] },
       "G-I-01": { cover: "G-I-01", kind: "glamour", atk: 2, resolve: 3, powers: [
         { id: "G-I-01#steady-now", name: "Steady Now", kind: "Cue", cost: 1, use: "reaction", on: "rollNear", reach: 60, target: "ally", need: ["voice"], do: [{ mod: "roll", n: 2 }], params: { orDefense: true } },
-        { id: "G-I-01#dread", name: "Dread", kind: "Dirge", cost: 2, use: "action", reach: 60, target: "enemy", need: ["voice"], atk: { abil: "deck", vs: "WIL" }, do: [{ cond: "Frightened" }], lasting: true, tags: ["fear"] },
+        { id: "G-I-01#dread", name: "Dread", kind: "Dirge", cost: 2, use: "action", reach: 60, target: "enemy", need: ["voice"], atk: { abil: "deck", vs: "WIL" }, do: [{ cond: "Frightened", until: "targetTurns2" }], tags: ["fear"] },
       ] },
       "N-I-01": { cover: "N-I-01", kind: "nature", resolve: 3, powers: [
-        { id: "N-I-01#bear", name: "Bear", kind: "Form", cost: 3, use: "bonus", target: "self", form: { strip: { STR: 3, DEX: 1, STRd: 15, DEXd: 11, HP: 12, SPD: 30 }, size: "Large", fly: 0, climb: 30, weapon: { name: "Claws", hit: 2, dice: "1d8", abil: ["STR"], type: "Physical" } } },
+        { id: "N-I-01#bear", name: "Bear", kind: "Form", cost: 3, use: "action", target: "self", form: { strip: { STR: 3, DEX: 1, STRd: 15, DEXd: 11, HP: 12, SPD: 30 }, size: "Large", fly: 0, climb: 30, weapon: { name: "Claws", hit: 2, dice: "1d8", abil: ["STR"], type: "Physical" } } },
       ] },
     },
     foes: [

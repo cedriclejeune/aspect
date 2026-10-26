@@ -16,7 +16,7 @@
     armor: ["Armor"], hand: ["Weapon", "Shield", "Instrument"], jewelry: ["Jewelry"],
     item: ["Consumable", "Recipe", "Purse", "Spellbook"], aspect: ["Trait", "Technique", "Knack", "Divine", "Glamour", "Nature"],
   };
-  const USE_LABEL = { action: "Action", bonus: "Bonus", reaction: "Reaction", trigger: "Trigger", passive: "Passive", free: "Free" };
+  const USE_LABEL = { action: "Action", reaction: "Reaction", trigger: "Trigger", passive: "Passive", free: "Free" };
 
   const clone = (o) => (o == null ? o : JSON.parse(JSON.stringify(o)));
   const store = {
@@ -654,6 +654,7 @@
     if (a.need === "point") cmd.point = a.point;
     if (a.level != null) cmd.level = a.level;
     if (a.need === "text") cmd.text = a.text || "";
+    if (a.toDamage) cmd.toDamage = a.toDamage;
     return cmd;
   }
   function previewCmd(cmd) {
@@ -888,8 +889,8 @@
     }
     const otherIdx = legal.findIndex((x) => x.type === "note");
     return h("div.action-panel",
-      h("div.ap-head", h("b", `${c.name}`), t.half ? h("span.boss", "Half turn") : null, t.firstMover ? h("span.pill", "First mover: move or action") : null),
-      h("div.pills", pill(`Move ${left}/${t.speed || 0} ft`, left <= 0), pill("Action", t.action), pill("Bonus", t.bonus), pill("Reaction", t.reaction), pill("Interaction", t.interact),
+      h("div.ap-head", h("b", `${c.name}`), t.half ? h("span.boss", "Half turn") : null, t.firstMover && !t.half ? h("span.pill", "First mover: one action") : null),
+      h("div.pills", pill(`Actions ${t.acts || 0}`, !t.acts), t.speed ? pill(`Move: ${left} ft left`, left <= 0) : null, pill("Reaction", t.reaction), pill("Interaction", t.interact),
         t.disengaged ? pill("Disengaged") : null, t.dodging ? pill("Dodging") : null),
       armedBox(),
       by("move").length && !F.armed ? h("p.hint", "Click squares to plan a path; click the last square again (or Move) to go. Right-click clears.") : null,
@@ -979,6 +980,9 @@
         const max = (deck && deck.maxLevel) || pw.cost;
         if (max > pw.cost) extra = h("label.field", "Level", select(a.level, Array.from({ length: max - pw.cost + 1 }, (_, i) => [pw.cost + i, pw.cost + i]), (v) => { a.level = +v; refreshPreview(); render(); }));
       }
+      // P 5.2: advantage dice left after cancelling can go to damage
+      const net = pv && pv.info ? (pv.info.adv || 0) - (pv.info.dis || 0) : 0;
+      if (net > 0 && (a.tpl.type === "attack" || pv.info.toHit != null)) extra = [extra, h("label.field", "Dice on damage", select(a.toDamage || 0, Array.from({ length: net + 1 }, (_, i) => [i, i]), (v) => { a.toDamage = +v; refreshPreview(); render(); }))];
       if (a.targets.length) extra = [extra, h("div.targets", "Targets: ", a.targets.map((t) => cr(t).name).join(", "))];
     } else title = `Move (${F.path.length} square${F.path.length > 1 ? "s" : ""})`;
     return h("div.armed",
@@ -990,7 +994,7 @@
         h("button", { onclick: () => { resetFightUI(); render(); } }, "Cancel")));
   }
   const INFO_LABEL = { toHit: "To hit", defense: "Defense", dice: "Dice", cost: "Cost", left: "Left after", provokes: "Provokes", outnumbered: "Outnumbered",
-    cover: "Cover", distance: "Distance", damage: "Damage", why: "Why", vs: "Against", targets: "Targets", weapon: "Weapon", abil: "Ability", power: "Power", use: "Use", adv: "Advantage dice", dis: "Disadvantage dice", range: "Range", keep: "Keep" };
+    cover: "Cover", distance: "Distance", damage: "Damage", why: "Why", vs: "Against", targets: "Targets", weapon: "Weapon", abil: "Ability", power: "Power", use: "Use", adv: "Advantage dice", dis: "Disadvantage dice", toDamage: "Dice on damage", range: "Range", keep: "Keep" };
   function previewBlock(pv) {
     if (!pv.ok) return h("div.preview.bad", pv.error || "Not possible.", pv.info ? infoTable(pv.info) : null);
     return h("div.preview", infoTable(pv.info || {}));

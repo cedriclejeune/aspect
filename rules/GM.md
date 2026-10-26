@@ -83,7 +83,7 @@ You run each kind of monster from its **foe card**: its Core, its totals and eve
 - **Italics name a real card.** An *italic* name is a card from the loot pool, exactly as a Bearer would have it: a Core, gear or an Aspect. The foe card prints its ID (*W-I-03*) so you can find its copy. **Only italic cards drop** (4.1).
 - **Plain text is the monster's own:** anatomy and innate powers (a dragon's breath, an ooze's acid body, giant strength). It never drops. It may change how the monster's italic cards perform (an ogre swings a *Greatclub* harder than a Bearer); the card that drops is always the normal one.
 - **Totals are final.** A foe card's totals already include everything: an unarmored foe doesn't add the empty Armor Slot's +10 Speed.
-- **Same rules as Bearers.** A monster has one action, a bonus action only if a card gives it one, and a reaction. It attacks with its modifier + the weapon's to-hit bonus, and swaps gear like a Bearer. Its uses (S.R. and L.R.) come back at the start of each fight.
+- **Same rules as Bearers.** A monster has two actions and a reaction. It attacks with its modifier + the weapon's to-hit bonus, and swaps gear like a Bearer. Its uses (S.R. and L.R.) come back at the start of each fight.
 - **Keywords** along the bottom, type first: *Foe* (or *Foe · Boss*), then *Leader*, size and senses (*Foe · Boss · Leader · Large · Darkvision 60*). A **Leader** leads its group: when it falls, and when half the group is down, the rest check Morale (P 6.11). Challenge Rating (CR) and XP value (5) aren't printed: judge them yourself while foe difficulty is reworked.
 - **Passive Awareness:** 10 + INT, **+5 for alert creatures** (guards, scouts, predators, most beasts).
 - **Effect bonus:** a plain-text effect that attacks (a breath, a poison, a grapple) uses this bonus by CR:
@@ -117,8 +117,13 @@ You run each kind of monster from its **foe card**: its Core, its totals and eve
 - **Add a card.** Slide any card from the loot pool **behind** a foe card, so that only its bonus strip shows on the right. Its bonuses add across, row by row, like a Bearer's stack (P 12.3). Read its effect from the card when you need it. It's italic now: it can drop.
 - **Build from scratch.** Fill in a **blank foe card**: pick a Core and cards from the loot pool, add up the totals once, write the attacks, and list the italic cards with their IDs. Keep it and reuse it. For a one-off monster, just lay it out like a Bearer: a Core, its cards and a tally card.
 - **Plain text sparingly.** Give a monster its own powers only for what no card could be: anatomy, a curse, a god's touch. Everything else is a card the party could win.
-- **The base set** has 9 foe cards to start from (Bandit, Archer, Goblin, Wolf, Cultist, Legionary, Bandit Captain, Ogre, and the Ogre Chieftain Boss) and 4 blank ones.
+- **The base set** has 20 foe cards to start from and 4 blank ones:
+  - **Humanoids:** Bandit, Bandit Archer, Guard (on a *Human* Core), Scout (*Elf*), Mage, Cultist, Legionary, Orc, Hobgoblin, Goblin, Kobold, and the Bandit Captain (Leader).
+  - **Beasts and monsters:** Wolf, Giant Rat, Giant Spider, Skeleton, Zombie, Ogre, Troll, and the Ogre Chieftain Boss.
+  - The species Cores (*Human*, *Elf*, *Dwarf*, *Halfling*, *Orc*, *Hobgoblin*) are ready bodies for your own humanoids: give one a weapon, an armor and an Aspect on a blank foe card.
 - **How strong a foe is** (how many cards, which Ranks) is still judged by its CR and your call (5).
+- **Keep Defenses in step with the party.** A fair foe's main Defense is about the party's usual attack bonus + 10: the Bearers hit about half the time, and a good position decides the fight. From Rank III, give a foe no Defense below 10 + its Rank bonus, so a weak spot isn't a sure hit.
+- **Advantage on damage.** Foes may move advantage dice to damage like Bearers (P 5.2). Do it only when the foe would hit on a 5 or better anyway.
 
 ### 2.3 Spying on Foes
 A hidden Bearer (P 5.4) can watch a group of foes before a fight: an **INT check** against the INT Defense of one of them.
@@ -130,7 +135,8 @@ A hidden Bearer (P 5.4) can watch a group of foes before a fight: an **INT check
 - A party that spies unseen can set up an **ambush** (P 6.1).
 
 ## 3. Bosses
-- A **Boss** has the **Boss** tag on its foe card. It takes a **half turn** once per round, during the characters' side: **its movement or one action**, between any two characters' turns, whenever you choose.
+- A **Boss** has the **Boss** tag on its foe card. It takes a **half turn** once per round, during the characters' side: **one action**, between any two characters' turns, whenever you choose.
+- **Subdue** (P 8) catches a Boss for its next turn or half turn, and repeats come on both, so it decays twice as fast: a Boss loses about one round to it.
 - **Its Core and signature powers are plain text:** they never drop. Its gear and Aspects are italic, so give it cards you're willing to hand over: usually **at most one Rank above** the party's best gear and Aspects.
 - Some Bosses grant an **extra Gear Slot** (P 3.3) when defeated.
 
@@ -148,15 +154,15 @@ A hidden Bearer (P 5.4) can watch a group of foes before a fight: an **INT check
 - **A budget per trial, not per corpse.** Give the same 1–3 pieces of loot per character however the party gets through: a fight leaves gear on the bodies and Aspects lingering over them; a deal brings a payment, a gift (6.3) or a favor (*Writ of Favor*, *Guild Signet*, P 3.4); stealth or trickery reaches the treasure the monsters guarded. Players then never lose loot for avoiding a fight.
 
 ### 4.2 Rewards
-- **Starter list** (P 13.2): offer Rank I gear and Aspects for every style, including a Litany (Divine), a Repertoire (Glamour), a Remembrance (Nature) and a Focus. The base set's list:
+- **Starter list** (P 13.2): offer Rank I gear and Aspects for every style, including a WIL deck and a Focus. The base set starts players on a Repertoire (Glamour) and keeps its Litany (Divine) and Remembrance (Nature) as loot. Its list:
 
 | Slot | Starter gear and Aspects (Rank I) |
 |---|---|
 | **Armor** | *Leather*, *Mail* |
 | **Hands** | *Shield*, *Dagger*, *Shortsword*, *Handaxe*, *Finesse Blade*, *Longsword*, *Battleaxe*, *Greatsword*, *Glaive*, *Longbow*, *Sling*, *Javelins*, *Spellguard Staff*, *Traveler's Lute* |
-| **Jewelry** | *Ring of Warding*, *Guild Signet*, *Shard Bandolier*, *Holy Amulet*, *Boots of the Long Stride* |
+| **Jewelry** | *Ring of Warding*, *Guild Signet*, *Shard Bandolier*, *Boots of the Long Stride*, *Dancer's Bells* |
 | **Items** | *Conjurer's Book*, *Potion of Healing*, *Coin Pouch*, *Writ of Favor* |
-| **Aspects** | *Springheel*, *Stone Blood*, *Iron Will*, *Clear Mind*, *Cleave*, *Steady Aim*, *Shield Bash*, *Battle Hymn*, *Rallying Cry*, *Cat Burglar*, *Renowned*, *Sailor*, *Street Urchin*, *Hunter*, *Physician*, *Barkeep*, *Smith*, *Mountaineer*, *Wanderer's Repertoire*, *Acolyte's Litany*, *Wildheart's Remembrance* |
+| **Aspects** | *Springheel*, *Stone Blood*, *Iron Will*, *Clear Mind*, *Cleave*, *Steady Aim*, *Shield Bash*, *Battle Hymn*, *Rallying Cry*, *Cat Burglar*, *Renowned*, *Sailor*, *Street Urchin*, *Hunter*, *Physician*, *Barkeep*, *Smith*, *Mountaineer*, *Wanderer's Repertoire* |
 
 - **Wishlists:** each player writes **3 cards** they'd like to find on the back of their tally card (P 12.3) and updates it when they want. Glance at it when you pick drops (4.1) and rewards: grant a wish now and then, at its Rank, from a fitting monster or trial. *Provisional: the card backs aren't designed yet.*
 - **Extra Gear Slots** are Boss rewards only. Never more than one of each per character. At the table, hand the player its Slot frame (P 12.2).
@@ -186,14 +192,14 @@ Traits and Knacks are built from four sources:
 | **WIL perk:** extra Resolve (P 10.6) | +1 | +1 | +2 | +2 | +3 |
 | **Activity bonus** | +2 | +3 | +4 | +5 | +6 |
 
-Perk spell points can be spent on any equipped Spellbook, and perk Resolve on any of your Divine, Glamour or Nature powers (P 10.2, 10.6).
+Perk spell points add to one equipped Spellbook, and perk Resolve to one of your Divine, Glamour or Nature pools, chosen at each long rest (P 10.2, 10.6).
 
 **Strong perks:**
 - **Doubled perk:** twice a perk from the table.
 - **A sense or a movement:** Darkvision 60 ft, a climb or swim speed (P 11.5).
 - **A resistance:** Resist one damage type other than Physical.
-- **A small power:** a bonus action or reaction, 1/S.R. (*Second Wind*, Rank II).
-- **Levitation:** **bonus action (1/S.R.):** for 1 minute you float, rising or sinking up to 20 ft per turn.
+- **A small power:** an action or a reaction, 1/S.R. (*Second Wind*, Rank II).
+- **Levitation:** **reaction (1/S.R.):** for 1 minute you float, rising or sinking up to 20 ft per turn.
 - **A cantrip:** cast one cantrip at will, as from a Spellbook with this Trait's Spell attack bonus (an empty Hand needed).
 
 **Activities by ability:**
@@ -263,7 +269,7 @@ Named Traits and Knacks with a clear idea, ready to drop. Activities get the bon
 | Rank V (+6) | Bonuses & perks | Activities |
 |---|---|---|
 | *Legend of the Arena* | +2 STR, +1 WIL, +15 HP | Intimidate, perform, lift, endure |
-| *Thousand Faces* | +1 WIL, +1 DEX; small power (strong): **bonus action (1/S.R.):** take the look of a humanoid you have seen, for 1 hour | Deceive, perform, read intentions, pick pockets |
+| *Thousand Faces* | +1 WIL, +1 DEX; small power (strong): **reaction (1/S.R.):** take the look of a humanoid you have seen, for 1 hour | Deceive, perform, read intentions, pick pockets |
 
 ### 4.5 Random Traits and Knacks
 To make a new Trait or Knack at any Rank:
@@ -353,8 +359,9 @@ Each game term has one meaning, in both books.
 |---|---|
 | **Ability** | One of four measures every creature has: Strength (STR), Dexterity (DEX), Intelligence (INT) and Will (WIL), each written as a modifier. |
 | **Absorb** | Moving a Shard's Aspect into an Aspect Slot, or its Core into your body, during a long rest. |
-| **Action** | Using it takes your action. |
-| **Anthem** | A Divine or Glamour power. Bonus action: a buff for allies who hear you, for a Duration. |
+| **Action** | Using it takes one of your two actions. |
+| **Advantage on damage** | Moving an advantage die left after cancelling from an attack to its damage, chosen before rolling: roll the whole damage once more per die and keep the highest total. Disadvantage always stays on the attack. |
+| **Anthem** | A Divine or Glamour power. Action: a buff for allies who hear you, for a Duration. |
 | **Aquatic** | A weapon keyword: works underwater, where other weapons and spells don't. |
 | **Area** | Cone, Cube, Cylinder, Emanation, Line or Sphere N: an area of that shape and size. Roll once against every creature in it. Half damage on a miss. |
 | **Armor** | The type of gear worn on the body; it fits the Armor Slot. Takes 10 minutes to don or doff. Never in the Pack. |
@@ -363,7 +370,6 @@ Each game term has one meaning, in both books.
 | **Attack roll** | A roll of d20 + modifiers against a Defense, made by whoever harms or hinders: weapons, spells, Divine, Glamour and Nature powers, traps, poisons. |
 | **Bearer** | A humanoid who can absorb the Aspects and the Core of other beings. Every player character is one. |
 | **Blindsight N** | Perceive everything within N ft without sight. |
-| **Bonus action** | Using it takes your bonus action. |
 | **Boss** | A strong monster with special abilities, including a half turn during the characters' side. |
 | **Cantrip** | A spell that costs nothing. Cast at will. |
 | **Capture** | Pouring a lingering Aspect or Core into an empty Shard. |
@@ -374,8 +380,10 @@ Each game term has one meaning, in both books.
 | **Climb N** | A climb speed: climbing costs no extra movement. |
 | **Consumable** | An item gone once used. Up to 3 identical Consumables share one Item Slot. |
 | **Core** | Your body: four ability modifiers, HP maximum, Speed and Size. You always have exactly one. It is neither an Aspect nor gear. |
+| **Crowd question** | The third of the three questions asked before an attack: Outnumbered. One advantage die if your side has more creatures engaged around the target, one disadvantage die if its side has more. |
 | **Cue** | A Divine or Glamour power. Reaction: changes a roll after it's made, before its result. |
 | **Darkvision N** | Treat Dark as Bright within N ft. |
+| **Decay** | The disadvantage dice a Subdue's repeat attack gathers: one for each repeat that hit and each time the source took damage. |
 | **Defense** | The number an attack must reach: 10 + an ability modifier + bonuses. Every creature has a STR, DEX, INT and WIL Defense. |
 | **Dirge** | A Divine or Glamour power. Action: an attack against WIL Defense. |
 | **Divine** | An Aspect type: WIL magic of prayer. Its deck, a **Litany**, holds a fixed list of powers that alter fate and heal, and a pool of Resolve. |
@@ -399,16 +407,15 @@ Each game term has one meaning, in both books.
 | **Jewelry** | The type of worn gear that fits the Jewelry Slot: rings, amulets, circlets, cloaks, gloves, boots. |
 | **Keyword** | A word with one fixed meaning that gear and Aspects list, type first. |
 | **Knack** | An Aspect type: a bonus on checks for one narrow activity. |
-| **Lasting effect** | An effect on a creature that ends when the creature breaks free, not after a set time. |
 | **Leader** | A foe keyword: the foe leads its group, and its fall calls for Morale. |
 | **Leather, Mail, Plate** | The three armors, from lightest to heaviest. |
 | **Light** | A weapon keyword: allows two-weapon fighting. |
 | **Lingering** | The state of a defeated creature's Aspects and Core for 1 minute, before they fade for good. |
-| **Loading** | A weapon keyword: one shot per action, bonus action or reaction, even with extra attacks. |
-| **Maintain roll** | The source's roll, at the start of each of the target's turns, to keep a lasting effect going. |
-| **Mend** | A Divine or Nature power that restores HP to a creature in range, even one who can't hear you. |
+| **Loading** | A weapon keyword: one shot per action or reaction, even with extra attacks. |
+| **Mend** | A Divine, Glamour or Nature power that restores HP to a creature in range, even one who can't hear you. |
 | **Milestone** | One new Aspect Slot for every character, granted when the party completes a story. |
-| **Morale** | A WIL check (DC 10) that each remaining member of a foe group makes when its Leader falls and when half the group is down. On a failure, it flees or surrenders. A Boss never checks. |
+| **Morale** | One WIL check (DC 10) a foe group makes, with the best WIL among its remaining members, when its Leader falls and when half the group is down. On a failure, the group flees or surrenders. A Boss never checks. |
+| **Move** | An action: move up to your speed, split before and after your other action if you like. |
 | **Nature** | An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and a pool of Resolve. |
 | **Noisy N** | −N on checks to sneak. |
 | **Object** | A small non-magical thing that isn't gear: a key, a letter, treasure, rope, a torch. Carried freely, with no limit. |
@@ -422,14 +429,14 @@ Each game term has one meaning, in both books.
 | **Range N/M** | A ranged attack. Beyond N: disadvantage. Beyond M: impossible. A single number is a spell's maximum range. |
 | **Rank** | The fixed power of a piece of gear, an Aspect or a Core, from I to V. Characters have none. |
 | **Reach** | A weapon keyword: your reach is 10 ft instead of 5 ft. |
-| **Reaction** | Using it takes your reaction, when the trigger in its text happens. |
+| **Reaction** | Using it takes your reaction: when the trigger in its text happens, or on your turn if it has none. |
 | **Recharge 5–6** | A monster power that comes back on a 5 or 6 on a d6 at the end of the monster's turn. |
 | **Recipe** | An item: a stack that refills at each long rest. Unused items vanish when it refills. |
 | **Release** | Emptying a Shard. Its Aspect or Core is gone for good. |
 | **Requirement** | A minimum ability modifier needed to equip gear or an Aspect (*Req STR +2*). |
 | **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
-| **Resolve** | The points a Divine, Glamour or Nature Aspect spends on its powers. Each has its own pool; extra Resolve from Traits can be spent on any of them. It returns on a short rest. |
+| **Resolve** | The points a Divine, Glamour or Nature Aspect spends on its powers. Each has its own pool; extra Resolve from Traits and gear adds to one of them. It returns on a short rest. |
 | **Shard** | A bulky crystal vessel that holds one Aspect or Core, or nothing. An item, but never in a Slot. |
 | **Shield** | The type of held gear that raises your Defenses; it fits a Hand Slot. |
 | **Shift** | To take on a Form from your Remembrance; to revert is to return to your own body. Being polymorphed is never shifting. |
@@ -440,10 +447,11 @@ Each game term has one meaning, in both books.
 | **Spell level** | A spell's power and its cost in spell points, from 1st to 6th. |
 | **Spellbook** | An item holding a fixed list of spells and a pool of spell points. All spellcasting uses INT. |
 | **Story** | The campaign's big arc, made of quests. Completing one grants a milestone. |
-| **Subdue** | The keyword of a lasting effect that takes a creature out of the fight. The effect names its state (Stunned, Charmed, banished…); Subdue adds first bite and weakening. |
+| **Subdue** | The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
 | **Tally card** | The one card you write on: your ten totals, current and temporary HP, and death saves. |
+| **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |
 | **Technique** | An Aspect type: something a being trained (a fighting move). |
 | **Thrown N/M** | A weapon keyword: it can be thrown as a ranged attack, using the modifier of its melee use. Beyond N ft: disadvantage. Beyond M ft: impossible (*Thrown 20/60*). |
@@ -458,6 +466,7 @@ Each game term has one meaning, in both books.
 | **Versatile** | A weapon keyword: uses the bigger damage die when held in two hands. |
 | **Vulnerable (type)** | Take double damage of that type. |
 | **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage (*+2 to hit, 1d8 + STR Physical*). |
+| **You question** | The first of the three questions asked before an attack: your position and conditions (unseen; long range, can't see the target, Prone…). One die at most. The only question asked on checks, saves and area rolls. |
 
 <!-- glossary:end -->
 

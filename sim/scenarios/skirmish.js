@@ -19,7 +19,7 @@ globalThis.BEARERS_SCENARIOS.push({
     { id: "foe1", side: "foe", name: "Bandit 1", foe: "Bandit", pos: [11, 4], react: "auto" },
     { id: "foe2", side: "foe", name: "Bandit 2", foe: "Bandit", pos: [11, 6], react: "auto" },
     { id: "foe3", side: "foe", name: "Bandit 3", foe: "Bandit", pos: [12, 8], react: "auto" },
-    { id: "foe4", side: "foe", name: "Archer 1", foe: "Archer", pos: [13, 1], react: "auto" },
-    { id: "foe5", side: "foe", name: "Archer 2", foe: "Archer", pos: [15, 9], react: "auto" },
+    { id: "foe4", side: "foe", name: "Bandit Archer 1", foe: "Bandit Archer", pos: [13, 1], react: "auto" },
+    { id: "foe5", side: "foe", name: "Bandit Archer 2", foe: "Bandit Archer", pos: [15, 9], react: "auto" },
   ]),
 });

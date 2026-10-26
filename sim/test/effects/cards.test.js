@@ -106,7 +106,7 @@ module.exports = function register(T, H) {
     run(f, { type: "adjust", actor: "x", cond: "Prone" });
     const far = pv(f, atk("a", "W-I-10", "x"));
     eq([far.distance, far.adv, far.dis], [30, 1, 0], "Sling from 30 ft: advantage (was disadvantage beyond 5 ft)");
-    ok(far.why.some((w) => /target Prone/.test(w)));
+    ok(far.why.some((w) => /Target \(Prone\)/.test(w)));
     const r = run(f, atk("a", "W-I-10", "x"), [3, 18, 1]);
     eq(evs(r, "roll")[0].dice.length, 2, "rolled 2d20");
     end(f, "a");
@@ -149,7 +149,7 @@ module.exports = function register(T, H) {
     ok(t, "legal offers pulling the pilum free"); ok(/pilum/i.test(t.label));
     const cmd = Object.assign({}, t); delete cmd.label;
     run(f, cmd);
-    ok(!has(C(f, "x"), "Pierced")); eq(C(f, "x").totals.STRd, 15); ok(C(f, "x").turn.action, "costs the action");
+    ok(!has(C(f, "x"), "Pierced")); eq(C(f, "x").totals.STRd, 15); eq(C(f, "x").turn.acts, 1, "costs an action");
     // no Shield in hand: nothing to pierce
     const g = fight([pc("a", [1, 5], { hands: ["W-II-02"] }), foe("y", [6, 5])]);
     pcTurn(g, "a");
@@ -196,22 +196,22 @@ module.exports = function register(T, H) {
     ok(r3);
   });
 
-  T("[fx] Boots of the Long Stride: bonus action Dash, 1/S.R.", () => {
+  T("[fx] Boots of the Long Stride: reaction 1/S.R., a free Move", () => {
     const f = fight([pc("a", [1, 5], { jewelry: ["J-I-05"] }), foe("x", [20, 5])]);
     pcTurn(f, "a");
     ok(tpl(f, "a", (t) => t.power === "J-I-05#0"));
     run(f, power(f, "a", "J-I-05#0"));
-    eq(C(f, "a").turn.speed, 80); ok(C(f, "a").turn.bonus); ok(!C(f, "a").turn.action);
+    eq(C(f, "a").turn.speed, 40); ok(C(f, "a").turn.reaction); eq(C(f, "a").turn.acts, 2);
     run(f, { type: "move", actor: "a", path: Array.from({ length: 16 }, (_, i) => [2 + i, 5]) });
-    eq(C(f, "a").pos, [17, 5]);
+    eq([C(f, "a").pos, C(f, "a").turn.acts], [[17, 5], 1], "80 ft: the Boots' Move and one Move action");
     end(f, "a"); skip(f, "x"); go(f, "a");
     ok(/no uses/.test(refused(f, power(f, "a", "J-I-05#0"))));
   });
 
-  T("[fx] Holy Amulet: Cues reach 90 ft; 1 extra Resolve spent when the Litany's own pool is empty", () => {
+  T("[fx] Holy Amulet: Cues reach 90 ft; 1 extra Resolve added to the Litany's pool (P 10.6)", () => {
     const mk = (jewelry) => fight([pc("p", [1, 5], { core: "C-I-04", jewelry, aspects: ["D-I-01"] }), pc("a", [18, 5], { hands: ["W-I-05"] }), foe("x", [19, 5])]);
     const f = mk(["J-I-04"]);
-    eq([C(f, "p").resolve["D-I-01"], C(f, "p").extra.resolve], [6, 1]);
+    eq(C(f, "p").resolve["D-I-01"], 7, "3 + WIL 3 + 1");
     pcTurn(f, "p"); end(f, "p"); go(f, "a");
     const r = run(f, atk("a", "W-I-05", "x"), [3, { c: 0 }, 17, 4]); // 85 ft: Twist Fate rerolls the 3
     ok(evs(r, "reaction").some((e) => e.power === "D-I-01#twist-fate"));
@@ -219,21 +219,21 @@ module.exports = function register(T, H) {
     pcTurn(g, "p"); end(g, "p"); go(g, "a");
     const r2 = run(g, atk("a", "W-I-05", "x"), [3]);
     eq(r2.prompts.filter((p) => p.kind === "reaction").length, 0, "60 ft without the amulet");
-    // extra pool: a WIL +0 bearer (Resolve 3) spends Bless (1) and Cure Wounds (2), then a Cue uses the extra Resolve
+    // a WIL +0 bearer (Resolve 3 + 1) spends Bless (1) and Cure Wounds (2), then a Cue spends the last one
     const h = fight([pc("p", [2, 5], { jewelry: ["J-I-04"], aspects: ["D-I-01"] }), pc("a", [3, 5], { hands: ["W-I-05"] }), foe("x", [4, 5])]);
     pcTurn(h, "p");
     run(h, power(h, "p", "D-I-01#bless"));
     run(h, power(h, "p", "D-I-01#cure-wounds", { targets: ["a"] }), [1, 1]);
-    eq([C(h, "p").resolve["D-I-01"], C(h, "p").extra.resolve], [0, 1]);
+    eq(C(h, "p").resolve["D-I-01"], 1);
     end(h, "p"); go(h, "a");
     run(h, atk("a", "W-I-05", "x"), [3, 1, { c: 0 }, 17, 4]); // Bless d4 rolls with the attack
-    eq([C(h, "p").resolve["D-I-01"], C(h, "p").extra.resolve], [0, 0]);
+    eq(C(h, "p").resolve["D-I-01"], 0);
   });
 
   T("[fx] Traveler's Lute: Anthems reach 60 ft; 1 extra Resolve", () => {
     const mk = (hands) => fight([pc("e", [1, 5], { core: "C-I-04", hands, aspects: ["G-I-01"] }), pc("a", [11, 5]), foe("x", [25, 5])]);
     const f = mk(["M-I-01"]);
-    eq(C(f, "e").extra.resolve, 1);
+    eq(C(f, "e").resolve["G-I-01"], 7, "3 + WIL 3 + 1");
     pcTurn(f, "e");
     run(f, power(f, "e", "G-I-01#rally"));
     ok(C(f, "a").mods.some((m) => m.n === 2), "50 ft away");
@@ -243,16 +243,17 @@ module.exports = function register(T, H) {
     ok(!C(g, "a").mods.length, "30 ft without the lute");
   });
   // ---------- items ----------
-  T("[fx] Potion of Healing / Greater Potion: bonus action, drink or give within 5 ft, 2d4 + 2 / 4d4 + 4; the stack runs out", () => {
+  T("[fx] Potion of Healing / Greater Potion: action, drink or give within 5 ft, 2d4 + 2 / 4d4 + 4; the stack runs out", () => {
     const f = fight([pc("a", [5, 5], { items: [{ id: "P-I-01", n: 2 }, { id: "P-II-01", n: 1 }] }), pc("b", [6, 5]), pc("c", [8, 5]), foe("x", [20, 5])]);
     for (const id of ["a", "b", "c"]) run(f, { type: "adjust", actor: id, hp: 1 });
     pcTurn(f, "a");
     const L = tpl(f, "a", (t) => t.power === "P-I-01#0");
     ok(L.candidates.includes("a") && L.candidates.includes("b") && !L.candidates.includes("c"), "self or within 5 ft");
     const r = run(f, power(f, "a", "P-I-01#0", { targets: ["b"] }), [3, 4]);
-    eq(evs(r, "heal")[0].n, 9); eq(C(f, "b").hp, 10); ok(C(f, "a").turn.bonus);
+    eq(evs(r, "heal")[0].n, 9); eq(C(f, "b").hp, 10); eq(C(f, "a").turn.acts, 1);
     eq(C(f, "a").items.find((i) => i.id === "P-I-01").n, 1);
-    ok(/Bonus action already used/.test(refused(f, power(f, "a", "P-II-01#0", { targets: ["a"] }))));
+    run(f, { type: "move", actor: "a", path: [[5, 4]] });
+    ok(/No actions left/.test(refused(f, power(f, "a", "P-II-01#0", { targets: ["a"] }))));
     end(f, "a"); skip(f, "b"); skip(f, "c"); skip(f, "x"); go(f, "a");
     const r2 = run(f, power(f, "a", "P-II-01#0", { targets: ["a"] }), [1, 2, 3, 4]);
     eq(evs(r2, "heal")[0].n, 13 - 1 + 1, "4d4 + 4 = 14, capped at max HP 14"); eq(C(f, "a").hp, 14);
@@ -350,19 +351,19 @@ module.exports = function register(T, H) {
     ok(!has(C(g, "a"), "Prone")); eq(C(g, "w1").uses["T-I-05#0"], 1);
   });
 
-  T("[fx] Hedge Witch: 1 extra spell point for any Spellbook, used when the book's own pool can't pay", () => {
+  T("[fx] Hedge Witch: 1 extra spell point added to the Spellbook's pool (P 10.2)", () => {
     const f = fight([pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01" }], aspects: ["T-II-06"] }), foe("x", [8, 5]), foe("y", [8, 9])]);
-    eq([C(f, "w").sp["B-I-01"], C(f, "w").extra.sp], [4, 1]);
+    eq(C(f, "w").sp["B-I-01"], 5);
     pcTurn(f, "w");
     run(f, power(f, "w", "B-I-01#web", { point: [8, 6] }), [1]);
     end(f, "w"); for (const id of ["x", "y"]) skip(f, id);
     go(f, "w");
     run(f, power(f, "w", "B-I-01#misty-step", { point: [1, 9] }));
-    eq([C(f, "w").sp["B-I-01"], C(f, "w").extra.sp], [0, 1]);
+    eq(C(f, "w").sp["B-I-01"], 1);
     end(f, "w"); for (const id of ["x", "y"]) skip(f, id);
     go(f, "w");
     run(f, power(f, "w", "B-I-01#magic-missile", { targets: ["x"] }), [1, 1]);
-    eq([C(f, "w").sp["B-I-01"], C(f, "w").extra.sp], [0, 0], "paid from the extra pool");
+    eq(C(f, "w").sp["B-I-01"], 0, "the extra point paid for it");
     end(f, "w"); for (const id of ["x", "y"]) skip(f, id);
     go(f, "w");
     ok(/spell points/.test(refused(f, power(f, "w", "B-I-01#magic-missile", { targets: ["x"] }))));
@@ -383,13 +384,13 @@ module.exports = function register(T, H) {
     const r = run(f, atk("a", "W-I-05", "x"), [15, 15, 1, { c: 0 }, 15]); // 1 vs 2: disadvantage; Cleave asks (optional: it has uses); y's morale holds
     ok(C(f, "x").dead); eq(r.prompts.filter((p) => /Cleave/.test(p.text)).length, 1);
     eq(C(f, "a").uses["Q-I-01#0"], 0);
-    ok(C(f, "a").turn.action, "the Attack action is spent");
+    eq(C(f, "a").turn.acts, 1, "the Attack action is spent");
     eq(pv(f, atk("a", "W-I-05", "y")).use, "extra");
     run(f, atk("a", "W-I-05", "y"), [15, 1]);
-    ok(/Action already used/.test(refused(f, atk("a", "W-I-05", "y"))), "only one");
+    eq(pv(f, atk("a", "W-I-05", "y")).use, "action", "only one extra attack; the next takes the second action");
   });
 
-  T("[fx] Steady Aim: bonus action 2/S.R., +2 on the next ranged attack this turn only", () => {
+  T("[fx] Steady Aim: reaction 2/S.R., +2 on the next ranged attack this turn only", () => {
     const f = fight([pc("a", [5, 5], { core: "C-I-02", hands: ["W-I-10", "W-I-01"], aspects: ["Q-I-02"] }), foe("x", [6, 5]), foe("y", [12, 5])]);
     pcTurn(f, "a");
     const base = pv(f, atk("a", "W-I-10", "y")).toHit;
@@ -402,11 +403,11 @@ module.exports = function register(T, H) {
     for (const id of ["x", "y"]) skip(f, id);
     go(f, "a");
     run(f, power(f, "a", "Q-I-02#0"));
-    run(f, atk("a", "W-I-10", "y"), [1, 1, 1, 1]); // long range, enemy within 5 ft, Outnumbered 0 vs 1 (x)
+    run(f, atk("a", "W-I-10", "y"), [1, 1]); // You: long range, enemy within 5 ft; Crowd: nobody around y
     ok(!C(f, "a").mods.length, "spent by the ranged attack");
   });
 
-  T("[fx] Shield Bash: bonus action 1/S.R. after the Attack action while holding a Shield: Shove within 5 ft", () => {
+  T("[fx] Shield Bash: reaction 1/S.R. after the Attack action while holding a Shield: Shove within 5 ft", () => {
     const f = fight([pc("a", [5, 5], { hands: ["W-I-05", "S-I-01"], aspects: ["Q-I-03"] }), foe("x", [6, 5]), foe("y", [5, 6])]);
     pcTurn(f, "a");
     ok(/Attack action first/.test(refused(f, power(f, "a", "Q-I-03#0", { targets: ["x"], mode: "prone" }))));
@@ -414,7 +415,7 @@ module.exports = function register(T, H) {
     const t = tpl(f, "a", (t) => t.power === "Q-I-03#0");
     ok(t && t.candidates.includes("x") && t.candidates.includes("y"));
     run(f, power(f, "a", "Q-I-03#0", { targets: ["y"], mode: "prone" }), [8, 8]); // unarmed STR + 2 vs 13; Outnumbered 2 vs 1 against a
-    ok(has(C(f, "y"), "Prone")); ok(C(f, "a").turn.bonus); eq(C(f, "a").uses["Q-I-03#0"], 0);
+    ok(has(C(f, "y"), "Prone")); ok(C(f, "a").turn.reaction); eq(C(f, "a").uses["Q-I-03#0"], 0);
     const g = fight([pc("a", [5, 5], { hands: ["W-I-05"], aspects: ["Q-I-03"] }), foe("x", [6, 5])]);
     pcTurn(g, "a");
     run(g, atk("a", "W-I-05", "x"), [1]);
@@ -465,16 +466,18 @@ module.exports = function register(T, H) {
     eq(r2.prompts.filter((p) => p.kind === "reaction").length, 0, "no Shield, no Shield Wall");
   });
 
-  T("[fx] Twin Strike: two attacks per Attack action", () => {
+  T("[fx] Twin Strike: one extra attack, once per turn", () => {
     const f = fight([pc("a", [5, 5], { hands: ["W-I-05"], aspects: ["Q-II-01"] }), foe("x", [6, 5])]);
     pcTurn(f, "a");
     run(f, atk("a", "W-I-05", "x"), [1]);
     eq(pv(f, atk("a", "W-I-05", "x")).use, "attack");
     run(f, atk("a", "W-I-05", "x"), [1]);
-    ok(/Action already used/.test(refused(f, atk("a", "W-I-05", "x"))));
+    eq(pv(f, atk("a", "W-I-05", "x")).use, "action");
+    run(f, atk("a", "W-I-05", "x"), [1]);
+    ok(/No actions left/.test(refused(f, atk("a", "W-I-05", "x"))), "3 attacks in all");
   });
 
-  T("[fx] Slippery: bonus action 2/S.R., move half your Speed without opportunity attacks", () => {
+  T("[fx] Slippery: reaction 2/S.R., move half your Speed without opportunity attacks", () => {
     const f = fight([pc("a", [5, 5], { aspects: ["Q-I-07"] }), foe("x", [6, 5], { hands: ["W-I-05"] }, { react: "ask" })]);
     pcTurn(f, "a");
     run(f, power(f, "a", "Q-I-07#0"));
@@ -497,14 +500,14 @@ module.exports = function register(T, H) {
     ok(/out of range \(120 ft\)/.test(refused(f, power(f, "w", "B-I-01#fire-bolt", { targets: ["far"] }))), "125 ft");
     const r = run(f, power(f, "w", "B-I-01#fire-bolt", { targets: ["x"] }), [6, 7]);
     eq(evs(r, "damage").map((e) => [e.n, e.type]), [[7, "Fire"]]); eq(C(f, "w").sp["B-I-01"], 4);
-    ok(f.preview(power(f, "w", "B-I-01#misty-step", { point: [1, 9] })).ok, "a cantrip doesn't use up the one spell per turn");
+    ok(f.preview(power(f, "w", "B-I-01#misty-step", { point: [1, 9] })).ok, "a spell after a cantrip");
   });
 
   T("[fx] Mage Hand: listed, no combat effect, no cost", () => {
     const f = fight([pc("w", [1, 5], wiz()), foe("x", [20, 5])]);
     pcTurn(f, "w");
     const r = run(f, power(f, "w", "B-I-01#mage-hand"));
-    eq(evs(r, "damage").length + evs(r, "cond").length, 0); ok(C(f, "w").turn.action); eq(C(f, "w").sp["B-I-01"], 4);
+    eq(evs(r, "damage").length + evs(r, "cond").length, 0); eq(C(f, "w").turn.acts, 1); eq(C(f, "w").sp["B-I-01"], 4);
   });
 
   T("[fx] Magic Missile: 3 darts, one attack per target vs DEX, 1d4 + 1 Radiant per dart, half on a miss, +1 dart per upcast level", () => {
@@ -517,7 +520,7 @@ module.exports = function register(T, H) {
     eq(evs(r, "roll").length, 2, "one roll per target");
     eq(evs(r, "damage").map((e) => [e.target, e.n, e.type]), [["x", 9, "Radiant"], ["y", 2, "Radiant"]], "x: 3 darts (2+3+4); y misses: half of 4");
     eq(C(f, "w").sp["B-I-01"], 2);
-    ok(/One spell per turn/.test(refused(f, power(f, "w", "B-I-01#misty-step", { point: [1, 9] }))));
+    ok(f.preview(power(f, "w", "B-I-01#misty-step", { point: [1, 9] })).ok, "no limit on spells per turn");
   });
 
   T("[fx] Shield: reaction, +5 STR and DEX Defense against the triggering attack and until the start of your next turn", () => {
@@ -559,30 +562,29 @@ module.exports = function register(T, H) {
     }
   });
 
-  T("[fx] Misty Step: bonus action, 2 spell points, teleport up to 30 ft to a free square you can see, no opportunity attacks", () => {
+  T("[fx] Misty Step: reaction, 2 spell points, teleport up to 30 ft to a free square you can see, no opportunity attacks", () => {
     const f = fight([pc("w", [5, 5], wiz()), foe("x", [6, 5], { hands: ["W-I-05"] }, { react: "ask" })], { cells: { "1,1": "wall" } });
     pcTurn(f, "w");
     ok(/at most 30 ft/.test(refused(f, power(f, "w", "B-I-01#misty-step", { point: [12, 5] }))));
     ok(/isn't free/.test(refused(f, power(f, "w", "B-I-01#misty-step", { point: [6, 5] }))));
     const r = run(f, power(f, "w", "B-I-01#misty-step", { point: [5, 11] }));
-    eq(r.prompts.length, 0, "no opportunity attack"); eq(C(f, "w").pos, [5, 11]); ok(C(f, "w").turn.bonus); eq(C(f, "w").sp["B-I-01"], 2);
+    eq(r.prompts.length, 0, "no opportunity attack"); eq(C(f, "w").pos, [5, 11]); ok(C(f, "w").turn.reaction); eq(C(f, "w").sp["B-I-01"], 2);
   });
 
-  T("[fx] Web: 20-ft cube, Restrained (Lasting) on a hit vs DEX, maintain with INT, entering triggers it, fire burns it away", () => {
+  T("[fx] Web: 20-ft cube, Restrained for 2 turns on a hit vs DEX, no maintain roll, entering triggers it, fire burns it away", () => {
     const f = fight([pc("w", [1, 5], wiz()), foe("x", [8, 5]), foe("y", [9, 7]), foe("z", [13, 5])]);
     pcTurn(f, "w");
     const i = pv(f, power(f, "w", "B-I-01#web", { point: [8, 5] }));
     eq(i.cells.length, 16); eq(i.targets, ["x", "y"]);
     run(f, power(f, "w", "B-I-01#web", { point: [8, 5] }), [6]); // 11 vs DEX 11
-    ok(C(f, "x").conds.some((k) => k.name === "Restrained" && k.lasting));
+    ok(C(f, "x").conds.some((k) => k.name === "Restrained" && !k.lasting));
     eq(C(f, "w").sp["B-I-01"], 2);
     end(f, "w");
-    const r = run(f, { type: "beginTurn", actor: "x" }, [9]); // maintain: d20 + INT 3 = 12 vs DEX 11: holds
-    eq(evs(r, "maintain")[0].bonus, 3); ok(has(C(f, "x"), "Restrained"));
+    const r = go(f, "x");
+    eq(evs(r, "maintain").length, 0); ok(has(C(f, "x"), "Restrained"));
     end(f, "x");
-    run(f, { type: "beginTurn", actor: "y" }, [7]); // 10 vs 11: breaks
-    ok(!has(C(f, "y"), "Restrained"));
-    end(f, "y");
+    skip(f, "y");
+    ok(has(C(f, "y"), "Restrained"), "still held after its 1st turn");
     go(f, "z");
     run(f, { type: "move", actor: "z", path: [[12, 5], [11, 5], [10, 5], [9, 5]] }, [10]); // enters at 10,5
     ok(has(C(f, "z"), "Restrained"), "entering"); eq(C(f, "z").pos, [10, 5], "Restrained: speed 0, the move stops");
@@ -591,6 +593,8 @@ module.exports = function register(T, H) {
     go(f, "w");
     run(f, power(f, "w", "B-I-01#fire-bolt", { targets: ["x"] }), [10, 10, 1]); // Restrained target: advantage
     ok(!f.state.zones[0].cells.includes("8,5"), "square burned"); ok(!has(C(f, "x"), "Restrained"), "freed");
+    end(f, "w"); skip(f, "x"); skip(f, "y");
+    ok(!has(C(f, "y"), "Restrained"), "ends with its 2nd turn");
   });
   // ---------- Wanderer's Repertoire ----------
   const bard = (o) => Object.assign({ core: "C-I-04", aspects: ["G-I-01"] }, o);
@@ -618,7 +622,7 @@ module.exports = function register(T, H) {
     pcTurn(f, "e");
     run(f, power(f, "e", "G-I-01#rally"));
     eq(["a", "b", "c", "d"].filter((id) => C(f, id).mods.some((m) => m.n === 2 && m.kind === "attack")), ["a", "b", "c"]);
-    eq(C(f, "e").resolve["G-I-01"], 5); ok(C(f, "e").turn.bonus);
+    eq(C(f, "e").resolve["G-I-01"], 5); eq(C(f, "e").turn.acts, 1);
     eq(C(f, "a").mods[0].until.rounds, 10);
   });
 
@@ -655,17 +659,20 @@ module.exports = function register(T, H) {
     ok(evs(r2, "miss").length, "orDefense"); eq(C(f, "e").resolve["G-I-01"], 4);
   });
 
-  T("[fx] Dread: Dirge, 2 Resolve, Frightened (Lasting) of you, maintained with WIL; no moving closer, −1d20 on attacks", () => {
+  T("[fx] Dread: Dirge, 2 Resolve, Frightened of you for 2 turns; no moving closer, −1d20 on attacks", () => {
     const f = fight([pc("e", [1, 5], bard()), pc("a", [8, 4]), foe("x", [9, 5], { hands: ["W-I-05"] })]);
     pcTurn(f, "e");
     run(f, power(f, "e", "G-I-01#dread", { targets: ["x"] }), [7]); // 12 vs 10
-    ok(C(f, "x").conds.some((k) => k.name === "Frightened" && k.lasting)); eq(C(f, "e").resolve["G-I-01"], 4);
+    ok(C(f, "x").conds.some((k) => k.name === "Frightened" && !k.lasting)); eq(C(f, "e").resolve["G-I-01"], 4);
     end(f, "e"); skip(f, "a");
-    const r = run(f, { type: "beginTurn", actor: "x" }, [8]); // maintain: 8 + WIL 3 = 11 vs 10
-    eq(evs(r, "maintain")[0].bonus, 3); ok(has(C(f, "x"), "Frightened"));
+    const r = go(f, "x");
+    eq(evs(r, "maintain").length, 0); ok(has(C(f, "x"), "Frightened"));
     ok(/Frightened/.test(refused(f, { type: "move", actor: "x", path: [[8, 6]] })), "no step closer to e");
     ok(f.preview({ type: "move", actor: "x", path: [[10, 5]] }).ok);
     ok(pv(f, atk("x", "W-I-05", "a")).why.some((w) => /Frightened/.test(w)), "disadvantage while e is in sight");
+    end(f, "x");
+    for (const id of ["e", "a", "x"]) skip(f, id);
+    ok(!has(C(f, "x"), "Frightened"), "ends with its 2nd turn");
   });
 
   // ---------- Acolyte's Litany ----------
@@ -698,19 +705,18 @@ module.exports = function register(T, H) {
     eq(C(f, "a").mods.filter((m) => m.dice === "1d4").length, 1);
   });
 
-  T("[fx] Bane: Dirge, 1 Resolve, the target subtracts 1d4 from its attack rolls (Lasting, maintained with WIL)", () => {
+  T("[fx] Bane: Dirge, 1 Resolve, the target subtracts 1d4 from its attack rolls for 1 minute", () => {
     const f = fight([pc("p", [1, 5], priest(), { react: "never" }), pc("a", [7, 5]), foe("x", [8, 5], { hands: ["W-I-05"] })]);
     pcTurn(f, "p");
     run(f, power(f, "p", "D-I-01#bane", { targets: ["x"] }), [6]); // 11 vs WIL 10
     ok(C(f, "x").mods.some((m) => m.dice === "-1d4")); eq(C(f, "p").resolve["D-I-01"], 5);
     end(f, "p"); skip(f, "a");
-    run(f, { type: "beginTurn", actor: "x" }, [10]); // maintain 13 vs 10
+    go(f, "x"); // no maintain roll
     const r = run(f, atk("x", "W-I-05", "a"), [10, 4]); // 10 + 5 − 4 = 11 vs 13
     eq(evs(r, "roll")[0].total, 11); ok(evs(r, "miss").length);
     end(f, "x");
-    for (const id of ["p", "a"]) skip(f, id);
-    run(f, { type: "beginTurn", actor: "x" }, [2]); // 5 vs 10: breaks
-    ok(!C(f, "x").mods.length && !C(f, "x").conds.length, "the curse ends with its Lasting effect");
+    for (const id of ["p", "a", "x"]) skip(f, id);
+    eq(C(f, "x").mods.filter((m) => m.dice === "-1d4").map((m) => m.until.rounds), [9], "1 minute, counted on p's turns");
   });
 
   T("[fx] Twist Fate: Cue, 1 Resolve, reroll a creature's attack once; auto never rerolls", () => {
@@ -725,13 +731,13 @@ module.exports = function register(T, H) {
     eq(evs(r2, "reaction").length, 0);
   });
 
-  T("[fx] Healing Word: Mend, bonus action, 2 Resolve, 60 ft, 2d4 + WIL; reaches an Unconscious ally", () => {
+  T("[fx] Healing Word: Mend, action, 2 Resolve, 60 ft, 2d4 + WIL; reaches an Unconscious ally", () => {
     const f = fight([pc("p", [1, 5], priest()), pc("a", [12, 5]), pc("far", [14, 5]), foe("x", [20, 5])]);
     run(f, { type: "adjust", actor: "a", hp: 0 });
     pcTurn(f, "p");
     ok(/out of range/.test(refused(f, power(f, "p", "D-I-01#healing-word", { targets: ["far"] }))), "65 ft");
     const r = run(f, power(f, "p", "D-I-01#healing-word", { targets: ["a"] }), [1, 2]);
-    eq(evs(r, "heal")[0].n, 6); ok(!has(C(f, "a"), "Unconscious")); eq(C(f, "p").resolve["D-I-01"], 4); ok(C(f, "p").turn.bonus);
+    eq(evs(r, "heal")[0].n, 6); ok(!has(C(f, "a"), "Unconscious")); eq(C(f, "p").resolve["D-I-01"], 4); eq(C(f, "p").turn.acts, 1);
   });
 
   T("[fx] Cure Wounds: Mend, action, 2 Resolve, touch, 2d8 + WIL", () => {
@@ -740,18 +746,20 @@ module.exports = function register(T, H) {
     pcTurn(f, "p");
     ok(/out of range \(5 ft\)/.test(refused(f, power(f, "p", "D-I-01#cure-wounds", { targets: ["b"] }))));
     const r = run(f, power(f, "p", "D-I-01#cure-wounds", { targets: ["a"] }), [4, 5]);
-    eq(evs(r, "heal")[0].n, 12); ok(C(f, "p").turn.action);
+    eq(evs(r, "heal")[0].n, 12); eq(C(f, "p").turn.acts, 1);
   });
 
   // ---------- Wildheart's Remembrance ----------
   const druid = (o) => Object.assign({ core: "C-I-04", armor: "A-I-01", hands: ["W-I-05"], aspects: ["N-I-01"] }, o);
-  T("[fx] Hawk: Form, bonus action, 1 Resolve: Tiny, Fly 60, 4 HP, Talons +2 1d4 + DEX; no voice", () => {
+  T("[fx] Hawk: Form, action, 1 Resolve: Tiny, Fly 60, 4 HP, Talons +2 1d4 + DEX; no voice", () => {
     const f = fight([pc("d", [1, 5], druid({ aspects: ["N-I-01", "D-I-01"] })), foe("x", [12, 5])]);
     pcTurn(f, "d");
     run(f, power(f, "d", "N-I-01#hawk"));
     const d = C(f, "d");
-    eq([d.size, d.totals.STR, d.totals.DEX, d.totals.STRd, d.totals.DEXd, d.form.hp, d.turn.speed, d.resolve["N-I-01"]], ["Tiny", -2, 3, 8, 13, 4, 60, 5]);
-    ok(d.turn.bonus);
+    const move = () => f.legal("d").find((t) => t.type === "move").left;
+    eq([d.size, d.totals.STR, d.totals.DEX, d.totals.STRd, d.totals.DEXd, d.form.hp, move(), d.resolve["N-I-01"]], ["Tiny", -2, 3, 8, 13, 4, 60, 5]);
+    eq(d.turn.acts, 1);
+    end(f, "d"); skip(f, "x"); go(f, "d");
     run(f, { type: "move", actor: "d", path: [[2, 5], [3, 5], [4, 5], [5, 5], [6, 5], [7, 5], [8, 5], [9, 5], [10, 5], [11, 5]] });
     const i = pv(f, atk("d", "natural", "x"));
     eq([i.toHit, i.damage], [5, "1d4+3 Physical"]);
@@ -763,7 +771,7 @@ module.exports = function register(T, H) {
     pcTurn(f, "d");
     run(f, power(f, "d", "N-I-01#wolf"));
     const d = C(f, "d");
-    eq([d.size, d.totals.STR, d.totals.DEX, d.form.hp, d.turn.speed, d.resolve["N-I-01"]], ["Medium", 1, 3, 8, 40, 4]);
+    eq([d.size, d.totals.STR, d.totals.DEX, d.form.hp, f.legal("d").find((t) => t.type === "move").left, d.resolve["N-I-01"]], ["Medium", 1, 3, 8, 40, 4]);
     eq(pv(f, atk("d", "natural", "x")).damage, "1d6+3 Physical");
     end(f, "d"); go(f, "x");
     const r = run(f, atk("x", "W-I-05", "d"), [15, 10]); // 13 damage: 8 off the Form, 5 carry over
@@ -782,7 +790,7 @@ module.exports = function register(T, H) {
     eq([C(f, "d").size, C(f, "d").totals.STRd, C(f, "d").form], ["Medium", 12, null]);
     end(f, "d"); skip(f, "x"); go(f, "d");
     run(f, power(f, "d", "N-I-01#wolf"));
-    ok(/Bonus action already used/.test(refused(f, power(f, "d", "N-I-01#hawk"))));
+    ok(f.preview(power(f, "d", "N-I-01#hawk")).ok, "Form to Form with the second action");
     end(f, "d"); skip(f, "x"); go(f, "d");
     ok(/not enough Resolve/.test(refused(f, power(f, "d", "N-I-01#bear"))), "3 + 2 spent of 6: 1 left");
     run(f, power(f, "d", "N-I-01#hawk"));
@@ -800,20 +808,20 @@ module.exports = function register(T, H) {
   });
 
   // ---------- Ogre Chieftain ----------
-  T("[fx] Ogre Chieftain Bellow: bonus action, Recharge 5–6, +5 vs WIL of each enemy within 30 ft, Frightened until the end of its next turn; not on a half turn", () => {
+  T("[fx] Ogre Chieftain Bellow: reaction, Recharge 5–6, +5 vs WIL of each enemy within 30 ft, Frightened until the end of its next turn; on a half turn too", () => {
     const f = fight([pc("a", [3, 5]), pc("b", [3, 8]), pc("c", [14, 12]), tmpl("boss", "Ogre Chieftain", [5, 5])]);
     eq([C(f, "boss").maxHp, C(f, "boss").totals.SPD], [70, 30]);
     start(f);
     go(f, "a"); end(f, "a");
     run(f, { type: "beginTurn", actor: "boss", half: true });
-    ok(!f.legal("boss").some((t) => t.power === "foe-ogre-chieftain#0"), "a half turn has no bonus action");
+    ok(f.legal("boss").some((t) => t.power === "foe-ogre-chieftain#0"), "its reaction works on a half turn");
     end(f, "boss");
     skip(f, "b"); skip(f, "c");
     run(f, { type: "beginTurn", actor: "boss" }); // ready at the start of the fight: no recharge roll
     const r = run(f, power(f, "boss", "foe-ogre-chieftain#0"), [6]); // 11 vs WIL 10
     eq(evs(r, "roll").length, 1); ok(has(C(f, "a"), "Frightened") && has(C(f, "b"), "Frightened")); ok(!has(C(f, "c"), "Frightened"), "out of 30 ft");
     eq(C(f, "boss").uses["foe-ogre-chieftain#0"], 0);
-    eq([C(f, "boss").turn.bonus, C(f, "boss").turn.action], [true, false], "it spends its bonus action, not its action");
+    eq([C(f, "boss").turn.reaction, C(f, "boss").turn.acts], [true, 2], "it spends its reaction, not an action");
     const e = end(f, "boss", [5]); // Recharge rolled at the end of its turn: a 5, ready again
     ok(evs(e, "roll").some((x) => x.kind === "recharge")); eq(C(f, "boss").uses["foe-ogre-chieftain#0"], 1);
   });

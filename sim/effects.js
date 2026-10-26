@@ -81,16 +81,16 @@
       const targets = sweepTargets(ctx, w);
       if (!targets) return "Pick enemies within your reach";
       if (!targets.length) return `No enemy within reach of ${w.name}`;
-      const info = ctx.attackInfo(targets[0], { w, area: true });
+      const info = ctx.attackInfo(targets[0], { w, area: true, toDamage: ctx.cmd && ctx.cmd.toDamage });
       const dice = w.two && ctx.actor.hands.length < ctx.actor.build.slots.hand ? w.two : w.dice;
       const mod = ctx.actor.totals[info.abil];
-      return { targets, info: { weapon: w.id, toHit: info.bonus, dice: info.dice, adv: info.adv, dis: info.dis, why: info.why.concat(info.parts), vs: "weapon",
+      return { targets, info: { weapon: w.id, toHit: info.bonus, dice: info.dice, adv: info.adv, dis: info.dis, toDamage: info.toDamage, why: info.why.concat(info.parts), vs: "weapon",
         defense: targets.map((t) => `${t.name} ${ctx.attackInfo(t, { w, area: true }).def}`).join(", "),
         damage: `${dice}${mod ? (mod > 0 ? "+" : "−") + Math.abs(mod) : ""} ${w.type || "Physical"} (half on a miss)`, range: ctx.weaponReach(w) } };
     },
     onUse(ctx) {
       const w = sweepWeapon(ctx);
-      ctx.areaWeaponAttack(w, ctx.targets, { attackAction: true, label: `sweeps with ${w.name}` });
+      ctx.areaWeaponAttack(w, ctx.targets, { attackAction: true, label: `sweeps with ${w.name}`, toDamage: ctx.cmd && ctx.cmd.toDamage });
     },
   });
 

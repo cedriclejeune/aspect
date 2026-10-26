@@ -89,10 +89,10 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
   "name": "Steady Aim",                // deck powers: power name; card fx: card name unless the card has several
   "kind": "Cantrip" | "Spell" | "Anthem" | "Dirge" | "Cue" | "Mend" | "Form" | null,
   "cost": 1,                           // spell points (spell level) or Resolve
-  "use": "action" | "bonus" | "reaction" | "trigger" | "passive" | "free",
+  "use": "action" | "reaction" | "trigger" | "passive" | "free",   // reaction without `on`: used on your own turn (P 6.2)
   "uses": "2/SR" | "1/LR",             // limited uses (reset at the start of each fight, GM 2.1)
   "recharge": 5,                       // Recharge 5–6
-  "on": Trigger,                       // reaction and trigger only
+  "on": Trigger,                       // trigger, and a reaction with a trigger
   "need": ["shield"],                  // shield | emptyHand | voice | attackAction | melee | ranged | weapon
   "reach": 30,                         // range in ft from the user (5 = touch or within 5 ft)
   "target": "self" | "creature" | "ally" | "enemy" | "allies" | "enemies" | "point" | "darts",
@@ -103,8 +103,8 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
   "half": true,                        // half damage on a miss
   "do": [Effect],
   "dur": "instant" | "1 round" | "1 minute" | "1 hour",
-  "lasting": true,                     // effect is Lasting (maintain rolls, P 8)
-  "subdue": false,
+  "lasting": true,                     // with subdue: the source repeats the attack each turn (P 8)
+  "subdue": false,                     // Subdue: first bite, then repeats with decay; nothing else repeats a roll
   "tags": ["fear"],                    // fear, mind control, poison, illusion, fire...
   "upcast": { "darts": 1 },
   "form": Form,                        // kind Form only
@@ -130,7 +130,7 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
 ```jsonc
 { "dmg": "1d10", "type": "Fire" }            // dice may add a flat or ability: "1d4+1", "2d8+WIL"
 { "heal": "2d4+2" }
-{ "cond": "Prone" }                          // P 8 condition; with power.lasting → lasting effect
+{ "cond": "Prone" }                          // P 8 condition; with power.subdue → Subdue effect
 { "mod": "attack" | "def" | "roll" | "dmg", "n": -2, "dice": "-1d4", "defs": ["STR","DEX"],
   "next": true,                              // only the next roll
   "until": Until }
@@ -140,9 +140,9 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
 { "shove": true }
 { "attack": "melee" }                        // make one extra attack (Cleave)
 ```
-**Until**: `endTargetTurn` (end of the target's next turn) · `startSourceTurn` (start of the source's next turn) · `endSourceTurn` (end of the source's next turn) · `dur` (the power's duration) · `lasting`.
+**Until**: `endTargetTurn` (end of the target's next turn) · `targetTurns2` ("for 2 turns": the end of the target's 2nd turn; a Boss's half turns count) · `startSourceTurn` (start of the source's next turn) · `endSourceTurn` (end of the source's next turn) · `dur` (the power's duration) · `lasting`.
 
-**Passive keys** (`use: "passive"`): `attacks: 2` · `defVs: { "WIL": 2 }` + `tags` · `extraResolve: 1` · `extraSp: 1` · `anthemReach: 60` · `cueReach: 90` · `castingHand: true` · `darkvision: 60` · `hook` + `params` (Close Order, Brace, Pierce...).
+**Passive keys** (`use: "passive"`): `attacks: 2` · `defVs: { "WIL": 2 }` + `tags` · `extraResolve: 1` · `extraSp: 1` · `anthemReach: 60` · `cueReach: 90` · `dirgeReach: 90` · `relentless: true` (with `uses`: drop to 1 HP instead of 0) · `regen: 10` + `stopBy: ["Fire"]` (heal at the start of the turn unless that damage was taken) · `fearless: true` (never checks Morale) · `resist`/`vuln` lists · `castingHand: true` · `darkvision: 60` · `hook` + `params` (Close Order, Brace, Pierce...).
 
 **Form**: `{ "strip": { "STR": -2, "DEX": 3, "STRd": 8, "DEXd": 13, "HP": 4, "SPD": 10 }, "size": "Tiny", "fly": 60, "climb": 0, "weapon": { "name": "Talons", "hit": 2, "dice": "1d4", "abil": ["DEX"], "type": "Physical" } }`
 
@@ -203,11 +203,11 @@ Eng.replay(exported, cards)     // → Fight
     "id", "side", "name", "pos": [x,y], "size", "totals": {...}, "hp", "maxHp", "temp",
     "form": null | { "power", "hp", "maxHp", "totals" },
     "dead": false, "down": false, "stable": false, "death": { "ok": 0, "fail": 0 },
-    "conds": [ { "name": "Prone", "source": "foe1", "until": "...", "lasting": true, "subdue": false, "rolls": 0, "hurt": 0 } ],
+    "conds": [ { "name": "Prone", "source": "foe1", "until": "...", "lasting": true, "subdue": true, "rolls": 0, "hurt": 0, "bonus": 5, "decay": 0, "hold": false } ],
     "mods": [ { "kind": "attack", "n": 2, "dice": null, "next": true, "until": "...", "source": "pc3", "power": "..." } ],
     "turn": { "moved": 0, "speed": 30, "action": false, "bonus": false, "reaction": false, "interact": false, "spellCast": false, "disengaged": false, "dodging": false, "firstMover": false },
     "hands": [...], "carried": [...], "items": [...],
-    "uses": { "<power id>": 1 }, "sp": { "<deck id>": 4 }, "resolve": { "<deck id>": 6 }, "extra": { "sp": 0, "resolve": 0 },
+    "uses": { "<power id>": 1 }, "sp": { "<deck id>": 4 }, "resolve": { "<deck id>": 6 }, "extraResolve": { "<deck id>": 1 },
     "react": "ask"
   } },
   "rng": { "seed": 1, "s": 1 }
@@ -219,8 +219,8 @@ Eng.replay(exported, cards)     // → Fight
 | `start` | — | a surprised side: the other goes first with full turns (Ambush), no roll; otherwise side initiative: d20 + the side's best DEX, re-roll ties (P 6.1) |
 | `beginTurn` | `actor` | pick who acts next on the active side; `half: true` for a Boss half turn on the other side (GM 3) |
 | `move` | `actor, path: [[x,y],...]` | cost, difficult terrain, Prone crawl, stand up (`stand: true`), provoked OAs (P 6.4–6.5) |
-| `attack` | `actor, weapon: "<card id>" \| "unarmed" \| "improvised" \| "natural", target, thrown: bool` | P 6.6–6.9; two-weapon bonus attack: `offhand: true` |
-| `act` | `actor, action: "dash" \| "disengage" \| "dodge" \| "help", target?` | P 6.3 |
+| `attack` | `actor, weapon: "<card id>" \| "unarmed" \| "improvised" \| "natural", target, thrown: bool, toDamage: n` | P 6.6–6.9; two-weapon bonus attack: `offhand: true`; `toDamage`: advantage dice moved to damage (P 5.2, also on `power`) |
+| `act` | `actor, action: "disengage" \| "dodge" \| "help" \| "holdOn", target?` | P 6.3, 8 (holdOn: both actions, the next repeat of each Subdue you hold adds no decay) |
 | `shove` / `grapple` / `escape` | `actor, target, mode: "push" \| "prone"` | P 6.10 |
 | `power` | `actor, power: "<power id>", targets: [id], point: [x,y], level` | spells, deck powers, card powers |
 | `interact` | `actor, draw: "<card id>", stow: "<card id>"` | free object interaction: swap a carried weapon in hand, pick up a thrown one |
@@ -260,4 +260,4 @@ CSV export: one row per creature with those columns.
 - `act` action `endCond` (field `cond`): spend the action a condition names to end it (Pilum: pull it free). Conditions may carry `card` and `endAction`.
 - Foe `extraDice`: a number (extra damage dice on every weapon, as before) or `{ "<weapon card id>": n }` (only those weapons; natural and Form weapons get none). Ogre: `{ "W-I-11": 1 }` (Javelins). `fromFoe` copies it into `Build.extraDice`, which takes the same two shapes.
 - Foe `recharge: { "<power id>": 5 }`: for this creature the card power loses its `uses` and becomes Recharge 5–6 (ready at the start of the fight, rolled for at the start of its turns). Ogre: `{ "Q-II-02#0": 5 }` (Sweeping Blow). `fromFoe` copies it into `Build.recharge`. In `cards/foes.py` it is `recharge={card name: 5}`; the export maps it to every limited-use power of that card. Recharge is rolled at the end of the creature's full turn (GM 2.1).
-- Foe `leader: true` (keyword Leader): `fromFoe` copies it into `Build.leader`. Morale (P 6.11, R800) runs after each command; a foe that flees gets `dead: true, fled: true` in its state (it takes its gear) and a `flee` event; `state.morale = { group: [foe ids at start], leader, half }` records the triggers already fired.
+- Foe `leader: true` (keyword Leader): `fromFoe` copies it into `Build.leader`. Morale (P 6.11, R800) runs after each command, one roll per group with its best WIL; a foe that flees gets `dead: true, fled: true` in its state (it takes its gear) and a `flee` event; `state.morale = { group: [foe ids at start], leader, half }` records the triggers already fired.

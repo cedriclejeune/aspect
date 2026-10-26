@@ -971,7 +971,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
    "fx": [
     {
      "name": "Boots of the Long Stride",
-     "use": "bonus",
+     "use": "action",
      "uses": "1/SR",
      "target": "self",
      "do": [
@@ -1030,7 +1030,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
    "fx": [
     {
      "name": "Potion of Healing",
-     "use": "bonus",
+     "use": "action",
      "reach": 5,
      "target": "creature",
      "do": [
@@ -1107,7 +1107,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
    "fx": [
     {
      "name": "Pocket Sand",
-     "use": "bonus",
+     "use": "action",
      "reach": 5,
      "target": "enemy",
      "atk": {
@@ -1147,7 +1147,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
    "fx": [
     {
      "name": "Alchemist's Fire",
-     "use": "bonus",
+     "use": "action",
      "reach": 30,
      "target": "point",
      "area": {
@@ -1283,7 +1283,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
    "fx": [
     {
      "name": "Steady Aim",
-     "use": "bonus",
+     "use": "action",
      "uses": "2/SR",
      "target": "self",
      "do": [
@@ -1565,7 +1565,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
    "fx": [
     {
      "name": "Second Wind",
-     "use": "bonus",
+     "use": "action",
      "uses": "1/SR",
      "target": "self",
      "do": [
@@ -1698,7 +1698,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
    "fx": [
     {
      "name": "Slippery",
-     "use": "bonus",
+     "use": "action",
      "uses": "2/SR",
      "target": "self",
      "do": [
@@ -1913,7 +1913,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
      "name": "Misty Step",
      "kind": "Spell",
      "cost": 2,
-     "use": "bonus",
+     "use": "action",
      "target": "self",
      "do": [
       {
@@ -1987,7 +1987,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
      "name": "Rally",
      "kind": "Anthem",
      "cost": 1,
-     "use": "bonus",
+     "use": "action",
      "reach": 30,
      "target": "allies",
      "count": 3,
@@ -2063,7 +2063,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
      "name": "Bless",
      "kind": "Anthem",
      "cost": 1,
-     "use": "bonus",
+     "use": "action",
      "reach": 30,
      "target": "allies",
      "count": 3,
@@ -2116,7 +2116,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
      "name": "Healing Word",
      "kind": "Mend",
      "cost": 2,
-     "use": "bonus",
+     "use": "action",
      "reach": 60,
      "target": "creature",
      "do": [
@@ -2153,7 +2153,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
      "name": "Hawk",
      "kind": "Form",
      "cost": 1,
-     "use": "bonus",
+     "use": "action",
      "target": "self",
      "form": {
       "strip": {
@@ -2172,7 +2172,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
      "name": "Wolf",
      "kind": "Form",
      "cost": 2,
-     "use": "bonus",
+     "use": "action",
      "target": "self",
      "form": {
       "strip": {
@@ -2205,7 +2205,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
      "name": "Bear",
      "kind": "Form",
      "cost": 3,
-     "use": "bonus",
+     "use": "action",
      "target": "self",
      "form": {
       "strip": {
@@ -2244,7 +2244,7 @@ globalThis.BEARERS_CARDS = globalThis.BEARERS_CARDS || {
    "totals": {}
   },
   {
-   "name": "Archer",
+   "name": "Bandit Archer",
    "core": "C-I-02",
    "body": null,
    "carries": [

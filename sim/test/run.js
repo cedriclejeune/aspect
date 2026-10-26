@@ -71,17 +71,54 @@ T("fromFoe matches the printed foe totals", () => {
 });
 
 // ---------- engagement ----------
-T("Outnumbered: 3 vs 1 gives 2 advantage, also to an archer; a second orc makes it 1 (P 6.5)", () => {
-  const f = fight([pc("a", [4, 5], { hands: ["W-I-05"] }), pc("b", [6, 5]), pc("c", [5, 4]), pc("arch", [5, 11], { core: "C-I-02", hands: ["W-I-09"] }), orc("o1", [5, 5]), orc("o2", [3, 5])]);
+T("Outnumbered: more on your side gives one advantage die (Crowd), also to an archer (P 5.2, P 6.5)", () => {
+  // o3 stands beside o1 and counts; o2 fights a elsewhere and doesn't (only the target's surroundings count)
+  const f = fight([pc("a", [4, 5], { hands: ["W-I-05"] }), pc("b", [6, 5]), pc("c", [5, 4]), pc("arch", [5, 11], { core: "C-I-02", hands: ["W-I-09"] }), orc("o1", [5, 5]), orc("o2", [3, 5]), orc("o3", [5, 6])]);
   const G = Eng.geometry, st = f.state;
-  eq(G.outnumbered(st, C(f, "a"), C(f, "o1")).n, 1, "with o2 engaged: 3 vs 2");
+  eq(G.outnumbered(st, C(f, "a"), C(f, "o1")).n, 1, "3 vs o1 and o3 beside it");
   eq(G.outnumbered(st, C(f, "arch"), C(f, "o1")).n, 1, "archer gets the same dice");
-  run(f, { type: "adjust", actor: "o2", dead: true });
+  run(f, { type: "adjust", actor: "o3", dead: true });
   eq(G.outnumbered(st, C(f, "a"), C(f, "o1")).n, 2);
   start(f);
   run(f, { type: "beginTurn", actor: "a" });
   const pv = f.preview({ type: "attack", actor: "a", weapon: "W-I-05", target: "o1" });
-  ok(pv.ok, pv.error); eq([pv.info.dice, pv.info.adv, pv.info.outnumbered.us, pv.info.outnumbered.them], [3, 2, 3, 1]);
+  ok(pv.ok, pv.error); eq([pv.info.dice, pv.info.adv, pv.info.outnumbered.us, pv.info.outnumbered.them], [2, 1, 3, 1], "3 vs 1: still one die");
+});
+T("No cap on dice (P 5.2): unseen, a Prone target and a crowd are 3 advantage, rolled as 4d20", () => {
+  const f = fight([pc("a", [4, 5], { hands: ["W-I-05"] }), pc("b", [6, 5]), pc("c", [5, 4]), orc("o1", [5, 5])]);
+  start(f);
+  run(f, { type: "adjust", actor: "o1", cond: "Prone" });
+  run(f, { type: "adjust", actor: "a", cond: "Invisible" });
+  run(f, { type: "beginTurn", actor: "a" });
+  const pv = f.preview({ type: "attack", actor: "a", weapon: "W-I-05", target: "o1" });
+  ok(pv.ok, pv.error); eq([pv.info.adv, pv.info.dice, pv.info.keep], [3, 4, "highest"]);
+  const r = run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" }, [2, 3, 18, 1, 5]);
+  eq(evs(r, "roll")[0].dice.length, 4);
+});
+T("Damage advantage (P 5.2): advantage dice moved to damage roll the whole damage again, keep the highest", () => {
+  const f = fight([pc("a", [4, 5], { hands: ["W-I-05"] }), pc("b", [6, 5]), pc("c", [5, 4]), orc("o1", [5, 5])]);
+  start(f);
+  run(f, { type: "adjust", actor: "o1", cond: "Prone" });
+  run(f, { type: "beginTurn", actor: "a" });
+  const cmd = { type: "attack", actor: "a", weapon: "W-I-05", target: "o1", toDamage: 2 };
+  const pv = f.preview(cmd);
+  eq([pv.info.adv, pv.info.toDamage, pv.info.dice, pv.info.keep], [2, 2, 1, null], "Target + Crowd, both moved: 1d20");
+  eq(f.preview(Object.assign({}, cmd, { toDamage: 1 })).info.dice, 2, "one moved: 2d20");
+  eq(f.preview(Object.assign({}, cmd, { toDamage: 5 })).info.toDamage, 2, "only the dice left after cancelling");
+  const str = C(f, "a").totals.STR;
+  const r = run(f, cmd, [15, 3, 9, 5]); // 1d20; Longsword two-handed 1d10, rolled 3 times: keeps 9
+  eq([evs(r, "roll")[0].dice.length, evs(r, "damage")[0].n], [1, 9 + str]);
+  f.undo();
+  const c = run(f, cmd, [20, 2, 1, 7, 7, 4, 4]); // a crit doubles the dice of every roll: 3, 14, 8 → 14
+  eq(evs(c, "damage")[0].n, 14 + str, "crit damage included");
+});
+T("Damage advantage: disadvantage stays on the attack", () => {
+  const f = fight([pc("a", [5, 5], { hands: ["W-I-05"] }), orc("o1", [6, 5])]);
+  start(f);
+  run(f, { type: "adjust", actor: "a", cond: "Poisoned" });
+  run(f, { type: "beginTurn", actor: "a" });
+  const pv = f.preview({ type: "attack", actor: "a", weapon: "W-I-05", target: "o1", toDamage: 1 });
+  eq([pv.info.toDamage, pv.info.dice, pv.info.keep], [0, 2, "lowest"]);
 });
 T("Outnumbered: lone attacker at range vs unengaged target: no dice", () => {
   const f = fight([pc("arch", [1, 1], { core: "C-I-02", hands: ["W-I-09"] }), orc("o1", [8, 8])]);
@@ -98,14 +135,14 @@ T("A downed creature counts for neither side of Outnumbered (P 6.5, R223)", () =
   // b is down next to o1 and o2; the archer shooting o1 compares only the creatures still engaged
   const f = fight([pc("b", [5, 5]), pc("c", [6, 6]), pc("arch", [5, 12], { core: "C-I-02", hands: ["W-I-09"] }), orc("o1", [6, 5]), orc("o2", [4, 5])]);
   const G = Eng.geometry, st = f.state;
-  eq(G.outnumbered(st, C(f, "arch"), C(f, "o1")).n, 0, "b and c vs o1 and o2: 2 vs 2");
+  eq(G.outnumbered(st, C(f, "arch"), C(f, "o1")).n, 1, "b and c vs o1: o2 isn't beside o1");
   run(f, { type: "adjust", actor: "b", hp: 0 });
   const o = G.outnumbered(st, C(f, "arch"), C(f, "o1"));
   eq([o.us, o.them, o.n], [1, 1, 0], "c vs o1; o2 stands only next to the downed b");
   const d = G.outnumbered(st, C(f, "o2"), C(f, "b"));
-  eq([d.us, d.them], [0, 1], "attacking the downed b: no foe is engaged with it, its ally c still is with o1 (P 6.5 as written)");
+  eq([d.us, d.them], [0, 1], "attacking the downed b: no foe is engaged with it, its ally c stands beside it (P 6.5 as written)");
 });
-T("Disengage costs by engaged enemies; 4 = surrounded (P 6.5)", () => {
+T("Disengage costs an action; 3+ engaged = surrounded (P 6.3, 6.5)", () => {
   const costs = [];
   for (let n = 1; n <= 4; n++) {
     const spots = [[4, 5], [6, 5], [5, 4], [5, 6]].slice(0, n).map((p, i) => orc("o" + i, p));
@@ -115,7 +152,7 @@ T("Disengage costs by engaged enemies; 4 = surrounded (P 6.5)", () => {
     const pv = f.preview({ type: "act", actor: "a", action: "disengage" });
     costs.push(pv.ok ? pv.info.cost : "surrounded");
   }
-  eq(costs, ["free", "bonus", "action", "surrounded"]);
+  eq(costs, ["action", "action", "surrounded", "surrounded"]);
 });
 T("Opportunity attack when leaving reach; Disengage prevents it", () => {
   const f = fight([pc("a", [5, 5], { hands: ["W-I-05"] }), orc("o1", [6, 5], { react: "auto" })]);
@@ -130,27 +167,54 @@ T("Opportunity attack when leaving reach; Disengage prevents it", () => {
   const r2 = run(f, { type: "move", actor: "a", path: [[4, 5], [3, 5]] });
   eq(evs(r2, "reaction").length, 0);
 });
-T("Movement: difficult terrain, Prone crawl, stand up costs half speed", () => {
+T("Movement: difficult terrain, Prone crawl, standing up takes an action", () => {
   const f = fight([pc("a", [1, 1]), orc("o1", [12, 12])], { cells: { "2,1": "difficult" } });
-  start(f);
+  start(f, "foe");
+  run(f, { type: "beginTurn", actor: "o1" }); run(f, { type: "endTurn", actor: "o1" });
   run(f, { type: "beginTurn", actor: "a" });
   eq(f.preview({ type: "move", actor: "a", path: [[2, 1], [3, 1]] }).info.cost, 15);
   run(f, { type: "act", actor: "a", action: "prone" });
   eq(f.preview({ type: "move", actor: "a", path: [[1, 2]] }).info.cost, 10);
-  eq(f.preview({ type: "move", actor: "a", stand: true, path: [[1, 2]] }).info.cost, 25);
+  eq(f.preview({ type: "move", actor: "a", stand: true, path: [[1, 2]] }).info.cost, 5);
+  run(f, { type: "move", actor: "a", stand: true, path: [[1, 2]] });
+  eq([C(f, "a").turn.acts, C(f, "a").turn.speed - C(f, "a").turn.moved], [0, 35], "stand (1 action), then a Move (40 ft)");
 });
 
 // ---------- turn structure ----------
-T("First-mover rule: round 1 first side gets movement or action", () => {
+T("First-mover rule: round 1 first side gets one action", () => {
   const f = fight([pc("a", [5, 5], { hands: ["W-I-05"] }), orc("o1", [6, 5])]);
   start(f);
   run(f, { type: "beginTurn", actor: "a" });
   ok(C(f, "a").turn.firstMover);
   run(f, { type: "move", actor: "a", path: [[5, 6]] });
-  ok(/movement or action/.test(refused(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" })));
+  ok(/First round: one action/.test(refused(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" })));
   run(f, { type: "endTurn", actor: "a" });
   run(f, { type: "beginTurn", actor: "o1" });
   ok(!C(f, "o1").turn.firstMover, "second side takes full turns");
+});
+T("Two actions: a Move splits around another action; Attack twice; Move twice (P 6.2, 6.3)", () => {
+  const f = fight([pc("a", [1, 5], { hands: ["W-I-05"] }), orc("o1", [5, 5], { build: Object.assign(Eng.fromFoe(CARDS.foes[0], CARDS), { bonus: { HP: 100 } }) })]);
+  start(f, "foe");
+  run(f, { type: "beginTurn", actor: "o1" }); run(f, { type: "endTurn", actor: "o1" });
+  run(f, { type: "beginTurn", actor: "a" });
+  run(f, { type: "move", actor: "a", path: [[2, 5], [3, 5], [4, 5]] }); // 15 of 40 ft: one Move
+  eq(C(f, "a").turn.acts, 1);
+  run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" }, [2]);
+  eq(C(f, "a").turn.acts, 0);
+  run(f, { type: "move", actor: "a", path: [[3, 4]] }); // the rest of the same Move
+  eq(f.preview({ type: "move", actor: "a", path: [[2, 3]] }).info.left, 15);
+  run(f, { type: "endTurn", actor: "a" });
+  run(f, { type: "beginTurn", actor: "o1" }); run(f, { type: "move", actor: "o1", path: [[4, 5]] }); run(f, { type: "endTurn", actor: "o1" });
+  run(f, { type: "beginTurn", actor: "a" });
+  run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" }, [2]);
+  run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" }, [2]);
+  ok(/No actions left/.test(refused(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" })));
+  const g = fight([pc("a", [0, 0]), orc("o1", [20, 13])], { w: 24 });
+  start(g, "foe");
+  run(g, { type: "beginTurn", actor: "o1" }); run(g, { type: "endTurn", actor: "o1" });
+  run(g, { type: "beginTurn", actor: "a" });
+  run(g, { type: "move", actor: "a", path: Array.from({ length: 16 }, (_, i) => [i + 1, 0]) }); // 80 ft: two Moves
+  eq(g.state.creatures.a.turn.acts, 0);
 });
 T("Ambush: a surprised side means the other goes first automatically, full turns, no roll (P 6.1)", () => {
   for (const [surprised, first] of [["foe", "pc"], ["pc", "foe"]]) {
@@ -219,8 +283,8 @@ T("Versatile die with the other Hand empty", () => {
   const r = run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" }, [15, 10]);
   eq(evs(r, "damage")[0].n, 13);
 });
-T("Advantage dice: sources add d20s, cancel, keep highest/lowest; natural 1 on the kept die", () => {
-  const f = fight([pc("a", [5, 5], { hands: ["W-I-05"] }), orc("o1", [6, 5])]);
+T("Advantage dice: one die per question (You, Target, Crowd), questions cancel, keep highest; natural 1 on the kept die", () => {
+  const f = fight([pc("a", [5, 5], { hands: ["W-I-05"] }), pc("b", [7, 5]), orc("o1", [6, 5])]);
   start(f, "foe");
   run(f, { type: "adjust", actor: "o1", cond: "Prone" });
   run(f, { type: "adjust", actor: "o1", cond: "Restrained" });
@@ -228,11 +292,12 @@ T("Advantage dice: sources add d20s, cancel, keep highest/lowest; natural 1 on t
   run(f, { type: "beginTurn", actor: "o1" }); run(f, { type: "endTurn", actor: "o1" });
   run(f, { type: "beginTurn", actor: "a" });
   const pv = f.preview({ type: "attack", actor: "a", weapon: "W-I-05", target: "o1" });
+  // Target: Prone + Restrained count once; Crowd: 2 vs 1; You: Poisoned
   eq([pv.info.adv, pv.info.dis, pv.info.dice, pv.info.keep], [2, 1, 2, "highest"]);
   const r = run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" }, [1, 1]);
   ok(evs(r, "miss").length === 1, "natural 1 on kept die misses");
 });
-T("Twin Strike: two attacks per Attack action; two-weapon fighting with Light weapons", () => {
+T("Twin Strike: one extra attack once per turn; two-weapon fighting with a Light weapon uses the reaction", () => {
   const f = fight([pc("a", [5, 5], { hands: ["W-I-01", "W-I-03"], aspects: ["Q-II-01"] }), orc("o1", [6, 5], { build: Object.assign(Eng.fromFoe(CARDS.foes[0], CARDS), { bonus: { HP: 100 } }) })]);
   start(f, "foe");
   run(f, { type: "beginTurn", actor: "o1" }); run(f, { type: "endTurn", actor: "o1" });
@@ -242,7 +307,9 @@ T("Twin Strike: two attacks per Attack action; two-weapon fighting with Light we
   ok(/Light weapon/.test(refused(f, { type: "attack", actor: "a", weapon: "W-I-01", target: "o1", offhand: true })));
   const r = run(f, { type: "attack", actor: "a", weapon: "W-I-03", target: "o1", offhand: true }, [19, 4]);
   eq(evs(r, "damage")[0].n, 4, "no ability modifier off-hand");
-  ok(/Action already used|Bonus/.test(refused(f, { type: "attack", actor: "a", weapon: "W-I-01", target: "o1" })));
+  ok(/Reaction already used/.test(refused(f, { type: "attack", actor: "a", weapon: "W-I-03", target: "o1", offhand: true })));
+  run(f, { type: "attack", actor: "a", weapon: "W-I-01", target: "o1" }, [2]); // second action: one attack, Twin Strike spent
+  ok(/No actions left/.test(refused(f, { type: "attack", actor: "a", weapon: "W-I-01", target: "o1" })));
 });
 T("Thrown weapon lands at the target, picked up with the interaction; Javelins stay in hand", () => {
   const f = fight([pc("a", [5, 5], { hands: ["W-I-01", "W-I-11"] }), orc("o1", [8, 5])]);
@@ -266,9 +333,9 @@ T("Javelins: unlimited throws; ranged with an enemy within 5 ft and long range g
   for (const id of ["o1", "o2"]) { run(f, { type: "beginTurn", actor: id }); run(f, { type: "endTurn", actor: id }); }
   run(f, { type: "beginTurn", actor: "a" });
   const pv = f.preview({ type: "attack", actor: "a", weapon: "W-I-11", target: "o2", thrown: true });
-  // long range, an enemy within 5 ft, and Outnumbered 0 vs 1 (o1 is engaged with a's side)
-  eq([pv.info.dis, pv.info.dice, pv.info.keep], [3, 4, "lowest"]);
-  run(f, { type: "attack", actor: "a", weapon: "W-I-11", target: "o2", thrown: true }, [2, 2, 2, 2]);
+  // You: long range and an enemy within 5 ft count once; Crowd: nobody around o2, 0 vs 0
+  eq([pv.info.dis, pv.info.dice, pv.info.keep], [1, 2, "lowest"]);
+  run(f, { type: "attack", actor: "a", weapon: "W-I-11", target: "o2", thrown: true }, [2, 2]);
   eq(C(f, "a").hands, ["W-I-11"]);
   ok(/beyond long range/.test(f.preview({ type: "attack", actor: "a", weapon: "W-I-11", target: "o2", thrown: true }).error) === false);
 });
@@ -343,9 +410,9 @@ T("Death saves: falling to 0, natural 1, damage at 0, crit within 5 ft on Uncons
   run(f, { type: "beginTurn", actor: "b" }); run(f, { type: "endTurn", actor: "b" });
   run(f, { type: "beginTurn", actor: "o1" });
   const pv = f.preview({ type: "attack", actor: "o1", weapon: "W-I-05", target: "a" });
-  eq(pv.info.adv, 2, "Prone + Stunned; no Outnumbered: no one is engaged with a downed creature (R223)");
+  eq(pv.info.adv, 1, "Prone + Stunned count once (Target); no Outnumbered: no one is engaged with a downed creature (R223)");
   eq([pv.info.outnumbered.us, pv.info.outnumbered.them], [0, 0]);
-  const r = run(f, { type: "attack", actor: "o1", weapon: "W-I-05", target: "a" }, [5, 6, 8], 1);
+  const r = run(f, { type: "attack", actor: "o1", weapon: "W-I-05", target: "a" }, [5, 8], 1);
   ok(evs(r, "crit").length === 1, "hit within 5 ft is a crit");
   ok(C(f, "a").dead);
 });
@@ -381,54 +448,72 @@ T("Temporary HP absorbs first; foes die at 0", () => {
 });
 
 // ---------- lasting / subdue ----------
-T("Lasting effect (Web): maintain roll with the bare modifier breaks on a miss", () => {
+T("Web: one attack roll, Restrained for 2 of the target's turns, no maintain roll (P 10.4, 11.4)", () => {
   const f = fight([pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5])]);
   start(f);
   run(f, { type: "beginTurn", actor: "w" });
   const pv = f.preview({ type: "power", actor: "w", power: "B-I-01#web", point: [6, 5] });
   ok(pv.ok, pv.error); eq(pv.info.targets, ["o1"]); eq(pv.info.cells.length, 4);
   run(f, { type: "power", actor: "w", power: "B-I-01#web", point: [6, 5] }, [15]);
-  ok(C(f, "o1").conds.some((k) => k.name === "Restrained" && k.lasting));
+  const has = () => C(f, "o1").conds.some((k) => k.name === "Restrained");
+  ok(has() && !C(f, "o1").conds.find((k) => k.name === "Restrained").lasting);
   eq(C(f, "w").sp["B-I-01"], 2);
   run(f, { type: "endTurn", actor: "w" });
-  const r = run(f, { type: "beginTurn", actor: "o1" }, [8]); // 8 + INT 3 = 11 < DEX Defense 12
-  ok(evs(r, "maintain").length === 1);
-  ok(!C(f, "o1").conds.some((k) => k.name === "Restrained"), "breaks free");
+  const r = run(f, { type: "beginTurn", actor: "o1" });
+  eq(evs(r, "maintain").length, 0);
+  run(f, { type: "endTurn", actor: "o1" });
+  ok(has(), "still Restrained after its 1st turn");
+  run(f, { type: "beginTurn", actor: "w" }); run(f, { type: "endTurn", actor: "w" });
+  run(f, { type: "beginTurn", actor: "o1" }); run(f, { type: "endTurn", actor: "o1" });
+  ok(!has(), "ends with its 2nd turn");
 });
-T("Lasting effect: hurt source rolls with disadvantage; ends if the source is Incapacitated", () => {
-  const f = fight([pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5]), orc("o2", [1, 6])]);
-  start(f);
-  run(f, { type: "beginTurn", actor: "w" });
-  run(f, { type: "power", actor: "w", power: "B-I-01#web", point: [6, 5] }, [15]);
-  run(f, { type: "endTurn", actor: "w" });
-  run(f, { type: "beginTurn", actor: "o2" });
-  run(f, { type: "attack", actor: "o2", weapon: "W-I-05", target: "w" }, [18, { c: null }, 1]);
-  run(f, { type: "endTurn", actor: "o2" });
-  const r = run(f, { type: "beginTurn", actor: "o1" }, [15, 15]);
-  eq(evs(r, "maintain")[0].dice.length, 2, "1 disadvantage die");
-  run(f, { type: "adjust", actor: "w", cond: "Stunned" });
-  ok(!C(f, "o1").conds.some((k) => k.name === "Restrained"));
-});
-T("Subdue: first bite, weakening, hits add disadvantage", () => {
+T("Subdue: first bite, then the source repeats the attack with decay; Hold on (P 8)", () => {
   const f = fight([pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), pc("a", [5, 5], { hands: ["W-I-05"] }), orc("o1", [6, 5])]);
   start(f);
   run(f, { type: "beginTurn", actor: "w" });
   run(f, { type: "power", actor: "w", power: "B-I-01#hold", targets: ["o1"] }, [12]);
-  ok(C(f, "o1").conds.some((k) => k.name === "Stunned" && k.subdue));
+  const k = C(f, "o1").conds.find((x) => x.name === "Stunned" && x.subdue);
+  ok(k); eq(k.bonus, 5, "INT 3 + book 2");
   run(f, { type: "endTurn", actor: "w" });
   run(f, { type: "beginTurn", actor: "a" }); run(f, { type: "endTurn", actor: "a" });
   const r1 = run(f, { type: "beginTurn", actor: "o1" });
-  eq(evs(r1, "maintain").length, 1); ok(/first bite/.test(evs(r1, "maintain")[0].text));
-  eq(f.state.active, null, "loses its turn");
+  ok(/first bite/.test(evs(r1, "maintain")[0].text)); eq(f.state.active, null, "loses its turn");
   run(f, { type: "beginTurn", actor: "w" }); run(f, { type: "endTurn", actor: "w" });
   run(f, { type: "beginTurn", actor: "a" });
-  run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" }, [10, 10, 1]); // Stunned; no Outnumbered against an Incapacitated target (R223)
+  run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" }, [10, 10, 1]); // hits on the target add nothing
   run(f, { type: "endTurn", actor: "a" });
-  const r2 = run(f, { type: "beginTurn", actor: "o1" }, [15, 15]);
-  eq(evs(r2, "maintain")[0].dice.length, 2, "first maintain roll: 1 die per hit");
-  for (const id of ["w", "a"]) { run(f, { type: "beginTurn", actor: id }); run(f, { type: "endTurn", actor: id }); }
+  const r2 = run(f, { type: "beginTurn", actor: "o1" }, [15]);
+  eq(evs(r2, "maintain")[0].dice.length, 1, "first repeat: one d20"); eq(f.state.active, null, "holds: loses this turn too");
+  run(f, { type: "beginTurn", actor: "w" });
+  run(f, { type: "act", actor: "w", action: "holdOn" });
+  eq(C(f, "w").turn.acts, 0, "both actions");
+  run(f, { type: "endTurn", actor: "w" });
+  run(f, { type: "beginTurn", actor: "a" }); run(f, { type: "endTurn", actor: "a" });
   const r3 = run(f, { type: "beginTurn", actor: "o1" }, [15, 15]);
-  eq(evs(r3, "maintain")[0].dice.length, 2, "second maintain roll: weakening");
+  eq(evs(r3, "maintain")[0].dice.length, 2, "decay 1");
+  for (const id of ["w", "a"]) { run(f, { type: "beginTurn", actor: id }); run(f, { type: "endTurn", actor: id }); }
+  const r4 = run(f, { type: "beginTurn", actor: "o1" }, [15, 15]);
+  eq(evs(r4, "maintain")[0].dice.length, 2, "held on: no decay added");
+  for (const id of ["w", "a"]) { run(f, { type: "beginTurn", actor: id }); run(f, { type: "endTurn", actor: id }); }
+  run(f, { type: "beginTurn", actor: "o1" }, [2, 2, 2]);
+  ok(!C(f, "o1").conds.some((x) => x.name === "Stunned"), "a missed repeat ends it"); eq(f.state.active, "o1");
+});
+T("Subdue: a hurt source adds decay; it ends if the source is Incapacitated (P 8)", () => {
+  const f = fight([pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5]), orc("o2", [1, 6])]);
+  start(f);
+  run(f, { type: "beginTurn", actor: "w" });
+  run(f, { type: "power", actor: "w", power: "B-I-01#hold", targets: ["o1"] }, [12, 12]); // o2 within 5 ft: disadvantage
+  run(f, { type: "endTurn", actor: "w" });
+  run(f, { type: "beginTurn", actor: "o2" });
+  run(f, { type: "attack", actor: "o2", weapon: "W-I-05", target: "w" }, [18, { c: null }, 1]);
+  run(f, { type: "endTurn", actor: "o2" });
+  run(f, { type: "beginTurn", actor: "o1" }); // first bite
+  run(f, { type: "beginTurn", actor: "w" }); run(f, { type: "endTurn", actor: "w" });
+  run(f, { type: "beginTurn", actor: "o2" }); run(f, { type: "endTurn", actor: "o2" });
+  const r = run(f, { type: "beginTurn", actor: "o1" }, [15, 15]);
+  eq(evs(r, "maintain")[0].dice.length, 2, "the hit on w: 1 decay");
+  run(f, { type: "adjust", actor: "w", cond: "Stunned" });
+  ok(!C(f, "o1").conds.some((k) => k.name === "Stunned"));
 });
 T("Dirge vs WIL with fear tag: Iron Will adds +2 WIL Defense", () => {
   const f = fight([pc("e", [1, 5], { core: "C-I-04", aspects: ["G-I-01"] }), foe("x", [6, 5], { aspects: ["T-I-03"] })]);
@@ -437,7 +522,7 @@ T("Dirge vs WIL with fear tag: Iron Will adds +2 WIL Defense", () => {
   const pv = f.preview({ type: "power", actor: "e", power: "G-I-01#dread", targets: ["x"] });
   eq([pv.info.toHit, pv.info.defense], [5, 12]);
   run(f, { type: "power", actor: "e", power: "G-I-01#dread", targets: ["x"] }, [10]); // own Cue is for allies only
-  ok(C(f, "x").conds.some((k) => k.name === "Frightened" && k.lasting));
+  ok(C(f, "x").conds.some((k) => k.name === "Frightened" && !k.lasting && k.until));
   eq(C(f, "e").resolve["G-I-01"], 4);
 });
 
@@ -551,7 +636,7 @@ T("Spells: empty Hand needed, one spell per turn, spell points, darts with upcas
 T("Area: one roll against each creature; half damage on a miss", () => {
   const cards = JSON.parse(JSON.stringify(CARDS));
   cards.cards["R-II-01"] = { id: "R-II-01", name: "Fire Flask", rank: "II", kind: "gear", type: "Recipe", kw: ["Recipe"], text: [], strip: {}, uses: 3,
-    fx: [{ id: "R-II-01#0", name: "Fire Flask", use: "bonus", reach: 30, target: "point", area: { shape: "sphere", size: 5 }, atk: { abil: ["DEX", "INT"], hit: 3, vs: "DEX" }, half: true, do: [{ dmg: "2d6", type: "Fire" }] }] };
+    fx: [{ id: "R-II-01#0", name: "Fire Flask", use: "reaction", reach: 30, target: "point", area: { shape: "sphere", size: 5 }, atk: { abil: ["DEX", "INT"], hit: 3, vs: "DEX" }, half: true, do: [{ dmg: "2d6", type: "Fire" }] }] };
   const f = fight([pc("a", [1, 5], { core: "C-I-02", items: [{ id: "R-II-01" }] }), orc("o1", [6, 5]), orc("o2", [7, 6]), orc("o3", [10, 10])], { cards });
   start(f);
   run(f, { type: "beginTurn", actor: "a" });
@@ -561,7 +646,7 @@ T("Area: one roll against each creature; half damage on a miss", () => {
 });
 T("Anthem on allies (count, Duration), Bless-like dice mods roll on the attack", () => {
   const cards = JSON.parse(JSON.stringify(CARDS));
-  cards.decks["G-I-01"].powers.push({ id: "G-I-01#rally", name: "Rally", kind: "Anthem", cost: 1, use: "bonus", reach: 30, target: "allies", count: 3, need: ["voice"], dur: "1 minute", do: [{ mod: "attack", n: 2, until: "dur" }] });
+  cards.decks["G-I-01"].powers.push({ id: "G-I-01#rally", name: "Rally", kind: "Anthem", cost: 1, use: "action", reach: 30, target: "allies", count: 3, need: ["voice"], dur: "1 minute", do: [{ mod: "attack", n: 2, until: "dur" }] });
   const f = fight([pc("e", [1, 5], { core: "C-I-04", aspects: ["G-I-01"] }), pc("a", [3, 5]), pc("b", [12, 12]), orc("o1", [13, 0])], { cards });
   start(f);
   run(f, { type: "beginTurn", actor: "e" });
@@ -578,10 +663,10 @@ T("Forms: shift with fresh totals, own HP pool, overflow carries over, gear off,
   const d = C(f, "d");
   eq([d.size, d.totals.STR, d.totals.STRd, d.totals.WIL, d.form.hp, d.resolve["N-I-01"]], ["Large", 3, 15, 3, 12, 3]);
   ok(!f.preview({ type: "attack", actor: "d", weapon: "W-I-05", target: "o1" }).ok, "gear merged");
-  run(f, { type: "move", actor: "d", path: [[6, 5]] });
-  ok(f.preview({ type: "attack", actor: "d", weapon: "natural", target: "o1" }).ok === false, "first-mover: moved, no action");
+  ok(!f.preview({ type: "move", actor: "d", path: [[6, 5]] }).ok, "first-mover: the shift was its one action");
   run(f, { type: "endTurn", actor: "d" });
   run(f, { type: "beginTurn", actor: "o1" });
+  run(f, { type: "move", actor: "o1", path: [[7, 5]] });
   run(f, { type: "attack", actor: "o1", weapon: "W-I-05", target: "d" }, [18, 8]);
   eq([C(f, "d").form.hp, C(f, "d").hp], [1, 10], "11 damage comes off the Form");
   run(f, { type: "endTurn", actor: "o1" });
@@ -663,7 +748,7 @@ function realTests() {
     ];
     for (const b of party) eq(Eng.validate(b, REAL).filter((s) => !/^Warning/.test(s)), [], b.id);
     let seedN = 0;
-    for (const foes of [["Bandit", "Archer", "Goblin", "Wolf"], ["Cultist", "Legionary", "Bandit Captain"], ["Ogre", "Goblin", "Goblin"], ["Ogre Chieftain", "Wolf", "Cultist"]]) {
+    for (const foes of [["Bandit", "Bandit Archer", "Goblin", "Wolf"], ["Cultist", "Legionary", "Bandit Captain"], ["Ogre", "Goblin", "Goblin"], ["Ogre Chieftain", "Wolf", "Cultist"]]) {
       for (let k = 0; k < 3; k++) {
         const seed = 1000 + seedN++;
         let rs = seed;

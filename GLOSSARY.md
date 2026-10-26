@@ -186,23 +186,35 @@ _Avoid_: skill check, test
 A roll of d20 + modifiers against a Defense, made by whoever harms or hinders: weapons, spells, Divine, Glamour and Nature powers, traps, poisons.
 _Avoid_: saving throw, save
 
+**Advantage on damage**:
+Moving an advantage die left after cancelling from an attack to its damage, chosen before rolling: roll the whole damage once more per die and keep the highest total. Disadvantage always stays on the attack.
+_Avoid_: damage advantage, extra damage die, brutal
+
+**You question**:
+The first of the three questions asked before an attack: your position and conditions (unseen; long range, can't see the target, Prone…). One die at most. The only question asked on checks, saves and area rolls.
+_Avoid_: attacker situation, self modifier
+
+**Target question**:
+The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply.
+_Avoid_: target situations (as a count), target modifiers
+
+**Crowd question**:
+The third of the three questions asked before an attack: Outnumbered. One advantage die if your side has more creatures engaged around the target, one disadvantage die if its side has more.
+_Avoid_: gang-up, flanking, Pack Tactics
+
 **Use**:
 The action that uses an object, or gear that takes an action.
 _Avoid_: Use Item, Use Object
 
 ### Effects
 
-**Lasting effect**:
-An effect on a creature that ends when the creature breaks free, not after a set time.
-_Avoid_: save-ends, concentration
-
-**Maintain roll**:
-The source's roll, at the start of each of the target's turns, to keep a lasting effect going.
-_Avoid_: save, repeat save
-
 **Subdue**:
-The keyword of a lasting effect that takes a creature out of the fight. The effect names its state (Stunned, Charmed, banished…); Subdue adds first bite and weakening.
-_Avoid_: Hold (as a keyword), disable, takedown, crowd control
+The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses.
+_Avoid_: Hold (as a keyword), Lasting, maintain roll, save-ends, concentration, disable, takedown, crowd control
+
+**Decay**:
+The disadvantage dice a Subdue's repeat attack gathers: one for each repeat that hit and each time the source took damage.
+_Avoid_: weakening
 
 **Duration**:
 A set length of time an effect lasts, printed on it.
@@ -224,7 +236,7 @@ An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixe
 _Avoid_: Memories, Bestiary, Wilds, Calling, druidic magic, primal magic
 
 **Resolve**:
-The points a Divine, Glamour or Nature Aspect spends on its powers. Each has its own pool; extra Resolve from Traits can be spent on any of them. It returns on a short rest.
+The points a Divine, Glamour or Nature Aspect spends on its powers. Each has its own pool; extra Resolve from Traits and gear adds to one of them. It returns on a short rest.
 _Avoid_: Presence points, Wild points, will points, mana
 
 **Form**:
@@ -269,13 +281,15 @@ An item gone once used. Up to 3 identical Consumables share one Item Slot.
 An item: a stack that refills at each long rest. Unused items vanish when it refills.
 
 **Action**:
-Using it takes your action.
+Using it takes one of your two actions.
 
-**Bonus action**:
-Using it takes your bonus action.
+**Move**:
+An action: move up to your speed, split before and after your other action if you like.
+_Avoid_: Dash, movement
 
 **Reaction**:
-Using it takes your reaction, when the trigger in its text happens.
+Using it takes your reaction: when the trigger in its text happens, or on your turn if it has none.
+_Avoid_: bonus action
 
 **Aquatic**:
 A weapon keyword: works underwater, where other weapons and spells don't.
@@ -290,7 +304,7 @@ A weapon keyword: needs STR +1 (melee) or DEX +1 (ranged), or −3 on attacks.
 A weapon keyword: allows two-weapon fighting.
 
 **Loading**:
-A weapon keyword: one shot per action, bonus action or reaction, even with extra attacks.
+A weapon keyword: one shot per action or reaction, even with extra attacks.
 
 **Noisy N**:
 −N on checks to sneak.
@@ -321,7 +335,7 @@ _Avoid_: AoE, template
 Nobody notices you casting it.
 
 **Anthem**:
-A Divine or Glamour power. Bonus action: a buff for allies who hear you, for a Duration.
+A Divine or Glamour power. Action: a buff for allies who hear you, for a Duration.
 
 **Dirge**:
 A Divine or Glamour power. Action: an attack against WIL Defense.
@@ -330,7 +344,7 @@ A Divine or Glamour power. Action: an attack against WIL Defense.
 A Divine or Glamour power. Reaction: changes a roll after it's made, before its result.
 
 **Mend**:
-A Divine or Nature power that restores HP to a creature in range, even one who can't hear you.
+A Divine, Glamour or Nature power that restores HP to a creature in range, even one who can't hear you.
 
 **Reroll**:
 The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once.
@@ -373,7 +387,7 @@ _Avoid_: legendary monster, elite
 A foe keyword: the foe leads its group, and its fall calls for Morale.
 
 **Morale**:
-A WIL check (DC 10) that each remaining member of a foe group makes when its Leader falls and when half the group is down. On a failure, it flees or surrenders. A Boss never checks.
+One WIL check (DC 10) a foe group makes, with the best WIL among its remaining members, when its Leader falls and when half the group is down. On a failure, the group flees or surrenders. A Boss never checks.
 _Avoid_: rout, nerve, fear check
 
 **Drop**:

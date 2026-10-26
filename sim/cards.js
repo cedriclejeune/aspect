@@ -11,9 +11,7 @@ globalThis.BEARERS_CARDS = {
    "kw": [
     "Armor"
    ],
-   "text": [
-    "Supple hide, oiled and stitched."
-   ],
+   "text": [],
    "strip": {
     "STRd": 2,
     "DEXd": 1,
@@ -32,9 +30,7 @@ globalThis.BEARERS_CARDS = {
     "Armor",
     "Req STR +1"
    ],
-   "text": [
-    "Riveted rings over a padded coat."
-   ],
+   "text": [],
    "strip": {
     "STRd": 3
    },
@@ -55,9 +51,7 @@ globalThis.BEARERS_CARDS = {
     "Noisy 3",
     "Req STR +2"
    ],
-   "text": [
-    "Full steel, fitted to you."
-   ],
+   "text": [],
    "strip": {
     "STRd": 4,
     "SPD": -10
@@ -224,6 +218,210 @@ globalThis.BEARERS_CARDS = {
    "size": "Medium",
    "fx": []
   },
+  "C-I-06": {
+   "id": "C-I-06",
+   "name": "Human",
+   "rank": "I",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Medium"
+   ],
+   "text": [],
+   "strip": {
+    "STR": 1,
+    "DEX": 1,
+    "INT": 1,
+    "WIL": 1,
+    "STRd": 11,
+    "DEXd": 11,
+    "INTd": 11,
+    "WILd": 11,
+    "HP": 12,
+    "SPD": 30
+   },
+   "group": "loot",
+   "size": "Medium",
+   "fx": []
+  },
+  "C-I-07": {
+   "id": "C-I-07",
+   "name": "Elf",
+   "rank": "I",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Medium",
+    "Darkvision 60"
+   ],
+   "text": [],
+   "strip": {
+    "STR": 0,
+    "DEX": 2,
+    "INT": 1,
+    "WIL": 0,
+    "STRd": 10,
+    "DEXd": 12,
+    "INTd": 11,
+    "WILd": 10,
+    "HP": 10,
+    "SPD": 35
+   },
+   "group": "loot",
+   "size": "Medium",
+   "fx": [
+    {
+     "id": "C-I-07#0",
+     "name": "Elf",
+     "use": "passive",
+     "darkvision": 60
+    }
+   ]
+  },
+  "C-I-08": {
+   "id": "C-I-08",
+   "name": "Dwarf",
+   "rank": "I",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Medium",
+    "Darkvision 60"
+   ],
+   "text": [
+    "+2 STR Defense against poison."
+   ],
+   "strip": {
+    "STR": 2,
+    "DEX": 0,
+    "INT": 0,
+    "WIL": 1,
+    "STRd": 12,
+    "DEXd": 10,
+    "INTd": 10,
+    "WILd": 11,
+    "HP": 14,
+    "SPD": 25
+   },
+   "group": "loot",
+   "size": "Medium",
+   "fx": [
+    {
+     "id": "C-I-08#0",
+     "name": "Dwarf",
+     "use": "passive",
+     "darkvision": 60,
+     "defVs": {
+      "STR": 2
+     },
+     "tags": [
+      "poison"
+     ]
+    }
+   ]
+  },
+  "C-I-09": {
+   "id": "C-I-09",
+   "name": "Halfling",
+   "rank": "I",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Small"
+   ],
+   "text": [
+    "**Lucky (1/S.R.):** when you roll a 1 on a d20, reroll it."
+   ],
+   "strip": {
+    "STR": 0,
+    "DEX": 2,
+    "INT": 0,
+    "WIL": 1,
+    "STRd": 10,
+    "DEXd": 12,
+    "INTd": 10,
+    "WILd": 11,
+    "HP": 10,
+    "SPD": 30
+   },
+   "group": "loot",
+   "size": "Small",
+   "fx": []
+  },
+  "C-I-10": {
+   "id": "C-I-10",
+   "name": "Orc",
+   "rank": "I",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Medium",
+    "Darkvision 60"
+   ],
+   "text": [],
+   "strip": {
+    "STR": 3,
+    "DEX": 0,
+    "INT": 0,
+    "WIL": 0,
+    "STRd": 13,
+    "DEXd": 10,
+    "INTd": 10,
+    "WILd": 10,
+    "HP": 14,
+    "SPD": 30
+   },
+   "group": "loot",
+   "size": "Medium",
+   "fx": [
+    {
+     "id": "C-I-10#0",
+     "name": "Orc",
+     "use": "passive",
+     "darkvision": 60
+    }
+   ]
+  },
+  "C-I-11": {
+   "id": "C-I-11",
+   "name": "Hobgoblin",
+   "rank": "I",
+   "kind": "core",
+   "type": "Core",
+   "kw": [
+    "Core",
+    "Medium",
+    "Darkvision 60"
+   ],
+   "text": [],
+   "strip": {
+    "STR": 1,
+    "DEX": 1,
+    "INT": 1,
+    "WIL": 0,
+    "STRd": 11,
+    "DEXd": 11,
+    "INTd": 11,
+    "WILd": 10,
+    "HP": 12,
+    "SPD": 30
+   },
+   "group": "loot",
+   "size": "Medium",
+   "fx": [
+    {
+     "id": "C-I-11#0",
+     "name": "Hobgoblin",
+     "use": "passive",
+     "darkvision": 60
+    }
+   ]
+  },
   "C-II-01": {
    "id": "C-II-01",
    "name": "Ogre",
@@ -293,7 +491,7 @@ globalThis.BEARERS_CARDS = {
     "Prayers. Fate dice: **d4**."
    ],
    "strip": {},
-   "group": "starter",
+   "group": "loot",
    "fx": [],
    "deck": "D-I-01"
   },
@@ -377,7 +575,7 @@ globalThis.BEARERS_CARDS = {
     "Jewelry"
    ],
    "text": [
-    "Leather straps padded for crystal. You can carry 2 more Shards in your Pack (5 in all). They still count toward its 8 pieces."
+    "You can carry 2 more Shards in your Pack (5 in all). They still count toward its 8 pieces."
    ],
    "strip": {},
    "group": "starter",
@@ -398,7 +596,7 @@ globalThis.BEARERS_CARDS = {
     "Your Cues reach 90 ft instead of 60 ft."
    ],
    "strip": {},
-   "group": "starter",
+   "group": "loot",
    "fx": [
     {
      "id": "J-I-04#0",
@@ -422,7 +620,7 @@ globalThis.BEARERS_CARDS = {
     "Jewelry"
    ],
    "text": [
-    "**Bonus action (1/S.R.):** Dash."
+    "**Reaction (1/S.R.):** Move."
    ],
    "strip": {},
    "group": "starter",
@@ -430,7 +628,7 @@ globalThis.BEARERS_CARDS = {
     {
      "id": "J-I-05#0",
      "name": "Boots of the Long Stride",
-     "use": "bonus",
+     "use": "reaction",
      "uses": "1/SR",
      "target": "self",
      "do": [
@@ -438,6 +636,35 @@ globalThis.BEARERS_CARDS = {
        "dash": true
       }
      ]
+    }
+   ]
+  },
+  "J-I-06": {
+   "id": "J-I-06",
+   "name": "Dancer's Bells",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Jewelry",
+   "kw": [
+    "Jewelry",
+    "Focus"
+   ],
+   "text": [
+    "1 extra Resolve (short rest).",
+    "Your Dirges reach 90 ft instead of 60 ft."
+   ],
+   "strip": {},
+   "group": "starter",
+   "fx": [
+    {
+     "id": "J-I-06#0",
+     "name": "Dancer's Bells",
+     "use": "passive",
+     "extraResolve": 1,
+     "dirgeReach": 90,
+     "params": {
+      "default": 60
+     }
     }
    ]
   },
@@ -656,10 +883,10 @@ globalThis.BEARERS_CARDS = {
    ],
    "text": [
     "Resolve: **3 + WIL** (short rest)",
-    "Beasts your body remembers. Shift: bonus action."
+    "Beasts your body remembers. Shift: action."
    ],
    "strip": {},
-   "group": "starter",
+   "group": "loot",
    "fx": [],
    "deck": "N-I-01"
   },
@@ -673,7 +900,7 @@ globalThis.BEARERS_CARDS = {
     "Consumable"
    ],
    "text": [
-    "**Bonus action:** drink it, or give it to a creature within 5 ft. It regains 2d4 + 2 HP."
+    "**Action:** drink it, or give it to a creature within 5 ft. It regains 2d4 + 2 HP."
    ],
    "strip": {},
    "group": "starter",
@@ -681,7 +908,7 @@ globalThis.BEARERS_CARDS = {
     {
      "id": "P-I-01#0",
      "name": "Potion of Healing",
-     "use": "bonus",
+     "use": "action",
      "reach": 5,
      "target": "creature",
      "do": [
@@ -718,7 +945,7 @@ globalThis.BEARERS_CARDS = {
     "Consumable"
    ],
    "text": [
-    "**Bonus action:** throw it at a creature within 5 ft. Attack (DEX or WIL + 2) against its DEX Defense: on a hit, it has −2 on attacks until the end of its next turn."
+    "**Reaction:** throw it at a creature within 5 ft. Attack (DEX or WIL + 2) against its DEX Defense: on a hit, it has −2 on attacks until the end of its next turn."
    ],
    "strip": {},
    "group": "loot",
@@ -726,7 +953,7 @@ globalThis.BEARERS_CARDS = {
     {
      "id": "P-I-03#0",
      "name": "Pocket Sand",
-     "use": "bonus",
+     "use": "reaction",
      "reach": 5,
      "target": "enemy",
      "atk": {
@@ -757,7 +984,7 @@ globalThis.BEARERS_CARDS = {
     "Consumable"
    ],
    "text": [
-    "**Bonus action:** drink it, or give it to a creature within 5 ft. It regains 4d4 + 4 HP."
+    "**Action:** drink it, or give it to a creature within 5 ft. It regains 4d4 + 4 HP."
    ],
    "strip": {},
    "group": "loot",
@@ -765,7 +992,7 @@ globalThis.BEARERS_CARDS = {
     {
      "id": "P-II-01#0",
      "name": "Greater Potion of Healing",
-     "use": "bonus",
+     "use": "action",
      "reach": 5,
      "target": "creature",
      "do": [
@@ -815,7 +1042,7 @@ globalThis.BEARERS_CARDS = {
     "Technique"
    ],
    "text": [
-    "**Bonus action (2/S.R.):** your next ranged attack this turn has +2 to hit."
+    "**Reaction (2/S.R.):** your next ranged attack this turn has +2 to hit."
    ],
    "strip": {},
    "group": "starter",
@@ -823,7 +1050,7 @@ globalThis.BEARERS_CARDS = {
     {
      "id": "Q-I-02#0",
      "name": "Steady Aim",
-     "use": "bonus",
+     "use": "reaction",
      "uses": "2/SR",
      "target": "self",
      "params": {
@@ -850,7 +1077,7 @@ globalThis.BEARERS_CARDS = {
     "Technique"
    ],
    "text": [
-    "**Bonus action (1/S.R.)**, when you take the Attack action while holding a Shield: Shove a creature within 5 ft."
+    "**Reaction (1/S.R.)**, when you take the Attack action while holding a Shield: Shove a creature within 5 ft."
    ],
    "strip": {},
    "group": "starter",
@@ -858,7 +1085,7 @@ globalThis.BEARERS_CARDS = {
     {
      "id": "Q-I-03#0",
      "name": "Shield Bash",
-     "use": "bonus",
+     "use": "reaction",
      "uses": "1/SR",
      "need": [
       "shield",
@@ -924,7 +1151,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "text": [
     "*Rally* as a loose Anthem.",
-    "**Bonus action (1/S.R.):** Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks."
+    "**Action (1/S.R.):** Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks."
    ],
    "strip": {},
    "group": "starter",
@@ -933,7 +1160,7 @@ globalThis.BEARERS_CARDS = {
      "id": "Q-I-05#0",
      "name": "Rallying Cry",
      "kind": "Anthem",
-     "use": "bonus",
+     "use": "action",
      "uses": "1/SR",
      "reach": 30,
      "target": "allies",
@@ -1000,7 +1227,7 @@ globalThis.BEARERS_CARDS = {
     "Technique"
    ],
    "text": [
-    "**Bonus action (2/S.R.):** move up to half your Speed. This movement doesn't provoke opportunity attacks."
+    "**Reaction (2/S.R.):** move up to half your Speed. This movement doesn't provoke opportunity attacks."
    ],
    "strip": {},
    "group": "loot",
@@ -1008,7 +1235,7 @@ globalThis.BEARERS_CARDS = {
     {
      "id": "Q-I-07#0",
      "name": "Slippery",
-     "use": "bonus",
+     "use": "reaction",
      "uses": "2/SR",
      "target": "self",
      "do": [
@@ -1030,7 +1257,7 @@ globalThis.BEARERS_CARDS = {
     "Technique"
    ],
    "text": [
-    "When you take the Attack action, you make two attacks instead of one."
+    "Once per turn, when you take the Attack action, make one extra attack."
    ],
    "strip": {},
    "group": "loot",
@@ -1085,7 +1312,7 @@ globalThis.BEARERS_CARDS = {
     "3 flasks"
    ],
    "text": [
-    "**Bonus action:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss."
+    "**Reaction:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss."
    ],
    "strip": {},
    "group": "loot",
@@ -1094,7 +1321,7 @@ globalThis.BEARERS_CARDS = {
     {
      "id": "R-II-01#0",
      "name": "Alchemist's Fire Recipe",
-     "use": "bonus",
+     "use": "reaction",
      "reach": 30,
      "target": "point",
      "area": {
@@ -1282,7 +1509,7 @@ globalThis.BEARERS_CARDS = {
     "Trait"
    ],
    "text": [
-    "**Bonus action (1/S.R.):** regain 1d10 + 3 HP."
+    "**Action (1/S.R.):** regain 1d10 + 3 HP."
    ],
    "strip": {},
    "group": "loot",
@@ -1290,7 +1517,7 @@ globalThis.BEARERS_CARDS = {
     {
      "id": "T-II-01#0",
      "name": "Second Wind",
-     "use": "bonus",
+     "use": "action",
      "uses": "1/SR",
      "target": "self",
      "do": [
@@ -1310,9 +1537,7 @@ globalThis.BEARERS_CARDS = {
    "kw": [
     "Trait"
    ],
-   "text": [
-    "Lean, ropy strength."
-   ],
+   "text": [],
    "strip": {
     "STR": 1,
     "STRd": 1,
@@ -1404,6 +1629,30 @@ globalThis.BEARERS_CARDS = {
      "name": "Hedge Witch",
      "use": "passive",
      "extraSp": 1
+    }
+   ]
+  },
+  "T-II-07": {
+   "id": "T-II-07",
+   "name": "Relentless",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "**1/S.R.**, when damage drops you to 0 HP without killing you outright: you drop to 1 HP instead."
+   ],
+   "strip": {},
+   "group": "loot",
+   "fx": [
+    {
+     "id": "T-II-07#0",
+     "name": "Relentless",
+     "use": "passive",
+     "uses": "1/SR",
+     "relentless": true
     }
    ]
   },
@@ -1971,6 +2220,79 @@ globalThis.BEARERS_CARDS = {
     }
    ]
   },
+  "W-I-15": {
+   "id": "W-I-15",
+   "name": "Shortbow",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Range 80/320",
+    "Two-Handed"
+   ],
+   "text": [
+    "+2 to hit, 1d6 + DEX Physical."
+   ],
+   "strip": {},
+   "group": "loot",
+   "atk": {
+    "hit": 2,
+    "dice": "1d6",
+    "two": null,
+    "abil": [
+     "DEX"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": true,
+    "loading": false,
+    "thrown": null,
+    "range": [
+     80,
+     320
+    ]
+   },
+   "fx": []
+  },
+  "W-I-16": {
+   "id": "W-I-16",
+   "name": "Greataxe",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Heavy",
+    "Two-Handed"
+   ],
+   "text": [
+    "+2 to hit, 1d12 + STR Physical."
+   ],
+   "strip": {},
+   "group": "loot",
+   "atk": {
+    "hit": 2,
+    "dice": "1d12",
+    "two": null,
+    "abil": [
+     "STR"
+    ],
+    "type": "Physical",
+    "finesse": false,
+    "light": false,
+    "heavy": true,
+    "reach": false,
+    "twoHanded": true,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
   "W-II-01": {
    "id": "W-II-01",
    "name": "Boarspear",
@@ -2182,7 +2504,7 @@ globalThis.BEARERS_CARDS = {
      "name": "Misty Step",
      "kind": "Spell",
      "cost": 2,
-     "use": "bonus",
+     "use": "reaction",
      "target": "self",
      "do": [
       {
@@ -2217,10 +2539,10 @@ globalThis.BEARERS_CARDS = {
      },
      "do": [
       {
-       "cond": "Restrained"
+       "cond": "Restrained",
+       "until": "targetTurns2"
       }
      ],
-     "lasting": true,
      "dur": "1 hour"
     }
    ]
@@ -2260,7 +2582,7 @@ globalThis.BEARERS_CARDS = {
      "name": "Rally",
      "kind": "Anthem",
      "cost": 1,
-     "use": "bonus",
+     "use": "action",
      "reach": 30,
      "target": "allies",
      "count": 3,
@@ -2281,7 +2603,7 @@ globalThis.BEARERS_CARDS = {
      "name": "Hold the Line",
      "kind": "Anthem",
      "cost": 1,
-     "use": "bonus",
+     "use": "action",
      "reach": 30,
      "target": "allies",
      "need": [
@@ -2364,12 +2686,29 @@ globalThis.BEARERS_CARDS = {
      },
      "do": [
       {
-       "cond": "Frightened"
+       "cond": "Frightened",
+       "until": "targetTurns2"
       }
      ],
-     "lasting": true,
      "tags": [
       "fear"
+     ]
+    },
+    {
+     "id": "G-I-01#rousing-verse",
+     "name": "Rousing Verse",
+     "kind": "Mend",
+     "cost": 2,
+     "use": "action",
+     "reach": 60,
+     "target": "creature",
+     "need": [
+      "voice"
+     ],
+     "do": [
+      {
+       "heal": "2d4+WIL"
+      }
      ]
     }
    ]
@@ -2410,7 +2749,7 @@ globalThis.BEARERS_CARDS = {
      "name": "Bless",
      "kind": "Anthem",
      "cost": 1,
-     "use": "bonus",
+     "use": "action",
      "reach": 30,
      "target": "allies",
      "count": 3,
@@ -2441,14 +2780,14 @@ globalThis.BEARERS_CARDS = {
       "abil": "deck",
       "vs": "WIL"
      },
+     "dur": "1 minute",
      "do": [
       {
        "mod": "attack",
        "dice": "-1d4",
-       "until": "lasting"
+       "until": "dur"
       }
-     ],
-     "lasting": true
+     ]
     },
     {
      "id": "D-I-01#twist-fate",
@@ -2479,7 +2818,7 @@ globalThis.BEARERS_CARDS = {
      "name": "Healing Word",
      "kind": "Mend",
      "cost": 2,
-     "use": "bonus",
+     "use": "action",
      "reach": 60,
      "target": "creature",
      "need": [
@@ -2520,7 +2859,7 @@ globalThis.BEARERS_CARDS = {
      "name": "Hawk",
      "kind": "Form",
      "cost": 1,
-     "use": "bonus",
+     "use": "action",
      "target": "self",
      "form": {
       "strip": {
@@ -2550,7 +2889,7 @@ globalThis.BEARERS_CARDS = {
      "name": "Wolf",
      "kind": "Form",
      "cost": 2,
-     "use": "bonus",
+     "use": "action",
      "target": "self",
      "form": {
       "strip": {
@@ -2594,7 +2933,7 @@ globalThis.BEARERS_CARDS = {
      "name": "Bear",
      "kind": "Form",
      "cost": 3,
-     "use": "bonus",
+     "use": "action",
      "target": "self",
      "form": {
       "strip": {
@@ -2656,7 +2995,7 @@ globalThis.BEARERS_CARDS = {
    }
   },
   {
-   "name": "Archer",
+   "name": "Bandit Archer",
    "core": "C-I-02",
    "body": null,
    "carries": [
@@ -2971,13 +3310,13 @@ globalThis.BEARERS_CARDS = {
    "leader": true,
    "own": [
     "**Warlord:** its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R.",
-    "**Bellow (Recharge 5–6):** bonus action. Attack (+5) against the WIL Defense of each enemy within 30 ft: Frightened of the chieftain until the end of its next turn."
+    "**Bellow (Recharge 5–6):** reaction. Attack (+5) against the WIL Defense of each enemy within 30 ft: Frightened of the chieftain until the end of its next turn."
    ],
    "ownFx": [
     {
      "id": "foe-ogre-chieftain#0",
      "name": "Bellow",
-     "use": "bonus",
+     "use": "reaction",
      "recharge": 5,
      "target": "enemies",
      "reach": 30,
@@ -3006,6 +3345,575 @@ globalThis.BEARERS_CARDS = {
     "INTd": 10,
     "WILd": 11,
     "HP": 70,
+    "SPD": 30
+   }
+  },
+  {
+   "name": "Guard",
+   "core": "C-I-06",
+   "body": null,
+   "carries": [
+    "W-I-05",
+    "S-I-01",
+    "W-I-11",
+    "A-I-02"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [],
+   "ownFx": [],
+   "totals": {
+    "STR": 1,
+    "DEX": 1,
+    "INT": 1,
+    "WIL": 1,
+    "STRd": 16,
+    "DEXd": 13,
+    "INTd": 11,
+    "WILd": 11,
+    "HP": 12,
+    "SPD": 30
+   }
+  },
+  {
+   "name": "Scout",
+   "core": "C-I-07",
+   "body": null,
+   "carries": [
+    "W-I-09",
+    "W-I-02",
+    "K-I-05",
+    "A-I-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": true,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Keen Eyes:** alert (passive Awareness +5)."
+   ],
+   "ownFx": [],
+   "totals": {
+    "STR": 0,
+    "DEX": 2,
+    "INT": 1,
+    "WIL": 0,
+    "STRd": 12,
+    "DEXd": 13,
+    "INTd": 11,
+    "WILd": 10,
+    "HP": 10,
+    "SPD": 40
+   }
+  },
+  {
+   "name": "Mage",
+   "core": "C-I-03",
+   "body": null,
+   "carries": [
+    "B-I-01",
+    "W-I-01",
+    "T-I-04"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [
+    "Fire Bolt",
+    "Magic Missile",
+    "Shield"
+   ],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [],
+   "ownFx": [],
+   "totals": {
+    "STR": 0,
+    "DEX": 1,
+    "INT": 3,
+    "WIL": 0,
+    "STRd": 10,
+    "DEXd": 11,
+    "INTd": 13,
+    "WILd": 10,
+    "HP": 9,
+    "SPD": 30
+   }
+  },
+  {
+   "name": "Orc",
+   "core": "C-I-10",
+   "body": null,
+   "carries": [
+    "W-I-16",
+    "W-I-11",
+    "T-II-07",
+    "A-I-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [],
+   "ownFx": [],
+   "totals": {
+    "STR": 3,
+    "DEX": 0,
+    "INT": 0,
+    "WIL": 0,
+    "STRd": 15,
+    "DEXd": 11,
+    "INTd": 10,
+    "WILd": 10,
+    "HP": 14,
+    "SPD": 35
+   }
+  },
+  {
+   "name": "Hobgoblin",
+   "core": "C-I-11",
+   "body": null,
+   "carries": [
+    "W-I-05",
+    "S-I-01",
+    "W-I-09",
+    "A-I-02",
+    "Q-I-04"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [],
+   "ownFx": [],
+   "totals": {
+    "STR": 1,
+    "DEX": 1,
+    "INT": 1,
+    "WIL": 0,
+    "STRd": 16,
+    "DEXd": 13,
+    "INTd": 11,
+    "WILd": 10,
+    "HP": 12,
+    "SPD": 30
+   }
+  },
+  {
+   "name": "Skeleton",
+   "core": null,
+   "body": {
+    "STR": 0,
+    "DEX": 2,
+    "INT": -2,
+    "WIL": -2,
+    "HP": 10,
+    "SPD": 30,
+    "size": "Medium"
+   },
+   "carries": [
+    "W-I-02",
+    "W-I-15",
+    "A-I-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Undead:** resists Poison and Necrotic, vulnerable to Radiant. Never checks Morale."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-skeleton#0",
+     "name": "Undead",
+     "use": "passive",
+     "resist": [
+      "Poison",
+      "Necrotic"
+     ],
+     "vuln": [
+      "Radiant"
+     ],
+     "fearless": true
+    }
+   ],
+   "totals": {
+    "STR": 0,
+    "DEX": 2,
+    "INT": -2,
+    "WIL": -2,
+    "STRd": 12,
+    "DEXd": 13,
+    "INTd": 8,
+    "WILd": 8,
+    "HP": 10,
+    "SPD": 35
+   }
+  },
+  {
+   "name": "Zombie",
+   "core": null,
+   "body": {
+    "STR": 1,
+    "DEX": -2,
+    "INT": -4,
+    "WIL": -2,
+    "HP": 20,
+    "SPD": 20,
+    "size": "Medium"
+   },
+   "carries": [
+    "T-II-07"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Undead:** resists Poison and Necrotic, vulnerable to Radiant. Never checks Morale.",
+    "**Slam:** +3 to hit, 1d8 + 1 Physical."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-zombie#0",
+     "name": "Undead",
+     "use": "passive",
+     "resist": [
+      "Poison",
+      "Necrotic"
+     ],
+     "vuln": [
+      "Radiant"
+     ],
+     "fearless": true
+    },
+    {
+     "id": "foe-zombie#1",
+     "name": "Slam",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 3,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "1d8+1",
+       "type": "Physical"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 1,
+    "DEX": -2,
+    "INT": -4,
+    "WIL": -2,
+    "STRd": 11,
+    "DEXd": 8,
+    "INTd": 6,
+    "WILd": 8,
+    "HP": 20,
+    "SPD": 20
+   }
+  },
+  {
+   "name": "Kobold",
+   "core": null,
+   "body": {
+    "STR": -2,
+    "DEX": 2,
+    "INT": -1,
+    "WIL": -1,
+    "HP": 5,
+    "SPD": 30,
+    "size": "Small"
+   },
+   "carries": [
+    "W-I-01",
+    "W-I-10",
+    "T-I-05"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [],
+   "ownFx": [],
+   "totals": {
+    "STR": -2,
+    "DEX": 2,
+    "INT": -1,
+    "WIL": -1,
+    "STRd": 8,
+    "DEXd": 12,
+    "INTd": 9,
+    "WILd": 9,
+    "HP": 5,
+    "SPD": 30
+   }
+  },
+  {
+   "name": "Giant Rat",
+   "core": null,
+   "body": {
+    "STR": -2,
+    "DEX": 2,
+    "INT": -4,
+    "WIL": -2,
+    "HP": 5,
+    "SPD": 30,
+    "size": "Small"
+   },
+   "carries": [
+    "T-I-05"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": true,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Bite:** +4 to hit, 1d4 + 2 Physical.",
+    "**Keen Nose:** alert (passive Awareness +5)."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-giant-rat#0",
+     "name": "Bite",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 4,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "1d4+2",
+       "type": "Physical"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": -2,
+    "DEX": 2,
+    "INT": -4,
+    "WIL": -2,
+    "STRd": 8,
+    "DEXd": 12,
+    "INTd": 6,
+    "WILd": 8,
+    "HP": 5,
+    "SPD": 30
+   }
+  },
+  {
+   "name": "Giant Spider",
+   "core": null,
+   "body": {
+    "STR": 2,
+    "DEX": 3,
+    "INT": -4,
+    "WIL": -2,
+    "HP": 26,
+    "SPD": 30,
+    "size": "Large"
+   },
+   "carries": [
+    "K-I-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": true,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Spider Climb:** climbs walls and ceilings at full Speed. **Web Sense:** alert (passive Awareness +5).",
+    "**Bite:** +5 to hit, 1d8 + 3 Physical plus 1d8 Poison.",
+    "**Web (Recharge 5–6):** action, range 30 ft. Attack (+3) against DEX Defense: **Restrained** for 2 turns."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-giant-spider#0",
+     "name": "Bite",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 5,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "1d8+3",
+       "type": "Physical"
+      },
+      {
+       "dmg": "1d8",
+       "type": "Poison"
+      }
+     ]
+    },
+    {
+     "id": "foe-giant-spider#1",
+     "name": "Web",
+     "use": "action",
+     "recharge": 5,
+     "reach": 30,
+     "target": "enemy",
+     "atk": {
+      "flat": 3,
+      "vs": "DEX"
+     },
+     "do": [
+      {
+       "cond": "Restrained",
+       "until": "targetTurns2"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 2,
+    "DEX": 3,
+    "INT": -4,
+    "WIL": -2,
+    "STRd": 12,
+    "DEXd": 13,
+    "INTd": 6,
+    "WILd": 8,
+    "HP": 26,
+    "SPD": 30
+   }
+  },
+  {
+   "name": "Troll",
+   "core": null,
+   "body": {
+    "STR": 4,
+    "DEX": 1,
+    "INT": -1,
+    "WIL": -2,
+    "HP": 80,
+    "SPD": 30,
+    "size": "Large"
+   },
+   "carries": [
+    "T-II-03",
+    "T-I-02"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": true,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Claws:** +6 to hit, 2d6 + 4 Physical.",
+    "**Regeneration:** regains 10 HP at the start of its turn, unless it took Fire or Poison damage since its last turn.",
+    "**Keen Nose:** alert (passive Awareness +5)."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-troll#0",
+     "name": "Claws",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 6,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "2d6+4",
+       "type": "Physical"
+      }
+     ]
+    },
+    {
+     "id": "foe-troll#1",
+     "name": "Regeneration",
+     "use": "passive",
+     "regen": 10,
+     "stopBy": [
+      "Fire",
+      "Poison"
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 4,
+    "DEX": 1,
+    "INT": -1,
+    "WIL": -2,
+    "STRd": 14,
+    "DEXd": 11,
+    "INTd": 9,
+    "WILd": 8,
+    "HP": 80,
     "SPD": 30
    }
   }
@@ -3062,8 +3970,8 @@ globalThis.BEARERS_CARDS = {
    "J-I-01",
    "J-I-02",
    "J-I-03",
-   "J-I-04",
-   "J-I-05"
+   "J-I-05",
+   "J-I-06"
   ],
   "Items": [
    "B-I-01",
@@ -3090,9 +3998,7 @@ globalThis.BEARERS_CARDS = {
    "K-I-07",
    "K-I-08",
    "K-I-09",
-   "G-I-01",
-   "D-I-01",
-   "N-I-01"
+   "G-I-01"
   ]
  }
 };

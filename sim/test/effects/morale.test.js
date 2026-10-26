@@ -1,5 +1,6 @@
-// Morale (P 6.11, RULING R800): a Leader falling, and half of the foe group down or fled, make each remaining
-// non-Boss foe roll d20 + WIL vs 10; a failure flees (leaves the fight, counts as defeated).
+// Morale (P 6.11, RULING R800): a Leader falling, and half of the foe group down or fled, make the group roll once:
+// d20 + the best WIL among its remaining non-Boss foes vs 10; on a failure they all flee (leave the fight, count as
+// defeated).
 // Loaded by sim/test/run.js: module.exports(T, H) registers the tests with the runner's helpers.
 "use strict";
 module.exports = function register(T, H) {
@@ -19,32 +20,34 @@ module.exports = function register(T, H) {
     ok(!Eng.fromFoe(CARDS().foes.find((f) => f.name === "Bandit"), CARDS()).leader);
   });
 
-  T("[morale] the Leader falls: each remaining foe rolls WIL vs 10; a failure flees and counts as defeated", () => {
+  T("[morale] the Leader falls: one group roll with the best WIL; a failure: they all flee and count as defeated", () => {
     const f = fight([pc("a", [2, 2], { hands: ["W-I-05"] }), tmpl("cap", "Bandit Captain", [20, 2]), tmpl("b1", "Bandit", [20, 5]),
       tmpl("b2", "Bandit", [20, 8]), tmpl("b3", "Bandit", [20, 11]), tmpl("b4", "Bandit", [18, 11])]);
     start(f);
-    // WIL +0: 9 fails, 10 holds, 15 holds, 1 fails; then 3 of 5 are down or fled: the half trigger, at once (12, 12 hold)
-    const r = drop(f, "cap", [9, 10, 15, 1, 12, 12]);
-    eq(evs(r, "morale").map((e) => e.why), ["a Leader falls", "half of the group is down"]);
-    eq(morale(r).map((e) => [e.actor, e.total, e.vs]), [["b1", 9, 10], ["b2", 10, 10], ["b3", 15, 10], ["b4", 1, 10], ["b2", 12, 10], ["b3", 12, 10]]);
-    eq(evs(r, "flee").map((e) => e.actor), ["b1", "b4"]);
-    ok(C(f, "b1").fled && C(f, "b1").dead && C(f, "b1").hp > 0, "fled: out of the fight with its HP");
-    ok(C(f, "b1").hands.length && !f.state.ground.some((g) => g.owner === "b1"), "it takes its gear");
-    ok(!C(f, "b2").fled);
+    const r = drop(f, "cap", [12]); // WIL +0: 12 holds
+    eq(evs(r, "morale").map((e) => e.why), ["a Leader falls"]);
+    eq(morale(r).map((e) => [e.actor, e.total, e.vs]), [["b1", 12, 10]]);
+    eq(evs(r, "flee").length, 0);
+    eq(morale(drop(f, "b1")).length, 0, "2 of 5: below half");
+    const r2 = drop(f, "b2", [9]); // 3 of 5 (half rounded up): 9 fails
+    eq(evs(r2, "morale").map((e) => e.why), ["half of the group is down"]);
+    eq(evs(r2, "flee").map((e) => e.actor), ["b3", "b4"]);
+    ok(C(f, "b3").fled && C(f, "b3").dead && C(f, "b3").hp > 0, "fled: out of the fight with its HP");
+    ok(C(f, "b3").hands.length && !f.state.ground.some((g) => g.owner === "b3"), "it takes its gear");
     const s = f.summary().creatures;
-    eq([s.b1.fled, s.b2.fled, s.a.kills], [true, false, 0]);
+    eq([s.b3.fled, s.b1.fled, s.a.kills], [true, false, 0]);
     ok(Eng.summaryCsv(f.summary()).split("\n")[0].endsWith(",fled"));
   });
 
-  T("[morale] fleeing counts toward half the group; each trigger fires once per fight", () => {
-    const f = fight([pc("a", [2, 2]), tmpl("cap", "Bandit Captain", [20, 2]), tmpl("b1", "Bandit", [20, 5]), tmpl("b2", "Bandit", [20, 8]), tmpl("b3", "Bandit", [20, 11])]);
+  T("[morale] the group rolls with its best WIL; each trigger fires once per fight", () => {
+    const f = fight([pc("a", [2, 2]), tmpl("cap", "Bandit Captain", [20, 2]), tmpl("b1", "Bandit", [20, 5]), tmpl("c1", "Cultist", [20, 8]), tmpl("b3", "Bandit", [20, 11])]);
     start(f);
-    // Leader falls (1 of 4): b1 flees (2 of 4 = half): b2 and b3 check again
-    const r = drop(f, "cap", [2, 12, 12, 12, 13]);
-    eq(evs(r, "morale").map((e) => e.why), ["a Leader falls", "half of the group is down"]);
-    eq(morale(r).map((e) => e.actor), ["b1", "b2", "b3", "b2", "b3"]);
+    const r = drop(f, "cap", [7]); // the Cultist's WIL +3: 10 holds
+    eq(morale(r).map((e) => [e.actor, e.bonus, e.total]), [["c1", 3, 10]]);
+    const r1 = drop(f, "b1", [7]); // 2 of 4 = half
+    eq(evs(r1, "morale").map((e) => e.why), ["half of the group is down"]);
     eq([f.state.morale.leader, f.state.morale.half], [true, true]);
-    const r2 = drop(f, "b2");
+    const r2 = drop(f, "b3");
     eq(morale(r2).length, 0, "no trigger left");
     eq(f.state.phase, "fight");
   });
@@ -68,8 +71,8 @@ module.exports = function register(T, H) {
     eq(evs(r2, "morale").length, 1); eq(morale(r2).length, 0);
     const g = fight([pc("a", [2, 2]), tmpl("boss", "Ogre Chieftain", [18, 2]), tmpl("b1", "Bandit", [20, 8]), tmpl("b2", "Bandit", [20, 11]), tmpl("b3", "Bandit", [18, 11])]);
     start(g);
-    const r3 = drop(g, "boss", [10, 10, 10]); // the Leader falls: the three Bandits check
-    eq(morale(r3).map((e) => e.actor), ["b1", "b2", "b3"]);
+    const r3 = drop(g, "boss", [10]); // the Leader falls: the three Bandits check once, as a group
+    eq(morale(r3).map((e) => e.actor), ["b1"]);
   });
 
   T("[morale] a foe that flees on its own turn ends it; the UI-facing state stays consistent", () => {

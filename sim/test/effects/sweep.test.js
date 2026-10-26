@@ -24,7 +24,7 @@ module.exports = function register(T, H) {
     ok(Eng.validate(f.state.creatures.o.build, CARDS()).every((e) => /^Warning/.test(e)), "Ogre build valid");
     foeTurn(f, "o");
     const plain = f.preview({ type: "attack", actor: "o", weapon: "W-I-13", target: "a" }).info;
-    eq(plain.dis, 2, "a normal attack: Outnumbered 1 vs 3");
+    eq(plain.dis, 0, "a normal attack: b and c aren't beside a, so Outnumbered is 1 vs 1 (Crowd)");
     const t = f.legal("o").find((x) => x.power === SWEEP);
     ok(t && !t.target && !t.targets, "offered as a power with no target to pick");
     const info = f.preview(sweep("o")).info;
@@ -48,25 +48,25 @@ module.exports = function register(T, H) {
     eq([dmgOf(r2, "a"), dmgOf(r2, "b"), dmgOf(r2, "c")], [[7], [7], [7]]);
   });
 
-  T("[sweep] uses the whole Attack action; only a held Heavy or Reach melee weapon; Reach sweeps 10 ft", () => {
+  T("[sweep] uses a whole Attack action; only a held Heavy or Reach melee weapon; Reach sweeps 10 ft", () => {
     const f = ring();
     foeTurn(f, "o");
     run(f, sweep("o"), [10, 3]);
     ok(!C(f, "o").turn.attacksLeft && C(f, "o").turn.attackAction);
-    refused(f, { type: "attack", actor: "o", weapon: "W-I-13", target: "a" });
+    eq(f.preview({ type: "attack", actor: "o", weapon: "W-I-13", target: "a" }).info.use, "action", "the next attack takes the second action");
     refused(f, sweep("o"));
-    // attack first, then no sweep
+    // attack first, then sweep with the second action
     const g = ring();
     foeTurn(g, "o");
-    run(g, { type: "attack", actor: "o", weapon: "W-I-13", target: "a" }, [1, 1, 1]);
-    ok(!g.legal("o").some((x) => x.power === SWEEP), "the action is spent");
+    run(g, { type: "attack", actor: "o", weapon: "W-I-13", target: "a" }, [1]);
+    ok(g.legal("o").some((x) => x.power === SWEEP), "a second Attack action");
     // Twin Strike + Glaive (Heavy, Reach): one roll, no second attack; an enemy 10 ft away is in the sweep
     const T2 = () => fight([pc("p", [5, 5], { hands: ["W-I-08"], aspects: ["Q-II-01", "Q-II-02"] }), tmpl("x", "Bandit", [6, 5]), tmpl("y", "Bandit", [7, 5]), tmpl("z", "Bandit", [5, 8])]);
     const h = T2();
     pcTurn(h, "p");
     eq(h.preview(sweep("p")).info.targets, ["x", "y"], "x at 5 ft, y at 10 ft; z at 15 ft is out");
     run(h, sweep("p"), [2, 1]);
-    refused(h, { type: "attack", actor: "p", weapon: "W-I-08", target: "x" });
+    eq(h.preview({ type: "attack", actor: "p", weapon: "W-I-08", target: "x" }).info.use, "action", "no Twin Strike attack left in the swept action");
     // Longsword: not offered, refused
     const k = fight([pc("p", [5, 5], { hands: ["W-I-05"], aspects: ["Q-II-02"] }), tmpl("x", "Bandit", [6, 5]), tmpl("y", "Bandit", [5, 6])]);
     pcTurn(k, "p");
