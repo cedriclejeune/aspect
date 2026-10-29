@@ -1,19 +1,21 @@
-# Aspects (working title)
+# Bearers: What Lingers Matters
 
 A streamlined, classless, level-less variant of fifth edition.
 Characters are built from interchangeable **Aspects** placed in **Slots**: weapons, armor, spellbooks, traits and techniques are all Aspects. Loot them from defeated enemies, swap them at rests, and **Shatter** spare ones to open new Slots.
 
-- Core loop: **explore → fight → loot → rest & rebuild**
+- Play loop: a **story** of **quests**, each made of **challenges** (face → gather → rest & rebuild), with exploration between challenges
 - Power ceiling: roughly a level-12 character in fifth edition
 - Setting-agnostic (for now)
 
 ## Contents
 | Path | What |
 |---|---|
-| [rules/RULES.md](rules/RULES.md) | The core rulebook (standalone, source) |
-| [rules/Aspects-Core-Rules.pdf](rules/Aspects-Core-Rules.pdf) | Illustrated PDF of the rulebook |
-| [rules/Aspects-Combat-Cheat-Sheet.pdf](rules/Aspects-Combat-Cheat-Sheet.pdf) | Two-sided combat cheat sheet: actions & reactions / combat rules |
-| [tools/](tools/) | `build_pdf.py` (PDF), `build_cheatsheet.py` (cheat sheet), `illustrations.py` (SVG art), `shatter_sim.py` (economy simulation) |
+| [rules/PLAYERS.md](rules/PLAYERS.md) | Player Rules (standalone, source) |
+| [rules/GM.md](rules/GM.md) | Game Master's Guide: running the world, monsters, Bosses, loot, encounters |
+| [rules/DESIGN.md](rules/DESIGN.md) | Internal design rules: Rank scaling, card constraints, design notes, fifth-edition conversion (no PDF) |
+| [rules/Bearers-Player-Rules.pdf](rules/Bearers-Player-Rules.pdf) · [rules/Bearers-GM-Guide.pdf](rules/Bearers-GM-Guide.pdf) | Illustrated PDFs |
+| [rules/Bearers-Base-Set.pdf](rules/Bearers-Base-Set.pdf) | Printable base set for a 4-player test game: Cores, starter gear and Aspects, Rank I–II loot, decks, gold, tally cards, Slot frames, and foe cards for the GM. Source: [cards/base_set.py](cards/base_set.py), [cards/foes.py](cards/foes.py) |
+| [tools/](tools/) | `build_pdf.py` (PDF), `build_cards.py` (base set PDF), `illustrations.py` (SVG art), `shatter_sim.py` (economy simulation, obsolete since Shatter was removed) |
 | [ATTRIBUTION.md](ATTRIBUTION.md) | SRD 5.2.1 CC-BY-4.0 attribution |
 | [CHANGELOG.md](CHANGELOG.md) | Version history |
 
@@ -29,4 +31,6 @@ Characters are built from interchangeable **Aspects** placed in **Slots**: weapo
 .venv/bin/pip install markdown
 .venv/bin/python tools/build_pdf.py
 ```
+The base set: `.venv/bin/python tools/build_cards.py`.
+
 Needs Chromium. Fonts (Cinzel, EB Garamond) load from Google Fonts at build time.

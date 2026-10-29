@@ -1,0 +1,122 @@
+// Sweeping Blow (Q-II-02, hook "sweep"): the Attack action as one area roll against each enemy within reach.
+// Loaded by sim/test/run.js: module.exports(T, H) registers the tests with the runner's helpers.
+"use strict";
+module.exports = function register(T, H) {
+  const { Eng, eq, ok, run, refused, start, C, evs } = H;
+  const CARDS = () => H.cards();
+  const B = (o) => Object.assign({ core: "C-I-01", armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [] }, o);
+  const pc = (id, pos, build, o) => Object.assign({ id, side: "pc", name: id, pos, build: B(build), react: "never" }, o);
+  const tmpl = (id, name, pos, o) => Object.assign({ id, side: "foe", name: id, pos, build: Eng.fromFoe(CARDS().foes.find((f) => f.name === name), CARDS()), react: "never" }, o);
+  const fight = (cs) => Eng.createFight({ version: 1, name: "sweep", seed: 3, map: { w: 20, h: 14, cells: {} }, surprise: null, creatures: cs }, CARDS());
+  const skip = (f, id) => { run(f, { type: "beginTurn", actor: id }); if (f.state.active === id) run(f, { type: "endTurn", actor: id }); };
+  // pcs go first and skip; then `id` begins.
+  const foeTurn = (f, id) => { start(f); for (const c of Object.values(f.state.creatures)) if (c.side === "pc" && !c.dead) skip(f, c.id); run(f, { type: "beginTurn", actor: id }); };
+  const pcTurn = (f, id) => { start(f, "foe"); for (const c of Object.values(f.state.creatures)) if (c.side === "foe" && !c.dead) skip(f, c.id); run(f, { type: "beginTurn", actor: id }); };
+  const has = (c, name) => c.conds.some((k) => k.name === name);
+  const SWEEP = "Q-II-02#0";
+  const sweep = (actor, o) => Object.assign({ type: "power", actor, power: SWEEP }, o);
+  const dmgOf = (r, id) => evs(r, "damage").filter((e) => e.target === id).map((e) => e.n);
+  // Ogre at 6,5 (2×2) with Bearers of STR Defense 13 (a), 16 (b, Mail), 17 (c, Plate) around it and d out of reach.
+  const ring = () => fight([pc("a", [5, 5]), pc("b", [8, 5], { armor: "A-I-02" }), pc("c", [6, 7], { armor: "A-II-01" }), pc("d", [12, 10]), tmpl("o", "Ogre", [6, 5])]);
+
+  T("[sweep] Ogre carries Sweeping Blow; one roll, no Outnumbered dice, compared to each Defense in reach", () => {
+    const f = ring();
+    ok(Eng.validate(f.state.creatures.o.build, CARDS()).every((e) => /^Warning/.test(e)), "Ogre build valid");
+    foeTurn(f, "o");
+    const plain = f.preview({ type: "attack", actor: "o", weapon: "W-I-13", target: "a" }).info;
+    eq(plain.dis, 0, "a normal attack: b and c aren't beside a, so Outnumbered is 1 vs 1 (Crowd)");
+    const t = f.legal("o").find((x) => x.power === SWEEP);
+    ok(t && !t.target && !t.targets, "offered as a power with no target to pick");
+    const info = f.preview(sweep("o")).info;
+    eq([info.toHit, info.dice, info.dis, info.targets, info.defense], [6, 1, 0, ["a", "b", "c"], "a 13, b 16, c 17"]);
+    const r = run(f, sweep("o"), [10, 7]); // 16: hits a and b, misses c; one damage roll 1d10 + 4 = 11 (no extra die on the Greatclub)
+    eq(evs(r, "roll").length, 1, "one attack roll");
+    eq(evs(r, "roll")[0].dice.length, 1, "no Outnumbered dice");
+    eq([dmgOf(r, "a"), dmgOf(r, "b"), dmgOf(r, "c"), dmgOf(r, "d")], [[11], [11], [5], []], "half (rounded down) on a miss");
+    const s = f.summary().creatures.o;
+    eq([s.attacks, s.hits], [1, 2]);
+  });
+
+  T("[sweep] a natural 20 crits every target: shared doubled dice, Crushing knocks each one Prone", () => {
+    const f = ring();
+    foeTurn(f, "o");
+    const r = run(f, sweep("o"), [20, 1, 1]); // 2d10 + 4 = 6
+    eq([dmgOf(r, "a"), dmgOf(r, "b"), dmgOf(r, "c")], [[6], [6], [6]]);
+    ok(["a", "b", "c"].every((id) => has(C(f, id), "Prone")) && !has(C(f, "d"), "Prone"));
+    f.undo();
+    const r2 = run(f, sweep("o"), [1, 10]); // a natural 1 misses all: half of 14
+    eq([dmgOf(r2, "a"), dmgOf(r2, "b"), dmgOf(r2, "c")], [[7], [7], [7]]);
+  });
+
+  T("[sweep] uses a whole Attack action; only a held Heavy or Reach melee weapon; Reach sweeps 10 ft", () => {
+    const f = ring();
+    foeTurn(f, "o");
+    run(f, sweep("o"), [10, 3]);
+    ok(!C(f, "o").turn.attacksLeft && C(f, "o").turn.attackAction);
+    eq(f.preview({ type: "attack", actor: "o", weapon: "W-I-13", target: "a" }).info.use, "action", "the next attack takes the second action");
+    refused(f, sweep("o"));
+    // attack first, then sweep with the second action
+    const g = ring();
+    foeTurn(g, "o");
+    run(g, { type: "attack", actor: "o", weapon: "W-I-13", target: "a" }, [1]);
+    ok(g.legal("o").some((x) => x.power === SWEEP), "a second Attack action");
+    // Twin Strike + Glaive (Heavy, Reach): one roll, no second attack; an enemy 10 ft away is in the sweep
+    const T2 = () => fight([pc("p", [5, 5], { hands: ["W-I-08"], aspects: ["Q-II-01", "Q-II-02"] }), tmpl("x", "Bandit", [6, 5]), tmpl("y", "Bandit", [7, 5]), tmpl("z", "Bandit", [5, 8])]);
+    const h = T2();
+    pcTurn(h, "p");
+    eq(h.preview(sweep("p")).info.targets, ["x", "y"], "x at 5 ft, y at 10 ft; z at 15 ft is out");
+    run(h, sweep("p"), [2, 1]);
+    eq(h.preview({ type: "attack", actor: "p", weapon: "W-I-08", target: "x" }).info.use, "action", "no Twin Strike attack left in the swept action");
+    // Longsword: not offered, refused
+    const k = fight([pc("p", [5, 5], { hands: ["W-I-05"], aspects: ["Q-II-02"] }), tmpl("x", "Bandit", [6, 5]), tmpl("y", "Bandit", [5, 6])]);
+    pcTurn(k, "p");
+    ok(!k.legal("p").some((x) => x.power === SWEEP));
+    ok(/Heavy or Reach/.test(refused(k, sweep("p"))));
+  });
+
+  T("[sweep] the Ogre's Sweeping Blow recharges on a 5–6: spent after use, rolled for at the end of its turn", () => {
+    const f = ring();
+    eq(C(f, "o").build.recharge, { [SWEEP]: 5 });
+    eq(C(f, "o").uses[SWEEP], 1, "ready at the start of the fight");
+    foeTurn(f, "o");
+    run(f, sweep("o"), [10, 3]);
+    eq(C(f, "o").uses[SWEEP], 0);
+    const r = run(f, { type: "endTurn", actor: "o" }, [4]); // recharge roll 4 at the end of its turn: not back
+    ok(evs(r, "roll").some((e) => e.kind === "recharge"));
+    for (const id of ["a", "b", "c", "d"]) skip(f, id);
+    eq(evs(run(f, { type: "beginTurn", actor: "o" }), "roll").length, 0, "nothing rolled at the start of its turn");
+    ok(!f.legal("o").some((x) => x.power === SWEEP));
+    ok(/not recharged/.test(refused(f, sweep("o"))));
+    run(f, { type: "endTurn", actor: "o" }, [5]); // a 5: back
+    eq(C(f, "o").uses[SWEEP], 1);
+    for (const id of ["a", "b", "c", "d"]) skip(f, id);
+    run(f, { type: "beginTurn", actor: "o" });
+    ok(f.legal("o").some((x) => x.power === SWEEP));
+    for (let i = 0; i < 10; i++) f.undo(); // back to before the 5: beginTurn, 4 skipped turns, endTurn
+    run(f, { type: "endTurn", actor: "o" }, [6]);
+    eq(C(f, "o").uses[SWEEP], 1, "a 6 too");
+  });
+
+  T("[sweep] a Bearer's Sweeping Blow stays 1/S.R.", () => {
+    const f = fight([pc("p", [5, 5], { hands: ["W-I-08"], aspects: ["Q-II-02"] }), tmpl("x", "Bandit", [6, 5])]);
+    pcTurn(f, "p");
+    eq(C(f, "p").uses[SWEEP], 1);
+    run(f, sweep("p"), [1, 1]); // a miss: half damage
+    run(f, { type: "endTurn", actor: "p" });
+    skip(f, "x");
+    run(f, { type: "beginTurn", actor: "p" });
+    ok(/no uses left/.test(refused(f, sweep("p"))));
+  });
+
+  T("[sweep] allies and enemies at 0 HP are left out unless named; no enemy in reach: not offered", () => {
+    const f = fight([pc("a", [5, 5]), pc("b", [8, 5]), tmpl("o", "Ogre", [6, 5]), tmpl("g", "Bandit", [6, 7])]);
+    foeTurn(f, "o");
+    run(f, { type: "adjust", actor: "b", hp: 0 });
+    eq(f.preview(sweep("o")).info.targets, ["a"], "the Bandit ally and b at 0 HP are out");
+    eq(f.preview(sweep("o", { targets: ["a", "b"] })).info.targets, ["a", "b"]);
+    ok(!f.preview(sweep("o", { targets: ["g"] })).ok, "an ally can't be named");
+    const g = fight([pc("a", [12, 5]), tmpl("o", "Ogre", [6, 5])]);
+    foeTurn(g, "o");
+    ok(!g.legal("o").some((x) => x.power === SWEEP));
+  });
+};

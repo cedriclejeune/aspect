@@ -1,0 +1,84 @@
+# Sim rulings
+
+Interpretations the sim makes where the rules are unclear or silent. Each one is marked in code with `// RULING R<n>`. Approve, fix or fold into the rulebooks.
+
+| # | Topic | Ruling | Rule |
+|---|---|---|---|
+| R100 | Dirge range | Dirges (Jeer, Dread, Bane) reach 60 ft and need the caster's voice; the text gives no range. Cues and Anthems use the printed 60 / 30 ft. | P 10.6 |
+| R101 | Divine / Glamour voice | Every Divine and Glamour power, Mends included, carries `need: ["voice"]`. Nature (Mossbalm) does not. | P 10.6 |
+| R102 | Cue targets | Cutting Words targets an enemy, Steady Now and Guidance an ally, Twist Fate any creature. Guidance affects checks only. Steady Now's "or the Defense an attack targets" is `params.orDefense`. | P 10.6 |
+| R103 | Natural weapon vs Defense | Foe plain-text attacks (Wolf Bite) use `vs: "weapon"` = the higher of STR and DEX Defense, with `flat` as the total bonus. | P 6.6, 10.7 |
+| R104 | Ring of Warding / Shield Wall | The +2 is a `mod def` with `defs: ["targeted"]` (whichever Defense the attack targets) and `next: true` (this attack only). | P 3.4 |
+| R105 | Ring of Sparks | The 2d6 Lightning goes to the creature that hit you (target `enemy` = the trigger's attacker). | P 3.4 |
+| R106 | Steady Aim | "Next ranged attack this turn": `mod attack +2`, `next`, `until endThisTurn`, `params.ranged`. | P 3.4 |
+| R107 | Web burning | Fire burns a 5-ft square a round: `zone.burns` plus `zone.burnFt: 5`. Restrained for 2 turns (`targetTurns2`); the web lasts 1 hour. | P 10.4 |
+| R108 | Instrument reach | Traveler's Lute / Holy Amulet carry the base reach in `params.default` (30 / 60 ft) so every printed number lives in the data. | P 10.6 |
+| R109 | Mage Hand | A power with `do: []`: listed in the deck, no combat effect. | P 10.3 |
+| R110 | Foe senses | Foe cards keep the printed string ("Darkvision 60"); the export turns it into `senses.darkvision`. Wolf's Keen Nose is `alert: true`. | GM 2.1 |
+| R201 | Foe Speed | Builds from a foe template (`build.foe`) skip the empty Armor Slot's +10 Speed: foe cards print totals without it (Ogre 35 ft). **Approved; now in GM 2.1.** | P 12.3, GM 2.1 |
+| R202 | fromFoe Hands | A Shield always goes in a Hand; other Hand gear fills the rest in `carries` order, the remainder is carried (Legionary: Pilum + Shield, Gladius carried). Slots grow to fit. | GM 2.1 |
+| R203 | Requirements | Count the Core plus every other equipped card's positive bonuses; an unmet card adds nothing to the totals and is reported. | P 3.1 |
+| R204 | Line of sight, cover | Center-to-center lines between any squares of both creatures; walls block; "cover" squares on every clear line give +2; creatures never give cover; no clear line = full cover. | P 6.8 |
+| R205 | In Dark | A creature is in Dark when every square it occupies is Dark. | P 5.5 |
+| R206 | Durations | A Duration counts the source's turn starts (1 minute = its 10th turn start after casting). Boss half turns don't count. | P 10.4 |
+| R207 | Condition stacking | The same condition from the same source replaces the old one; from another source both are kept, the effect counts once. | P 8 |
+| R208 | Unconscious target | Counts as Stunned and Prone: both answer the Target question, so one advantage die (Prone gives its die at any range). Petrified counts as Stunned. | P 5.2, P 8 |
+| R209 | Steady Now on a foe's roll | A Cue with `orDefense` used on an enemy's attack adds its number to the targeted ally's Defense. | P 3.4 |
+| R210 | Auto reactions | "auto" uses a defensive reaction only when it turns the hit into a miss, otherwise a retaliation reaction (Ring of Sparks); never one that changes nothing. | SPEC 4.2 |
+| R211 | Extra pools | Extra spell points (`extraSp`) add to the first equipped Spellbook's pool, extra Resolve (`extraResolve`) to the first Divine, Glamour or Nature deck: the rules let the player choose the pool at a long rest, and the sim can't ask. | P 10.2, P 10.6 |
+| R212 | Empty stacks | An empty Consumable stack leaves its Item Slot; a Recipe keeps its Slot at 0 flasks. | P 3.2 |
+| R213 | Foes at 0 HP | Foes die at 0 HP unless the build sets `important: true`; then they follow the Bearer rules (Unconscious, death saves). | GM 2.1 |
+| R214 | Healing a Form | Healing a shifted creature restores the Form's HP pool; its own HP waits. | P 10.7 |
+| R215 | Interrupted moves | Movement stops when a zone or reaction leaves the mover Prone, at speed 0, Incapacitated or down. | P 6.4 |
+| R216 | Optional triggers | A trigger with limited uses or a cost is optional (react mode: ask prompts, auto uses it, never skips); a free trigger (weapon rider) always applies. | P 11.2 |
+| R217 | "Allies" | "ally"/"allies" never include the user (Rally, Bless, Battle Hymn). Trigger buffs on allies pick the nearest in reach that can hear, up to `count`. | P 10.6 |
+| R218 | Cube placement | A cube of side N covers N/5 squares a side, centered on the chosen square (an even side extends right and down). Spheres use 5-ft diagonals (radius 5 = 3×3). Full cover from the point blocks squares. | P 10.5 |
+| R219 | Natural attack powers | A power attack against "weapon" Defense within 5 ft (Wolf's Bite) is a melee weapon attack for triggers (weaponHit, hitEngaged, meleeDrop, Ring of Sparks). | P 6.6 |
+| R220 | Zone triggers | A zone attacks a given creature at most once per turn (entering, then ending the turn there). | P 10.5 |
+| R221 | Subdue repeat bonus | A Subdue repeat uses the bonus the original attack rolled with (its total minus the kept die, Exhaustion at the cast included), against the target's current Defense, with only decay dice. An area Subdue keeps the area roll's bonus. | P 8 |
+| R222 | Thrown weapons | A thrown weapon leaves the Hand and lands in the target's square (pick it up within 5 ft with the free interaction). Javelins are a bundle: they stay in hand. | P 6.7 |
+| R223 | Outnumbered vs Incapacitated | An Incapacitated creature isn't engaged with anyone and no one is engaged with it, so it counts for neither side: a lone Stunned or Unconscious target gives no Outnumbered dice (0 vs 0), and foes next to a downed Bearer stop counting against its allies. As written, a downed target's allies within 5 ft of it still count for its side. **Approved; now in P 6.5.** | P 6.5 |
+| R224 | Ranged powers | A power attack with a range above 5 ft is a ranged attack (enemy within 5 ft: disadvantage); long range doesn't apply to powers. | P 6.7 |
+| R225 | Multi-target attacks | An attack power on "allies"/"enemies" without an area (Bellow) rolls once for all, like an area. Darts (Magic Missile) roll once per target creature, damage per dart. | P 6.6 |
+| R226 | Cues | Cues fire on attack rolls only (the sim makes no ability checks); "auto" uses a flat Cue only when it flips the outcome and never uses Reroll; an "ally" Cue never targets the user's own roll. | P 10.6 |
+| R227 | Boss half turn | One action, like the first-mover rule; its reaction works if it isn't spent. Durations ignore half turns, except "for N turns" on the Boss itself; Subdue repeats and first bite don't. | GM 3, P 8, P 11.4 |
+| R228 | Dragging a grapple | The grappler drags its grappled creatures into the square it leaves; +5 ft per square unless they are two sizes smaller. | P 6.10 |
+| R229 | Frightened movement | No step may bring the creature closer to a fear source it can see. | P 8 |
+| R230 | Flying Forms | A Form's Fly speed replaces its walking speed (no altitude) and ignores difficult terrain. | P 10.7, P 11.5 |
+| R231 | Who sees | Unconscious and Stunned creatures still count as seeing for unseen advantage; only Blinded, Dark, Invisible and walls hide. | P 5.2, P 8 |
+| R232 | Turns at 0 HP | Every living creature takes a turn, even at 0 HP (its death save) or Incapacitated; those turns end on their own. A side ends when all its living creatures have acted. | P 6.1, P 7.4 |
+| R233 | Versatile | A Versatile weapon uses its bigger die whenever the wielder's other Hand Slot is empty. | P 11.3 |
+| R234 | Exhaustion | −2 per level on attack rolls (a Subdue repeat keeps the bonus of its cast, R221); not on death saves ("no modifiers") or side initiative. | P 8 |
+| R235 | The dead | The dead drop what they hold; dead bodies never block movement. | P 6.4 |
+| R236 | "End of the source's next turn" | `endSourceTurn` set during the source's own turn lasts to the end of its next turn; extra value `endThisTurn` = the current turn (Steady Aim should use it). | P 3.4 |
+| R237 | Help | +3 on the ally's next attack against a creature within 5 ft of the helper, until the start of the helper's next turn. | P 6.3 |
+| R238 | Effects on allies | An area effect holds anyone it hits, allies and its own caster included (Web: Restrained for 2 of their turns). Only Subdue repeats its roll. | P 8, P 10.4 |
+| R239 | Resistances | Come from `build.resist` / `build.vuln` (or a passive `resist`/`vuln` list); Petrified resists everything. | P 7.2 |
+| R240 | Auto opportunity attacks | "auto" uses the first melee weapon in hand (else unarmed or the Form's natural weapon). | P 6.5 |
+| R241 | Standing up | Takes an action (P 6.4); a Move in the same command takes another. | P 6.4 |
+| R242 | Carried weapons | `Build.carried` weapons swap into a Hand with the free object interaction, like drawing. | P 3.5, SPEC 3 |
+| R243 | Zones after their source falls | A zone keeps attacking with its source's current bonus, even while the source is down. | P 10.5 |
+| R244 | Two actions | Each Move action adds your speed to the turn's budget; what's left carries over, so a Move splits around another action. A new action ends the last one's unused attacks and its Loading shot. A speed change mid-turn changes every Move already taken. *Twin Strike* adds one attack to the first Attack action of the turn. | P 6.2, 6.3 |
+| R245 | Advantage on damage | `toDamage` on an attack or power moves up to that many advantage dice left after cancelling. Each moved die rolls every damage part of the hit once more (weapon dice, riders, mod dice; crit doubling included) and keeps the set with the highest sum; flat damage is added once. Darts against one target count as one damage roll. Area damage (Sweeping Blow, area powers) picks the set once and shares it with every target. | P 5.2 |
+| R400 | Ring of Sparks trigger | "When a creature within 5 ft hits you" counts any attack from within 5 ft (ranged, spell or melee). | P 3.4 |
+| R401 | Pierce | Any hit with the Pilum (thrown or in melee) pierces a Shield the target holds: a "Pierced" condition switches the Shield's bonuses off until the target spends an action to pull the pilum free (`act` action `endCond`). No Shield in hand, no effect. | P 3.4 |
+| R402 | Fire on a Web | Fire burns one 5-ft square of a burning zone a round (`zone.burnFt`): the impact point's or the burned creature's square, else the first one the fire touches. A creature no longer standing in any square of the zone is free of it. | P 10.4 |
+| R403 | Speed when shifting | Shifting or reverting on your turn changes the movement left by the change in Speed; feet already moved stay spent. | P 10.7 |
+| R404 | Dead sources | A dead source takes no more turns: each new round counts as its turn start and end for the Durations and timers it left. | P 10.4 |
+| R405 | Zone attacks | A zone's later attacks (entering, ending a turn there) use only its source's attack bonus: the source's mods (Bless, Battle Hymn) and situations don't apply, and a dead source's zone still attacks. | P 10.5 |
+| R406 | Fear and charm | Frightened and Charmed end when their source dies. | P 8 |
+| R407 | Boss half turn | A half turn doesn't restore the reaction, end a Dodge or roll Recharge 5–6 (rolled at the end of a full turn); it comes only between two characters' turns (any time if one character is left). | GM 3, P 6.2 |
+| R408 | Beasts' Hands | A foe built on a body that carries no Hand gear has no Hand Slots (Wolf): no picking up, drawing or wielding gear. | GM 2.1 |
+| R409 | Cleave | The extra attack targets another creature than the one that dropped and is lost if the attacker moves first. | P 3.4 |
+| R500 | Same power | The same power doesn't stack with itself: a new use on a creature replaces the old one (mods, and Lasting effects from another source). **Approved; now in P 3.6.** | P 3.6 |
+| R600 | Sweeping Blow roll | The sweep is an area roll with the weapon (P 6.6: no Outnumbered, target situations or cover; the attacker's own situations still count). One damage roll serves every target; it crits only on a natural 20 (an Unconscious target doesn't make it a crit), and a crit doubles the dice for all. A miss deals half of the whole damage, per-target bonuses included. Weapon riders (Crushing) and hit triggers (weaponHit, meleeDrop: Cleave) apply per target hit. | P 6.6, Q-II-02 |
+| R601 | Sweeping Blow targets | "Each enemy within your reach": enemies within the swept weapon's reach (5 ft, 10 ft with Reach) with a clear line, never allies. Enemies at 0 HP are left out unless the attacker names them. | Q-II-02 |
+| R602 | Sweeping Blow action | The sweep is the whole Attack action: no extra attacks from it (Twin Strike), no two-weapon bonus attack after it, and not after an attack already made with the action. Triggers on taking the Attack action fire. | P 6.3, P 6.9, Q-II-02 |
+| R700 | Prone at range | Attacks against a Prone creature get one advantage die at any range, melee or ranged, powers included (not area rolls, P 6.6). Was: advantage within 5 ft, disadvantage beyond. **Approved; now in P 8.** | P 8 |
+| R701 | Foe Recharge override | A foe's `recharge` replaces a carried card power's limited uses with Recharge 5–6 for that creature only (Ogre's Sweeping Blow): ready at the start of the fight, spent on use, rolled for at the end of its full turns (not on a Boss half turn, R407; **approved: GM 2.1 now rolls Recharge at the end of the turn**). The card itself keeps 1/S.R. for Bearers and when it drops. | GM 2.1, Q-II-02 |
+| R702 | Per-weapon extra dice | A foe's extra damage dice can name weapons (`{ card id: n }`, Ogre: Javelins only); a weapon it doesn't name, a natural weapon or a Form's weapon gets none. A number still means every weapon. The sweep uses the swept weapon's extra dice (Ogre's Greatclub: none). | GM 2.1 |
+| R703 | Relentless | A passive `relentless` with uses: damage that drops the creature to 0 HP leaves it at 1 HP instead and spends a use, unless the damage beyond 0 is at least its HP maximum (instant death, P 7.4). It works on foes too (foes otherwise die at 0, R213). Uses come back each fight. | T-II-07 |
+| R704 | Regeneration | A passive `regen` heals at the start of the creature's full turn (not a Boss half turn) while it has more than 0 HP, unless it took damage of a `stopBy` type since its last turn (Troll: Fire, Poison). | Troll |
+| R705 | Undead and Morale | A creature with a passive `fearless` never rolls Morale and isn't counted among those left to roll; it still counts toward "half the group down". | Skeleton, Zombie |
+| R706 | Not automated | The Halfling Core's *Lucky* reroll isn't played by the sim. | C-I-09 |
+| R800 | Morale | The group is the foe side as it stood at `start`; its Leader is a foe with `leader` (keyword Leader). When a Leader drops to 0 HP, and once when half (rounded up) of the group is down or fled, the group rolls once: d20 + the best WIL among its remaining conscious non-Boss foes vs 10 (a plain d20: no advantage, no Exhaustion); on a failure they all flee (always flee, never surrender): each leaves the fight with its gear, counts as defeated (`dead` + `fled`, no kill credited) and ends its turn if it was acting. Checked after the whole command, so a sweep or area finishes first; the leader trigger before the half trigger. Each trigger fires once per fight; Bearers never check. | P 6.11 |

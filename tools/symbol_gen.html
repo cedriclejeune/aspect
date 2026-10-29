@@ -1,0 +1,313 @@
+<!-- Ability and Aspect-type symbols in five ink styles, drawn from one set of shapes (the SHAPE table below).
+     The cards use Brush Ink: rules/symbols/brush/*.png. To regenerate after changing a shape, run
+       chromium --headless --virtual-time-budget=8000 --dump-dom file://$PWD/tools/symbol_gen.html
+     and decode the "name data:image/png" lines in the final <pre id="dump"> into PNG files. -->
+<title>Ability Symbol Studies</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: a contact sheet. One row per style: a specimen of the ten strip symbols, then the Ledger card wearing them. */
+:root {
+  --page: #e9e8e4;
+  --fg: #1b1b1a;
+  --muted: #5e5d58;
+  --rule: #c9c7c0;
+  --paper: #ffffff;   /* printed objects: same in both themes */
+  --ink: #000000;
+  --display: 'Cinzel', Georgia, serif;
+  --text: 'EB Garamond', Georgia, serif;
+  --u: min(1mm, calc((100vw - 48px) / 63));  /* 1 mm of card: true print size, smaller only on narrow phones */
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --page: #1d1d1c; --fg: #ecebe6; --muted: #a3a29b; --rule: #3a3936; color-scheme: dark } }
+:root[data-theme="dark"] { --page: #1d1d1c; --fg: #ecebe6; --muted: #a3a29b; --rule: #3a3936; color-scheme: dark }
+
+body { background: var(--page); color: var(--fg); font-family: var(--text); font-size: 17px; }
+.wrap { max-width: 1060px; margin: 0 auto; padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { display: grid; gap: 8px; margin-bottom: 36px; max-width: 64ch; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(26px, 4vw, 38px); letter-spacing: .04em; margin: 0; text-wrap: balance; }
+header p { margin: 0; color: var(--muted); line-height: 1.45; }
+.study { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px 40px; align-items: center; padding-block: 32px; border-top: 1px solid var(--rule); }
+.study h2 { font-family: var(--display); font-size: 22px; margin: 0 0 6px; letter-spacing: .03em; display: flex; gap: 12px; align-items: baseline; }
+.study h2 .n { font-size: 14px; color: var(--muted); letter-spacing: .12em; }
+.study p { margin: 0 0 8px; line-height: 1.45; max-width: 52ch; }
+.study ul { margin: 6px 0 16px; padding-left: 18px; color: var(--muted); line-height: 1.45; font-size: 15.5px; }
+@media (max-width: 860px) { .study { grid-template-columns: minmax(0, 1fr); } .study .cardcol { justify-self: center; } }
+
+.specimen { background: var(--paper); color: var(--ink); border-radius: 6px; padding: 14px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px 8px; max-width: 470px; }
+.specimen figure { margin: 0; display: grid; justify-items: center; gap: 2px; }
+.specimen canvas { width: 100%; max-width: 64px; aspect-ratio: 1; height: auto; }
+.specimen figcaption { font-family: var(--display); font-size: 10.5px; letter-spacing: .08em; color: #555; }
+canvas.px { image-rendering: pixelated; }
+.cardcol { display: grid; justify-items: center; gap: 6px; }
+.cardcol figcaption { font-size: 13px; color: var(--muted); font-style: italic; }
+
+/* ---------- Ledger card (study 1) ---------- */
+.card { position: relative; width: calc(63 * var(--u)); height: calc(88 * var(--u)); box-sizing: border-box; overflow: hidden;
+  background: var(--paper); color: var(--ink); border: calc(.35 * var(--u)) solid var(--ink); border-radius: calc(3 * var(--u));
+  box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 6px 18px rgba(0,0,0,.10); }
+.band { position: absolute; inset: 0 0 auto 0; height: calc(11.44 * var(--u)); box-sizing: border-box; display: flex; align-items: center;
+  padding: 0 calc(10 * var(--u)) 0 calc(2.4 * var(--u)); border-bottom: calc(.7 * var(--u)) solid var(--ink); }
+.name { font-family: var(--display); font-weight: 700; font-size: calc(3.5 * var(--u)); letter-spacing: .04em; text-transform: uppercase; }
+.rank { position: absolute; right: calc(1.6 * var(--u)); top: 50%; transform: translateY(-50%); width: calc(7.6 * var(--u)); height: calc(7.6 * var(--u));
+  display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 700; font-size: calc(2.9 * var(--u));
+  border: calc(.35 * var(--u)) solid var(--ink); border-radius: 50%; box-sizing: border-box; }
+.strip { position: absolute; right: 0; top: calc(11.44 * var(--u)); width: calc(12.6 * var(--u)); bottom: calc(8.8 * var(--u));
+  display: grid; grid-template-rows: repeat(10, 1fr); border-left: calc(.3 * var(--u)) solid var(--ink); }
+.strip > div { display: flex; align-items: center; justify-content: space-between; padding: 0 calc(.7 * var(--u)); }
+.strip > div + div { border-top: calc(.12 * var(--u)) solid #b5b5b5; }
+.strip > div:nth-child(5), .strip > div:nth-child(9) { border-top: calc(.3 * var(--u)) solid var(--ink); }
+.strip canvas { width: calc(5 * var(--u)); height: calc(5 * var(--u)); }
+.strip .off canvas { opacity: .28; }
+.strip b { font-family: var(--display); font-weight: 700; font-size: calc(2.7 * var(--u)); }
+.body { position: absolute; left: 0; right: calc(12.6 * var(--u)); top: calc(11.44 * var(--u)); bottom: calc(8.8 * var(--u));
+  padding: calc(2.4 * var(--u)); box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;
+  font-size: calc(3.3 * var(--u)); line-height: 1.22; }
+.body p { margin: 0; }
+.kw { position: absolute; inset: auto 0 0 0; height: calc(8.8 * var(--u)); display: flex; align-items: center; justify-content: center;
+  font-style: italic; font-size: calc(2.9 * var(--u)); border-top: calc(.3 * var(--u)) solid var(--ink); }
+.set { position: absolute; left: calc(1.8 * var(--u)); bottom: calc(.9 * var(--u)); font-family: var(--display); font-size: calc(1.6 * var(--u)); letter-spacing: .06em; color: #777; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Ability Symbol Studies</h1>
+    <p>The same ten symbols as now (fist, feather, eye and star, each again inside a shield for its Defense, then heart and boot), rendered five ways. Every style is generated from one shared set of shapes, so all ten always match. Each one is shown at large size and at its real size on the Ledger card.</p>
+  </header>
+  <main id="studies"></main>
+</div>
+
+<script>
+// ---------- the shapes: black is ink, white is a cut. 40 × 40, taken from rules/symbols/ ----------
+const W = "#fff", K = "#000";
+const SHAPE = {
+  // a raised fist seen from the front: curled fingers, thumb wrapped across them, wrist
+  str: `<g fill="${K}">
+          <path d="M8.6 20.5C8.2 15.5 8.4 11 9.6 9.1C10.8 7.3 13.6 7.2 14.6 9L15 20.5Z"/>
+          <path d="M14.4 20.5C14.2 13 14.3 8.6 15.4 6.7C16.6 4.8 19.6 4.8 20.6 6.8C21.3 8.4 21.3 14 21.1 21Z"/>
+          <path d="M20.7 21C20.7 14 20.8 9.6 21.8 7.9C23 6 25.9 6.2 26.8 8.2C27.4 9.8 27.4 15 27.2 21Z"/>
+          <path d="M26.8 21C26.9 16 27 12.6 27.9 11.1C29 9.4 31.4 9.7 32 11.6C32.6 13.6 32.5 17.8 31.9 21Z"/>
+          <path d="M8.6 18.5C8.2 24.5 9.6 28.4 12.8 30.8L13.4 37.4H27.8L28.2 30.8C31.4 28.6 32.8 24.5 31.9 18.5Z"/>
+        </g>
+        <path d="M9.4 18.8C7 20.2 5.4 23.6 6.6 26.8C7.8 29.6 10.8 30.2 13.6 29.4C16.4 28.6 18.4 26.8 20.8 25.9C23 25.1 23.2 21.8 21 21.1C17.6 20.1 13.2 21.4 9.4 18.8Z"
+              fill="${K}" stroke="${W}" stroke-width="1.2" stroke-linejoin="round"/>
+        <g stroke="${W}" stroke-width="1.1" fill="none" stroke-linecap="round">
+          <path d="M14.7 9.6Q14.5 15 14.8 19.6M20.8 8.6Q20.6 14.5 20.9 20.4M26.9 10.8Q26.7 15.5 27 20.4"/>
+          <path d="M9.6 14.6Q11.8 13.7 14 14.5M15.4 13.1Q17.8 12 20.2 13M21.6 13.6Q23.9 12.7 26.2 13.6M27.6 15.4Q29.5 14.7 31.4 15.5"/>
+          <path d="M22.6 22.6Q27 23.6 31.6 21.6"/>
+          <path d="M18.4 22.4Q20.8 22 21.4 23.9"/>
+          <path d="M13.8 33Q20.6 34.2 27.4 33"/>
+        </g>`,
+  dex: `<g transform="rotate(35 20 20)"><path d="M20 3C30.5 10.8 29 25.2 20 30.4C11 25.2 9.5 10.8 20 3Z" fill="${K}"/>
+        <path d="M20 26V37.2" stroke="${K}" stroke-width="2.6" stroke-linecap="round"/>
+        <g stroke="${W}" stroke-width="1.3" stroke-linecap="round" fill="none"><path d="M20 7.5V27"/><path d="M27.4 14.6L22.6 16.6M12.4 20.4L17.4 21.4M26.2 21.6L22.4 22.4M12.6 13.6L17.4 15.2"/></g></g>`,
+  int: `<path d="M3 20Q20 3.6 37 20Q20 36.4 3 20Z" fill="${K}"/><circle cx="20" cy="20" r="7.4" fill="${W}"/>
+        <circle cx="20" cy="20" r="4.2" fill="${K}"/><circle cx="22.2" cy="17.6" r="1.3" fill="${W}"/>`,
+  wil: `<polygon points="20,3 22.7,13.5 31.9,8.1 26.5,17.3 37,20 26.5,22.7 31.9,31.9 22.7,26.5 20,37 17.3,26.5 8.1,31.9 13.5,22.7 3,20 13.5,17.3 8.1,8.1 17.3,13.5" fill="${K}"/>
+        <circle cx="20" cy="20" r="4.2" fill="${W}"/><circle cx="20" cy="20" r="1.8" fill="${K}"/>`,
+  hp:  `<path d="M20 35C-2.5 20 9 1.5 20 12.6C31 1.5 42.5 20 20 35Z" fill="${K}"/>
+        <path d="M10.6 14.2Q11.6 9.8 16 9.8" stroke="${W}" stroke-width="1.6" fill="none" stroke-linecap="round"/>`,
+  // a riding boot, side on: cuff, ankle, toe, raised heel
+  spd: `<path d="M15.6 5.2Q20.6 4.2 25.6 5.2L25.2 18.6Q25.6 21.2 28.4 22.2L33.6 24Q37.6 25.4 37.6 29.6V31.4Q37.6 33.6 35.2 33.6H24.2Q22.6 31.4 21 33.6H15.6L15.2 30Q14.6 24 15.8 18Q16.6 11 15.6 5.2Z" fill="${K}"/>
+        <g stroke="${W}" stroke-width="1.2" fill="none" stroke-linecap="round"><path d="M16.1 9.4Q20.6 8.6 25.4 9.4"/><path d="M15.8 30.4H37"/><path d="M28.8 22.6Q31.2 25.8 30.2 29.4"/></g>
+        <path d="M11.6 12H3M12.4 20H5.4M11.6 28H3" stroke="${K}" stroke-width="2.6" stroke-linecap="round"/>`,
+};
+const SHIELD = "M4.7 4.7Q20 1.1 35.3 4.7L35.3 18.2Q33.8 30.8 20 38Q6.2 30.8 4.7 18.2Z";
+const def = k => `<path d="${SHIELD}" fill="${W}" stroke="${K}" stroke-width="2.6" stroke-linejoin="round"/>
+  <g transform="translate(20 19.6) scale(.58) translate(-20 -20)">${SHAPE[k]}</g>`;
+const GLYPHS = [
+  ["STR", SHAPE.str], ["DEX", SHAPE.dex], ["INT", SHAPE.int], ["WIL", SHAPE.wil], ["HP", SHAPE.hp],
+  ["STR Def", def("str")], ["DEX Def", def("dex")], ["INT Def", def("int")], ["WIL Def", def("wil")], ["SPD", SHAPE.spd],
+  // Aspect type sigil: Trait, a sprout
+  ["Trait", `<path d="M20 37V19" stroke="${K}" stroke-width="3.6" stroke-linecap="round"/>
+    <path d="M20 21C20 11.5 13.5 5 4 5C4 14.5 10.5 21 20 21Z" fill="${K}"/><path d="M20 24C20 15.5 26 9.5 36 9.5C36 18 30 24 20 24Z" fill="${K}"/>
+    <path d="M17.5 18.5L8.5 9M22.5 21.5L31.5 13" stroke="${W}" stroke-width="1.3" stroke-linecap="round"/>`],
+  // Technique: two crossed blades
+  ["Technique", `<g transform="translate(20 20) scale(.92) rotate(40) translate(-20 -20)"><path d="M20 2L23.2 7V25H16.8V7Z" fill="${K}"/><path d="M20 6V23" stroke="${W}" stroke-width="1.1"/><rect x="11.5" y="25" width="17" height="3.4" rx="1.2" fill="${K}"/><rect x="18.4" y="28.4" width="3.2" height="6.6" fill="${K}"/><circle cx="20" cy="36.6" r="2.4" fill="${K}"/></g>
+    <g transform="translate(20 20) scale(.92) rotate(-40) translate(-20 -20)"><path d="M20 2L23.2 7V25H16.8V7Z" fill="${K}"/><path d="M20 6V23" stroke="${W}" stroke-width="1.1"/><rect x="11.5" y="25" width="17" height="3.4" rx="1.2" fill="${K}"/><rect x="18.4" y="28.4" width="3.2" height="6.6" fill="${K}"/><circle cx="20" cy="36.6" r="2.4" fill="${K}"/></g>`],
+  // Knack: a key
+  ["Knack", `<g transform="rotate(45 20 20)"><circle cx="20" cy="7" r="7.4" fill="${K}"/><circle cx="20" cy="7" r="3.2" fill="${W}"/>
+    <rect x="17.8" y="13" width="4.4" height="25" fill="${K}"/><rect x="22" y="29" width="6" height="3.2" fill="${K}"/><rect x="22" y="34" width="4.6" height="3.2" fill="${K}"/></g>`],
+];
+const STRIP_ORDER = ["STR", "DEX", "INT", "WIL", "STR Def", "DEX Def", "INT Def", "WIL Def", "HP", "SPD"];
+
+// ---------- raster tools ----------
+const N = 200;
+function canvas(w, h) { const c = document.createElement("canvas"); c.width = w; c.height = h; return c; }
+function hash(x, y, s) { let h = (x * 374761393 + y * 668265263 + s * 982451653) | 0; h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 4294967295; }
+function noise(x, y, s) {
+  const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi, u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+  const a = hash(xi, yi, s), b = hash(xi + 1, yi, s), c = hash(xi, yi + 1, s), d = hash(xi + 1, yi + 1, s);
+  return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+}
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+// Draw the shapes with Path2D straight onto a canvas: no SVG image is loaded, so the canvas
+// stays readable even in a locked-down frame.
+function parseTransform(t, x) {
+  for (const [, fn, args] of (t || "").matchAll(/(\w+)\(([^)]*)\)/g)) {
+    const a = args.split(/[\s,]+/).filter(Boolean).map(Number);
+    if (fn === "translate") x.translate(a[0], a[1] || 0);
+    else if (fn === "scale") x.scale(a[0], a[1] ?? a[0]);
+    else if (fn === "rotate") { if (a.length > 1) x.translate(a[1], a[2]); x.rotate(a[0] * Math.PI / 180); if (a.length > 1) x.translate(-a[1], -a[2]); }
+  }
+}
+function shapePath(el) {
+  const n = k => parseFloat(el.getAttribute(k) || 0), p = new Path2D(), tag = el.tagName;
+  if (tag === "path") return new Path2D(el.getAttribute("d"));
+  if (tag === "circle") { p.arc(n("cx"), n("cy"), n("r"), 0, Math.PI * 2); return p; }
+  if (tag === "polygon") { const v = el.getAttribute("points").trim().split(/[\s,]+/).map(Number);
+    p.moveTo(v[0], v[1]); for (let i = 2; i < v.length; i += 2) p.lineTo(v[i], v[i + 1]); p.closePath(); return p; }
+  if (tag === "rect") { const X = n("x"), Y = n("y"), w = n("width"), h = n("height"), r = Math.min(n("rx"), w / 2, h / 2);
+    p.moveTo(X + r, Y); p.arcTo(X + w, Y, X + w, Y + h, r); p.arcTo(X + w, Y + h, X, Y + h, r); p.arcTo(X, Y + h, X, Y, r); p.arcTo(X, Y, X + w, Y, r); p.closePath(); return p; }
+  return null;
+}
+function drawNode(x, node, st) {
+  for (const el of node.children) {
+    const s = { ...st };
+    for (const [attr, key] of [["fill", "fill"], ["stroke", "stroke"], ["stroke-width", "sw"], ["stroke-linecap", "cap"], ["stroke-linejoin", "join"]])
+      if (el.hasAttribute(attr)) s[key] = el.getAttribute(attr);
+    x.save(); parseTransform(el.getAttribute("transform"), x);
+    if (el.tagName === "g") drawNode(x, el, s);
+    else { const p = shapePath(el);
+      if (p && s.fill !== "none") { x.fillStyle = s.fill; x.fill(p); }
+      if (p && s.stroke && s.stroke !== "none") { x.strokeStyle = s.stroke; x.lineWidth = parseFloat(s.sw || 1); x.lineCap = s.cap || "butt"; x.lineJoin = s.join || "miter"; x.stroke(p); } }
+    x.restore();
+  }
+}
+function mask(inner) {
+  const doc = new DOMParser().parseFromString(`<svg xmlns="http://www.w3.org/2000/svg">${inner}</svg>`, "image/svg+xml");
+  const c = canvas(N, N), x = c.getContext("2d");
+  x.scale(N / 40, N / 40);
+  drawNode(x, doc.documentElement, { fill: "#000" });
+  const d = x.getImageData(0, 0, N, N).data, m = new Uint8Array(N * N);
+  for (let i = 0; i < N * N; i++) m[i] = d[i * 4 + 3] > 128 && d[i * 4] < 128 ? 1 : 0;
+  return m;
+}
+function distance(m) {  // steps to the nearest non-ink pixel
+  const D = new Int32Array(N * N).fill(1e9), q = [];
+  for (let i = 0; i < N * N; i++) if (!m[i]) { D[i] = 0; q.push(i); }
+  for (let h = 0; h < q.length; h++) {
+    const i = q[h], x = i % N, y = (i / N) | 0;
+    for (const [dx, dy] of [[1,0],[-1,0],[0,1],[0,-1]]) {
+      const nx = x + dx, ny = y + dy; if (nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
+      const j = ny * N + nx; if (D[j] > D[i] + 1) { D[j] = D[i] + 1; q.push(j); }
+    }
+  }
+  return D;
+}
+const at = (a, x, y) => { x = Math.round(x); y = Math.round(y); return x < 0 || y < 0 || x >= N || y >= N ? 0 : a[y * N + x]; };
+function paint(test) {
+  const c = canvas(N, N), x = c.getContext("2d"), img = x.createImageData(N, N);
+  for (let y = 0; y < N; y++) for (let X = 0; X < N; X++) if (test(X, y)) img.data[(y * N + X) * 4 + 3] = 255;
+  x.putImageData(img, 0, 0); return c;
+}
+
+// ---------- the five styles ----------
+const STYLES = [
+  { name: "Woodcut", pitch: "Solid black shapes with rough edges and short white gouge marks across the thick parts, like a print from a carved block.",
+    notes: ["Heaviest and boldest, so it reads best at strip size", "Matches an old-print feel without needing color", "The gouges disappear at small size, leaving a slightly textured shape"],
+    run: (m, D, s) => paint((x, y) => {
+      const ox = (noise(x * .12, y * .12, s) - .5) * 4, oy = (noise(x * .12, y * .12, s + 7) - .5) * 4;
+      if (!at(m, x + ox, y + oy)) return false;
+      const d = at(D, x + ox, y + oy);
+      const gouge = d > 7 && ((x - y * 1.4 + 1000) % 11) < 2.2 && noise(x * .045, y * .045, s + 3) > .42;
+      return !gouge;
+    }) },
+  { name: "Brush Ink", pitch: "The shapes as if painted with a loaded brush: wobbly, organic edges and the odd dry speck inside the ink.",
+    notes: ["Feels hand-drawn, the furthest from vector", "Edges wander, so the fine cuts (finger gaps, feather veins) soften", "Pairs well with the Garamond body text"],
+    run: (m, D, s) => paint((x, y) => {
+      const ox = (noise(x * .06, y * .06, s) - .5) * 7 + (noise(x * .3, y * .3, s + 2) - .5) * 1.6;
+      const oy = (noise(x * .06, y * .06, s + 9) - .5) * 7 + (noise(x * .3, y * .3, s + 5) - .5) * 1.6;
+      if (!at(m, x + ox, y + oy)) return false;
+      return !(at(D, x + ox, y + oy) > 5 && noise(x * .5, y * .5, s + 11) > .86);
+    }) },
+  { name: "Engraved", pitch: "A firm outline with the inside filled by fine parallel lines, the way old coins and banknotes are engraved.",
+    notes: ["Light on ink and very crisp in print", "Keeps every cut visible, so it stays the most precise", "At strip size the hatching reads as grey, which makes inactive rows hard to tell apart unless they are faded more"],
+    run: (m, D) => paint((x, y) => {
+      const d = D[y * N + x]; if (!d) return false;
+      if (d <= 4) return true;
+      return ((y + x * .35) % 7) < (d > 12 ? 3.2 : 2.4);
+    }) },
+  { name: "Stipple", pitch: "Built entirely from dots: a dense dotted edge and a lighter scatter inside, like a pen-and-ink stipple drawing.",
+    notes: ["Distinctive and clearly handmade", "Prints as a soft grey, so the bold numbers next to it stand out more", "Weakest at small size: needs the dots large enough to survive a home printer"],
+    run: (m, D, s) => {
+      const c = canvas(N, N), x = c.getContext("2d"), r = rng(s * 31 + 5);
+      x.fillStyle = "#000";
+      const dot = (px, py, rad) => { x.beginPath(); x.arc(px, py, rad, 0, 7); x.fill(); };
+      for (let y = 0; y < N; y++) for (let X = 0; X < N; X++) { const d = D[y * N + X]; if (d >= 1 && d <= 3 && r() < .2) dot(X, y, 2); }
+      for (let y = 2; y < N; y += 6) for (let X = 2; X < N; X += 6) {
+        const px = X + (r() - .5) * 4, py = y + (r() - .5) * 4;
+        if (at(D, px, py) > 3 && r() < .85) dot(px, py, 1.9);
+      }
+      return c;
+    } },
+  { name: "Pixel", pitch: "One-bit pixel symbols on a 20 × 20 grid, each square fully black or white, like an old game sprite.",
+    notes: ["The sharpest and fastest to read at small size", "Looks like a deliberate retro choice, which may or may not fit the setting", "Generated here from the shapes; a final set would be touched up by hand pixel by pixel"],
+    grid: 20,
+    run: (m) => {
+      const G = 20, cell = N / G, c = canvas(G, G), x = c.getContext("2d"), img = x.createImageData(G, G);
+      for (let gy = 0; gy < G; gy++) for (let gx = 0; gx < G; gx++) {
+        let n = 0; for (let y = 0; y < cell; y++) for (let X = 0; X < cell; X++) n += m[(gy * cell + y) * N + gx * cell + X];
+        if (n / (cell * cell) > .45) img.data[(gy * G + gx) * 4 + 3] = 255;
+      }
+      x.putImageData(img, 0, 0); return c;
+    } },
+];
+
+// each symbol is shown as a canvas copied from its source canvas (no image URLs needed)
+const ico = (si, k, pixel) => `<canvas class="ico${pixel ? " px" : ""}" data-s="${si}" data-k="${k}" role="img" aria-label="${k}"></canvas>`;
+
+const SELLSWORD = { name: "Sellsword", rank: "II", kw: "Trait", set: "LOOT · T-II-04",
+  text: "+3 on checks to intimidate, endure, haggle or gather rumors.", strip: { "STR": "+1", "STR Def": "+1" } };
+
+function card(si, pixel) {
+  const rows = STRIP_ORDER.map(k => { const v = SELLSWORD.strip[k];
+    return `<div class="${v ? "on" : "off"}">${ico(si, k, pixel)}${v ? `<b>${v}</b>` : ""}</div>`; }).join("");
+  return `<div class="card" role="img" aria-label="Sellsword on the Ledger card">
+    <div class="band"><span class="name">${SELLSWORD.name}</span><div class="rank">${SELLSWORD.rank}</div></div>
+    <div class="strip">${rows}</div><div class="body"><p>${SELLSWORD.text}</p></div>
+    <div class="kw">${SELLSWORD.kw}</div><div class="set">${SELLSWORD.set}</div></div>`;
+}
+
+(() => { try {
+  const masks = GLYPHS.map(([, g]) => mask(g));
+  const sources = [];
+  const dists = masks.map(distance);
+  const out = [];
+  for (const [i, st] of STYLES.entries()) {
+    const icons = {};
+    for (const [j, [label]] of GLYPHS.entries()) icons[label] = st.run(masks[j], dists[j], j * 13 + 1);
+    sources.push(icons);
+    out.push(`<section class="study">
+      <div>
+        <h2><span class="n">${i + 1}</span>${st.name}</h2>
+        <p>${st.pitch}</p>
+        <ul>${st.notes.map(n => `<li>${n}</li>`).join("")}</ul>
+        <div class="specimen${st.grid ? " pixel" : ""}">${GLYPHS.map(([l]) => `<figure>${ico(i, l, !!st.grid)}<figcaption>${l}</figcaption></figure>`).join("")}</div>
+      </div>
+      <figure class="cardcol" style="margin:0">${card(i, !!st.grid)}<figcaption>Print size: 63 × 88 mm</figcaption></figure>
+    </section>`);
+  }
+  document.getElementById("studies").innerHTML = out.join("");
+  for (const el of document.querySelectorAll("canvas.ico")) {
+    const src = sources[el.dataset.s][el.dataset.k];
+    el.width = src.width; el.height = src.height;
+    el.getContext("2d").drawImage(src, 0, 0);
+  }
+} catch (e) {
+  document.getElementById("studies").innerHTML = `<p style="color:var(--muted)">The symbols could not be drawn in this browser (${e.message}). Try opening the page in Chrome, Firefox or Safari.</p>`;
+} })();
+</script>
+<script>
+setTimeout(() => {
+  const slug = s => s.toLowerCase().replace(/\s+/g, "-");
+  const seen = {}, out = [];
+  for (const c of document.querySelectorAll("canvas.ico")) {
+    const name = `${slug(STYLES[c.dataset.s].name)}-${slug(c.dataset.k)}`;
+    if (!seen[name]) { seen[name] = 1; out.push(name + " " + c.toDataURL("image/png")); }
+  }
+  document.body.insertAdjacentHTML("beforeend", `<pre id="dump">${out.join("\n")}</pre>`);
+}, 1500);
+</script>
