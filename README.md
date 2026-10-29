@@ -12,7 +12,8 @@ Characters are built from interchangeable **Aspects** placed in **Slots**: weapo
 |---|---|
 | [rules/RULES.md](rules/RULES.md) | The core rulebook (standalone, source) |
 | [rules/Aspects-Core-Rules.pdf](rules/Aspects-Core-Rules.pdf) | Illustrated PDF of the rulebook |
-| [tools/](tools/) | `build_pdf.py` (PDF), `illustrations.py` (SVG art), `shatter_sim.py` (economy simulation) |
+| [rules/Aspects-Combat-Cheat-Sheet.pdf](rules/Aspects-Combat-Cheat-Sheet.pdf) | Two-sided combat cheat sheet: actions & reactions / combat rules |
+| [tools/](tools/) | `build_pdf.py` (PDF), `build_cheatsheet.py` (cheat sheet), `illustrations.py` (SVG art), `shatter_sim.py` (economy simulation) |
 | [ATTRIBUTION.md](ATTRIBUTION.md) | SRD 5.2.1 CC-BY-4.0 attribution |
 | [CHANGELOG.md](CHANGELOG.md) | Version history |
 
