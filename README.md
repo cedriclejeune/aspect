@@ -14,8 +14,9 @@ Characters are built from interchangeable **Aspects** placed in **Slots**: weapo
 | [rules/GM.md](rules/GM.md) | Game Master's Guide: running the world, monsters, Bosses, loot, encounters |
 | [rules/DESIGN.md](rules/DESIGN.md) | Internal design rules: Rank scaling, card constraints, design notes, fifth-edition conversion (no PDF) |
 | [rules/Bearers-Player-Rules.pdf](rules/Bearers-Player-Rules.pdf) · [rules/Bearers-GM-Guide.pdf](rules/Bearers-GM-Guide.pdf) | Illustrated PDFs |
+| [rules/Bearers-Combat-Cheat-Sheet.pdf](rules/Bearers-Combat-Cheat-Sheet.pdf) | Two-sided combat cheat sheet: actions & reactions / combat rules. Source: [tools/build_cheatsheet.py](tools/build_cheatsheet.py) |
 | [rules/Bearers-Base-Set.pdf](rules/Bearers-Base-Set.pdf) | Printable base set for a 4-player test game: Cores, starter gear and Aspects, Rank I–II loot, decks, gold, tally cards, Slot frames, and foe cards for the GM. Source: [cards/base_set.py](cards/base_set.py), [cards/foes.py](cards/foes.py) |
-| [tools/](tools/) | `build_pdf.py` (PDF), `build_cards.py` (base set PDF), `illustrations.py` (SVG art), `shatter_sim.py` (economy simulation, obsolete since Shatter was removed) |
+| [tools/](tools/) | `build_pdf.py` (PDF), `build_cards.py` (base set PDF), `build_cheatsheet.py` (combat cheat sheet), `illustrations.py` (SVG art), `shatter_sim.py` (economy simulation, obsolete since Shatter was removed) |
 | [ATTRIBUTION.md](ATTRIBUTION.md) | SRD 5.2.1 CC-BY-4.0 attribution |
 | [CHANGELOG.md](CHANGELOG.md) | Version history |
 
@@ -31,6 +32,6 @@ Characters are built from interchangeable **Aspects** placed in **Slots**: weapo
 .venv/bin/pip install markdown
 .venv/bin/python tools/build_pdf.py
 ```
-The base set: `.venv/bin/python tools/build_cards.py`.
+The base set: `.venv/bin/python tools/build_cards.py`. The combat cheat sheet: `.venv/bin/python tools/build_cheatsheet.py`.
 
 Needs Chromium. Fonts (Cinzel, EB Garamond) load from Google Fonts at build time.
