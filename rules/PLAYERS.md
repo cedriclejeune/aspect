@@ -217,7 +217,7 @@ Each sample shows the name, Rank and lit symbols (*all* when all four are), the 
 > +2 STR Defense against poison and disease.
 > *Trait*
 
-> **IRON WILL** · Rank I · STR · WIL
+> **IRON WILL** · Rank I · INT · WIL
 > Bonuses: +2 HP
 > +2 WIL Defense against fear and mind control.
 > *Trait*

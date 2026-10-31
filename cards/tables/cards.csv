@@ -1,0 +1,110 @@
+id,name,type,rank,group,symbols,copies,STR,DEX,INT,WIL,STRd,DEXd,INTd,WILd,HP,SPD,to_hit,damage,keywords,text,lore
+L-01,Duelist,Calling,,starter,STR DEX,1,+2,+2,+0,+0,12,12,10,10,12,35,,,,"Footwork: once per turn, after you hit with a melee attack, move 5 ft. This movement doesn't provoke opportunity attacks.",Footwork drilled until it needs no thought. The blade goes where the eyes already are.
+L-02,Templar,Calling,,starter,STR WIL,1,+2,+0,+0,+2,12,10,10,12,14,30,,,,"Oath (1/S.R.): reaction, when an attack hits an ally within 5 ft: you take its damage instead.","A vow, a shield arm and a spine that does not bend. Others stand behind this one."
+L-03,Spellblade,Calling,,starter,STR INT,1,+2,+0,+2,+0,12,10,12,10,13,30,,,,Battle Caster: a weapon you hold counts as an empty Hand for casting from a Spellbook.,"Steel in one hand, a spell on the tongue. Taught that the two were never separate."
+L-04,Infiltrator,Calling,,starter,DEX INT,1,+0,+2,+2,+0,10,12,12,10,10,35,,,,"Unseen: +2 on checks to sneak, pick locks and spot traps.","Locks, ledges and the patience of a held breath. Nobody remembers seeing them leave."
+L-05,Performer,Calling,,starter,DEX WIL,1,+0,+2,+0,+2,10,12,10,12,10,35,,,,"Crowd Work (1/S.R.): reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll.","Quick feet and a quicker smile. Every room is a stage, every fight an audience."
+L-06,Sage,Calling,,starter,INT WIL,1,+0,+0,+2,+2,10,10,12,12,9,30,,,,Learned: 1 extra spell point on a Spellbook you hold. +2 on checks to recall lore.,"A mind that kept every page it ever read, and a voice that makes the pages speak."
+L-07,Brawler,Calling,,starter,STR DEX,1,+2,+2,+0,+0,12,12,10,10,14,30,,,,Scrapper: +2 to hit with Grapples and Shoves.,"Taverns, docks and pit fights. Swords are for people who can't hold on."
+L-08,Zealot,Calling,,starter,STR WIL,1,+2,+0,+0,+2,12,10,10,12,12,35,,,,Righteous Fury (1/S.R.): when you hit with a weapon attack: +1d6 Radiant damage.,"A fire that won't go out, and a cause worth burning for. Doubt is for other people."
+L-09,Tactician,Calling,,starter,STR INT,1,+2,+0,+2,+0,12,10,12,10,12,30,,,,Command (1/S.R.): action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack.,"Every fight is a board, every ally a piece. They see the move three turns before it lands."
+L-10,Ranger,Calling,,starter,DEX INT,1,+0,+2,+2,+0,10,12,12,10,11,35,,,,Quarry (1/S.R.): when you hit with a ranged attack: +2 on your attacks against that target until the end of your next turn.,"Weeks alone on a trail, and an arrow that never wastes its flight."
+L-11,Trickster,Calling,,starter,DEX WIL,1,+0,+2,+0,+2,10,12,10,12,9,35,,,,"Feint (1/S.R.): reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss.",Never where you swing. Always where you look away. The grin is the last thing you see.
+L-12,Hermit,Calling,,starter,INT WIL,1,+0,+0,+2,+2,10,10,12,12,11,30,,,,"Solitude: 1 extra Resolve on a Divine, Glamour or Nature deck you have. +2 on checks to forage and endure.","Years in a cave or a forest, talking to stones and stars. Something out there answered."
+A-I-01,Leather,Armor,I,starter,all,2,,,,,+2,+1,,,+2,+5,,,,,"Supple hide, oiled and stitched. It creaks a little, but it lets you run."
+A-I-02,Mail,Armor,I,starter,STR DEX,2,,,,,+3,,,,+4,,,,,,"Riveted rings over a padded coat. Heavy on the shoulders, light on the conscience."
+A-II-01,Plate,Armor,II,loot,STR,1,,,,,+4,,,,+12,-10,,,Noisy 3,,"Full steel, fitted to you. You hear yourself coming, and so does everyone else."
+S-I-01,Shield,Shield,I,starter,STR WIL,2,,,,,+2,+2,,,,,,,,Takes one Hand.,"Oak boards, an iron rim, a dented boss. Every scar on it is a blow you never felt."
+W-I-01,Dagger,Weapon,I,starter,DEX INT,1,,,,,,,,,,,+4,1d4,Light · Thrown 20/60,"+4 to hit, 1d4 + DEX or INT Physical.","Every traveler carries one. It cuts bread, rope and, when it must, throats."
+W-I-02,Shortsword,Weapon,I,starter,STR DEX,1,,,,,,,,,,,+3,1d4,Light,"+3 to hit, 1d4 + STR or DEX Physical.","A short, honest blade for tight alleys and crowded fights."
+W-I-03,Handaxe,Weapon,I,starter,STR DEX,1,,,,,,,,,,,+2,1d6,Light · Thrown 20/60,"+2 to hit, 1d6 + STR or DEX Physical.",A woodcutter's tool that learned a second trade. It flies true when thrown.
+W-I-04,Finesse Blade,Weapon,I,starter,DEX WIL,1,,,,,,,,,,,+2,1d6,,"+2 to hit, 1d6 + DEX or WIL Physical. Sap: when you hit, the target has −2 on its next attack roll before the start of your next turn.","A slim duelist's sword. A nick here, a cut there, and the foe's arm grows slow."
+W-I-05,Longsword,Weapon,I,starter,STR WIL,1,,,,,,,,,,,+2,1d8 / 1d10,Versatile (1d10),"+2 to hit, 1d8 / 1d10 + STR or WIL Physical.","The knight's blade: one hand for the shield, two hands when the shield breaks."
+W-I-06,Battleaxe,Weapon,I,starter,STR DEX,1,,,,,,,,,,,+2,1d8 / 1d10,Versatile (1d10),"+2 to hit, 1d8 / 1d10 + STR or DEX Physical.",A bearded head on an ash haft. It splits shields as easily as firewood.
+W-I-07,Greatsword,Weapon,I,starter,STR,1,,,,,,,,,,,+2,2d6,Heavy · Two-Handed,"+2 to hit, 2d6 + STR Physical.",As tall as a child and twice as loud. You don't parry it; you get out of its way.
+W-I-08,Glaive,Weapon,I,starter,STR,1,,,,,,,,,,,+2,1d10,Heavy · Reach · Two-Handed,"+2 to hit, 1d10 + STR Physical.","A blade on a long pole. It keeps the enemy at a distance, where it should be."
+W-I-09,Longbow,Weapon,I,starter,DEX INT,1,,,,,,,,,,,+2,1d8,Range 150/600 · Two-Handed,"+2 to hit, 1d8 + DEX or INT Physical.","Yew, horn and patience. A trained archer drops a charging boar before it closes."
+W-I-10,Sling,Weapon,I,starter,DEX WIL,1,,,,,,,,,,,+2,1d6,Light · Range 30/120,"+2 to hit, 1d6 + DEX or WIL Physical.",A strip of leather and a pouch of stones. Shepherds have killed giants with less.
+W-I-11,Javelins,Weapon,I,starter,STR DEX,1,,,,,,,,,,,+2,1d6,Thrown 30/120,"+2 to hit, 1d6 + STR or DEX Physical.","A bundle of light spears, made to be thrown first and asked about later."
+W-I-12,Spellguard Staff,Weapon,I,starter,STR INT,1,,,,,,,,,,,+2,1d8 / 1d10,Versatile (1d10),"+2 to hit, 1d8 / 1d10 + STR or INT Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.",Runes run along its grain. The wood remembers the shape of a casting hand.
+M-I-01,Traveler's Lute,Instrument,I,starter,DEX WIL,1,,,,,,,,,,,,,Focus,1 extra Resolve (short rest). Your Anthems reach 60 ft instead of 30 ft.,Its varnish is worn where a hundred hands have strummed it. The tunes carry far.
+W-I-13,Greatclub,Weapon,I,loot,STR,1,,,,,,,,,,,+2,1d10,Heavy · Two-Handed,"+2 to hit, 1d10 + STR Physical. Crushing: on a critical hit, the target is knocked Prone.",A tree limb with ambitions. What it hits stays down for a while.
+W-I-14,Gladius,Weapon,I,loot,STR DEX,1,,,,,,,,,,,+2,1d6,Light,"+2 to hit, 1d6 + STR or DEX Physical. Close Order: +1d4 damage while an ally is engaged with the same creature.","A soldier's sword, short and wide, made for fighting shoulder to shoulder."
+W-II-01,Boarspear,Weapon,II,loot,STR WIL,1,,,,,,,,,,,+3,1d8 / 1d10,Versatile (1d10),"+3 to hit, 1d8 / 1d10 + STR or WIL Physical. Brace: your opportunity attacks with it deal +1d8 damage.","Its crossbar stops a charging beast on the point. Hunters set it, then wait."
+W-II-02,Pilum,Weapon,II,loot,STR DEX,1,,,,,,,,,,,+3,1d6,Thrown 30/120,"+3 to hit, 1d6 + STR or DEX Physical. Pierce: on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free.","A soft iron shank bends on impact, so the spear can't be thrown back, and the shield can't be raised."
+W-I-15,Shortbow,Weapon,I,loot,DEX WIL,1,,,,,,,,,,,+2,1d6,Range 80/320 · Two-Handed,"+2 to hit, 1d6 + DEX or WIL Physical.",Light enough to shoot from the saddle or from the treetops.
+W-I-16,Greataxe,Weapon,I,loot,STR,1,,,,,,,,,,,+2,1d12,Heavy · Two-Handed,"+2 to hit, 1d12 + STR Physical.","A crescent of iron on a heavy haft. One swing, one problem fewer."
+J-I-01,Ring of Warding,Jewelry,I,starter,all,1,,,,,,,,,,,,,,"Reaction (2/S.R.), when an attack hits you: +2 to the targeted Defense against that attack, possibly turning it into a miss.",A band of cold silver. It tightens around the finger just before the blow lands.
+J-I-02,Guild Signet,Jewelry,I,starter,all,1,,,,,,,,,,,,,,"Action (1/L.R.), in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night.","Press it into wax and doors open. Lose it, and someone comes asking why."
+J-I-03,Shard Bandolier,Jewelry,I,starter,all,1,,,,,,,,,,,,,,You can carry 2 more Shards in your Pack (5 in all). They still count toward its 8 pieces.,Leather straps padded for crystal. Shards clink softly against each other as you walk.
+J-I-04,Holy Amulet,Jewelry,I,loot,all,1,,,,,,,,,,,,,Focus,1 extra Resolve (short rest). Your Cues reach 90 ft instead of 60 ft.,A blessed token on a worn cord. Prayers spoken over it seem to travel further.
+J-I-05,Boots of the Long Stride,Jewelry,I,starter,all,1,,,,,,,,,,,,,,Reaction (1/S.R.): Move.,"Soft boots that never wear out. Every few steps, one lands farther than it should."
+J-II-01,Ring of Sparks,Jewelry,II,loot,all,1,,,,,,,,,,,,,,"Reaction (1/S.R.), when a creature within 5 ft hits you: it takes 2d6 Lightning.",Copper wire coiled around a blue stone. It bites whoever lays a hand on its wearer.
+J-I-06,Dancer's Bells,Jewelry,I,starter,all,1,,,,,,,,,,,,,Focus,1 extra Resolve (short rest). Your Dirges reach 90 ft instead of 60 ft.,A string of tiny bells for the ankle. Their jingle gets under an enemy's skin.
+P-I-01,Potion of Healing,Consumable,I,starter,all,6,,,,,,,,,,,,,,"Action: drink it, or give it to a creature within 5 ft. It regains 2d4 + 2 HP.","Red and faintly warm, it tastes of iron and cherries. Shake before drinking."
+U-I-01,Coin Pouch,Purse,I,starter,all,4,,,,,,,,,,,,,,Holds up to 100 gp.,A drawstring purse of good leather. Its weight is the only friend some people have.
+P-I-02,Writ of Favor,Consumable,I,starter,all,1,,,,,,,,,,,,,,"A sealed letter from a noble house, a guild or a temple. Show it to one of its members: they grant one reasonable request (shelter, an audience, safe passage, a loan up to 100 gp).","Heavy paper, a heavy seal. A debt someone important promised to repay."
+P-II-01,Greater Potion of Healing,Consumable,II,loot,all,2,,,,,,,,,,,,,,"Action: drink it, or give it to a creature within 5 ft. It regains 4d4 + 4 HP.",Deep crimson and almost hot to hold. Wounds close while you're still swallowing.
+P-II-02,Restorative Salve,Consumable,II,loot,all,1,,,,,,,,,,,,,,Action: spread it on a creature within 5 ft. Heal one of its Wounds.,"Bitter herbs, river clay and a healer's patience, sealed in a tin."
+P-I-03,Pocket Sand,Consumable,I,loot,all,1,,,,,,,,,,,,,,"Reaction: throw it at a creature within 5 ft. Attack (DEX or WIL + 2) against its DEX Defense: on a hit, it has −2 on attacks until the end of its next turn.",The oldest trick there is. It still works.
+R-II-01,Alchemist's Fire Recipe,Recipe,II,loot,all,1,,,,,,,,,,,,,3 flasks,"Reaction: throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss.",Three corked flasks and the knowledge to fill them. Keep them away from the campfire.
+T-I-01,Springheel,Trait,I,starter,STR DEX,1,,,,,,,,,+2,,,,,"Your jump distances are doubled, and you never need a running start.","It came from someone who never learned to walk, only to bound."
+T-I-02,Stone Blood,Trait,I,starter,STR INT,1,,,,,+1,,,,+2,,,,,+2 STR Defense against poison and disease.,Taken from a taster at a poisoner's court. Nothing in a cup ever hurt them again.
+T-I-03,Iron Will,Trait,I,starter,STR WIL,1,,,,,,,,,+2,,,,,+2 WIL Defense against fear and mind control.,The resolve of someone who stared down terrors and did not blink.
+T-I-04,Clear Mind,Trait,I,starter,INT WIL,1,,,,,,,,,+2,,,,,+2 INT Defense against illusions and confusion.,A mind that sees through mist and mirrors. Illusions slide off it like rain.
+Q-I-01,Cleave,Technique,I,starter,STR DEX,1,,,,,,,,,,,,,,"1/S.R., when your melee attack drops a creature to 0 HP: make one melee attack against another creature within your reach.","A soldier's reflex: when one foe falls, the blade is already moving to the next."
+Q-I-02,Steady Aim,Technique,I,starter,DEX INT,1,,,,,,,,,,,,,,Reaction (2/S.R.): your next ranged attack this turn has +2 to hit.,"A hunter's breath, held between heartbeats, until the arrow flies."
+Q-I-03,Shield Bash,Technique,I,starter,STR WIL,1,,,,,,,,,,,,,,"Reaction (1/S.R.), when you take the Attack action while holding a Shield: Shove a creature within 5 ft.",Shields aren't only for hiding behind. A veteran knows the rim is a weapon too.
+Q-I-04,Battle Hymn,Technique,I,starter,DEX WIL,1,,,,,,,,,,,,,,"2/S.R., when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 on their next attack before the end of your next turn.","A warrior's chant that rose with every strike, until the whole line sang along."
+Q-I-05,Rallying Cry,Technique,I,starter,STR WIL,1,,,,,,,,,,,,,Anthem,Rally as a loose Anthem. Action (1/S.R.): Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks.,One voice that turns a rout into a charge. It remembers every battlefield it saved.
+Q-I-06,Shield Wall,Technique,I,loot,STR WIL,1,,,,,,,,,,,,,,"Reaction (1/S.R.), when an attack hits an ally within 5 ft while you hold a Shield: +2 to the targeted Defense against that attack, possibly turning it into a miss.","Learned in the front rank, where your shield guards the friend beside you."
+K-I-01,Cat Burglar,Knack,I,starter,DEX INT,1,,,,,,,,,,,,,,"+2 on checks to sneak, climb or pick locks.",The habits of someone who never used a door if a window would do.
+K-I-02,Renowned,Knack,I,starter,INT WIL,1,,,,,,,,,,,,,,"+2 on checks to persuade, haggle, gather rumors or perform.","A name that opens doors. Everyone has heard the stories, true or not."
+K-I-03,Sailor,Knack,I,starter,STR INT,1,,,,,,,,,,,,,,"+2 on checks to swim, climb, navigate or gather rumors.","Salt in the blood, knots in the fingers, and a tavern story for every port."
+K-I-04,Street Urchin,Knack,I,starter,DEX WIL,1,,,,,,,,,,,,,,"+2 on checks to pick pockets, sneak, read intentions or gather rumors.",Taught by gutters and hunger. Nobody sees a child in the crowd until their purse is gone.
+K-I-05,Hunter,Knack,I,starter,DEX INT,1,,,,,,,,,,,,,,"+2 on checks to track, notice, sneak or handle animals.","Broken twigs, bent grass, the hush before a deer bolts. The wild speaks; this one listens."
+K-I-06,Physician,Knack,I,starter,INT WIL,1,,,,,,,,,,,,,,"+2 on checks to treat wounds, recall lore, read intentions or persuade.","Steady hands and a calm voice, honed over a thousand sickbeds."
+K-I-07,Barkeep,Knack,I,starter,STR WIL,1,,,,,,,,,,,,,,"+2 on checks to read intentions, gather rumors, intimidate or lift.","Years behind the bar teach a lot: who lies, who drinks, who will start the fight."
+K-I-08,Smith,Knack,I,starter,STR INT,1,,,,,,,,,,,,,,"+2 on checks to lift, break, haggle or recall lore.","The forge's wisdom: the weight of iron, the price of iron, where iron breaks."
+K-I-09,Mountaineer,Knack,I,starter,STR DEX,1,,,,,,,,,,,,,,"+2 on checks to climb, endure, navigate or balance.",Thin air and sheer cliffs were a home to them. The mountain never won.
+Q-II-01,Twin Strike,Technique,II,loot,STR DEX,1,,,,,,,,,,,,,,"Once per turn, when you take the Attack action, make one extra attack.","A blade master's rhythm: a feint and a cut, so fast they sound like one blow."
+T-II-01,Second Wind,Trait,II,loot,STR WIL,1,,,,,,,,,+4,,,,,Action (1/S.R.): regain 1d10 + 3 HP.,"When others lie down, this one gets back up. Pain is a problem for later."
+T-II-02,Wiry,Trait,II,loot,STR DEX,1,+1,,,,+1,,,,+4,+5,,,,,"Lean, ropy strength. There was never much meat on them, but they never tired."
+T-II-03,Night Eyes,Trait,II,loot,DEX INT,1,,,,,,,,,+4,,,,Darkvision 120,,"Eyes from something that lived in the dark. Shadows turn to shapes, then to detail."
+T-II-04,Sellsword,Trait,II,loot,STR WIL,1,+1,,,,+1,,,,+4,,,,,"+3 on checks to intimidate, endure, haggle or gather rumors.","Hard years selling a blade to whoever paid. You learn the price of everything, and of everyone."
+T-II-05,Acrobat,Trait,II,loot,DEX WIL,1,,+1,,,,+1,,,+4,,,,,"+3 on checks to tumble, balance, jump or perform.","From a traveling troupe: flips, falls and a crowd that gasped every night."
+T-I-05,Pack Hunter,Trait,I,loot,STR DEX,1,,,,,,,,,+2,,,,,"1/S.R., when you hit a creature one of your allies is engaged with: it falls Prone.","Taken from a wolf. It knows the moment a friend has the prey, and when to pull it down."
+Q-I-07,Slippery,Technique,I,loot,DEX INT,1,,,,,,,,,,,,,,Reaction (2/S.R.): move up to half your Speed. This movement doesn't provoke opportunity attacks.,A knack for being somewhere else when the blow arrives.
+T-II-06,Hedge Witch,Trait,II,loot,INT WIL,1,,,,,,,,,+4,,,,,"1 extra spell point (long rest). +3 on checks to handle animals, recall lore, treat wounds or deceive.",Herb lore and old charms from a cottage at the edge of the woods.
+Q-II-02,Sweeping Blow,Technique,II,loot,STR,1,,,,,,,,,,,,,,"1/S.R., when you take the Attack action with a Heavy or Reach weapon: make one attack roll against each enemy within your reach instead. Half damage on a miss.",The wide arc of a giant's swing. Everyone in reach learns to fear it.
+T-II-07,Relentless,Trait,II,loot,STR WIL,1,,,,,,,,,+4,,,,,"1/S.R., when damage drops you to 0 HP without killing you outright: you drop to 1 HP instead.","Something that would not stay down. Death had to ask twice, and it never asked again."
+T-I-06,Human Grit,Trait,I,loot,all,1,,,,,,,,,+2,,,,,"Stubborn (1/S.R.): when you fail a check, add +2 to that roll, possibly turning it into a success.","Short-lived, stubborn and everywhere. Whatever they lack, they make up for by trying again."
+T-I-07,Elven Blood,Trait,I,loot,DEX INT,1,,,,,,,,,+2,,,,Darkvision 60,,"Long years in a slender frame, and eyes that never quite lost the starlight."
+T-I-08,Dwarven Blood,Trait,I,loot,STR WIL,1,,,,,,,,,+2,,,,,+2 STR Defense against poison.,Stone-born and slow to fall. Their blood shrugs off what would fell a lesser body.
+T-I-09,Halfling Luck,Trait,I,loot,DEX WIL,1,,,,,,,,,+2,,,,,"Lucky (1/S.R.): when you roll a 1 on a d20, reroll it.","Small, cheerful and impossibly lucky. Fate seems to like them, and nobody knows why."
+T-I-10,Orcish Blood,Trait,I,loot,STR WIL,1,,,,,,,,,+2,,,,,"+2 on checks to intimidate, endure, lift or march.",Made for war and for the long march after it. The dark holds no secrets from those eyes.
+T-I-11,Hobgoblin Discipline,Trait,I,loot,STR INT,1,,,,,,,,,+2,,,,,"+2 on checks to march, navigate, stand firm or read intentions.","Drilled from birth: a good soldier, a good scout, a good officer. Discipline is in the bones."
+B-I-01,Conjurer's Book,Spellbook,I,starter,INT,1,,,,,,,,,,,,,,Spell attack: INT + 2 Spell points: 4 (long rest) Max spell level: 2nd Casting needs an empty Hand.,"Spells copied in a careful hand, the margins full of warnings. The ink still smells of ozone."
+G-I-01,Wanderer's Repertoire,Glamour,I,starter,WIL,1,,,,,,,,,,,,,,"Attack: WIL + 2 Resolve: 3 + WIL (short rest) Songs, poems and dances.","Songs gathered at roadside fires and in tavern corners, sung by someone who never stayed long."
+D-I-01,Acolyte's Litany,Divine,I,loot,WIL,1,,,,,,,,,,,,,,Attack: WIL + 2 Resolve: 3 + WIL (short rest) Prayers. Fate dice: d4.,Prayers learned by heart in a quiet temple. The faith came with them.
+N-I-01,Wildheart's Remembrance,Nature,I,loot,WIL,1,,,,,,,,,,,,,,Resolve: 3 + WIL (short rest) Beasts your body remembers. Shift: action.,"The memory of fur, feather and claw. The body knows these shapes, and longs for them."
+,Twisted Ankle,Wound,,wound,all,1,,,,,,,,,,-10,,,,You hobble.,
+,Bruised Ribs,Wound,,wound,all,1,,,,,-2,,,,,,,,,Every breath hurts.,
+,Pulled Muscle,Wound,,wound,all,1,,,,,,-2,,,,,,,,You can't twist away in time.,
+,Concussion,Wound,,wound,all,1,,,,,,,-2,,,,,,,The world swims a little.,
+,Shaken,Wound,,wound,all,1,,,,,,,,-2,,,,,,You flinch at every shadow.,
+,Deep Cut,Wound,,wound,all,1,,,,,,,,,-5,,,,,"Stitched, not healed.",
+,Black Eye,Wound,,wound,all,1,,,,,,,,,,,,,,−2 on ranged attacks and on checks to notice.,
+,Broken Nose,Wound,,wound,all,1,,,,,,,,,,,,,,−2 on WIL checks.,
+,Torn Tendon,Wound,,wound,all,1,,,,,,,,,,,,,,"−2 on checks to climb, jump or swim.",
+,Weak Grip,Wound,,wound,all,1,,,,,,,,,,,,,,−2 on melee attacks.,
+,Cracked Jaw,Wound,,wound,all,1,,,,,,,,,,,,,,1 less Resolve and 1 less spell point.,
+,Nightmares,Wound,,wound,all,1,,,,,,,,,,,,,,A short rest heals only a quarter of your missing HP (rounded up).,
+,Broken Arm,Wound,,wound,all,1,,,,,,,,,,,,,Crippling · Hand,Blocks one of your Hand Slots until it heals.,
+,Broken Fingers,Wound,,wound,all,1,,,,,,,,,,,,,Crippling · Hand,Blocks one of your Hand Slots until it heals.,
+,Swollen Hand,Wound,,wound,all,1,,,,,,,,,,,,,Crippling · Jewelry,Blocks one of your Jewelry Slots until it heals.,
+,Cracked Ribs,Wound,,wound,all,1,,,,,,,,,,,,,Crippling · Item,Blocks one of your Item Slots until it heals.,
+,Wrenched Back,Wound,,wound,all,1,,,,,,,,,,,,,Crippling · Item,Blocks one of your Item Slots until it heals.,
+,Shattered Knee,Wound,,wound,all,1,,,,,,-2,,,,-10,,,,You may never run the same again.,
+,Skull Fracture,Wound,,wound,all,1,,,,,,,-2,-2,,,,,,−2 on INT checks.,
+,Internal Bleeding,Wound,,wound,all,1,,,,,,,,,-10,,,,,You lose blood every time you move too fast.,

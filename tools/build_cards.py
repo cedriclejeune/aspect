@@ -467,7 +467,9 @@ def main():
            sheets(wide, "foes", 3) + sheets(cards) + sheets(foe_cards, "foes", 3), READING)
     print(f"Wrote {READING.relative_to(ROOT)}: {len(wide)} double-width two-sided cards, then the rest")
     import export_sim
+    import export_tables
     export_sim.main()
+    export_tables.main()
 
 
 if __name__ == "__main__":

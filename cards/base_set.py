@@ -82,7 +82,7 @@ HANDS = [
     weapon("Handaxe", ["STR", "DEX"], "1d6", "Light · Thrown 20/60"),
     weapon("Finesse Blade", ["DEX", "WIL"], "1d6", "", "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn."),
     weapon("Longsword", ["STR", "WIL"], "1d8 / 1d10", "Versatile (1d10)"),
-    weapon("Battleaxe", ["STR", "DEX"], "1d8 / 1d10", "Versatile (1d10)"),
+    weapon("Battleaxe", ["STR", "INT"], "1d8 / 1d10", "Versatile (1d10)"),
     weapon("Greatsword", ["STR"], "2d6", "Heavy · Two-Handed"),
     weapon("Glaive", ["STR"], "1d10", "Heavy · Reach · Two-Handed"),
     weapon("Longbow", ["DEX", "INT"], "1d8", "Range 150/600 · Two-Handed"),
@@ -126,7 +126,7 @@ def knack(name, acts, rank="I", bonus="+2", group="starter", sym=None):
 ASPECTS = [
     card("Springheel", "I", "aspect", "Trait", ["Your jump distances are doubled, and you never need a running start."], {"HP": "+2"}, sym=["STR", "DEX"]),
     card("Stone Blood", "I", "aspect", "Trait", ["+2 STR Defense against poison and disease."], {"HP": "+2", "STRd": "+1"}, sym=["STR", "INT"]),
-    card("Iron Will", "I", "aspect", "Trait", ["+2 WIL Defense against fear and mind control."], {"HP": "+2"}, sym=["STR", "WIL"]),
+    card("Iron Will", "I", "aspect", "Trait", ["+2 WIL Defense against fear and mind control."], {"HP": "+2"}, sym=["INT", "WIL"]),
     card("Clear Mind", "I", "aspect", "Trait", ["+2 INT Defense against illusions and confusion."], {"HP": "+2"}, sym=["INT", "WIL"]),
     card("Cleave", "I", "aspect", "Technique", ["**1/S.R.**, when your melee attack drops a creature to 0 HP: make one melee attack against another creature within your reach."], sym=["STR", "DEX"]),
     card("Steady Aim", "I", "aspect", "Technique", ["**Reaction (2/S.R.):** your next ranged attack this turn has +2 to hit."], sym=["DEX", "INT"]),
@@ -140,9 +140,9 @@ ASPECTS = [
     knack("Street Urchin", "pick pockets, sneak, read intentions or gather rumors", sym=["DEX", "WIL"]),
     knack("Hunter", "track, notice, sneak or handle animals", sym=["DEX", "INT"]),
     knack("Physician", "treat wounds, recall lore, read intentions or persuade", sym=["INT", "WIL"]),
-    knack("Barkeep", "read intentions, gather rumors, intimidate or lift", sym=["STR", "WIL"]),
+    knack("Barkeep", "read intentions, gather rumors, intimidate or lift", sym=["INT", "WIL"]),
     knack("Smith", "lift, break, haggle or recall lore", sym=["STR", "INT"]),
-    knack("Mountaineer", "climb, endure, navigate or balance", sym=["STR", "DEX"]),
+    knack("Mountaineer", "climb, endure, navigate or balance", sym=["DEX", "INT"]),
     # loot
     card("Twin Strike", "II", "aspect", "Technique", ["Once per turn, when you take the Attack action, make one extra attack."], group="loot", sym=["STR", "DEX"]),
     card("Second Wind", "II", "aspect", "Trait", ["**Action (1/S.R.):** regain 1d10 + 3 HP."], {"HP": "+4"}, group="loot", sym=["STR", "WIL"]),
@@ -150,7 +150,7 @@ ASPECTS = [
     card("Night Eyes", "II", "aspect", "Trait · Darkvision 120", [], {"HP": "+4"}, group="loot", sym=["DEX", "INT"]),
     card("Sellsword", "II", "aspect", "Trait", ["+3 on checks to intimidate, endure, haggle or gather rumors."], {"HP": "+4", "STR": "+1", "STRd": "+1"}, group="loot", sym=["STR", "WIL"]),
     card("Acrobat", "II", "aspect", "Trait", ["+3 on checks to tumble, balance, jump or perform."], {"HP": "+4", "DEX": "+1", "DEXd": "+1"}, group="loot", sym=["DEX", "WIL"]),
-    card("Pack Hunter", "I", "aspect", "Trait", ["**1/S.R.**, when you hit a creature one of your allies is engaged with: it falls Prone."], {"HP": "+2"}, group="loot", sym=["STR", "DEX"]),
+    card("Pack Hunter", "I", "aspect", "Trait", ["**1/S.R.**, when you hit a creature one of your allies is engaged with: it falls Prone."], {"HP": "+2"}, group="loot", sym=["DEX", "INT"]),
     card("Slippery", "I", "aspect", "Technique", ["**Reaction (2/S.R.):** move up to half your Speed. This movement doesn't provoke opportunity attacks."], group="loot", sym=["DEX", "INT"]),
     card("Hedge Witch", "II", "aspect", "Trait", ["1 extra spell point (long rest).", "+3 on checks to handle animals, recall lore, treat wounds or deceive."], {"HP": "+4"}, group="loot", sym=["INT", "WIL"]),
     card("Sweeping Blow", "II", "aspect", "Technique", ["**1/S.R.**, when you take the Attack action with a Heavy or Reach weapon: make one attack roll against each enemy within your reach instead. Half damage on a miss."], group="loot", sym=["STR"]),
@@ -161,7 +161,7 @@ ASPECTS = [
     card("Dwarven Blood", "I", "aspect", "Trait", ["+2 STR Defense against poison."], {"HP": "+2"}, group="loot", sym=["STR", "WIL"]),
     card("Halfling Luck", "I", "aspect", "Trait", ["**Lucky (1/S.R.):** when you roll a 1 on a d20, reroll it."], {"HP": "+2"}, group="loot", sym=["DEX", "WIL"]),
     card("Orcish Blood", "I", "aspect", "Trait", ["+2 on checks to intimidate, endure, lift or march."], {"HP": "+2"}, group="loot", sym=["STR", "WIL"]),
-    card("Hobgoblin Discipline", "I", "aspect", "Trait", ["+2 on checks to march, navigate, stand firm or read intentions."], {"HP": "+2"}, group="loot", sym=["STR", "INT"]),
+    card("Hobgoblin Discipline", "I", "aspect", "Trait", ["+2 on checks to march, navigate, stand firm or read intentions."], {"HP": "+2"}, group="loot", sym=["INT", "WIL"]),
 ]
 
 
