@@ -120,11 +120,16 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
 | `meleeHitSelf5` | a creature within 5 ft hits you |
 | `rollNear` | a creature within `reach` rolls an attack or check (Cues; before the hit is announced) |
 | `weaponHit` | you hit with a weapon attack |
+| `meleeWeaponHit` | you hit with a melee attack of a weapon in hand (Spell Strike) |
+| `rangedHit` | you hit with a ranged attack (Quarry) |
+| `meleeMissSelf` | a melee attack misses you (Riposte: one melee weapon attack back) |
 | `hit` / `crit` | an attack **with this weapon** hits / crits (weapon riders) |
 | `meleeDrop` | your melee attack drops a creature to 0 HP |
 | `attackAction` | you take the Attack action |
 | `hitEngaged` | you hit a creature one of your allies is engaged with |
 | `opportunity` | your opportunity attack with this weapon |
+
+**Scaling values** (Calling perks, P 2.4): wherever a power takes a number (`uses`, `n`, `ft`, `extraSp`, `extraResolve`, `grabHit`, `escapeAbil`, `oathCut`, `hit`), it may name the creature's current modifier: `"STR"`, `"-DEX"`, `"½WIL"` (half, rounded down), `"2×STR"`, `"5×½DEX"`; `uses: "½WIL/SR"`; dice `"½STR d6"`.
 
 **Effect** (`do` entries)
 ```jsonc
@@ -139,10 +144,11 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
 { "dash": true }
 { "shove": true }
 { "attack": "melee" }                        // make one extra attack (Cleave)
+{ "command": true, "hit": "INT" }            // the ally target takes the Attack action at once, with this to-hit bonus
 ```
 **Until**: `endTargetTurn` (end of the target's next turn) · `targetTurns2` ("for 2 turns": the end of the target's 2nd turn; a Boss's half turns count) · `startSourceTurn` (start of the source's next turn) · `endSourceTurn` (end of the source's next turn) · `dur` (the power's duration) · `lasting`.
 
-**Passive keys** (`use: "passive"`): `attacks: 2` · `defVs: { "WIL": 2 }` + `tags` · `extraResolve: 1` · `extraSp: 1` · `anthemReach: 60` · `cueReach: 90` · `dirgeReach: 90` · `relentless: true` (with `uses`: drop to 1 HP instead of 0) · `regen: 10` + `stopBy: ["Fire"]` (heal at the start of the turn unless that damage was taken) · `fearless: true` (never checks Morale) · `resist`/`vuln` lists · `castingHand: true` · `darkvision: 60` · `hook` + `params` (Close Order, Brace, Pierce...).
+**Passive keys** (`use: "passive"`): `attacks: 2` · `defVs: { "WIL": 2 }` + `tags` · `extraResolve: 1` · `extraSp: 1` · `grabHit: "STR"` · `escapeAbil: "2×DEX"` · `hitMod: -2` + `only: "melee"|"ranged"` (Wounds) · `lucky: true` (with `uses`: reroll a d20 showing 1) · `anthemReach: 60` · `cueReach: 90` · `dirgeReach: 90` · `relentless: true` (with `uses`: drop to 1 HP instead of 0) · `regen: 10` + `stopBy: ["Fire"]` (heal at the start of the turn unless that damage was taken) · `fearless: true` (never checks Morale) · `resist`/`vuln` lists · `castingHand: true` · `darkvision: 60` · `hook` + `params` (Close Order, Brace, Pierce...).
 
 **Form**: `{ "strip": { "STR": -2, "DEX": 3, "STRd": 8, "DEXd": 13, "HP": 4, "SPD": 10 }, "size": "Tiny", "fly": 60, "climb": 0, "weapon": { "name": "Talons", "hit": 2, "dice": "1d4", "abil": ["DEX"], "type": "Physical" } }`
 

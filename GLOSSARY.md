@@ -398,7 +398,7 @@ _Avoid_: long rest (for this), recovery
 ### Monsters
 
 **Boss**:
-A strong monster with special abilities, including a half turn during the characters' side.
+A strong monster with special powers, including a half turn during the characters' side.
 _Avoid_: legendary monster, elite
 
 **Leader**:

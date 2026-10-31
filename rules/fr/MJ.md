@@ -374,7 +374,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Babiole** | Une petite chose non magique qui n'est pas du matériel : une clé, une lettre, un trésor, une corde, une torche. Transportée librement, sans limite. |
 | **Bijou** | Le type de matériel porté qui va dans l'Emplacement de Bijou : anneaux, amulettes, diadèmes, capes, gants, bottes. |
 | **Blessure** | Une lésion durable, tirée au hasard chaque fois que vous tombez à 0 PV. Elle reste jusqu'à ce qu'une convalescence la guérisse. Une Blessure invalidante bloque un Emplacement de Matériel. |
-| **Boss** | Un monstre puissant doté de capacités spéciales, dont un demi-tour pendant le camp des personnages. |
+| **Boss** | Un monstre puissant doté de pouvoirs spéciaux, dont un demi-tour pendant le camp des personnages. |
 | **Boucle de jeu** | Le cycle répété du jeu : affronter une épreuve, ramasser le butin, se reposer et se reconstruire au besoin. |
 | **Bouclier** | Le type de matériel tenu qui augmente vos Défenses ; il va dans un Emplacement de Main. |
 | **Bourse** | Un objet qui contient votre or, jusqu'à un maximum fixé par son Rang. |

@@ -97,18 +97,20 @@ Une Vocation donne **+2 à ses deux caractéristiques** et +0 aux deux autres, u
 
 | Vocation | Caractéristiques | PV | Vitesse | Atout |
 |---|---|---|---|---|
-| **Duelliste** | FOR · DEX | 12 | 10,5 m | **Jeu de jambes :** une fois par tour, après avoir touché avec une attaque au corps à corps, déplacez-vous de 1,5 m. Ce déplacement ne provoque pas d'attaque d'opportunité. |
-| **Templier** | FOR · VOL | 14 | 9 m | **Serment (1/R.C.) :** réaction, quand une attaque touche un allié à 1,5 m ou moins : vous subissez ses dégâts à sa place. |
-| **Lame-mage** | FOR · INT | 13 | 9 m | **Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. |
-| **Infiltrateur** | DEX · INT | 10 | 10,5 m | **Inaperçu :** +2 aux tests pour se faufiler, crocheter les serrures et repérer les pièges. |
-| **Artiste** | DEX · VOL | 10 | 10,5 m | **Grande ovation (1/R.C.) :** réaction, après qu'un allié à 9 m ou moins a fait un jet d'attaque ou un test : +2 à ce jet. |
-| **Sage** | INT · VOL | 9 | 10,5 m | **Érudit :** 2 points de sort supplémentaires (10.2). +2 aux tests pour se souvenir de connaissances. |
-| **Bagarreur** | FOR · DEX | 14 | 9 m | **Teigneux :** +2 au toucher pour Empoigner et Bousculer. |
-| **Zélote** | FOR · VOL | 12 | 10,5 m | **Juste colère (1/R.C.) :** quand vous touchez avec une attaque d'arme : +1d6 dégâts Radiants. |
-| **Tacticien** | FOR · INT | 12 | 10,5 m | **Commandement (1/R.C.) :** action. Un allié à 9 m ou moins qui peut vous entendre utilise sa réaction pour faire une attaque d'arme. |
-| **Rôdeur** | DEX · INT | 11 | 10,5 m | **Proie (1/R.C.) :** quand vous touchez avec une attaque à distance : +2 à vos attaques contre cette cible jusqu'à la fin de votre prochain tour. |
-| **Filou** | DEX · VOL | 9 | 10,5 m | **Feinte (2/R.C.) :** réaction, quand une attaque vous touche : −2 à ce jet d'attaque, ce qui peut le transformer en échec. |
-| **Ermite** | INT · VOL | 11 | 9 m | **Solitude :** 1 Ardeur supplémentaire (10.6). +2 aux tests pour cueillir et endurer. |
+| **Duelliste** | FOR · DEX | 12 | 10,5 m | **Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 1,5 m × ½ DEX. Ce déplacement ne provoque pas d'attaque d'opportunité. **Riposte (½ FOR/R.C.) :** réaction, quand une attaque au corps à corps vous rate : faites une attaque d'arme au corps à corps contre l'attaquant. |
+| **Templier** | FOR · VOL | 14 | 9 m | **Serment (½ VOL/R.C.) :** réaction, quand une attaque touche un allié à 1,5 m ou moins : vous subissez ses dégâts à sa place, réduits de 2 × FOR. |
+| **Lame-mage** | FOR · INT | 13 | 9 m | **Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. **Frappe ensorcelée (½ FOR/R.C.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts. |
+| **Infiltrateur** | DEX · INT | 10 | 10,5 m | **Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent la DEX et l'INT. |
+| **Artiste** | DEX · VOL | 10 | 10,5 m | **Grande ovation (½ DEX/R.C.) :** réaction, après qu'un allié à 9 m ou moins a fait une attaque ou un test : +VOL à ce jet. |
+| **Sage** | INT · VOL | 9 | 10,5 m | **Érudit :** ½ INT points de sort supplémentaires (10.2). Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL. |
+| **Bagarreur** | FOR · DEX | 14 | 9 m | **Teigneux :** +FOR au toucher pour Empoigner et Bousculer. **Dégagement :** vos attaques pour S'échapper (6.10) ajoutent 2 × DEX au lieu de FOR ou DEX. |
+| **Zélote** | FOR · VOL | 12 | 10,5 m | **Juste colère (½ VOL/R.C.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants. |
+| **Tacticien** | FOR · INT | 12 | 10,5 m | **Commandement (½ FOR/R.C.) :** action. Un allié à 9 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher. |
+| **Rôdeur** | DEX · INT | 11 | 10,5 m | **Proie (½ INT/R.C.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ DEX aux attaques contre elle jusqu'au début de votre prochain tour. |
+| **Filou** | DEX · VOL | 9 | 10,5 m | **Feinte (½ VOL/R.C.) :** réaction, quand une attaque vous touche : −DEX à ce jet d'attaque, ce qui peut le transformer en échec. |
+| **Ermite** | INT · VOL | 11 | 9 m | **Solitude :** ½ VOL Ardeur supplémentaire (10.6). Vos tests pour cueillir et endurer ajoutent l'INT et la VOL. |
+
+Les nombres d'un atout grandissent avec vous. Ils utilisent vos modificateurs actuels, matériel compris : *+FOR* ajoute votre FOR, *2 × FOR* le double, et *½ VOL* vaut la moitié de votre VOL, arrondie à l'inférieur, pour les utilisations, les dés et les distances (*½ VOL/R.C.* : deux utilisations avec VOL +4). Avec VOL +1 ou moins, un *½ VOL* vaut 0. Chaque atout puise dans les deux caractéristiques de sa Vocation, ou la Vocation a deux atouts, un pour chacune.
 
 Vos autres nombres augmentent grâce à vos cartes : les **Armures** et les **Traits** impriment l'essentiel des PV que vous gagnez, et le matériel et les Aspects augmentent vos modificateurs et vos Défenses.
 
@@ -310,7 +312,7 @@ Chaque Emplacement a son propre temps d'échange. Un échange déplace un matér
 - **Décompte :** chaque matériel compte pour 1, Éclats (vides ou pleins) et Bourses compris. Une pile de jusqu'à 3 Consommables identiques compte pour 1 (comme dans un Emplacement d'Objet).
 - **Sac ou Réserve pleins :** vous ne pouvez pas garder plus. Laissez la pièce en trop, donnez-la à un allié ou vendez-la.
 - **Babioles :** les petites choses non magiques qui ne sont pas du matériel (trésor, clés, lettres, objets de quête) se transportent librement, sans limite. Les fournitures ordinaires (corde, torches, rations, munitions, vêtements, outils) sont **présumées** : vous les avez quand vous en avez besoin.
-- **Argent :** des pièces d'or (po). L'or achète des consommables, des services, des Éclats vides, des Bourses et, chez certains marchands, du matériel et des Aspects (vendus dans leur Éclat).
+- **Argent :** des pièces d'or (po). L'or achète des consommables, des services, des Éclats vides, des Bourses et, chez certains marchands, du matériel et des Aspects. Un Aspect se vend sans Éclat : apportez-en un vide pour le capturer (3.8).
 - **Bourse :** l'or se garde dans une **Bourse**, un matériel qui contient jusqu'à une somme fixée par son Rang : I *Bourse à cordon* **100 po**, II *Bourse de marchand* **500**, III *Sacoche de banquier* **2 000**, IV *Coffret de maître de guilde* **10 000**, V *Bourse sans fond* **sans limite**. La Bourse compte pour 1 pièce ; l'or à l'intérieur, non. Chaque sac de pièces hors d'une Bourse compte pour 1 pièce. À la table, une Bourse est une carte, et son or est fait de **cartes d'or** glissées dessous (12.2).
 - **Où elle se trouve :** un Emplacement d'Objet, votre Sac ou la Réserve de la Compagnie. Plus elle est proche de vous, mieux elle est surveillée et protégée ; le MJ décide de ce qu'un voleur ou une catastrophe peut atteindre. L'or se perd, se vole et se donne comme n'importe quel matériel.
 - **Payer :** la Bourse doit être à proximité : la vôtre, celle d'un allié, ou la Réserve de la Compagnie quand la Compagnie est avec elle.
@@ -960,7 +962,7 @@ Les **Blessures** (7.6) sont un paquet de cartes commun, mélangé, à côté de
 
 **Points de sort et Ardeur :** écrivez le total à gauche de sa case, puis un tiret. Chaque fois que vous dépensez un point, tracez un petit bâton à droite du tiret. Ce qui vous reste est le total moins les bâtons. Un repos qui rend les points efface les bâtons (7.5). Quand le total change (10.2, 10.6), écrivez le nouveau et gardez les bâtons. Une case reste vide si vous n'avez pas de Livre de sorts, ou pas de paquet Divin, de Glamour ou de Nature.
 
-> **Exemple : Isolde la Sage** tient le *Livre du conjurateur* (+2) avec INT +2, et son atout *Érudit* ajoute 2 : elle écrit **6 –** dans sa case de points de sort. Elle lance *Toile d'araignée* (2 points) et *Bouclier* (1) : **6 – |||**. Il lui en reste 3 jusqu'à son prochain repos long.
+> **Exemple : Isolde la Sage** tient le *Livre du conjurateur* (+2) avec INT +2, et son atout *Érudit* ajoute ½ INT, soit 1 : elle écrit **5 –** dans sa case de points de sort. Elle lance *Toile d'araignée* (2 points) et *Bouclier* (1) : **5 – |||**. Il lui en reste 2 jusqu'à son prochain repos long.
 
 ### 12.4 Paquets
 
@@ -1000,7 +1002,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Babiole** | Une petite chose non magique qui n'est pas du matériel : une clé, une lettre, un trésor, une corde, une torche. Transportée librement, sans limite. |
 | **Bijou** | Le type de matériel porté qui va dans l'Emplacement de Bijou : anneaux, amulettes, diadèmes, capes, gants, bottes. |
 | **Blessure** | Une lésion durable, tirée au hasard chaque fois que vous tombez à 0 PV. Elle reste jusqu'à ce qu'une convalescence la guérisse. Une Blessure invalidante bloque un Emplacement de Matériel. |
-| **Boss** | Un monstre puissant doté de capacités spéciales, dont un demi-tour pendant le camp des personnages. |
+| **Boss** | Un monstre puissant doté de pouvoirs spéciaux, dont un demi-tour pendant le camp des personnages. |
 | **Boucle de jeu** | Le cycle répété du jeu : affronter une épreuve, ramasser le butin, se reposer et se reconstruire au besoin. |
 | **Bouclier** | Le type de matériel tenu qui augmente vos Défenses ; il va dans un Emplacement de Main. |
 | **Bourse** | Un objet qui contient votre or, jusqu'à un maximum fixé par son Rang. |

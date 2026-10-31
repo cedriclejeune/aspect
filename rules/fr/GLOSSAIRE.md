@@ -398,7 +398,7 @@ _À éviter_ : repos long (pour ceci), relâche, temps mort. (EN : Downtime)
 ### Monstres
 
 **Boss**:
-Un monstre puissant doté de capacités spéciales, dont un demi-tour pendant le camp des personnages.
+Un monstre puissant doté de pouvoirs spéciaux, dont un demi-tour pendant le camp des personnages.
 _À éviter_ : monstre légendaire, élite.
 
 **Meneur**:

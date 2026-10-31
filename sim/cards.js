@@ -595,7 +595,8 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Footwork:** once per turn, after you hit with a melee attack, move 5 ft. This movement doesn't provoke opportunity attacks."
+    "**Footwork:** once per turn, after you hit with a melee attack, move 5 ft × ½ DEX. This movement doesn't provoke opportunity attacks.",
+    "**Riposte (½ STR/S.R.):** reaction, when a melee attack misses you: make one melee weapon attack against the attacker."
    ],
    "strip": {
     "STR": 2,
@@ -625,10 +626,19 @@ globalThis.BEARERS_CARDS = {
      "do": [
       {
        "move": "safe",
-       "ft": 5,
+       "ft": "5×½DEX",
        "once": true
       }
      ]
+    },
+    {
+     "id": "L-01#1",
+     "name": "Duelist",
+     "use": "reaction",
+     "uses": "½STR/SR",
+     "on": "meleeMissSelf",
+     "target": "enemy",
+     "riposte": true
     }
    ]
   },
@@ -642,7 +652,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Oath (1/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead."
+    "**Oath (½ WIL/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead, reduced by 2 × STR."
    ],
    "strip": {
     "STR": 2,
@@ -667,10 +677,11 @@ globalThis.BEARERS_CARDS = {
      "id": "L-02#0",
      "name": "Templar",
      "use": "reaction",
-     "uses": "1/SR",
+     "uses": "½WIL/SR",
      "on": "hitAlly5",
      "target": "ally",
-     "oath": true
+     "oath": true,
+     "oathCut": "2×STR"
     }
    ]
   },
@@ -684,7 +695,8 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook."
+    "**Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook.",
+    "**Spell Strike (½ STR/S.R.):** when you hit with a melee weapon attack: +INT damage."
    ],
    "strip": {
     "STR": 2,
@@ -710,6 +722,18 @@ globalThis.BEARERS_CARDS = {
      "name": "Spellblade",
      "use": "passive",
      "castingHand": true
+    },
+    {
+     "id": "L-03#1",
+     "name": "Spellblade",
+     "use": "trigger",
+     "uses": "½STR/SR",
+     "on": "meleeWeaponHit",
+     "do": [
+      {
+       "dmg": "INT"
+      }
+     ]
     }
    ]
   },
@@ -723,7 +747,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Unseen:** +2 on checks to sneak, pick locks and spot traps."
+    "**Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT."
    ],
    "strip": {
     "STR": 0,
@@ -755,7 +779,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Crowd Work (1/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll."
+    "**Crowd Work (½ DEX/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +WIL to that roll."
    ],
    "strip": {
     "STR": 0,
@@ -780,14 +804,14 @@ globalThis.BEARERS_CARDS = {
      "id": "L-05#0",
      "name": "Performer",
      "use": "reaction",
-     "uses": "1/SR",
+     "uses": "½DEX/SR",
      "on": "rollNear",
      "reach": 30,
      "target": "ally",
      "do": [
       {
        "mod": "roll",
-       "n": 2
+       "n": "WIL"
       }
      ],
      "params": {
@@ -809,7 +833,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Learned:** 2 extra spell points. +2 on checks to recall lore."
+    "**Learned:** ½ INT extra spell points. Your checks to recall lore add both INT and WIL."
    ],
    "strip": {
     "STR": 0,
@@ -834,7 +858,7 @@ globalThis.BEARERS_CARDS = {
      "id": "L-06#0",
      "name": "Sage",
      "use": "passive",
-     "extraSp": 2
+     "extraSp": "½INT"
     }
    ]
   },
@@ -848,7 +872,8 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Scrapper:** +2 to hit with Grapples and Shoves."
+    "**Scrapper:** +STR to hit with Grapples and Shoves.",
+    "**Slip Free:** your Escape attacks add 2 × DEX instead of STR or DEX."
    ],
    "strip": {
     "STR": 2,
@@ -873,7 +898,13 @@ globalThis.BEARERS_CARDS = {
      "id": "L-07#0",
      "name": "Brawler",
      "use": "passive",
-     "grabHit": 2
+     "grabHit": "STR"
+    },
+    {
+     "id": "L-07#1",
+     "name": "Brawler",
+     "use": "passive",
+     "escapeAbil": "2×DEX"
     }
    ]
   },
@@ -887,7 +918,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Righteous Fury (1/S.R.):** when you hit with a weapon attack: +1d6 Radiant damage."
+    "**Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage."
    ],
    "strip": {
     "STR": 2,
@@ -912,11 +943,11 @@ globalThis.BEARERS_CARDS = {
      "id": "L-08#0",
      "name": "Zealot",
      "use": "trigger",
-     "uses": "1/SR",
+     "uses": "½WIL/SR",
      "on": "weaponHit",
      "do": [
       {
-       "dmg": "1d6",
+       "dmg": "½STR d6",
        "type": "Radiant"
       }
      ]
@@ -933,7 +964,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Command (1/S.R.):** action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack."
+    "**Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit."
    ],
    "strip": {
     "STR": 2,
@@ -953,7 +984,25 @@ globalThis.BEARERS_CARDS = {
     "STR",
     "INT"
    ],
-   "fx": []
+   "fx": [
+    {
+     "id": "L-09#0",
+     "name": "Tactician",
+     "use": "action",
+     "uses": "½STR/SR",
+     "reach": 30,
+     "target": "ally",
+     "need": [
+      "voice"
+     ],
+     "do": [
+      {
+       "command": true,
+       "hit": "INT"
+      }
+     ]
+    }
+   ]
   },
   "L-10": {
    "id": "L-10",
@@ -965,7 +1014,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Quarry (1/S.R.):** when you hit with a ranged attack: +2 on your attacks against that target until the end of your next turn."
+    "**Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn."
    ],
    "strip": {
     "STR": 0,
@@ -985,7 +1034,22 @@ globalThis.BEARERS_CARDS = {
     "DEX",
     "INT"
    ],
-   "fx": []
+   "fx": [
+    {
+     "id": "L-10#0",
+     "name": "Ranger",
+     "use": "trigger",
+     "uses": "½INT/SR",
+     "on": "rangedHit",
+     "do": [
+      {
+       "mod": "def",
+       "n": "-½DEX",
+       "until": "startSourceTurn"
+      }
+     ]
+    }
+   ]
   },
   "L-11": {
    "id": "L-11",
@@ -997,7 +1061,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Feint (2/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss."
+    "**Feint (½ WIL/S.R.):** reaction, when an attack hits you: −DEX to that attack roll, possibly turning it into a miss."
    ],
    "strip": {
     "STR": 0,
@@ -1022,13 +1086,13 @@ globalThis.BEARERS_CARDS = {
      "id": "L-11#0",
      "name": "Trickster",
      "use": "reaction",
-     "uses": "2/SR",
+     "uses": "½WIL/SR",
      "on": "hitSelf",
      "target": "self",
      "do": [
       {
        "mod": "def",
-       "n": 2,
+       "n": "DEX",
        "defs": [
         "targeted"
        ],
@@ -1048,7 +1112,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Solitude:** 1 extra Resolve. +2 on checks to forage and endure."
+    "**Solitude:** ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL."
    ],
    "strip": {
     "STR": 0,
@@ -1073,7 +1137,7 @@ globalThis.BEARERS_CARDS = {
      "id": "L-12#0",
      "name": "Hermit",
      "use": "passive",
-     "extraResolve": 1
+     "extraResolve": "½WIL"
     }
    ]
   },
@@ -1935,7 +1999,16 @@ globalThis.BEARERS_CARDS = {
     "DEX",
     "WIL"
    ],
-   "fx": []
+   "fx": [
+    {
+     "id": "T-I-08#0",
+     "name": "Halfling Luck",
+     "use": "passive",
+     "uses": "1/SR",
+     "lucky": true,
+     "reroll": "1d20"
+    }
+   ]
   },
   "T-II-01": {
    "id": "T-II-01",
@@ -3104,8 +3177,404 @@ globalThis.BEARERS_CARDS = {
      "hook": "pierce"
     }
    ]
+  },
+  "wound-twisted-ankle": {
+   "id": "wound-twisted-ankle",
+   "name": "Twisted Ankle",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "You hobble."
+   ],
+   "strip": {
+    "SPD": -10
+   },
+   "group": "wound",
+   "fx": []
+  },
+  "wound-bruised-ribs": {
+   "id": "wound-bruised-ribs",
+   "name": "Bruised Ribs",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "Every breath hurts."
+   ],
+   "strip": {
+    "STRd": -2
+   },
+   "group": "wound",
+   "fx": []
+  },
+  "wound-pulled-muscle": {
+   "id": "wound-pulled-muscle",
+   "name": "Pulled Muscle",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "You can't twist away in time."
+   ],
+   "strip": {
+    "DEXd": -2
+   },
+   "group": "wound",
+   "fx": []
+  },
+  "wound-concussion": {
+   "id": "wound-concussion",
+   "name": "Concussion",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "The world swims a little."
+   ],
+   "strip": {
+    "INTd": -2
+   },
+   "group": "wound",
+   "fx": []
+  },
+  "wound-shaken": {
+   "id": "wound-shaken",
+   "name": "Shaken",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "You flinch at every shadow."
+   ],
+   "strip": {
+    "WILd": -2
+   },
+   "group": "wound",
+   "fx": []
+  },
+  "wound-deep-cut": {
+   "id": "wound-deep-cut",
+   "name": "Deep Cut",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "Stitched, not healed."
+   ],
+   "strip": {
+    "HP": -5
+   },
+   "group": "wound",
+   "fx": []
+  },
+  "wound-black-eye": {
+   "id": "wound-black-eye",
+   "name": "Black Eye",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "−2 on ranged attacks and on checks to notice."
+   ],
+   "strip": {},
+   "group": "wound",
+   "fx": [
+    {
+     "id": "wound-black-eye#0",
+     "name": "Black Eye",
+     "use": "passive",
+     "hitMod": -2,
+     "only": "ranged"
+    }
+   ]
+  },
+  "wound-broken-nose": {
+   "id": "wound-broken-nose",
+   "name": "Broken Nose",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "−2 on WIL checks."
+   ],
+   "strip": {},
+   "group": "wound",
+   "fx": []
+  },
+  "wound-torn-tendon": {
+   "id": "wound-torn-tendon",
+   "name": "Torn Tendon",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "−2 on checks to climb, jump or swim."
+   ],
+   "strip": {},
+   "group": "wound",
+   "fx": []
+  },
+  "wound-weak-grip": {
+   "id": "wound-weak-grip",
+   "name": "Weak Grip",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "−2 on melee attacks."
+   ],
+   "strip": {},
+   "group": "wound",
+   "fx": [
+    {
+     "id": "wound-weak-grip#0",
+     "name": "Weak Grip",
+     "use": "passive",
+     "hitMod": -2,
+     "only": "melee"
+    }
+   ]
+  },
+  "wound-cracked-jaw": {
+   "id": "wound-cracked-jaw",
+   "name": "Cracked Jaw",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "1 less Resolve and 1 less spell point."
+   ],
+   "strip": {},
+   "group": "wound",
+   "fx": [
+    {
+     "id": "wound-cracked-jaw#0",
+     "name": "Cracked Jaw",
+     "use": "passive",
+     "extraSp": -1,
+     "extraResolve": -1
+    }
+   ]
+  },
+  "wound-nightmares": {
+   "id": "wound-nightmares",
+   "name": "Nightmares",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "A short rest heals only a quarter of your missing HP (rounded up)."
+   ],
+   "strip": {},
+   "group": "wound",
+   "fx": []
+  },
+  "wound-broken-arm": {
+   "id": "wound-broken-arm",
+   "name": "Broken Arm",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound",
+    "Crippling",
+    "Hand"
+   ],
+   "text": [
+    "Blocks one of your **Hand Slots** until it heals."
+   ],
+   "strip": {},
+   "group": "wound",
+   "fx": []
+  },
+  "wound-broken-fingers": {
+   "id": "wound-broken-fingers",
+   "name": "Broken Fingers",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound",
+    "Crippling",
+    "Hand"
+   ],
+   "text": [
+    "Blocks one of your **Hand Slots** until it heals."
+   ],
+   "strip": {},
+   "group": "wound",
+   "fx": []
+  },
+  "wound-swollen-hand": {
+   "id": "wound-swollen-hand",
+   "name": "Swollen Hand",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound",
+    "Crippling",
+    "Jewelry"
+   ],
+   "text": [
+    "Blocks one of your **Jewelry Slots** until it heals."
+   ],
+   "strip": {},
+   "group": "wound",
+   "fx": []
+  },
+  "wound-cracked-ribs": {
+   "id": "wound-cracked-ribs",
+   "name": "Cracked Ribs",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound",
+    "Crippling",
+    "Item"
+   ],
+   "text": [
+    "Blocks one of your **Item Slots** until it heals."
+   ],
+   "strip": {},
+   "group": "wound",
+   "fx": []
+  },
+  "wound-wrenched-back": {
+   "id": "wound-wrenched-back",
+   "name": "Wrenched Back",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound",
+    "Crippling",
+    "Item"
+   ],
+   "text": [
+    "Blocks one of your **Item Slots** until it heals."
+   ],
+   "strip": {},
+   "group": "wound",
+   "fx": []
+  },
+  "wound-shattered-knee": {
+   "id": "wound-shattered-knee",
+   "name": "Shattered Knee",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "You may never run the same again."
+   ],
+   "strip": {
+    "SPD": -10,
+    "DEXd": -2
+   },
+   "group": "wound",
+   "fx": []
+  },
+  "wound-skull-fracture": {
+   "id": "wound-skull-fracture",
+   "name": "Skull Fracture",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "−2 on INT checks."
+   ],
+   "strip": {
+    "INTd": -2,
+    "WILd": -2
+   },
+   "group": "wound",
+   "fx": []
+  },
+  "wound-internal-bleeding": {
+   "id": "wound-internal-bleeding",
+   "name": "Internal Bleeding",
+   "rank": "",
+   "kind": "wound",
+   "type": "Wound",
+   "kw": [
+    "Wound"
+   ],
+   "text": [
+    "You lose blood every time you move too fast."
+   ],
+   "strip": {
+    "HP": -10
+   },
+   "group": "wound",
+   "fx": []
   }
  },
+ "wounds": [
+  "wound-twisted-ankle",
+  "wound-bruised-ribs",
+  "wound-pulled-muscle",
+  "wound-concussion",
+  "wound-shaken",
+  "wound-deep-cut",
+  "wound-black-eye",
+  "wound-broken-nose",
+  "wound-torn-tendon",
+  "wound-weak-grip",
+  "wound-cracked-jaw",
+  "wound-nightmares",
+  "wound-broken-arm",
+  "wound-broken-fingers",
+  "wound-swollen-hand",
+  "wound-cracked-ribs",
+  "wound-wrenched-back",
+  "wound-shattered-knee",
+  "wound-skull-fracture",
+  "wound-internal-bleeding"
+ ],
  "decks": {
   "B-I-01": {
    "cover": "B-I-01",

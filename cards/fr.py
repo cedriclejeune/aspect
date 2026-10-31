@@ -125,29 +125,36 @@ ACTIVITIES = {
 
 TEXT = {
     # Calling perks
-    "**Footwork:** once per turn, after you hit with a melee attack, move 5 ft. This movement doesn't provoke opportunity attacks.":
-        "**Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 1,5 m. Ce déplacement ne provoque pas d'attaque d'opportunité.",
-    "**Oath (1/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead.":
-        "**Serment (1/R.C.) :** réaction, quand une attaque touche un allié à 1,5 m ou moins : vous subissez ses dégâts à sa place.",
     "**Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook.":
         "**Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts.",
-    "**Unseen:** +2 on checks to sneak, pick locks and spot traps.":
-        "**Inaperçu :** +2 aux tests pour se faufiler, crocheter les serrures et repérer les pièges.",
-    "**Crowd Work (1/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll.":
-        "**Grande ovation (1/R.C.) :** réaction, après qu'un allié à 9 m ou moins a fait une attaque ou un test : +2 à ce jet.",
-    "**Learned:** 2 extra spell points. +2 on checks to recall lore.":
-        "**Érudit :** 2 points de sort supplémentaires. +2 aux tests pour se souvenir de connaissances.",
-    "**Scrapper:** +2 to hit with Grapples and Shoves.": "**Teigneux :** +2 au toucher pour Empoigner et Bousculer.",
-    "**Righteous Fury (1/S.R.):** when you hit with a weapon attack: +1d6 Radiant damage.":
-        "**Juste colère (1/R.C.) :** quand vous touchez avec une attaque d'arme : +1d6 dégâts Radiants.",
-    "**Command (1/S.R.):** action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack.":
-        "**Commandement (1/R.C.) :** action. Un allié à 9 m ou moins qui peut vous entendre utilise sa réaction pour faire une attaque d'arme.",
-    "**Quarry (1/S.R.):** when you hit with a ranged attack: +2 on your attacks against that target until the end of your next turn.":
-        "**Proie (1/R.C.) :** quand vous touchez avec une attaque à distance : +2 à vos attaques contre cette cible jusqu'à la fin de votre prochain tour.",
-    "**Feint (2/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss.":
-        "**Feinte (2/R.C.) :** réaction, quand une attaque vous touche : −2 à ce jet d'attaque, ce qui peut le transformer en échec.",
-    "**Solitude:** 1 extra Resolve. +2 on checks to forage and endure.":
-        "**Solitude :** 1 Ardeur supplémentaire. +2 aux tests pour cueillir et endurer.",
+    "**Footwork:** once per turn, after you hit with a melee attack, move 5 ft × ½ DEX. This movement doesn't provoke opportunity attacks.":
+        "**Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 1,5 m × ½ DEX. Ce déplacement ne provoque pas d'attaque d'opportunité.",
+    "**Riposte (½ STR/S.R.):** reaction, when a melee attack misses you: make one melee weapon attack against the attacker.":
+        "**Riposte (½ FOR/R.C.) :** réaction, quand une attaque au corps à corps vous rate : faites une attaque d'arme au corps à corps contre l'attaquant.",
+    "**Oath (½ WIL/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead, reduced by 2 × STR.":
+        "**Serment (½ VOL/R.C.) :** réaction, quand une attaque touche un allié à 1,5 m ou moins : vous subissez ses dégâts à sa place, réduits de 2 × FOR.",
+    "**Spell Strike (½ STR/S.R.):** when you hit with a melee weapon attack: +INT damage.":
+        "**Frappe ensorcelée (½ FOR/R.C.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts.",
+    "**Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT.":
+        "**Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent la DEX et l'INT.",
+    "**Crowd Work (½ DEX/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +WIL to that roll.":
+        "**Grande ovation (½ DEX/R.C.) :** réaction, après qu'un allié à 9 m ou moins a fait une attaque ou un test : +VOL à ce jet.",
+    "**Learned:** ½ INT extra spell points. Your checks to recall lore add both INT and WIL.":
+        "**Érudit :** ½ INT points de sort supplémentaires. Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL.",
+    "**Scrapper:** +STR to hit with Grapples and Shoves.":
+        "**Teigneux :** +FOR au toucher pour Empoigner et Bousculer.",
+    "**Slip Free:** your Escape attacks add 2 × DEX instead of STR or DEX.":
+        "**Dégagement :** vos attaques pour S'échapper ajoutent 2 × DEX au lieu de FOR ou DEX.",
+    "**Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage.":
+        "**Juste colère (½ VOL/R.C.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants.",
+    "**Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit.":
+        "**Commandement (½ FOR/R.C.) :** action. Un allié à 9 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher.",
+    "**Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn.":
+        "**Proie (½ INT/R.C.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ DEX aux attaques contre elle jusqu'au début de votre prochain tour.",
+    "**Feint (½ WIL/S.R.):** reaction, when an attack hits you: −DEX to that attack roll, possibly turning it into a miss.":
+        "**Feinte (½ VOL/R.C.) :** réaction, quand une attaque vous touche : −DEX à ce jet d'attaque, ce qui peut le transformer en échec.",
+    "**Solitude:** ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL.":
+        "**Solitude :** ½ VOL Ardeur supplémentaire. Vos tests pour cueillir et endurer ajoutent l'INT et la VOL.",
     # hands
     "Takes one Hand.": "Occupe une Main.",
     "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn.":

@@ -43,6 +43,7 @@ ILLUSTRATIONS = {
     "Totals": "Totaux", "four modifiers": "quatre modificateurs", "four Defenses": "quatre Défenses",
     "HP maximum, Speed": "PV maximum, Vitesse", "Current HP": "PV actuels", "cross out, rewrite": "barrer, réécrire",
     "Temp HP": "PV temporaires", "Death saves": "Jets contre la mort", "successes, failures": "réussites, échecs",
+    "**Footwork:** after a": "**Jeu de jambes :** après", "melee hit, 5 ft × ½ DEX": "un coup, 1,5 m × ½ DEX",
     "SPELL POINTS": "POINTS DE SORT", "RESOLVE": "ARDEUR", "Spell points": "Points de sort", "Resolve": "Ardeur",
     "total – marks spent": "total – bâtons dépensés", "a rest erases the marks": "un repos efface les bâtons",
     "IN PLAY: SPREAD OUT BY SLOT": "EN JEU : ÉTALÉES PAR EMPLACEMENT", "CALLING": "VOCATION", "ARMOR": "ARMURE",

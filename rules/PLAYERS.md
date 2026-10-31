@@ -97,18 +97,20 @@ A Calling gives **+2 to its two abilities** and +0 to the other two, a **Hit Poi
 
 | Calling | Abilities | HP | Speed | Perk |
 |---|---|---|---|---|
-| **Duelist** | STR · DEX | 12 | 35 ft | **Footwork:** once per turn, after you hit with a melee attack, move 5 ft. This movement doesn't provoke opportunity attacks. |
-| **Templar** | STR · WIL | 14 | 30 ft | **Oath (1/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead. |
-| **Spellblade** | STR · INT | 13 | 30 ft | **Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook. |
-| **Infiltrator** | DEX · INT | 10 | 35 ft | **Unseen:** +2 on checks to sneak, pick locks and spot traps. |
-| **Performer** | DEX · WIL | 10 | 35 ft | **Crowd Work (1/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll. |
-| **Sage** | INT · WIL | 9 | 35 ft | **Learned:** 2 extra spell points (10.2). +2 on checks to recall lore. |
-| **Brawler** | STR · DEX | 14 | 30 ft | **Scrapper:** +2 to hit with Grapples and Shoves. |
-| **Zealot** | STR · WIL | 12 | 35 ft | **Righteous Fury (1/S.R.):** when you hit with a weapon attack: +1d6 Radiant damage. |
-| **Tactician** | STR · INT | 12 | 35 ft | **Command (1/S.R.):** action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack. |
-| **Ranger** | DEX · INT | 11 | 35 ft | **Quarry (1/S.R.):** when you hit with a ranged attack: +2 on your attacks against that target until the end of your next turn. |
-| **Trickster** | DEX · WIL | 9 | 35 ft | **Feint (2/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss. |
-| **Hermit** | INT · WIL | 11 | 30 ft | **Solitude:** 1 extra Resolve (10.6). +2 on checks to forage and endure. |
+| **Duelist** | STR · DEX | 12 | 35 ft | **Footwork:** once per turn, after you hit with a melee attack, move 5 ft × ½ DEX. This movement doesn't provoke opportunity attacks. **Riposte (½ STR/S.R.):** reaction, when a melee attack misses you: make one melee weapon attack against the attacker. |
+| **Templar** | STR · WIL | 14 | 30 ft | **Oath (½ WIL/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead, reduced by 2 × STR. |
+| **Spellblade** | STR · INT | 13 | 30 ft | **Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook. **Spell Strike (½ STR/S.R.):** when you hit with a melee weapon attack: +INT damage. |
+| **Infiltrator** | DEX · INT | 10 | 35 ft | **Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT. |
+| **Performer** | DEX · WIL | 10 | 35 ft | **Crowd Work (½ DEX/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +WIL to that roll. |
+| **Sage** | INT · WIL | 9 | 35 ft | **Learned:** ½ INT extra spell points (10.2). Your checks to recall lore add both INT and WIL. |
+| **Brawler** | STR · DEX | 14 | 30 ft | **Scrapper:** +STR to hit with Grapples and Shoves. **Slip Free:** your Escape attacks (6.10) add 2 × DEX instead of STR or DEX. |
+| **Zealot** | STR · WIL | 12 | 35 ft | **Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage. |
+| **Tactician** | STR · INT | 12 | 35 ft | **Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit. |
+| **Ranger** | DEX · INT | 11 | 35 ft | **Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn. |
+| **Trickster** | DEX · WIL | 9 | 35 ft | **Feint (½ WIL/S.R.):** reaction, when an attack hits you: −DEX to that attack roll, possibly turning it into a miss. |
+| **Hermit** | INT · WIL | 11 | 30 ft | **Solitude:** ½ WIL extra Resolve (10.6). Your checks to forage and endure add both INT and WIL. |
+
+A perk's numbers grow with you. They use your current modifiers, gear included: *+STR* adds your STR, *2 × STR* twice it, and *½ WIL* is half your WIL, rounded down, for uses, dice and distances alike (*½ WIL/S.R.*: two uses with WIL +4). With WIL +1 or less, a *½ WIL* is 0. Each perk draws on both of its Calling's abilities, or the Calling has two perks, one for each.
 
 Your other numbers grow through your cards: **Armor** and **Traits** print most of the HP you gain, and gear and Aspects raise your modifiers and Defenses.
 
@@ -310,7 +312,7 @@ Each Slot has its own swap time. A swap moves one piece of gear between a Slot a
 - **Counting:** each piece of gear counts as 1, Shards (empty or full) and Purses included. A stack of up to 3 identical Consumables counts as 1 (as in an Item Slot).
 - **Full Pack or Party Stash:** you can't keep more. Leave the extra piece, give it to an ally, or sell it.
 - **Objects:** small non-magical things that aren't gear (treasure, keys, letters, quest objects) are carried freely, with no limit. Ordinary supplies (rope, torches, rations, ammunition, clothes, tools) are **assumed**: you have them when you need them.
-- **Money:** gold pieces (gp). Gold buys consumables, services, empty Shards, Purses and, from some merchants, gear and Aspects (sold in their Shard).
+- **Money:** gold pieces (gp). Gold buys consumables, services, empty Shards, Purses and, from some merchants, gear and Aspects. An Aspect is sold without a Shard: bring an empty one to capture it (3.8).
 - **Purse:** gold is kept in a **Purse**, a piece of gear that holds up to a set amount by Rank: I *Coin Pouch* **100 gp**, II *Merchant's Purse* **500**, III *Banker's Satchel* **2,000**, IV *Guildmaster's Coffer* **10,000**, V *Bottomless Purse* **no limit**. The Purse counts as 1 piece; the gold inside doesn't. Each bag of coins outside a Purse counts as 1 piece. At the table, a Purse is a card, and its gold is **gold cards** tucked under it (12.2).
 - **Where it sits:** an Item Slot, your Pack or the Party Stash. The closer to you, the better watched and protected; the GM decides what a thief or a disaster can reach. Gold is lost, stolen and given away like any gear.
 - **Paying:** the Purse must be nearby: yours, an ally's, or the Party Stash when the party is with it.
@@ -960,7 +962,7 @@ You only touch the totals at two moments.
 
 **Spell points and Resolve:** write the total on the left of its box, then a dash. Each time you spend a point, draw a small tally mark on the right of the dash. What you have left is the total minus the marks. A rest that brings the points back erases the marks (7.5). When the total changes (10.2, 10.6), write the new one and keep the marks. A box stays empty if you have no Spellbook, or no Divine, Glamour or Nature deck.
 
-> **Example: Isolde the Sage** holds the *Conjurer's Book* (+2) with INT +2, and her *Learned* perk adds 2: she writes **6 –** in her spell point box. She casts *Web* (2 points) and *Shield* (1): **6 – |||**. She has 3 left until her next long rest.
+> **Example: Isolde the Sage** holds the *Conjurer's Book* (+2) with INT +2, and her *Learned* perk adds ½ INT, so 1: she writes **5 –** in her spell point box. She casts *Web* (2 points) and *Shield* (1): **5 – |||**. She has 2 left until her next long rest.
 
 ### 12.4 Decks
 
@@ -1001,7 +1003,7 @@ Each game term has one meaning, in both books.
 | **Attack roll** | A roll of d20 + modifiers against a Defense, made by whoever harms or hinders: weapons, spells, Divine, Glamour and Nature powers, traps, poisons. |
 | **Bearer** | A humanoid who can absorb the Aspects of other beings. Every player character is one. |
 | **Blindsight N** | Perceive everything within N ft without sight. |
-| **Boss** | A strong monster with special abilities, including a half turn during the characters' side. |
+| **Boss** | A strong monster with special powers, including a half turn during the characters' side. |
 | **Brutal** | A weapon keyword: on a critical hit, roll its damage dice three times instead of twice. |
 | **Calling** | The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Aspects you can equip. It is neither an Aspect nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Zealot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
 | **Cantrip** | A spell that costs nothing. Cast at will. |

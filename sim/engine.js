@@ -30,7 +30,7 @@
  *   move `safe: true` spends movement granted by a `move: "safe"` effect (no opportunity attacks);
  *   act "endCond" + `cond: "<condition id>"` (an action that ends a condition with `endAction`, Pierce: pull the pilum free);
  *   interact `drop: "<card id>"` (free); (spell points and Resolve are one pool each, on the tally card, P 10.2, 10.6);
- *   power/shove `mode: "push"|"prone"` for shove effects; adjust `temp`, `exhaustion`.
+ *   power/shove `mode: "push"|"prone"` for shove effects; adjust `temp`, `wound` (a Wound card id).
  *
  * Morale (P 6.11, RULING R800): checked after every command. A foe that flees gets `dead` + `fled` (it leaves the
  *   map with its gear; the UI hides it) and a `flee` event; state.morale = { group, leader, half } holds the triggers
@@ -120,7 +120,10 @@
     for (const tok of s.match(/[+-]?[^+-]+/g) || []) {
       const sign = tok[0] === "-" ? -1 : 1, body = tok.replace(/^[+-]/, "");
       const m = body.match(/^(\d*)d(\d+)$/);
+      // a scaling dice count (Righteous Fury: "½STR d6"): half the ability, rounded down
+      const h = body.match(/^(½)?(STR|DEX|INT|WIL)d(\d+)$/);
       if (m) out.dice.push({ n: m[1] ? +m[1] : 1, sides: +m[2], sign });
+      else if (h) { const v = (mods && mods[h[2]]) || 0; out.dice.push({ n: Math.max(0, h[1] ? Math.floor(v / 2) : v), sides: +h[3], sign }); }
       else if (ABILS.includes(body)) out.flat += sign * ((mods && mods[body]) || 0);
       else out.flat += sign * (parseInt(body, 10) || 0);
     }
@@ -160,7 +163,7 @@
   // ---------- cards and builds ----------
   function normBuild(b) {
     b = Object.assign({ calling: null, body: null, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [],
-      slots: {}, bonus: {}, extraDice: 0, recharge: {}, ownFx: [], powers: [], boss: false, leader: false, senses: {}, alert: false, foe: null }, clone(b || {}));
+      slots: {}, bonus: {}, wounds: [], extraDice: 0, recharge: {}, ownFx: [], powers: [], boss: false, leader: false, senses: {}, alert: false, foe: null }, clone(b || {}));
     b.slots = Object.assign({}, DEFAULT_SLOTS, b.slots);
     b.items = b.items.map((it) => (typeof it === "string" ? { id: it, n: 1 } : it));
     return b;
@@ -204,6 +207,8 @@
       if (!matchesCalling(c, base)) { errors.push(`${c.name}: its symbols (${c.sym.join(", ")}) don't match the Calling`); continue; }
       addStrip(t, c.strip);
     }
+    // Wounds (P 7.6): their penalties count like any bonus, whatever the Calling
+    for (const id of build.wounds) { const w = cards.cards[id]; if (w) addStrip(t, w.strip); else errors.push(`Unknown Wound ${id}`); }
     // RULING R201: foe templates (build.foe set) don't get the empty Armor Slot's +10 Speed: foe cards print
     // their totals without it (Ogre: Speed 35), and fromFoe must match them.
     if (!build.armor && !build.foe) t.SPD += 10;
@@ -334,6 +339,7 @@
       c.items.forEach((it) => fromCard("item", it.id));
     }
     b.aspects.forEach((id) => fromCard("aspect", id));
+    (b.wounds || []).forEach((id) => fromCard("wound", id));
     (b.ownFx || []).forEach((p, i) => out.push({ p: p.id ? p : Object.assign({ id: "own#" + i }, p), card: null, deck: null, src: "own" }));
     return out;
   }
@@ -345,7 +351,24 @@
   function deckOf(F, entry) { return entry && entry.deck ? F.cards.decks[entry.deck] : null; }
   function cardName(F, entry) { return (entry.card && F.cards.cards[entry.card] && F.cards.cards[entry.card].name) || entry.p.name || entry.p.id; }
 
-  function parseUses(u) { const m = String(u || "").match(/(\d+)/); return m ? +m[1] : 0; }
+  // Scaling Calling perks (P 2.4): "STR", "-DEX", "½WIL", "2×STR", "5×½DEX" read the creature's current modifiers;
+  // a half rounds down.
+  function scaled(c, v) {
+    if (v == null) return 0;
+    if (typeof v === "number") return v;
+    const m = String(v).match(/^(-)?(?:(\d+)×)?(½)?(STR|DEX|INT|WIL)$/);
+    if (!m) return +v || 0;
+    let n = (c.totals && c.totals[m[4]]) || 0;
+    if (m[3]) n = Math.floor(n / 2);
+    if (m[2]) n *= +m[2];
+    return m[1] ? -n : n;
+  }
+  // "2/SR", or "½WIL/SR": half an ability, rounded down, never below 0 (no floor beyond that: WIL +1 gives 0 uses)
+  function parseUses(u, c) {
+    const h = String(u || "").match(/^(½(?:STR|DEX|INT|WIL))/);
+    if (h) return Math.max(0, scaled(c, h[1]));
+    const m = String(u || "").match(/(\d+)/); return m ? +m[1] : 0;
+  }
   // P 10.2, 10.6, 12.3: one spell point pool (every equipped Spellbook + INT, min 1) and one Resolve pool (every
   // Divine, Glamour and Nature deck + WIL once, min 1), plus extras; null without such a deck. Kept on your own tally
   // card, so a Form's totals never change them.
@@ -430,7 +453,7 @@
   const living = (st) => Object.values(st.creatures).filter((c) => !c.dead);
   function speedOf(c) {
     if (c.conds.some((k) => SPEED0.includes(k.name))) return 0;
-    return Math.max(0, c.totals.SPD - 5 * (c.exhaustion || 0));
+    return Math.max(0, c.totals.SPD);
   }
   function darkvision(F, c) { return Math.max((c.build.senses && c.build.senses.darkvision) || 0, passiveMax(F, c, "darkvision")); }
   function canSee(F, obs, tgt) {
@@ -485,16 +508,16 @@
       conds: [], mods: [], turn: freshTurn(), hands: build.hands.slice(), carried: build.carried.slice(),
       items: build.items.map((it) => { const cd = cards.cards[it.id]; return { id: it.id, n: it.n != null ? it.n : cd && typeOf(cd) === "Recipe" ? cd.uses || 1 : 1 }; }),
       uses: {}, sp: null, resolve: null, pools: { books: [], wil: [], spentSp: 0, spentResolve: 0, extraSp: 0, extraResolve: 0 },
-      react: sc.react || "ask", boss: !!build.boss, build, exhaustion: 0, spellTurn: -1 };
+      react: sc.react || "ask", boss: !!build.boss, build, spellTurn: -1 };
     for (const e of powerList(cards, c, true)) {
-      if (e.p.uses) c.uses[e.p.id] = parseUses(e.p.uses);
+      if (e.p.uses) c.uses[e.p.id] = parseUses(e.p.uses, c);
       if (e.p.recharge) c.uses[e.p.id] = 1;
     }
     for (const it of c.items) { const d = cards.decks && cards.decks[it.id]; if (d && d.kind === "spellbook") c.pools.books.push(it.id); }
     for (const id of build.aspects) { const d = cards.decks && cards.decks[id]; if (d && d.kind !== "spellbook") c.pools.wil.push(id); }
     const pass = powerList(cards, c, false).filter((e) => e.p.use === "passive");
-    c.pools.extraSp = pass.reduce((n, e) => n + (e.p.extraSp || 0), 0);
-    c.pools.extraResolve = pass.reduce((n, e) => n + (e.p.extraResolve || 0), 0);
+    c.pools.extraSp = pass.reduce((n, e) => n + scaled(c, e.p.extraSp), 0);
+    c.pools.extraResolve = pass.reduce((n, e) => n + scaled(c, e.p.extraResolve), 0);
     refreshPools(F, c);
     return c;
   }
@@ -565,12 +588,6 @@
   function addCond(X, t, name, o) {
     o = o || {};
     if (t.dead) return null;
-    if (name === "Exhaustion") {
-      t.exhaustion = Math.min(6, (t.exhaustion || 0) + (o.levels || 1));
-      emit(X, { t: "cond", target: t.id, cond: name, level: t.exhaustion, text: `${t.name}: Exhaustion ${t.exhaustion}.` });
-      if (t.exhaustion >= 6) die_(X, t, "Exhaustion 6", o.source);
-      return null;
-    }
     // RULING R207: a condition doesn't stack with itself: the same condition from the same source replaces
     // the old one; from another source both are kept (their effect still counts once).
     const old = t.conds.find((k) => k.name === name && k.source === (o.source || null));
@@ -687,12 +704,14 @@
       }
       const ab = src.abil ? bestAbil(a, src.abil) : bestAbil(a, w.abil || ["STR"]);
       info.abil = ab;
-      flat(a.totals[ab], ab);
+      // Slip Free (Brawler): Escape attacks add 2 × DEX instead of STR or DEX
+      const slip = src.escape ? passives(F, a).find((e) => e.p.escapeAbil) : null;
+      if (slip) flat(scaled(a, slip.p.escapeAbil), "Slip Free"); else flat(a.totals[ab], ab);
       flat(w.hit || 0, "to hit");
       // Flurry (P 11.3): +2 on each attack after the first you make with this weapon on your turn
       if (w.flurry && w.card && st.active === a.id && (a.turn.attacked || {})[w.card]) flat(2, "Flurry");
       // Scrapper (Brawler): a flat bonus on Grapples and Shoves
-      if (src.grab) flat(powersOf(F, a).reduce((n, e) => n + (e.p.use === "passive" && e.p.grabHit || 0), 0), "Scrapper");
+      if (src.grab) flat(passives(F, a).reduce((n, e) => n + scaled(a, e.p.grabHit), 0), "Scrapper");
       info.weapon = w;
     } else {
       const p = src.entry.p, deck = deckOf(F, src.entry);
@@ -711,8 +730,8 @@
       else { flat(a.totals[info.abil], info.abil); flat(p.atk.hit || 0, "to hit"); }
     }
     info.ranged = ranged; info.melee = melee; info.vs = vs;
-    // RULING R234: Exhaustion's −2 per level applies to attack and maintain rolls, not to death saves or side initiative.
-    if (a.exhaustion) flat(-2 * a.exhaustion, "Exhaustion");
+    // Wounds with an attack penalty (Weak Grip: melee attacks, Black Eye: ranged attacks)
+    for (const e of passives(F, a)) if (e.p.hitMod && (!e.p.only || (e.p.only === "melee" ? melee : ranged))) flat(e.p.hitMod, cardName(F, e));
     for (const m of zone ? [] : a.mods) {
       if (m.kind !== "attack" && m.kind !== "roll") continue;
       if (m.only === "ranged" && !ranged) continue;
@@ -825,10 +844,23 @@
 
   // ---------- rolling an attack ----------
   // Returns { hit, crit, nat, total, def, defs }. t null for area rolls (compare later per target).
+  // Lucky (Halfling Luck): when you roll a 1 on a d20, reroll it, once per its uses (RULING R712: the kept die of an
+  // attack roll, and a death save; the sim has no checks).
+  function lucky(X, c, r) {
+    if (r.kept !== 1) return r;
+    const e = passives(X.F, c).find((e) => e.p.lucky && c.uses[e.p.id] > 0);
+    if (!e) return r;
+    c.uses[e.p.id]--;
+    const again = die(X, 20, "lucky");
+    emit(X, { t: "note", actor: c.id, power: e.p.id, text: `${c.name} is Lucky: rerolls the 1 → ${again}.` });
+    const dice = r.dice.slice(); dice[dice.indexOf(1)] = again;
+    const net = r.adv - r.dis;
+    return Object.assign({}, r, { dice, kept: net > 0 ? Math.max(...dice) : net < 0 ? Math.min(...dice) : again });
+  }
   function rollAttack(X, a, t, info, o) {
     o = o || {};
     const F = X.F;
-    let r = rollD20(X, info.adv - (info.toDamage || 0), info.dis, "attack");
+    let r = lucky(X, a, rollD20(X, info.adv - (info.toDamage || 0), info.dis, "attack"));
     let extra = 0;
     for (const dm of info.diceMods) extra += rollDice(X, dm, {}).total;
     for (const m of info.nextMods) { const i = a.mods.indexOf(m); if (i >= 0) a.mods.splice(i, 1); }
@@ -876,7 +908,7 @@
           let mode = null, delta = 0;
           if (reroll) { if (!res.rerolled && (p.target === "creature" || (p.target === "ally") === ally)) mode = "reroll"; }
           else if (rollMod) {
-            delta = rollMod.n || 0;
+            delta = scaled(c, rollMod.n);
             if (p.target === "enemy" && !ally) mode = "roll";
             else if (p.target === "ally" && ally && roller !== c) mode = "roll";
             // RULING R209: a Cue with params.orDefense (Steady Now) used on an enemy's attack adds its number to
@@ -914,7 +946,7 @@
         emit(X, { t: "roll", actor: roller.id, kind, reroll: true, dice: r.dice, kept: r.kept, bonus: res.bonus, total: res.total, adv: r.adv, dis: r.dis, why: [], text: `${roller.name} rerolls: ${r.kept} → ${res.total}` });
       } else {
         const rm = p.do.find((d) => d.mod === "roll");
-        let delta = rm.n || 0;
+        let delta = scaled(c, rm.n);
         if (rm.dice) delta += rollDice(X, rm.dice, {}).total;
         if (pick.mode === "def") { for (const k of Object.keys(res.defs)) res.defs[k] += delta; }
         else { res.total += delta; res.bonus += delta; }
@@ -944,7 +976,7 @@
           if (deckOf(F, e) && deckOf(F, e).kind === "spellbook" && !canCastBook(F, c)) continue;
           let up = 0;
           const dm = (p.do || []).find((d) => d.mod === "def");
-          if (dm) { const keys = Object.keys(res.defs); up = Math.max(...keys.map((k) => (!dm.defs || dm.defs.includes(k) || dm.defs.includes("targeted") ? res.defs[k] + dm.n : res.defs[k]))) - best(res.defs); }
+          if (dm) { const keys = Object.keys(res.defs), dn = scaled(c, dm.n); up = Math.max(...keys.map((k) => (!dm.defs || dm.defs.includes(k) || dm.defs.includes("targeted") ? res.defs[k] + dn : res.defs[k]))) - best(res.defs); }
           const defensive = !!dm, flips = defensive && res.roll.kept !== 20 && res.total < best(res.defs) + up;
           opts.push({ actor: c.id, power: p.id, label: `${c.name}: ${p.name}`, e, c, defensive, flips });
         }
@@ -968,17 +1000,60 @@
       if (deckOf(F, pick.e) && deckOf(F, pick.e).kind === "spellbook" && p.cost > 0) c.spellTurn = st.turnNo;
       emit(X, { t: "reaction", actor: c.id, target: a.id, power: p.id, text: `${c.name} uses ${p.name}.` });
       if (p.hook) { hookTrigger(X, c, pick.e, { on: p.on, attacker: a, target: t, hit: true, res }); decide(res); continue; }
-      if (p.oath) { t.oath = c.id; emit(X, { t: "note", actor: c.id, target: t.id, text: `${c.name} takes the hit for ${t.name}.` }); return; }
+      if (p.oath) { t.oath = c.id; t.oathCut = scaled(c, p.oathCut); emit(X, { t: "note", actor: c.id, target: t.id, text: `${c.name} takes the hit for ${t.name}.` }); return; }
       for (const d of p.do || []) {
         if (d.mod === "def") {
-          const holder = p.on === "hitAlly5" ? t : c;
-          for (const k of Object.keys(res.defs)) if (!d.defs || d.defs.includes(k) || d.defs.includes("targeted")) res.defs[k] += d.n;
-          if (d.until) addMod(X, holder, { kind: "def", n: d.n, defs: d.defs, until: mkUntil(X, d.until, c, holder, p), source: c.id, power: p.name });
+          const holder = p.on === "hitAlly5" ? t : c, dn = scaled(c, d.n);
+          for (const k of Object.keys(res.defs)) if (!d.defs || d.defs.includes(k) || d.defs.includes("targeted")) res.defs[k] += dn;
+          if (d.until) addMod(X, holder, { kind: "def", n: dn, defs: d.defs, until: mkUntil(X, d.until, c, holder, p), source: c.id, power: p.name });
         } else applyDo(X, c, pick.e, [d], d.dmg ? a : c, { hit: true });
       }
       decide(res);
       emit(X, { t: res.hit ? "hit" : "miss", actor: a.id, target: t.id, text: res.hit ? `Still a hit (${res.total} vs ${best(res.defs)}).` : `Now a miss (${res.total} vs ${best(res.defs)}).` });
     }
+  }
+
+  // Command (Tactician): the ally takes the Attack action at once, out of its turn, with a to-hit bonus.
+  // RULING R711: each attack goes to the nearest enemy one of its hand weapons can hit (the first that can: melee in
+  // reach, else ranged), as an opportunity attack chooses; Twin Strike's extra attack counts once per turn as usual.
+  function commandAttack(X, src, ally, bonus) {
+    const F = X.F;
+    if (!ally || ally.dead || incap(ally)) return;
+    const m = { kind: "attack", n: bonus, source: src.id, power: "Command" };
+    ally.mods.push(m);
+    const can = (w, e) => { try { attackInfo(F, ally, e, { w }); return true; } catch (_) { return false; } };
+    const n = attacksPerAction(F, ally) < 2 || ally.turn.twin ? 1 : 2;
+    if (n === 2) ally.turn.twin = true;
+    for (let k = 0; k < n; k++) {
+      const held = ally.form ? [] : ally.hands.filter((id) => F.cards.cards[id] && F.cards.cards[id].atk);
+      const ws = [...new Set(held.concat(meleeWeapons(F, ally)))].map((id) => weaponOf(F, ally, id));
+      const foes = living(X.st).filter((e) => e.side !== ally.side).sort((x, y) => dist(ally, x) - dist(ally, y));
+      let pick = null;
+      for (const e of foes) { const w = ws.find((w) => can(w, e)); if (w) { pick = { e, w }; break; } }
+      if (!pick) break;
+      weaponAttack(X, ally, pick.e, pick.w, {});
+    }
+    ally.mods.splice(ally.mods.indexOf(m), 1);
+  }
+
+  // Riposte (Duelist): a reaction when a melee attack misses you: one melee weapon attack against the attacker.
+  // RULING R710: it uses the first melee weapon in hand that reaches (else unarmed), and a riposte never triggers one.
+  function missReactions(X, res) {
+    const F = X.F, a = res.a, t = res.t;
+    if (!a || !t || a.dead || t.dead || t.turn.reaction || incap(t) || t.react === "never") return;
+    const e = powersOf(F, t).find((e) => e.p.use === "reaction" && e.p.on === "meleeMissSelf" && canPay(F, t, e, 0).ok);
+    if (!e) return;
+    const w = meleeWeapons(F, t).find((id) => dist(t, a) <= weaponReach(weaponOf(F, t, id)));
+    if (!w) return;
+    if (t.react === "ask") {
+      const ch = ask(X, { kind: "reaction", text: `${a.name} misses ${t.name}. ${e.p.name}?`, trigger: { on: "meleeMissSelf", attacker: a.id, target: t.id },
+        options: [{ actor: t.id, power: e.p.id, label: `${t.name}: ${e.p.name}` }] });
+      if (ch == null) return;
+    }
+    t.turn.reaction = true;
+    pay(X, t, e, 0, {});
+    emit(X, { t: "reaction", actor: t.id, target: a.id, power: e.p.id, text: `${t.name}: ${e.p.name}.` });
+    weaponAttack(X, t, a, weaponOf(F, t, w), { riposte: true });
   }
 
   // ---------- resources ----------
@@ -1056,7 +1131,11 @@
     o = o || {};
     const F = X.F;
     // Oath (Templar): this attack's damage goes to the guardian instead (set in hitReactions, cleared in afterHit)
-    if (t.oath) { const g = X.st.creatures[t.oath]; if (g && !g.dead && g !== t) t = g; }
+    if (t.oath) {
+      const g = X.st.creatures[t.oath];
+      // Oath: the guardian takes it, reduced by 2 × its STR once per attack
+      if (g && !g.dead && g !== t) { const cut = Math.min(n, Math.max(0, t.oathCut || 0)); t.oathCut -= cut; n -= cut; t = g; }
+    }
     if (t.dead || n <= 0) return 0;
     type = type || "Physical";
     let resisted = null;
@@ -1107,9 +1186,44 @@
         emit(X, { t: "down", actor: o.source || null, target: t.id, text: `${t.name} falls Unconscious.` });
         addCond(X, t, "Unconscious", { source: null });
         addCond(X, t, "Prone", { source: null });
+        if (t.build.calling) drawWound(X, t);
       }
     }
     return total;
+  }
+  // Wounds (P 7.4, 7.6): a Bearer who falls to 0 HP draws one at random from the party's Wounds (one deck per fight,
+  // RULING R713). A Crippling Wound blocks a Slot of its kind: the Slot count drops and its gear goes to the Pack;
+  // if every Slot of that kind is blocked, it goes back and another is drawn. id: a given Wound (adjust command).
+  function drawWound(X, t, id) {
+    const F = X.F, st = X.st;
+    if (!st.wounds) st.wounds = (F.cards.wounds || []).slice();
+    for (let tries = 0; tries < 50; tries++) {
+      const i = id ? st.wounds.indexOf(id) : st.wounds.length ? die(X, st.wounds.length, "wound") - 1 : -1;
+      const wid = i >= 0 ? st.wounds[i] : id;
+      const w = wid && F.cards.cards[wid];
+      if (!w) return;
+      const slot = w.kw.includes("Crippling") ? w.kw[w.kw.length - 1].toLowerCase() : null;
+      if (slot && !blockSlot(X, t, slot)) { if (id) return; continue; }
+      if (i >= 0) st.wounds.splice(i, 1);
+      t.build.wounds = t.build.wounds.concat(wid);
+      for (const p of w.fx || []) { t.pools.extraSp += scaled(t, p.extraSp); t.pools.extraResolve += scaled(t, p.extraResolve); }
+      emit(X, { t: "cond", target: t.id, cond: "Wound", card: wid, text: `${t.name} takes a Wound: ${w.name}.` });
+      retally(F, t);
+      t.maxHp = t.own.HP;
+      t.hp = Math.min(t.hp, t.maxHp);
+      return;
+    }
+  }
+  function blockSlot(X, t, slot) {
+    const F = X.F, b = t.build;
+    if (!(b.slots[slot] > 0)) return false;
+    b.slots[slot]--;
+    const lost = [];
+    if (slot === "hand") while (handsUsed(F, t) > b.slots.hand) lost.push(t.hands.pop());
+    if (slot === "jewelry") while (b.jewelry.length > b.slots.jewelry) lost.push(b.jewelry.pop());
+    if (slot === "item") while (t.items.length > b.slots.item) lost.push(t.items.pop().id);
+    for (const id of lost) emit(X, { t: "note", actor: t.id, text: `${t.name}'s ${F.cards.cards[id] ? F.cards.cards[id].name : id} goes to the Pack.` });
+    return true;
   }
   // RULING R235: the dead drop what they hold; dead bodies never block movement or end-of-move squares.
   function die_(X, t, why, source) {
@@ -1141,7 +1255,7 @@
     return got;
   }
   function deathSave(X, c) {
-    const r = die(X, 20, "death save");
+    const r = lucky(X, c, (() => { const d = die(X, 20, "death save"); return { dice: [d], kept: d, adv: 0, dis: 0 }; })()).kept;
     let text;
     if (r === 20) { c.hp = 0; heal(X, c, 1, null); text = "natural 20: regains 1 HP"; }
     else if (r === 1) { c.death.fail += 2; text = "natural 1: two failures"; }
@@ -1308,11 +1422,15 @@
   function weaponAttack(X, a, t, w, o) {
     const F = X.F;
     o = o || {};
-    const info = attackInfo(F, a, t, { w, thrown: o.thrown, abil: o.abil, toDamage: o.toDamage, grab: o.shove ? "shove" : o.grapple ? "grapple" : null });
+    const info = attackInfo(F, a, t, { w, thrown: o.thrown, abil: o.abil, toDamage: o.toDamage, escape: o.escape, grab: o.shove ? "shove" : o.grapple ? "grapple" : null });
     const res = rollAttack(X, a, t, info, { label: `${o.opportunity ? "opportunity attack" : "attacks"} with ${w.name}` });
     if (w.card && X.st.active === a.id) a.turn.attacked[w.card] = (a.turn.attacked[w.card] || 0) + 1;
     if (res.hit) hitReactions(X, res, info.melee);
-    if (!res.hit) { emit(X, { t: "miss", actor: a.id, target: t.id, text: `${a.name} misses ${t.name}.` }); return res; }
+    if (!res.hit) {
+      emit(X, { t: "miss", actor: a.id, target: t.id, text: `${a.name} misses ${t.name}.` });
+      if (info.melee && !o.riposte) missReactions(X, res);
+      return res;
+    }
     const crit = res.crit || (has(t, "Unconscious") && dist(a, t) <= 5);
     res.crit = crit;
     stat(X, a.id).hits++;
@@ -1340,7 +1458,7 @@
       applyDo(X, a, r, (r.p.do || []).filter((d) => !d.dmg), t, { hit: true });
     }
     crushing(X, a, t, w, res.total, best(res.defs));
-    afterHit(X, a, t, { weapon: true, melee: info.melee, crit, engaged: engagedNow });
+    afterHit(X, a, t, { weapon: true, armed: true, melee: info.melee, ranged: info.ranged, crit, engaged: engagedNow });
     return res;
   }
   // An area weapon attack (Sweeping Blow): one attack roll compared to each target's Defense, as an area roll (P 6.6:
@@ -1387,7 +1505,7 @@
         applyDo(X, a, rd, (rd.p.do || []).filter((d) => !d.dmg), t, { hit: true });
       }
       crushing(X, a, t, w, r.total, best(r.defs));
-      afterHit(X, a, t, { weapon: true, melee: true, crit, engaged: engagedNow });
+      afterHit(X, a, t, { weapon: true, armed: true, melee: true, crit, engaged: engagedNow });
     }
   }
   // Crushing (P 11.3): a hit that beats the targeted Defense by 5 or more knocks the target Prone.
@@ -1423,12 +1541,14 @@
   }
   // hitEngaged is judged when the hit lands, before damage.
   const allyEngaged = (st, a, t) => living(st).some((c) => c.side === a.side && c !== a && engaged(c, t));
-  // Triggers after a hit lands: meleeDrop, weaponHit, hitEngaged.
+  // Triggers after a hit lands: meleeDrop, weaponHit, meleeWeaponHit (an attack with a weapon in hand), rangedHit, hitEngaged.
   function afterHit(X, a, t, o) {
     const st = X.st;
     t.oath = null;
     if (o.melee) fireTriggers(X, a, "meleeHit", { target: t });
     if (o.weapon) fireTriggers(X, a, "weaponHit", { target: t });
+    if (o.armed && o.melee) fireTriggers(X, a, "meleeWeaponHit", { target: t });
+    if (o.ranged && !t.dead) fireTriggers(X, a, "rangedHit", { target: t });
     if (o.engaged) fireTriggers(X, a, "hitEngaged", { target: t });
     if (o.melee && (t.hp === 0 || t.dead)) fireTriggers(X, a, "meleeDrop", { target: t });
   }
@@ -1521,12 +1641,13 @@
           until = { lasting: k.id };
         } else if (d.until) until = mkUntil(X, d.until, user, t, p);
         if (d.mod === "roll" && !d.until) continue; // Cue roll changes are handled in cuePhase
-        addMod(X, t, { kind: d.mod, n: d.n || 0, dice: d.dice || null, defs: d.defs || null, next: !!d.next, until, source: user.id, power: p.name || null,
+        addMod(X, t, { kind: d.mod, n: scaled(user, d.n), dice: d.dice || null, defs: d.defs || null, next: !!d.next, until, source: user.id, power: p.name || null,
           only: p.params && p.params.ranged ? "ranged" : p.params && p.params.melee ? "melee" : null });
+      } else if (d.command) { commandAttack(X, user, t, scaled(user, d.hit));
       } else if (d.dash) { user.turn.speed += speedOf(user); user.turn.moves++; emit(X, { t: "note", actor: user.id, text: `${user.name} gains a Move (+${speedOf(user)} ft).` }); }
       else if (d.move === "safe") {
         if (d.once) { if (user.turn.once && user.turn.once[p.id]) continue; user.turn.once = Object.assign({}, user.turn.once, { [p.id]: true }); }
-        const ft = d.ft === "half" ? speedOf(user) / 2 : d.ft || 0;
+        const ft = d.ft === "half" ? speedOf(user) / 2 : Math.max(0, scaled(user, d.ft));
         user.turn.safeFt += ft;
         emit(X, { t: "note", actor: user.id, text: `${user.name} may move ${ft} ft without provoking (move with safe: true).` });
       } else if (d.move === "teleport") {
@@ -1739,6 +1860,7 @@
       const info = attackInfo(F, c, t, { entry: e, toDamage: cmd.toDamage });
       const r = rollAttack(X, c, t, info, { label: p.name });
       if (r.hit) hitReactions(X, r, info.melee);
+      else if (info.melee) missReactions(X, r);
       const crit = r.hit && (r.crit || (has(t, "Unconscious") && dist(c, t) <= 5));
       emit(X, { t: r.hit ? (crit ? "crit" : "hit") : "miss", actor: c.id, target: t.id, text: `${p.name} ${r.hit ? (crit ? "critically hits" : "hits") : "misses"} ${t.name}.` });
       if (r.hit) { stat(X, c.id).hits++; if (crit) stat(X, c.id).crits++; }
@@ -1746,7 +1868,7 @@
       applyDo(X, c, e, p.do || [], t, { hit: r.hit, crit, darts: counts[id], mode: cmd.mode, bonus: r.total - r.roll.kept, best: info.toDamage });
       // RULING R219: a power attack against "weapon" Defense within 5 ft (a foe's Bite) is a melee weapon attack
       // for triggers (weaponHit, hitEngaged, meleeDrop, Ring of Sparks).
-      if (r.hit) afterHit(X, c, t, { weapon: info.vs === "weapon", melee: info.melee, engaged: eng });
+      if (r.hit) afterHit(X, c, t, { weapon: info.vs === "weapon", melee: info.melee, ranged: info.ranged, engaged: eng });
     }
   }
   function triggerZone(X, z, t, why) {
@@ -2030,7 +2152,7 @@
       const k = condsNamed(c, "Grappled").find((k) => k.source === t.id);
       if (!k) fail(`${c.name} isn't grappled by ${t.name}`);
       if (!canAct(c)) fail(actionWhy(c));
-      const info = attackInfo(F, c, t, { w: weaponOf(F, c, "unarmed"), abil: ["STR", "DEX"] });
+      const info = attackInfo(F, c, t, { w: weaponOf(F, c, "unarmed"), abil: ["STR", "DEX"], escape: true });
       return { t, slot: "escapeAction", info: Object.assign(info, { toHit: info.bonus, defense: info.def }) };
     }
     const slot = planAttackSlot(F, c, cmd, true);
@@ -2220,11 +2342,11 @@
       // 0 HP by hand follows the usual rules: a foe dies (R213), anyone else falls Unconscious (P 7.4)
       if (c.hp === 0 && was > 0 && !c.dead) {
         if (c.side === "foe" && !c.build.important) die_(X, c, "adjusted to 0 HP");
-        else { c.down = true; c.death = { ok: 0, fail: 0 }; c.stable = false; addCond(X, c, "Unconscious", { source: null }); addCond(X, c, "Prone", { source: null }); }
+        else { c.down = true; c.death = { ok: 0, fail: 0 }; c.stable = false; addCond(X, c, "Unconscious", { source: null }); addCond(X, c, "Prone", { source: null }); if (c.build.calling) drawWound(X, c); }
       }
     }
     if (cmd.temp != null) { c.temp = Math.max(0, cmd.temp); bits.push(`temp ${c.temp}`); }
-    if (cmd.exhaustion != null) { c.exhaustion = Math.max(0, Math.min(6, cmd.exhaustion)); bits.push(`Exhaustion ${c.exhaustion}`); }
+    if (cmd.wound) { const w = X.F.cards.cards[cmd.wound]; drawWound(X, c, cmd.wound); bits.push(`Wound ${w ? w.name : cmd.wound}`); }
     if (cmd.remove === true && cmd.cond) { condsNamed(c, cmd.cond).forEach((k) => removeCond(X, c, k, "adjusted")); bits.push(`−${cmd.cond}`); }
     else if (cmd.cond) { addCond(X, c, cmd.cond, { source: cmd.source || null }); bits.push(`+${cmd.cond}`); }
     if (typeof cmd.remove === "string") { condsNamed(c, cmd.remove).forEach((k) => removeCond(X, c, k, "adjusted")); bits.push(`−${cmd.remove}`); }

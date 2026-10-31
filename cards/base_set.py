@@ -27,25 +27,39 @@ def body(mods, hp, spd):
             "HP": str(hp), "SPD": str(spd)}
 
 
-def calling(name, pair, hp, spd, perk):
-    """A Calling (P 2.4): +2 in its two abilities, +0 in the others, Medium, its own HP and Speed, one perk."""
-    return card(name, "", "calling", "Calling", [perk], body([2 if a in pair else 0 for a in ABILS], hp, spd), sym=list(pair))
+def calling(name, pair, hp, spd, *perks):
+    """A Calling (P 2.4): +2 in its two abilities, +0 in the others, Medium, its own HP and Speed, and its perks.
+    Every perk scales with both of the Calling's abilities (DESIGN 4): uses, dice and distances are half an ability,
+    rounded down (*½ WIL*), bonuses the whole modifier (*+STR*); a Calling with two perks splits them between its two."""
+    return card(name, "", "calling", "Calling", list(perks), body([2 if a in pair else 0 for a in ABILS], hp, spd), sym=list(pair))
 
 
 CALLINGS = [
-    calling("Duelist", ("STR", "DEX"), 12, 35, "**Footwork:** once per turn, after you hit with a melee attack, move 5 ft. This movement doesn't provoke opportunity attacks."),
-    calling("Templar", ("STR", "WIL"), 14, 30, "**Oath (1/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead."),
-    calling("Spellblade", ("STR", "INT"), 13, 30, "**Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook."),
-    calling("Infiltrator", ("DEX", "INT"), 10, 35, "**Unseen:** +2 on checks to sneak, pick locks and spot traps."),
-    calling("Performer", ("DEX", "WIL"), 10, 35, "**Crowd Work (1/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll."),
-    calling("Sage", ("INT", "WIL"), 9, 35, "**Learned:** 2 extra spell points. +2 on checks to recall lore."),
+    calling("Duelist", ("STR", "DEX"), 12, 35,
+            "**Footwork:** once per turn, after you hit with a melee attack, move 5 ft × ½ DEX. This movement doesn't provoke opportunity attacks.",
+            "**Riposte (½ STR/S.R.):** reaction, when a melee attack misses you: make one melee weapon attack against the attacker."),
+    calling("Templar", ("STR", "WIL"), 14, 30,
+            "**Oath (½ WIL/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead, reduced by 2 × STR."),
+    calling("Spellblade", ("STR", "INT"), 13, 30,
+            "**Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook.",
+            "**Spell Strike (½ STR/S.R.):** when you hit with a melee weapon attack: +INT damage."),
+    calling("Infiltrator", ("DEX", "INT"), 10, 35, "**Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT."),
+    calling("Performer", ("DEX", "WIL"), 10, 35,
+            "**Crowd Work (½ DEX/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +WIL to that roll."),
+    calling("Sage", ("INT", "WIL"), 9, 35, "**Learned:** ½ INT extra spell points. Your checks to recall lore add both INT and WIL."),
     # the second Calling of each pair: same +2 / +2, another perk, HP and Speed
-    calling("Brawler", ("STR", "DEX"), 14, 30, "**Scrapper:** +2 to hit with Grapples and Shoves."),
-    calling("Zealot", ("STR", "WIL"), 12, 35, "**Righteous Fury (1/S.R.):** when you hit with a weapon attack: +1d6 Radiant damage."),
-    calling("Tactician", ("STR", "INT"), 12, 35, "**Command (1/S.R.):** action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack."),
-    calling("Ranger", ("DEX", "INT"), 11, 35, "**Quarry (1/S.R.):** when you hit with a ranged attack: +2 on your attacks against that target until the end of your next turn."),
-    calling("Trickster", ("DEX", "WIL"), 9, 35, "**Feint (2/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss."),
-    calling("Hermit", ("INT", "WIL"), 11, 30, "**Solitude:** 1 extra Resolve. +2 on checks to forage and endure."),
+    calling("Brawler", ("STR", "DEX"), 14, 30,
+            "**Scrapper:** +STR to hit with Grapples and Shoves.",
+            "**Slip Free:** your Escape attacks add 2 × DEX instead of STR or DEX."),
+    calling("Zealot", ("STR", "WIL"), 12, 35,
+            "**Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage."),
+    calling("Tactician", ("STR", "INT"), 12, 35,
+            "**Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit."),
+    calling("Ranger", ("DEX", "INT"), 11, 35,
+            "**Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn."),
+    calling("Trickster", ("DEX", "WIL"), 9, 35,
+            "**Feint (½ WIL/S.R.):** reaction, when an attack hits you: −DEX to that attack roll, possibly turning it into a miss."),
+    calling("Hermit", ("INT", "WIL"), 11, 30, "**Solitude:** ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL."),
 ]
 
 
@@ -174,10 +188,11 @@ ASPECTS = [
 
 
 # ---------- Wounds (P 7.6): one shared deck, drawn at random at each fall to 0 HP ----------
-def wound(name, text=(), strip=None, blocks=None):
+def wound(name, text=(), strip=None, blocks=None, fx=()):
+    """fx: what the sim plays of its penalty (sim/cards.js); checks and rests aren't simulated."""
     kw = f"Wound · Crippling · {blocks}" if blocks else "Wound"
     text = list(text) or [f"Blocks one of your **{blocks} Slots** until it heals."]
-    return card(name, "", "wound", kw, text, strip, group="wound")
+    return card(name, "", "wound", kw, text, strip, group="wound", fx=list(fx))
 
 
 WOUNDS = [
@@ -188,11 +203,11 @@ WOUNDS = [
     wound("Concussion", ["The world swims a little."], {"INTd": "−2"}),
     wound("Shaken", ["You flinch at every shadow."], {"WILd": "−2"}),
     wound("Deep Cut", ["Stitched, not healed."], {"HP": "−5"}),
-    wound("Black Eye", ["−2 on ranged attacks and on checks to notice."]),
+    wound("Black Eye", ["−2 on ranged attacks and on checks to notice."], fx=[dict(use="passive", hitMod=-2, only="ranged")]),
     wound("Broken Nose", ["−2 on WIL checks."]),
     wound("Torn Tendon", ["−2 on checks to climb, jump or swim."]),
-    wound("Weak Grip", ["−2 on melee attacks."]),
-    wound("Cracked Jaw", ["1 less Resolve and 1 less spell point."]),
+    wound("Weak Grip", ["−2 on melee attacks."], fx=[dict(use="passive", hitMod=-2, only="melee")]),
+    wound("Cracked Jaw", ["1 less Resolve and 1 less spell point."], fx=[dict(use="passive", extraSp=-1, extraResolve=-1)]),
     wound("Nightmares", ["A short rest heals only a quarter of your missing HP (rounded up)."]),
     # Crippling: blocks a Gear Slot
     wound("Broken Arm", blocks="Hand"),
@@ -547,18 +562,23 @@ CARD_FX = {
     # species Traits
     "Elven Blood": [dict(use="passive", darkvision=60)],
     "Dwarven Blood": [dict(use="passive", defVs=dict(STR=2), tags=["poison", "shove", "grapple"])],
-    # Calling perks
-    "Duelist": [dict(use="trigger", on="meleeHit", target="self", do=[dict(move="safe", ft=5, once=True)])],
-    "Templar": [dict(use="reaction", uses="1/SR", on="hitAlly5", target="ally", oath=True)],
-    "Spellblade": [dict(use="passive", castingHand=True)],
-    "Performer": [dict(use="reaction", uses="1/SR", on="rollNear", reach=30, target="ally", do=[dict(mod="roll", n=2)],
+    "Halfling Luck": [dict(use="passive", uses="1/SR", lucky=True, reroll="1d20")],
+    # Calling perks (scaling values: "STR", "-DEX", "½WIL", "2×STR", "5×½DEX" read the creature's current modifiers)
+    "Duelist": [dict(use="trigger", on="meleeHit", target="self", do=[dict(move="safe", ft="5×½DEX", once=True)]),
+                dict(use="reaction", uses="½STR/SR", on="meleeMissSelf", target="enemy", riposte=True)],
+    "Templar": [dict(use="reaction", uses="½WIL/SR", on="hitAlly5", target="ally", oath=True, oathCut="2×STR")],
+    "Spellblade": [dict(use="passive", castingHand=True),
+                   dict(use="trigger", uses="½STR/SR", on="meleeWeaponHit", do=[dict(dmg="INT")])],
+    "Performer": [dict(use="reaction", uses="½DEX/SR", on="rollNear", reach=30, target="ally", do=[dict(mod="roll", n="WIL")],
                        params=dict(rollKinds=["attack", "check"]))],
-    "Sage": [dict(use="passive", extraSp=2)],
-    "Brawler": [dict(use="passive", grabHit=2)],
-    "Zealot": [dict(use="trigger", uses="1/SR", on="weaponHit", do=[dict(dmg="1d6", type="Radiant")])],
-    "Trickster": [dict(use="reaction", uses="2/SR", on="hitSelf", target="self", do=TWO_SHIELD_MOD)],
-    "Hermit": [dict(use="passive", extraResolve=1)],
-    # Tactician's Command and Ranger's Quarry aren't automated (sim/RULINGS.md R706)
+    "Sage": [dict(use="passive", extraSp="½INT")],
+    "Brawler": [dict(use="passive", grabHit="STR"), dict(use="passive", escapeAbil="2×DEX")],
+    "Zealot": [dict(use="trigger", uses="½WIL/SR", on="weaponHit", do=[dict(dmg="½STR d6", type="Radiant")])],
+    "Tactician": [dict(use="action", uses="½STR/SR", reach=30, target="ally", need=VOICE, do=[dict(command=True, hit="INT")])],
+    # Quarry's mark: −½ DEX to every Defense of the target, so you and your allies hit it more (RULING R714)
+    "Ranger": [dict(use="trigger", uses="½INT/SR", on="rangedHit", do=[dict(mod="def", n="-½DEX", until="startSourceTurn")])],
+    "Trickster": [dict(use="reaction", uses="½WIL/SR", on="hitSelf", target="self", do=[dict(mod="def", n="DEX", defs=["targeted"], next=True)])],
+    "Hermit": [dict(use="passive", extraResolve="½WIL")],
     "Pack Hunter": [dict(use="trigger", uses="1/SR", on="hitEngaged", do=[dict(cond="Prone")])],
     "Slippery": [dict(use="reaction", uses="2/SR", target="self", do=[dict(move="safe", ft="half")])],
     "Hedge Witch": [dict(use="passive", extraSp=1)],

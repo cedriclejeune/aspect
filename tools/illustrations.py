@@ -526,7 +526,7 @@ def calling_card():
     top, row, my = y + th, (h - th - kh) / 10, y + (th - .7 * u) / 2
     own = dict(enumerate(["+2", "+2", "+0", "+0", "12", "12", "10", "10", "12", "10,5" if LANG == "fr" else "35"]))
     body = [ledger_card(x, y, w, h, "Duelist", kw="Calling", lit=["STR", "DEX"], own=own,
-                        text=["**Footwork:** after a", "melee hit, move 5 ft"], tid="STARTER · L-01")]
+                        text=["**Footwork:** after a", "melee hit, 5 ft × ½ DEX"], tid="STARTER · L-01")]
     # brackets beside the card group the own values: modifiers, Defenses, HP and Speed
     bx = x + w + 12
     for r0, r1 in ((0, 4), (4, 8), (8, 10)):
@@ -675,7 +675,7 @@ def tally_card():
     x, y, w = 200, 20, 300
     h = w * 88 / 63
     body = [tally_small(x, y, w, h, {0: "+0", 1: "+1", 2: "+2", 3: "+2", 4: "11", 5: "11", 6: "12", 7: "12", 8: "15", 9: "30"}, ["15", "9", "12"], ledger=True,
-                        pools={"SPELL POINTS": ("6", 3)})]  # Isolde the Sage (P 12.3 example)
+                        pools={"SPELL POINTS": ("5", 3)})]  # Isolde the Sage (P 12.3 example)
     th, kh = h * .13, h * .1
     rh = (h - th - kh) / 10
     top = y + th

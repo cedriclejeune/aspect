@@ -523,47 +523,90 @@ module.exports = function register(T, H) {
     run(f, atk("d", "W-I-03", "x"), [18, 3]);
     eq(C(f, "d").turn.safeFt, 5, "once per turn");
   });
-  T("[fx] Templar Oath: reaction 1/S.R., takes an adjacent ally's hit", () => {
+  T("[fx] Templar Oath: reaction ½ WIL/S.R., takes an adjacent ally's hit, reduced by 2 × STR", () => {
     const f = fight([pc("a", [5, 5]), pc("t", [5, 6], calling("L-02"), { react: "auto" }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
     foeTurn(f, "x");
     run(f, atk("x", "W-I-05", "a"), [15, 15, 6]); // 6 + 3 = 9
-    eq([C(f, "a").hp, C(f, "t").hp, C(f, "t").uses["L-02#0"]], [14, 14 - 9, 0]);
+    eq([C(f, "a").hp, C(f, "t").hp, C(f, "t").uses["L-02#0"]], [14, 14 - (9 - 4), 0]);
   });
-  T("[fx] Performer Crowd Work: reaction 1/S.R., +2 to an ally's roll within 30 ft", () => {
+  T("[fx] Performer Crowd Work: reaction ½ DEX/S.R., +WIL to an ally's roll within 30 ft", () => {
     const f = fight([pc("p", [1, 5], calling("L-05"), { react: "auto" }), pc("a", [7, 5], { hands: ["W-I-05"] }), foe("x", [8, 5], { hands: ["W-I-05"] })]);
     pcTurn(f, "a");
     const r = run(f, atk("a", "W-I-05", "x"), [7, 1]); // 12 vs 13 → 14: hits
     ok(evs(r, "reaction").some((e) => e.power === "L-05#0")); eq(dmgs(r), [4]); eq(C(f, "p").uses["L-05#0"], 0);
   });
-  T("[fx] Spellblade Battle Caster casts with both Hands full; Sage Learned: +2 spell points", () => {
+  T("[fx] Spellblade Battle Caster casts with both Hands full; Sage Learned: ½ INT spell points", () => {
     const hands = { hands: ["W-I-05", "S-I-01"], items: [{ id: "B-I-01" }] };
     const f = fight([pc("s", [1, 5], calling("L-03", hands)), pc("g", [1, 7], calling("L-06", { items: [{ id: "B-I-01" }] })), foe("x", [9, 5])]);
     pcTurn(f, "s");
     ok(f.legal("s").some((m) => m.power && m.power.startsWith("B-I-01")), "Spellblade casts holding a Longsword and a Shield");
-    eq([C(f, "s").sp, C(f, "g").sp], [4, 6]);
+    eq([C(f, "s").sp, C(f, "g").sp], [4, 5]);
     const g = fight([pc("s", [1, 5], hands), foe("x", [9, 5])]);
     pcTurn(g, "s");
     ok(!g.legal("s").some((m) => m.power && m.power.startsWith("B-I-01")), "a body with both Hands full can't cast");
   });
 
-  T("[fx] Brawler Scrapper: +2 to hit with Shoves; Hermit Solitude: +1 Resolve", () => {
+  T("[fx] Brawler Scrapper: +STR to hit with Shoves; Hermit Solitude: ½ WIL Resolve", () => {
     const f = fight([pc("b", [5, 5], calling("L-07")), pc("h", [1, 1], calling("L-12", { aspects: ["G-I-01"] })), foe("x", [6, 5])]);
     pcTurn(f, "b");
     const r = f.preview({ type: "shove", actor: "b", target: "x", mode: "push" });
     eq(r.info.toHit, 2 + 2 + 2, "STR + 2 + Scrapper");
     eq(C(f, "h").resolve, 3 + 2 + 1);
   });
-  T("[fx] Zealot Righteous Fury: 1/S.R., +1d6 Radiant on a weapon hit", () => {
+  T("[fx] Zealot Righteous Fury: ½ WIL/S.R., +½ STR d6 Radiant on a weapon hit", () => {
     const f = fight([pc("z", [5, 5], calling("L-08", { hands: ["W-I-05"] }), { react: "auto" }), foe("x", [6, 5])]);
     pcTurn(f, "z");
     const r = run(f, atk("z", "W-I-05", "x"), [18, 4, 3]);
     eq(dmgs(r), [6, 3]); eq(C(f, "z").uses["L-08#0"], 0);
   });
-  T("[fx] Trickster Feint: reaction 2/S.R., −2 to an attack that hits you", () => {
+  T("[fx] Trickster Feint: reaction ½ WIL/S.R., −DEX to an attack that hits you", () => {
     const f = fight([pc("k", [5, 5], calling("L-11"), { react: "auto" }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
     foeTurn(f, "x");
     const r = run(f, atk("x", "W-I-05", "k"), [8]); // 8 + 5 = 13 vs DEX Defense 12 → 14: miss
-    ok(evs(r, "miss").length); eq(C(f, "k").uses["L-11#0"], 1);
+    ok(evs(r, "miss").length); eq(C(f, "k").uses["L-11#0"], 0);
+  });
+  T("[fx] Duelist Riposte: reaction ½ STR/S.R., a melee weapon attack on the attacker when its melee attack misses", () => {
+    const f = fight([pc("d", [5, 5], calling("L-01", { hands: ["W-I-05"] }), { react: "auto" }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
+    foeTurn(f, "x");
+    const r = run(f, atk("x", "W-I-05", "d"), [2, 15, 4]); // 7 vs 12: miss; riposte 15 + 2 + 2 vs 13: hit, 1d10 + 2
+    ok(evs(r, "reaction").some((e) => e.power === "L-01#1")); eq(dmgs(r), [6]); eq(C(f, "d").uses["L-01#1"], 0);
+  });
+  T("[fx] Spellblade Spell Strike: ½ STR/S.R., +INT damage on a melee weapon hit", () => {
+    const f = fight([pc("s", [5, 5], calling("L-03", { hands: ["W-I-05"] }), { react: "auto" }), foe("x", [6, 5])]);
+    pcTurn(f, "s");
+    const r = run(f, atk("s", "W-I-05", "x"), [18, 4]);
+    eq(dmgs(r), [6, 2]); eq(C(f, "s").uses["L-03#1"], 0);
+  });
+  T("[fx] Ranger Quarry: ½ INT/S.R., a ranged hit marks the target: −½ DEX to its Defenses until the Ranger's next turn", () => {
+    const f = fight([pc("r", [1, 5], calling("L-10", { hands: ["W-I-09"] }), { react: "auto" }), foe("x", [8, 5])]);
+    pcTurn(f, "r");
+    run(f, atk("r", "W-I-09", "x"), [18, 3]);
+    ok(C(f, "x").mods.some((m) => m.kind === "def" && m.n === -1)); eq(C(f, "r").uses["L-10#0"], 0);
+  });
+  T("[fx] Tactician Command: ½ STR/S.R., an ally takes the Attack action at once with +INT to hit", () => {
+    const f = fight([pc("t", [1, 5], calling("L-09"), { react: "auto" }), pc("a", [5, 5], { hands: ["W-I-05"] }), foe("x", [6, 5])]);
+    pcTurn(f, "t");
+    const r = run(f, power(f, "t", "L-09#0", { targets: ["a"] }), [8, 4]); // 8 + 3 + 2 + INT 2 = 15 vs 13: hit
+    eq(dmgs(r), [7]); eq(C(f, "t").uses["L-09#0"], 0); ok(!C(f, "a").mods.length, "the bonus ends with the action");
+  });
+  T("[fx] Halfling Luck: a 1 on an attack roll is rerolled, 1/S.R.", () => {
+    const f = fight([pc("h", [5, 5], { hands: ["W-I-05"], aspects: ["T-I-08"] }), foe("x", [6, 5])]);
+    pcTurn(f, "h");
+    const r = run(f, atk("h", "W-I-05", "x"), [1, 15, 4]);
+    eq(dmgs(r), [7]); eq(C(f, "h").uses["T-I-08#0"], 0);
+  });
+  T("[fx] Wounds: falling to 0 HP draws one; penalties count; a Crippling Wound empties a Hand", () => {
+    const f = fight([pc("a", [5, 5], calling("L-01", { hands: ["W-I-05", "S-I-01"] })), foe("x", [6, 5])]);
+    pcTurn(f, "a");
+    run(f, { type: "adjust", actor: "a", wound: "wound-weak-grip" });
+    eq(pv(f, atk("a", "W-I-05", "x")).toHit, 2 + 2 - 2, "Weak Grip: −2 on melee attacks");
+    run(f, { type: "adjust", actor: "a", wound: "wound-broken-arm" });
+    eq([C(f, "a").hands, C(f, "a").build.slots.hand], [["W-I-05"], 1]);
+    run(f, { type: "adjust", actor: "a", wound: "wound-deep-cut" });
+    eq(C(f, "a").maxHp, 12 - 5);
+    const n = C(f, "a").build.wounds.length;
+    run(f, { type: "adjust", actor: "a", hp: 0 }, [1]);
+    eq(C(f, "a").build.wounds.length, n + 1, "a fall to 0 HP draws a Wound");
   });
 
   T("[fx] Twin Strike: one extra attack, once per turn", () => {

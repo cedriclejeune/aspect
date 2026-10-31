@@ -95,13 +95,19 @@ def export_foe(f):
             "totals": {k: num(v) for k, v in values.items()}}
 
 
+# Wound cards print no ID: the sim keys them by name
+WOUNDS = [dict(w, id=f"wound-{slug(w['name'])}") for w in bs.WOUNDS]
+
+
 def build():
     base = {"armor": 1, "hand": 2, "jewelry": 1, "item": 2, "aspect": 3}  # starting Slots per player (P 3.2)
     frames = [{"key": key, "name": name, "perPlayer": base[key]} for key, name, *_ in bs.FRAMES
               if key in base and name.lower() == key]
     return {
         "version": 1,
-        "cards": {c["id"]: export_card(c) for c in sorted(bs.CARDS, key=lambda c: c["id"])},
+        "cards": {**{c["id"]: export_card(c) for c in sorted(bs.CARDS, key=lambda c: c["id"])},
+                  **{w["id"]: export_card(w) for w in WOUNDS}},
+        "wounds": [w["id"] for w in WOUNDS],  # the shared Wound deck (P 7.6)
         "decks": {d["cover"]["id"]: export_deck(d) for d in bs.DECKS},
         "foes": [export_foe(f) for f in foes.FOES],
         "frames": frames,

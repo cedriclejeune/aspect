@@ -375,7 +375,7 @@ Each game term has one meaning, in both books.
 | **Attack roll** | A roll of d20 + modifiers against a Defense, made by whoever harms or hinders: weapons, spells, Divine, Glamour and Nature powers, traps, poisons. |
 | **Bearer** | A humanoid who can absorb the Aspects of other beings. Every player character is one. |
 | **Blindsight N** | Perceive everything within N ft without sight. |
-| **Boss** | A strong monster with special abilities, including a half turn during the characters' side. |
+| **Boss** | A strong monster with special powers, including a half turn during the characters' side. |
 | **Brutal** | A weapon keyword: on a critical hit, roll its damage dice three times instead of twice. |
 | **Calling** | The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Aspects you can equip. It is neither an Aspect nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Zealot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
 | **Cantrip** | A spell that costs nothing. Cast at will. |
