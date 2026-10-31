@@ -22,7 +22,7 @@ FRONT = """
 <tr><td>Incantation</td><td>Lancez un sort à 1 action, ou utilisez un pouvoir de votre matériel ou de vos Aspects qui demande une action (Hymne, Complainte, muer en une Forme).</td></tr>
 <tr><td>Désengagement</td><td>Votre déplacement ne provoque pas d'attaque d'opportunité ce tour-ci. <strong>Pas si vous êtes Encerclé.</strong></td></tr>
 <tr><td>Esquive</td><td>Jusqu'à votre prochain tour : <strong>+3 à toutes vos Défenses</strong>. Perdu si Neutralisé ou Vitesse 0.</td></tr>
-<tr><td>Aide</td><td>Avant votre prochain tour, un allié a <strong>+3</strong> à son prochain test pour une tâche, ou à sa prochaine attaque contre une créature à 1,5 m de vous.</td></tr>
+<tr><td>Aide</td><td>Avant votre prochain tour, un allié a <strong>+3</strong> à son prochain test pour une tâche, ou à sa prochaine attaque contre une créature à 2 m de vous.</td></tr>
 <tr><td>Se cacher</td><td>Test de DEX pour se cacher. Hors de vue obligatoire (abri total ou Obscurité). Échec sous 15 ou sous la Vigilance passive d'un observateur. Réussite : <strong>Invisible</strong> pour eux.</td></tr>
 <tr><td>Utiliser</td><td>Utilisez une babiole, ou un matériel qui demande une action : boire ou donner une potion.</td></tr>
 <tr><td>Se relever</td><td>Quitter l'état À terre.</td></tr>
@@ -39,7 +39,7 @@ FRONT = """
 Remplace une attaque. Cible à votre allonge, au plus <strong>une taille de plus</strong>. Faites une <strong>attaque à mains nues (FOR + 2)</strong> contre sa plus haute Défense de FOR ou de DEX.
 <ul>
 <li><strong>Empoigner</strong> (main libre) : la cible est <strong>Agrippée</strong>. Vous pouvez la traîner : chaque mètre coûte 1 m de plus sauf si elle a 2 tailles de moins ou plus.</li>
-<li><strong>Bousculer :</strong> repoussez-la de 1,5 m, ou mettez-la <strong>À terre</strong>.</li>
+<li><strong>Bousculer :</strong> repoussez-la de 2 m, ou mettez-la <strong>À terre</strong>.</li>
 </ul></div>
 
 <h2>Réactions</h2>
@@ -50,7 +50,7 @@ Remplace une attaque. Cible à votre allonge, au plus <strong>une taille de plus
 <tr><td>Attaque de<br>l'autre main</td><td>Vous attaquez avec une arme <strong>Légère</strong> → une attaque avec une <em>autre</em> arme Légère dans l'autre main. Pas de modificateur de caractéristique aux dégâts (sauf s'il est négatif). Les deux dans des Emplacements de Main. <small>6.9</small></td></tr>
 <tr><td>Action<br>préparée</td><td>Le déclencheur nommé avec Se tenir prêt survient → effectuez l'action ou le déplacement préparé.</td></tr>
 <tr><td>Sort</td><td>Un sort au temps d'incantation d'une réaction (p. ex. <em>Bouclier</em> du <em>Livre du conjurateur</em>). Demande une Main vide.</td></tr>
-<tr><td>Réplique</td><td>Divin ou Glamour : modifiez le jet d'une créature à 18 m ou moins qui vous entend, <strong>après le jet</strong>, avant que le MJ dise s'il réussit.</td></tr>
+<tr><td>Réplique</td><td>Divin ou Glamour : modifiez le jet d'une créature à 24 m ou moins qui vous entend, <strong>après le jet</strong>, avant que le MJ dise s'il réussit.</td></tr>
 <tr><td>Matériel et Aspects</td><td>Tout pouvoir marqué <strong>Réaction</strong>. Avec déclencheur : <em>Anneau de protection</em> (une attaque vous touche → +2 à cette Défense). Sans, à votre tour : <em>Feu grégeois</em> (lancer une fiole).</td></tr>
 </table>
 
@@ -66,14 +66,14 @@ Remplace une attaque. Cible à votre allonge, au plus <strong>une taille de plus
 <h2>Déplacement <small>6.4</small></h2>
 <table>
 <tr><th>Mouvement</th><th>Coût</th></tr>
-<tr><td>Case</td><td>1,5 m, diagonales comprises</td></tr>
+<tr><td>Case</td><td>2 m, diagonales comprises</td></tr>
 <tr><td>Terrain difficile</td><td>+1 m par m (gravats, broussailles, l'espace d'une créature)</td></tr>
 <tr><td>Se relever</td><td>Une action</td></tr>
 <tr><td>Ramper</td><td>+1 m par m</td></tr>
 <tr><td>Grimper / nager</td><td>+1 m par m sans vitesse d'escalade / de nage</td></tr>
 <tr><td>Traîner un agrippé</td><td>+1 m par m (sauf 2 tailles de moins ou plus)</td></tr>
-<tr><td>Saut en longueur</td><td>3 m + 0,6 m × FOR (moitié sans 3 m d'élan)</td></tr>
-<tr><td>Saut en hauteur</td><td>0,9 m + 0,3 m × FOR (moitié sans élan)</td></tr>
+<tr><td>Saut en longueur</td><td>4 m + 0,8 m × FOR (moitié sans 4 m d'élan)</td></tr>
+<tr><td>Saut en hauteur</td><td>1,2 m + 0,4 m × FOR (moitié sans élan)</td></tr>
 </table>
 <ul>
 <li>Traversez un <strong>allié</strong> (terrain difficile), ou un <strong>ennemi</strong> seulement s'il a 2 tailles de plus ou de moins.</li>
@@ -131,7 +131,7 @@ BACK = """
 <p>À poser avant chaque attaque. Chacune donne <strong>un dé au plus</strong> ; les raisons contraires s'annulent au sein d'une question.</p>
 <table>
 <tr><th>Question</th><th>Avantage</th><th>Désavantage</th></tr>
-<tr><td>Vous</td><td>Vous n'êtes pas vu</td><td>Longue portée, cible non vue, ennemi à 1,5 m de votre arc, vous êtes À terre, Entravé, Empoisonné…</td></tr>
+<tr><td>Vous</td><td>Vous n'êtes pas vu</td><td>Longue portée, cible non vue, ennemi à 2 m de votre arc, vous êtes À terre, Entravé, Empoisonné…</td></tr>
 <tr><td>Cible</td><td>Elle est À terre, Entravée ou Étourdie</td><td>—</td></tr>
 <tr><td>Foule</td><td>Votre camp est en surnombre</td><td>Son camp est en surnombre</td></tr>
 </table>
@@ -148,8 +148,8 @@ BACK = """
 
 <h2>Engagement <small>6.5</small></h2>
 <ul>
-<li><strong>Engagé :</strong> à 1,5 m d'un ennemi, aucun des deux Neutralisé, au plus une taille d'écart.</li>
-<li><strong>Surnombre</strong> (Foule) : comptez autour de la <em>cible</em>. Votre camp = vos créatures engagées avec elle. Son camp = la cible (si votre camp l'engage) + ses alliés à 1,5 m. Plus nombreux = 1 dé d'av., moins = 1 dé de désav. Mêmes dés pour chaque attaquant, au contact ou à distance.</li>
+<li><strong>Engagé :</strong> à 2 m d'un ennemi, aucun des deux Neutralisé, au plus une taille d'écart.</li>
+<li><strong>Surnombre</strong> (Foule) : comptez autour de la <em>cible</em>. Votre camp = vos créatures engagées avec elle. Son camp = la cible (si votre camp l'engage) + ses alliés à 2 m. Plus nombreux = 1 dé d'av., moins = 1 dé de désav. Mêmes dés pour chaque attaquant, au contact ou à distance.</li>
 <li><strong>Encerclé :</strong> 3+ ennemis engagés avec vous → pas de Désengagement.</li>
 </ul>
 
@@ -172,7 +172,7 @@ BACK = """
 <tr><td>À terre</td><td>Ramper ou se relever seulement. Vos attaques : désav. Attaques contre vous : un dé d'av., à toute distance.</td></tr>
 <tr><td>Entravé</td><td>Vitesse 0. Attaques contre vous : av. ; les vôtres : désav.</td></tr>
 <tr><td>Étourdi</td><td>Neutralisé, Vitesse 0. Attaques contre vous : av. <em>Pétrifié : + résiste à tout.</em></td></tr>
-<tr><td>Inconscient</td><td>Étourdi + À terre, lâche ce qu'il tient. <strong>Tout coup à 1,5 m est un critique.</strong></td></tr>
+<tr><td>Inconscient</td><td>Étourdi + À terre, lâche ce qu'il tient. <strong>Tout coup à 2 m est un critique.</strong></td></tr>
 </table>
 <p>Les états ne se cumulent pas avec eux-mêmes.</p>
 

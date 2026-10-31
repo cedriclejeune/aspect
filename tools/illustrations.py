@@ -524,7 +524,7 @@ def calling_card():
     h, u = w * 88 / 63, w / 63
     th, kh = h * .13, h * .1
     top, row, my = y + th, (h - th - kh) / 10, y + (th - .7 * u) / 2
-    own = dict(enumerate(["+2", "+2", "+0", "+0", "12", "12", "10", "10", "12", "10,5" if LANG == "fr" else "35"]))
+    own = dict(enumerate(["+2", "+2", "+0", "+0", "12", "12", "10", "10", "12", "14" if LANG == "fr" else "35"]))
     body = [ledger_card(x, y, w, h, "Duelist", kw="Calling", lit=["STR", "DEX"], own=own,
                         text=["**Footwork:** after a", "melee hit, 5 ft × ½ DEX"], tid="STARTER · L-01")]
     # brackets beside the card group the own values: modifiers, Defenses, HP and Speed

@@ -97,18 +97,18 @@ Une Vocation donne **+2 à ses deux caractéristiques** et +0 aux deux autres, u
 
 | Vocation | Caractéristiques | PV | Vitesse | Atout |
 |---|---|---|---|---|
-| **Duelliste** | FOR · DEX | 12 | 10,5 m | **Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 1,5 m × ½ DEX. Ce déplacement ne provoque pas d'attaque d'opportunité. **Riposte (½ FOR/R.C.) :** réaction, quand une attaque au corps à corps vous rate : faites une attaque d'arme au corps à corps contre l'attaquant. |
-| **Templier** | FOR · VOL | 14 | 9 m | **Serment (½ VOL/R.C.) :** réaction, quand une attaque touche un allié à 1,5 m ou moins : vous subissez ses dégâts à sa place, réduits de 2 × FOR. |
-| **Lame-mage** | FOR · INT | 13 | 9 m | **Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. **Frappe ensorcelée (½ FOR/R.C.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts. |
-| **Infiltrateur** | DEX · INT | 10 | 10,5 m | **Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent la DEX et l'INT. |
-| **Artiste** | DEX · VOL | 10 | 10,5 m | **Grande ovation (½ DEX/R.C.) :** réaction, après qu'un allié à 9 m ou moins a fait une attaque ou un test : +VOL à ce jet. |
-| **Sage** | INT · VOL | 9 | 10,5 m | **Érudit :** ½ INT points de sort supplémentaires (10.2). Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL. |
-| **Bagarreur** | FOR · DEX | 14 | 9 m | **Teigneux :** +FOR au toucher pour Empoigner et Bousculer. **Dégagement :** vos attaques pour S'échapper (6.10) ajoutent 2 × DEX au lieu de FOR ou DEX. |
-| **Zélote** | FOR · VOL | 12 | 10,5 m | **Juste colère (½ VOL/R.C.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants. |
-| **Tacticien** | FOR · INT | 12 | 10,5 m | **Commandement (½ FOR/R.C.) :** action. Un allié à 9 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher. |
-| **Rôdeur** | DEX · INT | 11 | 10,5 m | **Proie (½ INT/R.C.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ DEX aux attaques contre elle jusqu'au début de votre prochain tour. |
-| **Filou** | DEX · VOL | 9 | 10,5 m | **Feinte (½ VOL/R.C.) :** réaction, quand une attaque vous touche : −DEX à ce jet d'attaque, ce qui peut le transformer en échec. |
-| **Ermite** | INT · VOL | 11 | 9 m | **Solitude :** ½ VOL Ardeur supplémentaire (10.6). Vos tests pour cueillir et endurer ajoutent l'INT et la VOL. |
+| **Duelliste** | FOR · DEX | 12 | 14 m | **Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 2 m × ½ DEX. Ce déplacement ne provoque pas d'attaque d'opportunité. **Riposte (½ FOR/R.C.) :** réaction, quand une attaque au corps à corps vous rate : faites une attaque d'arme au corps à corps contre l'attaquant. |
+| **Templier** | FOR · VOL | 14 | 12 m | **Serment (½ VOL/R.C.) :** réaction, quand une attaque touche un allié à 2 m ou moins : vous subissez ses dégâts à sa place, réduits de 2 × FOR. |
+| **Lame-mage** | FOR · INT | 13 | 12 m | **Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. **Frappe ensorcelée (½ FOR/R.C.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts. |
+| **Infiltrateur** | DEX · INT | 10 | 14 m | **Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent la DEX et l'INT. |
+| **Artiste** | DEX · VOL | 10 | 14 m | **Grande ovation (½ DEX/R.C.) :** réaction, après qu'un allié à 12 m ou moins a fait une attaque ou un test : +VOL à ce jet. |
+| **Sage** | INT · VOL | 9 | 14 m | **Érudit :** ½ INT points de sort supplémentaires (10.2). Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL. |
+| **Bagarreur** | FOR · DEX | 14 | 12 m | **Teigneux :** +FOR au toucher pour Empoigner et Bousculer. **Dégagement :** vos attaques pour S'échapper (6.10) ajoutent 2 × DEX au lieu de FOR ou DEX. |
+| **Zélote** | FOR · VOL | 12 | 14 m | **Juste colère (½ VOL/R.C.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants. |
+| **Tacticien** | FOR · INT | 12 | 14 m | **Commandement (½ FOR/R.C.) :** action. Un allié à 12 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher. |
+| **Rôdeur** | DEX · INT | 11 | 14 m | **Proie (½ INT/R.C.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ DEX aux attaques contre elle jusqu'au début de votre prochain tour. |
+| **Filou** | DEX · VOL | 9 | 14 m | **Feinte (½ VOL/R.C.) :** réaction, quand une attaque vous touche : −DEX à ce jet d'attaque, ce qui peut le transformer en échec. |
+| **Ermite** | INT · VOL | 11 | 12 m | **Solitude :** ½ VOL Ardeur supplémentaire (10.6). Vos tests pour cueillir et endurer ajoutent l'INT et la VOL. |
 
 Les nombres d'un atout grandissent avec vous. Ils utilisent vos modificateurs actuels, matériel compris : *+FOR* ajoute votre FOR, *2 × FOR* le double, et *½ VOL* vaut la moitié de votre VOL, arrondie à l'inférieur, pour les utilisations, les dés et les distances (*½ VOL/R.C.* : deux utilisations avec VOL +4). Avec VOL +1 ou moins, un *½ VOL* vaut 0. Chaque atout puise dans les deux caractéristiques de sa Vocation, ou la Vocation a deux atouts, un pour chacune.
 
@@ -129,7 +129,7 @@ Chaque matériel et chaque Aspect (une **carte** à la table, 12.1) a :
 - **Un nom** (*Plates du gardien*).
 - **Un Rang** de I à V : sa puissance (*II*).
 - **Des symboles :** les quatre symboles de caractéristique, dans le coin supérieur. Les caractéristiques qu'il utilise sont allumées ; les autres sont grisées (*FOR*). Vous ne pouvez l'équiper que si **votre Vocation possède au moins un de ses symboles allumés**. Les Bijoux, Consommables, Recettes, Bourses et Éclats ont les quatre allumés : tout le monde peut les utiliser.
-- **Des bonus** aux modificateurs, aux Défenses, au maximum de PV ou à la Vitesse (*+4 Défense de FOR, −3 m de Vitesse*).
+- **Des bonus** aux modificateurs, aux Défenses, au maximum de PV ou à la Vitesse (*+4 Défense de FOR, −4 m de Vitesse*).
 - **Un effet**, le cas échéant (*Réaction (1/R.C.), quand une attaque vous touche : réduisez ses dégâts de 5*). Un pouvoir aux utilisations limitées les indique sur lui-même : **R.C.** signifie qu'elles reviennent lors d'un repos court (ou d'un repos long), **R.L.** seulement lors d'un repos long.
 - **Des mots-clés :** le **type** d'abord (il fixe l'Emplacement, 3.2), puis les propriétés (*Armure · Bruyante 3*). Voir le chapitre 11.
 - Une carte dont votre Vocation ne correspond plus aux symboles (un Aspect de Rang V l'a changée) **cesse de fonctionner** jusqu'à ce que vous la remplaciez.
@@ -177,7 +177,7 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > *Livre de sorts*
 
 > **PLATES** · Rang II · FOR
-> Bonus : +4 Défense de FOR · +12 PV · −3 m de Vitesse
+> Bonus : +4 Défense de FOR · +12 PV · −4 m de Vitesse
 > *Armure · Bruyante 3*
 
 > **LAME FINE** · Rang I · DEX · VOL
@@ -189,7 +189,7 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > *Bijou*
 
 > **RECETTE DE FEU GRÉGEOIS** · Rang II · tous
-> **Réaction :** lancez une fiole jusqu'à 9 m. Faites une attaque (DEX ou INT + 3) contre la Défense de DEX de chaque créature à 1,5 m ou moins du point d'impact : 2d6 Feu si elle touche, la moitié en cas d'échec.
+> **Réaction :** lancez une fiole jusqu'à 12 m. Faites une attaque (DEX ou INT + 3) contre la Défense de DEX de chaque créature à 2 m ou moins du point d'impact : 2d6 Feu si elle touche, la moitié en cas d'échec.
 > *Recette · 3 fioles*
 
 > **SAUTE-RUISSEAU** · Rang I · FOR · DEX
@@ -207,7 +207,7 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > *Trait*
 
 > **HYMNE DE BATAILLE** · Rang I · DEX · VOL
-> **2/R.C.**, quand vous touchez avec une attaque d'arme : jusqu'à 3 alliés à 9 m ou moins qui peuvent vous entendre ont +2 à leur prochaine attaque avant la fin de votre prochain tour.
+> **2/R.C.**, quand vous touchez avec une attaque d'arme : jusqu'à 3 alliés à 12 m ou moins qui peuvent vous entendre ont +2 à leur prochaine attaque avant la fin de votre prochain tour.
 > *Technique*
 
 > **BÂTON DE GARDE-SORT** · Rang I · tous
@@ -244,40 +244,40 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > Attaque : VOL + 2 · Ardeur : +3 (repos court)
 > Pouvoirs : *Raillerie* (0) · *Ralliement*, *Tenez la ligne*, *Réplique cinglante*, *Du calme* (1) · *Effroi*, *Vers exaltant* (2)
 > - *Raillerie* (Complainte, 0) : jusqu'à la fin du prochain tour de la cible, elle a −2 à sa prochaine attaque.
-> - *Ralliement* (Hymne, 1) : Durée 1 minute. Jusqu'à 3 alliés à 9 m ou moins ont +2 aux attaques.
-> - *Tenez la ligne* (Hymne, 1) : Durée 1 minute. Les alliés à 9 m ou moins ont +2 aux Défenses de FOR et de DEX.
+> - *Ralliement* (Hymne, 1) : Durée 1 minute. Jusqu'à 3 alliés à 12 m ou moins ont +2 aux attaques.
+> - *Tenez la ligne* (Hymne, 1) : Durée 1 minute. Les alliés à 12 m ou moins ont +2 aux Défenses de FOR et de DEX.
 > - *Réplique cinglante* (Réplique, 1) : −2 au jet d'attaque ou au test d'un ennemi.
 > - *Du calme* (Réplique, 1) : +2 au jet d'un allié, ou à la Défense que vise une attaque.
 > - *Effroi* (Complainte, 2) : la cible est Effrayée par vous pendant 2 tours.
-> - *Vers exaltant* (Soin, 2) : action, 18 m. Une créature récupère 2d4 + VOL PV.
+> - *Vers exaltant* (Soin, 2) : action, 24 m. Une créature récupère 2d4 + VOL PV.
 > *Glamour*
 
 > **LITANIE DE L'ACOLYTE** · Rang I · VOL
 > Attaque : VOL + 2 · Ardeur : +3 (repos court)
 > Pouvoirs : *Assistance* (0) · *Bénédiction*, *Fléau*, *Altération du destin* (1) · *Mot de guérison*, *Soins* (2)
 > - *Assistance* (Réplique, 0) : ajoutez 1d4 au test d'un allié.
-> - *Bénédiction* (Hymne, 1) : Durée 1 minute. Jusqu'à 3 alliés à 9 m ou moins ajoutent 1d4 à leurs jets d'attaque.
+> - *Bénédiction* (Hymne, 1) : Durée 1 minute. Jusqu'à 3 alliés à 12 m ou moins ajoutent 1d4 à leurs jets d'attaque.
 > - *Fléau* (Complainte, 1) : Durée 1 minute. La cible soustrait 1d4 à ses jets d'attaque.
 > - *Altération du destin* (Réplique, 1) : Relance. Faites relancer un jet d'attaque ou un test à un allié ou à un ennemi.
-> - *Mot de guérison* (Soin, 2) : action, 18 m. Une créature récupère 2d4 + VOL PV.
+> - *Mot de guérison* (Soin, 2) : action, 24 m. Une créature récupère 2d4 + VOL PV.
 > - *Soins* (Soin, 2) : action, contact. Une créature récupère 2d8 + VOL PV.
 > *Divin*
 
 > **SOUVENANCE DU CŒUR SAUVAGE** · Rang I · VOL
 > Ardeur : +3 (repos court)
 > Pouvoirs : *Faucon* (1) · *Loup*, *Baume de mousse* (2) · *Ours* (3)
-> - *Faucon* (Forme, 1) : FOR −2 · DEX +3 · 4 PV · Vitesse 3 m, Vol 18 m · Très petit. Serres : +2 au toucher, 1d4 + DEX Physique. +2 aux tests pour remarquer.
-> - *Loup* (Forme, 2) : FOR +1 · DEX +3 · 8 PV · Vitesse 12 m · Moyen. Morsure : +2 au toucher, 1d6 + DEX Physique. +2 aux tests pour pister.
+> - *Faucon* (Forme, 1) : FOR −2 · DEX +3 · 4 PV · Vitesse 4 m, Vol 24 m · Très petit. Serres : +2 au toucher, 1d4 + DEX Physique. +2 aux tests pour remarquer.
+> - *Loup* (Forme, 2) : FOR +1 · DEX +3 · 8 PV · Vitesse 16 m · Moyen. Morsure : +2 au toucher, 1d6 + DEX Physique. +2 aux tests pour pister.
 > - *Baume de mousse* (Soin, 2) : action, contact. Une créature récupère 2d8 + VOL PV.
-> - *Ours* (Forme, 3) : FOR +3 · DEX +1 · 12 PV · Vitesse 9 m, Escalade 9 m · Grand. Cuir épais : +2 Défense de FOR. Griffes : +2 au toucher, 1d8 + FOR Physique.
+> - *Ours* (Forme, 3) : FOR +3 · DEX +1 · 12 PV · Vitesse 12 m, Escalade 12 m · Grand. Cuir épais : +2 Défense de FOR. Griffes : +2 au toucher, 1d8 + FOR Physique.
 > *Nature*
 
 > **LUTH DU VOYAGEUR** · Rang I · DEX · VOL
-> 1 Ardeur supplémentaire (repos court). Vos Hymnes portent à 18 m au lieu de 9 m.
+> 1 Ardeur supplémentaire (repos court). Vos Hymnes portent à 24 m au lieu de 12 m.
 > *Instrument · Focaliseur*
 
 > **CRI DE RALLIEMENT** · Rang I · FOR · VOL
-> *Ralliement* comme Hymne isolé. **Action (1/R.C.) :** Durée 1 minute, jusqu'à 3 alliés à 9 m ou moins ont +2 aux attaques.
+> *Ralliement* comme Hymne isolé. **Action (1/R.C.) :** Durée 1 minute, jusqu'à 3 alliés à 12 m ou moins ont +2 aux attaques.
 > *Technique · Hymne*
 
 ### 3.5 Équiper et échanger
@@ -334,7 +334,7 @@ Un **Éclat** est un objet qui contient **un Aspect**, ou rien. Il n'occupe jama
 - **Au départ :** chaque personnage a **3 Éclats vides** ; la Réserve de la Compagnie commence avec **2 Éclats vides par personnage**.
 - **Encombrants :** vous portez **au plus 3 Éclats** dans votre Sac. Certains Bijoux augmentent cette limite (*Bandoulière à Éclats*). Les autres attendent dans la Réserve de la Compagnie.
 - **Persistance :** quand une créature est vaincue, chacun de ses Aspects persiste au-dessus du corps pendant **1 minute**, puis s'éteint pour de bon.
-- **Capturer (1 action) :** à 1,5 m ou moins du corps, versez un Aspect qui persiste dans un Éclat vide que vous portez. Le coût du Sac (3.5) ne s'applique pas. Vous pouvez capturer un Aspect que votre Vocation ne peut pas équiper : échangez-le, vendez-le ou gardez-le pour un allié.
+- **Capturer (1 action) :** à 2 m ou moins du corps, versez un Aspect qui persiste dans un Éclat vide que vous portez. Le coût du Sac (3.5) ne s'applique pas. Vous pouvez capturer un Aspect que votre Vocation ne peut pas équiper : échangez-le, vendez-le ou gardez-le pour un allié.
 - **Absorber (repos long) :** faites passer l'Aspect d'un Éclat dans un Emplacement d'Aspect. L'Éclat est désormais vide.
 - **Échanger :** l'Aspect que vous retirez va dans l'Éclat d'où vient le nouveau ; nul besoin d'un autre Éclat. Pour retirer un Aspect **sans** le remplacer, il vous faut un Éclat vide, sinon l'Aspect est libéré.
 - **Libérer (gratuit, à tout moment) :** videz un Éclat. Son Aspect est perdu pour de bon.
@@ -395,13 +395,13 @@ Le **test de caractéristique** est le cœur du jeu : chaque fois que vous tente
 
 ### 5.2 Avantage et désavantage
 
-Avec l'**avantage**, vous lancez des d20 supplémentaires et gardez le **plus haut**. Avec le **désavantage**, vous lancez des d20 supplémentaires et gardez le **plus bas**. Seules les **situations** les accordent : le **lieu** (longue portée), la **position** (non vu, un ennemi à 1,5 m de votre arc) et les **états** (Aveuglé, À terre, Entravé…). Le matériel et les Aspects donnent plutôt des bonus et des malus fixes, ou changent une situation (*votre coup met la cible À terre*).
+Avec l'**avantage**, vous lancez des d20 supplémentaires et gardez le **plus haut**. Avec le **désavantage**, vous lancez des d20 supplémentaires et gardez le **plus bas**. Seules les **situations** les accordent : le **lieu** (longue portée), la **position** (non vu, un ennemi à 2 m de votre arc) et les **états** (Aveuglé, À terre, Entravé…). Le matériel et les Aspects donnent plutôt des bonus et des malus fixes, ou changent une situation (*votre coup met la cible À terre*).
 
 **Trois questions.** Avant une attaque, posez-les dans l'ordre. Chacune donne **un dé au plus**, quel que soit son nombre de raisons. Si une question a des raisons dans les deux sens, elles s'annulent au sein de la question.
 
 | Question | Avantage | Désavantage |
 |---|---|---|
-| **Vous :** votre position et vos états | Vous n'êtes pas vu | Longue portée, vous ne voyez pas la cible, un ennemi à 1,5 m de votre arc, vous êtes À terre, Entravé, Empoisonné… |
+| **Vous :** votre position et vos états | Vous n'êtes pas vu | Longue portée, vous ne voyez pas la cible, un ennemi à 2 m de votre arc, vous êtes À terre, Entravé, Empoisonné… |
 | **Cible :** ses états | Elle est À terre, Entravée ou Étourdie | — |
 | **Foule :** Surnombre (6.5) | Votre camp est plus nombreux | Son camp est plus nombreux |
 
@@ -444,7 +444,7 @@ Il y a deux niveaux de lumière :
 
 ### 5.6 Déplacement hors combat
 
-- **Sauter :** saut en longueur = **3 m + 0,6 m × FOR** ; saut en hauteur = **0,9 m + 0,3 m × FOR**. Divisez les deux par deux sans 3 m d'élan.
+- **Sauter :** saut en longueur = **4 m + 0,8 m × FOR** ; saut en hauteur = **1,2 m + 0,4 m × FOR**. Divisez les deux par deux sans 4 m d'élan.
 - **Grimper et nager :** chaque mètre coûte 1 mètre de déplacement supplémentaire, sauf si vous avez une vitesse d'escalade ou de nage. Les surfaces difficiles ou les eaux agitées demandent un test de FOR.
 - **Allure de voyage :**
 
@@ -487,14 +487,14 @@ Il y a deux niveaux de lumière :
 | **Incantation** | Lancez un sort dont le temps d'incantation est d'une action, ou utilisez un pouvoir de votre matériel ou de vos Aspects qui demande une action. |
 | **Désengagement** | Votre déplacement ne provoque pas d'attaque d'opportunité ce tour-ci. Impossible si vous êtes encerclé (6.5). |
 | **Esquive** | Jusqu'à votre prochain tour, vous avez +3 à toutes vos Défenses. Perdu si vous êtes Neutralisé ou si votre Vitesse est de 0. |
-| **Aide** | Donnez à un allié +3 à son prochain test pour une tâche, ou à sa prochaine attaque contre une créature à 1,5 m ou moins de vous, avant votre prochain tour. |
+| **Aide** | Donnez à un allié +3 à son prochain test pour une tâche, ou à sa prochaine attaque contre une créature à 2 m ou moins de vous, avant votre prochain tour. |
 | **Se cacher** | Faites un test de DEX pour vous cacher (5.4). |
 | **Utiliser** | Utilisez une babiole, ou un matériel qui demande une action (boire ou donner une potion). |
 | **Autre** | **Se tenir prêt** (choisissez un déclencheur et une action ou un déplacement ; quand il survient, utilisez votre réaction pour le faire), **Fouiller** (test d'INT), **Se souvenir** (test d'INT), **Premiers soins** (test d'INT DD 10 pour stabiliser une créature mourante), **S'échapper** d'une empoignade, ou toute autre chose que vous décrivez. |
 
 ### 6.4 Déplacement en combat
 
-- Le combat utilise une grille de **cases de 1,5 m**. Chaque case coûte 1,5 m, diagonales comprises.
+- Le combat utilise une grille de **cases de 2 m**. Chaque case coûte 2 m, diagonales comprises.
 - **Terrain difficile** (gravats, broussailles, l'espace d'une créature) : chaque mètre coûte 1 mètre supplémentaire.
 - **À terre :** se jeter à terre est gratuit. Se relever demande une action. Ramper coûte 1 mètre supplémentaire par mètre.
 - **Autres créatures :** vous pouvez traverser l'espace d'un allié (terrain difficile), ou celui d'un ennemi seulement s'il a deux tailles de plus ou de moins que vous. Vous ne pouvez pas terminer votre tour dans l'espace d'une autre créature.
@@ -502,19 +502,19 @@ Il y a deux niveaux de lumière :
 
 | Taille | Espace |
 |---|---|
-| Très petit | 0,75 m |
-| Petit / Moyen | 1,5 m |
-| Grand | 3 m |
-| Très grand | 4,5 m |
-| Gigantesque | 6 m ou plus |
+| Très petit | 1 m |
+| Petit / Moyen | 2 m |
+| Grand | 4 m |
+| Très grand | 6 m |
+| Gigantesque | 8 m ou plus |
 
 ### 6.5 Engagement et attaques d'opportunité
 
-**Engagé :** une créature est engagée avec un ennemi quand elle est **à 1,5 m ou moins** de lui, qu'**aucun des deux n'est Neutralisé**, et qu'elle n'a **pas plus d'une taille d'écart** avec lui. Une créature Neutralisée n'est engagée avec personne, et personne n'est engagé avec elle. Des créatures à deux tailles d'écart ou plus se faufilent l'une à côté de l'autre ou s'enjambent (6.4) et ne s'engagent pas.
+**Engagé :** une créature est engagée avec un ennemi quand elle est **à 2 m ou moins** de lui, qu'**aucun des deux n'est Neutralisé**, et qu'elle n'a **pas plus d'une taille d'écart** avec lui. Une créature Neutralisée n'est engagée avec personne, et personne n'est engagé avec elle. Des créatures à deux tailles d'écart ou plus se faufilent l'une à côté de l'autre ou s'enjambent (6.4) et ne s'engagent pas.
 
 **Surnombre :** toute attaque contre une créature (au corps à corps, à distance ou par un sort) ne regarde qu'autour de la cible :
 - **Votre camp :** chaque créature de votre camp engagée avec la cible, vous compris si vous l'êtes.
-- **Son camp :** la cible, si quelqu'un de votre camp est engagé avec elle, et chacun de ses alliés à 1,5 m ou moins d'elle.
+- **Son camp :** la cible, si quelqu'un de votre camp est engagé avec elle, et chacun de ses alliés à 2 m ou moins d'elle.
 
 Une créature Neutralisée ne compte pour aucun camp. Si votre camp est plus nombreux, votre attaque a **un dé d'avantage** ; si c'est son camp, **un dé de désavantage** ; une égalité ne donne rien. C'est la question **Foule** (5.2) : un dé, quel que soit l'écart. Tous ceux qui attaquent la même cible lancent les mêmes dés de Surnombre, au corps à corps ou de loin. Cela vaut pour les monstres comme pour les personnages. *Exemple : trois combattants encerclent un orque : 3 contre 1, donc chacun d'eux et un archer derrière eux attaquent avec 1 avantage (2d20, gardez le plus haut). Deux autres orques s'avancent à côté du premier : 3 contre 3, et le dé disparaît. Les orques qui combattent ailleurs ne comptent pas.*
 
@@ -544,7 +544,7 @@ Une créature Neutralisée ne compte pour aucun camp. Si votre camp est plus nom
 ### 6.7 Attaques à distance
 
 - Les armes ont une **portée normale / longue**. Au-delà de la portée normale : désavantage. Au-delà de la portée longue : impossible.
-- Faire une attaque à distance alors qu'un ennemi qui vous voit est **à 1,5 m ou moins** de vous : désavantage.
+- Faire une attaque à distance alors qu'un ennemi qui vous voit est **à 2 m ou moins** de vous : désavantage.
 
 ### 6.8 Abri
 
@@ -561,7 +561,7 @@ Quand vous attaquez avec une arme **Légère**, vous pouvez utiliser votre **ré
 Remplacez une attaque par **Empoigner** ou **Bousculer** à mains nues, contre une créature à votre allonge qui n'a **pas plus d'une taille de plus** que vous. Faites une attaque à mains nues (FOR + 2) contre la plus haute des Défenses de FOR et de DEX de la cible.
 
 - **Empoigner** (il vous faut une main libre) : si vous touchez, la cible est **Agrippée** par vous. Vous pouvez la déplacer avec vous, mais chaque mètre coûte 1 mètre supplémentaire sauf si elle a deux tailles de moins que vous ou plus.
-- **Bousculer :** si vous touchez, repoussez la cible de 1,5 m ou mettez-la **À terre**.
+- **Bousculer :** si vous touchez, repoussez la cible de 2 m ou mettez-la **À terre**.
 - **S'échapper :** une créature Agrippée peut utiliser son action pour faire une attaque à mains nues (FOR ou DEX + 2) contre la plus haute des Défenses de FOR et de DEX de celui qui l'agrippe. Si elle touche, elle est libre.
 
 ### 6.11 Moral
@@ -628,7 +628,7 @@ Un repos long est interrompu par 1 heure de combat, de marche ou d'autre activit
 
 Une **Blessure** est une lésion durable. Vous en subissez une chaque fois que vous tombez à 0 PV, et certains dangers en causent aussi. Tirez-la au hasard parmi les Blessures de la Compagnie.
 
-- Les **Blessures à malus** impriment un malus (*−3 m de Vitesse*, *−2 aux attaques au corps à corps*). Il compte comme n'importe quel bonus jusqu'à ce que la Blessure guérisse.
+- Les **Blessures à malus** impriment un malus (*−4 m de Vitesse*, *−2 aux attaques au corps à corps*). Il compte comme n'importe quel bonus jusqu'à ce que la Blessure guérisse.
 - Les **Blessures invalidantes** bloquent chacune un **Emplacement de Matériel** du genre qu'elles nomment (Main, Bijou ou Objet). Son matériel va dans votre Sac (au sol si le Sac est plein), et l'Emplacement ne contient rien jusqu'à ce que la Blessure guérisse. Si tous les Emplacements de ce genre sont déjà bloqués, remettez la Blessure et tirez-en une autre.
 - **Les Blessures se cumulent, sans maximum.** Chacune reste jusqu'à sa guérison. Avec trop de Blessures, vous n'êtes plus d'une grande utilité à la Compagnie : surveillez vos PV.
 - **Guérison :** une **convalescence** (7.5) guérit toutes vos Blessures. Les repos, les Soins et les potions, non. Quelques rares trésors en guérissent une.
@@ -653,7 +653,7 @@ Les états ne se cumulent pas avec eux-mêmes. Chacun dure jusqu'à ce que sa so
 | **À terre** | Vous ne pouvez que ramper ou vous relever. Vos attaques ont le désavantage. Les attaques contre vous ont un dé d'avantage. |
 | **Entravé** | Vitesse 0. Les attaques contre vous ont l'avantage ; vos attaques ont le désavantage. |
 | **Étourdi** | Neutralisé, Vitesse 0. Les attaques contre vous ont l'avantage. *Couvre aussi la paralysie. Pétrifié = Étourdi + résistance à tous les dégâts + changé en pierre.* |
-| **Inconscient** | Étourdi et À terre. Vous lâchez ce que vous tenez et n'avez pas conscience de votre environnement. **Toute attaque qui touche à 1,5 m ou moins est un coup critique.** |
+| **Inconscient** | Étourdi et À terre. Vous lâchez ce que vous tenez et n'avez pas conscience de votre environnement. **Toute attaque qui touche à 2 m ou moins est un coup critique.** |
 
 ### Emprise
 
@@ -675,10 +675,10 @@ Les armures, les boucliers, les armes, les Instruments et les Bijoux sont de l'*
 
 | Armure (matériel) | Rang | Symboles | Bonus | Notes |
 |---|---|---|---|---|
-| **Aucune** (Emplacement d'Armure vide) | — | — | — | +3 m de Vitesse. |
-| **Cuir** | I | tous | +2 Défense de FOR, +1 Défense de DEX, +2 PV | +1,5 m de Vitesse. |
+| **Aucune** (Emplacement d'Armure vide) | — | — | — | +4 m de Vitesse. |
+| **Cuir** | I | tous | +2 Défense de FOR, +1 Défense de DEX, +2 PV | +2 m de Vitesse. |
 | **Mailles** | I | FOR · DEX | +3 Défense de FOR, +4 PV | |
-| **Plates** | II | FOR | +4 Défense de FOR, +12 PV | −3 m de Vitesse. Bruyante 3. |
+| **Plates** | II | FOR | +4 Défense de FOR, +12 PV | −4 m de Vitesse. Bruyante 3. |
 | **Bouclier** | I | FOR · VOL | +2 Défenses de FOR et de DEX | Occupe un Emplacement de Main. |
 
 Une armure plus lourde donne plus de **PV** et vous ralentit. L'armure renforce surtout la **Défense de FOR**. Les armes visent la plus haute de vos Défenses de FOR et de DEX (2.3), donc l'armure vous protège quand votre Défense de FOR est la meilleure.
@@ -791,7 +791,7 @@ Trois sortes de magie puisent dans la **VOL** au lieu d'un livre. Chacune est un
 |---|---|---|
 | **Hymne** | Action | Renforce les alliés qui peuvent vous entendre, pendant une **Durée**. Pas de jet. |
 | **Complainte** | Action | Une attaque contre la **Défense de VOL**. Elle dure ce qu'elle imprime ; une Complainte à **Emprise** répète son attaque à chaque tour (chapitre 8). |
-| **Réplique** | Réaction | Modifie un jet fait par une créature à 18 m ou moins qui peut vous entendre, **après le jet** et avant que le MJ dise s'il réussit. Pas de jet. |
+| **Réplique** | Réaction | Modifie un jet fait par une créature à 24 m ou moins qui peut vous entendre, **après le jet** et avant que le MJ dise s'il réussit. Pas de jet. |
 | **Soin** | Comme imprimé | Rend des PV. La cible doit seulement être à portée, pas vous entendre : un Soin atteint les alliés Inconscients. Pas de jet. |
 | **Forme** | Action | Vous muez en bête (10.7). |
 
@@ -809,9 +809,9 @@ Une Souvenance contient des **Formes** : des bêtes dont votre corps se souvient
 
 ## 11. Mots-clés
 
-Un mot-clé a toujours le même sens, sur chaque matériel et chaque Aspect. Un nombre ou un mot qui le suit (*Lancer 6/18*, *Résiste Feu*) précise le détail. Les états (chapitre 8) et les types de dégâts (7.2) sont aussi des mots réservés.
+Un mot-clé a toujours le même sens, sur chaque matériel et chaque Aspect. Un nombre ou un mot qui le suit (*Lancer 8/24*, *Résiste Feu*) précise le détail. Les états (chapitre 8) et les types de dégâts (7.2) sont aussi des mots réservés.
 
-Une carte n'imprime jamais deux fois la même chose. La portée d'une arme est dans sa ligne d'attaque (*+2 au toucher, lancer 6/18 m, 1d4 + DEX Physique*) et celle d'un sort dans sa ligne d'incantation : la carte omet donc *Portée* et *Lancer*. Le grand dé d'une arme Polyvalente est dans ses dégâts (*1d8 / 1d10*) : la carte imprime simplement *Polyvalente*. Les mots-clés s'appliquent toujours.
+Une carte n'imprime jamais deux fois la même chose. La portée d'une arme est dans sa ligne d'attaque (*+2 au toucher, lancer 8/24 m, 1d4 + DEX Physique*) et celle d'un sort dans sa ligne d'incantation : la carte omet donc *Portée* et *Lancer*. Le grand dé d'une arme Polyvalente est dans ses dégâts (*1d8 / 1d10*) : la carte imprime simplement *Polyvalente*. Les mots-clés s'appliquent toujours.
 
 ### 11.1 Types
 
@@ -863,7 +863,7 @@ Le premier mot-clé. Il fixe l'Emplacement (3.2).
 | **Chargement** | Un tir par action ou réaction, même avec des attaques supplémentaires. |
 | **Bruyante N** | −N aux tests pour se faufiler. |
 | **Portée N/M** | Une attaque à distance. Au-delà de N : désavantage. Au-delà de M : impossible. Un nombre seul est la portée maximale d'un sort. |
-| **Allonge** | Votre allonge est de 3 m au lieu de 1,5 m. |
+| **Allonge** | Votre allonge est de 4 m au lieu de 2 m. |
 | **Lancer N/M** | Peut être lancée comme attaque à distance, avec le modificateur de son usage au corps à corps. Au-delà de N m : désavantage. Au-delà de M m : impossible. |
 | **Deux mains** | Occupe deux Emplacements de Main. |
 | **Polyvalente (dé)** | Utilise le plus gros dé de dégâts quand elle est tenue à deux mains. |
@@ -946,11 +946,11 @@ Votre **carte de Décompte** est votre **fiche**, et la seule carte sur laquelle
 
 Vous ne touchez aux totaux qu'à deux moments.
 
-**Quand vous échangez**, soustrayez du total la bande de l'ancienne carte, puis ajoutez celle de la nouvelle. Un Emplacement d'Armure vide ajoute +3 m de Vitesse.
+**Quand vous échangez**, soustrayez du total la bande de l'ancienne carte, puis ajoutez celle de la nouvelle. Un Emplacement d'Armure vide ajoute +4 m de Vitesse.
 
-> **Exemple : Bram le Templier change d'armure.** Il retire ses *Mailles* (+3 Défense de FOR, +4 PV) et enfile des *Plates* (+4 Défense de FOR, +12 PV, −3 m de Vitesse). Défense de FOR : 17 − 3 + 4 = 18. Maximum de PV : 22 − 4 + 12 = 30. Vitesse : 9 − 3 = 6.
+> **Exemple : Bram le Templier change d'armure.** Il retire ses *Mailles* (+3 Défense de FOR, +4 PV) et enfile des *Plates* (+4 Défense de FOR, +12 PV, −4 m de Vitesse). Défense de FOR : 17 − 3 + 4 = 18. Maximum de PV : 22 − 4 + 12 = 30. Vitesse : 12 − 4 = 8.
 
-**Tout additionner depuis le début** (un nouveau personnage, ou une nouvelle carte de Décompte) : posez d'abord votre carte de Décompte, puis votre Vocation par-dessus, décalée d'une bande vers la gauche. Posez chaque carte qui a quelque chose dans sa bande par-dessus la précédente, décalée d'une bande vers la gauche, à la même hauteur, pour que chaque bande reste visible et que les lignes s'alignent. Les cartes à la bande vide restent à l'écart. Chaque ligne se lit alors comme une addition écrite, de gauche à droite, aboutissant sur la carte de Décompte, où vous inscrivez le résultat. Les cartes encadrées s'empilent de la même façon, cadres compris : la bande de chaque carte se trouve sur le bord droit de son cadre. Un cadre d'Armure vide montre ses +3 m de Vitesse au même endroit.
+**Tout additionner depuis le début** (un nouveau personnage, ou une nouvelle carte de Décompte) : posez d'abord votre carte de Décompte, puis votre Vocation par-dessus, décalée d'une bande vers la gauche. Posez chaque carte qui a quelque chose dans sa bande par-dessus la précédente, décalée d'une bande vers la gauche, à la même hauteur, pour que chaque bande reste visible et que les lignes s'alignent. Les cartes à la bande vide restent à l'écart. Chaque ligne se lit alors comme une addition écrite, de gauche à droite, aboutissant sur la carte de Décompte, où vous inscrivez le résultat. Les cartes encadrées s'empilent de la même façon, cadres compris : la bande de chaque carte se trouve sur le bord droit de son cadre. Un cadre d'Armure vide montre ses +4 m de Vitesse au même endroit.
 
 <!-- figure: totals -->
 
@@ -992,7 +992,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 |---|---|
 | **Absorber** | Faire passer l'Aspect d'un Éclat dans un Emplacement d'Aspect, pendant un repos long. |
 | **Action** | L'utiliser prend l'une de vos deux actions. |
-| **Allonge** | Un mot-clé d'arme : votre allonge est de 3 m au lieu de 1,5 m. |
+| **Allonge** | Un mot-clé d'arme : votre allonge est de 4 m au lieu de 2 m. |
 | **Aquatique** | Un mot-clé d'arme : elle fonctionne sous l'eau, là où les autres armes et sorts ne fonctionnent pas. |
 | **Ardeur** | Les points que coûtent vos pouvoirs Divins, de Glamour et de Nature : une seule réserve, la somme de ce qu'impriment leurs paquets + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un repos court. |
 | **Arme** | Le type de matériel tenu avec lequel on attaque ; il va dans un Emplacement de Main. Elle imprime son bonus au toucher et ses dégâts, en ajoutant la plus haute des caractéristiques qu'elle nomme (*+2 au toucher, 1d8 + FOR ou DEX Physique*). |
@@ -1046,7 +1046,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Instrument** | Un équipement tenu dans une Main qui n'est ni une arme ni un bouclier : un luth, un tambour, un cor. |
 | **Jalon** | Un nouvel Emplacement d'Aspect pour chaque personnage, accordé quand la Compagnie achève une saga. |
 | **Jet d'attaque** | Un jet de d20 + modificateurs contre une Défense, fait par celui qui blesse ou entrave : armes, sorts, pouvoirs Divins, de Glamour et de Nature, pièges, poisons. |
-| **Lancer N/M** | Un mot-clé d'arme : elle peut être lancée comme attaque à distance, avec le modificateur de son usage au corps à corps. Au-delà de N m : désavantage. Au-delà de M m : impossible (*Lancer 6/18*). |
+| **Lancer N/M** | Un mot-clé d'arme : elle peut être lancée comme attaque à distance, avec le modificateur de son usage au corps à corps. Au-delà de N m : désavantage. Au-delà de M m : impossible (*Lancer 8/24*). |
 | **Légère** | Un mot-clé d'arme : permet le combat à deux armes. |
 | **Libérer** | Vider un Éclat. Son Aspect est perdu pour de bon. |
 | **Livre de sorts** | Un objet contenant une liste fixe de sorts. Ses points de sort s'ajoutent à votre réserve unique. Toute incantation utilise l'INT. |

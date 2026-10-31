@@ -2,19 +2,19 @@
 
 illustrations.set_lang("fr") makes every SVG text go through ILLUSTRATIONS (exact match; an all-caps string
 matches its key in capitals). Strings not listed stay as they are, so numbers and already-French text pass through.
-Distances follow the French convention of the fifth-edition translation: 5 ft = 1,5 m (see FEET).
+Distances: 5 ft = 2 m (see feet()).
 """
 
-# feet → metres, French style (1 square = 1,5 m)
+# feet → metres (1 square = 2 m)
 def feet(n):
-    """30 → "9", 35 → "10,5", 2.5 → "0,75"."""
-    m = round(float(n) * 0.3, 2)
+    """30 → "12", 35 → "14", 2.5 → "1"."""
+    m = round(float(n) * 0.4, 2)
     s = f"{m:g}".replace(".", ",")
     return s
 
 
 def signed_feet(v):
-    """A strip value in feet ("+5", "−10", "35") → metres ("+1,5", "−3", "10,5")."""
+    """A strip value in feet ("+5", "−10", "35") → metres ("+2", "−4", "14")."""
     v = str(v)
     sign = v[0] if v[0] in "+−-" else ""
     num = v[1:] if sign else v
@@ -43,7 +43,7 @@ ILLUSTRATIONS = {
     "Totals": "Totaux", "four modifiers": "quatre modificateurs", "four Defenses": "quatre Défenses",
     "HP maximum, Speed": "PV maximum, Vitesse", "Current HP": "PV actuels", "cross out, rewrite": "barrer, réécrire",
     "Temp HP": "PV temporaires", "Death saves": "Jets contre la mort", "successes, failures": "réussites, échecs",
-    "**Footwork:** after a": "**Jeu de jambes :** après", "melee hit, 5 ft × ½ DEX": "un coup, 1,5 m × ½ DEX",
+    "**Footwork:** after a": "**Jeu de jambes :** après", "melee hit, 5 ft × ½ DEX": "un coup, 2 m × ½ DEX",
     "SPELL POINTS": "POINTS DE SORT", "RESOLVE": "ARDEUR", "Spell points": "Points de sort", "Resolve": "Ardeur",
     "total – marks spent": "total – bâtons dépensés", "a rest erases the marks": "un repos efface les bâtons",
     "IN PLAY: SPREAD OUT BY SLOT": "EN JEU : ÉTALÉES PAR EMPLACEMENT", "CALLING": "VOCATION", "ARMOR": "ARMURE",
@@ -58,7 +58,7 @@ ILLUSTRATIONS = {
     "+2 + 2 Traits + 4 Armor + 14 = 22": "+2 + 2 Traits + 4 Armure + 14 = 22",
     "Cards with an empty strip": "Les cartes à la bande vide", "stay out of the stack.": "restent hors de la pile.",
     "Hand": "Main", "Swap: 10 minutes": "Échange : 10 minutes", "Swap: free interaction": "Échange : interaction gratuite",
-    "Empty: **+10 ft Speed**.": "Vide : **+3 m de Vitesse**.", "Weapon": "Arme", "Slot": "Emplacement",
+    "Empty: **+10 ft Speed**.": "Vide : **+4 m de Vitesse**.", "Weapon": "Arme", "Slot": "Emplacement",
     "symbol and name": "symbole et nom", "Swap time": "Temps d'échange", "Slit": "Fente",
     "the card's corner tucks under it": "le coin de la carte s'y glisse", "on the frame's edge": "sur le bord du cadre",
     "opposite corner": "coin opposé", "Empty: it shows what the Slot does": "Vide : il montre ce que fait l'Emplacement",
@@ -78,8 +78,8 @@ ILLUSTRATIONS = {
     "d20, no modifiers, at the start of each turn at 0 HP: 10+ succeeds.": "d20, sans modificateur, au début de chaque tour à 0 PV : 10+ réussit.",
     "Natural 20: regain 1 HP. Natural 1: two failures.": "20 naturel : récupérez 1 PV. 1 naturel : deux échecs.",
     "Damage at 0 HP: one failure (two on a critical hit). Any healing: back up.": "Dégâts à 0 PV : un échec (deux sur un critique). Tout soin : debout.",
-    "Plate": "Plates", "+2 STR · +1 DEX": "+2 FOR · +1 DEX", "+2 HP · +5 ft": "+2 PV · +1,5 m", "+3 STR": "+3 FOR",
-    "+4 HP": "+4 PV", "+4 STR": "+4 FOR", "+12 HP · −10 ft": "+12 PV · −3 m", "+2 STR · +2 DEX": "+2 FOR · +2 DEX",
+    "Plate": "Plates", "+2 STR · +1 DEX": "+2 FOR · +1 DEX", "+2 HP · +5 ft": "+2 PV · +2 m", "+3 STR": "+3 FOR",
+    "+4 HP": "+4 PV", "+4 STR": "+4 FOR", "+12 HP · −10 ft": "+12 PV · −4 m", "+2 STR · +2 DEX": "+2 FOR · +2 DEX",
     "one Hand": "une Main",
     "Cone": "Cône", "Cube": "Cube", "Cylinder": "Cylindre", "Emanation": "Émanation", "Line": "Ligne", "Sphere": "Sphère",
 }

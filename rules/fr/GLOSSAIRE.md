@@ -323,10 +323,10 @@ Un mot-clé d'arme : un tir par action ou réaction, même avec des attaques sup
 Une attaque à distance. Au-delà de N : désavantage. Au-delà de M : impossible. Un nombre seul est la portée maximale d'un sort.
 
 **Allonge**:
-Un mot-clé d'arme : votre allonge est de 3 m au lieu de 1,5 m.
+Un mot-clé d'arme : votre allonge est de 4 m au lieu de 2 m.
 
 **Lancer N/M**:
-Un mot-clé d'arme : elle peut être lancée comme attaque à distance, avec le modificateur de son usage au corps à corps. Au-delà de N m : désavantage. Au-delà de M m : impossible (*Lancer 6/18*).
+Un mot-clé d'arme : elle peut être lancée comme attaque à distance, avec le modificateur de son usage au corps à corps. Au-delà de N m : désavantage. Au-delà de M m : impossible (*Lancer 8/24*).
 
 **Deux mains**:
 Occupe deux Emplacements de Main.
