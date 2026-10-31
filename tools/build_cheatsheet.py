@@ -179,7 +179,7 @@ BACK = """
 <p>The <strong>attacker always rolls</strong> vs a <strong>Defense</strong> (10 + ability + bonuses). Weapons hit the <strong>higher of STR / DEX Defense</strong>; other effects name theirs.</p>
 <table>
 <tr><th>Roll</th><th>Formula</th></tr>
-<tr><td>Weapon</td><td>d20 + its symbol's ability (higher of two) + to-hit</td></tr>
+<tr><td>Weapon</td><td>d20 + the ability it names (higher of two: STR / DEX, staff INT / WIL) + to-hit</td></tr>
 <tr><td>Spell</td><td>d20 + INT + book's Spell attack</td></tr>
 <tr><td>WIL magic</td><td>d20 + WIL + printed Attack</td></tr>
 <tr><td>Unarmed</td><td>+2 to hit · 1 + STR Physical</td></tr>
@@ -189,7 +189,6 @@ BACK = """
 <li><strong>Hit</strong> if total ≥ Defense. <strong>Nat 20:</strong> always hits, critical. <strong>Nat 1:</strong> always misses.</li>
 <li><strong>Damage:</strong> weapon die + the same modifier. <strong>Crit:</strong> damage dice twice, modifiers once.</li>
 <li><strong>Area:</strong> roll once vs each target's Defense, only the You question. Miss = half damage.</li>
-<li><strong>Heavy</strong> without STR +1 (melee) / DEX +1 (ranged): −3 to hit.</li>
 </ul>
 
 <h2>The Three Questions <small>5.2</small></h2>

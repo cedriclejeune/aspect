@@ -69,32 +69,34 @@ def weapon_atk(dice, kw, attack, sym):
                 twoHanded="Two-Handed" in parts, loading="Loading" in parts, thrown=pair("Thrown"), range=ranged)
 
 
-def weapon(name, sym, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter"):
-    """sym is also the weapon's roll: you attack with the higher of its abilities (DESIGN 4)."""
-    text = [f"{attack} to hit, {dice} + {' or '.join(sym)} Physical." + (f" {effect}" if effect else "")]
-    return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym, atk=weapon_atk(dice, kw, attack, sym))
+def weapon(name, abil, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter"):
+    """abil is the weapon's roll: you attack and deal damage with the higher of them (STR / DEX; INT / WIL for staves).
+    A basic (starter) weapon lights all four symbols so anyone can wield it; a loot weapon lights only its abil (DESIGN 4)."""
+    text = [f"{attack} to hit, {dice} + {' or '.join(abil)} Physical." + (f" {effect}" if effect else "")]
+    sym = ALL if group == "starter" else abil
+    return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym, atk=weapon_atk(dice, kw, attack, abil))
 
 
 HANDS = [
     card("Shield", "I", "gear", "Shield", ["Takes one Hand."], {"STRd": "+2", "DEXd": "+2"}, copies=2, sym=["STR", "WIL"]),
-    weapon("Dagger", ["DEX", "INT"], "1d4", "Light · Thrown 20/60", attack="+4"),
+    weapon("Dagger", ["DEX"], "1d4", "Light · Thrown 20/60", attack="+4"),
     weapon("Shortsword", ["STR", "DEX"], "1d4", "Light", attack="+3"),
     weapon("Handaxe", ["STR", "DEX"], "1d6", "Light · Thrown 20/60"),
-    weapon("Finesse Blade", ["DEX", "WIL"], "1d6", "", "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn."),
-    weapon("Longsword", ["STR", "WIL"], "1d8 / 1d10", "Versatile (1d10)"),
+    weapon("Finesse Blade", ["DEX"], "1d6", "", "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn."),
+    weapon("Longsword", ["STR"], "1d8 / 1d10", "Versatile (1d10)"),
     weapon("Battleaxe", ["STR", "DEX"], "1d8 / 1d10", "Versatile (1d10)"),
     weapon("Greatsword", ["STR"], "2d6", "Heavy · Two-Handed"),
     weapon("Glaive", ["STR"], "1d10", "Heavy · Reach · Two-Handed"),
-    weapon("Longbow", ["DEX", "INT"], "1d8", "Range 150/600 · Two-Handed"),
-    weapon("Sling", ["DEX", "WIL"], "1d6", "Light · Range 30/120"),
+    weapon("Longbow", ["DEX"], "1d8", "Range 150/600 · Two-Handed"),
+    weapon("Sling", ["DEX"], "1d6", "Light · Range 30/120"),
     weapon("Javelins", ["STR", "DEX"], "1d6", "Thrown 30/120"),
-    weapon("Spellguard Staff", ["STR", "INT"], "1d8 / 1d10", "Versatile (1d10)", "While you hold it, it counts as an empty Hand for casting from a Spellbook."),
+    weapon("Spellguard Staff", ["INT", "WIL"], "1d6 / 1d8", "Versatile (1d8)", "While you hold it, it counts as an empty Hand for casting from a Spellbook."),
     card("Traveler's Lute", "I", "gear", "Instrument · Focus", ["1 extra Resolve (short rest).", "Your Anthems reach 60 ft instead of 30 ft."], sym=["DEX", "WIL"]),
     weapon("Greatclub", ["STR"], "1d10", "Heavy · Two-Handed", "**Crushing:** on a critical hit, the target is knocked Prone.", group="loot"),
     weapon("Gladius", ["STR", "DEX"], "1d6", "Light", "**Close Order:** +1d4 damage while an ally is engaged with the same creature.", group="loot"),
-    weapon("Boarspear", ["STR", "WIL"], "1d8 / 1d10", "Versatile (1d10)", "**Brace:** your opportunity attacks with it deal +1d8 damage.", attack="+3", rank="II", group="loot"),
+    weapon("Boarspear", ["STR"], "1d8 / 1d10", "Versatile (1d10)", "**Brace:** your opportunity attacks with it deal +1d8 damage.", attack="+3", rank="II", group="loot"),
     weapon("Pilum", ["STR", "DEX"], "1d6", "Thrown 30/120", "**Pierce:** on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free.", attack="+3", rank="II", group="loot"),
-    weapon("Shortbow", ["DEX", "WIL"], "1d6", "Range 80/320 · Two-Handed", group="loot"),
+    weapon("Shortbow", ["DEX"], "1d6", "Range 80/320 · Two-Handed", group="loot"),
     weapon("Greataxe", ["STR"], "1d12", "Heavy · Two-Handed", group="loot"),
 ]
 

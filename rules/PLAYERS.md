@@ -667,7 +667,7 @@ An effect with the **Subdue** keyword takes a creature out of the fight. It name
 
 ## 9. Equipment
 
-Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or WIL Physical*. It uses the abilities of its lit symbols. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
+Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or DEX Physical*. It names the abilities it rolls with: always STR, DEX or both, except **staves**, which are weaker but roll INT or WIL. **Basic weapons** (Rank I starters) light all four symbols, so anyone can wield them; a weak ability simply means a weak attack. Loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
 
 ### 9.1 Armor and Defense
 
@@ -685,22 +685,23 @@ Heavier armor gives more **HP** and slows you down. Armor adds mostly to **STR D
 
 Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" can be a longsword, a battleaxe or a spear.
 
-| Weapon (gear) | Usual symbols | To hit | Damage | Properties |
+| Weapon (gear) | Rolls with | To hit | Damage | Properties |
 |---|---|---|---|---|
-| **Dagger** (dagger, knife) | DEX · INT | +4 | 1d4 | Light, Thrown (20/60) |
+| **Dagger** (dagger, knife) | DEX | +4 | 1d4 | Light, Thrown (20/60) |
 | **Short Blade** (shortsword, sickle) | STR · DEX | +3 | 1d4 | Light |
 | **Light Weapon** (handaxe, club, light hammer) | STR · DEX | +2 | 1d6 | Light, Thrown (20/60) |
-| **Finesse Blade** (rapier, scimitar) | DEX · WIL | +2 | 1d6 | — |
-| **Versatile Weapon** (longsword, battleaxe, spear, staff) | STR + one | +2 | 1d8 / 1d10 | Versatile |
+| **Finesse Blade** (rapier, scimitar) | DEX | +2 | 1d6 | — |
+| **Versatile Weapon** (longsword, battleaxe, spear) | STR or STR · DEX | +2 | 1d8 / 1d10 | Versatile |
+| **Staff** (quarterstaff, rod) | INT · WIL | +2 | 1d6 / 1d8 | Versatile |
 | **Heavy Weapon** (greatsword, greataxe, maul) | STR | +2 | 2d6 | Heavy, Two-Handed |
 | **Polearm** (glaive, halberd, pike) | STR | +2 | 1d10 | Heavy, Reach, Two-Handed |
-| **Whip** | DEX · WIL | +2 | 1d4 | Reach |
+| **Whip** | DEX | +2 | 1d4 | Reach |
 | **Javelins** | STR · DEX | +2 | 1d6 | Thrown (30/120) |
-| **Sling** / **Hand Crossbow** | DEX · WIL | +2 | 1d6 | Light, Range (30/120) |
-| **Bow** (short or long) | DEX + one | +2 | 1d8 | Range (150/600), Two-Handed |
+| **Sling** / **Hand Crossbow** | DEX | +2 | 1d6 | Light, Range (30/120) |
+| **Bow** (short or long) | DEX | +2 | 1d8 | Range (150/600), Two-Handed |
 | **Crossbow** (heavy) | DEX | +2 | 1d10 | Loading, Range (100/400), Two-Handed |
 
-A weapon attacks with the abilities of its lit symbols: your higher one when it has two. Damage adds the same modifier. Higher-Rank weapons are cards with their own name (*Damascus Sword*, *Katana*), a bigger to-hit bonus and often a special effect. All weapon damage is **Physical** unless the weapon says otherwise.
+A weapon attacks with the abilities it names: your higher one when it names two. Damage adds the same modifier. Higher-Rank weapons are cards with their own name (*Damascus Sword*, *Katana*), a bigger to-hit bonus and often a special effect. All weapon damage is **Physical** unless the weapon says otherwise.
 
 **Properties** are keywords (Chapter 11): Aquatic, Heavy, Light, Loading, Range, Reach, Thrown, Two-Handed, Versatile.
 
@@ -810,7 +811,7 @@ The first keyword. It sets the Slot (3.2).
 |---|---|
 | **Calling** | No Slot. You always have exactly one, for life: its two abilities at +2, HP, Speed and a perk (2.4). |
 | **Armor** | Armor Slot. Takes 10 minutes to don or doff. Never in the Pack. |
-| **Weapon** | Hand Slot. Attack: d20 + the higher of its symbols' abilities + its printed to-hit bonus, against the higher of STR and DEX Defense. |
+| **Weapon** | Hand Slot. Attack: d20 + the higher of the abilities it names + its printed to-hit bonus, against the higher of STR and DEX Defense. |
 | **Shield** | Hand Slot. |
 | **Instrument** | Hand Slot. Held gear that is neither a weapon nor a shield: a lute, a drum, a horn. |
 | **Jewelry** | Jewelry Slot. Rings, amulets, circlets, cloaks, gloves, boots. |
@@ -844,7 +845,7 @@ The first keyword. It sets the Slot (3.2).
 | Keyword | Meaning |
 |---|---|
 | **Aquatic** | Works underwater, where other weapons and spells don't. |
-| **Heavy** | A big weapon with only the STR symbol lit: only a Calling with STR can equip it. |
+| **Heavy** | A big weapon. As loot it lights only the STR symbol: only a Calling with STR can equip it. |
 | **Light** | Allows two-weapon fighting (6.9). |
 | **Loading** | One shot per action or reaction, even with extra attacks. |
 | **Noisy N** | −N on checks to sneak. |
@@ -1016,7 +1017,7 @@ Each game term has one meaning, in both books.
 | **Gear** | Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards its Calling's symbols allow. |
 | **Gear Slot** | An Armor, Hand, Jewelry or Item Slot. |
 | **Glamour** | An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and a pool of Resolve. |
-| **Heavy** | A weapon keyword: a big weapon with only the STR symbol lit. Only a Calling with STR can equip it. |
+| **Heavy** | A weapon keyword: a big weapon. As loot it lights only the STR symbol, so only a Calling with STR can equip it. |
 | **Instrument** | Equipment held in a Hand that is neither a weapon nor a shield: a lute, a drum, a horn. |
 | **Item** | Gear you carry and use: Spellbooks, Recipes, Consumables, Purses and Shards. |
 | **Jewelry** | The type of worn gear that fits the Jewelry Slot: rings, amulets, circlets, cloaks, gloves, boots. |
@@ -1064,7 +1065,7 @@ Each game term has one meaning, in both books.
 | **Subdue** | The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
-| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities of its symbols. |
+| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff); basic weapons light all four symbols. |
 | **Tally card** | The one card you write on: your ten totals, current and temporary HP, and death saves. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |
@@ -1080,7 +1081,7 @@ Each game term has one meaning, in both books.
 | **Uses** | A limited number of activations of one power, written on it (*2/S.R.*, *1/L.R.*), that come back on a short or long rest. |
 | **Versatile** | A weapon keyword: uses the bigger damage die when held in two hands. |
 | **Vulnerable (type)** | Take double damage of that type. |
-| **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of its symbols' abilities (*+2 to hit, 1d8 + STR or WIL Physical*). |
+| **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of the abilities it names (*+2 to hit, 1d8 + STR or DEX Physical*). |
 | **Wound** | A lasting injury, drawn at random each time you fall to 0 HP. It stays until a downtime heals it. A Crippling Wound blocks a Gear Slot. |
 | **You question** | The first of the three questions asked before an attack: your position and conditions (unseen; long range, can't see the target, Prone…). One die at most. The only question asked on checks, saves and area rolls. |
 

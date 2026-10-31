@@ -2203,21 +2203,22 @@ globalThis.BEARERS_CARDS = {
     "Thrown 20/60"
    ],
    "text": [
-    "+4 to hit, 1d4 + DEX or INT Physical."
+    "+4 to hit, 1d4 + DEX Physical."
    ],
    "strip": {},
    "group": "starter",
    "sym": [
+    "STR",
     "DEX",
-    "INT"
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 4,
     "dice": "1d4",
     "two": null,
     "abil": [
-     "DEX",
-     "INT"
+     "DEX"
     ],
     "type": "Physical",
     "light": true,
@@ -2250,7 +2251,9 @@ globalThis.BEARERS_CARDS = {
    "group": "starter",
    "sym": [
     "STR",
-    "DEX"
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 3,
@@ -2289,7 +2292,9 @@ globalThis.BEARERS_CARDS = {
    "group": "starter",
    "sym": [
     "STR",
-    "DEX"
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2323,12 +2328,14 @@ globalThis.BEARERS_CARDS = {
     "Weapon"
    ],
    "text": [
-    "+2 to hit, 1d6 + DEX or WIL Physical. **Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn."
+    "+2 to hit, 1d6 + DEX Physical. **Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn."
    ],
    "strip": {},
    "group": "starter",
    "sym": [
+    "STR",
     "DEX",
+    "INT",
     "WIL"
    ],
    "atk": {
@@ -2336,8 +2343,7 @@ globalThis.BEARERS_CARDS = {
     "dice": "1d6",
     "two": null,
     "abil": [
-     "DEX",
-     "WIL"
+     "DEX"
     ],
     "type": "Physical",
     "light": false,
@@ -2376,12 +2382,14 @@ globalThis.BEARERS_CARDS = {
     "Versatile (1d10)"
    ],
    "text": [
-    "+2 to hit, 1d8 / 1d10 + STR or WIL Physical."
+    "+2 to hit, 1d8 / 1d10 + STR Physical."
    ],
    "strip": {},
    "group": "starter",
    "sym": [
     "STR",
+    "DEX",
+    "INT",
     "WIL"
    ],
    "atk": {
@@ -2389,8 +2397,7 @@ globalThis.BEARERS_CARDS = {
     "dice": "1d8",
     "two": "1d10",
     "abil": [
-     "STR",
-     "WIL"
+     "STR"
     ],
     "type": "Physical",
     "light": false,
@@ -2420,7 +2427,9 @@ globalThis.BEARERS_CARDS = {
    "group": "starter",
    "sym": [
     "STR",
-    "DEX"
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2458,7 +2467,10 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR"
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2496,7 +2508,10 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR"
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2528,21 +2543,22 @@ globalThis.BEARERS_CARDS = {
     "Two-Handed"
    ],
    "text": [
-    "+2 to hit, 1d8 + DEX or INT Physical."
+    "+2 to hit, 1d8 + DEX Physical."
    ],
    "strip": {},
    "group": "starter",
    "sym": [
+    "STR",
     "DEX",
-    "INT"
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
     "dice": "1d8",
     "two": null,
     "abil": [
-     "DEX",
-     "INT"
+     "DEX"
     ],
     "type": "Physical",
     "light": false,
@@ -2570,12 +2586,14 @@ globalThis.BEARERS_CARDS = {
     "Range 30/120"
    ],
    "text": [
-    "+2 to hit, 1d6 + DEX or WIL Physical."
+    "+2 to hit, 1d6 + DEX Physical."
    ],
    "strip": {},
    "group": "starter",
    "sym": [
+    "STR",
     "DEX",
+    "INT",
     "WIL"
    ],
    "atk": {
@@ -2583,8 +2601,7 @@ globalThis.BEARERS_CARDS = {
     "dice": "1d6",
     "two": null,
     "abil": [
-     "DEX",
-     "WIL"
+     "DEX"
     ],
     "type": "Physical",
     "light": true,
@@ -2617,7 +2634,9 @@ globalThis.BEARERS_CARDS = {
    "group": "starter",
    "sym": [
     "STR",
-    "DEX"
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2649,24 +2668,26 @@ globalThis.BEARERS_CARDS = {
    "type": "Weapon",
    "kw": [
     "Weapon",
-    "Versatile (1d10)"
+    "Versatile (1d8)"
    ],
    "text": [
-    "+2 to hit, 1d8 / 1d10 + STR or INT Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook."
+    "+2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook."
    ],
    "strip": {},
    "group": "starter",
    "sym": [
     "STR",
-    "INT"
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
-    "dice": "1d8",
-    "two": "1d10",
+    "dice": "1d6",
+    "two": "1d8",
     "abil": [
-     "STR",
-     "INT"
+     "INT",
+     "WIL"
     ],
     "type": "Physical",
     "light": false,
@@ -2795,21 +2816,19 @@ globalThis.BEARERS_CARDS = {
     "Two-Handed"
    ],
    "text": [
-    "+2 to hit, 1d6 + DEX or WIL Physical."
+    "+2 to hit, 1d6 + DEX Physical."
    ],
    "strip": {},
    "group": "loot",
    "sym": [
-    "DEX",
-    "WIL"
+    "DEX"
    ],
    "atk": {
     "hit": 2,
     "dice": "1d6",
     "two": null,
     "abil": [
-     "DEX",
-     "WIL"
+     "DEX"
     ],
     "type": "Physical",
     "light": false,
@@ -2873,21 +2892,19 @@ globalThis.BEARERS_CARDS = {
     "Versatile (1d10)"
    ],
    "text": [
-    "+3 to hit, 1d8 / 1d10 + STR or WIL Physical. **Brace:** your opportunity attacks with it deal +1d8 damage."
+    "+3 to hit, 1d8 / 1d10 + STR Physical. **Brace:** your opportunity attacks with it deal +1d8 damage."
    ],
    "strip": {},
    "group": "loot",
    "sym": [
-    "STR",
-    "WIL"
+    "STR"
    ],
    "atk": {
     "hit": 3,
     "dice": "1d8",
     "two": "1d10",
     "abil": [
-     "STR",
-     "WIL"
+     "STR"
     ],
     "type": "Physical",
     "light": false,

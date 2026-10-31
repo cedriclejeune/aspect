@@ -471,8 +471,9 @@ module.exports = function register(T, H) {
   T("[fx] Callings: symbols gate equipping; +2 / +2 and the Calling's HP and Speed", () => {
     const t = Eng.totals(B(calling("L-02", { hands: ["W-I-05", "S-I-01"], armor: "A-I-02" })), CARDS());
     eq([t.STR, t.WIL, t.DEX, t.STRd, t.DEXd, t.HP, t.SPD, t.errors], [2, 2, 0, 17, 12, 18, 30, []]);
-    ok(Eng.validate(B(calling("L-02", { hands: ["W-I-09"] })), CARDS()).some((v) => /symbols/.test(v)), "Templar can't wield a Longbow (DEX · INT)");
-    eq(Eng.totals(B(calling("L-02", { hands: ["W-I-09"] })), CARDS()).errors.length, 1);
+    eq(Eng.validate(B(calling("L-02", { hands: ["W-I-09"] })), CARDS()), [], "a basic weapon lights all four: a Templar can wield a Longbow");
+    ok(Eng.validate(B(calling("L-02", { hands: ["W-I-15"] })), CARDS()).some((v) => /symbols/.test(v)), "Templar can't wield a Shortbow (loot, DEX)");
+    eq(Eng.totals(B(calling("L-02", { hands: ["W-I-15"] })), CARDS()).errors.length, 1);
   });
   T("[fx] Duelist Footwork: 5 ft of safe movement after a melee hit, once per turn", () => {
     const f = fight([pc("d", [5, 5], calling("L-01", { hands: ["W-I-03"] })), foe("x", [6, 5])]);

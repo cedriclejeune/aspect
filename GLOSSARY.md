@@ -95,7 +95,7 @@ The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed 
 _Avoid_: Core, background, archetype, class, race, stat block (for players)
 
 **Symbols**:
-The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities of its symbols.
+The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff); basic weapons light all four symbols.
 _Avoid_: requirement, prerequisite, Req
 
 **Gear Slot**:
@@ -260,7 +260,7 @@ _Avoid_: level (alone), character level
 The type of gear worn on the body; it fits the Armor Slot. Takes 10 minutes to don or doff. Never in the Pack.
 
 **Weapon**:
-The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of its symbols' abilities (*+2 to hit, 1d8 + STR or WIL Physical*).
+The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of the abilities it names (*+2 to hit, 1d8 + STR or DEX Physical*).
 
 **Shield**:
 The type of held gear that raises your Defenses; it fits a Hand Slot.
@@ -295,7 +295,7 @@ _Avoid_: bonus action
 A weapon keyword: works underwater, where other weapons and spells don't.
 
 **Heavy**:
-A weapon keyword: a big weapon with only the STR symbol lit. Only a Calling with STR can equip it.
+A weapon keyword: a big weapon. As loot it lights only the STR symbol, so only a Calling with STR can equip it.
 
 **Light**:
 A weapon keyword: allows two-weapon fighting.

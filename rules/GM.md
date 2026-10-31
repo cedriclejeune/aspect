@@ -406,7 +406,7 @@ Each game term has one meaning, in both books.
 | **Gear** | Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards its Calling's symbols allow. |
 | **Gear Slot** | An Armor, Hand, Jewelry or Item Slot. |
 | **Glamour** | An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and a pool of Resolve. |
-| **Heavy** | A weapon keyword: a big weapon with only the STR symbol lit. Only a Calling with STR can equip it. |
+| **Heavy** | A weapon keyword: a big weapon. As loot it lights only the STR symbol, so only a Calling with STR can equip it. |
 | **Instrument** | Equipment held in a Hand that is neither a weapon nor a shield: a lute, a drum, a horn. |
 | **Item** | Gear you carry and use: Spellbooks, Recipes, Consumables, Purses and Shards. |
 | **Jewelry** | The type of worn gear that fits the Jewelry Slot: rings, amulets, circlets, cloaks, gloves, boots. |
@@ -454,7 +454,7 @@ Each game term has one meaning, in both books.
 | **Subdue** | The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
-| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities of its symbols. |
+| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff); basic weapons light all four symbols. |
 | **Tally card** | The one card you write on: your ten totals, current and temporary HP, and death saves. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |
@@ -470,7 +470,7 @@ Each game term has one meaning, in both books.
 | **Uses** | A limited number of activations of one power, written on it (*2/S.R.*, *1/L.R.*), that come back on a short or long rest. |
 | **Versatile** | A weapon keyword: uses the bigger damage die when held in two hands. |
 | **Vulnerable (type)** | Take double damage of that type. |
-| **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of its symbols' abilities (*+2 to hit, 1d8 + STR or WIL Physical*). |
+| **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of the abilities it names (*+2 to hit, 1d8 + STR or DEX Physical*). |
 | **Wound** | A lasting injury, drawn at random each time you fall to 0 HP. It stays until a downtime heals it. A Crippling Wound blocks a Gear Slot. |
 | **You question** | The first of the three questions asked before an attack: your position and conditions (unseen; long range, can't see the target, Prone…). One die at most. The only question asked on checks, saves and area rolls. |
 
