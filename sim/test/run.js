@@ -61,10 +61,10 @@ T("totals: a card whose symbols miss the Calling adds nothing and is reported; o
   cards.cards["A-I-02"].sym = ["STR", "INT"];
   eq(Eng.totals(B({ calling: "C-I-03", armor: "A-I-02" }), cards).STRd, 13);
 });
-T("validate: Hands, Slot types, duplicates, Heavy warning", () => {
+T("validate: Hands, Slot types, duplicates", () => {
   const v = Eng.validate(B({ calling: "C-I-03", hands: ["W-I-08", "S-I-01"], jewelry: ["W-I-01"], aspects: ["T-I-03", "T-I-03"] }), CARDS);
   ok(v.some((s) => /Hands: 3/.test(s)), "hands"); ok(v.some((s) => /doesn't fit a jewelry/.test(s)), "slot");
-  ok(v.some((s) => /two copies/.test(s)), "dup"); ok(v.some((s) => /Heavy/.test(s)), "heavy");
+  ok(v.some((s) => /two copies/.test(s)), "dup");
   eq(Eng.validate(B({ armor: "A-I-02", hands: ["W-I-05", "S-I-01"] }), CARDS), []);
 });
 T("fromFoe matches the printed foe totals", () => {

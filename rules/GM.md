@@ -379,8 +379,8 @@ Each game term has one meaning, in both books.
 | **Calling** | The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Aspects you can equip. It is neither an Aspect nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Zealot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
 | **Cantrip** | A spell that costs nothing. Cast at will. |
 | **Capture** | Pouring a lingering Aspect into an empty Shard. |
-| **Card** | The physical component for a Calling, a piece of gear, an Aspect, a spell or an amount of gold. |
-| **Card ID** | The code in a card's bottom-right corner: type letter, Rank and number (W-II-02). |
+| **Card** | The physical component for a Calling, a piece of gear, an Aspect, a spell, a Wound, a foe or an amount of gold. |
+| **Card ID** | The code in a card's bottom-right corner: type letter, Rank if it has one, and number (W-II-02, L-04). |
 | **Challenge Rating (CR)** | A monster's danger, used with its XP value to size fights. |
 | **Check** | A roll of d20 + ability modifier + bonuses against a Difficulty Class (DC). |
 | **Climb N** | A climb speed: climbing costs no extra movement. |
@@ -403,10 +403,10 @@ Each game term has one meaning, in both books.
 | **Foe card** | The GM's card for one kind of monster: its body, totals and powers. Cards named in italics on it can drop; plain text never does. |
 | **Form** | One beast body in a Remembrance (Nature), printed like a Calling: STR, DEX, HP, Speed and Size. While you are shifted into it, it replaces your body; your mind and Aspects stay. |
 | **Game Master (GM)** | The player who describes the world, runs monsters and adjudicates rules. |
-| **Gear** | Every real object a Bearer can equip or store: equipment and items. Anyone can use gear. |
+| **Gear** | Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards its Calling's symbols allow. |
 | **Gear Slot** | An Armor, Hand, Jewelry or Item Slot. |
 | **Glamour** | An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and a pool of Resolve. |
-| **Heavy** | A weapon keyword: needs STR +1 (melee) or DEX +1 (ranged), or −3 on attacks. |
+| **Heavy** | A weapon keyword: a big weapon with only the STR symbol lit. Only a Calling with STR can equip it. |
 | **Instrument** | Equipment held in a Hand that is neither a weapon nor a shield: a lute, a drum, a horn. |
 | **Item** | Gear you carry and use: Spellbooks, Recipes, Consumables, Purses and Shards. |
 | **Jewelry** | The type of worn gear that fits the Jewelry Slot: rings, amulets, circlets, cloaks, gloves, boots. |
@@ -470,7 +470,7 @@ Each game term has one meaning, in both books.
 | **Uses** | A limited number of activations of one power, written on it (*2/S.R.*, *1/L.R.*), that come back on a short or long rest. |
 | **Versatile** | A weapon keyword: uses the bigger damage die when held in two hands. |
 | **Vulnerable (type)** | Take double damage of that type. |
-| **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage (*+2 to hit, 1d8 + STR Physical*). |
+| **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of its symbols' abilities (*+2 to hit, 1d8 + STR or WIL Physical*). |
 | **Wound** | A lasting injury, drawn at random each time you fall to 0 HP. It stays until a downtime heals it. A Crippling Wound blocks a Gear Slot. |
 | **You question** | The first of the three questions asked before an attack: your position and conditions (unseen; long range, can't see the target, Prone…). One die at most. The only question asked on checks, saves and area rolls. |
 

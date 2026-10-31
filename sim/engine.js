@@ -4,7 +4,7 @@
  *
  * API
  *   Eng.totals(build, cards)       → { STR … SPD, size, errors }   tally card (P 12.3)
- *   Eng.validate(build, cards)     → [string]   Slot limits, types, Requirements, copies ("Warning: …" lines don't block)
+ *   Eng.validate(build, cards)     → [string]   Slot limits, types, Calling symbols, copies ("Warning: …" lines don't block)
  *   Eng.fromFoe(foe, cards)        → Build      (Shield first in Hand, other weapons in carries order, rest carried;
  *                                                 extraDice number | { card id: n }, recharge { power id: n }: SPEC 7)
  *   Eng.createFight(scenario, cards) → Fight
@@ -258,14 +258,6 @@
     build.carried.forEach((id) => { const c = get(id); if (c && !SLOT_TYPES.hand.includes(typeOf(c))) out.push(`${c.name}: only Hand gear can be carried for a quick swap`); if (!c) out.push(`Unknown card ${id}`); });
     const seen = {};
     for (const id of equippedIds(build)) { if (seen[id]) out.push(`${(get(id) || { name: id }).name}: two copies can't be equipped (P 3.6)`); seen[id] = 1; }
-    const t = totals(build, cards);
-    for (const id of build.hands.concat(build.carried)) {
-      const c = get(id);
-      if (c && c.atk && c.atk.heavy) {
-        const ab = c.atk.range ? "DEX" : "STR";
-        if (t[ab] < 1) out.push(`Warning: ${c.name} is Heavy: −3 on attacks without ${ab} +1`);
-      }
-    }
     return out;
   }
   // RULING R202: fromFoe puts Armor, Jewelry, Items and Aspects in their Slots; a Shield always goes in a Hand,
@@ -691,7 +683,6 @@
       flat(w.hit || 0, "to hit");
       // Scrapper (Brawler): a flat bonus on Grapples and Shoves
       if (src.grab) flat(powersOf(F, a).reduce((n, e) => n + (e.p.use === "passive" && e.p.grabHit || 0), 0), "Scrapper");
-      if (w.heavy && a.totals[ranged ? "DEX" : "STR"] < 1) flat(-3, "Heavy");
       info.weapon = w;
     } else {
       const p = src.entry.p, deck = deckOf(F, src.entry);

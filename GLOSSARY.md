@@ -35,7 +35,7 @@ _Avoid_: stats, derived stats
 ### Gear, Aspects & Slots
 
 **Gear**:
-Every real object a Bearer can equip or store: equipment and items. Anyone can use gear.
+Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards its Calling's symbols allow.
 _Avoid_: card (outside At the Table), loot (as a synonym)
 
 **Equipment**:
@@ -260,7 +260,7 @@ _Avoid_: level (alone), character level
 The type of gear worn on the body; it fits the Armor Slot. Takes 10 minutes to don or doff. Never in the Pack.
 
 **Weapon**:
-The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage (*+2 to hit, 1d8 + STR Physical*).
+The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of its symbols' abilities (*+2 to hit, 1d8 + STR or WIL Physical*).
 
 **Shield**:
 The type of held gear that raises your Defenses; it fits a Hand Slot.
@@ -295,7 +295,7 @@ _Avoid_: bonus action
 A weapon keyword: works underwater, where other weapons and spells don't.
 
 **Heavy**:
-A weapon keyword: needs STR +1 (melee) or DEX +1 (ranged), or −3 on attacks.
+A weapon keyword: a big weapon with only the STR symbol lit. Only a Calling with STR can equip it.
 
 **Light**:
 A weapon keyword: allows two-weapon fighting.
@@ -413,11 +413,11 @@ A monster power that comes back on a 5 or 6 on a d6 at the end of the monster's 
 ### At the Table
 
 **Card**:
-The physical component for a Calling, a piece of gear, an Aspect, a spell or an amount of gold.
+The physical component for a Calling, a piece of gear, an Aspect, a spell, a Wound, a foe or an amount of gold.
 _Avoid_: card (in rules text outside At the Table)
 
 **Card ID**:
-The code in a card's bottom-right corner: type letter, Rank and number (W-II-02).
+The code in a card's bottom-right corner: type letter, Rank if it has one, and number (W-II-02, L-04).
 _Avoid_: card number, serial
 
 **Tally card**:
