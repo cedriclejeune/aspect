@@ -76,18 +76,19 @@
       map: clone(scenario.map), surprise: scenario.surprise || null, zones: [], creatures: {}, rng: { seed: scenario.seed || 1, s: scenario.seed || 1 }, stats: {}, init: null };
     for (const c of scenario.creatures) {
       const t = totals(c.build, cards);
-      const uses = {}, sp = {}, resolve = {};
+      const uses = {}, books = [], wil = [];
       for (const id of equipped(c.build)) {
         const card = cards.cards[id];
         (card.fx || []).forEach((p) => { if (p.uses) uses[p.id] = parseInt(p.uses); });
         const deck = card.deck && cards.decks[card.deck];
-        if (deck && deck.sp) sp[deck.cover] = deck.sp;
-        if (deck && deck.resolve) resolve[deck.cover] = Math.max(1, deck.resolve + t.WIL);
+        if (deck && deck.sp) books.push(deck.sp);
+        if (deck && deck.resolve) wil.push(deck.resolve);
       }
       s.creatures[c.id] = { id: c.id, side: c.side, name: c.name, pos: c.pos || [0, 0], size: t.size, totals: t, hp: t.HP, maxHp: t.HP, temp: 0,
         form: null, dead: false, down: false, stable: false, death: { ok: 0, fail: 0 }, conds: [], mods: [], turn: freshTurn(t),
         hands: clone(c.build.hands || []), carried: clone(c.build.carried || []), items: clone(c.build.items || []),
-        uses, sp, resolve, extra: { sp: 0, resolve: 0 }, react: c.react || "ask", boss: !!c.build.boss, build: clone(c.build) };
+        uses, sp: books.length ? Math.max(1, books.reduce((a, b) => a + b, 0) + t.INT) : null,
+        resolve: wil.length ? Math.max(1, wil.reduce((a, b) => a + b, 0) + t.WIL) : null, extra: { sp: 0, resolve: 0 }, react: c.react || "ask", boss: !!c.build.boss, build: clone(c.build) };
       s.stats[c.id] = { dmgDealt: 0, dmgTaken: 0, healed: 0, attacks: 0, hits: 0, crits: 0, kills: 0, downs: 0, roundsAlive: 0,
         spent: { sp: 0, resolve: 0, uses: 0, consumables: 0 } };
     }
@@ -518,8 +519,7 @@
     if (pw.uses) { c.uses[pw.id]--; st.spent.uses++; }
     const deck = this.cards.decks[pw.id.split("#")[0]];
     if (pw.cost && deck) {
-      const pool = deck.sp ? c.sp : c.resolve;
-      pool[deck.cover] -= pw.cost; deck.sp ? (st.spent.sp += pw.cost) : (st.spent.resolve += pw.cost);
+      if (deck.sp) c.sp -= pw.cost; else c.resolve -= pw.cost; deck.sp ? (st.spent.sp += pw.cost) : (st.spent.resolve += pw.cost);
       this.emit({ t: "resource", actor: c.id, what: deck.sp ? "sp" : "resolve", n: -pw.cost, text: `${c.name} spends ${pw.cost} ${deck.sp ? "spell points" : "Resolve"}.` });
     }
     this.emit({ t: "power", actor: c.id, power: pw.id, text: `${c.name} uses ${pw.name}.` });

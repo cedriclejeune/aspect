@@ -943,8 +943,10 @@
   function resourceText(c, src) {
     const base = A.base && A.base.creatures[c.id];
     const parts = [];
-    if (c.sp && c.sp[src] != null) parts.push(`spell points ${c.sp[src]}/${base && base.sp ? base.sp[src] : "?"}`);
-    if (c.resolve && c.resolve[src] != null) parts.push(`Resolve ${c.resolve[src]}/${base && base.resolve ? base.resolve[src] : "?"}`);
+    // One pool each (P 10.2, 10.6): show the one this deck spends, as on the tally card.
+    const d = CARDS.decks[src];
+    if (d && d.kind === "spellbook" && c.sp != null) parts.push(`spell points ${c.sp}/${c.pools ? c.pools.spMax : base ? base.sp : "?"}`);
+    if (d && d.kind !== "spellbook" && c.resolve != null) parts.push(`Resolve ${c.resolve}/${c.pools ? c.pools.resolveMax : base ? base.resolve : "?"}`);
     return parts.length ? h("span.res", parts.join(" · ")) : null;
   }
   function passiveList(id) {

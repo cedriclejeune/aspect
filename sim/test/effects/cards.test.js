@@ -211,7 +211,7 @@ module.exports = function register(T, H) {
   T("[fx] Holy Amulet: Cues reach 90 ft; 1 extra Resolve added to the Litany's pool (P 10.6)", () => {
     const mk = (jewelry) => fight([pc("p", [1, 5], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, jewelry, aspects: ["D-I-01"] }), pc("a", [18, 5], { hands: ["W-I-05"] }), foe("x", [19, 5])]);
     const f = mk(["J-I-04"]);
-    eq(C(f, "p").resolve["D-I-01"], 7, "3 + WIL 3 + 1");
+    eq(C(f, "p").resolve, 7, "3 + WIL 3 + 1");
     pcTurn(f, "p"); end(f, "p"); go(f, "a");
     const r = run(f, atk("a", "W-I-05", "x"), [3, { c: 0 }, 17, 4]); // 85 ft: Twist Fate rerolls the 3
     ok(evs(r, "reaction").some((e) => e.power === "D-I-01#twist-fate"));
@@ -224,16 +224,16 @@ module.exports = function register(T, H) {
     pcTurn(h, "p");
     run(h, power(h, "p", "D-I-01#bless"));
     run(h, power(h, "p", "D-I-01#cure-wounds", { targets: ["a"] }), [1, 1]);
-    eq(C(h, "p").resolve["D-I-01"], 1);
+    eq(C(h, "p").resolve, 1);
     end(h, "p"); go(h, "a");
     run(h, atk("a", "W-I-05", "x"), [3, 1, { c: 0 }, 17, 4]); // Bless d4 rolls with the attack
-    eq(C(h, "p").resolve["D-I-01"], 0);
+    eq(C(h, "p").resolve, 0);
   });
 
   T("[fx] Traveler's Lute: Anthems reach 60 ft; 1 extra Resolve", () => {
     const mk = (hands) => fight([pc("e", [1, 5], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, hands, aspects: ["G-I-01"] }), pc("a", [11, 5]), foe("x", [25, 5])]);
     const f = mk(["M-I-01"]);
-    eq(C(f, "e").resolve["G-I-01"], 7, "3 + WIL 3 + 1");
+    eq(C(f, "e").resolve, 7, "3 + WIL 3 + 1");
     pcTurn(f, "e");
     run(f, power(f, "e", "G-I-01#rally"));
     ok(C(f, "a").mods.some((m) => m.n === 2), "50 ft away");
@@ -352,18 +352,18 @@ module.exports = function register(T, H) {
   });
 
   T("[fx] Hedge Witch: 1 extra spell point added to the Spellbook's pool (P 10.2)", () => {
-    const f = fight([pc("w", [1, 5], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, items: [{ id: "B-I-01" }], aspects: ["T-II-06"] }), foe("x", [8, 5]), foe("y", [8, 9])]);
-    eq(C(f, "w").sp["B-I-01"], 5);
+    const f = fight([pc("w", [1, 5], { body: { STR: 0, DEX: 1, INT: 2, WIL: 0, HP: 9, SPD: 30 }, items: [{ id: "B-I-01" }], aspects: ["T-II-06"] }), foe("x", [8, 5]), foe("y", [8, 9])]);
+    eq(C(f, "w").sp, 5);
     pcTurn(f, "w");
     run(f, power(f, "w", "B-I-01#web", { point: [8, 6] }), [1]);
     end(f, "w"); for (const id of ["x", "y"]) skip(f, id);
     go(f, "w");
     run(f, power(f, "w", "B-I-01#misty-step", { point: [1, 9] }));
-    eq(C(f, "w").sp["B-I-01"], 1);
+    eq(C(f, "w").sp, 1);
     end(f, "w"); for (const id of ["x", "y"]) skip(f, id);
     go(f, "w");
     run(f, power(f, "w", "B-I-01#magic-missile", { targets: ["x"] }), [1, 1]);
-    eq(C(f, "w").sp["B-I-01"], 0, "the extra point paid for it");
+    eq(C(f, "w").sp, 0, "the extra point paid for it");
     end(f, "w"); for (const id of ["x", "y"]) skip(f, id);
     go(f, "w");
     ok(/spell points/.test(refused(f, power(f, "w", "B-I-01#magic-missile", { targets: ["x"] }))));
@@ -499,7 +499,7 @@ module.exports = function register(T, H) {
     const f = fight([pc("s", [1, 5], calling("L-03", hands)), pc("g", [1, 7], calling("L-06", { items: [{ id: "B-I-01" }] })), foe("x", [9, 5])]);
     pcTurn(f, "s");
     ok(f.legal("s").some((m) => m.power && m.power.startsWith("B-I-01")), "Spellblade casts holding a Longsword and a Shield");
-    eq([C(f, "s").sp["B-I-01"], C(f, "g").sp["B-I-01"]], [4, 5]);
+    eq([C(f, "s").sp, C(f, "g").sp], [4, 5]);
     const g = fight([pc("s", [1, 5], hands), foe("x", [9, 5])]);
     pcTurn(g, "s");
     ok(!g.legal("s").some((m) => m.power && m.power.startsWith("B-I-01")), "a body with both Hands full can't cast");
@@ -510,7 +510,7 @@ module.exports = function register(T, H) {
     pcTurn(f, "b");
     const r = f.preview({ type: "shove", actor: "b", target: "x", mode: "push" });
     eq(r.info.toHit, 2 + 2 + 2, "STR + 2 + Scrapper");
-    eq(C(f, "h").resolve["G-I-01"], 3 + 2 + 1);
+    eq(C(f, "h").resolve, 3 + 2 + 1);
   });
   T("[fx] Zealot Righteous Fury: 1/S.R., +1d6 Radiant on a weapon hit", () => {
     const f = fight([pc("z", [5, 5], calling("L-08", { hands: ["W-I-05"] }), { react: "auto" }), foe("x", [6, 5])]);
@@ -558,7 +558,7 @@ module.exports = function register(T, H) {
     eq([i.toHit, i.defense, i.damage, i.cost], [5, 11, "1d10 Fire", null]);
     ok(/out of range \(120 ft\)/.test(refused(f, power(f, "w", "B-I-01#fire-bolt", { targets: ["far"] }))), "125 ft");
     const r = run(f, power(f, "w", "B-I-01#fire-bolt", { targets: ["x"] }), [6, 7]);
-    eq(evs(r, "damage").map((e) => [e.n, e.type]), [[7, "Fire"]]); eq(C(f, "w").sp["B-I-01"], 4);
+    eq(evs(r, "damage").map((e) => [e.n, e.type]), [[7, "Fire"]]); eq(C(f, "w").sp, 5);
     ok(f.preview(power(f, "w", "B-I-01#misty-step", { point: [1, 9] })).ok, "a spell after a cantrip");
   });
 
@@ -566,7 +566,7 @@ module.exports = function register(T, H) {
     const f = fight([pc("w", [1, 5], wiz()), foe("x", [20, 5])]);
     pcTurn(f, "w");
     const r = run(f, power(f, "w", "B-I-01#mage-hand"));
-    eq(evs(r, "damage").length + evs(r, "cond").length, 0); eq(C(f, "w").turn.acts, 1); eq(C(f, "w").sp["B-I-01"], 4);
+    eq(evs(r, "damage").length + evs(r, "cond").length, 0); eq(C(f, "w").turn.acts, 1); eq(C(f, "w").sp, 5);
   });
 
   T("[fx] Magic Missile: 3 darts, one attack per target vs DEX, 1d4 + 1 Radiant per dart, half on a miss, +1 dart per upcast level", () => {
@@ -578,7 +578,7 @@ module.exports = function register(T, H) {
     const r = run(f, power(f, "w", "B-I-01#magic-missile", { targets: ["x", "x", "x", "y"], level: 2 }), [10, 1, 2, 3, 2, 3]);
     eq(evs(r, "roll").length, 2, "one roll per target");
     eq(evs(r, "damage").map((e) => [e.target, e.n, e.type]), [["x", 9, "Radiant"], ["y", 2, "Radiant"]], "x: 3 darts (2+3+4); y misses: half of 4");
-    eq(C(f, "w").sp["B-I-01"], 2);
+    eq(C(f, "w").sp, 3);
     ok(f.preview(power(f, "w", "B-I-01#misty-step", { point: [1, 9] })).ok, "no limit on spells per turn");
   });
 
@@ -586,7 +586,7 @@ module.exports = function register(T, H) {
     const f = fight([pc("w", [5, 5], wiz()), foe("x", [6, 5], { hands: ["W-I-05"] }), foe("y", [4, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-01"] })]);
     foeTurn(f, "x");
     const r = run(f, atk("x", "W-I-05", "w"), [9, 9, { c: 0 }]); // 14 vs 11 → 16; Outnumbered 2 vs 1
-    ok(evs(r, "miss").length); eq(C(f, "w").sp["B-I-01"], 3);
+    ok(evs(r, "miss").length); eq(C(f, "w").sp, 4);
     end(f, "x"); go(f, "y");
     eq(pv(f, atk("y", "W-I-01", "w")).defense, 16, "still on");
     end(f, "y"); go(f, "w");
@@ -604,7 +604,7 @@ module.exports = function register(T, H) {
     eq([i.cells, i.targets], [["8,5", "9,5", "8,6", "9,6"], ["x", "y"]]);
     const r = run(f, power(f, "w", "B-I-01#grease", { point: [8, 5] }), [6]); // 11: x (DEX 11) Prone, y too
     eq(evs(r, "roll").length, 1); ok(has(C(f, "x"), "Prone") && has(C(f, "y"), "Prone"));
-    eq(C(f, "w").sp["B-I-01"], 3);
+    eq(C(f, "w").sp, 4);
     end(f, "w");
     run(f, { type: "beginTurn", actor: "x" });
     run(f, { type: "move", actor: "x", stand: true, path: [] });
@@ -627,7 +627,7 @@ module.exports = function register(T, H) {
     ok(/at most 30 ft/.test(refused(f, power(f, "w", "B-I-01#misty-step", { point: [12, 5] }))));
     ok(/isn't free/.test(refused(f, power(f, "w", "B-I-01#misty-step", { point: [6, 5] }))));
     const r = run(f, power(f, "w", "B-I-01#misty-step", { point: [5, 11] }));
-    eq(r.prompts.length, 0, "no opportunity attack"); eq(C(f, "w").pos, [5, 11]); ok(C(f, "w").turn.reaction); eq(C(f, "w").sp["B-I-01"], 2);
+    eq(r.prompts.length, 0, "no opportunity attack"); eq(C(f, "w").pos, [5, 11]); ok(C(f, "w").turn.reaction); eq(C(f, "w").sp, 3);
   });
 
   T("[fx] Web: 20-ft cube, Restrained for 2 turns on a hit vs DEX, no maintain roll, entering triggers it, fire burns it away", () => {
@@ -637,7 +637,7 @@ module.exports = function register(T, H) {
     eq(i.cells.length, 16); eq(i.targets, ["x", "y"]);
     run(f, power(f, "w", "B-I-01#web", { point: [8, 5] }), [6]); // 11 vs DEX 11
     ok(C(f, "x").conds.some((k) => k.name === "Restrained" && !k.lasting));
-    eq(C(f, "w").sp["B-I-01"], 2);
+    eq(C(f, "w").sp, 3);
     end(f, "w");
     const r = go(f, "x");
     eq(evs(r, "maintain").length, 0); ok(has(C(f, "x"), "Restrained"));
@@ -664,7 +664,7 @@ module.exports = function register(T, H) {
     eq([i.toHit, i.defense, i.cost], [5, 10, null]);
     ok(/out of range \(60 ft\)/.test(refused(f, power(f, "e", "G-I-01#jeer", { targets: ["far"] }))), "65 ft");
     run(f, power(f, "e", "G-I-01#jeer", { targets: ["x"] }), [5]);
-    eq(C(f, "e").resolve["G-I-01"], 6);
+    eq(C(f, "e").resolve, 6);
     end(f, "e"); skip(f, "a"); skip(f, "far"); go(f, "x");
     eq(pv(f, atk("x", "W-I-05", "a")).toHit, 3);
     run(f, atk("x", "W-I-05", "a"), [1]);
@@ -681,7 +681,7 @@ module.exports = function register(T, H) {
     pcTurn(f, "e");
     run(f, power(f, "e", "G-I-01#rally"));
     eq(["a", "b", "c", "d"].filter((id) => C(f, id).mods.some((m) => m.n === 2 && m.kind === "attack")), ["a", "b", "c"]);
-    eq(C(f, "e").resolve["G-I-01"], 5); eq(C(f, "e").turn.acts, 1);
+    eq(C(f, "e").resolve, 5); eq(C(f, "e").turn.acts, 1);
     eq(C(f, "a").mods[0].until.rounds, 10);
   });
 
@@ -701,7 +701,7 @@ module.exports = function register(T, H) {
     foeTurn(f, "x");
     const r = run(f, atk("x", "W-I-05", "a"), [9, { c: 0 }]); // 14 vs 13 → 12
     ok(evs(r, "reaction").some((e) => e.power === "G-I-01#cutting-words")); ok(evs(r, "miss").length);
-    eq(C(f, "e").resolve["G-I-01"], 5); ok(C(f, "e").turn.reaction);
+    eq(C(f, "e").resolve, 5); ok(C(f, "e").turn.reaction);
     f.undo();
     C(f, "e").react = "auto";
     const r2 = run(f, atk("x", "W-I-05", "a"), [12, 1]); // 17 vs 13: −2 can't flip, auto keeps it
@@ -715,14 +715,14 @@ module.exports = function register(T, H) {
     ok(evs(r, "reaction").some((e) => e.power === "G-I-01#steady-now")); eq(dmgs(r), [4]);
     end(f, "a"); skip(f, "e"); go(f, "x");
     const r2 = run(f, atk("x", "W-I-05", "a"), [8, { c: 0 }]); // 13 vs 13 → Defense 15
-    ok(evs(r2, "miss").length, "orDefense"); eq(C(f, "e").resolve["G-I-01"], 4);
+    ok(evs(r2, "miss").length, "orDefense"); eq(C(f, "e").resolve, 4);
   });
 
   T("[fx] Dread: Dirge, 2 Resolve, Frightened of you for 2 turns; no moving closer, −1d20 on attacks", () => {
     const f = fight([pc("e", [1, 5], bard()), pc("a", [8, 4]), foe("x", [9, 5], { hands: ["W-I-05"] })]);
     pcTurn(f, "e");
     run(f, power(f, "e", "G-I-01#dread", { targets: ["x"] }), [7]); // 12 vs 10
-    ok(C(f, "x").conds.some((k) => k.name === "Frightened" && !k.lasting)); eq(C(f, "e").resolve["G-I-01"], 4);
+    ok(C(f, "x").conds.some((k) => k.name === "Frightened" && !k.lasting)); eq(C(f, "e").resolve, 4);
     end(f, "e"); skip(f, "a");
     const r = go(f, "x");
     eq(evs(r, "maintain").length, 0); ok(has(C(f, "x"), "Frightened"));
@@ -748,7 +748,7 @@ module.exports = function register(T, H) {
     const f = fight([pc("p", [1, 5], priest(), { react: "never" }), pc("a", [7, 5], { hands: ["W-I-05"] }), foe("x", [8, 5])]);
     pcTurn(f, "p");
     run(f, power(f, "p", "D-I-01#bless"));
-    ok(C(f, "a").mods.some((m) => m.dice === "1d4")); eq(C(f, "p").resolve["D-I-01"], 5);
+    ok(C(f, "a").mods.some((m) => m.dice === "1d4")); eq(C(f, "p").resolve, 5);
     end(f, "p"); go(f, "a");
     const r = run(f, atk("a", "W-I-05", "x"), [7, 3, 1]); // 7 + 5 + 3 = 15 vs 13
     eq(evs(r, "roll")[0].total, 15); eq(dmgs(r), [4]);
@@ -768,7 +768,7 @@ module.exports = function register(T, H) {
     const f = fight([pc("p", [1, 5], priest(), { react: "never" }), pc("a", [7, 5]), foe("x", [8, 5], { hands: ["W-I-05"] })]);
     pcTurn(f, "p");
     run(f, power(f, "p", "D-I-01#bane", { targets: ["x"] }), [6]); // 11 vs WIL 10
-    ok(C(f, "x").mods.some((m) => m.dice === "-1d4")); eq(C(f, "p").resolve["D-I-01"], 5);
+    ok(C(f, "x").mods.some((m) => m.dice === "-1d4")); eq(C(f, "p").resolve, 5);
     end(f, "p"); skip(f, "a");
     go(f, "x"); // no maintain roll
     const r = run(f, atk("x", "W-I-05", "a"), [10, 4]); // 10 + 5 − 4 = 11 vs 13
@@ -782,7 +782,7 @@ module.exports = function register(T, H) {
     const f = fight([pc("p", [1, 5], priest()), pc("a", [7, 5]), foe("x", [8, 5], { hands: ["W-I-05"] })]);
     foeTurn(f, "x");
     const r = run(f, atk("x", "W-I-05", "a"), [18, { c: 0 }, 2]); // reroll the enemy's hit
-    ok(evs(r, "miss").length); eq(C(f, "p").resolve["D-I-01"], 5);
+    ok(evs(r, "miss").length); eq(C(f, "p").resolve, 5);
     eq(r.prompts.filter((q) => q.kind === "reaction").length, 1, "once");
     f.undo();
     C(f, "p").react = "auto";
@@ -796,7 +796,7 @@ module.exports = function register(T, H) {
     pcTurn(f, "p");
     ok(/out of range/.test(refused(f, power(f, "p", "D-I-01#healing-word", { targets: ["far"] }))), "65 ft");
     const r = run(f, power(f, "p", "D-I-01#healing-word", { targets: ["a"] }), [1, 2]);
-    eq(evs(r, "heal")[0].n, 6); ok(!has(C(f, "a"), "Unconscious")); eq(C(f, "p").resolve["D-I-01"], 4); eq(C(f, "p").turn.acts, 1);
+    eq(evs(r, "heal")[0].n, 6); ok(!has(C(f, "a"), "Unconscious")); eq(C(f, "p").resolve, 4); eq(C(f, "p").turn.acts, 1);
   });
 
   T("[fx] Cure Wounds: Mend, action, 2 Resolve, touch, 2d8 + WIL", () => {
@@ -816,7 +816,7 @@ module.exports = function register(T, H) {
     run(f, power(f, "d", "N-I-01#hawk"));
     const d = C(f, "d");
     const move = () => f.legal("d").find((t) => t.type === "move").left;
-    eq([d.size, d.totals.STR, d.totals.DEX, d.totals.STRd, d.totals.DEXd, d.form.hp, move(), d.resolve["N-I-01"]], ["Tiny", -2, 3, 8, 13, 4, 60, 5]);
+    eq([d.size, d.totals.STR, d.totals.DEX, d.totals.STRd, d.totals.DEXd, d.form.hp, move(), d.resolve], ["Tiny", -2, 3, 8, 13, 4, 60, 8]);
     eq(d.turn.acts, 1);
     end(f, "d"); skip(f, "x"); go(f, "d");
     run(f, { type: "move", actor: "d", path: [[2, 5], [3, 5], [4, 5], [5, 5], [6, 5], [7, 5], [8, 5], [9, 5], [10, 5], [11, 5]] });
@@ -830,7 +830,7 @@ module.exports = function register(T, H) {
     pcTurn(f, "d");
     run(f, power(f, "d", "N-I-01#wolf"));
     const d = C(f, "d");
-    eq([d.size, d.totals.STR, d.totals.DEX, d.form.hp, f.legal("d").find((t) => t.type === "move").left, d.resolve["N-I-01"]], ["Medium", 1, 3, 8, 40, 4]);
+    eq([d.size, d.totals.STR, d.totals.DEX, d.form.hp, f.legal("d").find((t) => t.type === "move").left, d.resolve], ["Medium", 1, 3, 8, 40, 4]);
     eq(pv(f, atk("d", "natural", "x")).damage, "1d6+3 Physical");
     end(f, "d"); go(f, "x");
     const r = run(f, atk("x", "W-I-05", "d"), [15, 10]); // 13 damage: 8 off the Form, 5 carry over
@@ -842,7 +842,7 @@ module.exports = function register(T, H) {
     pcTurn(f, "d");
     run(f, power(f, "d", "N-I-01#bear"));
     const d = C(f, "d");
-    eq([d.size, d.totals.STRd, d.totals.DEXd, d.form.hp, d.resolve["N-I-01"]], ["Large", 15, 11, 12, 3]);
+    eq([d.size, d.totals.STRd, d.totals.DEXd, d.form.hp, d.resolve], ["Large", 15, 11, 12, 3]);
     const i = pv(f, atk("d", "natural", "x"));
     eq([i.toHit, i.damage], [5, "1d8+3 Physical"]);
     run(f, { type: "act", actor: "d", action: "revert" });
@@ -853,7 +853,7 @@ module.exports = function register(T, H) {
     end(f, "d"); skip(f, "x"); go(f, "d");
     ok(/not enough Resolve/.test(refused(f, power(f, "d", "N-I-01#bear"))), "3 + 2 spent of 6: 1 left");
     run(f, power(f, "d", "N-I-01#hawk"));
-    eq([C(f, "d").form.name, C(f, "d").form.hp, C(f, "d").resolve["N-I-01"]], ["Hawk", 4, 0]);
+    eq([C(f, "d").form.name, C(f, "d").form.hp, C(f, "d").resolve], ["Hawk", 4, 0]);
   });
 
   T("[fx] Mossbalm: Mend, action, 2 Resolve, touch, 2d8 + WIL; no voice needed, not while shifted", () => {
@@ -861,7 +861,7 @@ module.exports = function register(T, H) {
     run(f, { type: "adjust", actor: "a", hp: 1 });
     pcTurn(f, "d");
     const r = run(f, power(f, "d", "N-I-01#mossbalm", { targets: ["a"] }), [2, 3]);
-    eq(evs(r, "heal")[0].n, 8); eq(C(f, "d").resolve["N-I-01"], 4);
+    eq(evs(r, "heal")[0].n, 8); eq(C(f, "d").resolve, 4);
     run(f, power(f, "d", "N-I-01#hawk"));
     ok(!f.legal("d").some((t) => t.power === "N-I-01#mossbalm"), "shifted");
   });

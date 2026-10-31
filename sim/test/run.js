@@ -461,7 +461,7 @@ T("Web: one attack roll, Restrained for 2 of the target's turns, no maintain rol
   run(f, { type: "power", actor: "w", power: "B-I-01#web", point: [6, 5] }, [15]);
   const has = () => C(f, "o1").conds.some((k) => k.name === "Restrained");
   ok(has() && !C(f, "o1").conds.find((k) => k.name === "Restrained").lasting);
-  eq(C(f, "w").sp["B-I-01"], 2);
+  eq(C(f, "w").sp, 3);
   run(f, { type: "endTurn", actor: "w" });
   const r = run(f, { type: "beginTurn", actor: "o1" });
   eq(evs(r, "maintain").length, 0);
@@ -527,7 +527,7 @@ T("Dirge vs WIL with fear tag: Iron Will adds +2 WIL Defense", () => {
   eq([pv.info.toHit, pv.info.defense], [5, 12]);
   run(f, { type: "power", actor: "e", power: "G-I-01#dread", targets: ["x"] }, [10]); // own Cue is for allies only
   ok(C(f, "x").conds.some((k) => k.name === "Frightened" && !k.lasting && k.until));
-  eq(C(f, "e").resolve["G-I-01"], 4);
+  eq(C(f, "e").resolve, 4);
 });
 
 // ---------- reactions, prompts, undo, replay ----------
@@ -563,7 +563,7 @@ T("Auto react: Shield spell only when it flips the hit; reaction auto never wast
   start(f, "foe");
   run(f, { type: "beginTurn", actor: "o1" });
   const r = run(f, { type: "attack", actor: "o1", weapon: "W-I-05", target: "w" }, [10]); // 15 vs DEX 11: Shield +5 → 16
-  ok(evs(r, "miss").length >= 1); eq(C(f, "w").sp["B-I-01"], 3);
+  ok(evs(r, "miss").length >= 1); eq(C(f, "w").sp, 4);
   ok(C(f, "w").mods.some((m) => m.kind === "def" && m.n === 5), "Shield lasts until w's next turn");
 });
 T("Cue (Steady Now) auto: +2 Defense on an ally flips a hit", () => {
@@ -572,7 +572,7 @@ T("Cue (Steady Now) auto: +2 Defense on an ally flips a hit", () => {
   run(f, { type: "beginTurn", actor: "o1" });
   const r = run(f, { type: "attack", actor: "o1", weapon: "W-I-05", target: "a" }, [9]); // 14 vs 13
   ok(evs(r, "miss").length >= 1, "13+2 = 15 > 14");
-  eq(C(f, "e").resolve["G-I-01"], 5);
+  eq(C(f, "e").resolve, 5);
 });
 T("Retaliation reaction: Ring of Sparks damages the attacker", () => {
   const f = fight([pc("a", [5, 5], { jewelry: ["J-II-01"] }, { react: "auto" }), orc("o1", [6, 5])]);
@@ -635,7 +635,7 @@ T("Spells: empty Hand needed, one spell per turn, spell points, darts with upcas
   ok(/3 darts/.test(refused(f, { type: "power", actor: "w", power: "B-I-01#magic-missile", targets: ["o1", "o1", "o2", "o2"] })));
   const r = run(f, { type: "power", actor: "w", power: "B-I-01#magic-missile", targets: ["o1", "o1", "o2", "o2"], level: 2 }, [15, 2, 2, 2, 1, 1]);
   eq(evs(r, "damage").map((e) => e.n), [6, 2], "o1: 2 darts of 2+1; o2 misses: half of (1+1)+(1+1)");
-  eq(C(f, "w").sp["B-I-01"], 2);
+  eq(C(f, "w").sp, 3);
 });
 T("Area: one roll against each creature; half damage on a miss", () => {
   const cards = JSON.parse(JSON.stringify(CARDS));
@@ -665,7 +665,7 @@ T("Forms: shift with fresh totals, own HP pool, overflow carries over, gear off,
   run(f, { type: "beginTurn", actor: "d" });
   run(f, { type: "power", actor: "d", power: "N-I-01#bear" });
   const d = C(f, "d");
-  eq([d.size, d.totals.STR, d.totals.STRd, d.totals.WIL, d.form.hp, d.resolve["N-I-01"]], ["Large", 3, 15, 3, 12, 3]);
+  eq([d.size, d.totals.STR, d.totals.STRd, d.totals.WIL, d.form.hp, d.resolve], ["Large", 3, 15, 3, 12, 3]);
   ok(!f.preview({ type: "attack", actor: "d", weapon: "W-I-05", target: "o1" }).ok, "gear merged");
   ok(!f.preview({ type: "move", actor: "d", path: [[6, 5]] }).ok, "first-mover: the shift was its one action");
   run(f, { type: "endTurn", actor: "d" });

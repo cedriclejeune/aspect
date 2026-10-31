@@ -42,7 +42,7 @@
   const data = {
     version: 1, cards,
     decks: {
-      "B-I-01": { cover: "B-I-01", kind: "spellbook", atk: 2, sp: 4, maxLevel: 2, powers: [
+      "B-I-01": { cover: "B-I-01", kind: "spellbook", atk: 2, sp: 2, maxLevel: 2, powers: [
         { id: "B-I-01#fire-bolt", name: "Fire Bolt", kind: "Cantrip", cost: 0, use: "action", reach: 120, target: "enemy", atk: { abil: "deck", vs: "DEX" }, do: [{ dmg: "1d10", type: "Fire" }], tags: ["fire"] },
         { id: "B-I-01#shield", name: "Shield", kind: "Spell", cost: 1, use: "reaction", on: "hitSelf", target: "self", dur: "1 round", do: [{ mod: "def", n: 5, defs: ["STR", "DEX"], until: "startSourceTurn" }] },
         { id: "B-I-01#magic-missile", name: "Magic Missile", kind: "Spell", cost: 1, use: "action", reach: 120, target: "darts", count: 3, atk: { abil: "deck", vs: "DEX" }, half: true, do: [{ dmg: "1d4+1", type: "Radiant" }], upcast: { darts: 1 } },

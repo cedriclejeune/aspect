@@ -64,13 +64,13 @@ module.exports = function register(T, H) {
 
   T("[fx] Dancer's Bells: Dirges reach 90 ft; 1 extra Resolve. Rousing Verse heals 2d4 + WIL at 60 ft", () => {
     const f = fight([pc("e", [1, 5], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, jewelry: ["J-I-06"], aspects: ["G-I-01"] }), pc("a", [12, 5]), tmpl("x", "Bandit", [18, 5])]);
-    eq(C(f, "e").resolve["G-I-01"], 7, "3 + WIL 3 + 1");
+    eq(C(f, "e").resolve, 7, "3 + WIL 3 + 1");
     pcTurn(f, "e");
     ok(f.preview({ type: "power", actor: "e", power: "G-I-01#jeer", targets: ["x"] }).ok, "85 ft: in reach with the Bells");
     run(f, { type: "adjust", actor: "a", hp: 4 });
     const r = run(f, { type: "power", actor: "e", power: "G-I-01#rousing-verse", targets: ["a"] }, [2, 3]);
     eq(evs(r, "heal").map((e) => e.n), [8], "2d4 (2 + 3) + WIL 3");
-    eq(C(f, "e").resolve["G-I-01"], 5);
+    eq(C(f, "e").resolve, 5);
     const g = fight([pc("e", [1, 5], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, aspects: ["G-I-01"] }), tmpl("x", "Bandit", [18, 5])]);
     pcTurn(g, "e");
     ok(!g.preview({ type: "power", actor: "e", power: "G-I-01#jeer", targets: ["x"] }).ok, "60 ft without them");
