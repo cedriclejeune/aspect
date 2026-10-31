@@ -516,3 +516,17 @@ CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure a
                          "on the shoulder. Side view, stumbling forward, the other hand reaching out, the knees "
                          "buckling",
 }
+
+
+SYMBOLS = {  # card symbols, drawn with gen_art.py --symbols (SYMBOL_STYLE) into rules/symbols/qwen/; tools/ink_symbols.py
+    # turns them into rules/symbols/ink/ and puts the four ability emblems on a shield for the Defense symbols
+    "str": "a clenched fist raised, seen from the front, knuckles forward, thumb wrapped across the fingers, short wrist",
+    "dex": "a single feather, tilted, quill at the bottom left, tip at the top right, a solid black vane split by a white shaft",
+    "int": "a wide open eye, almond shaped, a large solid black iris with a white highlight, no eyebrow",
+    "wil": "an eight-pointed star with long sharp rays, a solid black dot in a white ring at its centre",
+    "hp": "a plump heart shape, solid black, one small white highlight at the top left",
+    "spd": "a tall riding boot seen from the side, toe pointing right, low heel, three short speed lines behind it on the left",
+    "trait": "a young sprout, a short thick stem with two broad leaves opening left and right",
+    "technique": "two straight swords crossed in an X, points up, simple crossguards and round pommels at the bottom",
+    "knack": "an old iron key, diagonal, ring bow at the top left, bit with two teeth at the bottom right",
+}
