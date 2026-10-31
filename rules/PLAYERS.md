@@ -546,7 +546,7 @@ An Incapacitated creature counts for neither side. If your side has more, your a
 
 ### 6.8 Cover
 
-A target behind an obstacle has **cover**: **+2 to all its Defenses.** A target completely behind an obstacle has **full cover** and can't be targeted directly.
+A target behind an obstacle has **cover**: **+2 to its STR and DEX Defense.** Its INT and WIL Defense don't change: a wall doesn't stop an illusion or a curse. A target completely behind an obstacle has **full cover** and can't be targeted directly.
 
 **Full cover** also blocks sight: behind a wall, a hedge or a building, you can hide (5.4) and move unseen. A side that closes in unseen surprises the other (6.1).
 

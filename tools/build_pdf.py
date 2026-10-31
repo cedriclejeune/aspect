@@ -1,7 +1,9 @@
 """Build the illustrated PDF rulebooks from rules/PLAYERS.md and rules/GM.md.
 
-Usage: .venv/bin/python tools/build_pdf.py
+Usage: .venv/bin/python tools/build_pdf.py [--lang fr]
 Output: rules/Bearers-Player-Rules.pdf, rules/Bearers-GM-Guide.pdf (and build/*.html for inspection)
+--lang fr builds the French books from rules/fr/JOUEURS.md and rules/fr/MJ.md into rules/fr/Porteurs-Regles-du-joueur.pdf
+and rules/fr/Porteurs-Guide-du-MJ.pdf, with French figures (tools/i18n_fr.py) and glossary (rules/fr/GLOSSAIRE.md).
 rules/DESIGN.md is internal and never built. The Glossary chapters are first synced from GLOSSARY.md.
 Needs: the `markdown` package and Chromium (headless printing).
 """
@@ -121,6 +123,30 @@ BOOKS = [
     ("GM.md", "Bearers-GM-Guide.pdf", "Game Master's Guide", "GM's Guide", {}),
 ]
 
+# Words of the page around the books: title, tagline, version line, contents heading, running header.
+LABELS = {
+    "en": dict(title="BEARERS", tag="What Lingers Matters", foot="Version 0.1 · Draft", contents="Contents", lang="en"),
+    "fr": dict(title="PORTEURS", tag="Ce qui persiste compte", foot="Version 0.1 · Brouillon", contents="Sommaire", lang="fr"),
+}
+L = LABELS["en"]
+
+
+def use_french():
+    """Switch the build to the French books: sources, figures, captions and page labels."""
+    global BOOKS, FIGURES, L
+    import i18n_fr
+    ill.set_lang("fr")
+    FIGURES = {i18n_fr.FIGURE_KEYS.get(k, k): (fn, i18n_fr.CAPTIONS[k], size) for k, (fn, _, size) in FIGURES.items()}
+    BOOKS = [("fr/JOUEURS.md", "fr/Porteurs-Regles-du-joueur.pdf", "Règles du joueur", "Règles du joueur", FIGURES),
+             ("fr/MJ.md", "fr/Porteurs-Guide-du-MJ.pdf", "Guide du Maître du jeu", "Guide du MJ", {})]
+    L = LABELS["fr"]
+
+
+def french_spaces(text):
+    """French typography: a no-break space before : ; ! ? and inside « », so they never start a line."""
+    text = re.sub(r"(?<!<!-- figure) ([:;!?»])", "\u00a0\\1", text)
+    return text.replace("« ", "«\u00a0")
+
 
 def figure(key):
     fn, caption, size = FIGURES[key]
@@ -132,9 +158,9 @@ def classify_blockquotes(body):
         inner = m.group(1)
         first = re.search(r"<p>(.*?)</p>", inner, re.S)
         lead = re.sub(r"<[^>]+>", "", first.group(1)) if first else ""
-        if lead.startswith("Example"):
+        if lead.startswith(("Example", "Exemple")):
             cls = "example"
-        elif re.match(r"^[A-Z'’ ]{3,}(·|\n|$)", lead):
+        elif re.match(r"^[A-ZÀ-ÝŒ'’ -]{3,}(·|\n|$)", lead):
             cls = "card monster" if "CR " in lead else "card"
         else:
             cls = "callout"
@@ -167,13 +193,15 @@ def inline_symbols(body):
     def repl(m):
         key, shield = SYMBOLS[m.group(1)]
         return f'<span class="sym">{ill.stat_symbol(key, shield)}</span>'
-    return re.sub(r'<img[^>]*src="symbols/([\w-]+)\.svg"[^>]*>', repl, body)
+    return re.sub(r'<img[^>]*src="(?:\.\./)?symbols/([\w-]+)\.svg"[^>]*>', repl, body)
 
 
 def build_html(src, subtitle, header, figures):
     md_text = src.read_text(encoding="utf-8")
     # Drop the Markdown title block and Contents list: the PDF has its own cover and TOC.
     md_text = "## 1. " + md_text.split("## 1. ", 1)[1]
+    if L["lang"] == "fr":
+        md_text = french_spaces(md_text)
     # Each line of a blockquote becomes its own paragraph (card header, stats, effect...).
     md_text = re.sub(r"^(>.*)\n(?=>)", r"\1\n>\n", md_text, flags=re.M)
     # Keep consecutive blockquotes (sample cards) as separate cards.
@@ -208,21 +236,24 @@ def build_html(src, subtitle, header, figures):
 
     toc_html = "".join(f'<li><a href="#{hid}">{text}</a></li>' for hid, text in toc)
     cover = (
-        f'<section class="cover">{ill.cover_emblem()}<h1>BEARERS</h1>'
+        f'<section class="cover">{ill.cover_emblem()}<h1>{L["title"]}</h1>'
         f'<p class="sub">{subtitle}</p>'
-        '<p class="tag">What Lingers Matters</p>'
-        '<p class="foot">Version 0.1 · Draft</p></section>'
+        f'<p class="tag">{L["tag"]}</p>'
+        f'<p class="foot">{L["foot"]}</p></section>'
     )
     return (
-        f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Bearers · {subtitle}</title>{FONTS}'
-        f"<style>{CSS.replace('%HEADER%', header)}</style></head><body>{cover}"
-        f'<section class="toc"><h2>Contents</h2><div class="ornament">{ill.ornament()}</div><ol>{toc_html}</ol></section>'
+        f'<!doctype html><html lang="{L["lang"]}"><head><meta charset="utf-8"><title>{L["title"].title()} · {subtitle}</title>{FONTS}'
+        f"<style>{CSS.replace('BEARERS', L['title']).replace('%HEADER%', header)}</style></head><body>{cover}"
+        f'<section class="toc"><h2>{L["contents"]}</h2><div class="ornament">{ill.ornament()}</div><ol>{toc_html}</ol></section>'
         f"{body}</body></html>"
     )
 
 
 def main():
-    for name in sync_glossary.sync():
+    lang = sys.argv[sys.argv.index("--lang") + 1] if "--lang" in sys.argv else "en"
+    if lang == "fr":
+        use_french()
+    for name in sync_glossary.sync(lang=lang):
         print(f"Synced the glossary into {name}")
     BUILD.mkdir(exist_ok=True)
     write_symbols()

@@ -3,13 +3,15 @@
 Front: every action, reaction and free thing you can do on a turn.
 Back: a summary of the combat rules (Chapters 5-8 and 10 of rules/PLAYERS.md).
 
-Usage: .venv/bin/python tools/build_cheatsheet.py
+Usage: .venv/bin/python tools/build_cheatsheet.py [--lang fr]
 Output: rules/Bearers-Combat-Cheat-Sheet.pdf (and build/cheatsheet.html for inspection)
+--lang fr: the French sheet from tools/cheatsheet_fr.py, in rules/fr/Porteurs-Aide-memoire-combat.pdf
 Needs: Chromium (set CHROMIUM=/path/to/binary if it isn't on PATH as `chromium`).
 The text is written by hand: when a combat rule changes in PLAYERS.md, update it here too.
 """
 import os
 import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -218,7 +220,7 @@ BACK = """
 
 <h2>Cover <small>6.8</small></h2>
 <ul>
-<li><strong>Cover:</strong> +2 to all Defenses.</li>
+<li><strong>Cover:</strong> +2 to STR and DEX Defense.</li>
 <li><strong>Full cover:</strong> can't be targeted; blocks sight and areas; lets you hide and approach unseen.</li>
 </ul>
 
@@ -237,7 +239,7 @@ BACK = """
 <tr><td>Stunned</td><td>Incapacitated, speed 0. Attacks vs you adv. <em>Petrified: + resist all.</em></td></tr>
 <tr><td>Unconscious</td><td>Stunned + Prone, drops items. <strong>Any hit within 5 ft is a crit.</strong></td></tr>
 </table>
-<p>Conditions don't stack with themselves. <strong>Exhaustion</strong> (1–6, stacks): −2 to all d20 tests and −5 ft speed per level; level 6 is death; a long rest removes 1.</p>
+<p>Conditions don't stack with themselves.</p>
 
 <div class="box"><b>Subdue <small>8</small></b>
 <ul>
@@ -256,7 +258,7 @@ BACK = """
 <h2>Falling to 0 HP <small>7.4</small></h2>
 <ul>
 <li><strong>Instant death</strong> if leftover damage ≥ your HP max.</li>
-<li>Otherwise <strong>Unconscious</strong>; roll a death save (d20, no modifiers) at the start of each turn.</li>
+<li>Otherwise <strong>Unconscious</strong>; roll a death save (d20, no modifiers) at the start of each turn. You take a <strong>Wound</strong> (7.6).</li>
 </ul>
 <table>
 <tr><th>Death save</th><th>Result</th></tr>
@@ -281,7 +283,8 @@ When a foe group's <strong>Leader</strong> falls, and when half the group is dow
 <h2>After the Fight <small>7.5</small></h2>
 <ul>
 <li><strong>Short rest</strong> (1 h, 2 per long rest): regain half missing HP; S.R. uses and Resolve return; don or doff Armor.</li>
-<li><strong>Long rest</strong> (8 h): all HP, uses, Resolve and spell points; swap Aspects; −1 Exhaustion.</li>
+<li><strong>Long rest</strong> (8 h): all HP, uses, Resolve and spell points; swap Aspects.</li>
+<li><strong>Downtime</strong> (3 days somewhere safe): as a long rest, and heals all your Wounds.</li>
 </ul>
 </div>
 <footer>Golden rules: the rule of fun · no one left out · specific beats general · round down · everything stacks · the GM decides.</footer>
@@ -289,16 +292,26 @@ When a foe group's <strong>Leader</strong> falls, and when half the group is dow
 """
 
 
-def build_html():
+def build_html(lang="en"):
+    if lang == "fr":
+        sys.path.insert(0, str(Path(__file__).parent))
+        import cheatsheet_fr
+        return (f'<!doctype html><html lang="fr"><head><meta charset="utf-8">{FONTS}'
+                f'<title>Porteurs · Aide-mémoire de combat</title><style>{CSS}</style></head>'
+                f'<body>{cheatsheet_fr.FRONT}{cheatsheet_fr.BACK}</body></html>')
     return (f'<!doctype html><html><head><meta charset="utf-8">{FONTS}'
             f'<title>Bearers Combat Cheat Sheet</title><style>{CSS}</style></head>'
             f'<body>{FRONT}{BACK}</body></html>')
 
 
 def main():
+    global OUT
+    lang = sys.argv[sys.argv.index("--lang") + 1] if "--lang" in sys.argv else "en"
+    if lang == "fr":
+        OUT = ROOT / "rules" / "fr" / "Porteurs-Aide-memoire-combat.pdf"
     BUILD.mkdir(exist_ok=True)
-    html_path = BUILD / "cheatsheet.html"
-    html_path.write_text(build_html(), encoding="utf-8")
+    html_path = BUILD / ("cheatsheet-fr.html" if lang == "fr" else "cheatsheet.html")
+    html_path.write_text(build_html(lang), encoding="utf-8")
     subprocess.run(
         [
             os.environ.get("CHROMIUM", "chromium"), "--headless", "--disable-gpu", "--no-sandbox",

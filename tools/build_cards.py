@@ -1,6 +1,7 @@
 """Build the printable base set (cards and Slot frames) from cards/base_set.py.
 
-Usage: .venv/bin/python tools/build_cards.py
+Usage: .venv/bin/python tools/build_cards.py [--lang fr]
+--lang fr: the French base set (cards/fr.py) in rules/fr/Porteurs-Set-de-base.pdf and rules/fr/Porteurs-Set-de-base-Lecture.pdf.
 Output: rules/Bearers-Base-Set.pdf to print and rules/Bearers-Base-Set-Reading.pdf to read on screen
 (and build/base-set.html, build/base-set-reading.html for inspection)
 Cards are 63 × 88 mm, 9 per Letter page; foe cards 126 × 88 mm, 3 per page; Slot frames are 67 × 98 mm, 8 per landscape page.
@@ -41,7 +42,26 @@ CARD_ART = ART / "cards"
 ROWS = ["STR", "DEX", "INT", "WIL", "STRd", "DEXd", "INTd", "WILd", "HP", "SPD"]
 SYM_FILE = {"STR": "str", "DEX": "dex", "INT": "int", "WIL": "wil", "STRd": "str-def", "DEXd": "dex-def", "INTd": "int-def",
             "WILd": "wil-def", "HP": "hp", "SPD": "spd"}
-TYPE_SYMBOL = {"Trait": "trait", "Technique": "technique", "Knack": "knack"}  # more types get symbols as they are drawn
+TYPE_SYMBOL = {"Trait": "trait", "Technique": "technique", "Knack": "knack",  # more types get symbols as they are drawn
+               "Savoir-faire": "knack"}
+
+# Words the builder writes itself (the cards' own text comes from cards/base_set.py, or cards/fr.py in French).
+UI = {
+    "en": dict(lang="en", to_hit="to hit", or_="or", abil={"STR": "STR", "DEX": "DEX", "INT": "INT", "WIL": "WIL"},
+               ranged=("Thrown", "Range"), uses=r"\d+/[SL]\.R\.", recharge="Recharge {n}–6", also="Also carries ",
+               drops="Drops: ", foe="Foe", boss="Boss", leader="Leader", set_foe="FOE", gp="gp", gold="Gold",
+               groups={}, coin="In a Purse, it takes no room. Loose, it is a bag of coins: 1 piece.",
+               blank=("Body", "Attacks", "Powers", "Drops"), blank_kw="Foe · size · senses",
+               sizes={}, senses=lambda x: x),
+    "fr": dict(lang="fr", to_hit="au toucher", or_="ou", abil={"STR": "FOR", "DEX": "DEX", "INT": "INT", "WIL": "VOL"},
+               ranged=("Lancer", "Portée"), uses=r"\d+/R\.[CL]\.", recharge="Recharge {n}–6", also="Porte aussi ",
+               drops="Butin : ", foe="Adversaire", boss="Boss", leader="Meneur", set_foe="ADVERSAIRE", gp="po", gold="Or",
+               groups={"STARTER": "DÉPART", "LOOT": "BUTIN", "WOUND": "BLESSURE"},
+               coin="Dans une Bourse, il ne prend pas de place. En vrac, c'est un sac de pièces : 1 pièce.",
+               blank=("Corps", "Attaques", "Pouvoirs", "Butin"), blank_kw="Adversaire · taille · sens",
+               sizes={"Tiny": "Très petit", "Small": "Petit", "Medium": "Moyen", "Large": "Grand"}, senses=None),
+}
+T = UI["en"]
 
 CSS = f"""
 @page {{ size: Letter; margin: 0; }}
@@ -182,6 +202,9 @@ def strip(values, own=False):
     rows = []
     for key in ROWS:
         v = values.get(key)
+        if v and key == "SPD" and T["lang"] == "fr":
+            import i18n_fr
+            v = i18n_fr.signed_feet(v)
         rows.append(f'<div class="{"" if v or own else "off"}">{symbol(SYM_FILE[key], key)}{f"<b>{v}</b>" if v else ""}</div>')
     return f'<div class="strip{" own" if own else ""}">{"".join(rows)}</div>'
 
@@ -218,7 +241,7 @@ def drawing(name, kind):
 
 
 def item_drawing(c):
-    return drawing(c["name"], c["kind"])
+    return drawing(c.get("key", c["name"]), c["kind"])
 
 
 def item_card(c, group, face="text"):
@@ -231,7 +254,7 @@ def item_card(c, group, face="text"):
     sym = c["sym"] if c["kind"] in ("gear", "aspect", "calling") else None
     return (f'<div class="card{" read" if face == "read" else ""}">{band(c["name"], rank_mark(c["rank"]), sym)}{art}'
             f'{strip(c["strip"], own=c["kind"] == "calling")}{body}'
-            f'{keywords(c["kw"])}<div class="set">{group}{" · " + c["id"] if c.get("id") else ""}</div></div>')
+            f'{keywords(c["kw"])}<div class="set">{T["groups"].get(group, group)}{" · " + c["id"] if c.get("id") else ""}</div></div>')
 
 
 def deck_card(s, deck, face="text"):
@@ -243,7 +266,7 @@ def deck_card(s, deck, face="text"):
     level = f'<span class="lvl">{s["level"]}</span>'
     if face == "art":
         return (f'<div class="card">{band(s["name"], level)}<div class="art{"" if has_strip else " full"}">'
-                f'<img src="{print_image(drawing(s["name"], "deck"))}" alt=""></div>'
+                f'<img src="{print_image(drawing(s.get("key", s["name"]), "deck"))}" alt=""></div>'
                 f'{strip(s["strip"]) if has_strip else ""}{keywords(s["kw"])}</div>')
     paras = "".join(f"<p>{md(t)}</p>" for t in s["text"])
     return (f'<div class="card deck{"" if has_strip else " wide"}">{band(s["name"], level)}'
@@ -270,25 +293,33 @@ def more_dice(dice, n):
     return re.sub(r"(\d+)d(\d+)", lambda m: f"{int(m[1]) + n}d{m[2]}", dice)
 
 
-ABIL = r"(STR|DEX|INT|WIL)"
+def _abil():
+    """The four ability abbreviations as printed (FOR/VOL in French), and a lookup back to the English keys."""
+    back = {v: k for k, v in T["abil"].items()}
+    return "(" + "|".join(back) + ")", back
 
 
 def resolve(text, mods):
     """Write a foe's numbers into card text: "WIL + 2" → "+5", "3 + WIL" → "6", "2d4 + WIL" → "2d4 + 3"."""
-    text = re.sub(rf"(\d+d\d+) \+ {ABIL}\b", lambda m: f"{m[1]} + {mods[m[2]]}", text)
-    text = re.sub(rf"\b{ABIL}(?: or {ABIL})? \+ (\d+)\b",
-                  lambda m: signed(max(mods[a] for a in (m[1], m[2]) if a) + int(m[3])), text)
-    return re.sub(rf"\b(\d+) \+ {ABIL}\b", lambda m: str(int(m[1]) + mods[m[2]]), text)
+    ABIL, back = _abil()
+    m_ = lambda a: mods[back[a]]
+    text = re.sub(rf"(\d+d\d+) \+ {ABIL}\b", lambda m: f"{m[1]} + {m_(m[2])}", text)
+    text = re.sub(rf"\b{ABIL}(?: {T['or_']} {ABIL})? \+ (\d+)\b",
+                  lambda m: signed(max(m_(a) for a in (m[1], m[2]) if a) + int(m[3])), text)
+    return re.sub(rf"\b(\d+) \+ {ABIL}\b", lambda m: str(int(m[1]) + m_(m[2])), text)
 
 
 def foe_attack(c, mods, extra_dice):
     """A weapon card's line on a foe card: the foe's modifier added in, plain-text dice included."""
-    m = re.match(r"([+−-]\d+) to hit, (.+?) \+ ((?:STR|DEX|INT|WIL)(?: or (?:STR|DEX|INT|WIL))*) (\w+)\.\s*(.*)", c["text"][0])
+    ab, back = _abil()
+    ab = ab[1:-1]
+    m = re.match(rf"([+−-]\d+) {T['to_hit']}, (.+?) \+ ((?:{ab})(?: {T['or_']} (?:{ab}))*) (\w+)\.\s*(.*)", c["text"][0])
     hit, dice, attr, dtype, effect = m.groups()
-    mod = max(mods[a] for a in attr.split(" or "))
-    reach = next((k for k in c["kw"].split(" · ") if k.startswith(("Thrown", "Range"))), "")
+    mod = max(mods[back[a]] for a in attr.split(f" {T['or_']} "))
+    reach = next((k for k in c["kw"].split(" · ") if k.startswith(T["ranged"])), "")
     dmg_mod = f" + {mod}" if mod >= 0 else f" − {-mod}"
-    line = (f'*{c["name"]}*: {signed(int(hit.replace("−", "-")) + mod)} to hit, {reach + ", " if reach else ""}'
+    colon = " :" if T["lang"] == "fr" else ":"
+    line = (f'*{c["name"]}*{colon} {signed(int(hit.replace("−", "-")) + mod)} {T["to_hit"]}, {reach + ", " if reach else ""}'
             f'{more_dice(dice, extra_dice)}{dmg_mod} {dtype}.')
     return line + (f" {effect}" if effect else "")
 
@@ -302,60 +333,78 @@ def foe_lines(f):
     values = {k: signed(v) if k in mods else str(v) for k, v in sums.items()}
     lines = list(f["own"])
     also = []
+    colon = " :" if T["lang"] == "fr" else ":"
     for c in cards:
+        key = c.get("key", c["name"])
         kind = c["kw"].split(" · ")[0]
         deck = next((d for d in bs.DECKS if d["cover"] is c), None)
-        n = f["recharge"].get(c["name"])
-        if kind == "Weapon":
+        n = f["recharge"].get(key)
+        if kind in ("Weapon", "Arme"):
             extra = f["extra_dice"]
-            lines.append(foe_attack(c, mods, extra.get(c["name"], 0) if isinstance(extra, dict) else extra))
-        elif kind in ("Armor", "Shield", "Purse"):
+            lines.append(foe_attack(c, mods, extra.get(key, 0) if isinstance(extra, dict) else extra))
+        elif kind in ("Armor", "Shield", "Purse", "Armure", "Bouclier", "Bourse"):
             also.append(f'*{c["name"]}*')
         elif deck:
-            lines.append(f'*{c["name"]}*: ' + " · ".join(resolve(t, mods) for t in c["text"][:2]))
-            lines += [f'**{p["name"]}** ({p["cost"]}): ' + resolve(" ".join(p["text"]), mods)
-                      for p in deck["cards"] if p["name"] in f["powers"]]
+            lines.append(f'*{c["name"]}*{colon} ' + " · ".join(resolve(t, mods) for t in c["text"][:2]))
+            lines += [f'**{p["name"]}** ({p["cost"]}){colon} ' + resolve(" ".join(p["text"]), mods)
+                      for p in deck["cards"] if p.get("key", p["name"]) in f["powers"]]
         else:
             text = resolve(" ".join(c["text"]), mods)
             if n:  # the foe's plain text turns the card's limited uses into Recharge n–6
-                text = re.sub(r"\d+/[SL]\.R\.", f"Recharge {n}–6", text, count=1)
-            lines.append(f'*{c["name"]}*: ' + text)
+                text = re.sub(T["uses"], T["recharge"].format(n=n), text, count=1)
+            lines.append(f'*{c["name"]}*{colon} ' + text)
     if also:
-        lines.append("Also carries " + ", ".join(also) + ".")
-    kw = " · ".join(["Foe"] + (["Boss"] if f["boss"] else []) + (["Leader"] if f["leader"] else []) + [size] + ([f["senses"]] if f["senses"] else []))
-    return values, lines, kw, "Drops: " + " · ".join(f'*{c["name"]}* ({c["id"]})' for c in cards)
+        lines.append(T["also"] + ", ".join(also) + ".")
+    senses = f["senses"]
+    if senses and T["lang"] == "fr":
+        import fr
+        senses = fr.keyword(senses)
+    kw = " · ".join([T["foe"]] + ([T["boss"]] if f["boss"] else []) + ([T["leader"]] if f["leader"] else [])
+                    + [T["sizes"].get(size, size)] + ([senses] if senses else []))
+    return values, lines, kw, T["drops"] + " · ".join(f'*{c["name"]}* ({c["id"]})' for c in cards)
 
 
 def foe_card(f):
     values, lines, kw, ids = foe_lines(f)
-    tag = f'<span class="tag">{"Boss" if f["boss"] else "Foe"}</span>'
+    tag = f'<span class="tag">{T["boss"] if f["boss"] else T["foe"]}</span>'
     drawing = ART / f'{f["name"].lower().replace(" ", "-")}.png'
     art = f'<img src="{print_image(drawing)}" alt="">' if drawing.exists() else card_art.foe_art(f["name"]) or ""
     paras = "".join(f"<p>{md(t)}</p>" for t in lines)
     size = 7.4 if sum(len(t) for t in lines) + 25 * (len(lines) - 1) > 760 else fit(lines, "") + 1  # the longest foe cards
-    return (f'<div class="card foe">{band(f["name"], tag)}<div class="pic">{art}</div>{strip(values, own=True)}'
+    name = f["name"]
+    if T["lang"] == "fr":
+        import fr
+        name = fr.NAMES[name]
+    return (f'<div class="card foe">{band(name, tag)}<div class="pic">{art}</div>{strip(values, own=True)}'
             f'<div class="body" style="font-size:{size}pt">{paras}<p class="ids">{md(ids)}</p></div>'
-            f'<div class="kw">{kw}</div><div class="set">FOE</div></div>')
+            f'<div class="kw">{kw}</div><div class="set">{T["set_foe"]}</div></div>')
 
 
 def blank_foe_card():
-    rows = "".join(f'<div class="line">{t}</div>' for t in ("Body", "Attacks", "", "", "Powers", "", "", "", "Drops", "", ""))
-    return (f'<div class="card foe blank">{band("", "<span class=tag>Foe</span>")}<div class="pic"></div>{strip({}, own=True)}'
-            f'<div class="body">{rows}</div><div class="kw">Foe · size · senses</div><div class="set">FOE</div></div>')
+    b, a, p, d = T["blank"]
+    tag = f'<span class=tag>{T["foe"]}</span>'
+    rows = "".join(f'<div class="line">{t}</div>' for t in (b, a, "", "", p, "", "", "", d, "", ""))
+    return (f'<div class="card foe blank">{band("", tag)}<div class="pic"></div>{strip({}, own=True)}'
+            f'<div class="body">{rows}</div><div class="kw">{T["blank_kw"]}</div><div class="set">{T["set_foe"]}</div></div>')
+
+
+def money(value):
+    """1,000 gp (1 000 po in French)."""
+    return f"{value:,} gp" if T["lang"] == "en" else f"{value:,}".replace(",", "\u202f") + " po"
 
 
 def gold_card(value, face="text"):
     if face == "read":
         return f'<div class="pair">{gold_card(value, "art")}{gold_card(value)}</div>'
     if face == "art":
-        return (f'<div class="card">{band(f"{value:,} gp", "")}<div class="art full">'
-                f'<img src="{print_image(drawing(f"{value:,} gp", "gold"))}" alt=""></div>{keywords("Gold")}</div>')
+        return (f'<div class="card">{band(money(value), "")}<div class="art full">'
+                f'<img src="{print_image(drawing(f"{value:,} gp", "gold"))}" alt=""></div>{keywords(T["gold"])}</div>')
     coin = ill._svg(40, 40, '<circle cx="20" cy="20" r="17" fill="#000" stroke="#000" stroke-width="1.6"/>'
                     '<circle cx="20" cy="20" r="13.5" fill="none" stroke="#fff" stroke-width=".8"/>'
-                    + ill._text(20, 24.5, f"{value:,}", 12 if value < 1000 else 9.5, ill.HEAD, "#fff"), "gold")
-    return (f'<div class="card wide">{band(f"{value:,} gp", "")}'
-            f'<div class="body coin">{coin}<p style="font-size:8pt;text-align:center"><i>In a Purse, it takes no room. Loose, it is a bag of coins: 1 piece.</i></p></div>'
-            f'{keywords("Gold")}</div>')
+                    + ill._text(20, 24.5, money(value).split(" ")[0] if T["lang"] == "en" else money(value)[:-3], 12 if value < 1000 else 9.5, ill.HEAD, "#fff"), "gold")
+    return (f'<div class="card wide">{band(money(value), "")}'
+            f'<div class="body coin">{coin}<p style="font-size:8pt;text-align:center"><i>{T["coin"]}</i></p></div>'
+            f'{keywords(T["gold"])}</div>')
 
 
 def tally_card():
@@ -403,7 +452,7 @@ def build_cards(reading=False):
     for deck in bs.DECKS:
         add(deck["cover"], 1)
         for s in deck["cards"]:
-            put(drawing(s["name"], "deck"), lambda f, s=s, deck=deck: deck_card(s, deck, f), 1)
+            put(drawing(s.get("key", s["name"]), "deck"), lambda f, s=s, deck=deck: deck_card(s, deck, f), 1)
     for value, n in bs.GOLD:
         put(drawing(f"{value:,} gp", "gold"), lambda f, value=value: gold_card(value, f), n)
     out.extend([tally_card()] * bs.TALLIES)
@@ -445,7 +494,7 @@ def intro(n_cards, n_frames, n_duplex):
 
 
 def render(name, title, body, pdf):
-    doc = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{title}</title>{FONTS}'
+    doc = (f'<!doctype html><html lang="{T["lang"]}"><head><meta charset="utf-8"><title>{title}</title>{FONTS}'
            f"<style>{CSS}</style></head><body>{body}{FIT_LORE}</body></html>")
     page = BUILD / name
     page.write_text(doc, encoding="utf-8")
@@ -453,19 +502,58 @@ def render(name, title, body, pdf):
                     "--virtual-time-budget=20000", f"--print-to-pdf={pdf}", page.as_uri()], check=True, capture_output=True)
 
 
+def use_french():
+    """The French base set: cards/fr.py translates the cards in place, the figures and words switch to French."""
+    global T, OUT, READING, intro
+    import fr
+    fr.localize(bs, foes)
+    ill.set_lang("fr")
+    T = UI["fr"]
+    OUT = ROOT / "rules" / "fr" / "Porteurs-Set-de-base.pdf"
+    READING = ROOT / "rules" / "fr" / "Porteurs-Set-de-base-Lecture.pdf"
+    intro = intro_fr
+
+
+def intro_fr(n_cards, n_frames, n_duplex):
+    rows = "".join(f"<tr><td>{k}</td><td>{', '.join(v)}</td></tr>" for k, v in bs.STARTER_LIST.items())
+    frames = ", ".join(f"{n} {name}" for _, name, _, _, n in bs.FRAMES)
+    return f"""<section class="intro"><h1>PORTEURS</h1><p style="font-family:Cinzel,serif;letter-spacing:.2em">Set de base · {bs.PLAYERS} joueurs</p>
+<h2>Impression</h2>
+<ul><li>Imprimez à <b>100 %</b> (sans ajustement à la page) sur du papier cartonné. Les pages 2 à {n_duplex + 1} sont des cartes recto verso : imprimez-les en recto verso, retournement sur le bord long. Imprimez le reste en recto seul.</li>
+<li>Les cartes mesurent 63 × 88 mm ; les cartes d'Adversaire sont double largeur (126 × 88 mm) ; les cadres d'Emplacement mesurent 67 × 98 mm.</li>
+<li>Découpez chaque carte et chaque cadre. Sur chaque cadre, incisez les deux <b style="color:{ill.CRIMSON}">fentes rouges</b> au cutter.</li>
+<li>Glissez les coins supérieur droit et inférieur gauche d'une carte sous les fentes pour l'équiper (Règles du joueur 12.2).</li></ul>
+<h2>Contenu</h2>
+<p>{n_cards} cartes : {len(bs.CALLINGS)} Vocations, la liste de départ ci-dessous, une réserve de butin de Rang I–II (marquée BUTIN en bas à gauche), quatre paquets, de l'or, {bs.TALLIES} cartes de Décompte et le paquet de {len(bs.WOUNDS)} Blessures (marqué BLESSURE : mélangez-le et gardez-le à côté de la table, Règles du joueur 7.6).</p>
+<p>Pour le MJ : {len(foes.FOES)} cartes d'Adversaire et {foes.BLANKS} vierges (marquées ADVERSAIRE : gardez-les à l'écart de la réserve de butin).</p>
+<p>Chaque carte indique son code en bas à droite (<i>W-II-02</i> : type, Rang, numéro). Les cartes d'Adversaire listent les codes des cartes qu'elles lâchent ; chaque carte lâchée par un Adversaire a un exemplaire supplémentaire, pour que la réserve de butin la contienne encore après que les joueurs ont pris leur matériel de départ.</p>
+<p>{n_frames} cadres : {frames}.</p>
+<h2>Liste de départ</h2><table>{rows}</table>
+<h2>Chaque joueur prend</h2>
+<p>Une Vocation, puis du matériel et des Aspects de la liste de départ qu'elle peut équiper (Règles du joueur 13.1), 9 cadres d'Emplacement (Armure, 2 Mains, Bijou, 2 Objets, 3 Aspects), 3 cadres d'Éclat, une Potion de soins, une Bourse à cordon avec 50 po et une carte de Décompte. La Réserve de la Compagnie commence avec 2 cadres d'Éclat par joueur. Gardez les cadres d'Aspect de jalon et les cadres d'Emplacement de Matériel supplémentaire pour que le MJ les distribue.</p>
+</section>"""
+
+
 def main():
     BUILD.mkdir(exist_ok=True)
+    french = "--lang" in sys.argv and sys.argv[sys.argv.index("--lang") + 1] == "fr"
+    if french:
+        use_french()
+    suffix = "-fr" if french else ""
+    title = "Porteurs · Set de base" if french else "Bearers · Base Set"
     (cards, pairs), frames, foe_cards = build_cards(), build_frames(), build_foes()
     n_duplex = 2 * -(-len(pairs) // 9)
-    render("base-set.html", "Bearers · Base Set",
+    render(f"base-set{suffix}.html", title,
            intro(len(cards) + len(pairs), len(frames), n_duplex) + duplex(pairs) + sheets(cards)
            + sheets(foe_cards, "foes", 3) + sheets(frames, "frames", 8), OUT)
     print(f"Wrote {OUT.relative_to(ROOT)}: {len(cards) + len(pairs)} cards ({len(pairs)} two-sided), "
           f"{len(foe_cards)} foe cards, {len(frames)} frames")
     _, wide = build_cards(reading=True)
-    render("base-set-reading.html", "Bearers · Base Set (reading)",
+    render(f"base-set-reading{suffix}.html", title + (" (lecture)" if french else " (reading)"),
            sheets(wide, "foes", 3) + sheets(cards) + sheets(foe_cards, "foes", 3), READING)
     print(f"Wrote {READING.relative_to(ROOT)}: {len(wide)} double-width two-sided cards, then the rest")
+    if french:  # the simulator reads the English cards only
+        return
     import export_sim
     export_sim.main()
 

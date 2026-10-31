@@ -254,7 +254,7 @@ Named Traits and Knacks with a clear idea, ready to drop. Activities get the bon
 | *Acrobat* | +1 DEX | Tumble, balance, jump, perform |
 | *Diplomat* | +1 WIL | Persuade, deceive, read intentions, recall lore |
 | *Hedge Witch* | +1 spell point | Handle animals, recall lore, treat wounds, deceive |
-| *Ranger* | +5 ft Speed | Track, notice, navigate, sneak |
+| *Wayfinder* | +5 ft Speed | Track, notice, navigate, sneak |
 | *Bouncer* | +5 HP | Lift, intimidate, read intentions, endure |
 
 | Rank III (+4) | Bonuses & perks | Activities |
