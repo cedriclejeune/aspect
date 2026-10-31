@@ -67,9 +67,9 @@ def save(im, path):
     out.save(path)
 
 
-# the feather gets a fifth of the others' thickening (scale 10 instead of 2)
-plain = {"str": {}, "dex": {"grow": 15, "scale": 10}, "int": {}, "wil": {"grow": 15}, "hp": {}, "spd": {},
-         "trait": {}, "technique": {"grow": 13}, "knack": {}}
+# The drawings from gen_art.py --symbols are already bold: a light thickening keeps their white details (highlights, veins).
+# knack is still the earlier thin pen drawing and gets the full thickening.
+plain = {n: {"grow": 5} for n in ("str", "dex", "int", "wil", "hp", "spd", "trait", "technique")} | {"knack": {}}
 done = {n: bold(n, **o) for n, o in plain.items()}
 for n, im in done.items():
     save(im, OUT / f"{n}.png")
