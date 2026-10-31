@@ -271,8 +271,8 @@ BACK = """
 
 <h2>Magic in Combat <small>10</small></h2>
 <ul>
-<li><strong>Spellbook:</strong> an empty Hand to cast. Spell points pay only that book's spells (cost 1/2/3/4/6/8 by level, cantrips free). Obvious unless Subtle.</li>
-<li><strong>Divine, Glamour, Nature:</strong> WIL, paid in <strong>Resolve</strong> (printed + WIL, back on a short rest). Always obvious.</li>
+<li><strong>Spellbook:</strong> an empty Hand to cast. One pool of <strong>spell points</strong> (all books + INT) pays any book's spells (cost 1/2/3/4/6/8 by level, cantrips free). Obvious unless Subtle.</li>
+<li><strong>Divine, Glamour, Nature:</strong> WIL, paid from one pool of <strong>Resolve</strong> (all decks + WIL, back on a short rest). Always obvious.</li>
 <li><strong>Forms:</strong> gear stops counting; Form HP goes first, extra damage carries over.</li>
 </ul>
 

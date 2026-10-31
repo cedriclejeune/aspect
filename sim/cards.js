@@ -82,7 +82,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "text": [
     "Spell attack: **INT + 2**",
-    "Spell points: **4** (long rest)",
+    "Spell points: **+2** (long rest)",
     "Max spell level: **2nd**",
     "Casting needs an empty Hand."
    ],
@@ -105,7 +105,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "text": [
     "Attack: **WIL + 2**",
-    "Resolve: **3 + WIL** (short rest)",
+    "Resolve: **+3** (short rest)",
     "Prayers. Fate dice: **d4**."
    ],
    "strip": {},
@@ -127,7 +127,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "text": [
     "Attack: **WIL + 2**",
-    "Resolve: **3 + WIL** (short rest)",
+    "Resolve: **+3** (short rest)",
     "Songs, poems and dances."
    ],
    "strip": {},
@@ -809,7 +809,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Learned:** 2 extra spell points on a Spellbook you hold. +2 on checks to recall lore."
+    "**Learned:** 2 extra spell points. +2 on checks to recall lore."
    ],
    "strip": {
     "STR": 0,
@@ -1048,7 +1048,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Solitude:** 1 extra Resolve on a Divine, Glamour or Nature deck you have. +2 on checks to forage and endure."
+    "**Solitude:** 1 extra Resolve. +2 on checks to forage and endure."
    ],
    "strip": {
     "STR": 0,
@@ -1120,7 +1120,7 @@ globalThis.BEARERS_CARDS = {
     "Nature"
    ],
    "text": [
-    "Resolve: **3 + WIL** (short rest)",
+    "Resolve: **+3** (short rest)",
     "Beasts your body remembers. Shift: action."
    ],
    "strip": {},
@@ -3111,7 +3111,7 @@ globalThis.BEARERS_CARDS = {
    "cover": "B-I-01",
    "kind": "spellbook",
    "atk": 2,
-   "sp": 4,
+   "sp": 2,
    "maxLevel": 2,
    "powers": [
     {

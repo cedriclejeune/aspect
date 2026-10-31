@@ -95,7 +95,7 @@ The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed 
 _Avoid_: Core, background, archetype, class, race, stat block (for players)
 
 **Symbols**:
-The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff); basic weapons light all four symbols.
+The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols.
 _Avoid_: requirement, prerequisite, Req
 
 **Gear Slot**:
@@ -220,23 +220,27 @@ _Avoid_: weakening
 A set length of time an effect lasts, printed on it.
 
 **Spellbook**:
-An item holding a fixed list of spells and a pool of spell points. All spellcasting uses INT.
+An item holding a fixed list of spells. Its spell points add to your one pool. All spellcasting uses INT.
 _Avoid_: grimoire, spell list
 
+**Spell points**:
+The points your spells cost: one pool, the sum your Spellbooks print + INT (minimum 1), kept on your tally card. It returns on a long rest.
+_Avoid_: spell slots, mana
+
 **Divine**:
-An Aspect type: WIL magic of prayer. Its deck, a **Litany**, holds a fixed list of powers that alter fate and heal, and a pool of Resolve.
+An Aspect type: WIL magic of prayer. Its deck, a **Litany**, holds a fixed list of powers that alter fate and heal, and adds to your Resolve.
 _Avoid_: Holy Book, Presence, Calling, cleric magic, faith (as the term)
 
 **Glamour**:
-An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and a pool of Resolve.
+An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and adds to your Resolve.
 _Avoid_: Muse, Presence, Calling, songbook, bardic magic, inspiration
 
 **Nature**:
-An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and a pool of Resolve.
+An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and adds to your Resolve.
 _Avoid_: Memories, Bestiary, Wilds, Calling, druidic magic, primal magic
 
 **Resolve**:
-The points a Divine, Glamour or Nature Aspect spends on its powers. Each has its own pool; extra Resolve from Traits and gear adds to one of them. It returns on a short rest.
+The points your Divine, Glamour and Nature powers cost: one pool, the sum their decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest.
 _Avoid_: Presence points, Wild points, will points, mana
 
 **Form**:
@@ -430,5 +434,5 @@ The code in a card's bottom-right corner: type letter, Rank if it has one, and n
 _Avoid_: card number, serial
 
 **Tally card**:
-The one card you write on: your ten totals, current and temporary HP, and death saves.
+The one card you write on: your ten totals, current and temporary HP, death saves, spell points and Resolve.
 _Avoid_: character sheet (as the term)

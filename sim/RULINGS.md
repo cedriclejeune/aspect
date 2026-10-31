@@ -26,7 +26,7 @@ Interpretations the sim makes where the rules are unclear or silent. Each one is
 | R208 | Unconscious target | Counts as Stunned and Prone: both answer the Target question, so one advantage die (Prone gives its die at any range). Petrified counts as Stunned. | P 5.2, P 8 |
 | R209 | Steady Now on a foe's roll | A Cue with `orDefense` used on an enemy's attack adds its number to the targeted ally's Defense. | P 3.4 |
 | R210 | Auto reactions | "auto" uses a defensive reaction only when it turns the hit into a miss, otherwise a retaliation reaction (Ring of Sparks); never one that changes nothing. | SPEC 4.2 |
-| R211 | Extra pools | Extra spell points (`extraSp`) add to the first equipped Spellbook's pool, extra Resolve (`extraResolve`) to the first Divine, Glamour or Nature deck: the rules let the player choose the pool at a long rest, and the sim can't ask. | P 10.2, P 10.6 |
+| R211 | Extra pools | *Retired:* the rules now keep one spell point pool and one Resolve pool on the tally card, and extras add to the total. Pools use your own totals (INT, WIL), not a Form's. | P 10.2, P 10.6, P 12.3 |
 | R212 | Empty stacks | An empty Consumable stack leaves its Item Slot; a Recipe keeps its Slot at 0 flasks. | P 3.2 |
 | R213 | Foes at 0 HP | Foes die at 0 HP unless the build sets `important: true`; then they follow the Bearer rules (Unconscious, death saves). | GM 2.1 |
 | R214 | Healing a Form | Healing a shifted creature restores the Form's HP pool; its own HP waits. | P 10.7 |

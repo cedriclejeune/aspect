@@ -70,7 +70,7 @@ None of these checks fired in normal play (0 exceptions, 0 refusals of policy co
 | R208 | Matches the rules | P 8 (Unconscious = Stunned and Prone) and P 5.2 (each source adds one die). |
 | R209 | Matches the rules | Steady Now: "or to the Defense an attack targets". |
 | R210 | Matches the rules (SPEC 4.2) | — |
-| R211 | Fills a real gap (reasonable) | — |
+| R211 | Retired: the rules now define one pool each (P 10.2, 10.6) | — |
 | R212 | Matches the rules | P 3.2: "Consumables are gone once used"; Recipes refill. |
 | R213 | Matches the rules | GM 2.1: "At 0 HP, they usually die. You may let important ones fall unconscious." |
 | R214 | Fills a real gap (reasonable) | P 10.7 doesn't say how healing works while shifted. |

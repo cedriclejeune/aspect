@@ -29,7 +29,7 @@
  * Commands: SPEC 4.2, plus these extras: act "revert" (leave a Form, free) and act "prone" (drop prone, free);
  *   move `safe: true` spends movement granted by a `move: "safe"` effect (no opportunity attacks);
  *   act "endCond" + `cond: "<condition id>"` (an action that ends a condition with `endAction`, Pierce: pull the pilum free);
- *   interact `drop: "<card id>"` (free); (extra spell points and Resolve add to one deck's pool, R211);
+ *   interact `drop: "<card id>"` (free); (spell points and Resolve are one pool each, on the tally card, P 10.2, 10.6);
  *   power/shove `mode: "push"|"prone"` for shove effects; adjust `temp`, `exhaustion`.
  *
  * Morale (P 6.11, RULING R800): checked after every command. A foe that flees gets `dead` + `fled` (it leaves the
@@ -233,6 +233,7 @@
     const t = totals(Object.assign({}, c.build, { hands: c.hands.filter((id) => !off.includes(id)) }), F.cards);
     c.own = t;
     if (!c.form) { c.totals = t; c.size = t.size; }
+    if (c.pools) refreshPools(F, c);
   }
   function validate(build, cards) {
     build = normBuild(build);
@@ -345,9 +346,19 @@
   function cardName(F, entry) { return (entry.card && F.cards.cards[entry.card] && F.cards.cards[entry.card].name) || entry.p.name || entry.p.id; }
 
   function parseUses(u) { const m = String(u || "").match(/(\d+)/); return m ? +m[1] : 0; }
-  function maxResolve(F, c, deckId) { const d = F.cards.decks[deckId]; return Math.max(1, (d.resolve || 0) + (c.totals.WIL || 0)) + ((c.extraResolve || {})[deckId] || 0); }
+  // P 10.2, 10.6, 12.3: one spell point pool (every equipped Spellbook + INT, min 1) and one Resolve pool (every
+  // Divine, Glamour and Nature deck + WIL once, min 1), plus extras; null without such a deck. Kept on your own tally
+  // card, so a Form's totals never change them.
+  function poolMax(F, c, ids, key, abil, extra) {
+    if (!ids.length) return null;
+    return Math.max(1, ids.reduce((n, id) => n + (F.cards.decks[id][key] || 0), 0) + (c.own[abil] || 0)) + extra;
+  }
   function refreshPools(F, c) {
-    for (const id of Object.keys(c.resolve)) c.resolve[id] = Math.max(0, maxResolve(F, c, id) - (c.spentResolve[id] || 0));
+    const P = c.pools;
+    P.spMax = poolMax(F, c, P.books, "sp", "INT", P.extraSp);
+    P.resolveMax = poolMax(F, c, P.wil, "resolve", "WIL", P.extraResolve);
+    c.sp = P.spMax == null ? null : Math.max(0, P.spMax - P.spentSp);
+    c.resolve = P.resolveMax == null ? null : Math.max(0, P.resolveMax - P.spentResolve);
   }
 
   // ---------- geometry ----------
@@ -473,20 +484,17 @@
       hp: t.HP, maxHp: t.HP, temp: 0, form: null, dead: false, down: false, stable: false, death: { ok: 0, fail: 0 },
       conds: [], mods: [], turn: freshTurn(), hands: build.hands.slice(), carried: build.carried.slice(),
       items: build.items.map((it) => { const cd = cards.cards[it.id]; return { id: it.id, n: it.n != null ? it.n : cd && typeOf(cd) === "Recipe" ? cd.uses || 1 : 1 }; }),
-      uses: {}, sp: {}, resolve: {}, spentResolve: {}, extraResolve: {},
+      uses: {}, sp: null, resolve: null, pools: { books: [], wil: [], spentSp: 0, spentResolve: 0, extraSp: 0, extraResolve: 0 },
       react: sc.react || "ask", boss: !!build.boss, build, exhaustion: 0, spellTurn: -1 };
     for (const e of powerList(cards, c, true)) {
       if (e.p.uses) c.uses[e.p.id] = parseUses(e.p.uses);
       if (e.p.recharge) c.uses[e.p.id] = 1;
     }
-    for (const it of c.items) { const d = cards.decks && cards.decks[it.id]; if (d && d.kind === "spellbook") c.sp[it.id] = d.sp || 0; }
-    for (const id of build.aspects) { const d = cards.decks && cards.decks[id]; if (d && d.kind !== "spellbook") { c.resolve[id] = 0; c.spentResolve[id] = 0; } }
-    // RULING R211: extra spell points add to the first equipped Spellbook, extra Resolve to the first Divine, Glamour
-    // or Nature deck (P 10.2, 10.6: one pool, chosen at a long rest).
+    for (const it of c.items) { const d = cards.decks && cards.decks[it.id]; if (d && d.kind === "spellbook") c.pools.books.push(it.id); }
+    for (const id of build.aspects) { const d = cards.decks && cards.decks[id]; if (d && d.kind !== "spellbook") c.pools.wil.push(id); }
     const pass = powerList(cards, c, false).filter((e) => e.p.use === "passive");
-    const book = Object.keys(c.sp)[0], wil = Object.keys(c.resolve)[0];
-    if (book) c.sp[book] += pass.reduce((n, e) => n + (e.p.extraSp || 0), 0);
-    if (wil) c.extraResolve[wil] = pass.reduce((n, e) => n + (e.p.extraResolve || 0), 0);
+    c.pools.extraSp = pass.reduce((n, e) => n + (e.p.extraSp || 0), 0);
+    c.pools.extraResolve = pass.reduce((n, e) => n + (e.p.extraResolve || 0), 0);
     refreshPools(F, c);
     return c;
   }
@@ -982,10 +990,10 @@
     const deck = deckOf(F, e);
     if (deck && cost > 0) {
       if (deck.kind === "spellbook") {
-        if ((c.sp[e.deck] || 0) >= cost) return { ok: true, pool: "own" };
+        if ((c.sp || 0) >= cost) return { ok: true, pool: "own" };
         return { ok: false, why: `${p.name}: not enough spell points` };
       }
-      if ((c.resolve[e.deck] || 0) >= cost) return { ok: true, pool: "own" };
+      if ((c.resolve || 0) >= cost) return { ok: true, pool: "own" };
       return { ok: false, why: `${p.name}: not enough Resolve` };
     }
     if (e.src === "item") {
@@ -1003,8 +1011,8 @@
     const deck = deckOf(F, e);
     if (deck && cost > 0) {
       const sp = deck.kind === "spellbook";
-      if (sp) c.sp[e.deck] -= cost;
-      else { c.spentResolve[e.deck] = (c.spentResolve[e.deck] || 0) + cost; refreshPools(F, c); }
+      c.pools[sp ? "spentSp" : "spentResolve"] += cost;
+      refreshPools(F, c);
       s.spent[sp ? "sp" : "resolve"] += cost;
       emit(X, { t: "resource", actor: c.id, what: sp ? "sp" : "resolve", n: -cost, text: `${c.name} spends ${cost} ${sp ? "spell point" + (cost > 1 ? "s" : "") : "Resolve"}.` });
     }

@@ -102,13 +102,13 @@ A Calling gives **+2 to its two abilities** and +0 to the other two, a **Hit Poi
 | **Spellblade** | STR · INT | 13 | 30 ft | **Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook. |
 | **Infiltrator** | DEX · INT | 10 | 35 ft | **Unseen:** +2 on checks to sneak, pick locks and spot traps. |
 | **Performer** | DEX · WIL | 10 | 35 ft | **Crowd Work (1/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll. |
-| **Sage** | INT · WIL | 9 | 35 ft | **Learned:** 2 extra spell points on a Spellbook you hold. +2 on checks to recall lore. |
+| **Sage** | INT · WIL | 9 | 35 ft | **Learned:** 2 extra spell points (10.2). +2 on checks to recall lore. |
 | **Brawler** | STR · DEX | 14 | 30 ft | **Scrapper:** +2 to hit with Grapples and Shoves. |
 | **Zealot** | STR · WIL | 12 | 35 ft | **Righteous Fury (1/S.R.):** when you hit with a weapon attack: +1d6 Radiant damage. |
 | **Tactician** | STR · INT | 12 | 35 ft | **Command (1/S.R.):** action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack. |
 | **Ranger** | DEX · INT | 11 | 35 ft | **Quarry (1/S.R.):** when you hit with a ranged attack: +2 on your attacks against that target until the end of your next turn. |
 | **Trickster** | DEX · WIL | 9 | 35 ft | **Feint (2/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss. |
-| **Hermit** | INT · WIL | 11 | 30 ft | **Solitude:** 1 extra Resolve on a Divine, Glamour or Nature deck you have. +2 on checks to forage and endure. |
+| **Hermit** | INT · WIL | 11 | 30 ft | **Solitude:** 1 extra Resolve (10.6). +2 on checks to forage and endure. |
 
 Your other numbers grow through your cards: **Armor** and **Traits** print most of the HP you gain, and gear and Aspects raise your modifiers and Defenses.
 
@@ -170,7 +170,7 @@ Defeating a Boss may grant one character an **extra Gear Slot** for good. The pa
 Each sample shows the name, Rank and lit symbols (*all* when all four are), the bonuses (if any), the effect, then the keywords in italics.
 
 > **CONJURER'S BOOK** · Rank I · INT
-> Spell attack: INT + 2 · Spell points: 4 · Max spell level: 2nd
+> Spell attack: INT + 2 · Spell points: +2 · Max spell level: 2nd
 > Spells: *Fire Bolt, Mage Hand* (cantrips) · *Magic Missile, Shield, Grease* (1st) · *Misty Step, Web* (2nd)
 > *Spellbook*
 
@@ -239,7 +239,7 @@ Each sample shows the name, Rank and lit symbols (*all* when all four are), the 
 > *Knack*
 
 > **WANDERER'S REPERTOIRE** · Rank I · WIL
-> Attack: WIL + 2 · Resolve: 3 + WIL (short rest)
+> Attack: WIL + 2 · Resolve: +3 (short rest)
 > Powers: *Jeer* (0) · *Rally*, *Hold the Line*, *Cutting Words*, *Steady Now* (1) · *Dread*, *Rousing Verse* (2)
 > - *Jeer* (Dirge, 0): until the end of the target's next turn, it has −2 on its next attack.
 > - *Rally* (Anthem, 1): Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks.
@@ -251,7 +251,7 @@ Each sample shows the name, Rank and lit symbols (*all* when all four are), the 
 > *Glamour*
 
 > **ACOLYTE'S LITANY** · Rank I · WIL
-> Attack: WIL + 2 · Resolve: 3 + WIL (short rest)
+> Attack: WIL + 2 · Resolve: +3 (short rest)
 > Powers: *Guidance* (0) · *Bless*, *Bane*, *Twist Fate* (1) · *Healing Word*, *Cure Wounds* (2)
 > - *Guidance* (Cue, 0): add 1d4 to an ally's check.
 > - *Bless* (Anthem, 1): Duration 1 minute. Up to 3 allies within 30 ft add 1d4 to their attack rolls.
@@ -262,7 +262,7 @@ Each sample shows the name, Rank and lit symbols (*all* when all four are), the 
 > *Divine*
 
 > **WILDHEART'S REMEMBRANCE** · Rank I · WIL
-> Resolve: 3 + WIL (short rest)
+> Resolve: +3 (short rest)
 > Powers: *Hawk* (1) · *Wolf*, *Mossbalm* (2) · *Bear* (3)
 > - *Hawk* (Form, 1): STR −2 · DEX +3 · 4 HP · Speed 10 ft, Fly 60 ft · Tiny. Talons: +2 to hit, 1d4 + DEX Physical. +2 on checks to notice.
 > - *Wolf* (Form, 2): STR +1 · DEX +3 · 8 HP · Speed 40 ft · Medium. Bite: +2 to hit, 1d6 + DEX Physical. +2 on checks to track.
@@ -293,7 +293,7 @@ Each Slot has its own swap time. A swap moves one piece of gear between a Slot a
 
 - **Pack in combat:** taking gear (a Shard included) out of your Pack (or putting it away) costs **both your actions**, **plus** the Slot's swap time. The Party Stash can't be reached in combat.
 - **Out of combat**, the Pack and the Party Stash cost nothing to reach (the Party Stash only where it is, 3.7). The Slot's swap time still applies.
-- **Expended gear and Aspects are locked:** anything with uses or spell points spent can be swapped out **only at a long rest**.
+- **Expended gear and Aspects are locked:** anything with uses spent can be swapped out **only at a long rest**. Spellbooks and Divine, Glamour and Nature decks have no uses: one can come off whenever its swap time allows, as long as the points you've spent still fit in your new total (10.2, 10.6).
 - Gear and Aspects keep their state in the Pack, the Party Stash and Shards: new loot is fully charged.
 
 ### 3.6 Stacking Rules
@@ -720,12 +720,12 @@ Spells come from **Spellbooks**, a kind of gear. All spellcasting uses **INT**. 
 - **Spell attack:** the bonus added to INT for its spell attacks.
 - **Cantrips:** cast at will.
 - **Spells:** a **fixed list**. To change spells, equip a different book.
-- **Spell points:** the book's pool, regained on a long rest.
+- **Spell points:** what the book adds to your spell points (10.2).
 - **Max spell level:** the highest level you can cast (or upcast to) with this book.
 
 **A book holds its spells:** it lists its Rank, spell attack, spell points and max spell level, then its cantrips and spells. It is **one piece of gear** wherever it goes (Item Slot, Pack, Party Stash), and its spells never move to another book. At the table, a book is a **deck**: a cover card and one card per spell (12.4).
 
-A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must be empty** (it holds the book). A Two-Handed weapon fills both Hands. A book's spell points pay only for **that book's** spells. You may equip several books, one per Item Slot.
+A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must be empty** (it holds the book). A Two-Handed weapon fills both Hands. You may equip several books, one per Item Slot: your spell points pay for the spells of any of them.
 
 ### 10.2 Spell Points
 
@@ -733,9 +733,11 @@ A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must
 |---|---|---|---|---|---|---|
 | **Cost** | 1 | 2 | 3 | 4 | 6 | 8 |
 
+- **One pool:** your **spell points** = the spell points of every Spellbook you have equipped **+ your INT** (minimum 1), plus any extra spell points from your Calling, Traits and gear. With no Spellbook equipped, you have none. Keep the count on your tally card (12.3).
+- **Long rest:** spent spell points come back on a long rest.
+- **Changes:** if your INT or your books change, your total changes; points already spent stay spent. You can take a book off only if what you've spent still fits in the new total.
 - **Cantrips** cost nothing.
-- **Upcasting:** pay the cost of a higher level (up to the book's max) to cast a spell at that level.
-- **Extra spell points** from Traits add to **one** equipped Spellbook's pool: choose it at each long rest.
+- **Upcasting:** pay the cost of a higher level (up to the book's max) to cast a spell at that level. Each book's max spell level applies to its own spells.
 - Spells range from **1st to 6th level**.
 
 ### 10.3 Casting a Spell
@@ -775,8 +777,8 @@ Three kinds of magic draw on **WIL** instead of a book. Each is an **Aspect type
 | **Glamour** | A **Repertoire** of songs, poems and dances | Lifts allies and breaks enemies with flat bonuses and penalties, and mends a little: Anthems, Dirges, Cues, Mends |
 | **Nature** | A **Remembrance** of beasts | Shifts into Forms (10.7) and heals: Forms, Mends |
 
-- **A fixed list:** each one lists its Rank, its Attack bonus, its Resolve, then its powers. To change powers, absorb a different one. At the table, it's a deck (12.4).
-- **Resolve:** each has its own pool: the number printed on it **+ your WIL** (minimum 1). It returns on a **short rest** (and a long rest). If your WIL changes, your maximum changes; Resolve already spent stays spent. A power costing **0** is used at will. **Extra Resolve** from Traits and gear adds to **one** of your pools: choose it when you equip the card and at each long rest.
+- **A fixed list:** each one lists its Rank, its Attack bonus, the Resolve it adds, then its powers. To change powers, absorb a different one. At the table, it's a deck (12.4).
+- **Resolve:** one pool for all of them: the Resolve printed on each of your Divine, Glamour and Nature decks, added up, **+ your WIL** once (minimum 1), plus any extra Resolve from your Calling, Traits and gear. With none of these decks, you have none. Keep the count on your tally card (12.3). Any of your decks' powers can spend it. It returns on a **short rest** (and a long rest). If your WIL or your decks change, your total changes; Resolve already spent stays spent. A power costing **0** is used at will.
 - **Attack:** d20 + WIL + the printed **Attack** bonus.
 - **Be heard:** Divine and Glamour need your voice: you must be able to speak, and targets must hear you (a Glamour dance works on targets who **see** you instead). No Divine or Glamour while Incapacitated, underwater or shifted. Nature needs no voice. None of them needs a Hand, and all are **obvious**.
 - **Fate dice:** a d4 at Rank I–II, d6 at III, d8 at IV–V, added to or taken from a roll.
@@ -931,12 +933,12 @@ Each of your Slots is a **Slot frame**: a holder a little larger than a card, wi
 - **Between sessions,** keep each frame with its card: your build stays as you left it.
 - **Pack:** a pile of loose cards beside you. **Party Stash:** a shared pile in the middle of the table, or with the GM when the party leaves it behind.
 - **Shards:** a Shard is a **Shard frame**. Tuck the Aspect's card into it the same way. An empty Shard is the frame alone. Absorbing (3.8) moves the card from its Shard frame into an Aspect frame.
-- **Spent uses and spell points:** mark them with tokens on the card. A **Subdue** keeps a die beside its target to show the decay (Chapter 8).
+- **Spent uses:** mark them with tokens on the card. Spent spell points and Resolve go on your tally card (12.3). A **Subdue** keeps a die beside its target to show the decay (Chapter 8).
 - **Gold:** gold cards come in **1, 10, 50, 100, 500 and 1,000 gp**. Tuck them under the Purse card that holds them, up to its maximum. A loose gold card is one bag of coins (1 piece). Pay by handing gold cards to the GM, who makes change from the bank.
 
 ### 12.3 Keeping Your Totals
 
-Your **tally card** is your **sheet**, and the only card you write on: use a pencil or a dry-erase sleeve, and start a fresh one when it's worn. Its strip lines up with every bonus strip and holds your ten **totals**: the sum of your Calling and all your other cards. Beside it, it holds your **current HP**, your **temporary HP** and your **death saves** (7.4).
+Your **tally card** is your **sheet**, and the only card you write on: use a pencil or a dry-erase sleeve, and start a fresh one when it's worn. Its strip lines up with every bonus strip and holds your ten **totals**: the sum of your Calling and all your other cards. Beside it, it holds your **current HP**, your **temporary HP**, your **death saves** (7.4), your **spell points** (10.2) and your **Resolve** (10.6).
 
 <!-- figure: tally -->
 
@@ -952,13 +954,17 @@ You only touch the totals at two moments.
 
 **Wounds** (7.6) are a shared deck of cards, shuffled, beside the table. Lay a penalty Wound in your stack like any card with a strip; tuck a Crippling Wound into the Slot frame it blocks, over nothing. When a Wound heals, it goes back into the deck.
 
-**When you shift** into a Form (10.7), fill a fresh tally card: the Form's strip, your Calling's INT and WIL, then your Aspects (gear doesn't count). Put the Form's HP in its current HP box. When you revert, go back to your own tally card.
+**When you shift** into a Form (10.7), fill a fresh tally card: the Form's strip, your Calling's INT and WIL, then your Aspects (gear doesn't count). Put the Form's HP in its current HP box. Your spell points and Resolve stay on your own tally card, and the Form's card leaves those boxes empty. When you revert, go back to your own tally card.
 
 **HP:** when your current HP changes, cross out the old number and write the new one.
 
+**Spell points and Resolve:** write the total on the left of its box, then a dash. Each time you spend a point, draw a small tally mark on the right of the dash. What you have left is the total minus the marks. A rest that brings the points back erases the marks (7.5). When the total changes (10.2, 10.6), write the new one and keep the marks. A box stays empty if you have no Spellbook, or no Divine, Glamour or Nature deck.
+
+> **Example: Isolde the Sage** holds the *Conjurer's Book* (+2) with INT +2, and her *Learned* perk adds 1: she writes **5 –** in her spell point box. She casts *Web* (2 points) and *Shield* (1): **5 – |||**. She has 2 left until her next long rest.
+
 ### 12.4 Decks
 
-A Spellbook is a **deck**: a **cover card** (Rank, spell attack, spell points, max spell level) on top, then **one card per cantrip and spell**, each marked with the book's name. The deck moves as one card, and its spell cards never move to another deck. Mark spent spell points with tokens on the cover. A Litany, a Repertoire and a Remembrance are decks too: a cover card (Rank, Attack, Resolve) and one card per power or Form, marked with spent Resolve tokens. While you're shifted, lay the Form's card on your Calling card, with its own tally card.
+A Spellbook is a **deck**: a **cover card** (Rank, spell attack, spell points, max spell level) on top, then **one card per cantrip and spell**, each marked with the book's name. The deck moves as one card, and its spell cards never move to another deck. A Litany, a Repertoire and a Remembrance are decks too: a cover card (Rank, Attack, Resolve) and one card per power or Form. A cover card's spell points or Resolve count in your total on the tally card (12.3); nothing is marked on the deck. While you're shifted, lay the Form's card on your Calling card, with its own tally card.
 
 ---
 
@@ -970,7 +976,7 @@ A Spellbook is a **deck**: a **cover card** (Rank, spell attack, spell points, m
 2. **Choose your gear and Aspects** from the GM's starter list (all Rank I), among the cards your Calling can equip (3.1): **1 Armor**, up to **2** for your **Hands** (weapons or a shield), **1 Jewelry** and **3 Aspects**. A caster also picks a **Spellbook** (it takes an Item Slot and needs an empty Hand Slot to cast). A Divine, Glamour or Nature Aspect is one of your 3 Aspects.
 3. **Fill your Item Slots**: one *Potion of Healing* (in the free Item Slot).
 4. **Take 3 empty Shards** and a *Coin Pouch* (Purse, Rank I) holding **50 gp** (all in your Pack). The party's Stash starts with **2 empty Shards per character** (3.8).
-5. **Calculate** your ten totals (four modifiers, four Defenses, HP maximum, Speed) by adding the bonuses of your gear and Aspects to your Calling's, and write them on a tally card with your current HP (12.3). Then work out your weapon and spell attack bonuses and passive Awareness (5.3).
+5. **Calculate** your ten totals (four modifiers, four Defenses, HP maximum, Speed) by adding the bonuses of your gear and Aspects to your Calling's, and write them on a tally card with your current HP (12.3). With a Spellbook, write your spell points (10.2); with a Divine, Glamour or Nature Aspect, your Resolve (10.6). Then work out your weapon and spell attack bonuses and passive Awareness (5.3).
 6. **Describe** who you are: name, look and a bond.
 
 ---
@@ -1013,7 +1019,7 @@ Each game term has one meaning, in both books.
 | **Decay** | The disadvantage dice a Subdue's repeat attack gathers: one for each repeat that hit and each time the source took damage. |
 | **Defense** | The number an attack must reach: 10 + an ability modifier + bonuses. Every creature has a STR, DEX, INT and WIL Defense. |
 | **Dirge** | A Divine or Glamour power. Action: an attack against WIL Defense. |
-| **Divine** | An Aspect type: WIL magic of prayer. Its deck, a **Litany**, holds a fixed list of powers that alter fate and heal, and a pool of Resolve. |
+| **Divine** | An Aspect type: WIL magic of prayer. Its deck, a **Litany**, holds a fixed list of powers that alter fate and heal, and adds to your Resolve. |
 | **Downtime** | 3 days of rest in a safe place: does everything a long rest does, and heals all your Wounds. |
 | **Drop** | Gear or an Aspect that a trial yields as loot; to drop is to yield it. |
 | **Duration** | A set length of time an effect lasts, printed on it. |
@@ -1028,7 +1034,7 @@ Each game term has one meaning, in both books.
 | **Game Master (GM)** | The player who describes the world, runs monsters and adjudicates rules. |
 | **Gear** | Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards its Calling's symbols allow. |
 | **Gear Slot** | An Armor, Hand, Jewelry or Item Slot. |
-| **Glamour** | An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and a pool of Resolve. |
+| **Glamour** | An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and adds to your Resolve. |
 | **Heavy** | A weapon keyword: a big weapon. As loot it lights only the STR symbol, so only a Calling with STR can equip it. |
 | **Instrument** | Equipment held in a Hand that is neither a weapon nor a shield: a lute, a drum, a horn. |
 | **Item** | Gear you carry and use: Spellbooks, Recipes, Consumables, Purses and Shards. |
@@ -1044,7 +1050,7 @@ Each game term has one meaning, in both books.
 | **Milestone** | One new Aspect Slot for every character, granted when the party completes a story. |
 | **Morale** | One WIL check (DC 10) a foe group makes, with the best WIL among its remaining members, when its Leader falls and when half the group is down. On a failure, the group flees or surrenders. A Boss never checks. |
 | **Move** | An action: move up to your speed, split before and after your other action if you like. |
-| **Nature** | An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and a pool of Resolve. |
+| **Nature** | An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and adds to your Resolve. |
 | **Noisy N** | −N on checks to sneak. |
 | **Object** | A small non-magical thing that isn't gear: a key, a letter, treasure, rope, a torch. Carried freely, with no limit. |
 | **Pack** | Your personal bag: up to 8 pieces of gear you carry but haven't equipped, at most 3 of them Shards. |
@@ -1063,7 +1069,7 @@ Each game term has one meaning, in both books.
 | **Release** | Emptying a Shard. Its Aspect is gone for good. |
 | **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
-| **Resolve** | The points a Divine, Glamour or Nature Aspect spends on its powers. Each has its own pool; extra Resolve from Traits and gear adds to one of them. It returns on a short rest. |
+| **Resolve** | The points your Divine, Glamour and Nature powers cost: one pool, the sum their decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest. |
 | **Shard** | A bulky crystal vessel that holds one Aspect, or nothing. An item, but never in a Slot. |
 | **Shield** | The type of held gear that raises your Defenses; it fits a Hand Slot. |
 | **Shift** | To take on a Form from your Remembrance; to revert is to return to your own body. Being polymorphed is never shifting. |
@@ -1072,13 +1078,14 @@ Each game term has one meaning, in both books.
 | **Slot frame** | The table component for one Slot: a holder with two corner slits that a card tucks into. A framed card is equipped. A Shard is a Shard frame. |
 | **Spell** | One card of a Spellbook, never on its own. Its level is its cost in spell points. |
 | **Spell level** | A spell's power and its cost in spell points, from 1st to 6th. |
-| **Spellbook** | An item holding a fixed list of spells and a pool of spell points. All spellcasting uses INT. |
+| **Spell points** | The points your spells cost: one pool, the sum your Spellbooks print + INT (minimum 1), kept on your tally card. It returns on a long rest. |
+| **Spellbook** | An item holding a fixed list of spells. Its spell points add to your one pool. All spellcasting uses INT. |
 | **Story** | The campaign's big arc, made of quests. Completing one grants a milestone. |
 | **Subdue** | The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
-| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff); basic weapons light all four symbols. |
-| **Tally card** | The one card you write on: your ten totals, current and temporary HP, and death saves. |
+| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols. |
+| **Tally card** | The one card you write on: your ten totals, current and temporary HP, death saves, spell points and Resolve. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |
 | **Technique** | An Aspect type: something a being trained (a fighting move). |

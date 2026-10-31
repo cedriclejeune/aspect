@@ -402,6 +402,12 @@ def resolve(text, mods):
     return re.sub(rf"\b(\d+) \+ {ABIL}\b", lambda m: str(int(m[1]) + m_(m[2])), text)
 
 
+def pool(text, mods):
+    """A deck cover's pool on a foe card, as its tally total (P 12.3): "Resolve: **+3**" → "Resolve: **6**" (+ WIL, min 1)."""
+    return re.sub(r"(Spell points|Resolve): \*\*\+(\d+)\*\*",
+                  lambda m: f"{m[1]}: **{max(1, int(m[2]) + mods['INT' if m[1] == 'Spell points' else 'WIL'])}**", text)
+
+
 def foe_attack(c, mods, extra_dice):
     """A weapon card's line on a foe card: the foe's modifier added in, plain-text dice included."""
     ab, back = _abil()
@@ -437,7 +443,7 @@ def foe_lines(f):
         elif kind in ("Armor", "Shield", "Purse", "Armure", "Bouclier", "Bourse"):
             also.append(f'*{c["name"]}*')
         elif deck:
-            lines.append(f'*{c["name"]}*{colon} ' + " · ".join(resolve(t, mods) for t in c["text"][:2]))
+            lines.append(f'*{c["name"]}*{colon} ' + " · ".join(resolve(pool(t, mods), mods) for t in c["text"][:2]))
             lines += [f'**{p["name"]}** ({p["cost"]}){colon} ' + resolve(" ".join(p["text"]), mods)
                       for p in deck["cards"] if p.get("key", p["name"]) in f["powers"]]
         else:

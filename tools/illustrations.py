@@ -602,10 +602,12 @@ def _strip_label(out, sx, cy, rh, fs, i, op=""):
     out.append(f'<g{op}>' + _text(sx + 2.5 + fs * 1.05, cy + fs * .35, STRIP_LABELS[i], fs * .8, HEAD, INK) + '</g>')
 
 
-def tally_small(x, y, w, h, totals, hp=None, paper="#fffaf0", band=INK, ledger=False):
-    """The tally card at card size: written totals in the strip, current HP, temp HP and death saves beside it.
+def tally_small(x, y, w, h, totals, hp=None, paper="#fffaf0", band=INK, ledger=False, pools=None):
+    """The tally card at card size: written totals in the strip; current HP, temp HP, death saves, spell points
+    and Resolve beside it.
     paper and band: the card's colours (the printed base set is white, title band included).
-    ledger: the rulebook's Ledger look instead (ink symbols in the strip, black pen)."""
+    ledger: the rulebook's Ledger look instead (ink symbols in the strip, black pen).
+    pools: {"SPELL POINTS" or "RESOLVE": (total, marks)} written in those boxes (P 12.3: total – tally marks)."""
     th, kh = h * .13, h * .1
     sw = w * .2
     sx = x + w - sw
@@ -628,29 +630,43 @@ def tally_small(x, y, w, h, totals, hp=None, paper="#fffaf0", band=INK, ledger=F
             _strip_label(out, sx, cy, rh, fs, i, ' opacity="0.45"')
         if i in totals:
             out.append(_text(sx + sw - 2, cy + fs * .45, totals[i], fs * 1.35, BODY, pen, anchor="end", italic=True, weight=600))
-    # left area: current HP, temp HP, death saves
+    # left area: current HP, temp HP, death saves, spell points, Resolve
     lx, lw = x + w * .06, sx - x - w * .12
     by = y + th + rh * .6
     lab = rh * .36
+    box = f'rx="3" fill="none" stroke="{faint}" stroke-width=".7" stroke-dasharray="2 1.5"'
     out += [_text(lx, by, "CURRENT HP", lab, HEAD, faint, anchor="start"),
-            f'<rect x="{lx}" y="{by + rh * .2}" width="{lw}" height="{rh * 3.2}" rx="3" fill="none" stroke="{faint}" stroke-width=".7" stroke-dasharray="2 1.5"/>']
+            f'<rect x="{lx}" y="{by + rh * .2}" width="{lw}" height="{rh * 1.9}" {box}/>']
     if hp:
         for k, v in enumerate(hp):
             last = k == len(hp) - 1
             tx = lx + lw * (.2 + .3 * k)
-            out.append(_text(tx, by + rh * 2.1, v, fs * 1.5, BODY, pen if last else faint, italic=True, weight=600))
+            out.append(_text(tx, by + rh * 1.45, v, fs * 1.5, BODY, pen if last else faint, italic=True, weight=600))
             if not last:
-                out.append(f'<line x1="{tx - fs * .8}" y1="{by + rh * 1.9}" x2="{tx + fs * .8}" y2="{by + rh * 1.5}" stroke="{faint}" stroke-width=".9"/>')
-    by += rh * 4.2
+                out.append(f'<line x1="{tx - fs * .8}" y1="{by + rh * 1.25}" x2="{tx + fs * .8}" y2="{by + rh * .85}" stroke="{faint}" stroke-width=".9"/>')
+    by += rh * 2.65
     out += [_text(lx, by, "TEMP HP", lab, HEAD, faint, anchor="start"),
-            f'<rect x="{lx}" y="{by + rh * .2}" width="{lw * .55}" height="{rh * 1.3}" rx="3" fill="none" stroke="{faint}" stroke-width=".7" stroke-dasharray="2 1.5"/>']
-    by += rh * 2.4
+            f'<rect x="{lx}" y="{by + rh * .2}" width="{lw * .55}" height="{rh * 1.0}" {box}/>']
+    by += rh * 1.7
     out.append(_text(lx, by, "DEATH SAVES", lab, HEAD, faint, anchor="start"))
     for r, (mark, col) in enumerate((("✓", ok), ("✗", ko))):
-        yy = by + rh * (.8 + r * .95)
+        yy = by + rh * (.7 + r * .75)
         out.append(_text(lx + lab * .5, yy + lab * .4, mark, lab * 1.2, BODY, col))
         for k in range(3):
-            out.append(f'<rect x="{lx + lab * 1.6 + k * rh * .9}" y="{yy - rh * .3}" width="{rh * .6}" height="{rh * .6}" rx="1.5" fill="none" stroke="{INK}" stroke-width=".7"/>')
+            out.append(f'<rect x="{lx + lab * 1.6 + k * rh * .8}" y="{yy - rh * .26}" width="{rh * .52}" height="{rh * .52}" rx="1.5" fill="none" stroke="{INK}" stroke-width=".7"/>')
+    by += rh * 2.25
+    for name in ("SPELL POINTS", "RESOLVE"):
+        dash = lx + lw * .3  # the total goes left of the printed dash, the tally marks right of it
+        out += [_text(lx, by, name, lab, HEAD, faint, anchor="start"),
+                f'<rect x="{lx}" y="{by + rh * .2}" width="{lw}" height="{rh * .95}" {box}/>',
+                f'<line x1="{dash - rh * .14}" y1="{by + rh * .67}" x2="{dash + rh * .14}" y2="{by + rh * .67}" stroke="{faint}" stroke-width=".9"/>']
+        total, marks = (pools or {}).get(name, (None, 0))
+        if total:
+            out.append(_text(dash - rh * .3, by + rh * .67 + fs * .5, total, fs * 1.35, BODY, pen, anchor="end", italic=True, weight=600))
+        for k in range(marks):
+            mx = dash + rh * (.35 + k * .2) + (rh * .1 if k >= 5 else 0)
+            out.append(f'<line x1="{mx:.1f}" y1="{by + rh * .4:.1f}" x2="{mx:.1f}" y2="{by + rh * .95:.1f}" stroke="{pen}" stroke-width="1"/>')
+        by += rh * 1.5
     return "".join(out)
 
 
@@ -658,7 +674,8 @@ def tally_card():
     """The tally card, called out: the one card you write on."""
     x, y, w = 200, 20, 300
     h = w * 88 / 63
-    body = [tally_small(x, y, w, h, {0: "+3", 1: "+1", 2: "+0", 3: "+0", 4: "18", 5: "13", 6: "10", 7: "10", 8: "14", 9: "30"}, ["14", "9", "11"], ledger=True)]
+    body = [tally_small(x, y, w, h, {0: "+0", 1: "+1", 2: "+2", 3: "+2", 4: "11", 5: "11", 6: "12", 7: "12", 8: "15", 9: "30"}, ["15", "9", "12"], ledger=True,
+                        pools={"SPELL POINTS": ("5", 3)})]  # Isolde the Sage (P 12.3 example)
     th, kh = h * .13, h * .1
     rh = (h - th - kh) / 10
     top = y + th
@@ -670,10 +687,12 @@ def tally_card():
     body += [_callout(bx, top + rh * 2, R, top + rh * 2, "Totals", "four modifiers"),
              _callout(bx, top + rh * 6, R, top + rh * 6, "", "four Defenses"),
              _callout(bx, top + rh * 9, R, top + rh * 9, "", "HP maximum, Speed"),
-             _callout(x + 20, top + rh * 2, x - 34, top + rh * 2, "Current HP", "cross out, rewrite", side=-1),
-             _callout(x + 20, top + rh * 5, x - 34, top + rh * 5.2, "Temp HP", side=-1),
-             _callout(x + 20, top + rh * 7.6, x - 34, top + rh * 8, "Death saves", "successes, failures", side=-1)]
-    return _svg(740, round(h + 30), "".join(body), "The tally card: ten totals lined up with the bonus strip, current HP, temporary HP and death saves")
+             _callout(x + 20, top + rh * 1.5, x - 34, top + rh * 1.2, "Current HP", "cross out, rewrite", side=-1),
+             _callout(x + 20, top + rh * 3.8, x - 34, top + rh * 3.4, "Temp HP", side=-1),
+             _callout(x + 20, top + rh * 5.7, x - 34, top + rh * 5.5, "Death saves", "successes, failures", side=-1),
+             _callout(x + 20, top + rh * 8.1, x - 34, top + rh * 7.8, "Spell points", "total – marks spent", side=-1),
+             _callout(x + 20, top + rh * 9.6, x - 34, top + rh * 9.6, "Resolve", "a rest erases the marks", side=-1)]
+    return _svg(740, round(h + 30), "".join(body), "The tally card: ten totals lined up with the bonus strip; current HP, temporary HP, death saves, spell points and Resolve")
 
 
 BRAM_CALLING = {0: "+2", 1: "+0", 2: "+0", 3: "+2", 4: "12", 5: "10", 6: "10", 7: "12", 8: "14", 9: "30"}  # Templar

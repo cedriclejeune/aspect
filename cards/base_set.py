@@ -38,14 +38,14 @@ CALLINGS = [
     calling("Spellblade", ("STR", "INT"), 13, 30, "**Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook."),
     calling("Infiltrator", ("DEX", "INT"), 10, 35, "**Unseen:** +2 on checks to sneak, pick locks and spot traps."),
     calling("Performer", ("DEX", "WIL"), 10, 35, "**Crowd Work (1/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll."),
-    calling("Sage", ("INT", "WIL"), 9, 35, "**Learned:** 2 extra spell points on a Spellbook you hold. +2 on checks to recall lore."),
+    calling("Sage", ("INT", "WIL"), 9, 35, "**Learned:** 2 extra spell points. +2 on checks to recall lore."),
     # the second Calling of each pair: same +2 / +2, another perk, HP and Speed
     calling("Brawler", ("STR", "DEX"), 14, 30, "**Scrapper:** +2 to hit with Grapples and Shoves."),
     calling("Zealot", ("STR", "WIL"), 12, 35, "**Righteous Fury (1/S.R.):** when you hit with a weapon attack: +1d6 Radiant damage."),
     calling("Tactician", ("STR", "INT"), 12, 35, "**Command (1/S.R.):** action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack."),
     calling("Ranger", ("DEX", "INT"), 11, 35, "**Quarry (1/S.R.):** when you hit with a ranged attack: +2 on your attacks against that target until the end of your next turn."),
     calling("Trickster", ("DEX", "WIL"), 9, 35, "**Feint (2/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss."),
-    calling("Hermit", ("INT", "WIL"), 11, 30, "**Solitude:** 1 extra Resolve on a Divine, Glamour or Nature deck you have. +2 on checks to forage and endure."),
+    calling("Hermit", ("INT", "WIL"), 11, 30, "**Solitude:** 1 extra Resolve. +2 on checks to forage and endure."),
 ]
 
 
@@ -268,9 +268,9 @@ def spell(name, level, text, kw):
 
 CONJURER = dict(
     cover=card("Conjurer's Book", "I", "gear", "Spellbook", [
-        "Spell attack: **INT + 2**", "Spell points: **4** (long rest)", "Max spell level: **2nd**",
+        "Spell attack: **INT + 2**", "Spell points: **+2** (long rest)", "Max spell level: **2nd**",
         "Casting needs an empty Hand."], sym=["INT"]),
-    color="gear", stats=dict(kind="spellbook", atk=2, sp=4, maxLevel=2),
+    color="gear", stats=dict(kind="spellbook", atk=2, sp=2, maxLevel=2),
     cards=[
         spell("Fire Bolt", "Cantrip", ["**Action**, range 120 ft.", "Spell attack against DEX Defense: **1d10 Fire**. A flammable object it hits catches fire."], "Cantrip · Targets DEX · Range 120"),
         spell("Mage Hand", "Cantrip", ["**Action**, range 30 ft, Duration 1 minute.", "A spectral hand lifts, carries or works an object up to 10 lb. It can't attack. Move it with your reaction."], "Cantrip · Duration 1 minute"),
@@ -290,7 +290,7 @@ def power(name, kind, cost, text, strip=None):
 
 REPERTOIRE = dict(
     cover=card("Wanderer's Repertoire", "I", "aspect", "Glamour", [
-        "Attack: **WIL + 2**", "Resolve: **3 + WIL** (short rest)", "Songs, poems and dances."], sym=["WIL"]),
+        "Attack: **WIL + 2**", "Resolve: **+3** (short rest)", "Songs, poems and dances."], sym=["WIL"]),
     color="aspect", stats=dict(kind="glamour", atk=2, resolve=3),
     cards=[
         power("Jeer", "Dirge", 0, ["**Action.** Attack against WIL Defense: until the end of the target's next turn, it has −2 on its next attack."]),
@@ -305,7 +305,7 @@ REPERTOIRE = dict(
 
 LITANY = dict(
     cover=card("Acolyte's Litany", "I", "aspect", "Divine", [
-        "Attack: **WIL + 2**", "Resolve: **3 + WIL** (short rest)", "Prayers. Fate dice: **d4**."], group="loot", sym=["WIL"]),
+        "Attack: **WIL + 2**", "Resolve: **+3** (short rest)", "Prayers. Fate dice: **d4**."], group="loot", sym=["WIL"]),
     color="aspect", stats=dict(kind="divine", atk=2, resolve=3, fate="1d4"),
     cards=[
         power("Guidance", "Cue", 0, ["**Reaction**, after an ally within 60 ft rolls a check.", "Add 1d4 to it."]),
@@ -325,7 +325,7 @@ def form(s, d, hp, spd, hide=0):
 
 REMEMBRANCE = dict(
     cover=card("Wildheart's Remembrance", "I", "aspect", "Nature", [
-        "Resolve: **3 + WIL** (short rest)", "Beasts your body remembers. Shift: action."], group="loot", sym=["WIL"]),
+        "Resolve: **+3** (short rest)", "Beasts your body remembers. Shift: action."], group="loot", sym=["WIL"]),
     color="aspect", stats=dict(kind="nature", resolve=3),
     cards=[
         power("Hawk", "Form", 1, ["**Tiny** · Fly 60 ft.", "Talons: +2 to hit, 1d4 + DEX Physical.", "+2 on checks to notice."], form(-2, 3, 4, 10)),

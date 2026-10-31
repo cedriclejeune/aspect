@@ -61,8 +61,8 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
 {
   "cover": "B-I-01", "kind": "spellbook" | "glamour" | "divine" | "nature",
   "atk": 2,                            // Spell attack / Attack bonus (absent for nature)
-  "sp": 4, "maxLevel": 2,              // spellbook
-  "resolve": 3,                        // WIL decks: printed Resolve (pool = resolve + WIL, min 1)
+  "sp": 2, "maxLevel": 2,              // spellbook: spell points it adds (pool = all books + INT, min 1)
+  "resolve": 3,                        // WIL decks: printed Resolve (pool = all WIL decks + WIL once, min 1)
   "fate": "1d4",                       // divine
   "powers": [Power]                    // one per spell / power card, in deck order
 }
@@ -207,7 +207,8 @@ Eng.replay(exported, cards)     // → Fight
     "mods": [ { "kind": "attack", "n": 2, "dice": null, "next": true, "until": "...", "source": "pc3", "power": "..." } ],
     "turn": { "moved": 0, "speed": 30, "action": false, "bonus": false, "reaction": false, "interact": false, "spellCast": false, "disengaged": false, "dodging": false, "firstMover": false },
     "hands": [...], "carried": [...], "items": [...],
-    "uses": { "<power id>": 1 }, "sp": { "<deck id>": 4 }, "resolve": { "<deck id>": 6 }, "extraResolve": { "<deck id>": 1 },
+    "uses": { "<power id>": 1 }, "sp": 5, "resolve": 6,   // one pool each (P 10.2, 10.6), null without such a deck
+    "pools": { "books": ["<deck id>"], "wil": ["<deck id>"], "spMax": 5, "resolveMax": 6, "spentSp": 0, "spentResolve": 0, "extraSp": 0, "extraResolve": 0 },
     "react": "ask"
   } },
   "rng": { "seed": 1, "s": 1 }

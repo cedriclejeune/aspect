@@ -197,7 +197,7 @@ Traits and Knacks are built from four sources:
 | **WIL perk:** extra Resolve (P 10.6) | +1 | +1 | +2 | +2 | +3 |
 | **Activity bonus** | +2 | +3 | +4 | +5 | +6 |
 
-Perk spell points add to one equipped Spellbook, and perk Resolve to one of your Divine, Glamour or Nature pools, chosen at each long rest (P 10.2, 10.6).
+Perk spell points add to the Bearer's spell point total, and perk Resolve to their Resolve total, both kept on the tally card (P 10.2, 10.6, 12.3). Each counts only while the Bearer has a Spellbook, or a Divine, Glamour or Nature deck.
 
 **Strong perks:**
 - **Doubled perk:** twice a perk from the table.
@@ -393,7 +393,7 @@ Each game term has one meaning, in both books.
 | **Decay** | The disadvantage dice a Subdue's repeat attack gathers: one for each repeat that hit and each time the source took damage. |
 | **Defense** | The number an attack must reach: 10 + an ability modifier + bonuses. Every creature has a STR, DEX, INT and WIL Defense. |
 | **Dirge** | A Divine or Glamour power. Action: an attack against WIL Defense. |
-| **Divine** | An Aspect type: WIL magic of prayer. Its deck, a **Litany**, holds a fixed list of powers that alter fate and heal, and a pool of Resolve. |
+| **Divine** | An Aspect type: WIL magic of prayer. Its deck, a **Litany**, holds a fixed list of powers that alter fate and heal, and adds to your Resolve. |
 | **Downtime** | 3 days of rest in a safe place: does everything a long rest does, and heals all your Wounds. |
 | **Drop** | Gear or an Aspect that a trial yields as loot; to drop is to yield it. |
 | **Duration** | A set length of time an effect lasts, printed on it. |
@@ -408,7 +408,7 @@ Each game term has one meaning, in both books.
 | **Game Master (GM)** | The player who describes the world, runs monsters and adjudicates rules. |
 | **Gear** | Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards its Calling's symbols allow. |
 | **Gear Slot** | An Armor, Hand, Jewelry or Item Slot. |
-| **Glamour** | An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and a pool of Resolve. |
+| **Glamour** | An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and adds to your Resolve. |
 | **Heavy** | A weapon keyword: a big weapon. As loot it lights only the STR symbol, so only a Calling with STR can equip it. |
 | **Instrument** | Equipment held in a Hand that is neither a weapon nor a shield: a lute, a drum, a horn. |
 | **Item** | Gear you carry and use: Spellbooks, Recipes, Consumables, Purses and Shards. |
@@ -424,7 +424,7 @@ Each game term has one meaning, in both books.
 | **Milestone** | One new Aspect Slot for every character, granted when the party completes a story. |
 | **Morale** | One WIL check (DC 10) a foe group makes, with the best WIL among its remaining members, when its Leader falls and when half the group is down. On a failure, the group flees or surrenders. A Boss never checks. |
 | **Move** | An action: move up to your speed, split before and after your other action if you like. |
-| **Nature** | An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and a pool of Resolve. |
+| **Nature** | An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and adds to your Resolve. |
 | **Noisy N** | −N on checks to sneak. |
 | **Object** | A small non-magical thing that isn't gear: a key, a letter, treasure, rope, a torch. Carried freely, with no limit. |
 | **Pack** | Your personal bag: up to 8 pieces of gear you carry but haven't equipped, at most 3 of them Shards. |
@@ -443,7 +443,7 @@ Each game term has one meaning, in both books.
 | **Release** | Emptying a Shard. Its Aspect is gone for good. |
 | **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
-| **Resolve** | The points a Divine, Glamour or Nature Aspect spends on its powers. Each has its own pool; extra Resolve from Traits and gear adds to one of them. It returns on a short rest. |
+| **Resolve** | The points your Divine, Glamour and Nature powers cost: one pool, the sum their decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest. |
 | **Shard** | A bulky crystal vessel that holds one Aspect, or nothing. An item, but never in a Slot. |
 | **Shield** | The type of held gear that raises your Defenses; it fits a Hand Slot. |
 | **Shift** | To take on a Form from your Remembrance; to revert is to return to your own body. Being polymorphed is never shifting. |
@@ -452,13 +452,14 @@ Each game term has one meaning, in both books.
 | **Slot frame** | The table component for one Slot: a holder with two corner slits that a card tucks into. A framed card is equipped. A Shard is a Shard frame. |
 | **Spell** | One card of a Spellbook, never on its own. Its level is its cost in spell points. |
 | **Spell level** | A spell's power and its cost in spell points, from 1st to 6th. |
-| **Spellbook** | An item holding a fixed list of spells and a pool of spell points. All spellcasting uses INT. |
+| **Spell points** | The points your spells cost: one pool, the sum your Spellbooks print + INT (minimum 1), kept on your tally card. It returns on a long rest. |
+| **Spellbook** | An item holding a fixed list of spells. Its spell points add to your one pool. All spellcasting uses INT. |
 | **Story** | The campaign's big arc, made of quests. Completing one grants a milestone. |
 | **Subdue** | The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
-| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff); basic weapons light all four symbols. |
-| **Tally card** | The one card you write on: your ten totals, current and temporary HP, and death saves. |
+| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols. |
+| **Tally card** | The one card you write on: your ten totals, current and temporary HP, death saves, spell points and Resolve. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |
 | **Technique** | An Aspect type: something a being trained (a fighting move). |
