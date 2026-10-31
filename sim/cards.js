@@ -500,7 +500,7 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR",
+    "INT",
     "WIL"
    ],
    "fx": []
@@ -540,8 +540,8 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR",
-    "DEX"
+    "DEX",
+    "INT"
    ],
    "fx": []
   },
@@ -1735,7 +1735,7 @@ globalThis.BEARERS_CARDS = {
    },
    "group": "starter",
    "sym": [
-    "STR",
+    "INT",
     "WIL"
    ],
    "fx": [
@@ -1805,8 +1805,8 @@ globalThis.BEARERS_CARDS = {
    },
    "group": "loot",
    "sym": [
-    "STR",
-    "DEX"
+    "DEX",
+    "INT"
    ],
    "fx": [
     {
@@ -1970,8 +1970,8 @@ globalThis.BEARERS_CARDS = {
    },
    "group": "loot",
    "sym": [
-    "STR",
-    "INT"
+    "INT",
+    "WIL"
    ],
    "fx": []
   },
@@ -2414,13 +2414,13 @@ globalThis.BEARERS_CARDS = {
     "Versatile (1d10)"
    ],
    "text": [
-    "+2 to hit, 1d8 / 1d10 + STR or DEX Physical."
+    "+2 to hit, 1d8 / 1d10 + STR or INT Physical."
    ],
    "strip": {},
    "group": "starter",
    "sym": [
     "STR",
-    "DEX"
+    "INT"
    ],
    "atk": {
     "hit": 2,
@@ -2428,7 +2428,7 @@ globalThis.BEARERS_CARDS = {
     "two": "1d10",
     "abil": [
      "STR",
-     "DEX"
+     "INT"
     ],
     "type": "Physical",
     "light": false,
