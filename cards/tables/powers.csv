@@ -1,0 +1,25 @@
+deck_id,deck,name,kind,cost,keywords,text,STR,DEX,INT,WIL,STRd,DEXd,INTd,WILd,HP,SPD
+B-I-01,Conjurer's Book,Fire Bolt,Cantrip,0,Cantrip · Targets DEX · Range 120,"Action, range 120 ft. Spell attack against DEX Defense: 1d10 Fire. A flammable object it hits catches fire.",,,,,,,,,,
+B-I-01,Conjurer's Book,Mage Hand,Cantrip,0,Cantrip · Duration 1 minute,"Action, range 30 ft, Duration 1 minute. A spectral hand lifts, carries or works an object up to 10 lb. It can't attack. Move it with your reaction.",,,,,,,,,,
+B-I-01,Conjurer's Book,Magic Missile,1st,1,Spell · Targets DEX · Range 120,"Action, range 120 ft. Three darts at one to three creatures. One spell attack against the DEX Defense of each target: 1d4 + 1 Radiant per dart on a hit, half on a miss. Upcast: +1 dart per level above 1st.",,,,,,,,,,
+B-I-01,Conjurer's Book,Shield,1st,1,Spell · Duration 1 round,"Reaction, when an attack hits you. +5 to your STR and DEX Defense until the start of your next turn, against the triggering attack too.",,,,,,,,,,
+B-I-01,Conjurer's Book,Grease,1st,1,Spell · Cube 10 · Targets DEX,"Action, range 60 ft, Duration 1 minute. A 10-ft cube of slick grease: difficult terrain. Spell attack against the DEX Defense of each creature in it, and of each one that enters it or ends its turn there: on a hit, it falls Prone.",,,,,,,,,,
+B-I-01,Conjurer's Book,Misty Step,2nd,2,Spell,Reaction. Teleport up to 30 ft to an unoccupied space you can see.,,,,,,,,,,
+B-I-01,Conjurer's Book,Web,2nd,2,Spell · Cube 20 · Targets DEX · Restrained,"Action, range 60 ft, Duration 1 hour. A 20-ft cube of webs: difficult terrain. Spell attack against the DEX Defense of each creature in it, and of each one that enters it: on a hit, it is Restrained for 2 turns. Fire burns a 5-ft square away each round.",,,,,,,,,,
+G-I-01,Wanderer's Repertoire,Jeer,Dirge,0,Dirge,"Action. Attack against WIL Defense: until the end of the target's next turn, it has −2 on its next attack.",,,,,,,,,,
+G-I-01,Wanderer's Repertoire,Rally,Anthem,1,Anthem,"Action, Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks.",,,,,,,,,,
+G-I-01,Wanderer's Repertoire,Hold the Line,Anthem,1,Anthem,"Action, Duration 1 minute. Allies within 30 ft have +2 to STR and DEX Defense.",,,,,,,,,,
+G-I-01,Wanderer's Repertoire,Cutting Words,Cue,1,Cue,"Reaction, after a creature within 60 ft rolls. −2 to an enemy's attack roll or check.",,,,,,,,,,
+G-I-01,Wanderer's Repertoire,Steady Now,Cue,1,Cue,"Reaction, after a creature within 60 ft rolls. +2 to an ally's roll, or to the Defense an attack targets.",,,,,,,,,,
+G-I-01,Wanderer's Repertoire,Dread,Dirge,2,Dirge,Action. Attack against WIL Defense: the target is Frightened of you for 2 turns.,,,,,,,,,,
+G-I-01,Wanderer's Repertoire,Rousing Verse,Mend,2,Mend,"Action, range 60 ft. A creature regains 2d4 + WIL HP.",,,,,,,,,,
+D-I-01,Acolyte's Litany,Guidance,Cue,0,Cue,"Reaction, after an ally within 60 ft rolls a check. Add 1d4 to it.",,,,,,,,,,
+D-I-01,Acolyte's Litany,Bless,Anthem,1,Anthem,"Action, Duration 1 minute. Up to 3 allies within 30 ft add 1d4 to their attack rolls.",,,,,,,,,,
+D-I-01,Acolyte's Litany,Bane,Dirge,1,Dirge,"Action, Duration 1 minute. Attack against WIL Defense: the target subtracts 1d4 from its attack rolls.",,,,,,,,,,
+D-I-01,Acolyte's Litany,Twist Fate,Cue,1,Cue,"Reaction, after a creature within 60 ft rolls. Reroll: make it reroll an attack roll or a check.",,,,,,,,,,
+D-I-01,Acolyte's Litany,Healing Word,Mend,2,Mend,"Action, range 60 ft. A creature regains 2d4 + WIL HP.",,,,,,,,,,
+D-I-01,Acolyte's Litany,Cure Wounds,Mend,2,Mend,"Action, touch. A creature regains 2d8 + WIL HP.",,,,,,,,,,
+N-I-01,Wildheart's Remembrance,Hawk,Form,1,Form,"Tiny · Fly 60 ft. Talons: +2 to hit, 1d4 + DEX Physical. +2 on checks to notice.",-2,+3,,,8,13,,,4,10
+N-I-01,Wildheart's Remembrance,Wolf,Form,2,Form,"Medium. Bite: +2 to hit, 1d6 + DEX Physical. +2 on checks to track.",+1,+3,,,11,13,,,8,40
+N-I-01,Wildheart's Remembrance,Mossbalm,Mend,2,Mend,"Action, touch. A creature regains 2d8 + WIL HP.",,,,,,,,,,
+N-I-01,Wildheart's Remembrance,Bear,Form,3,Form,"Large · Climb 30 ft. Hide: +2 STR Defense (included). Claws: +2 to hit, 1d8 + STR Physical.",+3,+1,,,15,11,,,12,30

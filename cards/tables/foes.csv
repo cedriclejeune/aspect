@@ -1,0 +1,21 @@
+name,size,tags,senses,body_STR,body_DEX,body_INT,body_WIL,body_HP,body_SPD,STR,DEX,INT,WIL,STRd,DEXd,INTd,WILd,HP,SPD,carries,own
+Bandit,Medium,,,2,1,1,0,10,30,2,1,1,0,14,12,11,10,12,35,Handaxe (W-I-03); Pocket Sand (P-I-03); Leather (A-I-01),
+Bandit Archer,Medium,,,0,3,1,0,9,35,0,3,1,0,12,14,11,10,11,40,Longbow (W-I-09); Dagger (W-I-01); Steady Aim (Q-I-02); Leather (A-I-01),
+Goblin,Small,,Darkvision 60,-1,2,0,-1,5,30,-1,2,0,-1,11,13,10,9,7,35,Sling (W-I-10); Dagger (W-I-01); Slippery (Q-I-07); Leather (A-I-01),
+Wolf,Medium,,,1,2,-1,-2,7,40,1,2,-1,-2,11,12,9,8,11,40,Pack Hunter (T-II-08),"Bite: +4 to hit, 1d6 + 2 Physical. Keen Nose: alert (passive Awareness +5)."
+Cultist,Medium,,,0,1,0,3,8,30,0,1,0,3,10,11,10,13,10,30,Dagger (W-I-01); Acolyte's Litany (D-I-01); Iron Will (T-I-03),
+Legionary,Medium,,,3,1,0,0,10,30,3,1,0,0,18,13,10,10,14,30,Pilum (W-II-02); Gladius (W-I-14); Shield Wall (Q-I-06); Mail (A-I-02); Shield (S-I-01),"Throws its Pilum, then draws its Gladius."
+Bandit Captain,Medium,Leader,,2,3,0,1,28,30,2,3,0,1,14,14,10,11,30,35,Finesse Blade (W-I-04); Dagger (W-I-01); Twin Strike (Q-II-01); Leather (A-I-01); Coin Pouch (U-I-01),
+Ogre,Large,,Darkvision 60,4,0,0,0,35,35,4,0,0,0,14,10,10,10,95,35,Greatclub (W-I-13); Javelins (W-I-11); Sweeping Blow (Q-II-02),Giant Strength: +60 HP. Its Javelins roll one extra damage die (included). Its Sweeping Blow recharges on a 5–6 instead of 1/S.R.
+Ogre Chieftain,Large,Boss Leader,Darkvision 60,5,0,0,1,54,40,5,0,0,1,19,10,10,11,70,30,Greatclub (W-I-13); Cleave (Q-I-01); Second Wind (T-II-01); Sweeping Blow (Q-II-02); Plate (A-II-01),Warlord: its Sweeping Blow recharges on a 5–6 instead of 1/S.R. Bellow (Recharge 5–6): reaction. Attack (+5) against the WIL Defense of each enemy within 30 ft: Frightened of the chieftain until the end of its next turn.
+Guard,Medium,,,1,1,1,1,6,30,1,1,1,1,16,13,11,11,12,30,Longsword (W-I-05); Shield (S-I-01); Javelins (W-I-11); Mail (A-I-02); Human Grit (T-I-05),
+Scout,Medium,,Darkvision 60,0,2,1,0,6,35,0,2,1,0,12,13,11,10,10,40,Longbow (W-I-09); Shortsword (W-I-02); Hunter (K-I-05); Leather (A-I-01); Elven Blood (T-I-06),Keen Eyes: alert (passive Awareness +5).
+Mage,Medium,,,0,1,3,0,7,30,0,1,3,0,10,11,13,10,9,30,Conjurer's Book (B-I-01); Dagger (W-I-01); Clear Mind (T-I-04),
+Orc,Medium,,Darkvision 60,3,0,0,0,8,30,3,0,0,0,15,11,10,10,14,35,Greataxe (W-I-16); Javelins (W-I-11); Relentless (T-II-07); Leather (A-I-01); Orcish Blood (K-I-10),
+Hobgoblin,Medium,,Darkvision 60,1,1,1,0,8,30,1,1,1,0,16,13,11,10,12,30,Longsword (W-I-05); Shield (S-I-01); Longbow (W-I-09); Mail (A-I-02); Battle Hymn (Q-I-04); Hobgoblin Discipline (K-I-11),
+Skeleton,Medium,,Darkvision 60,0,2,-2,-2,8,30,0,2,-2,-2,12,13,8,8,10,35,Shortsword (W-I-02); Shortbow (W-I-15); Leather (A-I-01),"Undead: resists Poison and Necrotic, vulnerable to Radiant. Never checks Morale."
+Zombie,Medium,,Darkvision 60,1,-2,-4,-2,16,20,1,-2,-4,-2,11,8,6,8,20,20,Relentless (T-II-07),"Undead: resists Poison and Necrotic, vulnerable to Radiant. Never checks Morale. Slam: +3 to hit, 1d8 + 1 Physical."
+Kobold,Small,,Darkvision 60,-2,2,-1,-1,1,30,-2,2,-1,-1,8,12,9,9,5,30,Dagger (W-I-01); Sling (W-I-10); Pack Hunter (T-II-08),
+Giant Rat,Small,,Darkvision 60,-2,2,-4,-2,1,30,-2,2,-4,-2,8,12,6,8,5,30,Pack Hunter (T-II-08),"Bite: +4 to hit, 1d4 + 2 Physical. Keen Nose: alert (passive Awareness +5)."
+Giant Spider,Large,,Darkvision 60,2,3,-4,-2,26,30,2,3,-4,-2,12,13,6,8,26,30,Cat Burglar (K-I-01),"Spider Climb: climbs walls and ceilings at full Speed. Web Sense: alert (passive Awareness +5). Bite: +5 to hit, 1d8 + 3 Physical plus 1d8 Poison. Web (Recharge 5–6): action, range 30 ft. Attack (+3) against DEX Defense: Restrained for 2 turns."
+Troll,Large,,Darkvision 120,4,1,-1,-2,74,30,4,1,-1,-2,15,11,9,8,80,30,Night Eyes (T-II-03); Stone Blood (T-I-02),"Claws: +6 to hit, 2d6 + 4 Physical. Regeneration: regains 10 HP at the start of its turn, unless it took Fire or Poison damage since its last turn. Keen Nose: alert (passive Awareness +5). Thick Hide: +1 STR Defense (included)."

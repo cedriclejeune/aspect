@@ -133,7 +133,7 @@
     let total = p.flat;
     p.dice.forEach((d, i) => {
       let n = d.n + (i === 0 && o.extra ? o.extra : 0);
-      if (o.crit) n *= 2;
+      if (o.crit) n *= o.critX || 2; // Brutal (P 11.3): three times
       for (let k = 0; k < n; k++) { const r = die(X, d.sides, o.why); rolls.push(d.sign * r); total += d.sign * r; }
     });
     return { total, rolls };
@@ -463,7 +463,7 @@
   function freshTurn(prev) {
     return { moved: 0, speed: 0, moves: 0, acts: 0, reaction: prev ? prev.reaction : false, interact: false,
       spellCast: false, disengaged: false, dodging: prev ? prev.dodging : false, firstMover: false, half: false,
-      attacksLeft: 0, attackAction: false, lightWeapon: null, safeFt: 0, bonusMelee: 0, loaded: false, twin: false };
+      attacksLeft: 0, attackAction: false, lightWeapon: null, safeFt: 0, bonusMelee: 0, loaded: false, twin: false, attacked: {} };
   }
   function initCreature(F, sc) {
     const cards = F.cards;
@@ -681,6 +681,8 @@
       info.abil = ab;
       flat(a.totals[ab], ab);
       flat(w.hit || 0, "to hit");
+      // Flurry (P 11.3): +2 on each attack after the first you make with this weapon on your turn
+      if (w.flurry && w.card && st.active === a.id && (a.turn.attacked || {})[w.card]) flat(2, "Flurry");
       // Scrapper (Brawler): a flat bonus on Grapples and Shoves
       if (src.grab) flat(powersOf(F, a).reduce((n, e) => n + (e.p.use === "passive" && e.p.grabHit || 0), 0), "Scrapper");
       info.weapon = w;
@@ -745,7 +747,7 @@
       if (net) add(Math.sign(net), `${k[0].toUpperCase() + k.slice(1)} (${q[k].map((x) => x.why).join(", ")})`);
     }
     info.cover = sg.cover && !src.area && defList(vs).some((ab) => ab === "STR" || ab === "DEX") ? 2 : 0;
-    info.tags = src.entry ? src.entry.p.tags || [] : [];
+    info.tags = src.entry ? src.entry.p.tags || [] : typeof src.grab === "string" ? [src.grab] : [];
     info.defs = defsOf(F, t, vs, { cover: !!info.cover, tags: info.tags });
     info.def = best(info.defs);
     runHooks(F, null, a, t, "modifyAttack", { attack: info, weapon: src.w, entry: src.entry });
@@ -1298,8 +1300,9 @@
   function weaponAttack(X, a, t, w, o) {
     const F = X.F;
     o = o || {};
-    const info = attackInfo(F, a, t, { w, thrown: o.thrown, abil: o.abil, toDamage: o.toDamage, grab: o.shove || o.grapple });
+    const info = attackInfo(F, a, t, { w, thrown: o.thrown, abil: o.abil, toDamage: o.toDamage, grab: o.shove ? "shove" : o.grapple ? "grapple" : null });
     const res = rollAttack(X, a, t, info, { label: `${o.opportunity ? "opportunity attack" : "attacks"} with ${w.name}` });
+    if (w.card && X.st.active === a.id) a.turn.attacked[w.card] = (a.turn.attacked[w.card] || 0) + 1;
     if (res.hit) hitReactions(X, res, info.melee);
     if (!res.hit) { emit(X, { t: "miss", actor: a.id, target: t.id, text: `${a.name} misses ${t.name}.` }); return res; }
     const crit = res.crit || (has(t, "Unconscious") && dist(a, t) <= 5);
@@ -1315,7 +1318,7 @@
       (e.p.on === "hit" || (e.p.on === "crit" && crit) || (e.p.on === "opportunity" && o.opportunity))) : [];
     const dice = w.two && otherHandEmpty(F, a, w) ? w.two : w.dice;
     const mod = a.totals[info.abil];
-    const dmg = { parts: [{ dice, type: w.type || "Physical", extra: extraDiceFor(a.build, w) }],
+    const dmg = { parts: [{ dice, type: w.type || "Physical", extra: extraDiceFor(a.build, w), critX: w.brutal ? 3 : 2 }],
       flat: o.offhand && mod > 0 ? 0 : mod, crit, type: w.type || "Physical" };
     for (const m of a.mods) if (m.kind === "dmg") { dmg.flat += m.n || 0; if (m.dice) dmg.parts.push({ dice: m.dice, type: dmg.type }); }
     for (const r of riders) if (!r.p.hook) for (const d of r.p.do || []) if (d.dmg) dmg.parts.push({ dice: d.dmg, type: d.type || dmg.type });
@@ -1328,6 +1331,7 @@
       if (r.p.hook) { const h = HOOKS[r.p.hook]; if (!h || h.onTrigger || !h.modifyDamage) hookTrigger(X, a, r, { on: r.p.on, attacker: a, target: t, hit: true, crit, weapon: w }); continue; }
       applyDo(X, a, r, (r.p.do || []).filter((d) => !d.dmg), t, { hit: true });
     }
+    crushing(X, a, t, w, res.total, best(res.defs));
     afterHit(X, a, t, { weapon: true, melee: info.melee, crit, engaged: engagedNow });
     return res;
   }
@@ -1362,7 +1366,7 @@
       const engagedNow = r.hit && allyEngaged(st, a, t);
       const riders = r.hit && w.card ? (F.cards.cards[w.card].fx || []).map((p) => ({ p, card: w.card, deck: null, src: "hand" })).filter((e) => e.p.use === "trigger" &&
         (e.p.on === "hit" || (e.p.on === "crit" && crit))) : [];
-      const dmg = { parts: [{ key: "w", dice, type: w.type || "Physical", extra: extraDiceFor(a.build, w) }],
+      const dmg = { parts: [{ key: "w", dice, type: w.type || "Physical", extra: extraDiceFor(a.build, w), critX: w.brutal ? 3 : 2 }],
         flat: a.totals[info.abil], crit, type: w.type || "Physical" };
       a.mods.forEach((m, i) => { if (m.kind === "dmg") { dmg.flat += m.n || 0; if (m.dice) dmg.parts.push({ key: "m" + i, dice: m.dice, type: dmg.type }); } });
       for (const rd of riders) if (!rd.p.hook) (rd.p.do || []).forEach((d, i) => { if (d.dmg) dmg.parts.push({ key: rd.p.id + i, dice: d.dmg, type: d.type || dmg.type }); });
@@ -1374,8 +1378,15 @@
         if (rd.p.hook) { const h = HOOKS[rd.p.hook]; if (!h || h.onTrigger || !h.modifyDamage) hookTrigger(X, a, rd, { on: rd.p.on, attacker: a, target: t, hit: true, crit, weapon: w }); continue; }
         applyDo(X, a, rd, (rd.p.do || []).filter((d) => !d.dmg), t, { hit: true });
       }
+      crushing(X, a, t, w, r.total, best(r.defs));
       afterHit(X, a, t, { weapon: true, melee: true, crit, engaged: engagedNow });
     }
+  }
+  // Crushing (P 11.3): a hit that beats the targeted Defense by 5 or more knocks the target Prone.
+  function crushing(X, a, t, w, total, def) {
+    if (!w.crushing || t.dead || has(t, "Prone") || total - def < 5) return;
+    emit(X, { t: "note", actor: a.id, target: t.id, text: `Crushing: ${t.name} is knocked Prone (${total} vs ${def}).` });
+    addCond(X, t, "Prone", { source: a.id });
   }
   // RULING R233: a Versatile weapon uses its bigger die whenever the wielder's other Hand Slot is empty.
   function otherHandEmpty(F, a, w) { return !a.form && w.card && handsUsed(F, a) < a.build.slots.hand; }
@@ -1389,7 +1400,7 @@
       const byType = {}, rolls = {};
       for (const p of dmg.parts) {
         const keep = o.shared && p.key != null;
-        const r = keep && o.shared[p.key] ? o.shared[p.key] : rollDice(X, p.dice, { crit: dmg.crit, extra: p.extra, mods: a.totals, why: "damage" });
+        const r = keep && o.shared[p.key] ? o.shared[p.key] : rollDice(X, p.dice, { crit: dmg.crit, critX: p.critX, extra: p.extra, mods: a.totals, why: "damage" });
         if (keep) rolls[p.key] = r;
         sum += r.total;
         if (p.type === dmg.type || !p.type) total += r.total; else byType[p.type] = (byType[p.type] || 0) + r.total;
@@ -2018,7 +2029,7 @@
     if (slot === "offhand") fail("Shove and Grapple replace an attack of the Attack action");
     if (SIZE_N[t.size] - SIZE_N[c.size] > 1) fail(`${t.name} is more than one size larger`);
     if (kind === "grapple" && !freeHand(F, c)) fail("Grappling needs a free Hand");
-    const info = attackInfo(F, c, t, { w: weaponOf(F, c, "unarmed"), grab: true });
+    const info = attackInfo(F, c, t, { w: weaponOf(F, c, "unarmed"), grab: kind });
     return { t, slot, info: Object.assign(info, { toHit: info.bonus, defense: info.def }) };
   }
   function doShove(X, c, cmd, kind) {

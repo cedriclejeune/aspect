@@ -648,7 +648,9 @@ def main():
     if french:  # the simulator reads the English cards only
         return
     import export_sim
+    import export_tables
     export_sim.main()
+    export_tables.main()
 
 
 if __name__ == "__main__":

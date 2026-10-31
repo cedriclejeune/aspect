@@ -685,7 +685,7 @@ def keeping_totals():
     # Panel 1: in play
     body.append(_text(10, 22, "IN PLAY: SPREAD OUT BY SLOT", 15, HEAD, CRIMSON, anchor="start"))
     w, h, gap = 104, 146, 14
-    sw, si = ["STR", "WIL"], ["STR", "DEX"]
+    sw, si, iw = ["STR", "WIL"], ["STR", "DEX"], ["INT", "WIL"]
     row1 = [("CALLING", "Templar", {}, "Calling", None, BRAM_CALLING, sw),
             ("ARMOR", "Mail", {4: "+3", 8: "+4"}, "Armor", icon_shield, None, si),
             ("HANDS", "Shield", {4: "+2", 5: "+2"}, "Shield", lambda cx, cy, s: icon_shield(cx, cy, s, 2), None, sw),
@@ -693,8 +693,8 @@ def keeping_totals():
             ("JEWELRY", "Ring of Warding", {}, "Jewelry · Reaction", None, None, ALL4)]
     row2 = [("ITEM", "Potion of Healing", {}, "Consumable", None, None, ALL4),
             ("ASPECTS", "Springheel", {8: "+2"}, "Trait", None, None, si),
-            ("", "Iron Will", {8: "+2"}, "Trait", None, None, sw),
-            ("", "Barkeep", {}, "Knack", None, None, sw)]
+            ("", "Iron Will", {8: "+2"}, "Trait", None, None, iw),
+            ("", "Barkeep", {}, "Knack", None, None, iw)]
     for r, cards in enumerate([row1, row2]):
         y = 52 + r * (h + 34)
         for i, (slot, name, vals, kw, art, own, lit) in enumerate(cards):
@@ -714,7 +714,7 @@ def keeping_totals():
     dx = W * .2
     x0, y0 = 12, top + 16
     stack = [("Mail", {4: "+3", 8: "+4"}, "Armor", si), ("Shield", {4: "+2", 5: "+2"}, "Shield", sw),
-             ("Springheel", {8: "+2"}, "Trait", si), ("Iron Will", {8: "+2"}, "Trait", sw)]
+             ("Springheel", {8: "+2"}, "Trait", si), ("Iron Will", {8: "+2"}, "Trait", iw)]
     m = len(stack)
     cxs = x0 + m * dx  # the Calling, one strip left of the tally
     body.append(tally_small(cxs + dx, y0, W, H, BRAM_TOTALS, ledger=True))

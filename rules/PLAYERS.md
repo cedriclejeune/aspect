@@ -102,12 +102,12 @@ A Calling gives **+2 to its two abilities** and +0 to the other two, a **Hit Poi
 | **Spellblade** | STR · INT | 13 | 30 ft | **Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook. |
 | **Infiltrator** | DEX · INT | 10 | 35 ft | **Unseen:** +2 on checks to sneak, pick locks and spot traps. |
 | **Performer** | DEX · WIL | 10 | 35 ft | **Crowd Work (1/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll. |
-| **Sage** | INT · WIL | 9 | 30 ft | **Learned:** 1 extra spell point on a Spellbook you hold. +2 on checks to recall lore. |
+| **Sage** | INT · WIL | 9 | 35 ft | **Learned:** 2 extra spell points on a Spellbook you hold. +2 on checks to recall lore. |
 | **Brawler** | STR · DEX | 14 | 30 ft | **Scrapper:** +2 to hit with Grapples and Shoves. |
 | **Zealot** | STR · WIL | 12 | 35 ft | **Righteous Fury (1/S.R.):** when you hit with a weapon attack: +1d6 Radiant damage. |
-| **Tactician** | STR · INT | 12 | 30 ft | **Command (1/S.R.):** action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack. |
+| **Tactician** | STR · INT | 12 | 35 ft | **Command (1/S.R.):** action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack. |
 | **Ranger** | DEX · INT | 11 | 35 ft | **Quarry (1/S.R.):** when you hit with a ranged attack: +2 on your attacks against that target until the end of your next turn. |
-| **Trickster** | DEX · WIL | 9 | 35 ft | **Feint (1/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss. |
+| **Trickster** | DEX · WIL | 9 | 35 ft | **Feint (2/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss. |
 | **Hermit** | INT · WIL | 11 | 30 ft | **Solitude:** 1 extra Resolve on a Divine, Glamour or Nature deck you have. +2 on checks to forage and endure. |
 
 Your other numbers grow through your cards: **Armor** and **Traits** print most of the HP you gain, and gear and Aspects raise your modifiers and Defenses.
@@ -213,11 +213,11 @@ Each sample shows the name, Rank and lit symbols (*all* when all four are), the 
 > *Weapon · Versatile*
 
 > **STONE BLOOD** · Rank I · STR · INT
-> Bonuses: +1 STR Defense · +2 HP
+> Bonuses: +2 HP
 > +2 STR Defense against poison and disease.
 > *Trait*
 
-> **IRON WILL** · Rank I · STR · WIL
+> **IRON WILL** · Rank I · INT · WIL
 > Bonuses: +2 HP
 > +2 WIL Defense against fear and mind control.
 > *Trait*
@@ -687,23 +687,27 @@ Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" c
 
 | Weapon (gear) | Rolls with | To hit | Damage | Properties |
 |---|---|---|---|---|
-| **Dagger** (dagger, knife) | DEX | +4 | 1d4 | Light, Thrown (20/60) |
-| **Short Blade** (shortsword, sickle) | STR · DEX | +3 | 1d4 | Light |
+| **Dagger** (dagger, knife) | DEX | +2 | 1d4 | Light, Thrown (20/60), Flurry |
+| **Short Blade** (shortsword, sickle) | STR · DEX | +2 | 1d6 | Light, Flurry |
 | **Light Weapon** (handaxe, club, light hammer) | STR · DEX | +2 | 1d6 | Light, Thrown (20/60) |
 | **Finesse Blade** (rapier, scimitar) | DEX | +2 | 1d6 | — |
 | **Versatile Weapon** (longsword, battleaxe, spear) | STR or STR · DEX | +2 | 1d8 / 1d10 | Versatile |
 | **Staff** (quarterstaff, rod) | INT · WIL | +2 | 1d6 / 1d8 | Versatile |
-| **Heavy Weapon** (greatsword, greataxe, maul) | STR | +2 | 2d6 | Heavy, Two-Handed |
+| **Heavy Weapon** (greatsword, maul) | STR | +2 | 2d6 | Heavy, Two-Handed |
+| **Great Axe** (greataxe) | STR | +2 | 1d12 | Heavy, Two-Handed, Brutal |
+| **Great Club** (greatclub) | STR | +2 | 1d10 | Heavy, Two-Handed, Crushing |
 | **Polearm** (glaive, halberd, pike) | STR | +2 | 1d10 | Heavy, Reach, Two-Handed |
 | **Whip** | DEX | +2 | 1d4 | Reach |
 | **Javelins** | STR · DEX | +2 | 1d6 | Thrown (30/120) |
 | **Sling** / **Hand Crossbow** | DEX | +2 | 1d6 | Light, Range (30/120) |
 | **Bow** (short or long) | DEX | +2 | 1d8 | Range (150/600), Two-Handed |
+| **Fine Bow** (composite bow) | DEX | +2 | 1d10 | Range (150/600), Two-Handed |
+| **Wand** | INT | +2 | 1d8 Lightning | Range (60/120) |
 | **Crossbow** (heavy) | DEX | +2 | 1d10 | Loading, Range (100/400), Two-Handed |
 
 A weapon attacks with the abilities it names: your higher one when it names two. Damage adds the same modifier. Higher-Rank weapons are cards with their own name (*Damascus Sword*, *Katana*), a bigger to-hit bonus and often a special effect. All weapon damage is **Physical** unless the weapon says otherwise.
 
-**Properties** are keywords (Chapter 11): Aquatic, Heavy, Light, Loading, Range, Reach, Thrown, Two-Handed, Versatile.
+**Properties** are keywords (Chapter 11): Aquatic, Brutal, Crushing, Flurry, Heavy, Light, Loading, Range, Reach, Thrown, Two-Handed, Versatile.
 
 ---
 
@@ -847,6 +851,9 @@ The first keyword. It sets the Slot (3.2).
 | Keyword | Meaning |
 |---|---|
 | **Aquatic** | Works underwater, where other weapons and spells don't. |
+| **Brutal** | On a critical hit, roll its damage dice three times instead of twice. |
+| **Crushing** | A hit that beats the targeted Defense by 5 or more knocks the target Prone. |
+| **Flurry** | +2 on each attack after the first you make with it on your turn. |
 | **Heavy** | A big weapon. As loot it lights only the STR symbol: only a Calling with STR can equip it. |
 | **Light** | Allows two-weapon fighting (6.9). |
 | **Loading** | One shot per action or reaction, even with extra attacks. |
@@ -989,6 +996,7 @@ Each game term has one meaning, in both books.
 | **Bearer** | A humanoid who can absorb the Aspects of other beings. Every player character is one. |
 | **Blindsight N** | Perceive everything within N ft without sight. |
 | **Boss** | A strong monster with special abilities, including a half turn during the characters' side. |
+| **Brutal** | A weapon keyword: on a critical hit, roll its damage dice three times instead of twice. |
 | **Calling** | The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Aspects you can equip. It is neither an Aspect nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Zealot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
 | **Cantrip** | A spell that costs nothing. Cast at will. |
 | **Capture** | Pouring a lingering Aspect into an empty Shard. |
@@ -999,6 +1007,7 @@ Each game term has one meaning, in both books.
 | **Climb N** | A climb speed: climbing costs no extra movement. |
 | **Consumable** | An item gone once used. Up to 3 identical Consumables share one Item Slot. |
 | **Crowd question** | The third of the three questions asked before an attack: Outnumbered. One advantage die if your side has more creatures engaged around the target, one disadvantage die if its side has more. |
+| **Crushing** | A weapon keyword: a hit that beats the targeted Defense by 5 or more knocks the target Prone. |
 | **Cue** | A Divine or Glamour power. Reaction: changes a roll after it's made, before its result. |
 | **Darkvision N** | Treat Dark as Bright within N ft. |
 | **Decay** | The disadvantage dice a Subdue's repeat attack gathers: one for each repeat that hit and each time the source took damage. |
@@ -1011,6 +1020,7 @@ Each game term has one meaning, in both books.
 | **Effective level** | The GM's estimate of a character's power, from 1 to 12, used to size fights and trial DCs. Not a character stat. |
 | **Equipment** | Gear you wear or wield: armor, weapons, shields, Instruments and Jewelry. |
 | **Extra Gear Slot** | A permanent extra Hand, Jewelry or Item Slot, granted only by defeating a Boss: Third Hand, Second Jewel or Great Backpack. |
+| **Flurry** | A weapon keyword: +2 on each attack after the first you make with it on your turn. |
 | **Fly N** | A fly speed: you move through the air. If you're knocked Prone or Incapacitated while flying, you fall. |
 | **Focus** | A keyword on equipment that strengthens your Divine, Glamour or Nature Aspects: an Instrument, a holy amulet, a druid's staff. |
 | **Foe card** | The GM's card for one kind of monster: its body, totals and powers. Cards named in italics on it can drop; plain text never does. |
