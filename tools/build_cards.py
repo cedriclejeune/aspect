@@ -11,8 +11,12 @@ text on the front, the text on the back, on facing pages printed two-sided (each
 columns). The reading PDF shows those cards once, double width: drawing and text side by side.
 Card geometry matches the tally card (P 12.3): title band 13 %, keywords 10 %, bonus strip 20 % wide.
 Cards are black and white ("Ledger"): stat symbols are ink PNGs from rules/symbols/ink/ (made by tools/ink_symbols.py),
-an Aspect's type symbol sits at the bottom left, the four ability symbols sit in the top corner (the ones a card
-doesn't print greyed out, P 3.1), and a foe's drawing is rules/art/<name>.png when there is one.
+the four ability symbols sit in the top corner (the ones a card doesn't print greyed out, P 3.1), and a foe's drawing is
+rules/art/<name>.png when there is one. The look by family (DESIGN 4): every card type has its symbol at the bottom left and
+faint behind the text, and the family in grey under the name (Calling, Equipment, Item, Aspect, Spell, Power); a Calling
+has a black band, Equipment a double rule under it, an Item a hatched band, an Aspect its symbol before its name, and a deck
+card its cover's symbol at the foot of its index. Type symbols are ink PNGs from rules/symbols/ink/, or until one is drawn
+(tools/gen_symbols.py), its sketch from rules/symbols/sketch/.
 Foe cards (GM 2.1) come from cards/foes.py: their totals and attacks are added up from the cards they name.
 """
 import html
@@ -42,8 +46,14 @@ CARD_ART = ART / "cards"
 ROWS = ["STR", "DEX", "INT", "WIL", "STRd", "DEXd", "INTd", "WILd", "HP", "SPD"]
 SYM_FILE = {"STR": "str", "DEX": "dex", "INT": "int", "WIL": "wil", "STRd": "str-def", "DEXd": "dex-def", "INTd": "int-def",
             "WILd": "wil-def", "HP": "hp", "SPD": "spd"}
-TYPE_SYMBOL = {"Trait": "trait", "Technique": "technique", "Knack": "knack",  # more types get symbols as they are drawn
-               "Savoir-faire": "knack"}
+SKETCHES = ROOT / "rules" / "symbols" / "sketch"  # stand-ins until tools/gen_symbols.py draws the ink symbol
+TYPE_SYMBOL = {t: t.lower() for t in ("Calling", "Armor", "Weapon", "Shield", "Jewelry", "Instrument", "Consumable", "Purse",
+                                      "Recipe", "Spellbook", "Trait", "Technique", "Knack", "Divine", "Glamour", "Nature")}
+FAMILY = {"Calling": "calling", **dict.fromkeys(("Armor", "Weapon", "Shield", "Jewelry", "Instrument"), "equip"),
+          **dict.fromkeys(("Consumable", "Purse", "Recipe", "Spellbook", "Shard"), "item"),
+          **dict.fromkeys(("Trait", "Technique", "Knack", "Divine", "Glamour", "Nature"), "aspect")}
+SUBTITLE = {"calling": "Calling", "equip": "Equipment", "item": "Item", "aspect": "Aspect"}  # GLOSSARY: gear is equipment or items
+DESCRIPTIVE = set()  # keywords that describe without a rule: printed grey on the second keyword line (none yet)
 
 # Words the builder writes itself (the cards' own text comes from cards/base_set.py, or cards/fr.py in French).
 UI = {
@@ -52,14 +62,15 @@ UI = {
                drops="Drops: ", foe="Foe", boss="Boss", leader="Leader", set_foe="FOE", gp="gp", gold="Gold",
                groups={}, coin="In a Purse, it takes no room. Loose, it is a bag of coins: 1 piece.",
                blank=("Body", "Attacks", "Powers", "Drops"), blank_kw="Foe · size · senses",
-               sizes={}, senses=lambda x: x),
+               sizes={}, senses=lambda x: x, sub=SUBTITLE),
     "fr": dict(lang="fr", to_hit="au toucher", or_="ou", abil={"STR": "FOR", "DEX": "DEX", "INT": "INT", "WIL": "VOL"},
                ranged=("Lancer", "Portée"), uses=r"\d+/R\.[CL]\.", recharge="Recharge {n}–6", also="Porte aussi ",
                drops="Butin : ", foe="Adversaire", boss="Boss", leader="Meneur", set_foe="ADVERSAIRE", gp="po", gold="Or",
                groups={"STARTER": "DÉPART", "LOOT": "BUTIN", "WOUND": "BLESSURE"},
                coin="Dans une Bourse, il ne prend pas de place. En vrac, c'est un sac de pièces : 1 pièce.",
                blank=("Corps", "Attaques", "Pouvoirs", "Butin"), blank_kw="Adversaire · taille · sens",
-               sizes={"Tiny": "Très petit", "Small": "Petit", "Medium": "Moyen", "Large": "Grand"}, senses=None),
+               sizes={"Tiny": "Très petit", "Small": "Petit", "Medium": "Moyen", "Large": "Grand"}, senses=None,
+               sub={"calling": "Vocation", "equip": "Équipement", "item": "Objet", "aspect": "Aspect"}),
 }
 T = UI["en"]
 
@@ -122,6 +133,27 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
   align-items: center; justify-content: flex-start; gap: 1.4mm; padding: 0 19mm 0 2.4mm; box-sizing: border-box;
   font-style: italic; font-size: 7.6pt; line-height: 1.1; }}
 .kw img {{ width: 4.4mm; height: 4.4mm; flex: none; }}
+.band .ttl {{ display: flex; flex-direction: column; min-width: 0; gap: .35mm; }}
+.band .sub {{ font-family: 'EB Garamond', serif; font-style: italic; font-weight: 400; letter-spacing: .02em; color: #8a8a8a;
+  font-size: 6pt; line-height: 1.1; }}
+.band .bsym {{ width: 4.6mm; height: 4.6mm; flex: none; margin-right: 1.2mm; }}
+.band .bsym img {{ width: 100%; height: 100%; display: block; }}
+.f-calling .band {{ background: #000; color: #fff; }}
+.f-calling .band .sub {{ color: #b0b0b0; }}
+.f-calling .band .sym4 img {{ filter: invert(1); }}
+.f-calling .band .sym4 .off {{ opacity: .32; }}
+.f-equip .band {{ border-bottom: 1.3mm double #000; }}
+.f-item .band, .deck.src-item .index {{ background: repeating-linear-gradient(135deg, #fff 0 .9mm, #e6e6e6 .9mm 1.15mm); }}
+.body .wm {{ position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }}
+.body .wm img {{ width: 30mm; height: 30mm; opacity: .075; }}
+.body .main, .body .lore {{ position: relative; }}
+.index .isym {{ margin-top: auto; margin-bottom: 1.6mm; width: 5mm; height: 5mm; flex: none; }}
+.index .isym img {{ width: 100%; height: 100%; display: block; }}
+.kw .kl {{ flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: .4mm; max-height: 100%; }}
+.kw .k1, .kw .k2 {{ display: block; overflow: hidden; line-height: 1.12; }}
+.kw .k1 {{ font-size: 7pt; max-height: 8.2mm; }}
+.kw .kl:has(.k2) .k1 {{ max-height: 4.4mm; }}
+.kw .k2 {{ font-size: 5.8pt; opacity: .55; max-height: 3.8mm; }}
 .set {{ position: absolute; right: 2mm; bottom: 3.3mm; font-family: Cinzel, serif; font-size: 4.6pt; color: #777; letter-spacing: .05em; }}
 .coin {{ display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2mm; }}
 .coin svg {{ width: 30mm; height: 30mm; }}
@@ -178,10 +210,46 @@ def symbol(name, alt=""):
     return f'<img src="{(SYMBOLS / f"{name}.png").as_uri()}" alt="{alt}">'
 
 
-def keywords(kw):
-    """The keyword line: the Aspect type's symbol (when it has one) at the left, then the keywords."""
-    sym = TYPE_SYMBOL.get(kw.split(" · ")[0])
-    return f'<div class="kw">{symbol(sym) if sym else ""}<span>{md(kw)}</span></div>'
+def printed(kw):
+    """The keywords as the card prints them: never what the card's text already says (DESIGN 4). A range (Range N/M,
+    Thrown N/M, a spell's Range N) is in the attack or casting line, and a Versatile weapon's bigger die is in its damage."""
+    parts = [p for p in kw.split(" · ") if not p.startswith(("Range ", "Thrown "))]
+    return " · ".join(re.sub(r"^Versatile \(.*\)$", "Versatile", p) for p in parts)
+
+
+def en_type(kind):
+    """The English name of a card type (the French build prints "Arme", the tables are keyed by "Weapon")."""
+    return T.get("type_en", {}).get(kind, kind)
+
+
+def type_symbol(kind):
+    """The card type's symbol: the ink drawing, or its sketch until one is drawn; "" for a type without one."""
+    name = TYPE_SYMBOL.get(en_type(kind))
+    path = next((p for p in (SYMBOLS / f"{name}.png", SKETCHES / f"{name}.svg") if name and p.exists()), None)
+    return f'<img src="{path.as_uri()}" alt="">' if path else ""
+
+
+def keywords(kw, sub=None):
+    """The keyword line: the type's symbol at the left, then two lines: the type and rule keywords, then the descriptive
+    ones in grey. The type is left out when the subtitle already says it (a Calling). FIT_LORE shrinks each line to fit."""
+    parts = printed(kw).split(" · ")
+    sym = type_symbol(parts[0])
+    if parts[0] == sub:
+        parts = parts[1:]
+    rule, desc = [p for p in parts if p not in DESCRIPTIVE], [p for p in parts if p in DESCRIPTIVE]
+    lines = f'<span class="k1">{md(" · ".join(rule))}</span>' + (f'<span class="k2">{md(" · ".join(desc))}</span>' if desc else "")
+    return f'<div class="kw">{sym}<span class="kl">{lines}</span></div>'
+
+
+def family(kind):
+    """(family, subtitle) of a card type."""
+    fam = FAMILY.get(en_type(kind), "")
+    return fam, T["sub"].get(fam)
+
+
+def watermark(kind):
+    sym = type_symbol(kind)
+    return f'<div class="wm">{sym}</div>' if sym else ""
 
 
 def lore(c):
@@ -189,9 +257,21 @@ def lore(c):
     return f'<p class="lore">{md(c["lore"])}</p>' if c.get("lore") else ""
 
 
-FIT_LORE = """<script>document.fonts.ready.then(() => document.querySelectorAll('.body .lore').forEach(l => {
-  const b = l.parentNode; if (b.scrollHeight > b.clientHeight + 1) l.remove();
-}));</script>"""
+FIT_LORE = """<script>document.fonts.ready.then(() => {
+  const fits = e => e.scrollWidth <= e.clientWidth + 1 && e.scrollHeight <= e.clientHeight + 1;
+  const size = (e, pt) => { e.style.fontSize = pt + 'pt'; return pt; };
+  document.querySelectorAll('.kw .k1, .kw .k2').forEach(e => {  // one line, smaller; then two lines, smaller still
+    const two = e.classList.contains('k2');
+    let pt = size(e, two ? 5.8 : 7); e.style.whiteSpace = 'nowrap';
+    while (!fits(e) && pt > (two ? 4.8 : 5.4)) pt = size(e, +(pt - .2).toFixed(1));
+    if (fits(e)) return;
+    e.style.whiteSpace = 'normal'; pt = size(e, two ? 5 : 5.6);
+    while (!fits(e) && pt > (two ? 4 : 4.4)) pt = size(e, +(pt - .2).toFixed(1));
+  });
+  document.querySelectorAll('.body .lore').forEach(l => {
+    const b = l.parentNode; if (b.scrollHeight > b.clientHeight + 1) l.remove();
+  });
+});</script>"""
 
 
 def rank_mark(rank):
@@ -216,11 +296,16 @@ def sym4(sym):
         for a in ("STR", "DEX", "INT", "WIL")) + "</span>"
 
 
-def band(name, right, sym=None):
+def band(name, right, sym=None, sub=None, lead=""):
+    """sub: the family in grey under the name; lead: a symbol before the name (an Aspect's type)."""
     size = 9.2 if len(name) <= 14 else 8 if len(name) <= 18 else 7
     if sym:
         size = min(size, 8.4 if len(name) <= 12 else 7.4 if len(name) <= 16 else 6.6)
-    return (f'<div class="band{" syms" if sym else ""}{" norank" if sym and not right else ""}" style="font-size:{size}pt">{html.escape(name.upper())}'
+    title = html.escape(name.upper())
+    if sub:
+        title = f'<span class="ttl"><span class="nm">{title}</span><span class="sub">{sub}</span></span>'
+    lead = f'<span class="bsym">{lead}</span>' if lead else ""
+    return (f'<div class="band{" syms" if sym else ""}{" norank" if sym and not right else ""}" style="font-size:{size}pt">{lead}{title}'
             f'{sym4(sym) if sym else ""}{right}</div>')
 
 
@@ -248,13 +333,16 @@ def item_card(c, group, face="text"):
     """face: "text" (the card as rules text), "art" (the front of a two-sided card: its drawing in place of the text),
     "read" (double width, drawing and text side by side)."""
     paras = "".join(f"<p>{md(t)}</p>" for t in c["text"])
+    kind = c["kw"].split(" · ")[0]
+    fam, sub = family(kind)
     art = f'<div class="art"><img src="{print_image(item_drawing(c))}" alt=""></div>' if face != "text" else ""
-    body = "" if face == "art" else (f'<div class="body" style="font-size:{fit(c["text"], "")}pt">'
+    body = "" if face == "art" else (f'<div class="body" style="font-size:{fit(c["text"], "")}pt">{watermark(kind)}'
                                      f'<div class="main">{paras}</div>{lore(c)}</div>')
     sym = c["sym"] if c["kind"] in ("gear", "aspect", "calling") else None
-    return (f'<div class="card{" read" if face == "read" else ""}">{band(c["name"], rank_mark(c["rank"]), sym)}{art}'
+    lead = type_symbol(kind) if fam == "aspect" else ""
+    return (f'<div class="card f-{fam}{" read" if face == "read" else ""}">{band(c["name"], rank_mark(c["rank"]), sym, sub, lead)}{art}'
             f'{strip(c["strip"], own=c["kind"] == "calling")}{body}'
-            f'{keywords(c["kw"])}<div class="set">{T["groups"].get(group, group)}{" · " + c["id"] if c.get("id") else ""}</div></div>')
+            f'{keywords(c["kw"], sub)}<div class="set">{T["groups"].get(group, group)}{" · " + c["id"] if c.get("id") else ""}</div></div>')
 
 
 def deck_card(s, deck, face="text"):
@@ -262,17 +350,22 @@ def deck_card(s, deck, face="text"):
     if face == "read":
         return f'<div class="pair">{deck_card(s, deck, "art")}{deck_card(s, deck)}</div>'
     cover = deck["cover"]
+    source = cover["kw"].split(" · ")[0]  # the cover's type: its symbol marks the deck's cards
+    sub = "Spell" if source == "Spellbook" else "Power"
     has_strip = bool(s["strip"]) or s["level"] == "Form"
     level = f'<span class="lvl">{s["level"]}</span>'
     if face == "art":
-        return (f'<div class="card">{band(s["name"], level)}<div class="art{"" if has_strip else " full"}">'
+        return (f'<div class="card">{band(s["name"], level, sub=sub)}<div class="art{"" if has_strip else " full"}">'
                 f'<img src="{print_image(drawing(s.get("key", s["name"]), "deck"))}" alt=""></div>'
                 f'{strip(s["strip"]) if has_strip else ""}{keywords(s["kw"])}</div>')
     paras = "".join(f"<p>{md(t)}</p>" for t in s["text"])
-    return (f'<div class="card deck{"" if has_strip else " wide"}">{band(s["name"], level)}'
-            f'<div class="index"><div class="cost">{s["cost"]}</div><div class="name">{html.escape(cover["name"])}</div></div>'
+    src = " src-item" if FAMILY.get(en_type(source)) == "item" else ""
+    isym = type_symbol(source)
+    return (f'<div class="card deck{src}{"" if has_strip else " wide"}">{band(s["name"], level, sub=sub)}'
+            f'<div class="index"><div class="cost">{s["cost"]}</div><div class="name">{html.escape(cover["name"])}</div>'
+            f'{f"<span class=isym>{isym}</span>" if isym else ""}</div>'
             f'{strip(s["strip"]) if has_strip else ""}'
-            f'<div class="body" style="font-size:{fit(s["text"], "deck")}pt"><div class="main">{paras}</div>{lore(s)}</div>'
+            f'<div class="body" style="font-size:{fit(s["text"], "deck")}pt">{watermark(source)}<div class="main">{paras}</div>{lore(s)}</div>'
             f'{keywords(s["kw"])}</div>')
 
 
@@ -316,10 +409,9 @@ def foe_attack(c, mods, extra_dice):
     m = re.match(rf"([+−-]\d+) {T['to_hit']}, (.+?) \+ ((?:{ab})(?: {T['or_']} (?:{ab}))*) (\w+)\.\s*(.*)", c["text"][0])
     hit, dice, attr, dtype, effect = m.groups()
     mod = max(mods[back[a]] for a in attr.split(f" {T['or_']} "))
-    reach = next((k for k in c["kw"].split(" · ") if k.startswith(T["ranged"])), "")
     dmg_mod = f" + {mod}" if mod >= 0 else f" − {-mod}"
     colon = " :" if T["lang"] == "fr" else ":"
-    line = (f'*{c["name"]}*{colon} {signed(int(hit.replace("−", "-")) + mod)} {T["to_hit"]}, {reach + ", " if reach else ""}'
+    line = (f'*{c["name"]}*{colon} {signed(int(hit.replace("−", "-")) + mod)} {T["to_hit"]}, '
             f'{more_dice(dice, extra_dice)}{dmg_mod} {dtype}.')
     return line + (f" {effect}" if effect else "")
 
@@ -509,6 +601,7 @@ def use_french():
     fr.localize(bs, foes)
     ill.set_lang("fr")
     T = UI["fr"]
+    T["type_en"] = {v: k for k, v in fr.KEYWORDS.items()}
     OUT = ROOT / "rules" / "fr" / "Porteurs-Set-de-base.pdf"
     READING = ROOT / "rules" / "fr" / "Porteurs-Set-de-base-Lecture.pdf"
     intro = intro_fr

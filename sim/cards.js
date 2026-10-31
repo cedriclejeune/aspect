@@ -2203,7 +2203,7 @@ globalThis.BEARERS_CARDS = {
     "Thrown 20/60"
    ],
    "text": [
-    "+4 to hit, 1d4 + DEX Physical."
+    "+4 to hit, thrown 20/60 ft, 1d4 + DEX Physical."
    ],
    "strip": {},
    "group": "starter",
@@ -2286,7 +2286,7 @@ globalThis.BEARERS_CARDS = {
     "Thrown 20/60"
    ],
    "text": [
-    "+2 to hit, 1d6 + STR or DEX Physical."
+    "+2 to hit, thrown 20/60 ft, 1d6 + STR or DEX Physical."
    ],
    "strip": {},
    "group": "starter",
@@ -2543,7 +2543,7 @@ globalThis.BEARERS_CARDS = {
     "Two-Handed"
    ],
    "text": [
-    "+2 to hit, 1d8 + DEX Physical."
+    "+2 to hit, range 150/600 ft, 1d8 + DEX Physical."
    ],
    "strip": {},
    "group": "starter",
@@ -2586,7 +2586,7 @@ globalThis.BEARERS_CARDS = {
     "Range 30/120"
    ],
    "text": [
-    "+2 to hit, 1d6 + DEX Physical."
+    "+2 to hit, range 30/120 ft, 1d6 + DEX Physical."
    ],
    "strip": {},
    "group": "starter",
@@ -2628,7 +2628,7 @@ globalThis.BEARERS_CARDS = {
     "Thrown 30/120"
    ],
    "text": [
-    "+2 to hit, 1d6 + STR or DEX Physical."
+    "+2 to hit, thrown 30/120 ft, 1d6 + STR or DEX Physical."
    ],
    "strip": {},
    "group": "starter",
@@ -2816,7 +2816,7 @@ globalThis.BEARERS_CARDS = {
     "Two-Handed"
    ],
    "text": [
-    "+2 to hit, 1d6 + DEX Physical."
+    "+2 to hit, range 80/320 ft, 1d6 + DEX Physical."
    ],
    "strip": {},
    "group": "loot",
@@ -2939,7 +2939,7 @@ globalThis.BEARERS_CARDS = {
     "Thrown 30/120"
    ],
    "text": [
-    "+3 to hit, 1d6 + STR or DEX Physical. **Pierce:** on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free."
+    "+3 to hit, thrown 30/120 ft, 1d6 + STR or DEX Physical. **Pierce:** on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free."
    ],
    "strip": {},
    "group": "loot",

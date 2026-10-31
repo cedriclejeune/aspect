@@ -210,7 +210,7 @@ Each sample shows the name, Rank and lit symbols (*all* when all four are), the 
 
 > **SPELLGUARD STAFF** · Rank I · STR · INT
 > +2 to hit, 1d8 / 1d10 + STR or INT Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.
-> *Weapon · Versatile (1d10)*
+> *Weapon · Versatile*
 
 > **STONE BLOOD** · Rank I · STR · INT
 > Bonuses: +1 STR Defense · +2 HP
@@ -802,6 +802,8 @@ A Remembrance holds **Forms**: beasts your body remembers. A Form is printed lik
 ## 11. Keywords
 
 A keyword always means the same thing, on every piece of gear and every Aspect. A number or word after it (*Thrown 20/60*, *Resist Fire*) fills in the detail. Conditions (Chapter 8) and damage types (7.2) are also reserved words.
+
+A card never prints the same thing twice. A weapon's range is in its attack line (*+4 to hit, thrown 20/60 ft, 1d4 + DEX or INT Physical*) and a spell's in its casting line, so the card leaves out *Range* and *Thrown*. A Versatile weapon's bigger die is in its damage (*1d8 / 1d10*), so the card prints just *Versatile*. The keywords still apply.
 
 ### 11.1 Types
 

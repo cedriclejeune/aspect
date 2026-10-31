@@ -71,8 +71,10 @@ def weapon_atk(dice, kw, attack, sym):
 
 def weapon(name, abil, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter"):
     """abil is the weapon's roll: you attack and deal damage with the higher of them (STR / DEX; INT / WIL for staves).
-    A basic (starter) weapon lights all four symbols so anyone can wield it; a loot weapon lights only its abil (DESIGN 4)."""
-    text = [f"{attack} to hit, {dice} + {' or '.join(abil)} Physical." + (f" {effect}" if effect else "")]
+    A basic (starter) weapon lights all four symbols so anyone can wield it; a loot weapon lights only its abil (DESIGN 4).
+    The range of a Range or Thrown weapon is printed in its attack line, so the card doesn't print that keyword (DESIGN 4)."""
+    reach = next((f"{p.split()[0].lower()} {p.split()[1]} ft, " for p in kw.split(" · ") if p.startswith(("Range ", "Thrown "))), "")
+    text = [f"{attack} to hit, {reach}{dice} + {' or '.join(abil)} Physical." + (f" {effect}" if effect else "")]
     sym = ALL if group == "starter" else abil
     return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym, atk=weapon_atk(dice, kw, attack, abil))
 

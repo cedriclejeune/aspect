@@ -102,14 +102,14 @@ You run each kind of monster from its **foe card**: its body, its totals and eve
 > STR +4 · DEX +0 · INT +0 · WIL +0 · Defenses STR 14 · DEX 10 · INT 10 · WIL 10 · HP 95 · Speed 35 ft
 > **Giant Strength:** +60 HP. Its *Javelins* roll one extra damage die (included below). Its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R.
 > *Greatclub* (W-I-13): +6 to hit, 1d10 + 4 Physical. **Crushing:** on a critical hit, the target is knocked Prone.
-> *Javelins* (W-I-11): +6 to hit, Thrown 30/120, 2d6 + 4 Physical.
+> *Javelins* (W-I-11): +6 to hit, thrown 30/120 ft, 2d6 + 4 Physical.
 > *Sweeping Blow* (Q-II-02): **Recharge 5–6**, when you take the Attack action with a Heavy or Reach weapon: make one attack roll against each enemy within your reach instead. Half damage on a miss.
 > *Foe · Large · Darkvision 60*
 
 > **LEGIONARY**
 > STR +3 · DEX +1 · INT +0 · WIL +0 · Defenses STR 18 · DEX 13 · INT 10 · WIL 10 · HP 14 · Speed 30 ft
 > Throws its *Pilum*, then draws its *Gladius*.
-> *Pilum* (W-II-02): +6 to hit, Thrown 30/120, 1d6 + 3 Physical. **Pierce:** on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free.
+> *Pilum* (W-II-02): +6 to hit, thrown 30/120 ft, 1d6 + 3 Physical. **Pierce:** on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free.
 > *Gladius* (W-I-14): +5 to hit, 1d6 + 3 Physical. **Close Order:** +1d4 damage while an ally is engaged with the same creature.
 > *Shield Wall* (Q-I-06): **Reaction (1/S.R.)**, when an attack hits an ally within 5 ft while you hold a Shield: +2 to the targeted Defense against that attack, possibly turning it into a miss.
 > Also carries *Mail* (A-I-02) and *Shield* (S-I-01).
