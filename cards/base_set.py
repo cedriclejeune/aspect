@@ -70,8 +70,10 @@ def weapon_atk(dice, kw, attack, sym):
 
 
 def weapon(name, sym, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter"):
-    """sym is also the weapon's roll: you attack with the higher of its abilities (DESIGN 4)."""
-    text = [f"{attack} to hit, {dice} + {' or '.join(sym)} Physical." + (f" {effect}" if effect else "")]
+    """sym is also the weapon's roll: you attack with the higher of its abilities (DESIGN 4).
+    The range of a Range or Thrown weapon is printed in its attack line, so the card doesn't print that keyword (DESIGN 4)."""
+    reach = next((f"{p.split()[0].lower()} {p.split()[1]} ft, " for p in kw.split(" · ") if p.startswith(("Range ", "Thrown "))), "")
+    text = [f"{attack} to hit, {reach}{dice} + {' or '.join(sym)} Physical." + (f" {effect}" if effect else "")]
     return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym, atk=weapon_atk(dice, kw, attack, sym))
 
 

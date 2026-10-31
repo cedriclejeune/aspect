@@ -158,10 +158,17 @@ def symbol(name, alt=""):
     return f'<img src="{(SYMBOLS / f"{name}.png").as_uri()}" alt="{alt}">'
 
 
+def printed(kw):
+    """The keywords as the card prints them: never what the card's text already says (DESIGN 4). A range (Range N/M,
+    Thrown N/M, a spell's Range N) is in the attack or casting line, and a Versatile weapon's bigger die is in its damage."""
+    parts = [p for p in kw.split(" · ") if not p.startswith(("Range ", "Thrown "))]
+    return " · ".join(re.sub(r"^Versatile \(.*\)$", "Versatile", p) for p in parts)
+
+
 def keywords(kw):
     """The keyword line: the Aspect type's symbol (when it has one) at the left, then the keywords."""
     sym = TYPE_SYMBOL.get(kw.split(" · ")[0])
-    return f'<div class="kw">{symbol(sym) if sym else ""}<span>{md(kw)}</span></div>'
+    return f'<div class="kw">{symbol(sym) if sym else ""}<span>{md(printed(kw))}</span></div>'
 
 
 def lore(c):
@@ -286,9 +293,8 @@ def foe_attack(c, mods, extra_dice):
     m = re.match(r"([+−-]\d+) to hit, (.+?) \+ ((?:STR|DEX|INT|WIL)(?: or (?:STR|DEX|INT|WIL))*) (\w+)\.\s*(.*)", c["text"][0])
     hit, dice, attr, dtype, effect = m.groups()
     mod = max(mods[a] for a in attr.split(" or "))
-    reach = next((k for k in c["kw"].split(" · ") if k.startswith(("Thrown", "Range"))), "")
     dmg_mod = f" + {mod}" if mod >= 0 else f" − {-mod}"
-    line = (f'*{c["name"]}*: {signed(int(hit.replace("−", "-")) + mod)} to hit, {reach + ", " if reach else ""}'
+    line = (f'*{c["name"]}*: {signed(int(hit.replace("−", "-")) + mod)} to hit, '
             f'{more_dice(dice, extra_dice)}{dmg_mod} {dtype}.')
     return line + (f" {effect}" if effect else "")
 
