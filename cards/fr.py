@@ -25,7 +25,7 @@ NAMES = {
     "Ring of Warding": "Anneau de protection", "Guild Signet": "Chevalière de guilde",
     "Shard Bandolier": "Bandoulière à Éclats", "Holy Amulet": "Amulette sacrée",
     "Boots of the Long Stride": "Bottes de grande foulée", "Ring of Sparks": "Anneau d'étincelles",
-    "Dancer's Bells": "Grelots de danseur", "Potion of Healing": "Potion de soins", "Coin Pouch": "Bourse de cuir",
+    "Dancer's Bells": "Grelots de danseur", "Potion of Healing": "Potion de soins", "Coin Pouch": "Bourse à cordon",
     "Writ of Favor": "Lettre d'introduction", "Greater Potion of Healing": "Potion de soins supérieurs",
     "Restorative Salve": "Onguent réparateur", "Pocket Sand": "Sable de poche",
     "Alchemist's Fire Recipe": "Recette de feu grégeois",
@@ -365,7 +365,7 @@ LORE = {
     "A string of tiny bells for the ankle. Their jingle gets under an enemy's skin.": "Un chapelet de clochettes pour la cheville. Leur tintement agace l'ennemi jusqu'à l'os.",
     # items
     "Red and faintly warm, it tastes of iron and cherries. Shake before drinking.": "Rouge et un peu tiède, elle a un goût de fer et de cerise. Agiter avant de boire.",
-    "A drawstring purse of good leather. Its weight is the only friend some people have.": "Une bourse à cordon de bon cuir. Son poids est le seul ami de certains.",
+    "A drawstring purse of good leather. Its weight is the only friend some people have.": "Du bon cuir, un cordon solide. Son poids est le seul ami de certains.",
     "Heavy paper, a heavy seal. A debt someone important promised to repay.": "Papier épais, sceau pesant. Une dette qu'un personnage important a promis d'honorer.",
     "Deep crimson and almost hot to hold. Wounds close while you're still swallowing.": "D'un pourpre profond, presque brûlante en main. Les plaies se ferment avant la dernière gorgée.",
     "Bitter herbs, river clay and a healer's patience, sealed in a tin.": "Herbes amères, argile de rivière et patience de guérisseur, scellées dans une boîte en fer.",

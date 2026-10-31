@@ -311,7 +311,7 @@ Chaque Emplacement a son propre temps d'échange. Un échange déplace un matér
 - **Sac ou Réserve pleins :** vous ne pouvez pas garder plus. Laissez la pièce en trop, donnez-la à un allié ou vendez-la.
 - **Babioles :** les petites choses non magiques qui ne sont pas du matériel (trésor, clés, lettres, objets de quête) se transportent librement, sans limite. Les fournitures ordinaires (corde, torches, rations, munitions, vêtements, outils) sont **présumées** : vous les avez quand vous en avez besoin.
 - **Argent :** des pièces d'or (po). L'or achète des consommables, des services, des Éclats vides, des Bourses et, chez certains marchands, du matériel et des Aspects (vendus dans leur Éclat).
-- **Bourse :** l'or se garde dans une **Bourse**, un matériel qui contient jusqu'à une somme fixée par son Rang : I *Bourse de cuir* **100 po**, II *Bourse de marchand* **500**, III *Sacoche de banquier* **2 000**, IV *Coffret de maître de guilde* **10 000**, V *Bourse sans fond* **sans limite**. La Bourse compte pour 1 pièce ; l'or à l'intérieur, non. Chaque sac de pièces hors d'une Bourse compte pour 1 pièce. À la table, une Bourse est une carte, et son or est fait de **cartes d'or** glissées dessous (12.2).
+- **Bourse :** l'or se garde dans une **Bourse**, un matériel qui contient jusqu'à une somme fixée par son Rang : I *Bourse à cordon* **100 po**, II *Bourse de marchand* **500**, III *Sacoche de banquier* **2 000**, IV *Coffret de maître de guilde* **10 000**, V *Bourse sans fond* **sans limite**. La Bourse compte pour 1 pièce ; l'or à l'intérieur, non. Chaque sac de pièces hors d'une Bourse compte pour 1 pièce. À la table, une Bourse est une carte, et son or est fait de **cartes d'or** glissées dessous (12.2).
 - **Où elle se trouve :** un Emplacement d'Objet, votre Sac ou la Réserve de la Compagnie. Plus elle est proche de vous, mieux elle est surveillée et protégée ; le MJ décide de ce qu'un voleur ou une catastrophe peut atteindre. L'or se perd, se vole et se donne comme n'importe quel matériel.
 - **Payer :** la Bourse doit être à proximité : la vôtre, celle d'un allié, ou la Réserve de la Compagnie quand la Compagnie est avec elle.
 
@@ -612,7 +612,7 @@ Votre **maximum de PV** vient de votre Vocation, plus les PV qu'impriment votre 
 
 ### 7.5 Se reposer
 
-|  | Repos court | Repos long | Relâche |
+|  | Repos court | Repos long | Convalescence |
 |---|---|---|---|
 | **Durée** | 1 heure d'activité légère | 8 heures (dont au moins 6 de sommeil) | **3 jours** en lieu sûr : une ville, un temple, un camp gardé |
 | **Limite** | 2 par repos long | 1 par 24 heures | Aucune |
@@ -620,7 +620,7 @@ Votre **maximum de PV** vient de votre Vocation, plus les PV qu'impriment votre 
 | **Utilisations** | Les utilisations « repos court » et l'Ardeur se rechargent | **Toutes** les utilisations, l'Ardeur et les points de sort se rechargent | Comme un repos long |
 | **Autre** | Enfiler ou ôter une Armure | Échanger des Aspects | Tout ce que fait un repos long, et **guérit toutes vos Blessures** (7.6) |
 
-Un repos long est interrompu par 1 heure de combat, de marche ou d'autre activité éprouvante. Un repos interrompu ne donne aucun bénéfice. Il vous faut au moins 1 PV pour bénéficier d'un repos long. Une relâche est rompue par toute aventure : un combat, un voyage, un donjon.
+Un repos long est interrompu par 1 heure de combat, de marche ou d'autre activité éprouvante. Un repos interrompu ne donne aucun bénéfice. Il vous faut au moins 1 PV pour bénéficier d'un repos long. Une convalescence est rompue par toute aventure : un combat, un voyage, un donjon.
 
 ### 7.6 Blessures
 
@@ -629,7 +629,7 @@ Une **Blessure** est une lésion durable. Vous en subissez une chaque fois que v
 - Les **Blessures à malus** impriment un malus (*−3 m de Vitesse*, *−2 aux attaques au corps à corps*). Il compte comme n'importe quel bonus jusqu'à ce que la Blessure guérisse.
 - Les **Blessures invalidantes** bloquent chacune un **Emplacement de Matériel** du genre qu'elles nomment (Main, Bijou ou Objet). Son matériel va dans votre Sac (au sol si le Sac est plein), et l'Emplacement ne contient rien jusqu'à ce que la Blessure guérisse. Si tous les Emplacements de ce genre sont déjà bloqués, remettez la Blessure et tirez-en une autre.
 - **Les Blessures se cumulent, sans maximum.** Chacune reste jusqu'à sa guérison. Avec trop de Blessures, vous n'êtes plus d'une grande utilité à la Compagnie : surveillez vos PV.
-- **Guérison :** une **relâche** (7.5) guérit toutes vos Blessures. Les repos, les Soins et les potions, non. Quelques rares trésors en guérissent une.
+- **Guérison :** une **convalescence** (7.5) guérit toutes vos Blessures. Les repos, les Soins et les potions, non. Quelques rares trésors en guérissent une.
 
 À la table, les Blessures sont un paquet de cartes (12.3).
 
@@ -959,7 +959,7 @@ Un Livre de sorts est un **paquet** : une **carte de couverture** (Rang, attaque
 1. **Choisissez une Vocation** (2.4).
 2. **Choisissez votre matériel et vos Aspects** dans la liste de départ du MJ (tous de Rang I), parmi les cartes que votre Vocation peut équiper (3.1) : **1 Armure**, jusqu'à **2** pour vos **Mains** (armes ou un bouclier), **1 Bijou** et **3 Aspects**. Un lanceur de sorts choisit aussi un **Livre de sorts** (il occupe un Emplacement d'Objet et demande un Emplacement de Main vide pour lancer). Un Aspect Divin, de Glamour ou de Nature compte parmi vos 3 Aspects.
 3. **Remplissez vos Emplacements d'Objet** : une *Potion de soins* (dans l'Emplacement d'Objet libre).
-4. **Prenez 3 Éclats vides** et une *Bourse de cuir* (Bourse, Rang I) contenant **50 po** (le tout dans votre Sac). La Réserve de la Compagnie commence avec **2 Éclats vides par personnage** (3.8).
+4. **Prenez 3 Éclats vides** et une *Bourse à cordon* (Bourse, Rang I) contenant **50 po** (le tout dans votre Sac). La Réserve de la Compagnie commence avec **2 Éclats vides par personnage** (3.8).
 5. **Calculez** vos dix totaux (quatre modificateurs, quatre Défenses, maximum de PV, Vitesse) en ajoutant les bonus de votre matériel et de vos Aspects à ceux de votre Vocation, et inscrivez-les sur une carte de Décompte avec vos PV actuels (12.3). Calculez ensuite vos bonus d'attaque d'arme et de sort et votre Vigilance passive (5.3).
 6. **Décrivez** qui vous êtes : nom, apparence et un lien.
 
@@ -983,7 +983,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Avantage aux dégâts** | Reporter sur les dégâts d'une attaque un dé d'avantage restant après compensation, choisi avant de lancer : relancez tous les dégâts une fois de plus par dé et gardez le total le plus haut. Le désavantage reste toujours sur l'attaque. |
 | **Babiole** | Une petite chose non magique qui n'est pas du matériel : une clé, une lettre, un trésor, une corde, une torche. Transportée librement, sans limite. |
 | **Bijou** | Le type de matériel porté qui va dans l'Emplacement de Bijou : anneaux, amulettes, diadèmes, capes, gants, bottes. |
-| **Blessure** | Une lésion durable, tirée au hasard chaque fois que vous tombez à 0 PV. Elle reste jusqu'à ce qu'une relâche la guérisse. Une Blessure invalidante bloque un Emplacement de Matériel. |
+| **Blessure** | Une lésion durable, tirée au hasard chaque fois que vous tombez à 0 PV. Elle reste jusqu'à ce qu'une convalescence la guérisse. Une Blessure invalidante bloque un Emplacement de Matériel. |
 | **Boss** | Un monstre puissant doté de capacités spéciales, dont un demi-tour pendant le camp des personnages. |
 | **Boucle de jeu** | Le cycle répété du jeu : affronter une épreuve, ramasser le butin, se reposer et se reconstruire au besoin. |
 | **Bouclier** | Le type de matériel tenu qui augmente vos Défenses ; il va dans un Emplacement de Main. |
@@ -1001,6 +1001,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Compagnie** | Le groupe de Porteurs joués ensemble. |
 | **Complainte** | Un pouvoir Divin ou de Glamour. Action : une attaque contre la Défense de VOL. (EN : Dirge) |
 | **Consommable** | Un objet qui disparaît une fois utilisé. Jusqu'à 3 Consommables identiques partagent un Emplacement d'Objet. |
+| **Convalescence** | 3 jours de repos en lieu sûr : fait tout ce que fait un repos long, et guérit toutes vos Blessures. |
 | **Cuir, Mailles, Plates** | Les trois armures, de la plus légère à la plus lourde. |
 | **Défense** | Le nombre qu'une attaque doit atteindre : 10 + un modificateur de caractéristique + bonus. Toute créature a une Défense de FOR, de DEX, d'INT et de VOL. |
 | **Déplacement** | Une action : se déplacer jusqu'à votre Vitesse, en coupant avant et après votre autre action si vous le souhaitez. |
@@ -1055,7 +1056,6 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Réaction** | L'utiliser prend votre réaction : quand le déclencheur de son texte survient, ou à votre tour s'il n'en a pas. |
 | **Recette** | Un objet : une pile qui se reconstitue à chaque repos long. Les exemplaires inutilisés disparaissent quand elle se reconstitue. |
 | **Recharge 5–6** | Un pouvoir de monstre qui revient sur un 5 ou un 6 au d6 à la fin du tour du monstre. |
-| **Relâche** | 3 jours de repos en lieu sûr : fait tout ce que fait un repos long, et guérit toutes vos Blessures. |
 | **Relance** | Le jet est refait (tous ses d20) et le nouveau résultat compte. Un jet ne peut être relancé qu'une fois. (EN : Reroll) |
 | **Réplique** | Un pouvoir Divin ou de Glamour. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue) |
 | **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel que la Compagnie possède mais que personne ne porte. |

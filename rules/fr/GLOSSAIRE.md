@@ -375,12 +375,12 @@ Une vitesse de vol : vous vous déplacez dans les airs. Si vous êtes mis À ter
 Très petit, Petit, Moyen ou Grand, imprimé sur une Forme ou une carte d'Adversaire. Les Porteurs sont de taille Moyenne.
 
 **Blessure**:
-Une lésion durable, tirée au hasard chaque fois que vous tombez à 0 PV. Elle reste jusqu'à ce qu'une relâche la guérisse. Une Blessure invalidante bloque un Emplacement de Matériel.
+Une lésion durable, tirée au hasard chaque fois que vous tombez à 0 PV. Elle reste jusqu'à ce qu'une convalescence la guérisse. Une Blessure invalidante bloque un Emplacement de Matériel.
 _À éviter_ : épuisement, cicatrice, fatigue. (EN : Wound, Crippling)
 
-**Relâche**:
+**Convalescence**:
 3 jours de repos en lieu sûr : fait tout ce que fait un repos long, et guérit toutes vos Blessures.
-_À éviter_ : repos long (pour ceci), convalescence, temps mort. (EN : Downtime)
+_À éviter_ : repos long (pour ceci), relâche, temps mort. (EN : Downtime)
 
 ### Monstres
 

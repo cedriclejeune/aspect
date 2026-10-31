@@ -69,7 +69,7 @@ La boucle de jeu (J 1) existe pour faire avancer la Compagnie dans la saga. Cons
 - **Quête :** un objectif que la Compagnie se donne, avec une accroche et une fin nette : *nettoyer la mine*, *escorter l'émissaire*, *retrouver la relique volée*. Une quête compte **3 à 5 épreuves** (1.5), dont généralement une rude, reliées par l'exploration et le voyage (1.2). Chaque quête devrait changer quelque chose dans la saga : un indice, un allié, un rival affaibli, une porte ouverte.
 - **Proposez des quêtes, ne les imposez pas.** Donnez à la Compagnie deux ou trois pistes et laissez-la choisir. Une quête refusée ou ratée peut revenir plus tard, plus difficile.
 - **Les récompenses de quête** sont à votre discrétion, en plus du butin des épreuves (4.1) : une amélioration de la Réserve de la Compagnie, une faveur, un matériel rare ou un Aspect rare. Donnez-en une quand la quête a été longue ou que la Compagnie s'est démenée.
-- **Des relâches entre les quêtes.** Les Blessures (J 7.6) ne guérissent que pendant une relâche : 3 jours en lieu sûr. Placez des villes, des temples et des camps sûrs entre les quêtes, et laissez la Compagnie choisir quand y retourner. Un donjon profond loin de tout secours fait compter chaque chute à 0 PV. Une relâche est aussi un bon moment pour des nouvelles, des rivaux et les pistes suivantes.
+- **Une convalescence entre les quêtes.** Les Blessures (J 7.6) ne guérissent que pendant une convalescence : 3 jours en lieu sûr. Placez des villes, des temples et des camps sûrs entre les quêtes, et laissez la Compagnie choisir quand y retourner. Un donjon profond loin de tout secours fait compter chaque chute à 0 PV. Une convalescence est aussi un bon moment pour des nouvelles, des rivaux et les pistes suivantes.
 
 ### 1.7 Arbitrages
 - **Métamorphose sur un Porteur en Forme** (J 10.7) : la métamorphose remplace la Forme. Quand la métamorphose prend fin, le Porteur revient à son propre corps ; la Forme est perdue.
@@ -152,7 +152,7 @@ Un Porteur caché (J 5.4) peut observer un groupe d'Adversaires avant un combat 
 - **Répartissez les Armures et les Traits dans la Compagnie.** Ils portent l'essentiel des PV qu'un Porteur gagne : un joueur très en avance sur eux déséquilibre les rencontres.
 - **La plupart des butins sont ordinaires :** la fronde d'un gobelin, l'arbalète d'un bandit, les mailles d'un garde. Ils valent rarement la peine d'être équipés, mais ils remplissent la Réserve de la Compagnie d'options pour de futures constructions.
 - Le matériel et les Aspects de **Rang V** ne sont lâchés que par des Boss, et rarement.
-- **Les remèdes sont rares :** les cartes qui guérissent une Blessure (*Onguent réparateur*) sont une récompense de quête ou un butin de Boss, jamais un article de boutique. La relâche est le remède normal.
+- **Les remèdes sont rares :** les cartes qui guérissent une Blessure (*Onguent réparateur*) sont une récompense de quête ou un butin de Boss, jamais un article de boutique. La convalescence est le remède normal.
 - **Partagez les Aspects entre les styles.** À chaque Rang, donnez à parts à peu près égales des Techniques de combat, des Traits pour lanceurs de sorts, et des Aspects Divins, de Glamour et de Nature (ou des Traits et du matériel Focaliseur qui les renforcent). Chaque construction progresse alors au même rythme grâce à ses Emplacements d'Aspect.
 - **Un budget par épreuve, pas par cadavre.** Donnez les mêmes 1 à 3 pièces de butin par personnage quelle que soit la façon dont la Compagnie s'en sort : un combat laisse du matériel sur les corps et des Aspects qui persistent au-dessus ; un marché apporte un paiement, un cadeau (6.3) ou une faveur (*Lettre d'introduction*, *Chevalière de guilde*, J 3.4) ; la discrétion ou la ruse atteint le trésor que gardaient les monstres. Les joueurs ne perdent ainsi jamais de butin pour avoir évité un combat.
 
@@ -164,7 +164,7 @@ Un Porteur caché (J 5.4) peut observer un groupe d'Adversaires avant un combat 
 | **Armure** | *Cuir*, *Mailles* |
 | **Mains** | *Bouclier*, *Dague*, *Épée courte*, *Hachette*, *Lame fine*, *Épée longue*, *Hache d'armes*, *Épée à deux mains*, *Glaive sur lance*, *Arc long*, *Fronde*, *Javelines*, *Bâton de garde-sort*, *Luth du voyageur* |
 | **Bijou** | *Anneau de protection*, *Chevalière de guilde*, *Bandoulière à Éclats*, *Bottes de grande foulée*, *Grelots de danseur* |
-| **Objets** | *Livre du conjurateur*, *Potion de soins*, *Bourse de cuir*, *Lettre d'introduction* |
+| **Objets** | *Livre du conjurateur*, *Potion de soins*, *Bourse à cordon*, *Lettre d'introduction* |
 | **Aspects** | *Saute-ruisseau*, *Sang de pierre*, *Volonté de fer*, *Esprit clair*, *Enchaînement*, *Visée stable*, *Coup de bouclier*, *Hymne de bataille*, *Cri de ralliement*, *Passe-muraille*, *Renommé*, *Marin*, *Gamin des rues*, *Chasseur*, *Médecin*, *Tavernier*, *Forgeron*, *Montagnard*, *Répertoire du vagabond* |
 
 - **Listes de souhaits :** chaque joueur écrit **3 cartes** qu'il aimerait trouver au dos de sa carte de Décompte (J 12.3) et la met à jour quand il le souhaite. Jetez-y un œil quand vous choisissez le butin (4.1) et les récompenses : exaucez un souhait de temps en temps, à son Rang, par un monstre ou une épreuve adaptés. *Provisoire : le dos des cartes n'est pas encore conçu.*
@@ -373,7 +373,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Avantage aux dégâts** | Reporter sur les dégâts d'une attaque un dé d'avantage restant après compensation, choisi avant de lancer : relancez tous les dégâts une fois de plus par dé et gardez le total le plus haut. Le désavantage reste toujours sur l'attaque. |
 | **Babiole** | Une petite chose non magique qui n'est pas du matériel : une clé, une lettre, un trésor, une corde, une torche. Transportée librement, sans limite. |
 | **Bijou** | Le type de matériel porté qui va dans l'Emplacement de Bijou : anneaux, amulettes, diadèmes, capes, gants, bottes. |
-| **Blessure** | Une lésion durable, tirée au hasard chaque fois que vous tombez à 0 PV. Elle reste jusqu'à ce qu'une relâche la guérisse. Une Blessure invalidante bloque un Emplacement de Matériel. |
+| **Blessure** | Une lésion durable, tirée au hasard chaque fois que vous tombez à 0 PV. Elle reste jusqu'à ce qu'une convalescence la guérisse. Une Blessure invalidante bloque un Emplacement de Matériel. |
 | **Boss** | Un monstre puissant doté de capacités spéciales, dont un demi-tour pendant le camp des personnages. |
 | **Boucle de jeu** | Le cycle répété du jeu : affronter une épreuve, ramasser le butin, se reposer et se reconstruire au besoin. |
 | **Bouclier** | Le type de matériel tenu qui augmente vos Défenses ; il va dans un Emplacement de Main. |
@@ -391,6 +391,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Compagnie** | Le groupe de Porteurs joués ensemble. |
 | **Complainte** | Un pouvoir Divin ou de Glamour. Action : une attaque contre la Défense de VOL. (EN : Dirge) |
 | **Consommable** | Un objet qui disparaît une fois utilisé. Jusqu'à 3 Consommables identiques partagent un Emplacement d'Objet. |
+| **Convalescence** | 3 jours de repos en lieu sûr : fait tout ce que fait un repos long, et guérit toutes vos Blessures. |
 | **Cuir, Mailles, Plates** | Les trois armures, de la plus légère à la plus lourde. |
 | **Défense** | Le nombre qu'une attaque doit atteindre : 10 + un modificateur de caractéristique + bonus. Toute créature a une Défense de FOR, de DEX, d'INT et de VOL. |
 | **Déplacement** | Une action : se déplacer jusqu'à votre Vitesse, en coupant avant et après votre autre action si vous le souhaitez. |
@@ -445,7 +446,6 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Réaction** | L'utiliser prend votre réaction : quand le déclencheur de son texte survient, ou à votre tour s'il n'en a pas. |
 | **Recette** | Un objet : une pile qui se reconstitue à chaque repos long. Les exemplaires inutilisés disparaissent quand elle se reconstitue. |
 | **Recharge 5–6** | Un pouvoir de monstre qui revient sur un 5 ou un 6 au d6 à la fin du tour du monstre. |
-| **Relâche** | 3 jours de repos en lieu sûr : fait tout ce que fait un repos long, et guérit toutes vos Blessures. |
 | **Relance** | Le jet est refait (tous ses d20) et le nouveau résultat compte. Un jet ne peut être relancé qu'une fois. (EN : Reroll) |
 | **Réplique** | Un pouvoir Divin ou de Glamour. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue) |
 | **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel que la Compagnie possède mais que personne ne porte. |

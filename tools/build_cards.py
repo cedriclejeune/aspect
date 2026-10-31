@@ -530,7 +530,7 @@ def intro_fr(n_cards, n_frames, n_duplex):
 <p>{n_frames} cadres : {frames}.</p>
 <h2>Liste de départ</h2><table>{rows}</table>
 <h2>Chaque joueur prend</h2>
-<p>Une Vocation, puis du matériel et des Aspects de la liste de départ qu'elle peut équiper (Règles du joueur 13.1), 9 cadres d'Emplacement (Armure, 2 Mains, Bijou, 2 Objets, 3 Aspects), 3 cadres d'Éclat, une Potion de soins, une Bourse de cuir avec 50 po et une carte de Décompte. La Réserve de la Compagnie commence avec 2 cadres d'Éclat par joueur. Gardez les cadres d'Aspect de jalon et les cadres d'Emplacement de Matériel supplémentaire pour que le MJ les distribue.</p>
+<p>Une Vocation, puis du matériel et des Aspects de la liste de départ qu'elle peut équiper (Règles du joueur 13.1), 9 cadres d'Emplacement (Armure, 2 Mains, Bijou, 2 Objets, 3 Aspects), 3 cadres d'Éclat, une Potion de soins, une Bourse à cordon avec 50 po et une carte de Décompte. La Réserve de la Compagnie commence avec 2 cadres d'Éclat par joueur. Gardez les cadres d'Aspect de jalon et les cadres d'Emplacement de Matériel supplémentaire pour que le MJ les distribue.</p>
 </section>"""
 
 

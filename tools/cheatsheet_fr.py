@@ -220,7 +220,7 @@ Quand le <strong>Meneur</strong> d'un groupe d'Adversaires tombe, et quand la mo
 <ul>
 <li><strong>Repos court</strong> (1 h, 2 par repos long) : récupérez la moitié des PV manquants ; les utilisations R.C. et l'Ardeur reviennent ; enfiler ou ôter une Armure.</li>
 <li><strong>Repos long</strong> (8 h) : tous les PV, utilisations, Ardeur et points de sort ; échanger des Aspects.</li>
-<li><strong>Relâche</strong> (3 jours en lieu sûr) : comme un repos long, et guérit toutes les Blessures.</li>
+<li><strong>Convalescence</strong> (3 jours en lieu sûr) : comme un repos long, et guérit toutes les Blessures.</li>
 </ul>
 </div>
 <footer>Règles d'or : la règle du plaisir · personne n'est laissé de côté · le particulier l'emporte sur le général · arrondir à l'inférieur · tout se cumule · le MJ tranche.</footer>
