@@ -3,13 +3,15 @@
 Front: every action, reaction and free thing you can do on a turn.
 Back: a summary of the combat rules (Chapters 5-8 and 10 of rules/PLAYERS.md).
 
-Usage: .venv/bin/python tools/build_cheatsheet.py
+Usage: .venv/bin/python tools/build_cheatsheet.py [--lang fr]
 Output: rules/Bearers-Combat-Cheat-Sheet.pdf (and build/cheatsheet.html for inspection)
+--lang fr: the French sheet from tools/cheatsheet_fr.py, in rules/fr/Porteurs-Aide-memoire-combat.pdf
 Needs: Chromium (set CHROMIUM=/path/to/binary if it isn't on PATH as `chromium`).
 The text is written by hand: when a combat rule changes in PLAYERS.md, update it here too.
 """
 import os
 import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -289,16 +291,26 @@ When a foe group's <strong>Leader</strong> falls, and when half the group is dow
 """
 
 
-def build_html():
+def build_html(lang="en"):
+    if lang == "fr":
+        sys.path.insert(0, str(Path(__file__).parent))
+        import cheatsheet_fr
+        return (f'<!doctype html><html lang="fr"><head><meta charset="utf-8">{FONTS}'
+                f'<title>Porteurs · Aide-mémoire de combat</title><style>{CSS}</style></head>'
+                f'<body>{cheatsheet_fr.FRONT}{cheatsheet_fr.BACK}</body></html>')
     return (f'<!doctype html><html><head><meta charset="utf-8">{FONTS}'
             f'<title>Bearers Combat Cheat Sheet</title><style>{CSS}</style></head>'
             f'<body>{FRONT}{BACK}</body></html>')
 
 
 def main():
+    global OUT
+    lang = sys.argv[sys.argv.index("--lang") + 1] if "--lang" in sys.argv else "en"
+    if lang == "fr":
+        OUT = ROOT / "rules" / "fr" / "Porteurs-Aide-memoire-combat.pdf"
     BUILD.mkdir(exist_ok=True)
-    html_path = BUILD / "cheatsheet.html"
-    html_path.write_text(build_html(), encoding="utf-8")
+    html_path = BUILD / ("cheatsheet-fr.html" if lang == "fr" else "cheatsheet.html")
+    html_path.write_text(build_html(lang), encoding="utf-8")
     subprocess.run(
         [
             os.environ.get("CHROMIUM", "chromium"), "--headless", "--disable-gpu", "--no-sandbox",

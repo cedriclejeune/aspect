@@ -30,7 +30,33 @@ def _svg(w, h, body, label):
     )
 
 
+LANG = "en"  # set_lang("fr") translates every figure's text through tools/i18n_fr.py
+_TR, _TR_UP = {}, {}
+
+
+def set_lang(lang):
+    """Draw the figures in English ("en") or French ("fr")."""
+    global LANG, _TR, _TR_UP
+    LANG = lang
+    if lang == "fr":
+        import i18n_fr
+        _TR = i18n_fr.ILLUSTRATIONS
+        _TR_UP = {k.upper(): v.upper() for k, v in _TR.items()}
+        for d in (BRAM_CALLING, BRAM_TOTALS):
+            d[9] = i18n_fr.feet(d[9])
+    else:
+        _TR, _TR_UP = {}, {}
+
+
+def tr(s):
+    """A figure's text in the current language (unchanged if it has no translation)."""
+    if not _TR or not isinstance(s, str):
+        return s
+    return _TR.get(s) or _TR_UP.get(s) or s
+
+
 def _text(x, y, s, size=14, style=BODY, fill=INK, anchor="middle", weight=None, italic=False):
+    s = tr(s)
     extra = f";font-weight:{weight}" if weight else ""
     extra += ";font-style:italic" if italic else ""
     return f'<text x="{x}" y="{y}" text-anchor="{anchor}" style="{style}{extra}" font-size="{size}" fill="{fill}">{s}</text>'
@@ -444,6 +470,7 @@ def ledger_card(x, y, w, h, name, vals=None, kw="", rank=None, lit=None, own=Non
     th, kh, sw = h * .13, h * .1, w * .2
     sx, row, my = x + w - sw, (h - th - kh) / 10, y + (th - .7 * u) / 2
     vals = own or vals or {}
+    name, kw = tr(name), tr(kw)
     out = [f'<rect x="{x}" y="{y}" width="{w}" height="{h:.2f}" rx="{3 * u:.2f}" fill="#fff" stroke="#000" stroke-width="{.35 * u:.2f}"/>',
            _line(x, y + th - .35 * u, x + w, y + th - .35 * u, .7 * u)]
     pt = 9.2 if len(name) <= 14 else 8 if len(name) <= 18 else 7
@@ -497,7 +524,7 @@ def calling_card():
     h, u = w * 88 / 63, w / 63
     th, kh = h * .13, h * .1
     top, row, my = y + th, (h - th - kh) / 10, y + (th - .7 * u) / 2
-    own = dict(enumerate(["+2", "+2", "+0", "+0", "12", "12", "10", "10", "12", "35"]))
+    own = dict(enumerate(["+2", "+2", "+0", "+0", "12", "12", "10", "10", "12", "10,5" if LANG == "fr" else "35"]))
     body = [ledger_card(x, y, w, h, "Duelist", kw="Calling", lit=["STR", "DEX"], own=own,
                         text=["**Footwork:** after a", "melee hit, move 5 ft"], tid="STARTER · L-01")]
     # brackets beside the card group the own values: modifiers, Defenses, HP and Speed
@@ -699,6 +726,9 @@ def keeping_totals():
     body.append(f'<rect x="{x0 + W - dx}" y="{ry:.1f}" width="{cxs + dx + W - (x0 + W - dx):.1f}" height="{rh:.1f}" fill="{CRIMSON}" fill-opacity=".12" stroke="{CRIMSON}" stroke-width="1.6"/>')
     names = [n for n, *_ in reversed(stack)] + ["Calling", "Tally"]
     names = [{"Mail": "Armor", "Springheel": "Spring."}.get(n, n) for n in names]
+    if LANG == "fr":  # French names are longer: abbreviate so the labels don't run together
+        names = [{"Iron Will": "Vol.", "Spring.": "Tal.", "Shield": "Boucl.", "Armor": "Arm.", "Calling": "Voc.",
+                  "Tally": "Déc."}.get(n, n) for n in names]
     for k, nm in enumerate(names):
         body.append(_text(x0 + W - dx / 2 + k * dx, y0 + H + 16, nm, 9, BODY, MUTED, italic=True))
     tx = cxs + dx + W + 22
@@ -761,6 +791,7 @@ def frame_body(key, name, swap, reminder, slits=True):
     """One Slot frame (or Shard frame) as SVG elements in 0.1 mm units."""
     x0, y0, x1, y1 = FRAME_CARD
     band = FRAME_BAND[key]
+    name, swap, reminder = tr(name), tr(swap), [tr(p) for p in reminder]
     out = [f'<rect x="0" y="0" width="{FRAME_W}" height="{FRAME_H}" fill="{PARCH}" stroke="{INK}" stroke-width="4"/>',
            f'<rect x="0" y="0" width="{FRAME_W}" height="{y0}" fill="{band}"/>',
            f'<circle cx="52" cy="{y0 / 2}" r="31" fill="{PARCH}" stroke="{GOLD}" stroke-width="3"/>',
