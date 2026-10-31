@@ -101,7 +101,7 @@ Une Vocation donne **+2 à ses deux caractéristiques** et +0 aux deux autres, u
 | **Templier** | FOR · VOL | 14 | 9 m | **Serment (1/R.C.) :** réaction, quand une attaque touche un allié à 1,5 m ou moins : vous subissez ses dégâts à sa place. |
 | **Lame-mage** | FOR · INT | 13 | 9 m | **Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. |
 | **Infiltrateur** | DEX · INT | 10 | 10,5 m | **Inaperçu :** +2 aux tests pour se faufiler, crocheter les serrures et repérer les pièges. |
-| **Artiste** | DEX · VOL | 10 | 10,5 m | **Complicité du public (1/R.C.) :** réaction, après qu'un allié à 9 m ou moins a fait un jet d'attaque ou un test : +2 à ce jet. |
+| **Artiste** | DEX · VOL | 10 | 10,5 m | **Grande ovation (1/R.C.) :** réaction, après qu'un allié à 9 m ou moins a fait un jet d'attaque ou un test : +2 à ce jet. |
 | **Sage** | INT · VOL | 9 | 9 m | **Érudit :** 1 point de sort supplémentaire sur un Livre de sorts que vous tenez. +2 aux tests pour se souvenir de connaissances. |
 | **Bagarreur** | FOR · DEX | 14 | 9 m | **Teigneux :** +2 au toucher pour Empoigner et Bousculer. |
 | **Zélote** | FOR · VOL | 12 | 10,5 m | **Juste colère (1/R.C.) :** quand vous touchez avec une attaque d'arme : +1d6 dégâts Radiants. |
@@ -190,7 +190,7 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > **Réaction :** lancez une fiole jusqu'à 9 m. Faites une attaque (DEX ou INT + 3) contre la Défense de DEX de chaque créature à 1,5 m ou moins du point d'impact : 2d6 Feu si elle touche, la moitié en cas d'échec.
 > *Recette · 3 fioles*
 
-> **TALONS-RESSORTS** · Rang I · FOR · DEX
+> **SAUTE-RUISSEAU** · Rang I · FOR · DEX
 > Bonus : +2 PV
 > Vos distances de saut sont doublées, et vous n'avez jamais besoin d'élan.
 > *Trait*
@@ -222,11 +222,11 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > +2 à la Défense de VOL contre la peur et le contrôle mental.
 > *Trait*
 
-> **MONTE-EN-L'AIR** · Rang I · DEX · INT
+> **PASSE-MURAILLE** · Rang I · DEX · INT
 > +2 aux tests pour se faufiler, grimper ou crocheter les serrures.
 > *Savoir-faire*
 
-> **LETTRE DE FAVEUR** · Rang I · tous
+> **LETTRE D'INTRODUCTION** · Rang I · tous
 > Une lettre scellée d'une maison noble, d'une guilde ou d'un temple. Montrez-la à l'un de ses membres : il accède à une demande raisonnable (un abri, une audience, un sauf-conduit, un prêt jusqu'à 100 po).
 > *Consommable*
 
@@ -240,11 +240,11 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 
 > **RÉPERTOIRE DU VAGABOND** · Rang I · VOL
 > Attaque : VOL + 2 · Ardeur : 3 + VOL (repos court)
-> Pouvoirs : *Raillerie* (0) · *Ralliement*, *Tenez la ligne*, *Mots cinglants*, *Du calme* (1) · *Effroi*, *Vers exaltant* (2)
+> Pouvoirs : *Raillerie* (0) · *Ralliement*, *Tenez la ligne*, *Réplique cinglante*, *Du calme* (1) · *Effroi*, *Vers exaltant* (2)
 > - *Raillerie* (Complainte, 0) : jusqu'à la fin du prochain tour de la cible, elle a −2 à sa prochaine attaque.
 > - *Ralliement* (Hymne, 1) : Durée 1 minute. Jusqu'à 3 alliés à 9 m ou moins ont +2 aux attaques.
 > - *Tenez la ligne* (Hymne, 1) : Durée 1 minute. Les alliés à 9 m ou moins ont +2 aux Défenses de FOR et de DEX.
-> - *Mots cinglants* (Réplique, 1) : −2 au jet d'attaque ou au test d'un ennemi.
+> - *Réplique cinglante* (Réplique, 1) : −2 au jet d'attaque ou au test d'un ennemi.
 > - *Du calme* (Réplique, 1) : +2 au jet d'un allié, ou à la Défense que vise une attaque.
 > - *Effroi* (Complainte, 2) : la cible est Effrayée par vous pendant 2 tours.
 > - *Vers exaltant* (Soin, 2) : action, 18 m. Une créature récupère 2d4 + VOL PV.
@@ -252,11 +252,11 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 
 > **LITANIE DE L'ACOLYTE** · Rang I · VOL
 > Attaque : VOL + 2 · Ardeur : 3 + VOL (repos court)
-> Pouvoirs : *Assistance* (0) · *Bénédiction*, *Fléau*, *Tordre le destin* (1) · *Mot de guérison*, *Soins* (2)
+> Pouvoirs : *Assistance* (0) · *Bénédiction*, *Fléau*, *Altération du destin* (1) · *Mot de guérison*, *Soins* (2)
 > - *Assistance* (Réplique, 0) : ajoutez 1d4 au test d'un allié.
 > - *Bénédiction* (Hymne, 1) : Durée 1 minute. Jusqu'à 3 alliés à 9 m ou moins ajoutent 1d4 à leurs jets d'attaque.
 > - *Fléau* (Complainte, 1) : Durée 1 minute. La cible soustrait 1d4 à ses jets d'attaque.
-> - *Tordre le destin* (Réplique, 1) : Relance. Faites relancer un jet d'attaque ou un test à un allié ou à un ennemi.
+> - *Altération du destin* (Réplique, 1) : Relance. Faites relancer un jet d'attaque ou un test à un allié ou à un ennemi.
 > - *Mot de guérison* (Soin, 2) : action, 18 m. Une créature récupère 2d4 + VOL PV.
 > - *Soins* (Soin, 2) : action, contact. Une créature récupère 2d8 + VOL PV.
 > *Divin*
@@ -693,7 +693,7 @@ Chaque ligne est une sorte d'arme de Rang I. Son nom est une simple couleur : un
 | **Lame fine** (rapière, cimeterre) | DEX · VOL | +2 | 1d6 | — |
 | **Arme polyvalente** (épée longue, hache d'armes, lance, bâton) | FOR + une | +2 | 1d8 / 1d10 | Polyvalente |
 | **Arme lourde** (épée à deux mains, grande hache, maillet) | FOR | +2 | 2d6 | Lourde, Deux mains |
-| **Arme d'hast** (coutille, hallebarde, pique) | FOR | +2 | 1d10 | Lourde, Allonge, Deux mains |
+| **Arme d'hast** (glaive sur lance, hallebarde, pique) | FOR | +2 | 1d10 | Lourde, Allonge, Deux mains |
 | **Fouet** | DEX · VOL | +2 | 1d4 | Allonge |
 | **Javelines** | FOR · DEX | +2 | 1d6 | Lancer (9/36) |
 | **Fronde** / **Arbalète de poing** | DEX · VOL | +2 | 1d6 | Légère, Portée (9/36) |

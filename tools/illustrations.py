@@ -727,7 +727,7 @@ def keeping_totals():
     names = [n for n, *_ in reversed(stack)] + ["Calling", "Tally"]
     names = [{"Mail": "Armor", "Springheel": "Spring."}.get(n, n) for n in names]
     if LANG == "fr":  # French names are longer: abbreviate so the labels don't run together
-        names = [{"Iron Will": "Vol.", "Spring.": "Tal.", "Shield": "Boucl.", "Armor": "Arm.", "Calling": "Voc.",
+        names = [{"Iron Will": "Vol.", "Spring.": "Saut.", "Shield": "Boucl.", "Armor": "Arm.", "Calling": "Voc.",
                   "Tally": "Déc."}.get(n, n) for n in names]
     for k, nm in enumerate(names):
         body.append(_text(x0 + W - dx / 2 + k * dx, y0 + H + 16, nm, 9, BODY, MUTED, italic=True))

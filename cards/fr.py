@@ -17,27 +17,27 @@ NAMES = {
     # armor and hands
     "Leather": "Cuir", "Mail": "Mailles", "Plate": "Plates", "Shield": "Bouclier", "Dagger": "Dague",
     "Shortsword": "Épée courte", "Handaxe": "Hachette", "Finesse Blade": "Lame fine", "Longsword": "Épée longue",
-    "Battleaxe": "Hache d'armes", "Greatsword": "Épée à deux mains", "Glaive": "Coutille", "Longbow": "Arc long",
+    "Battleaxe": "Hache d'armes", "Greatsword": "Épée à deux mains", "Glaive": "Glaive sur lance", "Longbow": "Arc long",
     "Sling": "Fronde", "Javelins": "Javelines", "Spellguard Staff": "Bâton de garde-sort",
-    "Traveler's Lute": "Luth du voyageur", "Greatclub": "Massue", "Gladius": "Gladius", "Boarspear": "Épieu",
+    "Traveler's Lute": "Luth du voyageur", "Greatclub": "Massue", "Gladius": "Gladius", "Boarspear": "Lance de chasse",
     "Pilum": "Pilum", "Shortbow": "Arc court", "Greataxe": "Grande hache",
     # jewelry and items
     "Ring of Warding": "Anneau de protection", "Guild Signet": "Chevalière de guilde",
     "Shard Bandolier": "Bandoulière à Éclats", "Holy Amulet": "Amulette sacrée",
     "Boots of the Long Stride": "Bottes de grande foulée", "Ring of Sparks": "Anneau d'étincelles",
     "Dancer's Bells": "Grelots de danseur", "Potion of Healing": "Potion de soins", "Coin Pouch": "Bourse de cuir",
-    "Writ of Favor": "Lettre de faveur", "Greater Potion of Healing": "Potion de soins supérieurs",
+    "Writ of Favor": "Lettre d'introduction", "Greater Potion of Healing": "Potion de soins supérieurs",
     "Restorative Salve": "Onguent réparateur", "Pocket Sand": "Sable de poche",
     "Alchemist's Fire Recipe": "Recette de feu grégeois",
     # Aspects
-    "Springheel": "Talons-ressorts", "Stone Blood": "Sang de pierre", "Iron Will": "Volonté de fer",
+    "Springheel": "Saute-ruisseau", "Stone Blood": "Sang de pierre", "Iron Will": "Volonté de fer",
     "Clear Mind": "Esprit clair", "Cleave": "Enchaînement", "Steady Aim": "Visée stable",
     "Shield Bash": "Coup de bouclier", "Battle Hymn": "Hymne de bataille", "Rallying Cry": "Cri de ralliement",
-    "Shield Wall": "Mur de boucliers", "Cat Burglar": "Monte-en-l'air", "Renowned": "Renommé", "Sailor": "Marin",
+    "Shield Wall": "Mur de boucliers", "Cat Burglar": "Passe-muraille", "Renowned": "Renommé", "Sailor": "Marin",
     "Street Urchin": "Gamin des rues", "Hunter": "Chasseur", "Physician": "Médecin", "Barkeep": "Tavernier",
     "Smith": "Forgeron", "Mountaineer": "Montagnard", "Twin Strike": "Double frappe", "Second Wind": "Second souffle",
     "Wiry": "Nerveux", "Night Eyes": "Yeux de nuit", "Sellsword": "Lame à louer", "Acrobat": "Acrobate",
-    "Pack Hunter": "Chasseur de meute", "Slippery": "Insaisissable", "Hedge Witch": "Sorcière des haies",
+    "Pack Hunter": "Chasseur de meute", "Slippery": "Insaisissable", "Hedge Witch": "Sorcière des bois",
     "Sweeping Blow": "Coup balayant", "Relentless": "Implacable", "Human Grit": "Ténacité humaine",
     "Elven Blood": "Sang elfique", "Dwarven Blood": "Sang nain", "Halfling Luck": "Chance halfeline",
     "Orcish Blood": "Sang orque", "Hobgoblin Discipline": "Discipline hobgobeline",
@@ -54,9 +54,9 @@ NAMES = {
     "Acolyte's Litany": "Litanie de l'acolyte", "Wildheart's Remembrance": "Souvenance du cœur sauvage",
     "Fire Bolt": "Trait de feu", "Mage Hand": "Main de mage", "Magic Missile": "Projectile magique",
     "Grease": "Graisse", "Misty Step": "Foulée brumeuse", "Web": "Toile d'araignée", "Jeer": "Raillerie",
-    "Rally": "Ralliement", "Hold the Line": "Tenez la ligne", "Cutting Words": "Mots cinglants",
+    "Rally": "Ralliement", "Hold the Line": "Tenez la ligne", "Cutting Words": "Réplique cinglante",
     "Steady Now": "Du calme", "Dread": "Effroi", "Rousing Verse": "Vers exaltant", "Guidance": "Assistance",
-    "Bless": "Bénédiction", "Bane": "Fléau", "Twist Fate": "Tordre le destin", "Healing Word": "Mot de guérison",
+    "Bless": "Bénédiction", "Bane": "Fléau", "Twist Fate": "Altération du destin", "Healing Word": "Mot de guérison",
     "Cure Wounds": "Soins", "Hawk": "Faucon", "Wolf": "Loup", "Mossbalm": "Baume de mousse", "Bear": "Ours",
     # foes
     "Bandit": "Bandit", "Bandit Archer": "Archer bandit", "Goblin": "Gobelin", "Cultist": "Cultiste",
@@ -132,7 +132,7 @@ TEXT = {
     "**Unseen:** +2 on checks to sneak, pick locks and spot traps.":
         "**Inaperçu :** +2 aux tests pour se faufiler, crocheter les serrures et repérer les pièges.",
     "**Crowd Work (1/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll.":
-        "**Complicité du public (1/R.C.) :** réaction, après qu'un allié à 9 m ou moins a fait une attaque ou un test : +2 à ce jet.",
+        "**Grande ovation (1/R.C.) :** réaction, après qu'un allié à 9 m ou moins a fait une attaque ou un test : +2 à ce jet.",
     "**Learned:** 1 extra spell point on a Spellbook you hold. +2 on checks to recall lore.":
         "**Érudit :** 1 point de sort supplémentaire sur un Livre de sorts que vous tenez. +2 aux tests pour se souvenir de connaissances.",
     "**Scrapper:** +2 to hit with Grapples and Shoves.": "**Teigneux :** +2 au toucher pour Empoigner et Bousculer.",
@@ -157,7 +157,7 @@ TEXT = {
     "**Crushing:** on a critical hit, the target is knocked Prone.": "**Écrasement :** sur un coup critique, la cible est mise À terre.",
     "**Close Order:** +1d4 damage while an ally is engaged with the same creature.":
         "**Ordre serré :** +1d4 dégâts tant qu'un allié est engagé avec la même créature.",
-    "**Brace:** your opportunity attacks with it deal +1d8 damage.": "**En arrêt :** vos attaques d'opportunité avec lui infligent +1d8 dégâts.",
+    "**Brace:** your opportunity attacks with it deal +1d8 damage.": "**Tenez bon !** Vos attaques d'opportunité avec lui infligent +1d8 dégâts.",
     "**Pierce:** on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free.":
         "**Perforation :** si l'attaque touche, un Bouclier que tient la cible ne donne plus de bonus jusqu'à ce qu'elle dépense une action pour arracher le pilum.",
     # jewelry

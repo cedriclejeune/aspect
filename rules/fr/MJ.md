@@ -154,7 +154,7 @@ Un Porteur caché (J 5.4) peut observer un groupe d'Adversaires avant un combat 
 - Le matériel et les Aspects de **Rang V** ne sont lâchés que par des Boss, et rarement.
 - **Les remèdes sont rares :** les cartes qui guérissent une Blessure (*Onguent réparateur*) sont une récompense de quête ou un butin de Boss, jamais un article de boutique. La relâche est le remède normal.
 - **Partagez les Aspects entre les styles.** À chaque Rang, donnez à parts à peu près égales des Techniques de combat, des Traits pour lanceurs de sorts, et des Aspects Divins, de Glamour et de Nature (ou des Traits et du matériel Focaliseur qui les renforcent). Chaque construction progresse alors au même rythme grâce à ses Emplacements d'Aspect.
-- **Un budget par épreuve, pas par cadavre.** Donnez les mêmes 1 à 3 pièces de butin par personnage quelle que soit la façon dont la Compagnie s'en sort : un combat laisse du matériel sur les corps et des Aspects qui persistent au-dessus ; un marché apporte un paiement, un cadeau (6.3) ou une faveur (*Lettre de faveur*, *Chevalière de guilde*, J 3.4) ; la discrétion ou la ruse atteint le trésor que gardaient les monstres. Les joueurs ne perdent ainsi jamais de butin pour avoir évité un combat.
+- **Un budget par épreuve, pas par cadavre.** Donnez les mêmes 1 à 3 pièces de butin par personnage quelle que soit la façon dont la Compagnie s'en sort : un combat laisse du matériel sur les corps et des Aspects qui persistent au-dessus ; un marché apporte un paiement, un cadeau (6.3) ou une faveur (*Lettre d'introduction*, *Chevalière de guilde*, J 3.4) ; la discrétion ou la ruse atteint le trésor que gardaient les monstres. Les joueurs ne perdent ainsi jamais de butin pour avoir évité un combat.
 
 ### 4.2 Récompenses
 - **Liste de départ** (J 13.1) : proposez du matériel et des Aspects de Rang I pour chaque style et chaque Vocation, dont un paquet de VOL et un Focaliseur. Chaque joueur ne choisit que des cartes que sa Vocation peut équiper. Le set de base fait commencer les joueurs avec un Répertoire (Glamour) et garde sa Litanie (Divin) et sa Souvenance (Nature) comme butin. Sa liste :
@@ -162,10 +162,10 @@ Un Porteur caché (J 5.4) peut observer un groupe d'Adversaires avant un combat 
 | Emplacement | Matériel et Aspects de départ (Rang I) |
 |---|---|
 | **Armure** | *Cuir*, *Mailles* |
-| **Mains** | *Bouclier*, *Dague*, *Épée courte*, *Hachette*, *Lame fine*, *Épée longue*, *Hache d'armes*, *Épée à deux mains*, *Coutille*, *Arc long*, *Fronde*, *Javelines*, *Bâton de garde-sort*, *Luth du voyageur* |
+| **Mains** | *Bouclier*, *Dague*, *Épée courte*, *Hachette*, *Lame fine*, *Épée longue*, *Hache d'armes*, *Épée à deux mains*, *Glaive sur lance*, *Arc long*, *Fronde*, *Javelines*, *Bâton de garde-sort*, *Luth du voyageur* |
 | **Bijou** | *Anneau de protection*, *Chevalière de guilde*, *Bandoulière à Éclats*, *Bottes de grande foulée*, *Grelots de danseur* |
-| **Objets** | *Livre du conjurateur*, *Potion de soins*, *Bourse de cuir*, *Lettre de faveur* |
-| **Aspects** | *Talons-ressorts*, *Sang de pierre*, *Volonté de fer*, *Esprit clair*, *Enchaînement*, *Visée stable*, *Coup de bouclier*, *Hymne de bataille*, *Cri de ralliement*, *Monte-en-l'air*, *Renommé*, *Marin*, *Gamin des rues*, *Chasseur*, *Médecin*, *Tavernier*, *Forgeron*, *Montagnard*, *Répertoire du vagabond* |
+| **Objets** | *Livre du conjurateur*, *Potion de soins*, *Bourse de cuir*, *Lettre d'introduction* |
+| **Aspects** | *Saute-ruisseau*, *Sang de pierre*, *Volonté de fer*, *Esprit clair*, *Enchaînement*, *Visée stable*, *Coup de bouclier*, *Hymne de bataille*, *Cri de ralliement*, *Passe-muraille*, *Renommé*, *Marin*, *Gamin des rues*, *Chasseur*, *Médecin*, *Tavernier*, *Forgeron*, *Montagnard*, *Répertoire du vagabond* |
 
 - **Listes de souhaits :** chaque joueur écrit **3 cartes** qu'il aimerait trouver au dos de sa carte de Décompte (J 12.3) et la met à jour quand il le souhaite. Jetez-y un œil quand vous choisissez le butin (4.1) et les récompenses : exaucez un souhait de temps en temps, à son Rang, par un monstre ou une épreuve adaptés. *Provisoire : le dos des cartes n'est pas encore conçu.*
 - **Les Emplacements de Matériel supplémentaires** ne sont que des récompenses de Boss. Jamais plus d'un de chaque par personnage. À la table, remettez au joueur son cadre d'Emplacement (J 12.2).
@@ -185,7 +185,7 @@ Les Traits et les Savoir-faire se construisent à partir de quatre sources :
 **Le Rang d'un Aspect est son budget :** le Rang I dépense 1, le Rang II 2, jusqu'au Rang V 5. Le maximum de caractéristique (+5) s'applique toujours.
 - **Un bonus n'est jamais seul :** il s'accompagne d'un second bonus, d'un atout ou d'activités. Il n'existe pas d'Aspect « +1 FOR ».
 - **Mélangez les constructions :** les activités d'un Aspect viennent d'**au moins deux caractéristiques**.
-- **Le Rang I n'a ni bonus ni atout :** jusqu'à 4 activités (un Savoir-faire), ou un avantage précis de même poids (*Volonté de fer*, *Talons-ressorts*). Les bonus et les atouts commencent au Rang II.
+- **Le Rang I n'a ni bonus ni atout :** jusqu'à 4 activités (un Savoir-faire), ou un avantage précis de même poids (*Volonté de fer*, *Saute-ruisseau*). Les bonus et les atouts commencent au Rang II.
 - **Chaque Trait imprime aussi des PV**, hors budget : +2 au Rang I, +4 au II, +7 au III, +10 au IV, +14 au V. Les Savoir-faire n'en impriment pas.
 - **Symboles :** donnez-lui-en deux (rarement un, ou les quatre pour un Trait que tout corps pourrait avoir), parmi les caractéristiques que servent ses activités et ses atouts (J 3.1).
 
@@ -239,7 +239,7 @@ Des Traits et des Savoir-faire nommés, à l'idée claire, prêts à être lâch
 
 | Rang I (Savoir-faire, +2) | Activités |
 |---|---|
-| *Monte-en-l'air* | Se faufiler, grimper, crocheter les serrures |
+| *Passe-muraille* | Se faufiler, grimper, crocheter les serrures |
 | *Marin* | Nager, grimper, s'orienter, recueillir des rumeurs |
 | *Gamin des rues* | Faire les poches, se faufiler, deviner les intentions, recueillir des rumeurs |
 | *Chasseur* | Pister, remarquer, se faufiler, dresser les animaux |
@@ -253,7 +253,7 @@ Des Traits et des Savoir-faire nommés, à l'idée claire, prêts à être lâch
 | *Lame à louer* | +1 FOR | Intimider, endurer, marchander, recueillir des rumeurs |
 | *Acrobate* | +1 DEX | Faire des acrobaties, garder l'équilibre, sauter, se produire |
 | *Diplomate* | +1 VOL | Persuader, tromper, deviner les intentions, se souvenir de connaissances |
-| *Sorcière des haies* | +1 point de sort | Dresser les animaux, se souvenir de connaissances, soigner les blessures, tromper |
+| *Sorcière des bois* | +1 point de sort | Dresser les animaux, se souvenir de connaissances, soigner les blessures, tromper |
 | *Coureur des bois* | +1,5 m de Vitesse | Pister, remarquer, s'orienter, se faufiler |
 | *Videur* | +5 PV | Soulever, intimider, deviner les intentions, endurer |
 
