@@ -62,7 +62,7 @@ None of these checks fired in normal play (0 exceptions, 0 refusals of policy co
 | R110 | Fills a real gap (reasonable) | — |
 | R201 | Contradicts the rules | P 12.3: "An empty Armor Slot adds +10 Speed"; GM 2.1: foes follow the "same rules as Bearers". It matches the printed foe totals (Ogre 35 ft, Wolf 40 ft), so either the foe cards or the rule is wrong. Designer call. |
 | R202 | Fills a real gap (reasonable) | Matches the Legionary note "throws its Pilum, then draws its Gladius". |
-| R203 | Matches the rules | P 3.1: "counting bonuses from your Core, gear and Aspects, but not its own or any penalty". |
+| R203 | Matches the rules | P 3.1: "You can equip it only if your Calling has at least one of its lit symbols." (was the Requirement rule before Callings) |
 | R204 | Fills a real gap (reasonable) | P 6.8 says nothing on how to draw lines or on creatures as cover. |
 | R205 | Fills a real gap (reasonable) | — |
 | R206 | Fills a real gap, but with a hole | Counting the source's turn starts never ends a Duration once the source dies (B1, B3). |

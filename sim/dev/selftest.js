@@ -14,8 +14,8 @@
     // Setup: select, edit, paint, add foes
     click(byText(".roster-row", /Isolde/));
     check("select creature in roster", $(".builder input.name") && $(".builder input.name").value === "Isolde");
-    change($(".builder .row select"), "C-I-01");
-    check("change Core updates the tally", /\+3/.test($(".tally td").textContent));
+    change($(".builder .row select"), "L-01");
+    check("change Calling updates the tally", /\+2/.test($(".tally td").textContent));
     const hand2 = $$(".frame").find((f) => /Hand 2/.test(f.textContent));
     change(hand2 && hand2.querySelector("select"), "W-I-01");
     check("fill Hand 2 with a Dagger", /Dagger/.test($$(".frame")[2].querySelector("select").selectedOptions[0].textContent));

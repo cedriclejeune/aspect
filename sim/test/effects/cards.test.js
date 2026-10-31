@@ -5,7 +5,7 @@
 module.exports = function register(T, H) {
   const { Eng, eq, ok, run, refused, start, C, evs } = H;
   const CARDS = () => H.cards();
-  const B = (o) => Object.assign({ core: "C-I-01", armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [] }, o);
+  const B = (o) => Object.assign({ body: { STR: 3, DEX: 1, INT: 0, WIL: 0, HP: 14, SPD: 30 }, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [] }, o);
   const pc = (id, pos, build, o) => Object.assign({ id, side: "pc", name: id, pos, build: B(build), react: "ask" }, o);
   const foe = (id, pos, build, o) => Object.assign({ id, side: "foe", name: id, pos, build: B(build), react: "never" }, o);
   const tmpl = (id, name, pos, o) => Object.assign({ id, side: "foe", name: id, pos, build: Eng.fromFoe(CARDS().foes.find((f) => f.name === name), CARDS()), react: "never" }, o);
@@ -44,7 +44,7 @@ module.exports = function register(T, H) {
 
   // ---------- weapon riders ----------
   T("[fx] Finesse Blade Sap: −2 on the target's next attack, spent by it or gone at the start of your next turn", () => {
-    const f = fight([pc("a", [5, 5], { core: "C-I-02", hands: ["W-I-04"] }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
+    const f = fight([pc("a", [5, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-04"] }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
     pcTurn(f, "a");
     eq(pv(f, atk("a", "W-I-04", "x")).toHit, 5, "DEX 3 (Finesse) + 2");
     const r = run(f, atk("a", "W-I-04", "x"), [8, 4]); // 13 vs 13
@@ -55,7 +55,7 @@ module.exports = function register(T, H) {
     run(f, atk("x", "W-I-05", "a"), [1]);
     ok(!C(f, "x").mods.length, "spent by the attack");
     // unused: gone when a's next turn starts
-    const g = fight([pc("a", [5, 5], { core: "C-I-02", hands: ["W-I-04"] }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
+    const g = fight([pc("a", [5, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-04"] }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
     pcTurn(g, "a");
     run(g, atk("a", "W-I-04", "x"), [15, 1]);
     end(g, "a");
@@ -101,7 +101,7 @@ module.exports = function register(T, H) {
   });
 
   T("[rules] Prone target: one advantage die at any range, melee or ranged (P 8)", () => {
-    const f = fight([pc("a", [2, 5], { core: "C-I-02", hands: ["W-I-10"] }), pc("b", [9, 6]), foe("x", [8, 5], { hands: ["W-I-05"] })]);
+    const f = fight([pc("a", [2, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-10"] }), pc("b", [9, 6]), foe("x", [8, 5], { hands: ["W-I-05"] })]);
     pcTurn(f, "a");
     run(f, { type: "adjust", actor: "x", cond: "Prone" });
     const far = pv(f, atk("a", "W-I-10", "x"));
@@ -181,7 +181,7 @@ module.exports = function register(T, H) {
   });
 
   T("[fx] Ring of Sparks: 2d6 Lightning to a creature within 5 ft that hits you, 1/S.R.", () => {
-    const f = fight([pc("a", [5, 5], { jewelry: ["J-II-01"] }), foe("x", [6, 5], { hands: ["W-I-05"] }), foe("s", [4, 5], { core: "C-I-02", hands: ["W-I-10"] }), foe("far", [12, 5], { core: "C-I-02", hands: ["W-I-10"] })]);
+    const f = fight([pc("a", [5, 5], { jewelry: ["J-II-01"] }), foe("x", [6, 5], { hands: ["W-I-05"] }), foe("s", [4, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-10"] }), foe("far", [12, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-10"] })]);
     foeTurn(f, "x");
     const r = run(f, atk("x", "W-I-05", "a"), [15, 15, { c: 0 }, 2, 3, 1]); // Outnumbered 2 vs 1
     eq(C(f, "x").hp, 14 - 5); eq(evs(r, "damage").find((e) => e.target === "x").type, "Lightning");
@@ -209,7 +209,7 @@ module.exports = function register(T, H) {
   });
 
   T("[fx] Holy Amulet: Cues reach 90 ft; 1 extra Resolve added to the Litany's pool (P 10.6)", () => {
-    const mk = (jewelry) => fight([pc("p", [1, 5], { core: "C-I-04", jewelry, aspects: ["D-I-01"] }), pc("a", [18, 5], { hands: ["W-I-05"] }), foe("x", [19, 5])]);
+    const mk = (jewelry) => fight([pc("p", [1, 5], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, jewelry, aspects: ["D-I-01"] }), pc("a", [18, 5], { hands: ["W-I-05"] }), foe("x", [19, 5])]);
     const f = mk(["J-I-04"]);
     eq(C(f, "p").resolve["D-I-01"], 7, "3 + WIL 3 + 1");
     pcTurn(f, "p"); end(f, "p"); go(f, "a");
@@ -231,7 +231,7 @@ module.exports = function register(T, H) {
   });
 
   T("[fx] Traveler's Lute: Anthems reach 60 ft; 1 extra Resolve", () => {
-    const mk = (hands) => fight([pc("e", [1, 5], { core: "C-I-04", hands, aspects: ["G-I-01"] }), pc("a", [11, 5]), foe("x", [25, 5])]);
+    const mk = (hands) => fight([pc("e", [1, 5], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, hands, aspects: ["G-I-01"] }), pc("a", [11, 5]), foe("x", [25, 5])]);
     const f = mk(["M-I-01"]);
     eq(C(f, "e").resolve["G-I-01"], 7, "3 + WIL 3 + 1");
     pcTurn(f, "e");
@@ -261,7 +261,7 @@ module.exports = function register(T, H) {
   });
 
   T("[fx] Pocket Sand: bonus action, DEX or WIL + 2 vs DEX Defense within 5 ft; −2 on its attacks until the end of its next turn", () => {
-    const f = fight([pc("a", [5, 5], { core: "C-I-02", items: [{ id: "P-I-03", n: 1 }] }), foe("x", [6, 5], { hands: ["W-I-05"] }), foe("y", [9, 5])]);
+    const f = fight([pc("a", [5, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, items: [{ id: "P-I-03", n: 1 }] }), foe("x", [6, 5], { hands: ["W-I-05"] }), foe("y", [9, 5])]);
     pcTurn(f, "a");
     ok(!tpl(f, "a", (t) => t.power === "P-I-03#0").candidates.includes("y"), "within 5 ft");
     const i = pv(f, power(f, "a", "P-I-03#0", { targets: ["x"] }));
@@ -278,7 +278,7 @@ module.exports = function register(T, H) {
   });
 
   T("[fx] Alchemist's Fire: 3 flasks, bonus action, 30 ft, one attack vs each creature within 5 ft of impact, half on a miss", () => {
-    const f = fight([pc("a", [1, 5], { core: "C-I-02", items: [{ id: "R-II-01" }] }), foe("x", [6, 5]), foe("y", [7, 6], { core: "C-I-02", armor: "A-I-01" }), foe("z", [9, 5])]);
+    const f = fight([pc("a", [1, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, items: [{ id: "R-II-01" }] }), foe("x", [6, 5]), foe("y", [7, 6], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, armor: "A-I-01" }), foe("z", [9, 5])]);
     eq(C(f, "a").items[0].n, 3);
     pcTurn(f, "a");
     ok(/out of range/.test(refused(f, power(f, "a", "R-II-01#0", { point: [8, 5] }))), "35 ft");
@@ -296,7 +296,7 @@ module.exports = function register(T, H) {
 
   // ---------- traits ----------
   T("[fx] Iron Will: +2 WIL Defense against fear (Dread, Bellow), not against Jeer", () => {
-    const f = fight([pc("e", [1, 5], { core: "C-I-04", aspects: ["G-I-01"] }), foe("x", [6, 5], { aspects: ["T-I-03"] }), foe("y", [6, 7])]);
+    const f = fight([pc("e", [1, 5], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, aspects: ["G-I-01"] }), foe("x", [6, 5], { aspects: ["T-I-03"] }), foe("y", [6, 7])]);
     pcTurn(f, "e");
     eq(pv(f, power(f, "e", "G-I-01#dread", { targets: ["x"] })).defense, 12);
     eq(pv(f, power(f, "e", "G-I-01#dread", { targets: ["y"] })).defense, 10);
@@ -319,13 +319,13 @@ module.exports = function register(T, H) {
     ok(!tpl(f, "a", (t) => t.power === "T-II-01#0"), "no use left: no button");
   });
 
-  T("[fx] Night Eyes: sees in the Dark within 60 ft", () => {
+  T("[fx] Night Eyes: sees in the Dark within 120 ft", () => {
     const cells = {}; for (let x = 6; x < 30; x++) for (let y = 0; y < 14; y++) cells[x + "," + y] = "dark";
-    const mk = (aspects) => fight([pc("a", [1, 5], { core: "C-I-02", hands: ["W-I-09"], aspects }), foe("x", [11, 5]), foe("y", [15, 5])], { cells });
+    const mk = (aspects) => fight([pc("a", [1, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-09"], aspects }), foe("x", [21, 5]), foe("y", [27, 5])], { cells });
     const f = mk(["T-II-03"]);
     pcTurn(f, "a");
-    ok(!pv(f, atk("a", "W-I-09", "x")).why.some((w) => /can't see/.test(w)), "50 ft: seen");
-    ok(pv(f, atk("a", "W-I-09", "y")).why.some((w) => /can't see/.test(w)), "70 ft: beyond darkvision");
+    ok(!pv(f, atk("a", "W-I-09", "x")).why.some((w) => /can't see/.test(w)), "100 ft: seen");
+    ok(pv(f, atk("a", "W-I-09", "y")).why.some((w) => /can't see/.test(w)), "130 ft: beyond darkvision");
     const g = mk([]);
     pcTurn(g, "a");
     ok(pv(g, atk("a", "W-I-09", "x")).why.some((w) => /can't see/.test(w)));
@@ -352,7 +352,7 @@ module.exports = function register(T, H) {
   });
 
   T("[fx] Hedge Witch: 1 extra spell point added to the Spellbook's pool (P 10.2)", () => {
-    const f = fight([pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01" }], aspects: ["T-II-06"] }), foe("x", [8, 5]), foe("y", [8, 9])]);
+    const f = fight([pc("w", [1, 5], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, items: [{ id: "B-I-01" }], aspects: ["T-II-06"] }), foe("x", [8, 5]), foe("y", [8, 9])]);
     eq(C(f, "w").sp["B-I-01"], 5);
     pcTurn(f, "w");
     run(f, power(f, "w", "B-I-01#web", { point: [8, 6] }), [1]);
@@ -370,7 +370,7 @@ module.exports = function register(T, H) {
   });
 
   T("[fx] Spellguard Staff: counts as an empty Hand for casting", () => {
-    const f = fight([pc("w", [1, 5], { core: "C-I-03", hands: ["W-I-12", "S-I-01"], items: [{ id: "B-I-01" }] }), pc("v", [1, 8], { core: "C-I-03", hands: ["W-I-05", "S-I-01"], items: [{ id: "B-I-01" }] }), foe("x", [8, 5])]);
+    const f = fight([pc("w", [1, 5], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, hands: ["W-I-12", "S-I-01"], items: [{ id: "B-I-01" }] }), pc("v", [1, 8], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, hands: ["W-I-05", "S-I-01"], items: [{ id: "B-I-01" }] }), foe("x", [8, 5])]);
     pcTurn(f, "w");
     ok(f.preview(power(f, "w", "B-I-01#fire-bolt", { targets: ["x"] })).ok);
     end(f, "w"); go(f, "v");
@@ -391,7 +391,7 @@ module.exports = function register(T, H) {
   });
 
   T("[fx] Steady Aim: reaction 2/S.R., +2 on the next ranged attack this turn only", () => {
-    const f = fight([pc("a", [5, 5], { core: "C-I-02", hands: ["W-I-10", "W-I-01"], aspects: ["Q-I-02"] }), foe("x", [6, 5]), foe("y", [12, 5])]);
+    const f = fight([pc("a", [5, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-10", "W-I-01"], aspects: ["Q-I-02"] }), foe("x", [6, 5]), foe("y", [12, 5])]);
     pcTurn(f, "a");
     const base = pv(f, atk("a", "W-I-10", "y")).toHit;
     run(f, power(f, "a", "Q-I-02#0"));
@@ -466,6 +466,65 @@ module.exports = function register(T, H) {
     eq(r2.prompts.filter((p) => p.kind === "reaction").length, 0, "no Shield, no Shield Wall");
   });
 
+  // ---------- Callings (P 2.4, 3.1) ----------
+  const calling = (id, o) => Object.assign({ calling: id, body: null }, o);
+  T("[fx] Callings: symbols gate equipping; +2 / +2 and the Calling's HP and Speed", () => {
+    const t = Eng.totals(B(calling("L-02", { hands: ["W-I-05", "S-I-01"], armor: "A-I-02" })), CARDS());
+    eq([t.STR, t.WIL, t.DEX, t.STRd, t.DEXd, t.HP, t.SPD, t.errors], [2, 2, 0, 17, 12, 18, 30, []]);
+    ok(Eng.validate(B(calling("L-02", { hands: ["W-I-09"] })), CARDS()).some((v) => /symbols/.test(v)), "Templar can't wield a Longbow (DEX · INT)");
+    eq(Eng.totals(B(calling("L-02", { hands: ["W-I-09"] })), CARDS()).errors.length, 1);
+  });
+  T("[fx] Duelist Footwork: 5 ft of safe movement after a melee hit, once per turn", () => {
+    const f = fight([pc("d", [5, 5], calling("L-01", { hands: ["W-I-03"] })), foe("x", [6, 5])]);
+    pcTurn(f, "d");
+    run(f, atk("d", "W-I-03", "x"), [18, 3]);
+    eq(C(f, "d").turn.safeFt, 5); ok(f.legal("d").some((m) => m.type === "move" && m.safe));
+    run(f, atk("d", "W-I-03", "x"), [18, 3]);
+    eq(C(f, "d").turn.safeFt, 5, "once per turn");
+  });
+  T("[fx] Templar Oath: reaction 1/S.R., takes an adjacent ally's hit", () => {
+    const f = fight([pc("a", [5, 5]), pc("t", [5, 6], calling("L-02"), { react: "auto" }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
+    foeTurn(f, "x");
+    run(f, atk("x", "W-I-05", "a"), [15, 15, 6]); // 6 + 3 = 9
+    eq([C(f, "a").hp, C(f, "t").hp, C(f, "t").uses["L-02#0"]], [14, 14 - 9, 0]);
+  });
+  T("[fx] Performer Crowd Work: reaction 1/S.R., +2 to an ally's roll within 30 ft", () => {
+    const f = fight([pc("p", [1, 5], calling("L-05"), { react: "auto" }), pc("a", [7, 5], { hands: ["W-I-05"] }), foe("x", [8, 5], { hands: ["W-I-05"] })]);
+    pcTurn(f, "a");
+    const r = run(f, atk("a", "W-I-05", "x"), [7, 1]); // 12 vs 13 → 14: hits
+    ok(evs(r, "reaction").some((e) => e.power === "L-05#0")); eq(dmgs(r), [4]); eq(C(f, "p").uses["L-05#0"], 0);
+  });
+  T("[fx] Spellblade Battle Caster casts with both Hands full; Sage Learned: +1 spell point", () => {
+    const hands = { hands: ["W-I-05", "S-I-01"], items: [{ id: "B-I-01" }] };
+    const f = fight([pc("s", [1, 5], calling("L-03", hands)), pc("g", [1, 7], calling("L-06", { items: [{ id: "B-I-01" }] })), foe("x", [9, 5])]);
+    pcTurn(f, "s");
+    ok(f.legal("s").some((m) => m.power && m.power.startsWith("B-I-01")), "Spellblade casts holding a Longsword and a Shield");
+    eq([C(f, "s").sp["B-I-01"], C(f, "g").sp["B-I-01"]], [4, 5]);
+    const g = fight([pc("s", [1, 5], hands), foe("x", [9, 5])]);
+    pcTurn(g, "s");
+    ok(!g.legal("s").some((m) => m.power && m.power.startsWith("B-I-01")), "a body with both Hands full can't cast");
+  });
+
+  T("[fx] Brawler Scrapper: +2 to hit with Shoves; Hermit Solitude: +1 Resolve", () => {
+    const f = fight([pc("b", [5, 5], calling("L-07")), pc("h", [1, 1], calling("L-12", { aspects: ["G-I-01"] })), foe("x", [6, 5])]);
+    pcTurn(f, "b");
+    const r = f.preview({ type: "shove", actor: "b", target: "x", mode: "push" });
+    eq(r.info.toHit, 2 + 2 + 2, "STR + 2 + Scrapper");
+    eq(C(f, "h").resolve["G-I-01"], 3 + 2 + 1);
+  });
+  T("[fx] Zealot Righteous Fury: 1/S.R., +1d6 Radiant on a weapon hit", () => {
+    const f = fight([pc("z", [5, 5], calling("L-08", { hands: ["W-I-05"] }), { react: "auto" }), foe("x", [6, 5])]);
+    pcTurn(f, "z");
+    const r = run(f, atk("z", "W-I-05", "x"), [18, 4, 3]);
+    eq(dmgs(r), [6, 3]); eq(C(f, "z").uses["L-08#0"], 0);
+  });
+  T("[fx] Trickster Feint: reaction 1/S.R., −2 to an attack that hits you", () => {
+    const f = fight([pc("k", [5, 5], calling("L-11"), { react: "auto" }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
+    foeTurn(f, "x");
+    const r = run(f, atk("x", "W-I-05", "k"), [8]); // 8 + 5 = 13 vs DEX Defense 12 → 14: miss
+    ok(evs(r, "miss").length); eq(C(f, "k").uses["L-11#0"], 0);
+  });
+
   T("[fx] Twin Strike: one extra attack, once per turn", () => {
     const f = fight([pc("a", [5, 5], { hands: ["W-I-05"], aspects: ["Q-II-01"] }), foe("x", [6, 5])]);
     pcTurn(f, "a");
@@ -491,7 +550,7 @@ module.exports = function register(T, H) {
     eq(r2.prompts.length, 1, "a normal move provokes");
   });
   // ---------- Conjurer's Book ----------
-  const wiz = (o) => Object.assign({ core: "C-I-03", items: [{ id: "B-I-01" }] }, o);
+  const wiz = (o) => Object.assign({ body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, items: [{ id: "B-I-01" }] }, o);
   T("[fx] Fire Bolt: cantrip, 120 ft, INT + 2 vs DEX, 1d10 Fire; no spell points, not the turn's spell", () => {
     const f = fight([pc("w", [1, 5], wiz()), foe("x", [20, 5]), foe("far", [26, 5])], { w: 40 });
     pcTurn(f, "w");
@@ -524,7 +583,7 @@ module.exports = function register(T, H) {
   });
 
   T("[fx] Shield: reaction, +5 STR and DEX Defense against the triggering attack and until the start of your next turn", () => {
-    const f = fight([pc("w", [5, 5], wiz()), foe("x", [6, 5], { hands: ["W-I-05"] }), foe("y", [4, 5], { core: "C-I-02", hands: ["W-I-01"] })]);
+    const f = fight([pc("w", [5, 5], wiz()), foe("x", [6, 5], { hands: ["W-I-05"] }), foe("y", [4, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-01"] })]);
     foeTurn(f, "x");
     const r = run(f, atk("x", "W-I-05", "w"), [9, 9, { c: 0 }]); // 14 vs 11 → 16; Outnumbered 2 vs 1
     ok(evs(r, "miss").length); eq(C(f, "w").sp["B-I-01"], 3);
@@ -597,7 +656,7 @@ module.exports = function register(T, H) {
     ok(!has(C(f, "y"), "Restrained"), "ends with its 2nd turn");
   });
   // ---------- Wanderer's Repertoire ----------
-  const bard = (o) => Object.assign({ core: "C-I-04", aspects: ["G-I-01"] }, o);
+  const bard = (o) => Object.assign({ body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, aspects: ["G-I-01"] }, o);
   T("[fx] Jeer: Dirge at will, WIL + 2 vs WIL, −2 on the target's next attack until the end of its next turn; needs your voice", () => {
     const f = fight([pc("e", [1, 5], bard(), { react: "never" }), pc("a", [7, 5]), foe("x", [8, 5], { hands: ["W-I-05"] }), foe("far", [14, 5])]);
     pcTurn(f, "e");
@@ -676,7 +735,7 @@ module.exports = function register(T, H) {
   });
 
   // ---------- Acolyte's Litany ----------
-  const priest = (o) => Object.assign({ core: "C-I-04", aspects: ["D-I-01"] }, o);
+  const priest = (o) => Object.assign({ body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, aspects: ["D-I-01"] }, o);
   T("[fx] Guidance: checks only, never prompts on an attack", () => {
     const f = fight([pc("p", [1, 5], priest()), pc("a", [7, 5], { hands: ["W-I-05"] }), foe("x", [8, 5])]);
     pcTurn(f, "a");
@@ -750,7 +809,7 @@ module.exports = function register(T, H) {
   });
 
   // ---------- Wildheart's Remembrance ----------
-  const druid = (o) => Object.assign({ core: "C-I-04", armor: "A-I-01", hands: ["W-I-05"], aspects: ["N-I-01"] }, o);
+  const druid = (o) => Object.assign({ body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, armor: "A-I-01", hands: ["W-I-05"], aspects: ["N-I-01"] }, o);
   T("[fx] Hawk: Form, action, 1 Resolve: Tiny, Fly 60, 4 HP, Talons +2 1d4 + DEX; no voice", () => {
     const f = fight([pc("d", [1, 5], druid({ aspects: ["N-I-01", "D-I-01"] })), foe("x", [12, 5])]);
     pcTurn(f, "d");
@@ -775,7 +834,7 @@ module.exports = function register(T, H) {
     eq(pv(f, atk("d", "natural", "x")).damage, "1d6+3 Physical");
     end(f, "d"); go(f, "x");
     const r = run(f, atk("x", "W-I-05", "d"), [15, 10]); // 13 damage: 8 off the Form, 5 carry over
-    ok(evs(r, "revert").length); eq([C(f, "d").form, C(f, "d").hp], [null, 10 - 5]);
+    ok(evs(r, "revert").length); eq([C(f, "d").form, C(f, "d").hp], [null, 12 - 5]); // 10 + Leather's 2 HP
   });
 
   T("[fx] Bear: Form, 3 Resolve: Large, Hide STR Defense 15, 12 HP, Claws +2 1d8 + STR; revert is free; Form to Form", () => {

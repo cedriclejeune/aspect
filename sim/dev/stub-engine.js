@@ -9,12 +9,12 @@
 
   function totals(build, cards) {
     const t = { STR: 0, DEX: 0, INT: 0, WIL: 0, STRd: 10, DEXd: 10, INTd: 10, WILd: 10, HP: 0, SPD: 30, size: "Medium", errors: [] };
-    const core = build.core && cards.cards[build.core];
+    const core = build.calling && cards.cards[build.calling];
     if (core) { ROWS.forEach((k) => (t[k] = core.strip[k] || 0)); t.size = core.size || "Medium"; }
     else if (build.body) {
       ABIL.forEach((k) => { t[k] = build.body[k] || 0; t[k + "d"] = 10 + (build.body[k] || 0); });
       t.HP = build.body.HP || 0; t.SPD = build.body.SPD || 30; t.size = build.body.size || "Medium";
-    } else t.errors.push("No Core or body");
+    } else t.errors.push("No Calling or body");
     for (const id of equipped(build)) {
       const c = cards.cards[id];
       if (!c) { t.errors.push("Unknown card " + id); continue; }
@@ -50,7 +50,7 @@
   }
 
   function fromFoe(foe, cards) {
-    const b = { core: foe.core, body: foe.body ? clone(foe.body) : null, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [],
+    const b = { calling: null, body: foe.body ? clone(foe.body) : null, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [],
       slots: { hand: 2, jewelry: 1, item: 2, aspect: 3 }, bonus: clone(foe.bonus || {}), extraDice: foe.extraDice || 0, ownFx: clone(foe.ownFx || []),
       powers: clone(foe.powers || []), boss: !!foe.boss, senses: clone(foe.senses || {}), alert: !!foe.alert, foe: foe.name };
     for (const id of foe.carries) {

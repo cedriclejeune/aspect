@@ -1,11 +1,17 @@
 """Build the printable base set (cards and Slot frames) from cards/base_set.py.
 
 Usage: .venv/bin/python tools/build_cards.py
-Output: rules/Bearers-Base-Set.pdf (and build/base-set.html for inspection)
+Output: rules/Bearers-Base-Set.pdf to print and rules/Bearers-Base-Set-Reading.pdf to read on screen
+(and build/base-set.html, build/base-set-reading.html for inspection)
 Cards are 63 × 88 mm, 9 per Letter page; foe cards 126 × 88 mm, 3 per page; Slot frames are 67 × 98 mm, 8 per landscape page.
+A card with a drawing is two-sided: gear and gold from rules/art/items/, Callings, Aspects, deck cards and Wounds from
+rules/art/cards/ (a Form named after a foe, and the Orcish and Hobgoblin species Traits, use the foe's drawing). The drawing goes in place of the
+text on the front, the text on the back, on facing pages printed two-sided (each back page mirrors its front page's
+columns). The reading PDF shows those cards once, double width: drawing and text side by side.
 Card geometry matches the tally card (P 12.3): title band 13 %, keywords 10 %, bonus strip 20 % wide.
-Cards are black and white ("Ledger"): stat symbols are Brush Ink PNGs from rules/symbols/brush/ (made by tools/symbol_gen.html),
-an Aspect's type symbol sits at the bottom left, and a foe's drawing is rules/art/<name>.png when there is one.
+Cards are black and white ("Ledger"): stat symbols are ink PNGs from rules/symbols/ink/ (made by tools/ink_symbols.py),
+an Aspect's type symbol sits at the bottom left, the four ability symbols sit in the top corner (the ones a card
+doesn't print greyed out, P 3.1), and a foe's drawing is rules/art/<name>.png when there is one.
 Foe cards (GM 2.1) come from cards/foes.py: their totals and attacks are added up from the cards they name.
 """
 import html
@@ -22,11 +28,15 @@ import foes  # noqa: E402
 import card_art  # noqa: E402
 import illustrations as ill  # noqa: E402
 from build_pdf import FONTS  # noqa: E402
+from PIL import Image  # noqa: E402
 
 BUILD = ROOT / "build"
 OUT = ROOT / "rules" / "Bearers-Base-Set.pdf"
-SYMBOLS = ROOT / "rules" / "symbols" / "brush"
+READING = ROOT / "rules" / "Bearers-Base-Set-Reading.pdf"
+SYMBOLS = ROOT / "rules" / "symbols" / "ink"
 ART = ROOT / "rules" / "art"
+ITEM_ART = ART / "items"
+CARD_ART = ART / "cards"
 
 ROWS = ["STR", "DEX", "INT", "WIL", "STRd", "DEXd", "INTd", "WILd", "HP", "SPD"]
 SYM_FILE = {"STR": "str", "DEX": "dex", "INT": "int", "WIL": "wil", "STRd": "str-def", "DEXd": "dex-def", "INTd": "int-def",
@@ -58,6 +68,13 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
   font-family: Cinzel, serif; font-weight: 700; line-height: 1.05; letter-spacing: .04em; }}
 .band .rank {{ position: absolute; right: 1.6mm; top: 50%; transform: translateY(-50%); width: 7.6mm; height: 7.6mm; box-sizing: border-box;
   border: .35mm solid #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8pt; letter-spacing: 0; }}
+.band.syms {{ padding-right: 18.4mm; }}
+.band .sym4 {{ position: absolute; right: 10mm; top: 50%; transform: translateY(-50%); display: grid; grid-template-columns: 3.5mm 3.5mm;
+  gap: .3mm; }}
+.band .sym4 img {{ width: 3.5mm; height: 3.5mm; display: block; }}
+.band .sym4 .off {{ opacity: .18; }}
+.band.norank {{ padding-right: 10mm; }}
+.band.norank .sym4 {{ right: 2mm; }}
 .band .lvl {{ position: absolute; right: 2mm; top: 50%; transform: translateY(-50%); font-size: 6.6pt; font-family: 'EB Garamond', serif; font-style: italic; font-weight: 400; letter-spacing: 0; }}
 .strip {{ position: absolute; right: 0; top: 11.44mm; bottom: 8.8mm; width: 12.6mm; background: #fff;
   border-left: .3mm solid #000; display: grid; grid-template-rows: repeat(10, 1fr); }}
@@ -98,6 +115,17 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
 .foe .body {{ left: 50mm; justify-content: flex-start; gap: .9mm; }}
 .foe .tag {{ position: absolute; right: 2mm; top: 3.4mm; font-size: 6.4pt; font-family: 'EB Garamond', serif; font-style: italic; font-weight: 400; }}
 .foe .ids {{ font-size: 6.4pt; color: #555; }}
+.card .art {{ position: absolute; left: 0; right: 12.6mm; top: 11.44mm; bottom: 8.8mm; padding: 1.4mm; box-sizing: border-box;
+  display: flex; align-items: center; justify-content: center; }}
+.card .art img {{ width: 100%; height: 100%; object-fit: contain; display: block; }}
+.card.read {{ width: 126mm; }}
+.read .art {{ right: auto; width: 63mm; border-right: .3mm solid #000; }}
+.read .body {{ left: 63mm; }}
+.card .art.full {{ right: 0; }}
+.pair {{ display: flex; gap: 0; width: 126mm; }}
+.pair .card + .card {{ border-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; }}
+.pair .card:first-child {{ border-top-right-radius: 0; border-bottom-right-radius: 0; }}
+.gap {{ visibility: hidden; }}
 .blank .line {{ border-bottom: .2mm solid #999; height: 4.2mm; font-size: 6pt; color: {ill.MUTED}; font-style: italic; }}
 """
 
@@ -112,6 +140,18 @@ def fit(text, room):
     """Font size (pt) for the effect text: shrink as it grows."""
     n = sum(len(t) for t in text) + 25 * (len(text) - 1)
     return 9.4 if n < 90 else 8.8 if n < 170 else 8.2 if n < 250 else 7.7 if n < 330 else 7.2
+
+
+def print_image(src):
+    """A drawing as a print-sized copy (BUILD/img): 760 px wide is about 380 ppi on a 50 mm card picture, and a
+    grayscale JPEG keeps the PDF light. The source PNG is left as it is."""
+    out = BUILD / "img" / src.relative_to(ART).with_suffix(".jpg")
+    if not out.exists() or out.stat().st_mtime < src.stat().st_mtime:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        im = Image.open(src).convert("L")
+        im.thumbnail((760, 1600), Image.LANCZOS)
+        im.save(out, quality=85, optimize=True)
+    return out.as_uri()
 
 
 def symbol(name, alt=""):
@@ -135,7 +175,7 @@ FIT_LORE = """<script>document.fonts.ready.then(() => document.querySelectorAll(
 
 
 def rank_mark(rank):
-    return f'<span class="rank">{rank}</span>'
+    return f'<span class="rank">{rank}</span>' if rank else ""
 
 
 def strip(values, own=False):
@@ -146,24 +186,66 @@ def strip(values, own=False):
     return f'<div class="strip{" own" if own else ""}">{"".join(rows)}</div>'
 
 
-def band(name, right):
+def sym4(sym):
+    """The four ability symbols in a 2 × 2 grid, those the card doesn't print greyed out (P 3.1)."""
+    return '<span class="sym4">' + "".join(
+        f'<span class="{"" if a in sym else "off"}">{symbol(SYM_FILE[a], a if a in sym else "")}</span>'
+        for a in ("STR", "DEX", "INT", "WIL")) + "</span>"
+
+
+def band(name, right, sym=None):
     size = 9.2 if len(name) <= 14 else 8 if len(name) <= 18 else 7
-    return f'<div class="band" style="font-size:{size}pt">{html.escape(name.upper())}{right}</div>'
+    if sym:
+        size = min(size, 8.4 if len(name) <= 12 else 7.4 if len(name) <= 16 else 6.6)
+    return (f'<div class="band{" syms" if sym else ""}{" norank" if sym and not right else ""}" style="font-size:{size}pt">{html.escape(name.upper())}'
+            f'{sym4(sym) if sym else ""}{right}</div>')
 
 
-def item_card(c, group):
+def slug(name):
+    return name.lower().replace(" ", "-")
+
+
+FOE_DRAWING = {"Orcish Blood": "orc", "Hobgoblin Discipline": "hobgoblin"}  # species Traits drawn as their foe
+
+
+def drawing(name, kind):
+    """The card's drawing, or None: gear and gold in rules/art/items/, the rest in rules/art/cards/ (a deck card named
+    after a foe, and a species Trait in FOE_DRAWING, use the foe's drawing in rules/art/)."""
+    if name in FOE_DRAWING and (ART / f"{FOE_DRAWING[name]}.png").exists():
+        return ART / f"{FOE_DRAWING[name]}.png"
+    folders = [ITEM_ART] if kind in ("gear", "gold") else [CARD_ART] + ([ART] if kind == "deck" else [])
+    return next((f / f"{slug(name)}.png" for f in folders if (f / f"{slug(name)}.png").exists()), None)
+
+
+def item_drawing(c):
+    return drawing(c["name"], c["kind"])
+
+
+def item_card(c, group, face="text"):
+    """face: "text" (the card as rules text), "art" (the front of a two-sided card: its drawing in place of the text),
+    "read" (double width, drawing and text side by side)."""
     paras = "".join(f"<p>{md(t)}</p>" for t in c["text"])
-    return (f'<div class="card">{band(c["name"], rank_mark(c["rank"]))}'
-            f'{strip(c["strip"], own=c["kind"] == "core")}'
-            f'<div class="body" style="font-size:{fit(c["text"], "")}pt"><div class="main">{paras}</div>{lore(c)}</div>'
-            f'{keywords(c["kw"])}<div class="set">{group} · {c["id"]}</div></div>')
+    art = f'<div class="art"><img src="{print_image(item_drawing(c))}" alt=""></div>' if face != "text" else ""
+    body = "" if face == "art" else (f'<div class="body" style="font-size:{fit(c["text"], "")}pt">'
+                                     f'<div class="main">{paras}</div>{lore(c)}</div>')
+    sym = c["sym"] if c["kind"] in ("gear", "aspect", "calling") else None
+    return (f'<div class="card{" read" if face == "read" else ""}">{band(c["name"], rank_mark(c["rank"]), sym)}{art}'
+            f'{strip(c["strip"], own=c["kind"] == "calling")}{body}'
+            f'{keywords(c["kw"])}<div class="set">{group}{" · " + c["id"] if c.get("id") else ""}</div></div>')
 
 
-def deck_card(s, deck):
+def deck_card(s, deck, face="text"):
+    """face: "text", "art" (the drawing in place of the index and text) or "read" (the two side by side)."""
+    if face == "read":
+        return f'<div class="pair">{deck_card(s, deck, "art")}{deck_card(s, deck)}</div>'
     cover = deck["cover"]
     has_strip = bool(s["strip"]) or s["level"] == "Form"
-    paras = "".join(f"<p>{md(t)}</p>" for t in s["text"])
     level = f'<span class="lvl">{s["level"]}</span>'
+    if face == "art":
+        return (f'<div class="card">{band(s["name"], level)}<div class="art{"" if has_strip else " full"}">'
+                f'<img src="{print_image(drawing(s["name"], "deck"))}" alt=""></div>'
+                f'{strip(s["strip"]) if has_strip else ""}{keywords(s["kw"])}</div>')
+    paras = "".join(f"<p>{md(t)}</p>" for t in s["text"])
     return (f'<div class="card deck{"" if has_strip else " wide"}">{band(s["name"], level)}'
             f'<div class="index"><div class="cost">{s["cost"]}</div><div class="name">{html.escape(cover["name"])}</div></div>'
             f'{strip(s["strip"]) if has_strip else ""}'
@@ -201,7 +283,7 @@ def resolve(text, mods):
 
 def foe_attack(c, mods, extra_dice):
     """A weapon card's line on a foe card: the foe's modifier added in, plain-text dice included."""
-    m = re.match(r"([+−-]\d+) to hit, (.+?) \+ (STR or DEX|STR|DEX) (\w+)\.\s*(.*)", c["text"][0])
+    m = re.match(r"([+−-]\d+) to hit, (.+?) \+ ((?:STR|DEX|INT|WIL)(?: or (?:STR|DEX|INT|WIL))*) (\w+)\.\s*(.*)", c["text"][0])
     hit, dice, attr, dtype, effect = m.groups()
     mod = max(mods[a] for a in attr.split(" or "))
     reach = next((k for k in c["kw"].split(" · ") if k.startswith(("Thrown", "Range"))), "")
@@ -213,19 +295,12 @@ def foe_attack(c, mods, extra_dice):
 
 def foe_lines(f):
     """Totals and text of a foe card, from the cards it names (cards/foes.py)."""
-    if f["core"]:
-        core = bs.BY_NAME[f["core"]]
-        size = core["kw"].split(" · ")[1]
-        head = [f'*{core["name"]}* Core']
-    else:
-        *mods_, hp, spd, size = f["body"]
-        core = bs.core(f["name"], "", mods_, hp, spd, size)
-        head = []
+    *mods_, hp, spd, size = f["body"]
     cards = [bs.BY_NAME[n] for n in f["carries"]]
-    sums = total([core["strip"]] + [c["strip"] for c in cards] + [f["bonus"]])
+    sums = total([bs.body(mods_, hp, spd)] + [c["strip"] for c in cards] + [f["bonus"]])
     mods = {k: sums.get(k, 0) for k in ("STR", "DEX", "INT", "WIL")}
     values = {k: signed(v) if k in mods else str(v) for k, v in sums.items()}
-    lines = head + f["own"]
+    lines = list(f["own"])
     also = []
     for c in cards:
         kind = c["kw"].split(" · ")[0]
@@ -247,16 +322,15 @@ def foe_lines(f):
             lines.append(f'*{c["name"]}*: ' + text)
     if also:
         lines.append("Also carries " + ", ".join(also) + ".")
-    drops = [c for c in ([core] if f["core"] else []) + cards]
     kw = " · ".join(["Foe"] + (["Boss"] if f["boss"] else []) + (["Leader"] if f["leader"] else []) + [size] + ([f["senses"]] if f["senses"] else []))
-    return values, lines, kw, "Drops: " + " · ".join(f'*{c["name"]}*{" Core" if c["kind"] == "core" else ""} ({c["id"]})' for c in drops)
+    return values, lines, kw, "Drops: " + " · ".join(f'*{c["name"]}* ({c["id"]})' for c in cards)
 
 
 def foe_card(f):
     values, lines, kw, ids = foe_lines(f)
     tag = f'<span class="tag">{"Boss" if f["boss"] else "Foe"}</span>'
     drawing = ART / f'{f["name"].lower().replace(" ", "-")}.png'
-    art = f'<img src="{drawing.as_uri()}" alt="">' if drawing.exists() else card_art.foe_art(f["name"]) or ""
+    art = f'<img src="{print_image(drawing)}" alt="">' if drawing.exists() else card_art.foe_art(f["name"]) or ""
     paras = "".join(f"<p>{md(t)}</p>" for t in lines)
     size = 7.4 if sum(len(t) for t in lines) + 25 * (len(lines) - 1) > 760 else fit(lines, "") + 1  # the longest foe cards
     return (f'<div class="card foe">{band(f["name"], tag)}<div class="pic">{art}</div>{strip(values, own=True)}'
@@ -265,12 +339,17 @@ def foe_card(f):
 
 
 def blank_foe_card():
-    rows = "".join(f'<div class="line">{t}</div>' for t in ("Core", "Attacks", "", "", "Powers", "", "", "", "Drops", "", ""))
+    rows = "".join(f'<div class="line">{t}</div>' for t in ("Body", "Attacks", "", "", "Powers", "", "", "", "Drops", "", ""))
     return (f'<div class="card foe blank">{band("", "<span class=tag>Foe</span>")}<div class="pic"></div>{strip({}, own=True)}'
             f'<div class="body">{rows}</div><div class="kw">Foe · size · senses</div><div class="set">FOE</div></div>')
 
 
-def gold_card(value):
+def gold_card(value, face="text"):
+    if face == "read":
+        return f'<div class="pair">{gold_card(value, "art")}{gold_card(value)}</div>'
+    if face == "art":
+        return (f'<div class="card">{band(f"{value:,} gp", "")}<div class="art full">'
+                f'<img src="{print_image(drawing(f"{value:,} gp", "gold"))}" alt=""></div>{keywords("Gold")}</div>')
     coin = ill._svg(40, 40, '<circle cx="20" cy="20" r="17" fill="#000" stroke="#000" stroke-width="1.6"/>'
                     '<circle cx="20" cy="20" r="13.5" fill="none" stroke="#fff" stroke-width=".8"/>'
                     + ill._text(20, 24.5, f"{value:,}", 12 if value < 1000 else 9.5, ill.HEAD, "#fff"), "gold")
@@ -280,31 +359,57 @@ def gold_card(value):
 
 
 def tally_card():
-    return f'<div class="card tally">{ill._svg(300, 419, ill.tally_small(0, 0, 300, 419, {}), "Tally card")}</div>'
+    return f'<div class="card tally">{ill._svg(300, 419, ill.tally_small(0, 0, 300, 419, {}, paper="#fff", band="#fff"), "Tally card")}</div>'
 
 
 def sheets(cards, cls="", per=9):
     return "".join(f'<section class="sheet {cls}">{"".join(cards[i:i + per])}</section>' for i in range(0, len(cards), per))
 
 
-def build_cards():
+def duplex(pairs):
+    """Two-sided cards as a front page and a back page, 9 a sheet. Flipped on the long edge, each row's columns swap
+    sides, so the back page lists each row in reverse."""
+    gap = '<div class="card gap"></div>'
     out = []
+    for i in range(0, len(pairs), 9):
+        chunk = pairs[i:i + 9] + [(gap, gap)] * (9 - len(pairs[i:i + 9]))
+        backs = [b for r in range(0, 9, 3) for _, b in reversed(chunk[r:r + 3])]
+        out.append(sheets([f for f, _ in chunk]) + sheets(backs))
+    return "".join(out)
 
-    dropped = [n for f in foes.FOES for n in {f["core"], *f["carries"]}]  # one extra copy per foe card naming it
 
-    def add(c):
-        out.extend([item_card(c, c["group"].upper())] * (c["copies"] + dropped.count(c["name"])))
-    for c in bs.CORES + bs.ARMOR + bs.HANDS + bs.JEWELRY + bs.ITEMS:
+def build_cards(reading=False):
+    """The single cards, and the two-sided ones as (front, back) pairs; reading: those as double-width cards instead."""
+    out, pairs, wide = [], [], []
+
+    dropped = {n for f in foes.FOES for n in f["carries"]}  # one extra copy of each card a foe drops
+
+    def put(drawn, face, n):
+        """face(f): the card's "text", "art" or "read" face."""
+        if not drawn:
+            out.extend([face("text")] * n)
+        elif reading:
+            wide.append(face("read"))  # once: the reading PDF is a catalogue, not a print run
+        else:
+            pairs.extend([(face("art"), face("text"))] * n)
+
+    def add(c, n=None, group=None):
+        group = group or c["group"].upper()
+        put(item_drawing(c), lambda f: item_card(c, group, f), n or c["copies"] + (c["name"] in dropped))
+    for c in bs.CALLINGS + bs.ARMOR + bs.HANDS + bs.JEWELRY + bs.ITEMS:
         add(c)
     for c in bs.ASPECTS:
         add(c)
     for deck in bs.DECKS:
-        out.append(item_card(deck["cover"], deck["cover"]["group"].upper()))
-        out.extend(deck_card(s, deck) for s in deck["cards"])
+        add(deck["cover"], 1)
+        for s in deck["cards"]:
+            put(drawing(s["name"], "deck"), lambda f, s=s, deck=deck: deck_card(s, deck, f), 1)
     for value, n in bs.GOLD:
-        out.extend([gold_card(value)] * n)
+        put(drawing(f"{value:,} gp", "gold"), lambda f, value=value: gold_card(value, f), n)
     out.extend([tally_card()] * bs.TALLIES)
-    return out
+    for w in bs.WOUNDS:
+        add(w, 1, "WOUND")
+    return out, wide if reading else pairs
 
 
 def build_foes():
@@ -319,35 +424,48 @@ def build_frames():
     return out
 
 
-def intro(n_cards, n_frames):
+def intro(n_cards, n_frames, n_duplex):
     rows = "".join(f"<tr><td>{k}</td><td>{', '.join(v)}</td></tr>" for k, v in bs.STARTER_LIST.items())
     frames = ", ".join(f"{n} {name}" for _, name, _, _, n in bs.FRAMES)
     return f"""<section class="intro"><h1>BEARERS</h1><p style="font-family:Cinzel,serif;letter-spacing:.2em">Base Set · {bs.PLAYERS} players</p>
 <h2>Printing</h2>
-<ul><li>Print at <b>100 %</b> (no fit-to-page) on cardstock. Cards are 63 × 88 mm; foe cards are double width (126 × 88 mm); Slot frames are 67 × 98 mm.</li>
+<ul><li>Print at <b>100 %</b> (no fit-to-page) on cardstock. Pages 2–{n_duplex + 1} are two-sided cards: print them double-sided, flipping on the long edge. Print the rest single-sided.</li>
+<li> Cards are 63 × 88 mm; foe cards are double width (126 × 88 mm); Slot frames are 67 × 98 mm.</li>
 <li>Cut out each card and frame. On each frame, cut the two <b style="color:{ill.CRIMSON}">red slits</b> with a craft knife.</li>
 <li>Tuck a card's top-right and bottom-left corners under the slits to equip it (Player Rules 12.2).</li></ul>
 <h2>Contents</h2>
-<p>{n_cards} cards: {len(bs.CORES)} Cores, the starter list below, a pool of Rank I–II loot (marked LOOT at the bottom left), four decks, gold, {bs.TALLIES} tally cards.</p>
+<p>{n_cards} cards: {len(bs.CALLINGS)} Callings, the starter list below, a pool of Rank I–II loot (marked LOOT at the bottom left), four decks, gold, {bs.TALLIES} tally cards and the {len(bs.WOUNDS)}-card Wound deck (marked WOUND: shuffle it and keep it beside the table, Player Rules 7.6).</p>
 <p>For the GM: {len(foes.FOES)} foe cards and {foes.BLANKS} blank ones (marked FOE: keep them apart from the loot pool).</p>
-<p>Each card shows its ID at the bottom left (<i>W-II-02</i>: type, Rank, number). Foe cards list the IDs of the cards they drop; every card a foe drops has one extra copy, so the loot pool still holds it after players take their starting gear.</p>
+<p>Each card shows its ID at the bottom right (<i>W-II-02</i>: type, Rank, number). Foe cards list the IDs of the cards they drop; every card a foe drops has one extra copy, so the loot pool still holds it after players take their starting gear.</p>
 <p>{n_frames} frames: {frames}.</p>
 <h2>Starter list</h2><table>{rows}</table>
 <h2>Each player takes</h2>
-<p>A Core, then gear and Aspects from the starter list (Player Rules 13.2), 9 Slot frames (Armor, 2 Hand, Jewelry, 2 Item, 3 Aspect), 3 Shard frames, a Potion of Healing, a Coin Pouch with 50 gp and a tally card. The Party Stash starts with 2 Shard frames per player. Keep the milestone Aspect frames and the extra Gear Slot frames for the GM to hand out.</p>
+<p>A Calling, then gear and Aspects from the starter list that it can equip (Player Rules 13.2), 9 Slot frames (Armor, 2 Hand, Jewelry, 2 Item, 3 Aspect), 3 Shard frames, a Potion of Healing, a Coin Pouch with 50 gp and a tally card. The Party Stash starts with 2 Shard frames per player. Keep the milestone Aspect frames and the extra Gear Slot frames for the GM to hand out.</p>
 </section>"""
+
+
+def render(name, title, body, pdf):
+    doc = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{title}</title>{FONTS}'
+           f"<style>{CSS}</style></head><body>{body}{FIT_LORE}</body></html>")
+    page = BUILD / name
+    page.write_text(doc, encoding="utf-8")
+    subprocess.run(["chromium", "--headless", "--disable-gpu", "--no-sandbox", "--no-pdf-header-footer",
+                    "--virtual-time-budget=20000", f"--print-to-pdf={pdf}", page.as_uri()], check=True, capture_output=True)
 
 
 def main():
     BUILD.mkdir(exist_ok=True)
-    cards, frames, foe_cards = build_cards(), build_frames(), build_foes()
-    doc = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Bearers · Base Set</title>{FONTS}'
-           f"<style>{CSS}</style></head><body>{intro(len(cards), len(frames))}{sheets(cards)}{sheets(foe_cards, 'foes', 3)}{sheets(frames, 'frames', 8)}{FIT_LORE}</body></html>")
-    page = BUILD / "base-set.html"
-    page.write_text(doc, encoding="utf-8")
-    subprocess.run(["chromium", "--headless", "--disable-gpu", "--no-sandbox", "--no-pdf-header-footer",
-                    "--virtual-time-budget=20000", f"--print-to-pdf={OUT}", page.as_uri()], check=True, capture_output=True)
-    print(f"Wrote {OUT.relative_to(ROOT)}: {len(cards)} cards, {len(foe_cards)} foe cards, {len(frames)} frames")
+    (cards, pairs), frames, foe_cards = build_cards(), build_frames(), build_foes()
+    n_duplex = 2 * -(-len(pairs) // 9)
+    render("base-set.html", "Bearers · Base Set",
+           intro(len(cards) + len(pairs), len(frames), n_duplex) + duplex(pairs) + sheets(cards)
+           + sheets(foe_cards, "foes", 3) + sheets(frames, "frames", 8), OUT)
+    print(f"Wrote {OUT.relative_to(ROOT)}: {len(cards) + len(pairs)} cards ({len(pairs)} two-sided), "
+          f"{len(foe_cards)} foe cards, {len(frames)} frames")
+    _, wide = build_cards(reading=True)
+    render("base-set-reading.html", "Bearers · Base Set (reading)",
+           sheets(wide, "foes", 3) + sheets(cards) + sheets(foe_cards, "foes", 3), READING)
+    print(f"Wrote {READING.relative_to(ROOT)}: {len(wide)} double-width two-sided cards, then the rest")
     import export_sim
     export_sim.main()
 

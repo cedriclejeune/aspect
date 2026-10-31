@@ -14,7 +14,7 @@ function ok(v, msg) { if (!v) throw new Error(msg || "expected true"); }
 
 // ---------- helpers ----------
 let CARDS = FIX;
-const B = (o) => Object.assign({ core: "C-I-01", armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [] }, o);
+const B = (o) => Object.assign({ calling: "C-I-01", armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [] }, o);
 const pc = (id, pos, build, o) => Object.assign({ id, side: "pc", name: id, pos, build: B(build), react: "ask" }, o);
 const foe = (id, pos, build, o) => Object.assign({ id, side: "foe", name: id, pos, build: B(build), react: "never" }, o);
 const orc = (id, pos, o) => Object.assign({ id, side: "foe", name: id, pos, build: Eng.fromFoe(CARDS.foes.find((f) => f.name === "Orc"), CARDS), react: "never" }, o);
@@ -48,17 +48,21 @@ const C = (f, id) => f.state.creatures[id];
 const evs = (r, t) => r.events.filter((e) => e.t === t);
 
 // ---------- totals / validate / fromFoe ----------
-T("totals: Core + Mail + Shield; empty Armor +10 Speed", () => {
+T("totals: Calling + Mail + Shield; empty Armor +10 Speed", () => {
   const t = Eng.totals(B({ armor: "A-I-02", hands: ["W-I-05", "S-I-01"] }), CARDS);
   eq([t.STRd, t.DEXd, t.SPD, t.HP, t.size], [18, 13, 30, 14, "Medium"]);
   eq(Eng.totals(B({}), CARDS).SPD, 40);
 });
-T("totals: unmet Requirement adds nothing and is reported", () => {
-  const t = Eng.totals(B({ core: "C-I-03", armor: "A-I-02" }), CARDS);
+T("totals: a card whose symbols miss the Calling adds nothing and is reported; one shared symbol is enough", () => {
+  const cards = JSON.parse(JSON.stringify(CARDS));
+  cards.cards["C-I-03"].sym = ["INT", "WIL"]; cards.cards["A-I-02"].sym = ["STR", "DEX"];
+  const t = Eng.totals(B({ calling: "C-I-03", armor: "A-I-02" }), cards);
   eq(t.STRd, 10); ok(t.errors.length === 1);
+  cards.cards["A-I-02"].sym = ["STR", "INT"];
+  eq(Eng.totals(B({ calling: "C-I-03", armor: "A-I-02" }), cards).STRd, 13);
 });
 T("validate: Hands, Slot types, duplicates, Heavy warning", () => {
-  const v = Eng.validate(B({ core: "C-I-03", hands: ["W-I-08", "S-I-01"], jewelry: ["W-I-01"], aspects: ["T-I-03", "T-I-03"] }), CARDS);
+  const v = Eng.validate(B({ calling: "C-I-03", hands: ["W-I-08", "S-I-01"], jewelry: ["W-I-01"], aspects: ["T-I-03", "T-I-03"] }), CARDS);
   ok(v.some((s) => /Hands: 3/.test(s)), "hands"); ok(v.some((s) => /doesn't fit a jewelry/.test(s)), "slot");
   ok(v.some((s) => /two copies/.test(s)), "dup"); ok(v.some((s) => /Heavy/.test(s)), "heavy");
   eq(Eng.validate(B({ armor: "A-I-02", hands: ["W-I-05", "S-I-01"] }), CARDS), []);
@@ -73,7 +77,7 @@ T("fromFoe matches the printed foe totals", () => {
 // ---------- engagement ----------
 T("Outnumbered: more on your side gives one advantage die (Crowd), also to an archer (P 5.2, P 6.5)", () => {
   // o3 stands beside o1 and counts; o2 fights a elsewhere and doesn't (only the target's surroundings count)
-  const f = fight([pc("a", [4, 5], { hands: ["W-I-05"] }), pc("b", [6, 5]), pc("c", [5, 4]), pc("arch", [5, 11], { core: "C-I-02", hands: ["W-I-09"] }), orc("o1", [5, 5]), orc("o2", [3, 5]), orc("o3", [5, 6])]);
+  const f = fight([pc("a", [4, 5], { hands: ["W-I-05"] }), pc("b", [6, 5]), pc("c", [5, 4]), pc("arch", [5, 11], { calling: "C-I-02", hands: ["W-I-09"] }), orc("o1", [5, 5]), orc("o2", [3, 5]), orc("o3", [5, 6])]);
   const G = Eng.geometry, st = f.state;
   eq(G.outnumbered(st, C(f, "a"), C(f, "o1")).n, 1, "3 vs o1 and o3 beside it");
   eq(G.outnumbered(st, C(f, "arch"), C(f, "o1")).n, 1, "archer gets the same dice");
@@ -121,7 +125,7 @@ T("Damage advantage: disadvantage stays on the attack", () => {
   eq([pv.info.toDamage, pv.info.dice, pv.info.keep], [0, 2, "lowest"]);
 });
 T("Outnumbered: lone attacker at range vs unengaged target: no dice", () => {
-  const f = fight([pc("arch", [1, 1], { core: "C-I-02", hands: ["W-I-09"] }), orc("o1", [8, 8])]);
+  const f = fight([pc("arch", [1, 1], { calling: "C-I-02", hands: ["W-I-09"] }), orc("o1", [8, 8])]);
   eq(Eng.geometry.outnumbered(f.state, C(f, "arch"), C(f, "o1")).n, 0);
 });
 T("Engagement ignores Incapacitated creatures and sizes two apart", () => {
@@ -133,7 +137,7 @@ T("Engagement ignores Incapacitated creatures and sizes two apart", () => {
 });
 T("A downed creature counts for neither side of Outnumbered (P 6.5, R223)", () => {
   // b is down next to o1 and o2; the archer shooting o1 compares only the creatures still engaged
-  const f = fight([pc("b", [5, 5]), pc("c", [6, 6]), pc("arch", [5, 12], { core: "C-I-02", hands: ["W-I-09"] }), orc("o1", [6, 5]), orc("o2", [4, 5])]);
+  const f = fight([pc("b", [5, 5]), pc("c", [6, 6]), pc("arch", [5, 12], { calling: "C-I-02", hands: ["W-I-09"] }), orc("o1", [6, 5]), orc("o2", [4, 5])]);
   const G = Eng.geometry, st = f.state;
   eq(G.outnumbered(st, C(f, "arch"), C(f, "o1")).n, 1, "b and c vs o1: o2 isn't beside o1");
   run(f, { type: "adjust", actor: "b", hp: 0 });
@@ -230,7 +234,7 @@ T("Ambush: a surprised side means the other goes first automatically, full turns
   }
 });
 T("Initiative: d20 + the side's best DEX, no surprise disadvantage, ties re-rolled", () => {
-  const f = fight([pc("a", [1, 1], { core: "C-I-02" }), pc("b", [2, 1]), orc("o1", [9, 9])]);
+  const f = fight([pc("a", [1, 1], { calling: "C-I-02" }), pc("b", [2, 1]), orc("o1", [9, 9])]);
   f.setManualDice(true);
   const r = run(f, { type: "start" }, [10, 12, 15, 3]); // pc 10 + 3 (a's DEX) = 13 vs foe 12 + 1 = 13: tie, re-roll
   eq(evs(r, "initiative").filter((e) => e.total != null).map((e) => [e.dice.length, e.total]), [[1, 13], [1, 13], [1, 18], [1, 4]]);
@@ -340,7 +344,7 @@ T("Javelins: unlimited throws; ranged with an enemy within 5 ft and long range g
   ok(/beyond long range/.test(f.preview({ type: "attack", actor: "a", weapon: "W-I-11", target: "o2", thrown: true }).error) === false);
 });
 T("Cover +2 to all Defenses; full cover can't be targeted", () => {
-  const f = fight([pc("a", [1, 5], { core: "C-I-02", hands: ["W-I-09"] }), orc("o1", [8, 5]), orc("o2", [8, 9])], { cells: { "5,5": "cover", "5,9": "wall", "5,8": "wall", "5,10": "wall" } });
+  const f = fight([pc("a", [1, 5], { calling: "C-I-02", hands: ["W-I-09"] }), orc("o1", [8, 5]), orc("o2", [8, 9])], { cells: { "5,5": "cover", "5,9": "wall", "5,8": "wall", "5,10": "wall" } });
   start(f);
   run(f, { type: "beginTurn", actor: "a" });
   const pv = f.preview({ type: "attack", actor: "a", weapon: "W-I-09", target: "o1" });
@@ -350,7 +354,7 @@ T("Cover +2 to all Defenses; full cover can't be targeted", () => {
 });
 T("Dark: unseen target gives disadvantage, Darkvision cancels it, an unseen attacker has advantage", () => {
   const dark = {}; for (let x = 7; x < 14; x++) for (let y = 0; y < 14; y++) dark[x + "," + y] = "dark";
-  const f = fight([pc("a", [1, 5], { core: "C-I-02", hands: ["W-I-09"] }), pc("b", [1, 7], { core: "C-I-02", hands: ["W-I-09"], aspects: ["T-II-03"] }), orc("o1", [9, 5])], { cells: dark });
+  const f = fight([pc("a", [1, 5], { calling: "C-I-02", hands: ["W-I-09"] }), pc("b", [1, 7], { calling: "C-I-02", hands: ["W-I-09"], aspects: ["T-II-03"] }), orc("o1", [9, 5])], { cells: dark });
   start(f);
   run(f, { type: "beginTurn", actor: "a" });
   const pa = f.preview({ type: "attack", actor: "a", weapon: "W-I-09", target: "o1" });
@@ -449,7 +453,7 @@ T("Temporary HP absorbs first; foes die at 0", () => {
 
 // ---------- lasting / subdue ----------
 T("Web: one attack roll, Restrained for 2 of the target's turns, no maintain roll (P 10.4, 11.4)", () => {
-  const f = fight([pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5])]);
+  const f = fight([pc("w", [1, 5], { calling: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5])]);
   start(f);
   run(f, { type: "beginTurn", actor: "w" });
   const pv = f.preview({ type: "power", actor: "w", power: "B-I-01#web", point: [6, 5] });
@@ -468,7 +472,7 @@ T("Web: one attack roll, Restrained for 2 of the target's turns, no maintain rol
   ok(!has(), "ends with its 2nd turn");
 });
 T("Subdue: first bite, then the source repeats the attack with decay; Hold on (P 8)", () => {
-  const f = fight([pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), pc("a", [5, 5], { hands: ["W-I-05"] }), orc("o1", [6, 5])]);
+  const f = fight([pc("w", [1, 5], { calling: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), pc("a", [5, 5], { hands: ["W-I-05"] }), orc("o1", [6, 5])]);
   start(f);
   run(f, { type: "beginTurn", actor: "w" });
   run(f, { type: "power", actor: "w", power: "B-I-01#hold", targets: ["o1"] }, [12]);
@@ -499,7 +503,7 @@ T("Subdue: first bite, then the source repeats the attack with decay; Hold on (P
   ok(!C(f, "o1").conds.some((x) => x.name === "Stunned"), "a missed repeat ends it"); eq(f.state.active, "o1");
 });
 T("Subdue: a hurt source adds decay; it ends if the source is Incapacitated (P 8)", () => {
-  const f = fight([pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5]), orc("o2", [1, 6])]);
+  const f = fight([pc("w", [1, 5], { calling: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5]), orc("o2", [1, 6])]);
   start(f);
   run(f, { type: "beginTurn", actor: "w" });
   run(f, { type: "power", actor: "w", power: "B-I-01#hold", targets: ["o1"] }, [12, 12]); // o2 within 5 ft: disadvantage
@@ -516,7 +520,7 @@ T("Subdue: a hurt source adds decay; it ends if the source is Incapacitated (P 8
   ok(!C(f, "o1").conds.some((k) => k.name === "Stunned"));
 });
 T("Dirge vs WIL with fear tag: Iron Will adds +2 WIL Defense", () => {
-  const f = fight([pc("e", [1, 5], { core: "C-I-04", aspects: ["G-I-01"] }), foe("x", [6, 5], { aspects: ["T-I-03"] })]);
+  const f = fight([pc("e", [1, 5], { calling: "C-I-04", aspects: ["G-I-01"] }), foe("x", [6, 5], { aspects: ["T-I-03"] })]);
   start(f);
   run(f, { type: "beginTurn", actor: "e" });
   const pv = f.preview({ type: "power", actor: "e", power: "G-I-01#dread", targets: ["x"] });
@@ -555,7 +559,7 @@ T("Pending prompt: other commands refused, bad answers refused, undo cancels it"
   eq(C(f, "a").hp, 14);
 });
 T("Auto react: Shield spell only when it flips the hit; reaction auto never wasted", () => {
-  const f = fight([pc("w", [5, 5], { core: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }, { react: "auto" }), orc("o1", [6, 5])]);
+  const f = fight([pc("w", [5, 5], { calling: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }, { react: "auto" }), orc("o1", [6, 5])]);
   start(f, "foe");
   run(f, { type: "beginTurn", actor: "o1" });
   const r = run(f, { type: "attack", actor: "o1", weapon: "W-I-05", target: "w" }, [10]); // 15 vs DEX 11: Shield +5 → 16
@@ -563,7 +567,7 @@ T("Auto react: Shield spell only when it flips the hit; reaction auto never wast
   ok(C(f, "w").mods.some((m) => m.kind === "def" && m.n === 5), "Shield lasts until w's next turn");
 });
 T("Cue (Steady Now) auto: +2 Defense on an ally flips a hit", () => {
-  const f = fight([pc("e", [3, 5], { core: "C-I-04", aspects: ["G-I-01"] }, { react: "auto" }), pc("a", [5, 5], { hands: ["W-I-05"] }), orc("o1", [6, 5])]);
+  const f = fight([pc("e", [3, 5], { calling: "C-I-04", aspects: ["G-I-01"] }, { react: "auto" }), pc("a", [5, 5], { hands: ["W-I-05"] }), orc("o1", [6, 5])]);
   start(f, "foe");
   run(f, { type: "beginTurn", actor: "o1" });
   const r = run(f, { type: "attack", actor: "o1", weapon: "W-I-05", target: "a" }, [9]); // 14 vs 13
@@ -589,7 +593,7 @@ T("Weapon rider (Sap) applies on hit and is spent by the next attack", () => {
   eq(f.preview({ type: "attack", actor: "o1", weapon: "W-I-05", target: "a" }).info.toHit, 3);
 });
 T("Deterministic replay of an exported fight (random dice, prompts)", () => {
-  const f = fight([pc("a", [5, 5], { hands: ["W-I-05"], jewelry: ["J-I-01"] }), pc("w", [2, 5], { core: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5]), orc("o2", [9, 9])], { seed: 99 });
+  const f = fight([pc("a", [5, 5], { hands: ["W-I-05"], jewelry: ["J-I-01"] }), pc("w", [2, 5], { calling: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5]), orc("o2", [9, 9])], { seed: 99 });
   run(f, { type: "start" });
   let guard = 0;
   while (f.state.phase === "fight" && guard++ < 60) {
@@ -621,7 +625,7 @@ T("Manual-dice replay keeps answers", () => {
 
 // ---------- powers ----------
 T("Spells: empty Hand needed, one spell per turn, spell points, darts with upcast", () => {
-  const f = fight([pc("w", [1, 5], { core: "C-I-03", hands: ["W-I-05", "S-I-01"], items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5]), orc("o2", [6, 7])]);
+  const f = fight([pc("w", [1, 5], { calling: "C-I-03", hands: ["W-I-05", "S-I-01"], items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5]), orc("o2", [6, 7])]);
   start(f);
   run(f, { type: "beginTurn", actor: "w" });
   ok(/empty Hand/.test(refused(f, { type: "power", actor: "w", power: "B-I-01#fire-bolt", targets: ["o1"] })));
@@ -637,7 +641,7 @@ T("Area: one roll against each creature; half damage on a miss", () => {
   const cards = JSON.parse(JSON.stringify(CARDS));
   cards.cards["R-II-01"] = { id: "R-II-01", name: "Fire Flask", rank: "II", kind: "gear", type: "Recipe", kw: ["Recipe"], text: [], strip: {}, uses: 3,
     fx: [{ id: "R-II-01#0", name: "Fire Flask", use: "reaction", reach: 30, target: "point", area: { shape: "sphere", size: 5 }, atk: { abil: ["DEX", "INT"], hit: 3, vs: "DEX" }, half: true, do: [{ dmg: "2d6", type: "Fire" }] }] };
-  const f = fight([pc("a", [1, 5], { core: "C-I-02", items: [{ id: "R-II-01" }] }), orc("o1", [6, 5]), orc("o2", [7, 6]), orc("o3", [10, 10])], { cards });
+  const f = fight([pc("a", [1, 5], { calling: "C-I-02", items: [{ id: "R-II-01" }] }), orc("o1", [6, 5]), orc("o2", [7, 6]), orc("o3", [10, 10])], { cards });
   start(f);
   run(f, { type: "beginTurn", actor: "a" });
   const r = run(f, { type: "power", actor: "a", power: "R-II-01#0", point: [6, 6] }, [6, 3, 4]); // 6+6 = 12: hits DEX 12 both
@@ -647,7 +651,7 @@ T("Area: one roll against each creature; half damage on a miss", () => {
 T("Anthem on allies (count, Duration), Bless-like dice mods roll on the attack", () => {
   const cards = JSON.parse(JSON.stringify(CARDS));
   cards.decks["G-I-01"].powers.push({ id: "G-I-01#rally", name: "Rally", kind: "Anthem", cost: 1, use: "action", reach: 30, target: "allies", count: 3, need: ["voice"], dur: "1 minute", do: [{ mod: "attack", n: 2, until: "dur" }] });
-  const f = fight([pc("e", [1, 5], { core: "C-I-04", aspects: ["G-I-01"] }), pc("a", [3, 5]), pc("b", [12, 12]), orc("o1", [13, 0])], { cards });
+  const f = fight([pc("e", [1, 5], { calling: "C-I-04", aspects: ["G-I-01"] }), pc("a", [3, 5]), pc("b", [12, 12]), orc("o1", [13, 0])], { cards });
   start(f);
   run(f, { type: "beginTurn", actor: "e" });
   run(f, { type: "power", actor: "e", power: "G-I-01#rally" });
@@ -656,7 +660,7 @@ T("Anthem on allies (count, Duration), Bless-like dice mods roll on the attack",
   eq(m.until.rounds, 10);
 });
 T("Forms: shift with fresh totals, own HP pool, overflow carries over, gear off, revert free", () => {
-  const f = fight([pc("d", [5, 5], { core: "C-I-04", armor: "A-I-01", hands: ["W-I-05"], aspects: ["N-I-01"] }), orc("o1", [8, 5])]);
+  const f = fight([pc("d", [5, 5], { calling: "C-I-04", armor: "A-I-01", hands: ["W-I-05"], aspects: ["N-I-01"] }), orc("o1", [8, 5])]);
   start(f);
   run(f, { type: "beginTurn", actor: "d" });
   run(f, { type: "power", actor: "d", power: "N-I-01#bear" });
@@ -673,7 +677,7 @@ T("Forms: shift with fresh totals, own HP pool, overflow carries over, gear off,
   run(f, { type: "beginTurn", actor: "d" });
   if (C(f, "d").form) run(f, { type: "act", actor: "d", action: "revert" });
   eq([C(f, "d").size, C(f, "d").totals.STRd], ["Medium", 12]);
-  const g = fight([pc("d", [5, 5], { core: "C-I-04", aspects: ["N-I-01"] }), orc("o1", [7, 5])]);
+  const g = fight([pc("d", [5, 5], { calling: "C-I-04", aspects: ["N-I-01"] }), orc("o1", [7, 5])]);
   start(g);
   run(g, { type: "beginTurn", actor: "d" });
   run(g, { type: "power", actor: "d", power: "N-I-01#bear" });
@@ -740,11 +744,11 @@ function realTests() {
   });
   T("[real] random fights run to the end without errors and replay identically", () => {
     const party = [
-      { id: "pc1", core: "C-I-01", armor: "A-I-02", hands: ["W-I-05", "S-I-01"], jewelry: ["J-I-01"], items: [{ id: "P-I-01", n: 1 }], aspects: ["Q-I-03", "Q-I-01", "T-I-03"] },
-      { id: "pc2", core: "C-I-02", armor: "A-I-01", hands: ["W-I-09"], carried: ["W-I-02"], jewelry: ["J-I-05"], items: [{ id: "P-I-01", n: 1 }], aspects: ["Q-I-02", "K-I-05", "T-I-04"] },
-      { id: "pc3", core: "C-I-03", armor: "A-I-01", hands: ["W-I-12"], jewelry: ["J-I-01"], items: [{ id: "B-I-01", n: 1 }, { id: "P-I-01", n: 1 }], aspects: ["T-I-04", "T-I-02", "K-I-06"] },
-      { id: "pc4", core: "C-I-04", armor: "A-I-01", hands: ["W-I-02"], jewelry: ["J-I-04"], items: [{ id: "P-I-01", n: 1 }], aspects: ["D-I-01", "Q-I-04", "T-I-03"] },
-      { id: "pc5", core: "C-I-04", armor: null, hands: ["M-I-01"], jewelry: [], items: [], aspects: ["G-I-01", "N-I-01", "Q-I-05"] },
+      { id: "pc1", calling: "L-02", armor: "A-I-02", hands: ["W-I-05", "S-I-01"], jewelry: ["J-I-01"], items: [{ id: "P-I-01", n: 1 }], aspects: ["Q-I-03", "Q-I-01", "T-I-03"] },
+      { id: "pc2", calling: "L-04", armor: "A-I-01", hands: ["W-I-09"], carried: ["W-I-02"], jewelry: ["J-I-05"], items: [{ id: "P-I-01", n: 1 }], aspects: ["Q-I-02", "K-I-05", "T-I-04"] },
+      { id: "pc3", calling: "L-06", armor: "A-I-01", hands: ["W-I-12"], jewelry: ["J-I-01"], items: [{ id: "B-I-01", n: 1 }, { id: "P-I-01", n: 1 }], aspects: ["T-I-04", "T-I-02", "K-I-06"] },
+      { id: "pc4", calling: "L-05", armor: "A-I-01", hands: ["W-I-02"], jewelry: ["J-I-04"], items: [{ id: "P-I-01", n: 1 }], aspects: ["D-I-01", "Q-I-04", "T-I-03"] },
+      { id: "pc5", calling: "L-05", armor: null, hands: ["M-I-01"], jewelry: [], items: [], aspects: ["G-I-01", "N-I-01", "Q-I-05"] },
     ];
     for (const b of party) eq(Eng.validate(b, REAL).filter((s) => !/^Warning/.test(s)), [], b.id);
     let seedN = 0;

@@ -159,7 +159,7 @@
 
   // ---------- cards and builds ----------
   function normBuild(b) {
-    b = Object.assign({ core: null, body: null, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [],
+    b = Object.assign({ calling: null, body: null, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [],
       slots: {}, bonus: {}, extraDice: 0, recharge: {}, ownFx: [], powers: [], boss: false, leader: false, senses: {}, alert: false, foe: null }, clone(b || {}));
     b.slots = Object.assign({}, DEFAULT_SLOTS, b.slots);
     b.items = b.items.map((it) => (typeof it === "string" ? { id: it, n: 1 } : it));
@@ -179,34 +179,29 @@
     return t;
   }
   function coreStrip(build, cards) {
-    if (build.core) { const c = cards.cards[build.core]; return c ? { strip: Object.assign(blank(), c.strip), size: sizeOfCard(c), card: c } : null; }
+    if (build.calling) { const c = cards.cards[build.calling]; return c ? { strip: Object.assign(blank(), c.strip), size: sizeOfCard(c), card: c } : null; }
     if (build.body) return { strip: bodyStrip(build.body), size: build.body.size || "Medium" };
     return null;
   }
-  // RULING R203: a Requirement counts the Core and every other equipped card's positive bonuses
-  // (penalties and the card's own bonus don't count, P 3.1); an unmet card adds nothing to the totals.
-  function meetsReq(card, core, list, bonus) {
-    for (const [ab, need] of Object.entries(card.req || {})) {
-      let v = core[ab] || 0;
-      for (const o of list) if (o !== card && o.strip && num(o.strip[ab]) > 0) v += num(o.strip[ab]);
-      if (bonus && num(bonus[ab]) > 0) v += num(bonus[ab]);
-      if (v < need) return false;
-    }
-    return true;
+  // P 3.1: a card is equipped only if the Calling has at least one of its symbols; an unmatched card adds nothing
+  // to the totals. A body (foes, raw test bodies) and a card without symbols are never gated.
+  function matchesCalling(card, base) {
+    const own = base && base.card && base.card.sym;
+    return !own || !card.sym || card.sym.some((a) => own.includes(a));
   }
   function totals(build, cards) {
     build = normBuild(build);
     const errors = [];
     const base = coreStrip(build, cards);
     const t = base ? Object.assign({}, base.strip) : blank();
-    if (!base) errors.push(build.core ? `Unknown Core ${build.core}` : "No Core or body");
+    if (!base) errors.push(build.calling ? `Unknown Calling ${build.calling}` : "No Calling or body");
     const list = [];
     for (const id of equippedIds(build)) {
       const c = cards.cards[id];
-      if (!c) errors.push(`Unknown card ${id}`); else if (c.kind !== "core") list.push(c);
+      if (!c) errors.push(`Unknown card ${id}`); else if (c.kind !== "calling") list.push(c);
     }
     for (const c of list) {
-      if (!meetsReq(c, base ? base.strip : t, list, build.bonus)) { errors.push(`${c.name}: Requirement not met (${Object.entries(c.req).map(([a, n]) => a + " +" + n).join(", ")})`); continue; }
+      if (!matchesCalling(c, base)) { errors.push(`${c.name}: its symbols (${c.sym.join(", ")}) don't match the Calling`); continue; }
       addStrip(t, c.strip);
     }
     // RULING R201: foe templates (build.foe set) don't get the empty Armor Slot's +10 Speed: foe cards print
@@ -217,7 +212,7 @@
     t.errors = errors;
     return t;
   }
-  // Fresh tally card for a Form (P 10.7, 12.3): Form STR, DEX, HP, Speed, Size + Core INT and WIL + Aspects.
+  // Fresh tally card for a Form (P 10.7, 12.3): Form STR, DEX, HP, Speed, Size + Calling INT and WIL + Aspects.
   function formTotals(build, cards, form) {
     const base = coreStrip(build, cards);
     const t = blank();
@@ -277,7 +272,7 @@
   // other Hand gear fills the remaining Hands in `carries` order and the rest is carried (Legionary: Pilum +
   // Shield in hand, Gladius carried; Ogre: Greatclub in hand, Javelins carried). Slots grow to fit.
   function fromFoe(foe, cards) {
-    const b = normBuild({ core: foe.core || null, body: foe.body ? clone(foe.body) : null, bonus: clone(foe.bonus || {}),
+    const b = normBuild({ calling: null, body: foe.body ? clone(foe.body) : null, bonus: clone(foe.bonus || {}),
       extraDice: clone(foe.extraDice || 0), recharge: clone(foe.recharge || {}), ownFx: clone(foe.ownFx || []), powers: (foe.powers || []).slice(), boss: !!foe.boss, leader: !!foe.leader,
       senses: clone(foe.senses || {}), alert: !!foe.alert, foe: foe.name });
     const hand = [];
@@ -339,7 +334,7 @@
     };
     const shifted = !!c.form && !all;
     if (!shifted) {
-      if (b.core) fromCard("core", b.core);
+      if (b.calling) fromCard("calling", b.calling);
       if (b.armor) fromCard("armor", b.armor);
       (all ? c.hands.concat(c.carried) : c.hands).forEach((id) => fromCard("hand", id));
       b.jewelry.forEach((id) => fromCard("jewelry", id));
@@ -466,7 +461,8 @@
   const freeHand = (F, c) => !c.form && handsUsed(F, c) < c.build.slots.hand;
   function canCastBook(F, c) {
     if (c.form) return false;
-    return freeHand(F, c) || c.hands.some((id) => (F.cards.cards[id].fx || []).some((p) => p.use === "passive" && p.castingHand));
+    const calling = c.build.calling && F.cards.cards[c.build.calling];
+    return freeHand(F, c) || [...c.hands, ...(calling ? [calling.id] : [])].some((id) => (F.cards.cards[id].fx || []).some((p) => p.use === "passive" && p.castingHand));
   }
   const canSpeak = (c) => !incap(c) && !c.form;
   const holdsShield = (F, c) => !c.form && c.hands.some((id) => typeOf(F.cards.cards[id]) === "Shield");
@@ -693,6 +689,8 @@
       info.abil = ab;
       flat(a.totals[ab], ab);
       flat(w.hit || 0, "to hit");
+      // Scrapper (Brawler): a flat bonus on Grapples and Shoves
+      if (src.grab) flat(powersOf(F, a).reduce((n, e) => n + (e.p.use === "passive" && e.p.grabHit || 0), 0), "Scrapper");
       if (w.heavy && a.totals[ranged ? "DEX" : "STR"] < 1) flat(-3, "Heavy");
       info.weapon = w;
     } else {
@@ -927,6 +925,7 @@
   // Defensive and retaliation reactions when an attack hits (hitSelf, hitAlly5, meleeHitSelf5).
   function hitReactions(X, res, melee) {
     const F = X.F, st = X.st, a = res.a, t = res.t, used = {};
+    for (const c of living(st)) c.oath = null;
     for (;;) {
       if (!res.hit) return;
       const opts = [];
@@ -968,6 +967,7 @@
       if (deckOf(F, pick.e) && deckOf(F, pick.e).kind === "spellbook" && p.cost > 0) c.spellTurn = st.turnNo;
       emit(X, { t: "reaction", actor: c.id, target: a.id, power: p.id, text: `${c.name} uses ${p.name}.` });
       if (p.hook) { hookTrigger(X, c, pick.e, { on: p.on, attacker: a, target: t, hit: true, res }); decide(res); continue; }
+      if (p.oath) { t.oath = c.id; emit(X, { t: "note", actor: c.id, target: t.id, text: `${c.name} takes the hit for ${t.name}.` }); return; }
       for (const d of p.do || []) {
         if (d.mod === "def") {
           const holder = p.on === "hitAlly5" ? t : c;
@@ -1054,6 +1054,8 @@
   function applyDamage(X, t, n, type, o) {
     o = o || {};
     const F = X.F;
+    // Oath (Templar): this attack's damage goes to the guardian instead (set in hitReactions, cleared in afterHit)
+    if (t.oath) { const g = X.st.creatures[t.oath]; if (g && !g.dead && g !== t) t = g; }
     if (t.dead || n <= 0) return 0;
     type = type || "Physical";
     let resisted = null;
@@ -1305,7 +1307,7 @@
   function weaponAttack(X, a, t, w, o) {
     const F = X.F;
     o = o || {};
-    const info = attackInfo(F, a, t, { w, thrown: o.thrown, abil: o.abil, toDamage: o.toDamage });
+    const info = attackInfo(F, a, t, { w, thrown: o.thrown, abil: o.abil, toDamage: o.toDamage, grab: o.shove || o.grapple });
     const res = rollAttack(X, a, t, info, { label: `${o.opportunity ? "opportunity attack" : "attacks"} with ${w.name}` });
     if (res.hit) hitReactions(X, res, info.melee);
     if (!res.hit) { emit(X, { t: "miss", actor: a.id, target: t.id, text: `${a.name} misses ${t.name}.` }); return res; }
@@ -1414,6 +1416,8 @@
   // Triggers after a hit lands: meleeDrop, weaponHit, hitEngaged.
   function afterHit(X, a, t, o) {
     const st = X.st;
+    t.oath = null;
+    if (o.melee) fireTriggers(X, a, "meleeHit", { target: t });
     if (o.weapon) fireTriggers(X, a, "weaponHit", { target: t });
     if (o.engaged) fireTriggers(X, a, "hitEngaged", { target: t });
     if (o.melee && (t.hp === 0 || t.dead)) fireTriggers(X, a, "meleeDrop", { target: t });
@@ -1511,6 +1515,7 @@
           only: p.params && p.params.ranged ? "ranged" : p.params && p.params.melee ? "melee" : null });
       } else if (d.dash) { user.turn.speed += speedOf(user); user.turn.moves++; emit(X, { t: "note", actor: user.id, text: `${user.name} gains a Move (+${speedOf(user)} ft).` }); }
       else if (d.move === "safe") {
+        if (d.once) { if (user.turn.once && user.turn.once[p.id]) continue; user.turn.once = Object.assign({}, user.turn.once, { [p.id]: true }); }
         const ft = d.ft === "half" ? speedOf(user) / 2 : d.ft || 0;
         user.turn.safeFt += ft;
         emit(X, { t: "note", actor: user.id, text: `${user.name} may move ${ft} ft without provoking (move with safe: true).` });
@@ -1750,6 +1755,7 @@
     if (r.hit) hitReactions(X, r, false);
     emit(X, { t: r.hit ? "hit" : "miss", actor: s.id, target: t.id, text: `${z.name} ${r.hit ? "catches" : "misses"} ${t.name}.` });
     applyDo(X, s, e, z.p.do || [], t, { hit: r.hit, crit: r.crit });
+    t.oath = null;
   }
 
   // ---------- shove, grapple, escape ----------
@@ -2021,7 +2027,7 @@
     if (slot === "offhand") fail("Shove and Grapple replace an attack of the Attack action");
     if (SIZE_N[t.size] - SIZE_N[c.size] > 1) fail(`${t.name} is more than one size larger`);
     if (kind === "grapple" && !freeHand(F, c)) fail("Grappling needs a free Hand");
-    const info = attackInfo(F, c, t, { w: weaponOf(F, c, "unarmed") });
+    const info = attackInfo(F, c, t, { w: weaponOf(F, c, "unarmed"), grab: true });
     return { t, slot, info: Object.assign(info, { toHit: info.bonus, defense: info.def }) };
   }
   function doShove(X, c, cmd, kind) {

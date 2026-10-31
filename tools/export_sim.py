@@ -16,7 +16,7 @@ import foes  # noqa: E402
 from build_cards import foe_lines  # noqa: E402
 
 OUT = ROOT / "sim" / "cards.js"
-KEY_ORDER = ["id", "name", "rank", "kind", "type", "kw", "text", "strip", "group", "size", "req", "noisy", "uses", "atk",
+KEY_ORDER = ["id", "name", "rank", "kind", "type", "kw", "text", "strip", "group", "size", "sym", "noisy", "uses", "atk",
              "fx", "deck"]
 
 
@@ -37,14 +37,13 @@ def powers(plist, prefix, default_name):
 
 def export_card(c):
     kw = c["kw"].split(" · ")
-    req = re.search(r"Req (STR|DEX|INT|WIL) \+(\d+)", c["kw"])
     noisy = re.search(r"Noisy (\d+)", c["kw"])
     out = {"id": c["id"], "name": c["name"], "rank": c["rank"], "kind": c["kind"], "type": kw[0], "kw": kw,
            "text": c["text"], "strip": {k: num(v) for k, v in c["strip"].items()}, "group": c["group"]}
-    if kw[0] == "Core":
-        out["size"] = kw[1]
-    if req:
-        out["req"] = {req[1]: int(req[2])}
+    if kw[0] == "Calling":
+        out["size"] = "Medium"
+    if c["kind"] in ("gear", "aspect", "calling"):
+        out["sym"] = c["sym"]  # P 3.1: equip it if your Calling has one of these
     if noisy:
         out["noisy"] = int(noisy[1])
     if "uses" in c:
@@ -71,11 +70,8 @@ def export_deck(d):
 
 def export_foe(f):
     values, *_ = foe_lines(f)
-    core = bs.BY_NAME[f["core"]]["id"] if f["core"] else None
-    body = None
-    if f["body"]:
-        s, d, i, w, hp, spd, size = f["body"]
-        body = {"STR": s, "DEX": d, "INT": i, "WIL": w, "HP": hp, "SPD": spd, "size": size}
+    s, d, i, w, hp, spd, size = f["body"]
+    body = {"STR": s, "DEX": d, "INT": i, "WIL": w, "HP": hp, "SPD": spd, "size": size}
     senses = {}
     m = re.fullmatch(r"Darkvision (\d+)", f["senses"])
     if m:
@@ -92,7 +88,7 @@ def export_foe(f):
         if not ids:
             raise ValueError(f"{f['name']}: {name} has no limited-use power to recharge")
         recharge.update({i: n for i in ids})
-    return {"name": f["name"], "core": core, "body": body, "carries": [bs.BY_NAME[n]["id"] for n in f["carries"]],
+    return {"name": f["name"], "body": body, "carries": [bs.BY_NAME[n]["id"] for n in f["carries"]],
             "bonus": f["bonus"], "extraDice": extra, "recharge": recharge, "powers": f["powers"], "senses": senses,
             "alert": f["alert"], "boss": f["boss"], "leader": f["leader"], "own": f["own"],
             "ownFx": powers(f["own_fx"], f"foe-{slug(f['name'])}", f["name"]),

@@ -2,19 +2,19 @@
 (function () {
   const W = (hit, dice, o) => Object.assign({ hit, dice, two: null, abil: ["STR"], type: "Physical", finesse: false, light: false, heavy: false,
     reach: false, twoHanded: false, loading: false, thrown: null, range: null }, o);
-  const core = (id, name, m, hp, spd, size) => ({ id, name, rank: "I", kind: "core", type: "Core", kw: ["Core", size || "Medium"], text: [],
+  const calling = (id, name, m, hp, spd, size) => ({ id, name, rank: "", kind: "calling", type: "Calling", kw: ["Calling"], text: [],
     strip: { STR: m[0], DEX: m[1], INT: m[2], WIL: m[3], STRd: 10 + m[0], DEXd: 10 + m[1], INTd: 10 + m[2], WILd: 10 + m[3], HP: hp, SPD: spd },
     group: "starter", size: size || "Medium", fx: [] });
   const gear = (id, name, type, o) => Object.assign({ id, name, rank: "I", kind: "gear", type, kw: [type], text: [], strip: {}, group: "starter", fx: [] }, o);
   const asp = (id, name, type, fx, o) => Object.assign({ id, name, rank: "I", kind: "aspect", type, kw: [type], text: [], strip: {}, group: "starter", fx }, o);
   const list = [
-    core("C-I-01", "Brute", [3, 1, 0, 0], 14, 30),
-    core("C-I-02", "Nimble", [0, 3, 1, 0], 11, 35),
-    core("C-I-03", "Scholar", [0, 1, 3, 0], 9, 30),
-    core("C-I-04", "Envoy", [0, 1, 0, 3], 10, 30),
-    core("C-II-01", "Ogre", [4, 0, 0, 0], 35, 35, "Large"),
+    calling("C-I-01", "Brute", [3, 1, 0, 0], 14, 30),
+    calling("C-I-02", "Nimble", [0, 3, 1, 0], 11, 35),
+    calling("C-I-03", "Scholar", [0, 1, 3, 0], 9, 30),
+    calling("C-I-04", "Envoy", [0, 1, 0, 3], 10, 30),
+    calling("C-II-01", "Ogre", [4, 0, 0, 0], 35, 35, "Large"),
     gear("A-I-01", "Leather", "Armor", { strip: { STRd: 2, DEXd: 1, SPD: 5 } }),
-    gear("A-I-02", "Mail", "Armor", { strip: { STRd: 3 }, req: { STR: 1 } }),
+    gear("A-I-02", "Mail", "Armor", { strip: { STRd: 3 } }),
     gear("S-I-01", "Shield", "Shield", { strip: { STRd: 2, DEXd: 2 } }),
     gear("W-I-01", "Dagger", "Weapon", { atk: W(4, "1d4", { abil: ["STR", "DEX"], finesse: true, light: true, thrown: [20, 60] }) }),
     gear("W-I-03", "Handaxe", "Weapon", { atk: W(2, "1d6", { light: true, thrown: [20, 60] }) }),
@@ -58,11 +58,11 @@
       ] },
     },
     foes: [
-      { name: "Orc", core: "C-I-01", body: null, carries: ["W-I-05", "A-I-01"], bonus: {}, extraDice: 0, powers: [], senses: {}, alert: false, boss: false, own: [], ownFx: [],
+      { name: "Orc", body: { STR: 3, DEX: 1, INT: 0, WIL: 0, HP: 14, SPD: 30, size: "Medium" }, carries: ["W-I-05", "A-I-01"], bonus: {}, extraDice: 0, powers: [], senses: {}, alert: false, boss: false, own: [], ownFx: [],
         totals: { STR: 3, DEX: 1, INT: 0, WIL: 0, STRd: 15, DEXd: 12, INTd: 10, WILd: 10, HP: 14, SPD: 35 } },
-      { name: "Ogre", core: "C-II-01", body: null, carries: ["W-I-13", "W-I-11"], bonus: { HP: 33 }, extraDice: 1, powers: [], senses: { darkvision: 60 }, alert: false, boss: false, own: [], ownFx: [],
+      { name: "Ogre", body: { STR: 4, DEX: 0, INT: 0, WIL: 0, HP: 35, SPD: 35, size: "Large" }, carries: ["W-I-13", "W-I-11"], bonus: { HP: 33 }, extraDice: 1, powers: [], senses: { darkvision: 60 }, alert: false, boss: false, own: [], ownFx: [],
         totals: { STR: 4, DEX: 0, INT: 0, WIL: 0, STRd: 14, DEXd: 10, INTd: 10, WILd: 10, HP: 68, SPD: 35 } },
-      { name: "Chief", core: null, body: { STR: 5, DEX: 0, INT: 0, WIL: 1, HP: 110, SPD: 40, size: "Large" }, carries: ["W-I-13"], bonus: {}, extraDice: 1, powers: [], senses: {}, alert: false, boss: true, own: [],
+      { name: "Chief", body: { STR: 5, DEX: 0, INT: 0, WIL: 1, HP: 110, SPD: 40, size: "Large" }, carries: ["W-I-13"], bonus: {}, extraDice: 1, powers: [], senses: {}, alert: false, boss: true, own: [],
         ownFx: [{ id: "foe-chief#0", name: "Bellow", use: "action", recharge: 5, target: "enemies", reach: 30, atk: { flat: 5, vs: "WIL" }, do: [{ cond: "Frightened", until: "endSourceTurn" }], tags: ["fear"] }],
         totals: { STR: 5, DEX: 0, INT: 0, WIL: 1, STRd: 15, DEXd: 10, INTd: 10, WILd: 11, HP: 110, SPD: 40 } },
     ],

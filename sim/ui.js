@@ -109,7 +109,7 @@
 
   // ---------- builds and scenarios ----------
   function blankBuild() {
-    return { core: "C-I-05", body: null, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [],
+    return { calling: "L-01", body: null, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [],
       slots: { hand: 2, jewelry: 1, item: 2, aspect: 3 }, bonus: {}, extraDice: 0, recharge: {}, ownFx: [], powers: [], boss: false, senses: {}, alert: false, foe: null };
   }
   function normBuild(b) {
@@ -294,7 +294,7 @@
   function rosterPanel() {
     const row = (c) => {
       const t = totalsOf(c.build), errs = errorsOf(c.build);
-      const desc = c.build.foe ? c.build.foe : c.build.core ? cardName(c.build.core) : "raw body";
+      const desc = c.build.foe ? c.build.foe : c.build.calling ? cardName(c.build.calling) : "raw body";
       return h("div.roster-row", {
         class: (A.sel === c.id ? "on " : "") + "side-" + c.side, draggable: "true",
         ondragstart: (e) => { e.dataTransfer.setData("text/plain", c.id); },
@@ -342,7 +342,7 @@
   }
   function addBlankFoe() {
     const b = blankBuild();
-    b.core = null; b.body = { STR: 1, DEX: 1, INT: 0, WIL: 0, HP: 10, SPD: 30, size: "Medium" };
+    b.calling = null; b.body = { STR: 1, DEX: 1, INT: 0, WIL: 0, HP: 10, SPD: 30, size: "Medium" };
     const c = { id: nextId("foe"), side: "foe", name: uniqueName("Foe"), build: b, pos: null, react: "auto" };
     c.pos = freeSpot(A.setup, c);
     A.setup.creatures.push(c); A.sel = c.id; saveSetup(); render();
@@ -476,7 +476,7 @@
         h("div.frame-band", label),
         value === "__2h" ? h("div.frame-empty", "Held by a Two-Handed weapon") :
           [select(value || "", [["", "— empty —"], ...pool(slot)], onchange), extra || null,
-            cd ? h("div.frame-text", { html: (cd.text || []).map(md).join("<br>") + (cd.req ? `<div class="req">Req ${Object.entries(cd.req).map(([k, n]) => k + " +" + n).join(", ")}</div>` : "") }) : null]);
+            cd ? h("div.frame-text", { html: (cd.text || []).map(md).join("<br>") + (cd.sym && cd.sym.length < 4 ? `<div class="req">Symbols: ${cd.sym.join(" · ")}</div>` : "") }) : null]);
     };
     // Hands: each card takes one frame, a Two-Handed weapon two.
     const handFrames = [];
@@ -514,11 +514,11 @@
       foe ? h("div.foe-note", h("div", h("b", "Foe card: "), foe.name, " ", h("button.subtle", { onclick: () => set(() => (c.build = normBuild(Eng.fromFoe(foe, CARDS)))) }, "Reset to card")),
         foe.own.map((s) => h("div.own", { html: md(s) }))) : null,
       h("div.row",
-        h("label.field", b.body ? "Body" : "Core",
-          select(b.core || "__body", [{ group: "Cores", items: Object.values(CARDS.cards).filter((x) => x.kind === "core").map((x) => [x.id, `${x.name} (${x.rank}${x.size !== "Medium" ? ", " + x.size : ""})`]) },
+        h("label.field", b.body ? "Body" : "Calling",
+          select(b.calling || "__body", [{ group: "Callings", items: Object.values(CARDS.cards).filter((x) => x.kind === "calling").map((x) => [x.id, `${x.name} (${x.sym.join(" · ")})`]) },
             ["__body", "Raw body (foe)"]], (v) => set(() => {
-            if (v === "__body") { b.core = null; b.body = b.body || { STR: 0, DEX: 0, INT: 0, WIL: 0, HP: 10, SPD: 30, size: "Medium" }; }
-            else { b.core = v; b.body = null; }
+            if (v === "__body") { b.calling = null; b.body = b.body || { STR: 0, DEX: 0, INT: 0, WIL: 0, HP: 10, SPD: 30, size: "Medium" }; }
+            else { b.calling = v; b.body = null; }
           })))),
       b.body ? h("div.body-grid",
         ["STR", "DEX", "INT", "WIL", "HP", "SPD"].map((k) => h("label.field", k, num(b.body[k] || 0, (v) => set(() => (b.body[k] = v || 0)), { class: "count" }))),
