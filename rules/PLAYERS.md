@@ -208,8 +208,8 @@ Each sample shows the name, Rank and lit symbols (*all* when all four are), the 
 > **2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 on their next attack before the end of your next turn.
 > *Technique*
 
-> **SPELLGUARD STAFF** · Rank I · STR · INT
-> +2 to hit, 1d8 / 1d10 + STR or INT Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.
+> **SPELLGUARD STAFF** · Rank I · all
+> +2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.
 > *Weapon · Versatile*
 
 > **STONE BLOOD** · Rank I · STR · INT
@@ -667,7 +667,7 @@ An effect with the **Subdue** keyword takes a creature out of the fight. It name
 
 ## 9. Equipment
 
-Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or DEX Physical*. It names the abilities it rolls with: always STR, DEX or both, except **staves**, which are weaker but roll INT or WIL. **Basic weapons** (Rank I starters) light all four symbols, so anyone can wield them; a weak ability simply means a weak attack. Loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
+Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or DEX Physical*. It names the abilities it rolls with: always STR, DEX or both, except **staves** and **wands**, which are weaker but roll INT or WIL. **Basic weapons** (Rank I starters) light all four symbols, so anyone can wield them; a weak ability simply means a weak attack. Loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
 
 ### 9.1 Armor and Defense
 
@@ -809,7 +809,7 @@ A Remembrance holds **Forms**: beasts your body remembers. A Form is printed lik
 
 A keyword always means the same thing, on every piece of gear and every Aspect. A number or word after it (*Thrown 20/60*, *Resist Fire*) fills in the detail. Conditions (Chapter 8) and damage types (7.2) are also reserved words.
 
-A card never prints the same thing twice. A weapon's range is in its attack line (*+4 to hit, thrown 20/60 ft, 1d4 + DEX or INT Physical*) and a spell's in its casting line, so the card leaves out *Range* and *Thrown*. A Versatile weapon's bigger die is in its damage (*1d8 / 1d10*), so the card prints just *Versatile*. The keywords still apply.
+A card never prints the same thing twice. A weapon's range is in its attack line (*+2 to hit, thrown 20/60 ft, 1d4 + DEX Physical*) and a spell's in its casting line, so the card leaves out *Range* and *Thrown*. A Versatile weapon's bigger die is in its damage (*1d8 / 1d10*), so the card prints just *Versatile*. The keywords still apply.
 
 ### 11.1 Types
 
@@ -960,7 +960,7 @@ You only touch the totals at two moments.
 
 **Spell points and Resolve:** write the total on the left of its box, then a dash. Each time you spend a point, draw a small tally mark on the right of the dash. What you have left is the total minus the marks. A rest that brings the points back erases the marks (7.5). When the total changes (10.2, 10.6), write the new one and keep the marks. A box stays empty if you have no Spellbook, or no Divine, Glamour or Nature deck.
 
-> **Example: Isolde the Sage** holds the *Conjurer's Book* (+2) with INT +2, and her *Learned* perk adds 1: she writes **5 –** in her spell point box. She casts *Web* (2 points) and *Shield* (1): **5 – |||**. She has 2 left until her next long rest.
+> **Example: Isolde the Sage** holds the *Conjurer's Book* (+2) with INT +2, and her *Learned* perk adds 2: she writes **6 –** in her spell point box. She casts *Web* (2 points) and *Shield* (1): **6 – |||**. She has 3 left until her next long rest.
 
 ### 12.4 Decks
 

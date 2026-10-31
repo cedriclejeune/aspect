@@ -35,7 +35,7 @@ _À éviter_ : stats, valeurs dérivées. (EN : Totals)
 ### Matériel, Aspects et Emplacements
 
 **Matériel**:
-Tout objet réel qu'un Porteur peut équiper ou ranger : l'équipement et les objets. Tout le monde peut utiliser du matériel.
+Tout objet réel qu'un Porteur peut équiper ou ranger : l'équipement et les objets. Toute créature peut utiliser du matériel ; un Porteur, seulement les cartes que les symboles de sa Vocation permettent.
 _À éviter_ : carte (hors chapitre À la table), butin (comme synonyme). (EN : Gear)
 
 **Équipement**:
@@ -95,7 +95,7 @@ La paire de caractéristiques avec laquelle un Porteur est né, gardée à vie :
 _À éviter_ : Noyau, historique, archétype, classe, race, profil (pour les joueurs). (EN : Calling)
 
 **Symboles**:
-Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques de ses symboles.
+Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou DEX ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles.
 _À éviter_ : prérequis, condition, Req. (EN : Symbols)
 
 **Emplacement de Matériel**:
@@ -220,23 +220,27 @@ _À éviter_ : affaiblissement. (EN : Decay)
 Une durée fixe pendant laquelle un effet agit, imprimée dessus. (EN : Duration)
 
 **Livre de sorts**:
-Un objet contenant une liste fixe de sorts et une réserve de points de sort. Toute incantation utilise l'INT.
+Un objet contenant une liste fixe de sorts. Ses points de sort s'ajoutent à votre réserve unique. Toute incantation utilise l'INT.
 _À éviter_ : grimoire, liste de sorts. (EN : Spellbook)
 
+**Points de sort**:
+Les points que coûtent vos sorts : une seule réserve, la somme de ce qu'impriment vos Livres de sorts + INT (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un repos long.
+_À éviter_ : emplacements de sort, mana. (EN : Spell points)
+
 **Divin**:
-Un type d'Aspect : la magie de VOL de la prière. Son paquet, une **Litanie**, contient une liste fixe de pouvoirs qui infléchissent le destin et soignent, et une réserve d'Ardeur.
+Un type d'Aspect : la magie de VOL de la prière. Son paquet, une **Litanie**, contient une liste fixe de pouvoirs qui infléchissent le destin et soignent, et s'ajoute à votre Ardeur.
 _À éviter_ : livre saint, magie de clerc, foi (comme terme). (EN : Divine)
 
 **Glamour**:
-Un type d'Aspect : la magie de VOL de la représentation et du commandement. Son paquet, un **Répertoire**, contient une liste fixe de pouvoirs qui galvanisent les alliés et brisent les ennemis, et une réserve d'Ardeur.
+Un type d'Aspect : la magie de VOL de la représentation et du commandement. Son paquet, un **Répertoire**, contient une liste fixe de pouvoirs qui galvanisent les alliés et brisent les ennemis, et s'ajoute à votre Ardeur.
 _À éviter_ : muse, inspiration, magie de barde, recueil de chants. (EN : Glamour)
 
 **Nature**:
-Un type d'Aspect : la magie de VOL du monde sauvage. Son paquet, une **Souvenance**, contient une liste fixe de Formes et de pouvoirs de soin, et une réserve d'Ardeur.
+Un type d'Aspect : la magie de VOL du monde sauvage. Son paquet, une **Souvenance**, contient une liste fixe de Formes et de pouvoirs de soin, et s'ajoute à votre Ardeur.
 _À éviter_ : Mémoires, bestiaire, magie druidique, magie primordiale. (EN : Nature, Remembrance)
 
 **Ardeur**:
-Les points qu'un Aspect Divin, de Glamour ou de Nature dépense pour ses pouvoirs. Chacun a sa propre réserve ; l'Ardeur supplémentaire des Traits et du matériel s'ajoute à l'une d'elles. Elle revient lors d'un repos court.
+Les points que coûtent vos pouvoirs Divins, de Glamour et de Nature : une seule réserve, la somme de ce qu'impriment leurs paquets + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un repos court.
 _À éviter_ : résolution, points de volonté, mana. (EN : Resolve)
 
 **Forme**:
@@ -260,7 +264,7 @@ _À éviter_ : niveau (seul), niveau de personnage. (EN : Effective level)
 Le type de matériel porté sur le corps ; il va dans l'Emplacement d'Armure. Il faut 10 minutes pour l'enfiler ou l'ôter. Jamais dans le Sac.
 
 **Arme**:
-Le type de matériel tenu avec lequel on attaque ; il va dans un Emplacement de Main. Elle imprime son bonus au toucher et ses dégâts (*+2 au toucher, 1d8 + FOR Physique*).
+Le type de matériel tenu avec lequel on attaque ; il va dans un Emplacement de Main. Elle imprime son bonus au toucher et ses dégâts, en ajoutant la plus haute des caractéristiques qu'elle nomme (*+2 au toucher, 1d8 + FOR ou DEX Physique*).
 
 **Bouclier**:
 Le type de matériel tenu qui augmente vos Défenses ; il va dans un Emplacement de Main.
@@ -294,8 +298,17 @@ _À éviter_ : action bonus.
 **Aquatique**:
 Un mot-clé d'arme : elle fonctionne sous l'eau, là où les autres armes et sorts ne fonctionnent pas.
 
+**Brutale**:
+Un mot-clé d'arme : sur un coup critique, lancez ses dés de dégâts trois fois au lieu de deux.
+
+**Écrasante**:
+Un mot-clé d'arme : une attaque qui touche en dépassant la Défense visée de 5 ou plus met la cible À terre.
+
+**Rafale**:
+Un mot-clé d'arme : +2 à chaque attaque après la première que vous faites avec elle pendant votre tour.
+
 **Lourde**:
-Un mot-clé d'arme : il faut FOR +1 (corps à corps) ou DEX +1 (distance), sinon −3 aux attaques.
+Un mot-clé d'arme : une grande arme. En butin, elle n'allume que le symbole de FOR : seule une Vocation qui a la FOR peut l'équiper.
 
 **Légère**:
 Un mot-clé d'arme : permet le combat à deux armes.
@@ -414,13 +427,13 @@ Un pouvoir de monstre qui revient sur un 5 ou un 6 au d6 à la fin du tour du mo
 ### À la table
 
 **Carte**:
-L'élément physique d'une Vocation, d'un matériel, d'un Aspect, d'un sort ou d'une somme d'or.
+L'élément physique d'une Vocation, d'un matériel, d'un Aspect, d'un sort, d'une Blessure, d'un adversaire ou d'une somme d'or.
 _À éviter_ : carte (dans le texte des règles hors chapitre À la table).
 
 **Code de carte**:
-Le code dans le coin inférieur droit d'une carte : lettre de type, Rang et numéro (W-II-02).
+Le code dans le coin inférieur droit d'une carte : lettre de type, Rang s'il en a un, et numéro (W-II-02, L-04).
 _À éviter_ : numéro de carte, numéro de série. (EN : Card ID)
 
 **Carte de Décompte**:
-La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV actuels et temporaires, et vos jets contre la mort.
+La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV actuels et temporaires, vos jets contre la mort, vos points de sort et votre Ardeur.
 _À éviter_ : feuille de personnage (comme terme). (EN : Tally card)

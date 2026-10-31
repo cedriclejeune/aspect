@@ -115,7 +115,7 @@ BACK = """
 <p>C'est <strong>toujours l'attaquant qui lance</strong>, contre une <strong>Défense</strong> (10 + caractéristique + bonus). Les armes visent la <strong>plus haute Défense de FOR / DEX</strong> ; les autres effets nomment la leur.</p>
 <table>
 <tr><th>Jet</th><th>Formule</th></tr>
-<tr><td>Arme</td><td>d20 + caractéristique de son symbole (la plus haute des deux) + au toucher</td></tr>
+<tr><td>Arme</td><td>d20 + la caractéristique qu'elle nomme (la plus haute des deux : FOR / DEX, bâton ou baguette INT / VOL) + au toucher</td></tr>
 <tr><td>Sort</td><td>d20 + INT + attaque de sort du livre</td></tr>
 <tr><td>Magie de VOL</td><td>d20 + VOL + Attaque imprimée</td></tr>
 <tr><td>Mains nues</td><td>+2 au toucher · 1 + FOR Physique</td></tr>
@@ -125,7 +125,6 @@ BACK = """
 <li><strong>Touché</strong> si total ≥ Défense. <strong>20 nat. :</strong> touche toujours, critique. <strong>1 nat. :</strong> rate toujours.</li>
 <li><strong>Dégâts :</strong> dé de l'arme + le même modificateur. <strong>Critique :</strong> dés de dégâts deux fois, modificateurs une fois.</li>
 <li><strong>Zone :</strong> un seul jet contre la Défense de chaque cible, seule la question Vous. Échec = moitié des dégâts.</li>
-<li><strong>Lourde</strong> sans FOR +1 (corps à corps) / DEX +1 (distance) : −3 au toucher.</li>
 </ul>
 
 <h2>Les trois questions <small>5.2</small></h2>
@@ -208,8 +207,8 @@ BACK = """
 
 <h2>Magie en combat <small>10</small></h2>
 <ul>
-<li><strong>Livre de sorts :</strong> une Main vide pour lancer. Les points de sort ne paient que les sorts de ce livre (coût 1/2/3/4/6/8 selon le niveau, tours de magie gratuits). Évident sauf si Discret.</li>
-<li><strong>Divin, Glamour, Nature :</strong> VOL, payés en <strong>Ardeur</strong> (imprimée + VOL, revient au repos court). Toujours évidents.</li>
+<li><strong>Livre de sorts :</strong> une Main vide pour lancer. Une seule réserve de <strong>points de sort</strong> (tous les livres + INT) paie les sorts de n'importe quel livre (coût 1/2/3/4/6/8 selon le niveau, tours de magie gratuits). Évident sauf si Discret.</li>
+<li><strong>Divin, Glamour, Nature :</strong> VOL, payés sur une seule réserve d'<strong>Ardeur</strong> (tous les paquets + VOL, revient au repos court). Toujours évidents.</li>
 <li><strong>Formes :</strong> le matériel ne compte plus ; les PV de la Forme partent d'abord, l'excédent se reporte.</li>
 </ul>
 

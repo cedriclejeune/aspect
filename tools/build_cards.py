@@ -213,8 +213,8 @@ def symbol(name, alt=""):
 def printed(kw):
     """The keywords as the card prints them: never what the card's text already says (DESIGN 4). A range (Range N/M,
     Thrown N/M, a spell's Range N) is in the attack or casting line, and a Versatile weapon's bigger die is in its damage."""
-    parts = [p for p in kw.split(" · ") if not p.startswith(("Range ", "Thrown "))]
-    return " · ".join(re.sub(r"^Versatile \(.*\)$", "Versatile", p) for p in parts)
+    parts = [p for p in kw.split(" · ") if not p.startswith(("Range ", "Thrown ", "Portée ", "Lancer "))]
+    return " · ".join(re.sub(r"^(Versatile|Polyvalente) \(.*\)$", r"\1", p) for p in parts)
 
 
 def en_type(kind):
@@ -542,7 +542,7 @@ def build_cards(reading=False):
 
     def add(c, n=None, group=None):
         group = group or c["group"].upper()
-        put(item_drawing(c), lambda f: item_card(c, group, f), n or c["copies"] + (c["name"] in dropped))
+        put(item_drawing(c), lambda f: item_card(c, group, f), n or c["copies"] + (c.get("key", c["name"]) in dropped))
     for c in bs.CALLINGS + bs.ARMOR + bs.HANDS + bs.JEWELRY + bs.ITEMS:
         add(c)
     for c in bs.ASPECTS:

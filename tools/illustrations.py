@@ -675,7 +675,7 @@ def tally_card():
     x, y, w = 200, 20, 300
     h = w * 88 / 63
     body = [tally_small(x, y, w, h, {0: "+0", 1: "+1", 2: "+2", 3: "+2", 4: "11", 5: "11", 6: "12", 7: "12", 8: "15", 9: "30"}, ["15", "9", "12"], ledger=True,
-                        pools={"SPELL POINTS": ("5", 3)})]  # Isolde the Sage (P 12.3 example)
+                        pools={"SPELL POINTS": ("6", 3)})]  # Isolde the Sage (P 12.3 example)
     th, kh = h * .13, h * .1
     rh = (h - th - kh) / 10
     top = y + th

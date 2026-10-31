@@ -100,16 +100,16 @@ Vous faites agir chaque sorte de monstre à partir de sa **carte d'Adversaire** 
 
 > **OGRE**
 > FOR +4 · DEX +0 · INT +0 · VOL +0 · Défenses FOR 14 · DEX 10 · INT 10 · VOL 10 · PV 95 · Vitesse 10,5 m
-> **Force de géant :** +60 PV. Ses *Javelines* lancent un dé de dégâts supplémentaire (compris ci-dessous). Son *Coup balayant* se recharge sur 5–6 au lieu de 1/R.C.
-> *Massue* (W-I-13) : +6 au toucher, 1d10 + 4 Physique. **Écrasement :** sur un coup critique, la cible est mise À terre.
-> *Javelines* (W-I-11) : +6 au toucher, Lancer 9/36, 2d6 + 4 Physique.
+> **Force de géant :** +60 PV. Ses *Javelots* lancent un dé de dégâts supplémentaire (compris ci-dessous). Son *Coup balayant* se recharge sur 5–6 au lieu de 1/R.C.
+> *Massue* (W-I-13) : +6 au toucher, 1d10 + 4 Physique. *Lourde · Deux mains · Écrasante* (une attaque qui touche de 5 ou plus met la cible À terre).
+> *Javelots* (W-I-11) : +6 au toucher, lancer 9/36 m, 2d6 + 4 Physique.
 > *Coup balayant* (Q-II-02) : **Recharge 5–6**, quand vous effectuez l'action Attaque avec une arme Lourde ou à Allonge : faites à la place un jet d'attaque contre chaque ennemi à votre allonge. Moitié des dégâts en cas d'échec.
 > *Adversaire · Grand · Vision dans le noir 18*
 
 > **LÉGIONNAIRE**
 > FOR +3 · DEX +1 · INT +0 · VOL +0 · Défenses FOR 18 · DEX 13 · INT 10 · VOL 10 · PV 14 · Vitesse 9 m
 > Lance son *Pilum*, puis dégaine son *Gladius*.
-> *Pilum* (W-II-02) : +6 au toucher, Lancer 9/36, 1d6 + 3 Physique. **Perforation :** si l'attaque touche, un Bouclier que tient la cible ne donne plus de bonus jusqu'à ce qu'elle dépense une action pour arracher le pilum.
+> *Pilum* (W-II-02) : +6 au toucher, lancer 9/36 m, 1d6 + 3 Physique. **Perforation :** si l'attaque touche, un Bouclier que tient la cible ne donne plus de bonus jusqu'à ce qu'elle dépense une action pour arracher le pilum.
 > *Gladius* (W-I-14) : +5 au toucher, 1d6 + 3 Physique. **Ordre serré :** +1d4 dégâts tant qu'un allié est engagé avec la même créature.
 > *Mur de boucliers* (Q-I-06) : **Réaction (1/R.C.)**, quand une attaque touche un allié à 1,5 m ou moins pendant que vous tenez un Bouclier : +2 à la Défense visée contre cette attaque, ce qui peut la transformer en échec.
 > Porte aussi des *Mailles* (A-I-02) et un *Bouclier* (S-I-01).
@@ -122,7 +122,7 @@ Vous faites agir chaque sorte de monstre à partir de sa **carte d'Adversaire** 
 - **Le set de base** contient 20 cartes d'Adversaire de départ et 4 vierges :
   - **Humanoïdes :** Bandit, Archer bandit, Garde (avec *Ténacité humaine*), Éclaireur (*Sang elfique*), Mage, Cultiste, Légionnaire, Orque, Hobgobelin, Gobelin, Kobold, et le Capitaine bandit (Meneur).
   - **Bêtes et monstres :** Loup, Rat géant, Araignée géante, Squelette, Zombie, Ogre, Troll, et le Boss Chef ogre.
-  - Les Traits d'espèce (*Ténacité humaine*, *Sang elfique*, *Sang nain*, *Chance halfeline*, *Sang orque*, *Discipline hobgobeline*) font des humanoïdes rapides : un corps, un Trait d'espèce, une arme et une armure sur une carte d'Adversaire vierge. Ils sont lâchés comme n'importe quel Trait.
+  - Les cartes d'espèce (Traits *Ténacité humaine*, *Sang elfique*, *Sang nain*, *Chance halfeline* ; Savoir-faire *Sang orque*, *Discipline hobgobeline*) font des humanoïdes rapides : un corps, une carte d'espèce, une arme et une armure sur une carte d'Adversaire vierge. Ils sont lâchés comme n'importe quel Trait.
 - **La force d'un Adversaire** (combien de cartes, quels Rangs) se juge encore d'après son FP et votre appréciation (5).
 - **Gardez les Défenses au niveau de la Compagnie.** La Défense principale d'un Adversaire équilibré vaut environ le bonus d'attaque habituel de la Compagnie + 10 : les Porteurs touchent environ une fois sur deux, et une bonne position décide du combat. À partir du Rang III, ne donnez à un Adversaire aucune Défense inférieure à 10 + son bonus de Rang, pour qu'un point faible ne soit pas un coup assuré.
 - **Avantage aux dégâts.** Les Adversaires peuvent reporter des dés d'avantage sur les dégâts comme les Porteurs (J 5.2). Ne le faites que quand l'Adversaire toucherait de toute façon sur un 5 ou plus.
@@ -162,7 +162,7 @@ Un Porteur caché (J 5.4) peut observer un groupe d'Adversaires avant un combat 
 | Emplacement | Matériel et Aspects de départ (Rang I) |
 |---|---|
 | **Armure** | *Cuir*, *Mailles* |
-| **Mains** | *Bouclier*, *Dague*, *Épée courte*, *Hachette*, *Lame fine*, *Épée longue*, *Hache d'armes*, *Épée à deux mains*, *Glaive sur lance*, *Arc long*, *Fronde*, *Javelines*, *Bâton de garde-sort*, *Luth du voyageur* |
+| **Mains** | *Bouclier*, *Dague*, *Épée courte*, *Hachette*, *Lame fine*, *Épée longue*, *Hache d'armes*, *Épée à deux mains*, *Glaive sur lance*, *Arc long*, *Fronde*, *Javelots*, *Bâton de garde-sort*, *Luth du voyageur* |
 | **Bijou** | *Anneau de protection*, *Chevalière de guilde*, *Bandoulière à Éclats*, *Bottes de grande foulée*, *Grelots de danseur* |
 | **Objets** | *Livre du conjurateur*, *Potion de soins*, *Bourse à cordon*, *Lettre d'introduction* |
 | **Aspects** | *Saute-ruisseau*, *Sang de pierre*, *Volonté de fer*, *Esprit clair*, *Enchaînement*, *Visée stable*, *Coup de bouclier*, *Hymne de bataille*, *Cri de ralliement*, *Passe-muraille*, *Renommé*, *Marin*, *Gamin des rues*, *Chasseur*, *Médecin*, *Tavernier*, *Forgeron*, *Montagnard*, *Répertoire du vagabond* |
@@ -184,8 +184,8 @@ Les Traits et les Savoir-faire se construisent à partir de quatre sources :
 
 **Le Rang d'un Aspect est son budget :** le Rang I dépense 1, le Rang II 2, jusqu'au Rang V 5. Le maximum de caractéristique (+5) s'applique toujours.
 - **Un bonus n'est jamais seul :** il s'accompagne d'un second bonus, d'un atout ou d'activités. Il n'existe pas d'Aspect « +1 FOR ».
-- **Mélangez les constructions :** les activités d'un Aspect viennent d'**au moins deux caractéristiques**.
-- **Le Rang I n'a ni bonus ni atout :** jusqu'à 4 activités (un Savoir-faire), ou un avantage précis de même poids (*Volonté de fer*, *Saute-ruisseau*). Les bonus et les atouts commencent au Rang II.
+- **Mélangez les constructions :** les activités d'un Aspect viennent d'**au moins deux caractéristiques** (une exception : *Renommé*, le Savoir-faire social de VOL pure).
+- **Le Rang I n'a ni bonus ni atout :** jusqu'à 4 activités (un Savoir-faire), ou un avantage précis de même poids (*Volonté de fer*, *Saute-ruisseau*, Vision dans le noir 18 m : *Sang elfique*). Les bonus et les atouts commencent au Rang II.
 - **Chaque Trait imprime aussi des PV**, hors budget : +2 au Rang I, +4 au II, +7 au III, +10 au IV, +14 au V. Les Savoir-faire n'en impriment pas.
 - **Symboles :** donnez-lui-en deux (rarement un, ou les quatre pour un Trait que tout corps pourrait avoir), parmi les caractéristiques que servent ses activités et ses atouts (J 3.1).
 
@@ -197,11 +197,11 @@ Les Traits et les Savoir-faire se construisent à partir de quatre sources :
 | **Atout de VOL :** Ardeur supplémentaire (J 10.6) | +1 | +1 | +2 | +2 | +3 |
 | **Bonus d'activité** | +2 | +3 | +4 | +5 | +6 |
 
-Les points de sort d'atout s'ajoutent à un Livre de sorts équipé, et l'Ardeur d'atout à l'une de vos réserves Divine, de Glamour ou de Nature, choisis à chaque repos long (J 10.2, 10.6).
+Les points de sort d'atout s'ajoutent au total de points de sort du Porteur, et l'Ardeur d'atout à son total d'Ardeur, tous deux notés sur la carte de Décompte (J 10.2, 10.6, 12.3). Chacun ne compte que tant que le Porteur a un Livre de sorts, ou un paquet Divin, de Glamour ou de Nature.
 
 **Atouts forts :**
 - **Atout doublé :** deux fois un atout du tableau.
-- **Un sens ou un déplacement :** Vision dans le noir 18 m, une vitesse d'escalade ou de nage (J 11.5).
+- **Un sens ou un déplacement :** Vision dans le noir 36 m, une vitesse d'escalade ou de nage (J 11.5). La Vision dans le noir 18 m ne coûte que 1, comme 4 activités.
 - **Une résistance :** Résiste à un type de dégâts autre que Physique.
 - **Un petit pouvoir :** une action ou une réaction, 1/R.C. (*Second souffle*, Rang II).
 - **Lévitation :** **réaction (1/R.C.) :** pendant 1 minute, vous flottez, en montant ou en descendant jusqu'à 6 m par tour.
@@ -228,11 +228,11 @@ Les points de sort d'atout s'ajoutent à un Livre de sorts équipé, et l'Ardeur
 
 **Traits croisés** (principale · seconde, la construction de l'atout) : *Nerveux* FOR · DEX · *Érudit de bataille* FOR · INT · *Stature de chef* FOR · VOL · *Prise de grimpeur* DEX · FOR · *Œil vif* DEX · INT · *Bateleur* DEX · VOL · *Pilleur de tombes* INT · FOR · *Doigts arcaniques* INT · DEX · *Voix savante* INT · VOL · *Foi de croisé* VOL · FOR · *Danseur de cour* VOL · DEX · *Vue d'oracle* VOL · INT.
 
-**Traits doubles :** *Jeu de jambes du bagarreur* FOR · DEX · *Ingénieur de siège* FOR · INT · *Prestance de seigneur de guerre* FOR · VOL · *Lecture du duelliste* DEX · INT · *Bretteur* DEX · VOL · *Langue d'argent* INT · VOL.
+**Traits doubles :** *Jeu de jambes du teigneux* FOR · DEX · *Ingénieur de siège* FOR · INT · *Prestance de seigneur de guerre* FOR · VOL · *Lecture de l'escrimeur* DEX · INT · *Bretteur* DEX · VOL · *Langue d'argent* INT · VOL.
 
-**Traits doués** (principale, atout fort) : *Yeux de nuit* INT, Vision dans le noir 18 m · *Pas de plume* DEX, Lévitation · *Sang de salamandre* FOR, Résiste Feu · *Étincelle de talent* INT, un tour de magie · *Second souffle* FOR, un petit pouvoir.
+**Traits doués** (principale, atout fort) : *Yeux de nuit* INT, Vision dans le noir 36 m · *Pas de plume* DEX, Lévitation · *Sang de salamandre* FOR, Résiste Feu · *Étincelle de talent* INT, un tour de magie · *Second souffle* FOR, un petit pouvoir.
 
-*Exemples : Nerveux (II) : +1 FOR, +1,5 m de Vitesse. Corde-de-fouet (III) : +1 FOR, +1 DEX, +3 m de Vitesse. Ingénieur de siège (IV) : +2 FOR, +2 INT. Yeux de nuit (III) : +1 INT, Vision dans le noir 18 m.*
+*Exemples : Nerveux (II) : +1 FOR, +1,5 m de Vitesse. Corde-de-fouet (III) : +1 FOR, +1 DEX, +3 m de Vitesse. Ingénieur de siège (IV) : +2 FOR, +2 INT. Yeux de nuit (III) : +1 INT, Vision dans le noir 36 m.*
 
 ### 4.4 Traits et Savoir-faire à concept
 Des Traits et des Savoir-faire nommés, à l'idée claire, prêts à être lâchés. Les activités reçoivent le bonus de leur Rang (tableau ci-dessus).
@@ -289,7 +289,7 @@ Pour créer un nouveau Trait ou Savoir-faire à n'importe quel Rang :
 | 6 | 3 activités | atout fort | +1, atout et 4 activités | +1/+1, atout et 4 activités | +1/+1, atout fort et 4 activités |
 
 3. **Activités :** la moitié de chaque caractéristique de la paire (tableau d6 ci-dessus).
-4. **Atout fort** (d6) : 1 atout doublé (celui de la seconde) · 2 un sens ou un déplacement (Vision dans le noir 18 m, vitesse d'escalade ou de nage) · 3 une résistance (d6 : Feu, Froid, Foudre, Poison, Nécrotique, Radiant) · 4 un petit pouvoir de votre invention · 5 Lévitation · 6 un tour de magie.
+4. **Atout fort** (d6) : 1 atout doublé (celui de la seconde) · 2 un sens ou un déplacement (Vision dans le noir 36 m, vitesse d'escalade ou de nage) · 3 une résistance (d6 : Feu, Froid, Foudre, Poison, Nécrotique, Radiant) · 4 un petit pouvoir de votre invention · 5 Lévitation · 6 un tour de magie.
 5. **Nommez-le** d'après l'idée que suggère le résultat, et donnez-lui son type : **Savoir-faire** s'il n'a que des activités, sinon **Trait**.
 
 *Exemple : Rang III. Paire 4 (DEX · INT), l'INT est principale. Profil 6 : +1 INT, l'atout de DEX (+3 m de Vitesse) et 4 activités : remarquer, se souvenir de connaissances, garder l'équilibre, crocheter les serrures. Nom : Bricoleur-voleur.*
@@ -366,8 +366,8 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Action** | L'utiliser prend l'une de vos deux actions. |
 | **Allonge** | Un mot-clé d'arme : votre allonge est de 3 m au lieu de 1,5 m. |
 | **Aquatique** | Un mot-clé d'arme : elle fonctionne sous l'eau, là où les autres armes et sorts ne fonctionnent pas. |
-| **Ardeur** | Les points qu'un Aspect Divin, de Glamour ou de Nature dépense pour ses pouvoirs. Chacun a sa propre réserve ; l'Ardeur supplémentaire des Traits et du matériel s'ajoute à l'une d'elles. Elle revient lors d'un repos court. |
-| **Arme** | Le type de matériel tenu avec lequel on attaque ; il va dans un Emplacement de Main. Elle imprime son bonus au toucher et ses dégâts (*+2 au toucher, 1d8 + FOR Physique*). |
+| **Ardeur** | Les points que coûtent vos pouvoirs Divins, de Glamour et de Nature : une seule réserve, la somme de ce qu'impriment leurs paquets + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un repos court. |
+| **Arme** | Le type de matériel tenu avec lequel on attaque ; il va dans un Emplacement de Main. Elle imprime son bonus au toucher et ses dégâts, en ajoutant la plus haute des caractéristiques qu'elle nomme (*+2 au toucher, 1d8 + FOR ou DEX Physique*). |
 | **Armure** | Le type de matériel porté sur le corps ; il va dans l'Emplacement d'Armure. Il faut 10 minutes pour l'enfiler ou l'ôter. Jamais dans le Sac. |
 | **Aspect** | Un Trait, une Technique, un Savoir-faire, un Divin, un Glamour ou une Nature absorbé d'un autre être. Il n'a pas de corps : hors d'un Porteur, il vit dans un Éclat. Seuls les Porteurs peuvent l'utiliser. |
 | **Avantage aux dégâts** | Reporter sur les dégâts d'une attaque un dé d'avantage restant après compensation, choisi avant de lancer : relancez tous les dégâts une fois de plus par dé et gardez le total le plus haut. Le désavantage reste toujours sur l'attaque. |
@@ -378,16 +378,17 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Boucle de jeu** | Le cycle répété du jeu : affronter une épreuve, ramasser le butin, se reposer et se reconstruire au besoin. |
 | **Bouclier** | Le type de matériel tenu qui augmente vos Défenses ; il va dans un Emplacement de Main. |
 | **Bourse** | Un objet qui contient votre or, jusqu'à un maximum fixé par son Rang. |
+| **Brutale** | Un mot-clé d'arme : sur un coup critique, lancez ses dés de dégâts trois fois au lieu de deux. |
 | **Bruyante N** | −N aux tests pour se faufiler. |
 | **Butin** | Le matériel ou l'Aspect qu'une épreuve rapporte ; un Adversaire qui le *lâche* le rapporte. |
 | **Cadre d'Emplacement** | L'élément de table d'un Emplacement : un support percé de deux fentes en coin où l'on glisse une carte. Une carte encadrée est équipée. Un Éclat est un cadre d'Éclat. |
 | **Capturer** | Verser un Aspect qui persiste dans un Éclat vide. |
 | **Caractéristique** | L'une des quatre mesures de toute créature : Force (FOR), Dextérité (DEX), Intelligence (INT) et Volonté (VOL), chacune notée sous forme de modificateur. |
-| **Carte** | L'élément physique d'une Vocation, d'un matériel, d'un Aspect, d'un sort ou d'une somme d'or. |
+| **Carte** | L'élément physique d'une Vocation, d'un matériel, d'un Aspect, d'un sort, d'une Blessure, d'un adversaire ou d'une somme d'or. |
 | **Carte d'Adversaire** | La carte du MJ pour une sorte de monstre : son corps, ses totaux et ses pouvoirs. Les cartes nommées en italique dessus peuvent être lâchées ; le texte droit, jamais. |
-| **Carte de Décompte** | La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV actuels et temporaires, et vos jets contre la mort. |
+| **Carte de Décompte** | La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV actuels et temporaires, vos jets contre la mort, vos points de sort et votre Ardeur. |
 | **Chargement** | Un mot-clé d'arme : un tir par action ou réaction, même avec des attaques supplémentaires. |
-| **Code de carte** | Le code dans le coin inférieur droit d'une carte : lettre de type, Rang et numéro (W-II-02). |
+| **Code de carte** | Le code dans le coin inférieur droit d'une carte : lettre de type, Rang s'il en a un, et numéro (W-II-02, L-04). |
 | **Compagnie** | Le groupe de Porteurs joués ensemble. |
 | **Complainte** | Un pouvoir Divin ou de Glamour. Action : une attaque contre la Défense de VOL. (EN : Dirge) |
 | **Consommable** | Un objet qui disparaît une fois utilisé. Jusqu'à 3 Consommables identiques partagent un Emplacement d'Objet. |
@@ -397,9 +398,10 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Déplacement** | Une action : se déplacer jusqu'à votre Vitesse, en coupant avant et après votre autre action si vous le souhaitez. |
 | **Deux mains** | Occupe deux Emplacements de Main. |
 | **Discret** | Personne ne vous remarque en train de le lancer. (EN : Subtle) |
-| **Divin** | Un type d'Aspect : la magie de VOL de la prière. Son paquet, une **Litanie**, contient une liste fixe de pouvoirs qui infléchissent le destin et soignent, et une réserve d'Ardeur. |
+| **Divin** | Un type d'Aspect : la magie de VOL de la prière. Son paquet, une **Litanie**, contient une liste fixe de pouvoirs qui infléchissent le destin et soignent, et s'ajoute à votre Ardeur. |
 | **Durée** | Une durée fixe pendant laquelle un effet agit, imprimée dessus. (EN : Duration) |
 | **Éclat** | Un réceptacle de cristal encombrant qui contient un Aspect, ou rien. C'est un objet, mais jamais dans un Emplacement. |
+| **Écrasante** | Un mot-clé d'arme : une attaque qui touche en dépassant la Défense visée de 5 ou plus met la cible À terre. |
 | **Emplacement** | Un espace qui contient un matériel ou un Aspect du type correspondant : Armure, Main, Bijou, Objet ou Aspect. |
 | **Emplacement d'Aspect** | Un Emplacement qui contient un Aspect. Vous commencez avec 3 et pouvez atteindre 8. |
 | **Emplacement de Matériel** | Un Emplacement d'Armure, de Main, de Bijou ou d'Objet. |
@@ -411,7 +413,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Facteur de puissance (FP)** | Le danger d'un monstre, utilisé avec sa valeur en PX pour dimensionner les combats. |
 | **Focaliseur** | Un mot-clé d'équipement qui renforce vos Aspects Divins, de Glamour ou de Nature : un Instrument, une amulette sacrée, un bâton de druide. |
 | **Forme** | Un corps de bête dans une Souvenance (Nature), imprimé comme une Vocation : FOR, DEX, PV, Vitesse et Taille. Tant que vous avez mué en elle, elle remplace votre corps ; votre esprit et vos Aspects demeurent. |
-| **Glamour** | Un type d'Aspect : la magie de VOL de la représentation et du commandement. Son paquet, un **Répertoire**, contient une liste fixe de pouvoirs qui galvanisent les alliés et brisent les ennemis, et une réserve d'Ardeur. |
+| **Glamour** | Un type d'Aspect : la magie de VOL de la représentation et du commandement. Son paquet, un **Répertoire**, contient une liste fixe de pouvoirs qui galvanisent les alliés et brisent les ennemis, et s'ajoute à votre Ardeur. |
 | **Hymne** | Un pouvoir Divin ou de Glamour. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem) |
 | **Instrument** | Un équipement tenu dans une Main qui n'est ni une arme ni un bouclier : un luth, un tambour, un cor. |
 | **Jalon** | Un nouvel Emplacement d'Aspect pour chaque personnage, accordé quand la Compagnie achève une saga. |
@@ -419,22 +421,23 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Lancer N/M** | Un mot-clé d'arme : elle peut être lancée comme attaque à distance, avec le modificateur de son usage au corps à corps. Au-delà de N m : désavantage. Au-delà de M m : impossible (*Lancer 6/18*). |
 | **Légère** | Un mot-clé d'arme : permet le combat à deux armes. |
 | **Libérer** | Vider un Éclat. Son Aspect est perdu pour de bon. |
-| **Livre de sorts** | Un objet contenant une liste fixe de sorts et une réserve de points de sort. Toute incantation utilise l'INT. |
-| **Lourde** | Un mot-clé d'arme : il faut FOR +1 (corps à corps) ou DEX +1 (distance), sinon −3 aux attaques. |
+| **Livre de sorts** | Un objet contenant une liste fixe de sorts. Ses points de sort s'ajoutent à votre réserve unique. Toute incantation utilise l'INT. |
+| **Lourde** | Un mot-clé d'arme : une grande arme. En butin, elle n'allume que le symbole de FOR : seule une Vocation qui a la FOR peut l'équiper. |
 | **Maître du jeu (MJ)** | Le joueur qui décrit le monde, fait agir les monstres et arbitre les règles. |
-| **Matériel** | Tout objet réel qu'un Porteur peut équiper ou ranger : l'équipement et les objets. Tout le monde peut utiliser du matériel. |
+| **Matériel** | Tout objet réel qu'un Porteur peut équiper ou ranger : l'équipement et les objets. Toute créature peut utiliser du matériel ; un Porteur, seulement les cartes que les symboles de sa Vocation permettent. |
 | **Meneur** | Un mot-clé d'Adversaire : l'Adversaire mène son groupe, et sa chute appelle un test de Moral. |
 | **Moral** | Un test de VOL (DD 10) que fait un groupe d'Adversaires, avec la meilleure VOL parmi ses membres restants, quand son Meneur tombe et quand la moitié du groupe est hors de combat. En cas d'échec, le groupe fuit ou se rend. Un Boss n'en fait jamais. |
 | **Mot-clé** | Un mot au sens unique et fixe que le matériel et les Aspects affichent, le type en premier. |
 | **Muer** | Prendre une Forme de votre Souvenance ; revenir, c'est retrouver votre propre corps. Être métamorphosé n'est jamais muer. |
 | **Nage N** | Une vitesse de nage : nager ne coûte pas de déplacement supplémentaire, et vitesse normale sous l'eau. |
-| **Nature** | Un type d'Aspect : la magie de VOL du monde sauvage. Son paquet, une **Souvenance**, contient une liste fixe de Formes et de pouvoirs de soin, et une réserve d'Ardeur. |
+| **Nature** | Un type d'Aspect : la magie de VOL du monde sauvage. Son paquet, une **Souvenance**, contient une liste fixe de Formes et de pouvoirs de soin, et s'ajoute à votre Ardeur. |
 | **Niveau de sort** | La puissance d'un sort et son coût en points de sort, du 1er au 6e. (EN : Spell level) |
 | **Niveau effectif** | L'estimation par le MJ de la puissance d'un personnage, de 1 à 12, utilisée pour dimensionner les combats et les DD des épreuves. Ce n'est pas une valeur du personnage. |
 | **Objet** | Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Bourses et Éclats. |
 | **Perception aveugle N** | Perçoit tout dans un rayon de N m sans la vue. (EN : Blindsight) |
 | **Persistance** | L'état des Aspects d'une créature vaincue pendant 1 minute, avant qu'ils ne s'éteignent pour de bon. Un Aspect dans cet état *persiste*. (EN : Lingering) |
 | **Pièce** | Une unité de matériel, telle que le Sac, la Réserve de la Compagnie et le butin la comptent. Une pile de jusqu'à 3 Consommables identiques compte pour une pièce. |
+| **Points de sort** | Les points que coûtent vos sorts : une seule réserve, la somme de ce qu'impriment vos Livres de sorts + INT (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un repos long. |
 | **Polyvalente** | Un mot-clé d'arme : utilise le plus gros dé de dégâts quand elle est tenue à deux mains. |
 | **Portée N/M** | Une attaque à distance. Au-delà de N : désavantage. Au-delà de M : impossible. Un nombre seul est la portée maximale d'un sort. |
 | **Porteur** | Un humanoïde capable d'absorber les Aspects d'autres êtres. Chaque personnage joueur en est un. |
@@ -442,6 +445,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Question Foule** | La troisième des trois questions posées avant une attaque : le Surnombre. Un dé d'avantage si votre camp a plus de créatures engagées autour de la cible, un dé de désavantage si c'est le sien. |
 | **Question Vous** | La première des trois questions posées avant une attaque : votre position et vos états (non vu ; longue portée, cible invisible pour vous, À terre…). Un dé au plus. La seule question posée pour les tests, les sauvegardes et les jets de zone. |
 | **Quête** | Un objectif que la Compagnie se donne, long de quelques épreuves. |
+| **Rafale** | Un mot-clé d'arme : +2 à chaque attaque après la première que vous faites avec elle pendant votre tour. |
 | **Rang** | La puissance fixe d'un matériel ou d'un Aspect, de I à V. Les personnages et les Vocations n'en ont pas. |
 | **Réaction** | L'utiliser prend votre réaction : quand le déclencheur de son texte survient, ou à votre tour s'il n'en a pas. |
 | **Recette** | Un objet : une pile qui se reconstitue à chaque repos long. Les exemplaires inutilisés disparaissent quand elle se reconstitue. |
@@ -455,7 +459,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Savoir-faire** | Un type d'Aspect : un bonus aux tests d'une activité précise. |
 | **Soin** | Un pouvoir Divin, de Glamour ou de Nature qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |
 | **Sort** | Une carte d'un Livre de sorts, jamais seule. Son niveau est son coût en points de sort. |
-| **Symboles** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques de ses symboles. |
+| **Symboles** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou DEX ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles. |
 | **Taille** | Très petit, Petit, Moyen ou Grand, imprimé sur une Forme ou une carte d'Adversaire. Les Porteurs sont de taille Moyenne. |
 | **Technique** | Un type d'Aspect : ce qu'un être a appris (une botte de combat). (EN : Technique) |
 | **Test** | Un jet de d20 + modificateur de caractéristique + bonus contre un Degré de difficulté (DD). |

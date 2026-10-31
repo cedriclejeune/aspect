@@ -141,7 +141,7 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Learned: 2 extra spell points on a Spellbook you hold. +2 on checks to recall lore.",
+   "text": "Learned: 2 extra spell points. +2 on checks to recall lore.",
    "lore": "A mind that kept every page it ever read, and a voice that makes the pages speak."
   },
   {
@@ -285,7 +285,7 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Solitude: 1 extra Resolve on a Divine, Glamour or Nature deck you have. +2 on checks to forage and endure.",
+   "text": "Solitude: 1 extra Resolve. +2 on checks to forage and endure.",
    "lore": "Years in a cave or a forest, talking to stones and stars. Something out there answered."
   },
   {
@@ -390,7 +390,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "DEX INT",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -405,7 +405,7 @@
    "to_hit": "+2",
    "damage": "1d4",
    "keywords": "Light · Thrown 20/60 · Flurry",
-   "text": "+2 to hit, 1d4 + DEX or INT Physical.",
+   "text": "+2 to hit, thrown 20/60 ft, 1d4 + DEX Physical.",
    "lore": "Every traveler carries one. It cuts bread, rope and, when it must, throats."
   },
   {
@@ -414,7 +414,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "STR DEX",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -438,7 +438,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "STR DEX",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -453,7 +453,7 @@
    "to_hit": "+2",
    "damage": "1d6",
    "keywords": "Light · Thrown 20/60",
-   "text": "+2 to hit, 1d6 + STR or DEX Physical.",
+   "text": "+2 to hit, thrown 20/60 ft, 1d6 + STR or DEX Physical.",
    "lore": "A woodcutter's tool that learned a second trade. It flies true when thrown."
   },
   {
@@ -462,7 +462,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "DEX WIL",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -477,7 +477,7 @@
    "to_hit": "+2",
    "damage": "1d6",
    "keywords": "",
-   "text": "+2 to hit, 1d6 + DEX or WIL Physical. Sap: when you hit, the target has −2 on its next attack roll before the start of your next turn.",
+   "text": "+2 to hit, 1d6 + DEX Physical. Sap: when you hit, the target has −2 on its next attack roll before the start of your next turn.",
    "lore": "A slim duelist's sword. A nick here, a cut there, and the foe's arm grows slow."
   },
   {
@@ -486,7 +486,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "STR WIL",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -501,7 +501,7 @@
    "to_hit": "+2",
    "damage": "1d8 / 1d10",
    "keywords": "Versatile (1d10)",
-   "text": "+2 to hit, 1d8 / 1d10 + STR or WIL Physical.",
+   "text": "+2 to hit, 1d8 / 1d10 + STR Physical.",
    "lore": "The knight's blade: one hand for the shield, two hands when the shield breaks."
   },
   {
@@ -510,7 +510,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "STR INT",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -525,7 +525,7 @@
    "to_hit": "+2",
    "damage": "1d8 / 1d10",
    "keywords": "Versatile (1d10)",
-   "text": "+2 to hit, 1d8 / 1d10 + STR or INT Physical.",
+   "text": "+2 to hit, 1d8 / 1d10 + STR or DEX Physical.",
    "lore": "A bearded head on an ash haft. It splits shields as easily as firewood."
   },
   {
@@ -534,7 +534,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "STR",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -558,7 +558,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "STR",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -582,7 +582,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "DEX INT",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -597,7 +597,7 @@
    "to_hit": "+2",
    "damage": "1d8",
    "keywords": "Range 150/600 · Two-Handed",
-   "text": "+2 to hit, 1d8 + DEX or INT Physical.",
+   "text": "+2 to hit, range 150/600 ft, 1d8 + DEX Physical.",
    "lore": "Yew, horn and patience. A trained archer drops a charging boar before it closes."
   },
   {
@@ -606,7 +606,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "DEX WIL",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -621,7 +621,7 @@
    "to_hit": "+2",
    "damage": "1d6",
    "keywords": "Light · Range 30/120",
-   "text": "+2 to hit, 1d6 + DEX or WIL Physical.",
+   "text": "+2 to hit, range 30/120 ft, 1d6 + DEX Physical.",
    "lore": "A strip of leather and a pouch of stones. Shepherds have killed giants with less."
   },
   {
@@ -630,7 +630,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "STR DEX",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -645,7 +645,7 @@
    "to_hit": "+2",
    "damage": "1d6",
    "keywords": "Thrown 30/120",
-   "text": "+2 to hit, 1d6 + STR or DEX Physical.",
+   "text": "+2 to hit, thrown 30/120 ft, 1d6 + STR or DEX Physical.",
    "lore": "A bundle of light spears, made to be thrown first and asked about later."
   },
   {
@@ -654,7 +654,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "STR INT",
+   "symbols": "all",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -667,9 +667,9 @@
    "HP": "",
    "SPD": "",
    "to_hit": "+2",
-   "damage": "1d8 / 1d10",
-   "keywords": "Versatile (1d10)",
-   "text": "+2 to hit, 1d8 / 1d10 + STR or INT Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.",
+   "damage": "1d6 / 1d8",
+   "keywords": "Versatile (1d8)",
+   "text": "+2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.",
    "lore": "Runes run along its grain. The wood remembers the shape of a casting hand."
   },
   {
@@ -750,7 +750,7 @@
    "type": "Weapon",
    "rank": "II",
    "group": "loot",
-   "symbols": "STR WIL",
+   "symbols": "STR",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -765,7 +765,7 @@
    "to_hit": "+3",
    "damage": "1d8 / 1d10",
    "keywords": "Versatile (1d10)",
-   "text": "+3 to hit, 1d8 / 1d10 + STR or WIL Physical. Brace: your opportunity attacks with it deal +1d8 damage.",
+   "text": "+3 to hit, 1d8 / 1d10 + STR Physical. Brace: your opportunity attacks with it deal +1d8 damage.",
    "lore": "Its crossbar stops a charging beast on the point. Hunters set it, then wait."
   },
   {
@@ -789,7 +789,7 @@
    "to_hit": "+3",
    "damage": "1d6",
    "keywords": "Thrown 30/120",
-   "text": "+3 to hit, 1d6 + STR or DEX Physical. Pierce: on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free.",
+   "text": "+3 to hit, thrown 30/120 ft, 1d6 + STR or DEX Physical. Pierce: on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free.",
    "lore": "A soft iron shank bends on impact, so the spear can't be thrown back, and the shield can't be raised."
   },
   {
@@ -798,7 +798,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "loot",
-   "symbols": "DEX WIL",
+   "symbols": "DEX",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -813,7 +813,7 @@
    "to_hit": "+2",
    "damage": "1d6",
    "keywords": "Range 80/320 · Two-Handed",
-   "text": "+2 to hit, 1d6 + DEX or WIL Physical.",
+   "text": "+2 to hit, range 80/320 ft, 1d6 + DEX Physical.",
    "lore": "Light enough to shoot from the saddle or from the treetops."
   },
   {
@@ -861,7 +861,7 @@
    "to_hit": "+2",
    "damage": "1d10",
    "keywords": "Range 150/600 · Two-Handed",
-   "text": "+2 to hit, 1d10 + DEX Physical.",
+   "text": "+2 to hit, range 150/600 ft, 1d10 + DEX Physical.",
    "lore": "Horn, sinew and years of an archer's patience. Only steady fingers can draw it."
   },
   {
@@ -885,7 +885,7 @@
    "to_hit": "+2",
    "damage": "1d8",
    "keywords": "Range 60/120",
-   "text": "+2 to hit, 1d8 + INT Lightning.",
+   "text": "+2 to hit, range 60/120 ft, 1d8 + INT Lightning.",
    "lore": "A rod of black wood capped with copper. It hums in a thinking hand and crackles when pointed."
   },
   {
@@ -2109,7 +2109,7 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Spell attack: INT + 2 Spell points: 4 (long rest) Max spell level: 2nd Casting needs an empty Hand.",
+   "text": "Spell attack: INT + 2 Spell points: +2 (long rest) Max spell level: 2nd Casting needs an empty Hand.",
    "lore": "Spells copied in a careful hand, the margins full of warnings. The ink still smells of ozone."
   },
   {
@@ -2133,7 +2133,7 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Attack: WIL + 2 Resolve: 3 + WIL (short rest) Songs, poems and dances.",
+   "text": "Attack: WIL + 2 Resolve: +3 (short rest) Songs, poems and dances.",
    "lore": "Songs gathered at roadside fires and in tavern corners, sung by someone who never stayed long."
   },
   {
@@ -2157,7 +2157,7 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Attack: WIL + 2 Resolve: 3 + WIL (short rest) Prayers. Fate dice: d4.",
+   "text": "Attack: WIL + 2 Resolve: +3 (short rest) Prayers. Fate dice: d4.",
    "lore": "Prayers learned by heart in a quiet temple. The faith came with them."
   },
   {
@@ -2181,7 +2181,7 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Resolve: 3 + WIL (short rest) Beasts your body remembers. Shift: action.",
+   "text": "Resolve: +3 (short rest) Beasts your body remembers. Shift: action.",
    "lore": "The memory of fur, feather and claw. The body knows these shapes, and longs for them."
   },
   {

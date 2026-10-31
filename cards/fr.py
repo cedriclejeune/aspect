@@ -18,9 +18,10 @@ NAMES = {
     "Leather": "Cuir", "Mail": "Mailles", "Plate": "Plates", "Shield": "Bouclier", "Dagger": "Dague",
     "Shortsword": "Épée courte", "Handaxe": "Hachette", "Finesse Blade": "Lame fine", "Longsword": "Épée longue",
     "Battleaxe": "Hache d'armes", "Greatsword": "Épée à deux mains", "Glaive": "Glaive sur lance", "Longbow": "Arc long",
-    "Sling": "Fronde", "Javelins": "Javelines", "Spellguard Staff": "Bâton de garde-sort",
+    "Sling": "Fronde", "Javelins": "Javelots", "Spellguard Staff": "Bâton de garde-sort",
     "Traveler's Lute": "Luth du voyageur", "Greatclub": "Massue", "Gladius": "Gladius", "Boarspear": "Lance de chasse",
     "Pilum": "Pilum", "Shortbow": "Arc court", "Greataxe": "Grande hache",
+    "Fine Bow": "Arc composite", "Wand": "Baguette",
     # jewelry and items
     "Ring of Warding": "Anneau de protection", "Guild Signet": "Chevalière de guilde",
     "Shard Bandolier": "Bandoulière à Éclats", "Holy Amulet": "Amulette sacrée",
@@ -78,6 +79,7 @@ KEYWORDS = {
     "Nature": "Nature", "Anthem": "Hymne", "Dirge": "Complainte", "Cue": "Réplique", "Mend": "Soin", "Form": "Forme",
     "Wound": "Blessure", "Crippling": "Invalidante", "Hand": "Main", "Item": "Objet", "Heavy": "Lourde",
     "Light": "Légère", "Reach": "Allonge", "Two-Handed": "Deux mains", "Versatile (1d10)": "Polyvalente (1d10)",
+    "Versatile (1d8)": "Polyvalente (1d8)", "Brutal": "Brutale", "Crushing": "Écrasante", "Flurry": "Rafale",
     "Restrained": "Entravé", "Targets DEX": "Vise DEX", "Duration 1 minute": "Durée 1 minute",
     "Duration 1 round": "Durée 1 round", "Gold": "Or", "Foe": "Adversaire", "Boss": "Boss", "Leader": "Meneur",
     "Tiny": "Très petit", "Small": "Petit", "Medium": "Moyen", "Large": "Grand",
@@ -133,8 +135,8 @@ TEXT = {
         "**Inaperçu :** +2 aux tests pour se faufiler, crocheter les serrures et repérer les pièges.",
     "**Crowd Work (1/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll.":
         "**Grande ovation (1/R.C.) :** réaction, après qu'un allié à 9 m ou moins a fait une attaque ou un test : +2 à ce jet.",
-    "**Learned:** 1 extra spell point on a Spellbook you hold. +2 on checks to recall lore.":
-        "**Érudit :** 1 point de sort supplémentaire sur un Livre de sorts que vous tenez. +2 aux tests pour se souvenir de connaissances.",
+    "**Learned:** 2 extra spell points. +2 on checks to recall lore.":
+        "**Érudit :** 2 points de sort supplémentaires. +2 aux tests pour se souvenir de connaissances.",
     "**Scrapper:** +2 to hit with Grapples and Shoves.": "**Teigneux :** +2 au toucher pour Empoigner et Bousculer.",
     "**Righteous Fury (1/S.R.):** when you hit with a weapon attack: +1d6 Radiant damage.":
         "**Juste colère (1/R.C.) :** quand vous touchez avec une attaque d'arme : +1d6 dégâts Radiants.",
@@ -142,10 +144,10 @@ TEXT = {
         "**Commandement (1/R.C.) :** action. Un allié à 9 m ou moins qui peut vous entendre utilise sa réaction pour faire une attaque d'arme.",
     "**Quarry (1/S.R.):** when you hit with a ranged attack: +2 on your attacks against that target until the end of your next turn.":
         "**Proie (1/R.C.) :** quand vous touchez avec une attaque à distance : +2 à vos attaques contre cette cible jusqu'à la fin de votre prochain tour.",
-    "**Feint (1/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss.":
-        "**Feinte (1/R.C.) :** réaction, quand une attaque vous touche : −2 à ce jet d'attaque, ce qui peut le transformer en échec.",
-    "**Solitude:** 1 extra Resolve on a Divine, Glamour or Nature deck you have. +2 on checks to forage and endure.":
-        "**Solitude :** 1 Ardeur supplémentaire sur un paquet Divin, de Glamour ou de Nature que vous avez. +2 aux tests pour cueillir et endurer.",
+    "**Feint (2/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss.":
+        "**Feinte (2/R.C.) :** réaction, quand une attaque vous touche : −2 à ce jet d'attaque, ce qui peut le transformer en échec.",
+    "**Solitude:** 1 extra Resolve. +2 on checks to forage and endure.":
+        "**Solitude :** 1 Ardeur supplémentaire. +2 aux tests pour cueillir et endurer.",
     # hands
     "Takes one Hand.": "Occupe une Main.",
     "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn.":
@@ -226,6 +228,7 @@ TEXT = {
     "**Stubborn (1/S.R.):** when you fail a check, add +2 to that roll, possibly turning it into a success.":
         "**Têtu (1/R.C.) :** quand vous ratez un test, ajoutez +2 à ce jet, ce qui peut le transformer en réussite.",
     "+2 STR Defense against poison.": "+2 à la Défense de FOR contre le poison.",
+    "+2 STR Defense against poison, Shoves and Grapples.": "+2 à la Défense de FOR contre le poison, Bousculer et Empoigner.",
     "**Lucky (1/S.R.):** when you roll a 1 on a d20, reroll it.": "**Veinard (1/R.C.) :** quand vous faites 1 sur un d20, relancez-le.",
     # Wounds
     "You hobble.": "Vous boitez.", "Every breath hurts.": "Chaque respiration fait mal.",
@@ -241,6 +244,7 @@ TEXT = {
     "−2 on INT checks.": "−2 aux tests d'INT.", "You lose blood every time you move too fast.": "Vous perdez du sang dès que vous bougez trop vite.",
     # deck covers
     "Spell attack: **INT + 2**": "Attaque de sort : **INT + 2**", "Spell points: **4** (long rest)": "Points de sort : **4** (repos long)",
+    "Spell points: **+2** (long rest)": "Points de sort : **+2** (repos long)", "Resolve: **+3** (short rest)": "Ardeur : **+3** (repos court)",
     "Max spell level: **2nd**": "Niveau de sort max : **2e**", "Casting needs an empty Hand.": "L'incantation demande une Main vide.",
     "Attack: **WIL + 2**": "Attaque : **VOL + 2**", "Resolve: **3 + WIL** (short rest)": "Ardeur : **3 + VOL** (repos court)",
     "Songs, poems and dances.": "Chants, poèmes et danses.", "Prayers. Fate dice: **d4**.": "Prières. Dés du destin : **d4**.",
@@ -293,10 +297,11 @@ TEXT = {
     "Claws: +2 to hit, 1d8 + STR Physical.": "Griffes : +2 au toucher, 1d8 + FOR Physique.",
     # foes' own text
     "**Bite:** +4 to hit, 1d6 + 2 Physical.": "**Morsure :** +4 au toucher, 1d6 + 2 Physique.",
+    "**Thick Hide:** +1 STR Defense (included).": "**Cuir épais :** +1 à la Défense de FOR (inclus).",
     "**Keen Nose:** alert (passive Awareness +5).": "**Flair :** alerte (Vigilance passive +5).",
     "Throws its *Pilum*, then draws its *Gladius*.": "Lance son *Pilum*, puis dégaine son *Gladius*.",
     "**Giant Strength:** +60 HP. Its *Javelins* roll one extra damage die (included). Its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R.":
-        "**Force de géant :** +60 PV. Ses *Javelines* lancent un dé de dégâts supplémentaire (compris). Son *Coup balayant* se recharge sur 5–6 au lieu de 1/R.C.",
+        "**Force de géant :** +60 PV. Ses *Javelots* lancent un dé de dégâts supplémentaire (compris). Son *Coup balayant* se recharge sur 5–6 au lieu de 1/R.C.",
     "**Warlord:** its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R.":
         "**Seigneur de guerre :** son *Coup balayant* se recharge sur 5–6 au lieu de 1/R.C.",
     "**Bellow (Recharge 5–6):** reaction. Attack (+5) against the WIL Defense of each enemy within 30 ft: Frightened of the chieftain until the end of its next turn.":
@@ -317,6 +322,10 @@ TEXT = {
 }
 
 LORE = {
+    "Horn, sinew and years of an archer's patience. Only steady fingers can draw it.":
+        "De la corne, du tendon et des années de patience d'archer. Seuls des doigts sûrs peuvent le bander.",
+    "A rod of black wood capped with copper. It hums in a thinking hand and crackles when pointed.":
+        "Une tige de bois noir coiffée de cuivre. Elle bourdonne dans une main qui réfléchit et crépite quand on la pointe.",
     # Callings
     "Footwork drilled until it needs no thought. The blade goes where the eyes already are.": "Un jeu de jambes répété jusqu'à ne plus y penser. La lame va où les yeux sont déjà.",
     "A vow, a shield arm and a spine that does not bend. Others stand behind this one.": "Un serment, un bras de bouclier et une échine qui ne plie pas. Les autres se tiennent derrière.",
@@ -459,6 +468,8 @@ FRAME_TEXT = {
     "**Capture:** 1 action · **Absorb:** long rest · **Release:** free": "**Capturer :** 1 action · **Absorber :** repos long · **Libérer :** gratuit",
 }
 
+DAMAGE = {"Physical": "Physique", "Lightning": "Foudre"}
+
 STARTER_KEYS = {"Armor": "Armure", "Hands": "Mains", "Jewelry": "Bijou", "Items": "Objets", "Aspects": "Aspects"}
 
 
@@ -471,11 +482,13 @@ def text(t, missing):
     """One paragraph of card text in French (generated weapon, Knack and Wound lines are rebuilt)."""
     if t in TEXT:
         return TEXT[t]
-    m = re.fullmatch(r"([+−-]\d+) to hit, (.+?) \+ ((?:STR|DEX|INT|WIL)(?: or (?:STR|DEX|INT|WIL))*) Physical\.(?: (.*))?", t)
+    m = re.fullmatch(r"([+−-]\d+) to hit, (?:(thrown|range) (\d+)/(\d+) ft, )?(.+?) \+ ((?:STR|DEX|INT|WIL)(?: or (?:STR|DEX|INT|WIL))*)"
+                     r" (Physical|Lightning)\.(?: (.*))?", t)
     if m:
-        abil = " ou ".join(ABBR[a] for a in m[3].split(" or "))
-        rest = f" {text(m[4], missing)}" if m[4] else ""
-        return f"{m[1]} au toucher, {m[2]} + {abil} Physique.{rest}"
+        reach = f"{ {'thrown': 'lancer', 'range': 'portée'}[m[2]]} {feet(m[3])}/{feet(m[4])} m, " if m[2] else ""
+        abil = " ou ".join(ABBR[a] for a in m[6].split(" or "))
+        rest = f" {text(m[8], missing)}" if m[8] else ""
+        return f"{m[1]} au toucher, {reach}{m[5]} + {abil} {DAMAGE[m[7]]}.{rest}"
     m = re.fullmatch(r"(\+\d) on checks to (.+)\.", t)
     if m and m[2] in ACTIVITIES:
         return f"{m[1]} aux tests pour {ACTIVITIES[m[2]]}."
