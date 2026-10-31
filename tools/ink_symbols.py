@@ -70,7 +70,10 @@ def save(im, path):
 # the feather gets a fifth of the others' thickening (scale 10 instead of 2)
 plain = {"str": {}, "dex": {"grow": 15, "scale": 10}, "int": {}, "wil": {"grow": 15}, "hp": {}, "spd": {},
          "trait": {}, "technique": {"grow": 13}, "knack": {}}
-done = {n: bold(n, **o) for n, o in plain.items()}
+# the other card types, once tools/gen_symbols.py has drawn them
+from gen_symbols import SUBJECTS  # noqa: E402
+plain |= {n: {} for n in SUBJECTS if (SRC / f"{n}.png").exists()}
+done ={n: bold(n, **o) for n, o in plain.items()}
 for n, im in done.items():
     save(im, OUT / f"{n}.png")
 for n in ("str", "dex", "int", "wil"):
