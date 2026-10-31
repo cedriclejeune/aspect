@@ -545,6 +545,46 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": []
   },
+  "K-I-10": {
+   "id": "K-I-10",
+   "name": "Orcish Blood",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Knack",
+   "kw": [
+    "Knack"
+   ],
+   "text": [
+    "+2 on checks to intimidate, endure, lift or march."
+   ],
+   "strip": {},
+   "group": "loot",
+   "sym": [
+    "STR",
+    "WIL"
+   ],
+   "fx": []
+  },
+  "K-I-11": {
+   "id": "K-I-11",
+   "name": "Hobgoblin Discipline",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Knack",
+   "kw": [
+    "Knack"
+   ],
+   "text": [
+    "+2 on checks to march, navigate, stand firm or read intentions."
+   ],
+   "strip": {},
+   "group": "loot",
+   "sym": [
+    "INT",
+    "WIL"
+   ],
+   "fx": []
+  },
   "L-01": {
    "id": "L-01",
    "name": "Duelist",
@@ -769,7 +809,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Learned:** 1 extra spell point on a Spellbook you hold. +2 on checks to recall lore."
+    "**Learned:** 2 extra spell points on a Spellbook you hold. +2 on checks to recall lore."
    ],
    "strip": {
     "STR": 0,
@@ -781,7 +821,7 @@ globalThis.BEARERS_CARDS = {
     "INTd": 12,
     "WILd": 12,
     "HP": 9,
-    "SPD": 30
+    "SPD": 35
    },
    "group": "starter",
    "size": "Medium",
@@ -794,7 +834,7 @@ globalThis.BEARERS_CARDS = {
      "id": "L-06#0",
      "name": "Sage",
      "use": "passive",
-     "extraSp": 1
+     "extraSp": 2
     }
    ]
   },
@@ -905,7 +945,7 @@ globalThis.BEARERS_CARDS = {
     "INTd": 12,
     "WILd": 10,
     "HP": 12,
-    "SPD": 30
+    "SPD": 35
    },
    "group": "starter",
    "size": "Medium",
@@ -957,7 +997,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Feint (1/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss."
+    "**Feint (2/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss."
    ],
    "strip": {
     "STR": 0,
@@ -982,7 +1022,7 @@ globalThis.BEARERS_CARDS = {
      "id": "L-11#0",
      "name": "Trickster",
      "use": "reaction",
-     "uses": "1/SR",
+     "uses": "2/SR",
      "on": "hitSelf",
      "target": "self",
      "do": [
@@ -1695,8 +1735,7 @@ globalThis.BEARERS_CARDS = {
     "+2 STR Defense against poison and disease."
    ],
    "strip": {
-    "HP": 2,
-    "STRd": 1
+    "HP": 2
    },
    "group": "starter",
    "sym": [
@@ -1790,41 +1829,6 @@ globalThis.BEARERS_CARDS = {
   },
   "T-I-05": {
    "id": "T-I-05",
-   "name": "Pack Hunter",
-   "rank": "I",
-   "kind": "aspect",
-   "type": "Trait",
-   "kw": [
-    "Trait"
-   ],
-   "text": [
-    "**1/S.R.**, when you hit a creature one of your allies is engaged with: it falls Prone."
-   ],
-   "strip": {
-    "HP": 2
-   },
-   "group": "loot",
-   "sym": [
-    "DEX",
-    "INT"
-   ],
-   "fx": [
-    {
-     "id": "T-I-05#0",
-     "name": "Pack Hunter",
-     "use": "trigger",
-     "uses": "1/SR",
-     "on": "hitEngaged",
-     "do": [
-      {
-       "cond": "Prone"
-      }
-     ]
-    }
-   ]
-  },
-  "T-I-06": {
-   "id": "T-I-06",
    "name": "Human Grit",
    "rank": "I",
    "kind": "aspect",
@@ -1847,8 +1851,8 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": []
   },
-  "T-I-07": {
-   "id": "T-I-07",
+  "T-I-06": {
+   "id": "T-I-06",
    "name": "Elven Blood",
    "rank": "I",
    "kind": "aspect",
@@ -1868,15 +1872,15 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": [
     {
-     "id": "T-I-07#0",
+     "id": "T-I-06#0",
      "name": "Elven Blood",
      "use": "passive",
      "darkvision": 60
     }
    ]
   },
-  "T-I-08": {
-   "id": "T-I-08",
+  "T-I-07": {
+   "id": "T-I-07",
    "name": "Dwarven Blood",
    "rank": "I",
    "kind": "aspect",
@@ -1885,7 +1889,7 @@ globalThis.BEARERS_CARDS = {
     "Trait"
    ],
    "text": [
-    "+2 STR Defense against poison."
+    "+2 STR Defense against poison, Shoves and Grapples."
    ],
    "strip": {
     "HP": 2
@@ -1897,20 +1901,22 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": [
     {
-     "id": "T-I-08#0",
+     "id": "T-I-07#0",
      "name": "Dwarven Blood",
      "use": "passive",
      "defVs": {
       "STR": 2
      },
      "tags": [
-      "poison"
+      "poison",
+      "shove",
+      "grapple"
      ]
     }
    ]
   },
-  "T-I-09": {
-   "id": "T-I-09",
+  "T-I-08": {
+   "id": "T-I-08",
    "name": "Halfling Luck",
    "rank": "I",
    "kind": "aspect",
@@ -1927,50 +1933,6 @@ globalThis.BEARERS_CARDS = {
    "group": "loot",
    "sym": [
     "DEX",
-    "WIL"
-   ],
-   "fx": []
-  },
-  "T-I-10": {
-   "id": "T-I-10",
-   "name": "Orcish Blood",
-   "rank": "I",
-   "kind": "aspect",
-   "type": "Trait",
-   "kw": [
-    "Trait"
-   ],
-   "text": [
-    "+2 on checks to intimidate, endure, lift or march."
-   ],
-   "strip": {
-    "HP": 2
-   },
-   "group": "loot",
-   "sym": [
-    "STR",
-    "WIL"
-   ],
-   "fx": []
-  },
-  "T-I-11": {
-   "id": "T-I-11",
-   "name": "Hobgoblin Discipline",
-   "rank": "I",
-   "kind": "aspect",
-   "type": "Trait",
-   "kw": [
-    "Trait"
-   ],
-   "text": [
-    "+2 on checks to march, navigate, stand firm or read intentions."
-   ],
-   "strip": {
-    "HP": 2
-   },
-   "group": "loot",
-   "sym": [
-    "INT",
     "WIL"
    ],
    "fx": []
@@ -2169,6 +2131,41 @@ globalThis.BEARERS_CARDS = {
     }
    ]
   },
+  "T-II-08": {
+   "id": "T-II-08",
+   "name": "Pack Hunter",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "**1/S.R.**, when you hit a creature one of your allies is engaged with: it falls Prone."
+   ],
+   "strip": {
+    "HP": 4
+   },
+   "group": "loot",
+   "sym": [
+    "DEX",
+    "INT"
+   ],
+   "fx": [
+    {
+     "id": "T-II-08#0",
+     "name": "Pack Hunter",
+     "use": "trigger",
+     "uses": "1/SR",
+     "on": "hitEngaged",
+     "do": [
+      {
+       "cond": "Prone"
+      }
+     ]
+    }
+   ]
+  },
   "U-I-01": {
    "id": "U-I-01",
    "name": "Coin Pouch",
@@ -2200,10 +2197,11 @@ globalThis.BEARERS_CARDS = {
    "kw": [
     "Weapon",
     "Light",
-    "Thrown 20/60"
+    "Thrown 20/60",
+    "Flurry"
    ],
    "text": [
-    "+4 to hit, 1d4 + DEX or INT Physical."
+    "+2 to hit, 1d4 + DEX or INT Physical."
    ],
    "strip": {},
    "group": "starter",
@@ -2212,7 +2210,7 @@ globalThis.BEARERS_CARDS = {
     "INT"
    ],
    "atk": {
-    "hit": 4,
+    "hit": 2,
     "dice": "1d4",
     "two": null,
     "abil": [
@@ -2220,6 +2218,9 @@ globalThis.BEARERS_CARDS = {
      "INT"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": true,
     "light": true,
     "heavy": false,
     "reach": false,
@@ -2241,10 +2242,11 @@ globalThis.BEARERS_CARDS = {
    "type": "Weapon",
    "kw": [
     "Weapon",
-    "Light"
+    "Light",
+    "Flurry"
    ],
    "text": [
-    "+3 to hit, 1d4 + STR or DEX Physical."
+    "+2 to hit, 1d6 + STR or DEX Physical."
    ],
    "strip": {},
    "group": "starter",
@@ -2253,14 +2255,17 @@ globalThis.BEARERS_CARDS = {
     "DEX"
    ],
    "atk": {
-    "hit": 3,
-    "dice": "1d4",
+    "hit": 2,
+    "dice": "1d6",
     "two": null,
     "abil": [
      "STR",
      "DEX"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": true,
     "light": true,
     "heavy": false,
     "reach": false,
@@ -2300,6 +2305,9 @@ globalThis.BEARERS_CARDS = {
      "DEX"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": true,
     "heavy": false,
     "reach": false,
@@ -2340,6 +2348,9 @@ globalThis.BEARERS_CARDS = {
      "WIL"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": false,
     "reach": false,
@@ -2393,6 +2404,9 @@ globalThis.BEARERS_CARDS = {
      "WIL"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": false,
     "reach": false,
@@ -2431,6 +2445,9 @@ globalThis.BEARERS_CARDS = {
      "INT"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": false,
     "reach": false,
@@ -2468,6 +2485,9 @@ globalThis.BEARERS_CARDS = {
      "STR"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": true,
     "reach": false,
@@ -2506,6 +2526,9 @@ globalThis.BEARERS_CARDS = {
      "STR"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": true,
     "reach": true,
@@ -2545,6 +2568,9 @@ globalThis.BEARERS_CARDS = {
      "INT"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": false,
     "reach": false,
@@ -2587,6 +2613,9 @@ globalThis.BEARERS_CARDS = {
      "WIL"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": true,
     "heavy": false,
     "reach": false,
@@ -2628,6 +2657,9 @@ globalThis.BEARERS_CARDS = {
      "DEX"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": false,
     "reach": false,
@@ -2669,6 +2701,9 @@ globalThis.BEARERS_CARDS = {
      "INT"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": false,
     "reach": false,
@@ -2695,10 +2730,11 @@ globalThis.BEARERS_CARDS = {
    "kw": [
     "Weapon",
     "Heavy",
-    "Two-Handed"
+    "Two-Handed",
+    "Crushing"
    ],
    "text": [
-    "+2 to hit, 1d10 + STR Physical. **Crushing:** on a critical hit, the target is knocked Prone."
+    "+2 to hit, 1d10 + STR Physical."
    ],
    "strip": {},
    "group": "loot",
@@ -2713,6 +2749,9 @@ globalThis.BEARERS_CARDS = {
      "STR"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": true,
+    "flurry": false,
     "light": false,
     "heavy": true,
     "reach": false,
@@ -2721,19 +2760,7 @@ globalThis.BEARERS_CARDS = {
     "thrown": null,
     "range": null
    },
-   "fx": [
-    {
-     "id": "W-I-13#0",
-     "name": "Greatclub",
-     "use": "trigger",
-     "on": "crit",
-     "do": [
-      {
-       "cond": "Prone"
-      }
-     ]
-    }
-   ]
+   "fx": []
   },
   "W-I-14": {
    "id": "W-I-14",
@@ -2763,6 +2790,9 @@ globalThis.BEARERS_CARDS = {
      "DEX"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": true,
     "heavy": false,
     "reach": false,
@@ -2812,6 +2842,9 @@ globalThis.BEARERS_CARDS = {
      "WIL"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": false,
     "reach": false,
@@ -2834,7 +2867,8 @@ globalThis.BEARERS_CARDS = {
    "kw": [
     "Weapon",
     "Heavy",
-    "Two-Handed"
+    "Two-Handed",
+    "Brutal"
    ],
    "text": [
     "+2 to hit, 1d12 + STR Physical."
@@ -2852,6 +2886,9 @@ globalThis.BEARERS_CARDS = {
      "STR"
     ],
     "type": "Physical",
+    "brutal": true,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": true,
     "reach": false,
@@ -2859,6 +2896,91 @@ globalThis.BEARERS_CARDS = {
     "loading": false,
     "thrown": null,
     "range": null
+   },
+   "fx": []
+  },
+  "W-I-17": {
+   "id": "W-I-17",
+   "name": "Fine Bow",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Range 150/600",
+    "Two-Handed"
+   ],
+   "text": [
+    "+2 to hit, 1d10 + DEX Physical."
+   ],
+   "strip": {},
+   "group": "loot",
+   "sym": [
+    "DEX"
+   ],
+   "atk": {
+    "hit": 2,
+    "dice": "1d10",
+    "two": null,
+    "abil": [
+     "DEX"
+    ],
+    "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": true,
+    "loading": false,
+    "thrown": null,
+    "range": [
+     150,
+     600
+    ]
+   },
+   "fx": []
+  },
+  "W-I-18": {
+   "id": "W-I-18",
+   "name": "Wand",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Range 60/120"
+   ],
+   "text": [
+    "+2 to hit, 1d8 + INT Lightning."
+   ],
+   "strip": {},
+   "group": "loot",
+   "sym": [
+    "INT"
+   ],
+   "atk": {
+    "hit": 2,
+    "dice": "1d8",
+    "two": null,
+    "abil": [
+     "INT"
+    ],
+    "type": "Lightning",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": [
+     60,
+     120
+    ]
    },
    "fx": []
   },
@@ -2890,6 +3012,9 @@ globalThis.BEARERS_CARDS = {
      "WIL"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": false,
     "reach": false,
@@ -2939,6 +3064,9 @@ globalThis.BEARERS_CARDS = {
      "DEX"
     ],
     "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
     "light": false,
     "heavy": false,
     "reach": false,
@@ -3667,12 +3795,12 @@ globalThis.BEARERS_CARDS = {
     "DEX": 2,
     "INT": -1,
     "WIL": -2,
-    "HP": 9,
+    "HP": 7,
     "SPD": 40,
     "size": "Medium"
    },
    "carries": [
-    "T-I-05"
+    "T-II-08"
    ],
    "bonus": {},
    "extraDice": 0,
@@ -3980,7 +4108,7 @@ globalThis.BEARERS_CARDS = {
     "S-I-01",
     "W-I-11",
     "A-I-02",
-    "T-I-06"
+    "T-I-05"
    ],
    "bonus": {},
    "extraDice": 0,
@@ -4021,7 +4149,7 @@ globalThis.BEARERS_CARDS = {
     "W-I-02",
     "K-I-05",
     "A-I-01",
-    "T-I-07"
+    "T-I-06"
    ],
    "bonus": {},
    "extraDice": 0,
@@ -4100,7 +4228,7 @@ globalThis.BEARERS_CARDS = {
     "DEX": 0,
     "INT": 0,
     "WIL": 0,
-    "HP": 6,
+    "HP": 8,
     "SPD": 30,
     "size": "Medium"
    },
@@ -4109,7 +4237,7 @@ globalThis.BEARERS_CARDS = {
     "W-I-11",
     "T-II-07",
     "A-I-01",
-    "T-I-10"
+    "K-I-10"
    ],
    "bonus": {},
    "extraDice": 0,
@@ -4143,7 +4271,7 @@ globalThis.BEARERS_CARDS = {
     "DEX": 1,
     "INT": 1,
     "WIL": 0,
-    "HP": 6,
+    "HP": 8,
     "SPD": 30,
     "size": "Medium"
    },
@@ -4153,7 +4281,7 @@ globalThis.BEARERS_CARDS = {
     "W-I-09",
     "A-I-02",
     "Q-I-04",
-    "T-I-11"
+    "K-I-11"
    ],
    "bonus": {},
    "extraDice": 0,
@@ -4317,14 +4445,14 @@ globalThis.BEARERS_CARDS = {
     "DEX": 2,
     "INT": -1,
     "WIL": -1,
-    "HP": 3,
+    "HP": 1,
     "SPD": 30,
     "size": "Small"
    },
    "carries": [
     "W-I-01",
     "W-I-10",
-    "T-I-05"
+    "T-II-08"
    ],
    "bonus": {},
    "extraDice": 0,
@@ -4358,12 +4486,12 @@ globalThis.BEARERS_CARDS = {
     "DEX": 2,
     "INT": -4,
     "WIL": -2,
-    "HP": 3,
+    "HP": 1,
     "SPD": 30,
     "size": "Small"
    },
    "carries": [
-    "T-I-05"
+    "T-II-08"
    ],
    "bonus": {},
    "extraDice": 0,
@@ -4509,7 +4637,9 @@ globalThis.BEARERS_CARDS = {
     "T-II-03",
     "T-I-02"
    ],
-   "bonus": {},
+   "bonus": {
+    "STRd": 1
+   },
    "extraDice": 0,
    "recharge": {},
    "powers": [],
@@ -4522,7 +4652,8 @@ globalThis.BEARERS_CARDS = {
    "own": [
     "**Claws:** +6 to hit, 2d6 + 4 Physical.",
     "**Regeneration:** regains 10 HP at the start of its turn, unless it took Fire or Poison damage since its last turn.",
-    "**Keen Nose:** alert (passive Awareness +5)."
+    "**Keen Nose:** alert (passive Awareness +5).",
+    "**Thick Hide:** +1 STR Defense (included)."
    ],
    "ownFx": [
     {

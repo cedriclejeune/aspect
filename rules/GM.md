@@ -101,7 +101,7 @@ You run each kind of monster from its **foe card**: its body, its totals and eve
 > **OGRE**
 > STR +4 · DEX +0 · INT +0 · WIL +0 · Defenses STR 14 · DEX 10 · INT 10 · WIL 10 · HP 95 · Speed 35 ft
 > **Giant Strength:** +60 HP. Its *Javelins* roll one extra damage die (included below). Its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R.
-> *Greatclub* (W-I-13): +6 to hit, 1d10 + 4 Physical. **Crushing:** on a critical hit, the target is knocked Prone.
+> *Greatclub* (W-I-13): +6 to hit, 1d10 + 4 Physical. *Heavy · Two-Handed · Crushing* (a hit by 5 or more knocks the target Prone).
 > *Javelins* (W-I-11): +6 to hit, Thrown 30/120, 2d6 + 4 Physical.
 > *Sweeping Blow* (Q-II-02): **Recharge 5–6**, when you take the Attack action with a Heavy or Reach weapon: make one attack roll against each enemy within your reach instead. Half damage on a miss.
 > *Foe · Large · Darkvision 60*
@@ -122,7 +122,7 @@ You run each kind of monster from its **foe card**: its body, its totals and eve
 - **The base set** has 20 foe cards to start from and 4 blank ones:
   - **Humanoids:** Bandit, Bandit Archer, Guard (with *Human Grit*), Scout (*Elven Blood*), Mage, Cultist, Legionary, Orc, Hobgoblin, Goblin, Kobold, and the Bandit Captain (Leader).
   - **Beasts and monsters:** Wolf, Giant Rat, Giant Spider, Skeleton, Zombie, Ogre, Troll, and the Ogre Chieftain Boss.
-  - The species Traits (*Human Grit*, *Elven Blood*, *Dwarven Blood*, *Halfling Luck*, *Orcish Blood*, *Hobgoblin Discipline*) make quick humanoids: a body, a species Trait, a weapon and an armor on a blank foe card. They drop like any Trait.
+  - The species cards (Traits *Human Grit*, *Elven Blood*, *Dwarven Blood*, *Halfling Luck*; Knacks *Orcish Blood*, *Hobgoblin Discipline*) make quick humanoids: a body, a species card, a weapon and an armor on a blank foe card. They drop like any Trait.
 - **How strong a foe is** (how many cards, which Ranks) is still judged by its CR and your call (5).
 - **Keep Defenses in step with the party.** A fair foe's main Defense is about the party's usual attack bonus + 10: the Bearers hit about half the time, and a good position decides the fight. From Rank III, give a foe no Defense below 10 + its Rank bonus, so a weak spot isn't a sure hit.
 - **Advantage on damage.** Foes may move advantage dice to damage like Bearers (P 5.2). Do it only when the foe would hit on a 5 or better anyway.
@@ -184,8 +184,8 @@ Traits and Knacks are built from four sources:
 
 **An Aspect's Rank is its budget:** Rank I spends 1, Rank II 2, up to Rank V 5. The ability maximum (+5) still applies.
 - **A bonus is never alone:** it comes with a second bonus, a perk or activities. There is no "+1 STR" Aspect.
-- **Mix the builds:** an Aspect's activities come from **at least two abilities**.
-- **Rank I has no bonus or perk:** up to 4 activities (a Knack), or one narrow edge of the same weight (*Iron Will*, *Springheel*). Bonuses and perks start at Rank II.
+- **Mix the builds:** an Aspect's activities come from **at least two abilities** (one exception: *Renowned*, the pure WIL social Knack).
+- **Rank I has no bonus or perk:** up to 4 activities (a Knack), or one narrow edge of the same weight (*Iron Will*, *Springheel*, Darkvision 60 ft: *Elven Blood*). Bonuses and perks start at Rank II.
 - **Every Trait also prints HP**, free of budget: +2 at Rank I, +4 at II, +7 at III, +10 at IV, +14 at V. Knacks print none.
 - **Symbols:** give it two (rarely one, or all four for a Trait any body could have), from the abilities its activities and perks serve (P 3.1).
 
@@ -201,7 +201,7 @@ Perk spell points add to one equipped Spellbook, and perk Resolve to one of your
 
 **Strong perks:**
 - **Doubled perk:** twice a perk from the table.
-- **A sense or a movement:** Darkvision 60 ft, a climb or swim speed (P 11.5).
+- **A sense or a movement:** Darkvision 120 ft, a climb or swim speed (P 11.5). Darkvision 60 ft costs only 1, like 4 activities.
 - **A resistance:** Resist one damage type other than Physical.
 - **A small power:** an action or a reaction, 1/S.R. (*Second Wind*, Rank II).
 - **Levitation:** **reaction (1/S.R.):** for 1 minute you float, rising or sinking up to 20 ft per turn.
@@ -228,11 +228,11 @@ Perk spell points add to one equipped Spellbook, and perk Resolve to one of your
 
 **Cross Traits** (lead · second, the perk's build): *Wiry* STR · DEX · *Battle Scholar* STR · INT · *Commanding Frame* STR · WIL · *Climber's Grip* DEX · STR · *Keen Eye* DEX · INT · *Showman* DEX · WIL · *Tomb Delver* INT · STR · *Arcane Fingers* INT · DEX · *Learned Voice* INT · WIL · *Crusader's Faith* WIL · STR · *Court Dancer* WIL · DEX · *Oracle's Sight* WIL · INT.
 
-**Dual Traits:** *Brawler's Footwork* STR · DEX · *Siege Engineer* STR · INT · *Warlord's Bearing* STR · WIL · *Duelist's Reading* DEX · INT · *Swashbuckler* DEX · WIL · *Silver Tongue* INT · WIL.
+**Dual Traits:** *Scrapper's Footwork* STR · DEX · *Siege Engineer* STR · INT · *Warlord's Bearing* STR · WIL · *Fencer's Reading* DEX · INT · *Swashbuckler* DEX · WIL · *Silver Tongue* INT · WIL.
 
-**Gifted Traits** (lead, strong perk): *Night Eyes* INT, Darkvision 60 ft · *Feather Step* DEX, Levitation · *Salamander Blood* STR, Resist Fire · *Spark of Talent* INT, a cantrip · *Second Wind* STR, a small power.
+**Gifted Traits** (lead, strong perk): *Night Eyes* INT, Darkvision 120 ft · *Feather Step* DEX, Levitation · *Salamander Blood* STR, Resist Fire · *Spark of Talent* INT, a cantrip · *Second Wind* STR, a small power.
 
-*Examples: Wiry (II): +1 STR, +5 ft Speed. Whipcord (III): +1 STR, +1 DEX, +10 ft Speed. Siege Engineer (IV): +2 STR, +2 INT. Night Eyes (III): +1 INT, Darkvision 60 ft.*
+*Examples: Wiry (II): +1 STR, +5 ft Speed. Whipcord (III): +1 STR, +1 DEX, +10 ft Speed. Siege Engineer (IV): +2 STR, +2 INT. Night Eyes (III): +1 INT, Darkvision 120 ft.*
 
 ### 4.4 Concept Traits and Knacks
 Named Traits and Knacks with a clear idea, ready to drop. Activities get the bonus of their Rank (table above).
@@ -254,7 +254,7 @@ Named Traits and Knacks with a clear idea, ready to drop. Activities get the bon
 | *Acrobat* | +1 DEX | Tumble, balance, jump, perform |
 | *Diplomat* | +1 WIL | Persuade, deceive, read intentions, recall lore |
 | *Hedge Witch* | +1 spell point | Handle animals, recall lore, treat wounds, deceive |
-| *Ranger* | +5 ft Speed | Track, notice, navigate, sneak |
+| *Trailwise* | +5 ft Speed | Track, notice, navigate, sneak |
 | *Bouncer* | +5 HP | Lift, intimidate, read intentions, endure |
 
 | Rank III (+4) | Bonuses & perks | Activities |
@@ -289,7 +289,7 @@ To make a new Trait or Knack at any Rank:
 | 6 | 3 activities | strong perk | +1 & perk & 4 activities | +1/+1 & perk & 4 activities | +1/+1 & strong perk & 4 activities |
 
 3. **Activities:** half from each ability of the pair (d6 table above).
-4. **Strong perk** (d6): 1 doubled perk (the second's) · 2 a sense or movement (Darkvision 60 ft, climb or swim speed) · 3 a resistance (d6: Fire, Cold, Lightning, Poison, Necrotic, Radiant) · 4 a small power you invent · 5 Levitation · 6 a cantrip.
+4. **Strong perk** (d6): 1 doubled perk (the second's) · 2 a sense or movement (Darkvision 120 ft, climb or swim speed) · 3 a resistance (d6: Fire, Cold, Lightning, Poison, Necrotic, Radiant) · 4 a small power you invent · 5 Levitation · 6 a cantrip.
 5. **Name it** after the idea the result suggests, and give it its type: **Knack** if it has only activities, otherwise **Trait**.
 
 *Example: Rank III. Pair 4 (DEX · INT), INT leads. Shape 6: +1 INT, DEX's perk (+10 ft Speed) and 4 activities: notice, recall lore, balance, pick locks. Name: Tinker-Thief.*
@@ -376,6 +376,7 @@ Each game term has one meaning, in both books.
 | **Bearer** | A humanoid who can absorb the Aspects of other beings. Every player character is one. |
 | **Blindsight N** | Perceive everything within N ft without sight. |
 | **Boss** | A strong monster with special abilities, including a half turn during the characters' side. |
+| **Brutal** | A weapon keyword: on a critical hit, roll its damage dice three times instead of twice. |
 | **Calling** | The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Aspects you can equip. It is neither an Aspect nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Zealot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
 | **Cantrip** | A spell that costs nothing. Cast at will. |
 | **Capture** | Pouring a lingering Aspect into an empty Shard. |
@@ -386,6 +387,7 @@ Each game term has one meaning, in both books.
 | **Climb N** | A climb speed: climbing costs no extra movement. |
 | **Consumable** | An item gone once used. Up to 3 identical Consumables share one Item Slot. |
 | **Crowd question** | The third of the three questions asked before an attack: Outnumbered. One advantage die if your side has more creatures engaged around the target, one disadvantage die if its side has more. |
+| **Crushing** | A weapon keyword: a hit that beats the targeted Defense by 5 or more knocks the target Prone. |
 | **Cue** | A Divine or Glamour power. Reaction: changes a roll after it's made, before its result. |
 | **Darkvision N** | Treat Dark as Bright within N ft. |
 | **Decay** | The disadvantage dice a Subdue's repeat attack gathers: one for each repeat that hit and each time the source took damage. |
@@ -398,6 +400,7 @@ Each game term has one meaning, in both books.
 | **Effective level** | The GM's estimate of a character's power, from 1 to 12, used to size fights and trial DCs. Not a character stat. |
 | **Equipment** | Gear you wear or wield: armor, weapons, shields, Instruments and Jewelry. |
 | **Extra Gear Slot** | A permanent extra Hand, Jewelry or Item Slot, granted only by defeating a Boss: Third Hand, Second Jewel or Great Backpack. |
+| **Flurry** | A weapon keyword: +2 on each attack after the first you make with it on your turn. |
 | **Fly N** | A fly speed: you move through the air. If you're knocked Prone or Incapacitated while flying, you fall. |
 | **Focus** | A keyword on equipment that strengthens your Divine, Glamour or Nature Aspects: an Instrument, a holy amulet, a druid's staff. |
 | **Foe card** | The GM's card for one kind of monster: its body, totals and powers. Cards named in italics on it can drop; plain text never does. |

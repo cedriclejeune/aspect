@@ -65,22 +65,62 @@ module.exports = function register(T, H) {
     ok(!C(g, "x").mods.length, "ends at the start of a's next turn");
   });
 
-  T("[fx] Greatclub Crushing and Ogre Giant Strength: +60 HP, the extra die on the Javelins only; a crit knocks Prone", () => {
+  T("[fx] Greatclub Crushing and Ogre Giant Strength: +60 HP, the extra die on the Javelins only; a hit by 5+ knocks Prone", () => {
     const f = fight([pc("a", [5, 5]), tmpl("o", "Ogre", [6, 5])]);
     eq([C(f, "o").maxHp, C(f, "o").size], [95, "Large"]);
     eq(C(f, "o").build.extraDice, { "W-I-11": 1 }, "per weapon: Javelins");
     foeTurn(f, "o");
     const info = pv(f, atk("o", "W-I-13", "a"));
     eq([info.toHit, info.damage], [6, "1d10+4 Physical"]);
-    const r = run(f, atk("o", "W-I-13", "a"), [15, 1]); // Greatclub 1d10 + 4: no extra die
-    eq(dmgs(r), [5]); ok(!has(C(f, "a"), "Prone"));
+    const r = run(f, atk("o", "W-I-13", "a"), [11, 1]); // 17 vs 13: hits by 4; Greatclub 1d10 + 4: no extra die
+    eq(dmgs(r), [5]); ok(!has(C(f, "a"), "Prone"), "a hit by 4 doesn't crush");
     f.undo();
-    const r2 = run(f, atk("o", "W-I-13", "a"), [20, 1, 1]); // crit: 2d10 + 4
-    eq(dmgs(r2), [6]); ok(has(C(f, "a"), "Prone"), "Crushing");
+    run(f, atk("o", "W-I-13", "a"), [12, 1]); // 18 vs 13: hits by 5
+    ok(has(C(f, "a"), "Prone"), "Crushing: a hit by 5 or more");
+    f.undo();
+    const r2 = run(f, atk("o", "W-I-13", "a"), [20, 1, 1]); // crit: 2d10 + 4, and 26 vs 13
+    eq(dmgs(r2), [6]); ok(has(C(f, "a"), "Prone"), "Crushing on a crit too");
     f.undo();
     run(f, { type: "interact", actor: "o", stow: "W-I-13", draw: "W-I-11" });
     const r3 = run(f, atk("o", "W-I-11", "a", { thrown: true }), [15, 15, 1, 1]); // thrown within 5 ft: disadvantage; Javelins 2d6 + 4
     eq(dmgs(r3), [6]);
+  });
+
+  T("[fx] Greataxe Brutal: a crit rolls the weapon dice three times", () => {
+    const f = fight([pc("a", [5, 5], { hands: ["W-I-16"] }, { react: "never" }), foe("x", [6, 5], { body: { STR: 3, DEX: 1, INT: 0, WIL: 0, HP: 60, SPD: 30 } })]);
+    pcTurn(f, "a");
+    eq(dmgs(run(f, atk("a", "W-I-16", "x"), [20, 1, 2, 3])), [9], "3d12 + 3 on a crit");
+    f.undo();
+    eq(dmgs(run(f, atk("a", "W-I-16", "x"), [15, 4])), [7], "1d12 + 3 on a hit");
+  });
+  T("[fx] Flurry (Dagger, Shortsword): +2 on later attacks with the same blade on your turn", () => {
+    const f = fight([pc("a", [5, 5], { hands: ["W-I-02", "W-I-03"] }), foe("x", [6, 5], { body: { STR: 3, DEX: 1, INT: 0, WIL: 0, HP: 60, SPD: 30 } })]);
+    pcTurn(f, "a");
+    eq(pv(f, atk("a", "W-I-02", "x")).toHit, 5, "first attack: STR 3 + 2");
+    run(f, atk("a", "W-I-02", "x"), [2]);
+    eq(pv(f, atk("a", "W-I-02", "x")).toHit, 7, "second attack with the Shortsword: + Flurry");
+    eq(pv(f, atk("a", "W-I-03", "x")).toHit, 5, "another weapon gets nothing");
+    end(f, "a");
+    skip(f, "x");
+    go(f, "a");
+    eq(pv(f, atk("a", "W-I-02", "x")).toHit, 5, "a new turn starts the count again");
+  });
+  T("[fx] Dwarven Blood: +2 STR Defense against poison, Shoves and Grapples", () => {
+    const f = fight([pc("b", [5, 5]), foe("x", [6, 5], { aspects: ["T-I-07"] }), foe("y", [4, 5])]);
+    pcTurn(f, "b");
+    const dx = f.preview({ type: "shove", actor: "b", target: "x", mode: "push" }).info.defense;
+    const dy = f.preview({ type: "shove", actor: "b", target: "y", mode: "push" }).info.defense;
+    eq(dx - dy, 2);
+    eq(pv(f, atk("b", "unarmed", "x")).defense, pv(f, atk("b", "unarmed", "y")).defense, "not against plain attacks");
+  });
+  T("[fx] Fine Bow (DEX, 1d10, 150/600) and Wand (INT, 1d8 Lightning, 60/120)", () => {
+    const f = fight([pc("a", [1, 5], { body: { STR: 0, DEX: 3, INT: 3, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-17"], carried: ["W-I-18"] }), foe("x", [11, 5])]);
+    pcTurn(f, "a");
+    const b = pv(f, atk("a", "W-I-17", "x"));
+    eq([b.toHit, b.damage], [5, "1d10+3 Physical"]);
+    run(f, { type: "interact", actor: "a", stow: "W-I-17", draw: "W-I-18" });
+    const w = pv(f, atk("a", "W-I-18", "x"));
+    eq([w.toHit, w.damage], [5, "1d8+3 Lightning"]);
   });
 
   T("[fx] Per-weapon extra dice: only the named weapon rolls them; a number still means every weapon", () => {
@@ -338,7 +378,7 @@ module.exports = function register(T, H) {
     const i = pv(f, power(f, "w1", "foe-wolf#0", { targets: ["a"] }));
     eq([i.toHit, i.defense, i.damage], [4, 13, "1d6+2 Physical"]);
     const r = run(f, power(f, "w1", "foe-wolf#0", { targets: ["a"] }), [9, 9, 3, { c: 0 }]); // Outnumbered 2 vs 1
-    eq(dmgs(r), [5]); ok(has(C(f, "a"), "Prone")); eq(C(f, "w1").uses["T-I-05#0"], 0);
+    eq(dmgs(r), [5]); ok(has(C(f, "a"), "Prone")); eq(C(f, "w1").uses["T-II-08#0"], 0);
     f.undo();
     const r2 = run(f, power(f, "w1", "foe-wolf#0", { targets: ["a"] }), [9, 9, 3, { c: null }]);
     ok(!has(C(f, "a"), "Prone"), "declined"); ok(r2);
@@ -348,7 +388,7 @@ module.exports = function register(T, H) {
     const g = fight([pc("a", [5, 5]), tmpl("w1", "Wolf", [6, 5], { react: "auto" })]);
     foeTurn(g, "w1");
     run(g, power(g, "w1", "foe-wolf#0", { targets: ["a"] }), [9, 3]);
-    ok(!has(C(g, "a"), "Prone")); eq(C(g, "w1").uses["T-I-05#0"], 1);
+    ok(!has(C(g, "a"), "Prone")); eq(C(g, "w1").uses["T-II-08#0"], 1);
   });
 
   T("[fx] Hedge Witch: 1 extra spell point added to the Spellbook's pool (P 10.2)", () => {
@@ -397,7 +437,7 @@ module.exports = function register(T, H) {
     run(f, power(f, "a", "Q-I-02#0"));
     eq(C(f, "a").uses["Q-I-02#0"], 1);
     eq(pv(f, atk("a", "W-I-10", "y")).toHit, base + 2);
-    eq(pv(f, atk("a", "W-I-01", "x")).toHit, 7, "melee dagger: DEX 3 + 4, no bonus");
+    eq(pv(f, atk("a", "W-I-01", "x")).toHit, 5, "melee dagger: DEX 3 + 2, no bonus");
     end(f, "a");
     ok(!C(f, "a").mods.length, "this turn only");
     for (const id of ["x", "y"]) skip(f, id);
@@ -494,12 +534,12 @@ module.exports = function register(T, H) {
     const r = run(f, atk("a", "W-I-05", "x"), [7, 1]); // 12 vs 13 → 14: hits
     ok(evs(r, "reaction").some((e) => e.power === "L-05#0")); eq(dmgs(r), [4]); eq(C(f, "p").uses["L-05#0"], 0);
   });
-  T("[fx] Spellblade Battle Caster casts with both Hands full; Sage Learned: +1 spell point", () => {
+  T("[fx] Spellblade Battle Caster casts with both Hands full; Sage Learned: +2 spell points", () => {
     const hands = { hands: ["W-I-05", "S-I-01"], items: [{ id: "B-I-01" }] };
     const f = fight([pc("s", [1, 5], calling("L-03", hands)), pc("g", [1, 7], calling("L-06", { items: [{ id: "B-I-01" }] })), foe("x", [9, 5])]);
     pcTurn(f, "s");
     ok(f.legal("s").some((m) => m.power && m.power.startsWith("B-I-01")), "Spellblade casts holding a Longsword and a Shield");
-    eq([C(f, "s").sp["B-I-01"], C(f, "g").sp["B-I-01"]], [4, 5]);
+    eq([C(f, "s").sp["B-I-01"], C(f, "g").sp["B-I-01"]], [4, 6]);
     const g = fight([pc("s", [1, 5], hands), foe("x", [9, 5])]);
     pcTurn(g, "s");
     ok(!g.legal("s").some((m) => m.power && m.power.startsWith("B-I-01")), "a body with both Hands full can't cast");
@@ -518,11 +558,11 @@ module.exports = function register(T, H) {
     const r = run(f, atk("z", "W-I-05", "x"), [18, 4, 3]);
     eq(dmgs(r), [6, 3]); eq(C(f, "z").uses["L-08#0"], 0);
   });
-  T("[fx] Trickster Feint: reaction 1/S.R., −2 to an attack that hits you", () => {
+  T("[fx] Trickster Feint: reaction 2/S.R., −2 to an attack that hits you", () => {
     const f = fight([pc("k", [5, 5], calling("L-11"), { react: "auto" }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
     foeTurn(f, "x");
     const r = run(f, atk("x", "W-I-05", "k"), [8]); // 8 + 5 = 13 vs DEX Defense 12 → 14: miss
-    ok(evs(r, "miss").length); eq(C(f, "k").uses["L-11#0"], 0);
+    ok(evs(r, "miss").length); eq(C(f, "k").uses["L-11#0"], 1);
   });
 
   T("[fx] Twin Strike: one extra attack, once per turn", () => {

@@ -30,6 +30,9 @@ ACTIVITY = {
     "WIL": ["persuade", "deceive", "perform", "intimidate", "haggle", "gather rumors", "handle animals", "stand firm"],
 }
 
+ACTIVITY_EXCEPTIONS = {"Renowned"}  # GM 4.3: the pure WIL social Knack
+ROLL_EXCEPTIONS = {"Pocket Sand", "Alchemist's Fire Recipe"}  # anyone can throw them, at +0 without the ability (accepted)
+
 CARDS = [c for c in bs.CARDS if c["kind"] != "calling"]
 CALLINGS = bs.CALLINGS
 PAIRS = []
@@ -116,22 +119,27 @@ def calling_stats():
 
 
 def weapons_report(defense=13, mod=2):
-    print(f"## Weapons: expected damage per attack (+{mod} ability, Defense {defense}, crits doubled dice)\n")
+    print(f"## Weapons: expected damage per attack (+{mod} ability, Defense {defense}; a crit adds the dice once more, twice if Brutal)\n")
     rows = []
+
+    def ev(hit, avg, brutal):
+        p = max(0.05, min(0.95, (21 - (defense - hit - mod)) / 20))
+        return p * (avg + mod) + 0.05 * avg * (2 if brutal else 1)
+
     for c in CARDS:
         a = c.get("atk")
         if not a:
             continue
-        p = max(0.05, min(0.95, (21 - (defense - a["hit"] - mod)) / 20))
         for dice in [a["dice"]] + ([a["two"]] if a["two"] else []):
             n, d = map(int, dice.split("d"))
             avg = n * (d + 1) / 2
-            ev = p * (avg + mod) + 0.05 * avg
-            rows.append([c["name"], c["rank"], "·".join(c["sym"]), f"+{a['hit']}", dice, f"{ev:.2f}",
-                         " ".join(k for k in ("light", "heavy", "reach", "twoHanded", "loading") if a[k])
+            first = ev(a["hit"], avg, a.get("brutal"))
+            later = f"{ev(a['hit'] + 2, avg, a.get('brutal')):.2f}" if a.get("flurry") else ""
+            rows.append([c["name"], c["rank"], "·".join(c["sym"]), f"+{a['hit']}", dice + (f" {a['type']}" if a["type"] != "Physical" else ""), f"{first:.2f}", later,
+                         " ".join(k for k in ("light", "heavy", "reach", "twoHanded", "loading", "brutal", "crushing", "flurry") if a.get(k))
                          + (" thrown" if a["thrown"] else "") + (" ranged" if a["range"] else "")
                          + (" two-handed grip" if dice == a["two"] else "")])
-    table(["Weapon", "Rank", "Symbols", "Hit", "Dice", "EV", "Properties"], rows)
+    table(["Weapon", "Rank", "Symbols", "Hit", "Dice", "EV", "EV later (Flurry)", "Properties"], rows)
 
 
 def checks():
@@ -156,7 +164,7 @@ def checks():
             unknown = [x for x in acts if not any(x in ACTIVITY[a] for a in ABILS)]
             if unknown:
                 out.append(f"{c['name']}: activities not in the GM 4.3 table: {', '.join(unknown)}")
-            if len(abil) < 2:
+            if len(abil) < 2 and c["name"] not in ACTIVITY_EXCEPTIONS:
                 out.append(f"{c['name']}: activities from {len(abil)} ability ({', '.join(abil)}), GM 4.3 wants two")
             if len(c["sym"]) < 4 and not abil & set(c["sym"]):
                 out.append(f"{c['name']}: no activity matches its symbols {c['sym']}")
@@ -164,7 +172,7 @@ def checks():
             missing = [a for a in c["sym"] if a not in roll]
             if missing and len(c["sym"]) < 4:
                 out.append(f"{c['name']}: rolls {' or '.join(roll)}, but lit {', '.join(missing)} can't roll")
-            if len(c["sym"]) == 4:
+            if len(c["sym"]) == 4 and c["name"] not in ROLL_EXCEPTIONS:
                 out.append(f"{c['name']}: all four lit but it rolls only {' or '.join(roll)} "
                            f"(Callings without either roll +0)")
     return out

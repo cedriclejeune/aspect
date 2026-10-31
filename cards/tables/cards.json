@@ -137,11 +137,11 @@
    "INTd": "12",
    "WILd": "12",
    "HP": "9",
-   "SPD": "30",
+   "SPD": "35",
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Learned: 1 extra spell point on a Spellbook you hold. +2 on checks to recall lore.",
+   "text": "Learned: 2 extra spell points on a Spellbook you hold. +2 on checks to recall lore.",
    "lore": "A mind that kept every page it ever read, and a voice that makes the pages speak."
   },
   {
@@ -209,7 +209,7 @@
    "INTd": "12",
    "WILd": "10",
    "HP": "12",
-   "SPD": "30",
+   "SPD": "35",
    "to_hit": "",
    "damage": "",
    "keywords": "",
@@ -261,7 +261,7 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Feint (1/S.R.): reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss.",
+   "text": "Feint (2/S.R.): reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss.",
    "lore": "Never where you swing. Always where you look away. The grin is the last thing you see."
   },
   {
@@ -402,10 +402,10 @@
    "WILd": "",
    "HP": "",
    "SPD": "",
-   "to_hit": "+4",
+   "to_hit": "+2",
    "damage": "1d4",
-   "keywords": "Light · Thrown 20/60",
-   "text": "+4 to hit, 1d4 + DEX or INT Physical.",
+   "keywords": "Light · Thrown 20/60 · Flurry",
+   "text": "+2 to hit, 1d4 + DEX or INT Physical.",
    "lore": "Every traveler carries one. It cuts bread, rope and, when it must, throats."
   },
   {
@@ -426,10 +426,10 @@
    "WILd": "",
    "HP": "",
    "SPD": "",
-   "to_hit": "+3",
-   "damage": "1d4",
-   "keywords": "Light",
-   "text": "+3 to hit, 1d4 + STR or DEX Physical.",
+   "to_hit": "+2",
+   "damage": "1d6",
+   "keywords": "Light · Flurry",
+   "text": "+2 to hit, 1d6 + STR or DEX Physical.",
    "lore": "A short, honest blade for tight alleys and crowded fights."
   },
   {
@@ -716,8 +716,8 @@
    "SPD": "",
    "to_hit": "+2",
    "damage": "1d10",
-   "keywords": "Heavy · Two-Handed",
-   "text": "+2 to hit, 1d10 + STR Physical. Crushing: on a critical hit, the target is knocked Prone.",
+   "keywords": "Heavy · Two-Handed · Crushing",
+   "text": "+2 to hit, 1d10 + STR Physical.",
    "lore": "A tree limb with ambitions. What it hits stays down for a while."
   },
   {
@@ -836,9 +836,57 @@
    "SPD": "",
    "to_hit": "+2",
    "damage": "1d12",
-   "keywords": "Heavy · Two-Handed",
+   "keywords": "Heavy · Two-Handed · Brutal",
    "text": "+2 to hit, 1d12 + STR Physical.",
    "lore": "A crescent of iron on a heavy haft. One swing, one problem fewer."
+  },
+  {
+   "id": "W-I-17",
+   "name": "Fine Bow",
+   "type": "Weapon",
+   "rank": "I",
+   "group": "loot",
+   "symbols": "DEX",
+   "copies": 1,
+   "STR": "",
+   "DEX": "",
+   "INT": "",
+   "WIL": "",
+   "STRd": "",
+   "DEXd": "",
+   "INTd": "",
+   "WILd": "",
+   "HP": "",
+   "SPD": "",
+   "to_hit": "+2",
+   "damage": "1d10",
+   "keywords": "Range 150/600 · Two-Handed",
+   "text": "+2 to hit, 1d10 + DEX Physical.",
+   "lore": "Horn, sinew and years of an archer's patience. Only steady fingers can draw it."
+  },
+  {
+   "id": "W-I-18",
+   "name": "Wand",
+   "type": "Weapon",
+   "rank": "I",
+   "group": "loot",
+   "symbols": "INT",
+   "copies": 1,
+   "STR": "",
+   "DEX": "",
+   "INT": "",
+   "WIL": "",
+   "STRd": "",
+   "DEXd": "",
+   "INTd": "",
+   "WILd": "",
+   "HP": "",
+   "SPD": "",
+   "to_hit": "+2",
+   "damage": "1d8",
+   "keywords": "Range 60/120",
+   "text": "+2 to hit, 1d8 + INT Lightning.",
+   "lore": "A rod of black wood capped with copper. It hums in a thinking hand and crackles when pointed."
   },
   {
    "id": "J-I-01",
@@ -1212,7 +1260,7 @@
    "DEX": "",
    "INT": "",
    "WIL": "",
-   "STRd": "+1",
+   "STRd": "",
    "DEXd": "",
    "INTd": "",
    "WILd": "",
@@ -1777,30 +1825,6 @@
    "lore": "From a traveling troupe: flips, falls and a crowd that gasped every night."
   },
   {
-   "id": "T-I-05",
-   "name": "Pack Hunter",
-   "type": "Trait",
-   "rank": "I",
-   "group": "loot",
-   "symbols": "DEX INT",
-   "copies": 1,
-   "STR": "",
-   "DEX": "",
-   "INT": "",
-   "WIL": "",
-   "STRd": "",
-   "DEXd": "",
-   "INTd": "",
-   "WILd": "",
-   "HP": "+2",
-   "SPD": "",
-   "to_hit": "",
-   "damage": "",
-   "keywords": "",
-   "text": "1/S.R., when you hit a creature one of your allies is engaged with: it falls Prone.",
-   "lore": "Taken from a wolf. It knows the moment a friend has the prey, and when to pull it down."
-  },
-  {
    "id": "Q-I-07",
    "name": "Slippery",
    "type": "Technique",
@@ -1897,7 +1921,31 @@
    "lore": "Something that would not stay down. Death had to ask twice, and it never asked again."
   },
   {
-   "id": "T-I-06",
+   "id": "T-II-08",
+   "name": "Pack Hunter",
+   "type": "Trait",
+   "rank": "II",
+   "group": "loot",
+   "symbols": "DEX INT",
+   "copies": 1,
+   "STR": "",
+   "DEX": "",
+   "INT": "",
+   "WIL": "",
+   "STRd": "",
+   "DEXd": "",
+   "INTd": "",
+   "WILd": "",
+   "HP": "+4",
+   "SPD": "",
+   "to_hit": "",
+   "damage": "",
+   "keywords": "",
+   "text": "1/S.R., when you hit a creature one of your allies is engaged with: it falls Prone.",
+   "lore": "Taken from a wolf. It knows the moment a friend has the prey, and when to pull it down."
+  },
+  {
+   "id": "T-I-05",
    "name": "Human Grit",
    "type": "Trait",
    "rank": "I",
@@ -1921,7 +1969,7 @@
    "lore": "Short-lived, stubborn and everywhere. Whatever they lack, they make up for by trying again."
   },
   {
-   "id": "T-I-07",
+   "id": "T-I-06",
    "name": "Elven Blood",
    "type": "Trait",
    "rank": "I",
@@ -1945,7 +1993,7 @@
    "lore": "Long years in a slender frame, and eyes that never quite lost the starlight."
   },
   {
-   "id": "T-I-08",
+   "id": "T-I-07",
    "name": "Dwarven Blood",
    "type": "Trait",
    "rank": "I",
@@ -1965,11 +2013,11 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "+2 STR Defense against poison.",
+   "text": "+2 STR Defense against poison, Shoves and Grapples.",
    "lore": "Stone-born and slow to fall. Their blood shrugs off what would fell a lesser body."
   },
   {
-   "id": "T-I-09",
+   "id": "T-I-08",
    "name": "Halfling Luck",
    "type": "Trait",
    "rank": "I",
@@ -1993,9 +2041,9 @@
    "lore": "Small, cheerful and impossibly lucky. Fate seems to like them, and nobody knows why."
   },
   {
-   "id": "T-I-10",
+   "id": "K-I-10",
    "name": "Orcish Blood",
-   "type": "Trait",
+   "type": "Knack",
    "rank": "I",
    "group": "loot",
    "symbols": "STR WIL",
@@ -2008,7 +2056,7 @@
    "DEXd": "",
    "INTd": "",
    "WILd": "",
-   "HP": "+2",
+   "HP": "",
    "SPD": "",
    "to_hit": "",
    "damage": "",
@@ -2017,9 +2065,9 @@
    "lore": "Made for war and for the long march after it. The dark holds no secrets from those eyes."
   },
   {
-   "id": "T-I-11",
+   "id": "K-I-11",
    "name": "Hobgoblin Discipline",
-   "type": "Trait",
+   "type": "Knack",
    "rank": "I",
    "group": "loot",
    "symbols": "INT WIL",
@@ -2032,7 +2080,7 @@
    "DEXd": "",
    "INTd": "",
    "WILd": "",
-   "HP": "+2",
+   "HP": "",
    "SPD": "",
    "to_hit": "",
    "damage": "",
@@ -3157,7 +3205,7 @@
    "body_DEX": 2,
    "body_INT": -1,
    "body_WIL": -2,
-   "body_HP": 9,
+   "body_HP": 7,
    "body_SPD": 40,
    "STR": 1,
    "DEX": 2,
@@ -3169,7 +3217,7 @@
    "WILd": 8,
    "HP": 11,
    "SPD": 40,
-   "carries": "Pack Hunter (T-I-05)",
+   "carries": "Pack Hunter (T-II-08)",
    "own": "Bite: +4 to hit, 1d6 + 2 Physical. Keen Nose: alert (passive Awareness +5)."
   },
   {
@@ -3313,7 +3361,7 @@
    "WILd": 11,
    "HP": 12,
    "SPD": 30,
-   "carries": "Longsword (W-I-05); Shield (S-I-01); Javelins (W-I-11); Mail (A-I-02); Human Grit (T-I-06)",
+   "carries": "Longsword (W-I-05); Shield (S-I-01); Javelins (W-I-11); Mail (A-I-02); Human Grit (T-I-05)",
    "own": ""
   },
   {
@@ -3337,7 +3385,7 @@
    "WILd": 10,
    "HP": 10,
    "SPD": 40,
-   "carries": "Longbow (W-I-09); Shortsword (W-I-02); Hunter (K-I-05); Leather (A-I-01); Elven Blood (T-I-07)",
+   "carries": "Longbow (W-I-09); Shortsword (W-I-02); Hunter (K-I-05); Leather (A-I-01); Elven Blood (T-I-06)",
    "own": "Keen Eyes: alert (passive Awareness +5)."
   },
   {
@@ -3373,7 +3421,7 @@
    "body_DEX": 0,
    "body_INT": 0,
    "body_WIL": 0,
-   "body_HP": 6,
+   "body_HP": 8,
    "body_SPD": 30,
    "STR": 3,
    "DEX": 0,
@@ -3385,7 +3433,7 @@
    "WILd": 10,
    "HP": 14,
    "SPD": 35,
-   "carries": "Greataxe (W-I-16); Javelins (W-I-11); Relentless (T-II-07); Leather (A-I-01); Orcish Blood (T-I-10)",
+   "carries": "Greataxe (W-I-16); Javelins (W-I-11); Relentless (T-II-07); Leather (A-I-01); Orcish Blood (K-I-10)",
    "own": ""
   },
   {
@@ -3397,7 +3445,7 @@
    "body_DEX": 1,
    "body_INT": 1,
    "body_WIL": 0,
-   "body_HP": 6,
+   "body_HP": 8,
    "body_SPD": 30,
    "STR": 1,
    "DEX": 1,
@@ -3409,7 +3457,7 @@
    "WILd": 10,
    "HP": 12,
    "SPD": 30,
-   "carries": "Longsword (W-I-05); Shield (S-I-01); Longbow (W-I-09); Mail (A-I-02); Battle Hymn (Q-I-04); Hobgoblin Discipline (T-I-11)",
+   "carries": "Longsword (W-I-05); Shield (S-I-01); Longbow (W-I-09); Mail (A-I-02); Battle Hymn (Q-I-04); Hobgoblin Discipline (K-I-11)",
    "own": ""
   },
   {
@@ -3469,7 +3517,7 @@
    "body_DEX": 2,
    "body_INT": -1,
    "body_WIL": -1,
-   "body_HP": 3,
+   "body_HP": 1,
    "body_SPD": 30,
    "STR": -2,
    "DEX": 2,
@@ -3481,7 +3529,7 @@
    "WILd": 9,
    "HP": 5,
    "SPD": 30,
-   "carries": "Dagger (W-I-01); Sling (W-I-10); Pack Hunter (T-I-05)",
+   "carries": "Dagger (W-I-01); Sling (W-I-10); Pack Hunter (T-II-08)",
    "own": ""
   },
   {
@@ -3493,7 +3541,7 @@
    "body_DEX": 2,
    "body_INT": -4,
    "body_WIL": -2,
-   "body_HP": 3,
+   "body_HP": 1,
    "body_SPD": 30,
    "STR": -2,
    "DEX": 2,
@@ -3505,7 +3553,7 @@
    "WILd": 8,
    "HP": 5,
    "SPD": 30,
-   "carries": "Pack Hunter (T-I-05)",
+   "carries": "Pack Hunter (T-II-08)",
    "own": "Bite: +4 to hit, 1d4 + 2 Physical. Keen Nose: alert (passive Awareness +5)."
   },
   {
@@ -3554,7 +3602,7 @@
    "HP": 80,
    "SPD": 30,
    "carries": "Night Eyes (T-II-03); Stone Blood (T-I-02)",
-   "own": "Claws: +6 to hit, 2d6 + 4 Physical. Regeneration: regains 10 HP at the start of its turn, unless it took Fire or Poison damage since its last turn. Keen Nose: alert (passive Awareness +5)."
+   "own": "Claws: +6 to hit, 2d6 + 4 Physical. Regeneration: regains 10 HP at the start of its turn, unless it took Fire or Poison damage since its last turn. Keen Nose: alert (passive Awareness +5). Thick Hide: +1 STR Defense (included)."
   }
  ]
 }

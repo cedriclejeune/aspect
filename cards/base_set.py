@@ -38,13 +38,13 @@ CALLINGS = [
     calling("Spellblade", ("STR", "INT"), 13, 30, "**Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook."),
     calling("Infiltrator", ("DEX", "INT"), 10, 35, "**Unseen:** +2 on checks to sneak, pick locks and spot traps."),
     calling("Performer", ("DEX", "WIL"), 10, 35, "**Crowd Work (1/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll."),
-    calling("Sage", ("INT", "WIL"), 9, 30, "**Learned:** 1 extra spell point on a Spellbook you hold. +2 on checks to recall lore."),
+    calling("Sage", ("INT", "WIL"), 9, 35, "**Learned:** 2 extra spell points on a Spellbook you hold. +2 on checks to recall lore."),
     # the second Calling of each pair: same +2 / +2, another perk, HP and Speed
     calling("Brawler", ("STR", "DEX"), 14, 30, "**Scrapper:** +2 to hit with Grapples and Shoves."),
     calling("Zealot", ("STR", "WIL"), 12, 35, "**Righteous Fury (1/S.R.):** when you hit with a weapon attack: +1d6 Radiant damage."),
-    calling("Tactician", ("STR", "INT"), 12, 30, "**Command (1/S.R.):** action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack."),
+    calling("Tactician", ("STR", "INT"), 12, 35, "**Command (1/S.R.):** action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack."),
     calling("Ranger", ("DEX", "INT"), 11, 35, "**Quarry (1/S.R.):** when you hit with a ranged attack: +2 on your attacks against that target until the end of your next turn."),
-    calling("Trickster", ("DEX", "WIL"), 9, 35, "**Feint (1/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss."),
+    calling("Trickster", ("DEX", "WIL"), 9, 35, "**Feint (2/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss."),
     calling("Hermit", ("INT", "WIL"), 11, 30, "**Solitude:** 1 extra Resolve on a Divine, Glamour or Nature deck you have. +2 on checks to forage and endure."),
 ]
 
@@ -57,28 +57,29 @@ ARMOR = [
 ]
 
 
-def weapon_atk(dice, kw, attack, sym):
+def weapon_atk(dice, kw, attack, sym, dtype="Physical"):
     """Structured attack of a weapon, read from its own args (SPEC 2, WeaponAtk)."""
     parts = kw.split(" · ")
     pair = lambda key: next(([int(a), int(b)] for p in parts if p.startswith(key) for a, b in [re.findall(r"\d+", p)]), None)
     two = re.search(r"Versatile \((\d+d\d+)\)", kw)
     ranged = pair("Range")
     return dict(hit=int(attack.replace("−", "-")), dice=dice.split(" / ")[0], two=two[1] if two else None,
-                abil=list(sym), type="Physical",
+                abil=list(sym), type=dtype, brutal="Brutal" in parts, crushing="Crushing" in parts, flurry="Flurry" in parts,
                 light="Light" in parts, heavy="Heavy" in parts, reach="Reach" in parts,
                 twoHanded="Two-Handed" in parts, loading="Loading" in parts, thrown=pair("Thrown"), range=ranged)
 
 
-def weapon(name, sym, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter"):
+def weapon(name, sym, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter", dtype="Physical"):
     """sym is also the weapon's roll: you attack with the higher of its abilities (DESIGN 4)."""
-    text = [f"{attack} to hit, {dice} + {' or '.join(sym)} Physical." + (f" {effect}" if effect else "")]
-    return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym, atk=weapon_atk(dice, kw, attack, sym))
+    text = [f"{attack} to hit, {dice} + {' or '.join(sym)} {dtype}." + (f" {effect}" if effect else "")]
+    return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym,
+                atk=weapon_atk(dice, kw, attack, sym, dtype))
 
 
 HANDS = [
     card("Shield", "I", "gear", "Shield", ["Takes one Hand."], {"STRd": "+2", "DEXd": "+2"}, copies=2, sym=["STR", "WIL"]),
-    weapon("Dagger", ["DEX", "INT"], "1d4", "Light · Thrown 20/60", attack="+4"),
-    weapon("Shortsword", ["STR", "DEX"], "1d4", "Light", attack="+3"),
+    weapon("Dagger", ["DEX", "INT"], "1d4", "Light · Thrown 20/60 · Flurry"),
+    weapon("Shortsword", ["STR", "DEX"], "1d6", "Light · Flurry"),
     weapon("Handaxe", ["STR", "DEX"], "1d6", "Light · Thrown 20/60"),
     weapon("Finesse Blade", ["DEX", "WIL"], "1d6", "", "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn."),
     weapon("Longsword", ["STR", "WIL"], "1d8 / 1d10", "Versatile (1d10)"),
@@ -90,12 +91,15 @@ HANDS = [
     weapon("Javelins", ["STR", "DEX"], "1d6", "Thrown 30/120"),
     weapon("Spellguard Staff", ["STR", "INT"], "1d8 / 1d10", "Versatile (1d10)", "While you hold it, it counts as an empty Hand for casting from a Spellbook."),
     card("Traveler's Lute", "I", "gear", "Instrument · Focus", ["1 extra Resolve (short rest).", "Your Anthems reach 60 ft instead of 30 ft."], sym=["DEX", "WIL"]),
-    weapon("Greatclub", ["STR"], "1d10", "Heavy · Two-Handed", "**Crushing:** on a critical hit, the target is knocked Prone.", group="loot"),
+    weapon("Greatclub", ["STR"], "1d10", "Heavy · Two-Handed · Crushing", group="loot"),
     weapon("Gladius", ["STR", "DEX"], "1d6", "Light", "**Close Order:** +1d4 damage while an ally is engaged with the same creature.", group="loot"),
     weapon("Boarspear", ["STR", "WIL"], "1d8 / 1d10", "Versatile (1d10)", "**Brace:** your opportunity attacks with it deal +1d8 damage.", attack="+3", rank="II", group="loot"),
     weapon("Pilum", ["STR", "DEX"], "1d6", "Thrown 30/120", "**Pierce:** on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free.", attack="+3", rank="II", group="loot"),
     weapon("Shortbow", ["DEX", "WIL"], "1d6", "Range 80/320 · Two-Handed", group="loot"),
-    weapon("Greataxe", ["STR"], "1d12", "Heavy · Two-Handed", group="loot"),
+    weapon("Greataxe", ["STR"], "1d12", "Heavy · Two-Handed · Brutal", group="loot"),
+    # identity cards (DESIGN 4, symbol parity): one symbol each, like the heavy weapons for STR
+    weapon("Fine Bow", ["DEX"], "1d10", "Range 150/600 · Two-Handed", group="loot"),
+    weapon("Wand", ["INT"], "1d8", "Range 60/120", group="loot", dtype="Lightning"),
 ]
 
 JEWELRY = [
@@ -125,7 +129,7 @@ def knack(name, acts, rank="I", bonus="+2", group="starter", sym=None):
 
 ASPECTS = [
     card("Springheel", "I", "aspect", "Trait", ["Your jump distances are doubled, and you never need a running start."], {"HP": "+2"}, sym=["STR", "DEX"]),
-    card("Stone Blood", "I", "aspect", "Trait", ["+2 STR Defense against poison and disease."], {"HP": "+2", "STRd": "+1"}, sym=["STR", "INT"]),
+    card("Stone Blood", "I", "aspect", "Trait", ["+2 STR Defense against poison and disease."], {"HP": "+2"}, sym=["STR", "INT"]),
     card("Iron Will", "I", "aspect", "Trait", ["+2 WIL Defense against fear and mind control."], {"HP": "+2"}, sym=["INT", "WIL"]),
     card("Clear Mind", "I", "aspect", "Trait", ["+2 INT Defense against illusions and confusion."], {"HP": "+2"}, sym=["INT", "WIL"]),
     card("Cleave", "I", "aspect", "Technique", ["**1/S.R.**, when your melee attack drops a creature to 0 HP: make one melee attack against another creature within your reach."], sym=["STR", "DEX"]),
@@ -150,18 +154,18 @@ ASPECTS = [
     card("Night Eyes", "II", "aspect", "Trait · Darkvision 120", [], {"HP": "+4"}, group="loot", sym=["DEX", "INT"]),
     card("Sellsword", "II", "aspect", "Trait", ["+3 on checks to intimidate, endure, haggle or gather rumors."], {"HP": "+4", "STR": "+1", "STRd": "+1"}, group="loot", sym=["STR", "WIL"]),
     card("Acrobat", "II", "aspect", "Trait", ["+3 on checks to tumble, balance, jump or perform."], {"HP": "+4", "DEX": "+1", "DEXd": "+1"}, group="loot", sym=["DEX", "WIL"]),
-    card("Pack Hunter", "I", "aspect", "Trait", ["**1/S.R.**, when you hit a creature one of your allies is engaged with: it falls Prone."], {"HP": "+2"}, group="loot", sym=["DEX", "INT"]),
     card("Slippery", "I", "aspect", "Technique", ["**Reaction (2/S.R.):** move up to half your Speed. This movement doesn't provoke opportunity attacks."], group="loot", sym=["DEX", "INT"]),
     card("Hedge Witch", "II", "aspect", "Trait", ["1 extra spell point (long rest).", "+3 on checks to handle animals, recall lore, treat wounds or deceive."], {"HP": "+4"}, group="loot", sym=["INT", "WIL"]),
     card("Sweeping Blow", "II", "aspect", "Technique", ["**1/S.R.**, when you take the Attack action with a Heavy or Reach weapon: make one attack roll against each enemy within your reach instead. Half damage on a miss."], group="loot", sym=["STR"]),
     card("Relentless", "II", "aspect", "Trait", ["**1/S.R.**, when damage drops you to 0 HP without killing you outright: you drop to 1 HP instead."], {"HP": "+4"}, group="loot", sym=["STR", "WIL"]),
-    # species (DESIGN 4): Rank I loot Traits that humanoid foes drop
+    card("Pack Hunter", "II", "aspect", "Trait", ["**1/S.R.**, when you hit a creature one of your allies is engaged with: it falls Prone."], {"HP": "+4"}, group="loot", sym=["DEX", "INT"]),
+    # species (DESIGN 4): Rank I loot Traits and Knacks that humanoid foes drop
     card("Human Grit", "I", "aspect", "Trait", ["**Stubborn (1/S.R.):** when you fail a check, add +2 to that roll, possibly turning it into a success."], {"HP": "+2"}, group="loot"),
     card("Elven Blood", "I", "aspect", "Trait · Darkvision 60", [], {"HP": "+2"}, group="loot", sym=["DEX", "INT"]),
-    card("Dwarven Blood", "I", "aspect", "Trait", ["+2 STR Defense against poison."], {"HP": "+2"}, group="loot", sym=["STR", "WIL"]),
+    card("Dwarven Blood", "I", "aspect", "Trait", ["+2 STR Defense against poison, Shoves and Grapples."], {"HP": "+2"}, group="loot", sym=["STR", "WIL"]),
     card("Halfling Luck", "I", "aspect", "Trait", ["**Lucky (1/S.R.):** when you roll a 1 on a d20, reroll it."], {"HP": "+2"}, group="loot", sym=["DEX", "WIL"]),
-    card("Orcish Blood", "I", "aspect", "Trait", ["+2 on checks to intimidate, endure, lift or march."], {"HP": "+2"}, group="loot", sym=["STR", "WIL"]),
-    card("Hobgoblin Discipline", "I", "aspect", "Trait", ["+2 on checks to march, navigate, stand firm or read intentions."], {"HP": "+2"}, group="loot", sym=["INT", "WIL"]),
+    knack("Orcish Blood", "intimidate, endure, lift or march", group="loot", sym=["STR", "WIL"]),
+    knack("Hobgoblin Discipline", "march, navigate, stand firm or read intentions", group="loot", sym=["INT", "WIL"]),
 ]
 
 
@@ -396,6 +400,8 @@ LORE = {
     "Pilum": "A soft iron shank bends on impact, so the spear can't be thrown back, and the shield can't be raised.",
     "Shortbow": "Light enough to shoot from the saddle or from the treetops.",
     "Greataxe": "A crescent of iron on a heavy haft. One swing, one problem fewer.",
+    "Fine Bow": "Horn, sinew and years of an archer's patience. Only steady fingers can draw it.",
+    "Wand": "A rod of black wood capped with copper. It hums in a thinking hand and crackles when pointed.",
     # jewelry
     "Ring of Warding": "A band of cold silver. It tightens around the finger just before the blow lands.",
     "Guild Signet": "Press it into wax and doors open. Lose it, and someone comes asking why.",
@@ -498,7 +504,6 @@ CARD_FX = {
     # weapon riders
     "Finesse Blade": [dict(use="trigger", on="hit", do=[dict(mod="attack", n=-2, next=True, until="startSourceTurn")])],
     "Spellguard Staff": [dict(use="passive", castingHand=True)],
-    "Greatclub": [dict(use="trigger", on="crit", do=[dict(cond="Prone")])],
     "Gladius": [dict(use="passive", hook="close_order", params=dict(dmg="1d4"))],
     "Boarspear": [dict(use="trigger", on="opportunity", hook="brace", params=dict(dmg="1d8"))],
     "Pilum": [dict(use="trigger", on="hit", hook="pierce")],
@@ -537,17 +542,17 @@ CARD_FX = {
     "Relentless": [dict(use="passive", uses="1/SR", relentless=True)],
     # species Traits
     "Elven Blood": [dict(use="passive", darkvision=60)],
-    "Dwarven Blood": [dict(use="passive", defVs=dict(STR=2), tags=["poison"])],
+    "Dwarven Blood": [dict(use="passive", defVs=dict(STR=2), tags=["poison", "shove", "grapple"])],
     # Calling perks
     "Duelist": [dict(use="trigger", on="meleeHit", target="self", do=[dict(move="safe", ft=5, once=True)])],
     "Templar": [dict(use="reaction", uses="1/SR", on="hitAlly5", target="ally", oath=True)],
     "Spellblade": [dict(use="passive", castingHand=True)],
     "Performer": [dict(use="reaction", uses="1/SR", on="rollNear", reach=30, target="ally", do=[dict(mod="roll", n=2)],
                        params=dict(rollKinds=["attack", "check"]))],
-    "Sage": [dict(use="passive", extraSp=1)],
+    "Sage": [dict(use="passive", extraSp=2)],
     "Brawler": [dict(use="passive", grabHit=2)],
     "Zealot": [dict(use="trigger", uses="1/SR", on="weaponHit", do=[dict(dmg="1d6", type="Radiant")])],
-    "Trickster": [dict(use="reaction", uses="1/SR", on="hitSelf", target="self", do=TWO_SHIELD_MOD)],
+    "Trickster": [dict(use="reaction", uses="2/SR", on="hitSelf", target="self", do=TWO_SHIELD_MOD)],
     "Hermit": [dict(use="passive", extraResolve=1)],
     # Tactician's Command and Ranger's Quarry aren't automated (sim/RULINGS.md R706)
     "Pack Hunter": [dict(use="trigger", uses="1/SR", on="hitEngaged", do=[dict(cond="Prone")])],

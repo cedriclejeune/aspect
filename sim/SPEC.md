@@ -54,7 +54,7 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
   "deck": "<cover id>"                 // on deck covers only
 }
 ```
-**WeaponAtk**: `{ "hit": 2, "dice": "1d8", "two": "1d10" | null, "abil": the card's symbols, e.g. ["STR","WIL"], "type": "Physical", "light": bool, "heavy": bool, "reach": bool, "twoHanded": bool, "loading": bool, "thrown": [20,60] | null, "range": [150,600] | null }`
+**WeaponAtk**: `{ "hit": 2, "dice": "1d8", "two": "1d10" | null, "abil": the card's symbols, e.g. ["STR","WIL"], "type": "Physical", "light": bool, "heavy": bool, "reach": bool, "twoHanded": bool, "loading": bool, "thrown": [20,60] | null, "range": [150,600] | null, "brutal": bool, "crushing": bool, "flurry": bool }` (Brutal: a crit rolls the weapon dice three times; Crushing: Prone on a hit by 5+; Flurry: +2 on later attacks with it on your turn; `type` is "Lightning" on the Wand)
 
 **Deck**
 ```jsonc

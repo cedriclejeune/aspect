@@ -294,6 +294,15 @@ _Avoid_: bonus action
 **Aquatic**:
 A weapon keyword: works underwater, where other weapons and spells don't.
 
+**Brutal**:
+A weapon keyword: on a critical hit, roll its damage dice three times instead of twice.
+
+**Crushing**:
+A weapon keyword: a hit that beats the targeted Defense by 5 or more knocks the target Prone.
+
+**Flurry**:
+A weapon keyword: +2 on each attack after the first you make with it on your turn.
+
 **Heavy**:
 A weapon keyword: needs STR +1 (melee) or DEX +1 (ranged), or −3 on attacks.
 
