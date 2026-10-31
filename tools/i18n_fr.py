@@ -69,7 +69,7 @@ ILLUSTRATIONS = {
     "Ambush: if the other side is surprised, Side A takes full turns in round 1.": "Embuscade : si l'autre camp est surpris, le camp A joue des tours complets au round 1.",
     "Opportunity attack": "Attaque d'opportunité", "E leaves F's reach (gold): F may use": "E quitte l'allonge de F (en or) : F peut utiliser",
     "its reaction to make one melee attack.": "sa réaction pour faire une attaque au corps à corps.", "Cover": "Abri",
-    "T behind the wall's edge: cover, +2 to all Defenses.": "T derrière le bout du mur : abri, +2 aux Défenses.",
+    "T behind the wall's edge: cover, +2 STR and DEX Defense.": "T derrière le bout du mur : abri, +2 Défenses de FOR et de DEX.",
     "H fully hidden by the wall: can't be targeted.": "H entièrement caché par le mur : ne peut être visé.",
     "Successes": "Réussites", "Failures": "Échecs", "3 = stable": "3 = stabilisé", "3 = death": "3 = mort",
     "d20, no modifiers, at the start of each turn at 0 HP: 10+ succeeds.": "d20, sans modificateur, au début de chaque tour à 0 PV : 10+ réussit.",

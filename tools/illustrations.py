@@ -945,7 +945,7 @@ def combat_grid():
     body.append(token(ox2, oy, 6, 5, "H", CRIMSON))
     body.append(f'<line x1="{ox2 + 1.5 * s}" y1="{oy + 3.5 * s}" x2="{ox2 + 6.5 * s}" y2="{oy + 2.5 * s}" stroke="{INK}" stroke-width="1.6" stroke-dasharray="4 3"/>')
     body.append(f'<line x1="{ox2 + 1.5 * s}" y1="{oy + 3.5 * s}" x2="{ox2 + 6.5 * s}" y2="{oy + 5.5 * s}" stroke="{INK}" stroke-width="1.6" stroke-dasharray="4 3"/>')
-    body.append(_text(ox2 + 4 * s, oy + 6 * s + 22, "T behind the wall's edge: cover, +2 to all Defenses.", 13, BODY, MUTED, italic=True))
+    body.append(_text(ox2 + 4 * s, oy + 6 * s + 22, "T behind the wall's edge: cover, +2 STR and DEX Defense.", 13, BODY, MUTED, italic=True))
     body.append(_text(ox2 + 4 * s, oy + 6 * s + 40, "H fully hidden by the wall: can't be targeted.", 13, BODY, MUTED, italic=True))
     return _svg(ox2 + 8 * s + 20, oy + 6 * s + 56, "".join(body), "Opportunity attack and cover on a grid")
 

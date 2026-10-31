@@ -620,7 +620,7 @@
     let v = t.totals[ab + "d"];
     for (const m of t.mods) if (m.kind === "def" && (!m.defs || m.defs.includes(ab) || (m.defs.includes("targeted") && o.targeted))) v += m.n || 0;
     if (t.turn.dodging && !incap(t) && speedOf(t) > 0) v += 3;
-    if (o.cover) v += 2;
+    if (o.cover && (ab === "STR" || ab === "DEX")) v += 2;  // cover: STR and DEX Defense only (P 6.8)
     if (o.tags && o.tags.length) for (const e of passives(F, t)) if (e.p.defVs && e.p.defVs[ab] && (e.p.tags || []).some((g) => o.tags.includes(g))) v += e.p.defVs[ab];
     return v;
   }
@@ -753,7 +753,7 @@
       const net = q[k].reduce((s, x) => s + x.n, 0);
       if (net) add(Math.sign(net), `${k[0].toUpperCase() + k.slice(1)} (${q[k].map((x) => x.why).join(", ")})`);
     }
-    info.cover = sg.cover && !src.area ? 2 : 0;
+    info.cover = sg.cover && !src.area && defList(vs).some((ab) => ab === "STR" || ab === "DEX") ? 2 : 0;
     info.tags = src.entry ? src.entry.p.tags || [] : [];
     info.defs = defsOf(F, t, vs, { cover: !!info.cover, tags: info.tags });
     info.def = best(info.defs);

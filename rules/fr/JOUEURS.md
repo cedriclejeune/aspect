@@ -546,7 +546,7 @@ Une créature Neutralisée ne compte pour aucun camp. Si votre camp est plus nom
 
 ### 6.8 Abri
 
-Une cible derrière un obstacle bénéficie d'un **abri** : **+2 à toutes ses Défenses.** Une cible entièrement derrière un obstacle bénéficie d'un **abri total** et ne peut pas être visée directement.
+Une cible derrière un obstacle bénéficie d'un **abri** : **+2 à ses Défenses de FOR et de DEX.** Ses Défenses d'INT et de VOL ne changent pas : un mur n'arrête ni une illusion ni une malédiction. Une cible entièrement derrière un obstacle bénéficie d'un **abri total** et ne peut pas être visée directement.
 
 L'**abri total** bloque aussi la vue : derrière un mur, une haie ou un bâtiment, vous pouvez vous cacher (5.4) et vous déplacer sans être vu. Un camp qui approche sans être vu surprend l'autre (6.1).
 

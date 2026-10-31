@@ -156,7 +156,7 @@ BACK = """
 
 <h2>Abri <small>6.8</small></h2>
 <ul>
-<li><strong>Abri :</strong> +2 à toutes les Défenses.</li>
+<li><strong>Abri :</strong> +2 aux Défenses de FOR et de DEX.</li>
 <li><strong>Abri total :</strong> ne peut être visé ; bloque la vue et les zones ; permet de se cacher et d'approcher sans être vu.</li>
 </ul>
 

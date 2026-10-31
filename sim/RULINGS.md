@@ -19,7 +19,7 @@ Interpretations the sim makes where the rules are unclear or silent. Each one is
 | R202 | fromFoe Hands | A Shield always goes in a Hand; other Hand gear fills the rest in `carries` order, the remainder is carried (Legionary: Pilum + Shield, Gladius carried). Slots grow to fit. | GM 2.1 |
 | R203 | Symbols | A card is equipped only if the build's Calling shares one of its symbols; an unmatched card adds nothing to the totals and is reported. A body build (foes, raw bodies) and a card without symbols are never gated. | P 3.1 |
 | R204 | Calling perks | *Footwork*: a `meleeHit` trigger grants 5 ft of safe movement once per turn. *Oath*: a `hitAlly5` reaction moves the whole attack's damage to the Templar (applied at damage, cleared after the attack). *Crowd Work*: a `rollNear` reaction like a Cue, 30 ft, no voice needed. *Battle Caster*: the Calling counts as a casting hand. | P 2.4 |
-| R204 | Line of sight, cover | Center-to-center lines between any squares of both creatures; walls block; "cover" squares on every clear line give +2; creatures never give cover; no clear line = full cover. | P 6.8 |
+| R204 | Line of sight, cover | Center-to-center lines between any squares of both creatures; walls block; "cover" squares on every clear line give +2 to STR and DEX Defense (never INT or WIL); creatures never give cover; no clear line = full cover. | P 6.8 |
 | R205 | In Dark | A creature is in Dark when every square it occupies is Dark. | P 5.5 |
 | R206 | Durations | A Duration counts the source's turn starts (1 minute = its 10th turn start after casting). Boss half turns don't count. | P 10.4 |
 | R207 | Condition stacking | The same condition from the same source replaces the old one; from another source both are kept, the effect counts once. | P 8 |

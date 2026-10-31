@@ -343,7 +343,7 @@ T("Javelins: unlimited throws; ranged with an enemy within 5 ft and long range g
   eq(C(f, "a").hands, ["W-I-11"]);
   ok(/beyond long range/.test(f.preview({ type: "attack", actor: "a", weapon: "W-I-11", target: "o2", thrown: true }).error) === false);
 });
-T("Cover +2 to all Defenses; full cover can't be targeted", () => {
+T("Cover +2 to STR and DEX Defense; full cover can't be targeted", () => {
   const f = fight([pc("a", [1, 5], { calling: "C-I-02", hands: ["W-I-09"] }), orc("o1", [8, 5]), orc("o2", [8, 9])], { cells: { "5,5": "cover", "5,9": "wall", "5,8": "wall", "5,10": "wall" } });
   start(f);
   run(f, { type: "beginTurn", actor: "a" });
@@ -528,6 +528,13 @@ T("Dirge vs WIL with fear tag: Iron Will adds +2 WIL Defense", () => {
   run(f, { type: "power", actor: "e", power: "G-I-01#dread", targets: ["x"] }, [10]); // own Cue is for allies only
   ok(C(f, "x").conds.some((k) => k.name === "Frightened" && !k.lasting && k.until));
   eq(C(f, "e").resolve["G-I-01"], 4);
+});
+T("Cover doesn't raise WIL Defense: a Dirge through cover", () => {
+  const f = fight([pc("e", [1, 5], { calling: "C-I-04", aspects: ["G-I-01"] }), foe("x", [8, 5])], { cells: { "5,5": "cover" } });
+  start(f);
+  run(f, { type: "beginTurn", actor: "e" });
+  const pv = f.preview({ type: "power", actor: "e", power: "G-I-01#dread", targets: ["x"] });
+  eq([pv.info.cover, pv.info.defense], [0, 10]);
 });
 
 // ---------- reactions, prompts, undo, replay ----------

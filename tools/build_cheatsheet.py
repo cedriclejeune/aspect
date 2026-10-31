@@ -220,7 +220,7 @@ BACK = """
 
 <h2>Cover <small>6.8</small></h2>
 <ul>
-<li><strong>Cover:</strong> +2 to all Defenses.</li>
+<li><strong>Cover:</strong> +2 to STR and DEX Defense.</li>
 <li><strong>Full cover:</strong> can't be targeted; blocks sight and areas; lets you hide and approach unseen.</li>
 </ul>
 
