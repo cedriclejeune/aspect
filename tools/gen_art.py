@@ -7,11 +7,15 @@ Usage: .venv/bin/python tools/gen_art.py "Goblin Shaman" "a hunched goblin with 
        .venv/bin/python tools/gen_art.py --items --batch [--only Dagger]   (gear card backs, ITEMS in tools/art_prompts.py)
        .venv/bin/python tools/gen_art.py --items Dagger --count 2   (a name alone takes its subject from tools/art_prompts.py)
        .venv/bin/python tools/gen_art.py --cards --batch   (Callings, Aspects, deck cards and Wounds: CARDS, in rules/art/cards/)
+       .venv/bin/python tools/gen_art.py --symbols --batch --force [--only str]   (card symbols: SYMBOLS, in rules/symbols/qwen/;
+         then run tools/ink_symbols.py)
 Drawings are saved in greyscale (Pillow, in .venv). --redo sends the current drawing as the reference: inline to Model Studio,
 as its Eachlabs URL (kept in rules/art/sources.json) to Eachlabs; the replaced drawing is kept in rules/art/old/.
 Output: rules/art/<name>.png (what tools/build_cards.py picks up), or <name>-1.png, -2.png… with --count.
 --items draws gear and gold for the card backs instead: ITEM_STYLE in place of STYLE, saved in rules/art/items/.
 --cards draws the other card backs (one figure, STYLE), saved in rules/art/cards/.
+--symbols draws the card symbols (SYMBOL_STYLE, square, no style reference: the sketch sheet made them thin and pale),
+saved in rules/symbols/qwen/ with their links in its sources.json; the replaced drawings go to rules/symbols/qwen/old/.
 Keys come from the environment or the git-ignored .env at the repo root: EACHLABS_API_KEY for Eachlabs, DASHSCOPE_API_KEY
 for Model Studio (and MODELSTUDIO_URL to use another workspace than MS_API).
 --model picks the image model (qwen: Qwen Image 3.0 Pro, $0.075; qwen-ms: Qwen Image 3.0 on Model Studio, which the account
@@ -39,6 +43,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ART = ROOT / "rules" / "art"
 ITEM_ART = ART / "items"
 CARD_ART = ART / "cards"
+SYMBOL_ART = ROOT / "rules" / "symbols" / "qwen"
 SOURCES = ART / "sources.json"  # drawing path under rules/art/ -> Eachlabs URL of the image it came from
 API = "https://api.eachlabs.ai/v1"
 MS_API = "https://ws-lz48fh0uf1m4zk5e.ap-southeast-1.maas.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation"
@@ -93,6 +98,16 @@ ITEM_STYLE = """Style:
 - well-used object, slightly exaggerated proportions
 - one object alone, centred, large in the frame, clear simple outline
 - white background, no frame, no text"""
+SYMBOL_STYLE = """Style:
+- a bold ink icon, hand-drawn with a thick brush pen
+- black on white, no grey
+- thick heavy outlines, large areas filled solid black
+- few inner lines, drawn in white across the black
+- one simple object alone, centred, filling the frame
+- a clear silhouette that reads at 5 mm
+- white background, no frame, no text, no shading"""
+SYMBOL_AVOID = ("colour, grey, gradients, shading, hatching, cross-hatching, thin lines, sketchy lines, fine detail, "
+                "photorealistic, 3D, bevel, frame, border, text, letters, signature, several objects")
 REF_STYLE = "Copy only the ink style of the reference, not its subjects or labels."
 EDIT = "Edit the reference drawing. Make these changes: {change}. Keep everything else exactly as it is."
 REF = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJcSel0OCyTLDZmaKmoofuv9kZqkJggSAfbPhz7CLysw&s=10"
@@ -173,11 +188,19 @@ def generate_ms(model, prompt, refs, count, tries=10):
     return [c["image"] for ch in out["output"]["choices"] for c in ch["message"]["content"] if "image" in c]
 
 
-def generate(model, prompt, refs, count):
+def generate(model, prompt, refs, count, square=False):
     if model in MS_MODELS:
         return generate_ms(model, prompt, refs, count)
     text, edit, build, *ref_key = MODELS[model]
     inp = build(prompt, count)
+    if square:  # the symbols: square, and their own negative prompt
+        for k, v in (("size", "2048*2048"), ("aspect_ratio", "1:1")):
+            if k in inp:
+                inp[k] = v
+        if "negative_prompt" in inp:
+            inp["negative_prompt"] = SYMBOL_AVOID
+        else:
+            inp["prompt"] = inp["prompt"].replace(f"Avoid: {AVOID}.", f"Avoid: {SYMBOL_AVOID}.")
     if refs:
         inp[ref_key[0] if ref_key else "image_urls"] = [ref_url(r) for r in refs]
     pid = call("POST", "/prediction", {"model": edit if refs else text, "version": "1.0.0", "input": inp})["predictionID"]
@@ -202,15 +225,22 @@ def slug_of(name):
     return name.lower().replace(" ", "-")  # the file name tools/build_cards.py looks for
 
 
-def sources():
-    return json.loads(SOURCES.read_text()) if SOURCES.exists() else {}
+def sources(folder=ART):
+    f = SYMBOL_ART / "sources.json" if folder == SYMBOL_ART else SOURCES
+    return json.loads(f.read_text()) if f.exists() else {}
+
+
+def save_source(folder, path, url):
+    f, base = (SYMBOL_ART / "sources.json", SYMBOL_ART) if folder == SYMBOL_ART else (SOURCES, ART)
+    f.write_text(json.dumps(sources(folder) | {path.relative_to(base).as_posix(): url}, indent=1, sort_keys=True) + "\n")
 
 
 def table(items):
     """(subjects, style, folder) for foes, or with items "items" or "cards" the card backs."""
     import art_prompts
     return {"items": (art_prompts.ITEMS, ITEM_STYLE, ITEM_ART),
-            "cards": (art_prompts.CARDS, STYLE, CARD_ART)}.get(items, (art_prompts.SUBJECTS, STYLE, ART))
+            "cards": (art_prompts.CARDS, STYLE, CARD_ART),
+            "symbols": (art_prompts.SYMBOLS, SYMBOL_STYLE, SYMBOL_ART)}.get(items, (art_prompts.SUBJECTS, STYLE, ART))
 
 
 def style_of(name, style):
@@ -238,7 +268,14 @@ def make(name, subject, model, refs, count=1, edit=None, items=False):
     targets = [folder / f"{slug}.png"] if count == 1 else [folder / f"{slug}-{i}.png" for i in range(1, count + 1)]
     folder.mkdir(parents=True, exist_ok=True)
     saved = []
-    for url, t in zip(generate(model, prompt_for(subject, model, refs, edit, style), refs, count), targets):
+    if items == "symbols" and not edit:  # keep the drawings being replaced
+        for t in targets:
+            if t.exists():
+                keep = folder / "old" / f"{t.stem}-{datetime.datetime.now():%Y%m%d-%H%M%S}.png"
+                keep.parent.mkdir(exist_ok=True)
+                keep.write_bytes(t.read_bytes())
+    square = items == "symbols"
+    for url, t in zip(generate(model, prompt_for(subject, model, refs, edit, style), refs, count, square), targets):
         for attempt in range(3):
             try:
                 urllib.request.urlretrieve(url, t)
@@ -249,7 +286,7 @@ def make(name, subject, model, refs, count=1, edit=None, items=False):
                 time.sleep(5)
         Image.open(t).convert("L").save(t)  # the models slip in colour now and then; the cards are black and white
         if model not in MS_MODELS:  # Model Studio links expire after a day: not worth keeping
-            SOURCES.write_text(json.dumps(sources() | {t.relative_to(ART).as_posix(): url}, indent=1, sort_keys=True) + "\n")
+            save_source(folder, t, url)
         print("Saved", t.relative_to(ROOT), flush=True)
         saved.append(t)
     return saved
@@ -282,7 +319,8 @@ def batch(names, model, refs, force, items=False):
 def redo(names, model, change, extra_refs=(), items=False):
     """Edit each foe's current drawing (image 1) with the changes; extra_refs follow as image 2, 3… for the change to point at."""
     SUBJECTS, _, folder = table(items)
-    known = sources()
+    known = sources(folder)
+    base = SYMBOL_ART if folder == SYMBOL_ART else ART
     for n in names:
         if n not in SUBJECTS or not (folder / f"{slug_of(n)}.png").exists():
             sys.exit(f"{n}: needs a subject in tools/art_prompts.py and a drawing in {folder.relative_to(ROOT)}/")
@@ -290,8 +328,8 @@ def redo(names, model, change, extra_refs=(), items=False):
     for n in names:
         old = folder / f"{slug_of(n)}.png"
         # a local file goes inline: fine on Model Studio, Eachlabs may refuse it
-        ref = (None if model in MS_MODELS else known.get(old.relative_to(ART).as_posix())) or str(old)
-        keep = ART / "old" / f"{old.stem}-{datetime.datetime.now():%Y%m%d-%H%M%S}.png"
+        ref = (None if model in MS_MODELS else known.get(old.relative_to(base).as_posix())) or str(old)
+        keep = base / "old" / f"{old.stem}-{datetime.datetime.now():%Y%m%d-%H%M%S}.png"
         keep.parent.mkdir(exist_ok=True)
         keep.write_bytes(old.read_bytes())
         try:
@@ -318,11 +356,13 @@ def main():
     kind = ap.add_mutually_exclusive_group()
     kind.add_argument("--items", action="store_const", const="items", dest="kind",
                       help="gear and gold card backs (ITEMS, ITEM_STYLE, rules/art/items/) instead of foes")
+    kind.add_argument("--symbols", action="store_const", const="symbols", dest="kind",
+                      help="the card symbols (SYMBOLS, SYMBOL_STYLE, no style reference, rules/symbols/qwen/)")
     kind.add_argument("--cards", action="store_const", const="cards", dest="kind",
                       help="the other card backs: Callings, Aspects, deck cards, Wounds (CARDS, rules/art/cards/)")
     ap.add_argument("--force", action="store_true", help="overwrite an existing drawing")
     a = ap.parse_args()
-    refs = [] if a.no_ref else a.ref or [REF]
+    refs = [] if a.no_ref or (a.kind == "symbols" and not a.ref) else a.ref or [REF]
     if a.redo:
         if not a.change:
             ap.error("--redo needs --change: say what to change ('remove the bone; add the missing hind leg')")

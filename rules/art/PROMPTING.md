@@ -103,6 +103,11 @@ It was made from square 2048 × 2048 images, the same reference and an icon vers
 - **Saying which way things face works every time:** knuckles forward, boot toe right, swords pointing up.
 - **Square results sometimes have a faint line at the edges.** Trim a few pixels off each side.
 
+A second round (`gen_art.py --symbols`, SYMBOL_STYLE: "bold ink icon, thick brush pen, thick heavy outlines, large areas
+filled solid black", no reference image, square) gave bold symbols that read at card size. Knack is still from the first round.
+- **Dropping the sketch-sheet reference is what made them bold.** With it, every icon came back as a thin pen drawing.
+- **Bold drawings need little thickening.** tools/ink_symbols.py's full min filter closed their white highlights and veins; they use grow 5.
+
 ## Output
 
 - Portrait 3:4 at 1728 × 2368. The card's picture panel (50 × 67 mm) crops the top and bottom slightly; keep the figure whole with a margin.

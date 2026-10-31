@@ -9,3 +9,4 @@ SRD_CC_v5.2.1.pdf
 .env
 # Replaced foe drawings, kept locally by tools/gen_art.py
 rules/art/old/
+rules/symbols/qwen/old/

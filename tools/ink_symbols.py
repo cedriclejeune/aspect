@@ -67,13 +67,13 @@ def save(im, path):
     out.save(path)
 
 
-# the feather gets a fifth of the others' thickening (scale 10 instead of 2)
-plain = {"str": {}, "dex": {"grow": 15, "scale": 10}, "int": {}, "wil": {"grow": 15}, "hp": {}, "spd": {},
-         "trait": {}, "technique": {"grow": 13}, "knack": {}}
+# The drawings from gen_art.py --symbols are already bold: a light thickening keeps their white details (highlights, veins).
+# knack is still the earlier thin pen drawing and gets the full thickening.
+plain = {n: {"grow": 5} for n in ("str", "dex", "int", "wil", "hp", "spd", "trait", "technique")} | {"knack": {}}
 # the other card types, once tools/gen_symbols.py has drawn them
 from gen_symbols import SUBJECTS  # noqa: E402
 plain |= {n: {} for n in SUBJECTS if (SRC / f"{n}.png").exists()}
-done ={n: bold(n, **o) for n, o in plain.items()}
+done = {n: bold(n, **o) for n, o in plain.items()}
 for n, im in done.items():
     save(im, OUT / f"{n}.png")
 for n in ("str", "dex", "int", "wil"):
