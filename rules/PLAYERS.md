@@ -667,7 +667,7 @@ An effect with the **Subdue** keyword takes a creature out of the fight. It name
 
 ## 9. Equipment
 
-Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or WIL Physical*. It uses the abilities of its lit symbols. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
+Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or DEX Physical*. It uses the abilities of its lit symbols. Weapons light only STR, DEX or both; **staves** are the exception: weaker, they light INT and WIL. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
 
 ### 9.1 Armor and Defense
 
@@ -687,17 +687,18 @@ Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" c
 
 | Weapon (gear) | Usual symbols | To hit | Damage | Properties |
 |---|---|---|---|---|
-| **Dagger** (dagger, knife) | DEX · INT | +4 | 1d4 | Light, Thrown (20/60) |
+| **Dagger** (dagger, knife) | DEX | +4 | 1d4 | Light, Thrown (20/60) |
 | **Short Blade** (shortsword, sickle) | STR · DEX | +3 | 1d4 | Light |
 | **Light Weapon** (handaxe, club, light hammer) | STR · DEX | +2 | 1d6 | Light, Thrown (20/60) |
-| **Finesse Blade** (rapier, scimitar) | DEX · WIL | +2 | 1d6 | — |
-| **Versatile Weapon** (longsword, battleaxe, spear, staff) | STR + one | +2 | 1d8 / 1d10 | Versatile |
+| **Finesse Blade** (rapier, scimitar) | DEX | +2 | 1d6 | — |
+| **Versatile Weapon** (longsword, battleaxe, spear) | STR or STR · DEX | +2 | 1d8 / 1d10 | Versatile |
+| **Staff** (quarterstaff, rod) | INT · WIL | +2 | 1d6 / 1d8 | Versatile |
 | **Heavy Weapon** (greatsword, greataxe, maul) | STR | +2 | 2d6 | Heavy, Two-Handed |
 | **Polearm** (glaive, halberd, pike) | STR | +2 | 1d10 | Heavy, Reach, Two-Handed |
-| **Whip** | DEX · WIL | +2 | 1d4 | Reach |
+| **Whip** | DEX | +2 | 1d4 | Reach |
 | **Javelins** | STR · DEX | +2 | 1d6 | Thrown (30/120) |
-| **Sling** / **Hand Crossbow** | DEX · WIL | +2 | 1d6 | Light, Range (30/120) |
-| **Bow** (short or long) | DEX + one | +2 | 1d8 | Range (150/600), Two-Handed |
+| **Sling** / **Hand Crossbow** | DEX | +2 | 1d6 | Light, Range (30/120) |
+| **Bow** (short or long) | DEX | +2 | 1d8 | Range (150/600), Two-Handed |
 | **Crossbow** (heavy) | DEX | +2 | 1d10 | Heavy, Loading, Range (100/400), Two-Handed |
 
 A weapon attacks with the abilities of its lit symbols: your higher one when it has two. Damage adds the same modifier. Higher-Rank weapons are cards with their own name (*Damascus Sword*, *Katana*), a bigger to-hit bonus and often a special effect. All weapon damage is **Physical** unless the weapon says otherwise.
