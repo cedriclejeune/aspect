@@ -39,14 +39,14 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
 ```jsonc
 {
   "id": "W-I-05", "name": "Finesse Blade", "rank": "I",
-  "kind": "core" | "gear" | "aspect",
-  "type": "Weapon",                    // first keyword: Core Armor Weapon Shield Instrument Jewelry Consumable Recipe Purse Spellbook Trait Technique Knack Divine Glamour Nature
+  "kind": "calling" | "gear" | "aspect",
+  "type": "Weapon",                    // first keyword: Calling Armor Weapon Shield Instrument Jewelry Consumable Recipe Purse Spellbook Trait Technique Knack Divine Glamour Nature
   "kw": ["Weapon", "Finesse"],         // keywords split on " · "
   "text": ["..."],                     // printed text, markdown ** and *
-  "strip": { "STR": 1, "STRd": 1, "SPD": 5 },   // integers. Core: absolute values; other cards: bonuses. Keys STR DEX INT WIL STRd DEXd INTd WILd HP SPD
+  "strip": { "STR": 1, "STRd": 1, "SPD": 5 },   // integers. Calling: absolute values; other cards: bonuses. Keys STR DEX INT WIL STRd DEXd INTd WILd HP SPD
   "group": "starter" | "loot",
-  "size": "Medium",                    // Cores only
-  "req": { "STR": 1 },                 // Req X +N, if any
+  "size": "Medium",                    // Callings only
+  "sym": ["STR", "WIL"],               // gear, Aspects, Callings: its lit symbols (P 3.1); a Calling with one of them can equip it
   "noisy": 3,                          // if any
   "uses": 3,                           // Recipe flasks, if any
   "atk": WeaponAtk,                    // Weapons only
@@ -54,7 +54,7 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
   "deck": "<cover id>"                 // on deck covers only
 }
 ```
-**WeaponAtk**: `{ "hit": 2, "dice": "1d8", "two": "1d10" | null, "abil": ["STR"] | ["STR","DEX"] | ["DEX"], "type": "Physical", "finesse": bool, "light": bool, "heavy": bool, "reach": bool, "twoHanded": bool, "loading": bool, "thrown": [20,60] | null, "range": [150,600] | null }`
+**WeaponAtk**: `{ "hit": 2, "dice": "1d8", "two": "1d10" | null, "abil": the card's symbols, e.g. ["STR","WIL"], "type": "Physical", "light": bool, "heavy": bool, "reach": bool, "twoHanded": bool, "loading": bool, "thrown": [20,60] | null, "range": [150,600] | null }`
 
 **Deck**
 ```jsonc
@@ -70,8 +70,8 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
 **Foe**
 ```jsonc
 {
-  "name": "Ogre", "core": "C-II-01" | null,
-  "body": { "STR": 5, "DEX": 0, "INT": 0, "WIL": 1, "HP": 110, "SPD": 40, "size": "Large" } | null,
+  "name": "Ogre",
+  "body": { "STR": 5, "DEX": 0, "INT": 0, "WIL": 1, "HP": 110, "SPD": 40, "size": "Large" },  // HP without its cards' HP
   "carries": ["W-I-13", "..."],        // card IDs it equips (Slots inferred from type)
   "bonus": { "HP": 33 }, "extraDice": 1,
   "powers": ["Bane", "Twist Fate"],    // deck powers it uses ([] = all)
@@ -162,7 +162,7 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
 **Build**
 ```jsonc
 {
-  "core": "C-I-01" | null, "body": { ... } | null,      // body as in Foe
+  "calling": "L-02" | null, "body": { ... } | null,     // body as in Foe (foes and raw bodies are never gated)
   "armor": "A-I-02" | null,
   "hands": ["W-I-06", "S-I-01"],                         // in hand at the start; extra carried weapons in "carried"
   "carried": ["W-II-02"],                                // weapons on the belt (swap with the free interaction)
@@ -178,7 +178,7 @@ UMD: `globalThis.BearersEngine = {...}` and `module.exports` under Node.
 ```js
 const Eng = BearersEngine;
 Eng.totals(build, cards)        // → { STR, DEX, INT, WIL, STRd, DEXd, INTd, WILd, HP, SPD, size, errors: [] }  (tally card, P 12.3; empty Armor Slot +10 SPD)
-Eng.validate(build, cards)      // → [string]  Slot limits, types per Slot, Requirements (P 3.1), no duplicate copies (P 3.6)
+Eng.validate(build, cards)      // → [string]  Slot limits, types per Slot, symbols against the Calling (P 3.1), no duplicate copies (P 3.6)
 Eng.fromFoe(foe, cards)         // → Build
 const f = Eng.createFight(scenario, cards)   // → Fight
 f.state                         // plain JSON, serializable; the UI reads it, never writes it

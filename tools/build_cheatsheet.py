@@ -177,8 +177,7 @@ BACK = """
 <p>The <strong>attacker always rolls</strong> vs a <strong>Defense</strong> (10 + ability + bonuses). Weapons hit the <strong>higher of STR / DEX Defense</strong>; other effects name theirs.</p>
 <table>
 <tr><th>Roll</th><th>Formula</th></tr>
-<tr><td>Melee</td><td>d20 + STR (DEX if Finesse) + to-hit</td></tr>
-<tr><td>Ranged</td><td>d20 + DEX + to-hit (thrown: melee ability)</td></tr>
+<tr><td>Weapon</td><td>d20 + its symbol's ability (higher of two) + to-hit</td></tr>
 <tr><td>Spell</td><td>d20 + INT + book's Spell attack</td></tr>
 <tr><td>WIL magic</td><td>d20 + WIL + printed Attack</td></tr>
 <tr><td>Unarmed</td><td>+2 to hit · 1 + STR Physical</td></tr>
@@ -282,7 +281,7 @@ When a foe group's <strong>Leader</strong> falls, and when half the group is dow
 <h2>After the Fight <small>7.5</small></h2>
 <ul>
 <li><strong>Short rest</strong> (1 h, 2 per long rest): regain half missing HP; S.R. uses and Resolve return; don or doff Armor.</li>
-<li><strong>Long rest</strong> (8 h): all HP, uses, Resolve and spell points; swap Aspects and Core; −1 Exhaustion.</li>
+<li><strong>Long rest</strong> (8 h): all HP, uses, Resolve and spell points; swap Aspects; −1 Exhaustion.</li>
 </ul>
 </div>
 <footer>Golden rules: the rule of fun · no one left out · specific beats general · round down · everything stacks · the GM decides.</footer>

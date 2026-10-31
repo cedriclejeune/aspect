@@ -1,4 +1,4 @@
-"""Generate a foe drawing for the cards with the Eachlabs API (https://docs.eachlabs.ai).
+"""Generate a foe drawing for the cards with the Eachlabs API (https://docs.eachlabs.ai), or Alibaba Model Studio.
 
 Usage: .venv/bin/python tools/gen_art.py "Goblin Shaman" "a hunched goblin with a bone staff and a fetish necklace"
        .venv/bin/python tools/gen_art.py "Goblin Shaman" "..." --model qwen-turbo --count 3
@@ -6,12 +6,16 @@ Usage: .venv/bin/python tools/gen_art.py "Goblin Shaman" "a hunched goblin with 
        .venv/bin/python tools/gen_art.py --redo Bandit --change "bone mask instead of the sack mask"   (edit the drawing)
        .venv/bin/python tools/gen_art.py --items --batch [--only Dagger]   (gear card backs, ITEMS in tools/art_prompts.py)
        .venv/bin/python tools/gen_art.py --items Dagger --count 2   (a name alone takes its subject from tools/art_prompts.py)
-Drawings are saved in greyscale (Pillow, in .venv). rules/art/sources.json keeps each drawing's Eachlabs URL, so --redo can
-send the current drawing as the reference (the API takes URLs only); the replaced drawing is kept in rules/art/old/.
+       .venv/bin/python tools/gen_art.py --cards --batch   (Callings, Aspects, deck cards and Wounds: CARDS, in rules/art/cards/)
+Drawings are saved in greyscale (Pillow, in .venv). --redo sends the current drawing as the reference: inline to Model Studio,
+as its Eachlabs URL (kept in rules/art/sources.json) to Eachlabs; the replaced drawing is kept in rules/art/old/.
 Output: rules/art/<name>.png (what tools/build_cards.py picks up), or <name>-1.png, -2.png… with --count.
---items draws gear for the card backs instead: ITEM_STYLE in place of STYLE, saved in rules/art/items/.
-The key is EACHLABS_API_KEY, from the environment or the git-ignored .env at the repo root.
---model picks the image model (qwen: Qwen Image 3.0 Pro, $0.075; qwen-turbo: Qwen Image 2.1 Turbo, $0.016; qwen-pro21: Qwen Image 2.1 Pro, $0.04;
+--items draws gear and gold for the card backs instead: ITEM_STYLE in place of STYLE, saved in rules/art/items/.
+--cards draws the other card backs (one figure, STYLE), saved in rules/art/cards/.
+Keys come from the environment or the git-ignored .env at the repo root: EACHLABS_API_KEY for Eachlabs, DASHSCOPE_API_KEY
+for Model Studio (and MODELSTUDIO_URL to use another workspace than MS_API).
+--model picks the image model (qwen: Qwen Image 3.0 Pro, $0.075; qwen-ms: Qwen Image 3.0 on Model Studio, which the account
+         cannot use yet (AccessDenied.Unpurchased); qwen-turbo: Qwen Image 2.1 Turbo, $0.016; qwen-pro21: Qwen Image 2.1 Pro, $0.04;
          seedream: Seedream v5 Lite, $0.035; flux3: Flux 3, $0.041; luma: Luma Uni-1, $0.042; nano: Nano Banana 2).
 Every drawing copies the ink style of REF, a Chris Riddell sketch sheet (many small figures, so no one subject gets copied);
 --ref replaces it with other images (URLs; local files are sent inline, which the API may refuse), --no-ref drops it.
@@ -34,10 +38,13 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 ART = ROOT / "rules" / "art"
 ITEM_ART = ART / "items"
+CARD_ART = ART / "cards"
 SOURCES = ART / "sources.json"  # drawing path under rules/art/ -> Eachlabs URL of the image it came from
 API = "https://api.eachlabs.ai/v1"
+MS_API = "https://ws-lz48fh0uf1m4zk5e.ap-southeast-1.maas.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation"
+MS_MODELS = {"qwen-ms": "qwen-image-3.0"}  # model name -> Model Studio model; it draws and edits (reference images in the message)
 AVOID = ("colour, grey wash, gradients, photorealistic, realistic anatomy, dense texture, heavy shading, frame, border, text, "
-         "signature, malformed weapons, broken objects, extra limbs")
+         "signature, malformed weapons, broken objects, extra limbs, handsome, pretty, idealised face, model looks, smooth skin")
 # model name -> (text-to-image slug, edit slug, input builder[, reference input]); slugs and inputs from GET /v1/models/<slug>
 MODELS = {
     "nano": ("nano-banana-2-text-to-image", "nano-banana-2-edit",
@@ -70,6 +77,14 @@ STYLE = """Style:
 - grotesque caricature, oversized hands and feet
 - one full-body figure alone, short ground shadow
 - white background, no frame, no text"""
+ANIMAL_STYLE = """Style:
+- pen and ink, Chris Riddell
+- black line on white, no grey
+- varied contour lines, sparse hatching in shadows only
+- mostly untouched white paper
+- a real animal, true to its anatomy, scruffy and characterful
+- one whole animal alone, no people, short ground shadow
+- white background, no frame, no text"""
 ITEM_STYLE = """Style:
 - pen and ink, Chris Riddell
 - black line on white, no grey
@@ -83,16 +98,16 @@ EDIT = "Edit the reference drawing. Make these changes: {change}. Keep everythin
 REF = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJcSel0OCyTLDZmaKmoofuv9kZqkJggSAfbPhz7CLysw&s=10"
 
 
-def key():
-    if os.environ.get("EACHLABS_API_KEY"):
-        return os.environ["EACHLABS_API_KEY"]
+def key(var="EACHLABS_API_KEY", default=None):
+    if os.environ.get(var):
+        return os.environ[var]
     env = ROOT / ".env"
     if env.exists():
         for line in env.read_text().splitlines():
             name, _, value = line.partition("=")
-            if name.strip() == "EACHLABS_API_KEY" and value.strip():
+            if name.strip() == var and value.strip():
                 return value.strip().strip("'\"")
-    sys.exit("No EACHLABS_API_KEY: put EACHLABS_API_KEY=... in .env at the repo root.")
+    return default or sys.exit(f"No {var}: put {var}=... in .env at the repo root.")
 
 
 def call(method, path, body=None, tries=30):
@@ -121,7 +136,46 @@ def ref_url(ref):
     return f"data:{mimetypes.guess_type(p)[0] or 'image/png'};base64,{base64.b64encode(p.read_bytes()).decode()}"
 
 
+def ms_ref(ref):
+    """Model Studio can't fetch REF's link, so it gets a copy of the sheet, downloaded once into the git-ignored build/."""
+    if ref != REF:
+        return ref
+    copy = ROOT / "build" / "ref-sheet.jpg"
+    if not copy.exists():
+        copy.parent.mkdir(exist_ok=True)
+        urllib.request.urlretrieve(REF, copy)
+    return str(copy)
+
+
+def generate_ms(model, prompt, refs, count, tries=10):
+    """Model Studio answers in the same call (no prediction to poll); its image links expire after 24 hours."""
+    refs = [ms_ref(r) for r in refs]
+    body = {"model": MS_MODELS[model],
+            "input": {"messages": [{"role": "user", "content": [{"image": ref_url(r)} for r in refs] + [{"text": prompt}]}]},
+            "parameters": {"size": "1728*2368", "n": count, "negative_prompt": AVOID, "prompt_extend": False, "watermark": False}}
+    req = urllib.request.Request(key("MODELSTUDIO_URL", MS_API), method="POST", data=json.dumps(body).encode(),
+                                 headers={"Authorization": f"Bearer {key('DASHSCOPE_API_KEY')}", "Content-Type": "application/json"})
+    print(f"Drawing with {MS_MODELS[model]} on Model Studio…", flush=True)
+    try:
+        with urllib.request.urlopen(req, timeout=300) as r:
+            out = json.load(r)
+    except urllib.error.HTTPError as e:
+        if e.code == 429 and tries > 1:
+            print("Rate limited, retrying in 10 s…")
+            time.sleep(10)
+            return generate_ms(model, prompt, refs, count, tries - 1)
+        raise RuntimeError(f"Model Studio: HTTP {e.code} {e.read().decode(errors='replace')}")
+    except (urllib.error.URLError, ConnectionError, TimeoutError) as e:
+        raise RuntimeError(f"Model Studio: {e} (a call that timed out may still finish and bill)")
+    if "output" not in out:
+        raise RuntimeError(f"Model Studio {out.get('code')}: {out.get('message')}")
+    print(f"Done (request {out.get('request_id')})")
+    return [c["image"] for ch in out["output"]["choices"] for c in ch["message"]["content"] if "image" in c]
+
+
 def generate(model, prompt, refs, count):
+    if model in MS_MODELS:
+        return generate_ms(model, prompt, refs, count)
     text, edit, build, *ref_key = MODELS[model]
     inp = build(prompt, count)
     if refs:
@@ -153,9 +207,17 @@ def sources():
 
 
 def table(items):
-    """(subjects, style, folder) for foes or, with items, gear card backs."""
+    """(subjects, style, folder) for foes, or with items "items" or "cards" the card backs."""
     import art_prompts
-    return (art_prompts.ITEMS, ITEM_STYLE, ITEM_ART) if items else (art_prompts.SUBJECTS, STYLE, ART)
+    return {"items": (art_prompts.ITEMS, ITEM_STYLE, ITEM_ART),
+            "cards": (art_prompts.CARDS, STYLE, CARD_ART)}.get(items, (art_prompts.SUBJECTS, STYLE, ART))
+
+
+def style_of(name, style):
+    """ANIMAL_STYLE for the beasts in art_prompts.ANIMALS: the figure lines (caricature, big hands and feet) turned the hawk
+    into a man-bird."""
+    import art_prompts
+    return ANIMAL_STYLE if name in art_prompts.ANIMALS else style
 
 
 def prompt_for(subject, model, refs, edit=None, style=STYLE):
@@ -163,7 +225,7 @@ def prompt_for(subject, model, refs, edit=None, style=STYLE):
         prompt = f"{EDIT.format(change=edit)}\nDescription: {subject}."  # the drawing itself carries the style
     else:
         prompt = f"{subject}.\n{style}" + (f"\n{REF_STYLE}" if refs else "")
-    if model == "qwen" and len(prompt) > 800:
+    if model in ("qwen", "qwen-ms") and len(prompt) > 800:
         raise ValueError(f"Prompt is {len(prompt)} characters; Qwen takes 800. Shorten the subject by {len(prompt) - 800}.")
     return prompt
 
@@ -171,6 +233,7 @@ def prompt_for(subject, model, refs, edit=None, style=STYLE):
 def make(name, subject, model, refs, count=1, edit=None, items=False):
     """Draw one foe, or one gear card back with items; returns the saved files."""
     _, style, folder = table(items)
+    style = style_of(name, style)
     slug = slug_of(name)
     targets = [folder / f"{slug}.png"] if count == 1 else [folder / f"{slug}-{i}.png" for i in range(1, count + 1)]
     folder.mkdir(parents=True, exist_ok=True)
@@ -185,7 +248,8 @@ def make(name, subject, model, refs, count=1, edit=None, items=False):
                     raise RuntimeError(f"Could not download {url}; fetch it by hand into {t}")
                 time.sleep(5)
         Image.open(t).convert("L").save(t)  # the models slip in colour now and then; the cards are black and white
-        SOURCES.write_text(json.dumps(sources() | {t.relative_to(ART).as_posix(): url}, indent=1, sort_keys=True) + "\n")
+        if model not in MS_MODELS:  # Model Studio links expire after a day: not worth keeping
+            SOURCES.write_text(json.dumps(sources() | {t.relative_to(ART).as_posix(): url}, indent=1, sort_keys=True) + "\n")
         print("Saved", t.relative_to(ROOT), flush=True)
         saved.append(t)
     return saved
@@ -201,11 +265,11 @@ def batch(names, model, refs, force, items=False):
     if skip:
         print(f"Skipping (drawing exists, --force to redo): {', '.join(skip)}")
     todo = {n: s for n, s in todo.items() if n not in skip}
-    for s in todo.values():
-        prompt_for(s, model, refs, style=style)  # check every length before spending anything
+    for n, s in todo.items():
+        prompt_for(s, model, refs, style=style_of(n, style))  # check every length before spending anything
     failed = []
     for i, (n, s) in enumerate(todo.items()):
-        if i:
+        if i and model not in MS_MODELS:
             time.sleep(60)  # small balances may run 2 jobs at once, and Eachlabs keeps a slot busy a while after one ends
         try:
             make(n, s, model, refs, items=items)
@@ -225,7 +289,8 @@ def redo(names, model, change, extra_refs=(), items=False):
         prompt_for(SUBJECTS[n], model, ["x"], edit=change)  # check every length before spending anything
     for n in names:
         old = folder / f"{slug_of(n)}.png"
-        ref = known.get(old.relative_to(ART).as_posix()) or str(old)  # a local file goes inline, which the API may refuse
+        # a local file goes inline: fine on Model Studio, Eachlabs may refuse it
+        ref = (None if model in MS_MODELS else known.get(old.relative_to(ART).as_posix())) or str(old)
         keep = ART / "old" / f"{old.stem}-{datetime.datetime.now():%Y%m%d-%H%M%S}.png"
         keep.parent.mkdir(exist_ok=True)
         keep.write_bytes(old.read_bytes())
@@ -249,18 +314,22 @@ def main():
     ap.add_argument("--ref", action="append", default=[], help="style reference image instead of REF (URL or file); repeatable")
     ap.add_argument("--no-ref", action="store_true", help="no style reference: text-to-image from the prompt alone")
     ap.add_argument("--count", type=int, default=1, choices=range(1, 5), help="variants to make (1-4)")
-    ap.add_argument("--model", choices=MODELS, default="qwen", help="image model (default qwen)")
-    ap.add_argument("--items", action="store_true", help="gear card backs (ITEMS, ITEM_STYLE, rules/art/items/) instead of foes")
+    ap.add_argument("--model", choices=[*MODELS, *MS_MODELS], default="qwen", help="image model (default qwen)")
+    kind = ap.add_mutually_exclusive_group()
+    kind.add_argument("--items", action="store_const", const="items", dest="kind",
+                      help="gear and gold card backs (ITEMS, ITEM_STYLE, rules/art/items/) instead of foes")
+    kind.add_argument("--cards", action="store_const", const="cards", dest="kind",
+                      help="the other card backs: Callings, Aspects, deck cards, Wounds (CARDS, rules/art/cards/)")
     ap.add_argument("--force", action="store_true", help="overwrite an existing drawing")
     a = ap.parse_args()
     refs = [] if a.no_ref else a.ref or [REF]
     if a.redo:
         if not a.change:
             ap.error("--redo needs --change: say what to change ('remove the bone; add the missing hind leg')")
-        return redo(a.redo, a.model, a.change, a.ref, a.items)
+        return redo(a.redo, a.model, a.change, a.ref, a.kind)
     if a.batch:
-        return batch(a.only, a.model, refs, a.force, a.items)
-    subjects, _, folder = table(a.items)
+        return batch(a.only, a.model, refs, a.force, a.kind)
+    subjects, _, folder = table(a.kind)
     subject = a.subject or subjects.get(a.name)  # a name alone draws its subject from tools/art_prompts.py
     if not (a.name and subject):
         ap.error("give a name and a subject (or a name from tools/art_prompts.py), or --batch")
@@ -270,7 +339,7 @@ def main():
     if not a.force and any(t.exists() for t in targets):
         sys.exit(f"{', '.join(str(t.relative_to(ROOT)) for t in targets if t.exists())} exists; pass --force to overwrite.")
     try:
-        make(a.name, subject, a.model, refs, a.count, items=a.items)
+        make(a.name, subject, a.model, refs, a.count, items=a.kind)
     except (RuntimeError, ValueError) as e:
         sys.exit(str(e))
     if a.count > 1:

@@ -24,7 +24,7 @@
 
 ## 1. Introduction
 
-**Bearers** is a cooperative storytelling game with an emphasis on character customization and fast-paced mechanics. One player is the **Game Master (GM)**, who describes the world, runs monsters and adjudicates rules. Everyone else plays one character called a **Bearer**; together they form a **Party**. Characters have **no class and no level**: a Bearer is defined by their gear and Aspects, and grows by finding better ones. 
+**Bearers** is a cooperative storytelling game with an emphasis on character customization and fast-paced mechanics. One player is the **Game Master (GM)**, who describes the world, runs monsters and adjudicates rules. Everyone else plays one character called a **Bearer**; together they form a **Party**. Characters have **no level**: a Bearer is defined by a **Calling** they keep for life and by their gear and Aspects, and grows by finding better ones.
 
 ### The Rhythm of Play
 
@@ -59,11 +59,11 @@ The party advances through a **story**, one quest at a time. Play runs at three 
 
 ### 2.1 The Bearers
 
-Your character is a **Bearer**. A few humanoids carry a gift, a blessing or a curse depending on who you ask: they can **absorb the Aspects** (Traits, Techniques, Knacks, and Divine, Glamour and Nature magic) and the **Core** of other beings. An Aspect has no body of its own. When a creature is defeated, its Aspects linger over the body for a minute, then fade. A Bearer can catch one in a **Shard**: a bulky crystal vessel that holds one Aspect until it is absorbed. Bearers grow by gathering two kinds of resources, each occupying their own **Slots**:
+Your character is a **Bearer**. A few humanoids carry a gift, a blessing or a curse depending on who you ask: they can **absorb the Aspects** (Traits, Techniques, Knacks, and Divine, Glamour and Nature magic) of other beings. An Aspect has no body of its own. When a creature is defeated, its Aspects linger over the body for a minute, then fade. A Bearer can catch one in a **Shard**: a bulky crystal vessel that holds one Aspect until it is absorbed. Bearers grow by gathering two kinds of resources, each occupying their own **Slots**:
 
 - **Gear:** real objects of two kinds. **Equipment** is what you wear or wield (armor, weapons, shields, Instruments, Jewelry); **items** are what you carry and use (Spellbooks, Recipes, Consumables, Purses, Shards). Gear is equipped in **Armor, Hand, Jewelry and Item Slots**, together called **Gear Slots**.
 - **Aspects:** are absorbed in your **Aspect Slots**. The number of a Bearer's absorbed Aspects is limited by the number of Aspects slots it has. This number grows each time the party completes a story (milestones, 4.1). A Shard's Aspect is absorbed while you sleep, during a long rest (3.5). Empty Shards are precious: without one, a lingering Aspect is lost (3.8).
-- **The Core** is your body: it sets your abilities, Hit Points and Speed. It is neither an Aspect nor gear, and it takes no Slot. You always have exactly one.
+- **The Calling** is who you are: the two abilities you were born to, your base Hit Points and Speed, and a perk. It is neither an Aspect nor gear, takes no Slot, and stays with you for life. Every piece of gear and every Aspect shows which Callings can equip it (3.1).
 
 Your look and personality stay the same, whatever Aspects you have equipped. Only a Form (10.7) changes your shape, for a while.
 
@@ -89,17 +89,32 @@ Every creature has **four abilities**, each written as a **modifier** (typically
   - **Weapon attacks**, melee or ranged, target the defender's **higher** of STR and DEX Defense.
   - **Other effects** name the Defense they target. *A cannon shot targets DEX Defense only: plate doesn't help.*
 
-### 2.4 The Core
+### 2.4 The Calling
 
-The Core is your body. It is neither an Aspect nor gear. You always have exactly one, and it changes only at a long rest.
+Your **Calling** is the pair of abilities you were born to. It sets your base numbers and decides which gear and Aspects answer to you. It is neither an Aspect nor gear and takes no Slot. You choose it when you create your character and keep it for life; only a rare Rank V Aspect changes it.
 
-A Core lists: **STR, DEX, INT, WIL modifiers · Hit Points · Speed · Size** (and sometimes a special effect).
+A Calling gives **+2 to its two abilities** and +0 to the other two, a **Hit Point** maximum, a **Speed** and a **perk**. Each pair of abilities has two Callings: same abilities, another perk. Every Bearer is **Medium**; only Rank V gear and Aspects change that.
 
-At the table, your Core is a **Core card**, and you write your ten totals on a **tally card** (12.3).
+| Calling | Abilities | HP | Speed | Perk |
+|---|---|---|---|---|
+| **Duelist** | STR · DEX | 12 | 35 ft | **Footwork:** once per turn, after you hit with a melee attack, move 5 ft. This movement doesn't provoke opportunity attacks. |
+| **Templar** | STR · WIL | 14 | 30 ft | **Oath (1/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead. |
+| **Spellblade** | STR · INT | 13 | 30 ft | **Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook. |
+| **Infiltrator** | DEX · INT | 10 | 35 ft | **Unseen:** +2 on checks to sneak, pick locks and spot traps. |
+| **Performer** | DEX · WIL | 10 | 35 ft | **Crowd Work (1/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +2 to that roll. |
+| **Sage** | INT · WIL | 9 | 30 ft | **Learned:** 1 extra spell point on a Spellbook you hold. +2 on checks to recall lore. |
+| **Brawler** | STR · DEX | 14 | 30 ft | **Scrapper:** +2 to hit with Grapples and Shoves. |
+| **Zealot** | STR · WIL | 12 | 35 ft | **Righteous Fury (1/S.R.):** when you hit with a weapon attack: +1d6 Radiant damage. |
+| **Tactician** | STR · INT | 12 | 30 ft | **Command (1/S.R.):** action. An ally within 30 ft who can hear you uses its reaction to make one weapon attack. |
+| **Ranger** | DEX · INT | 11 | 35 ft | **Quarry (1/S.R.):** when you hit with a ranged attack: +2 on your attacks against that target until the end of your next turn. |
+| **Trickster** | DEX · WIL | 9 | 35 ft | **Feint (1/S.R.):** reaction, when an attack hits you: −2 to that attack roll, possibly turning it into a miss. |
+| **Hermit** | INT · WIL | 11 | 30 ft | **Solitude:** 1 extra Resolve on a Divine, Glamour or Nature deck you have. +2 on checks to forage and endure. |
 
-**Player Cores are Small, Medium or Large**; only Rank V gear and Aspects change that. Other Cores drop as loot: Rank I species Cores (a human, an elf, an orc) trade a little power for a body perk such as darkvision, and better Cores (Rank II–IV) bring higher modifiers, more HP and special effects. The starting Cores are in 13.1.
+Your other numbers grow through your cards: **Armor** and **Traits** print most of the HP you gain, and gear and Aspects raise your modifiers and Defenses.
 
-<!-- figure: core -->
+At the table, your Calling is a **Calling card**, and you write your ten totals on a **tally card** (12.3).
+
+<!-- figure: calling -->
 
 ## 3. Gear, Aspects & Slots
 
@@ -111,10 +126,11 @@ Every piece of gear and every Aspect (a **card** at the table, 12.1) has:
 
 - **A name** (*Warden's Plate*).
 - **A Rank** from I to V: its power (*II*).
+- **Symbols:** the four ability symbols, in the top corner. The abilities it uses are lit; the others are greyed out (*STR*). You can equip it only if **your Calling has at least one of its lit symbols**. Jewelry, Consumables, Recipes, Purses and Shards have all four lit: anyone can use them.
 - **Bonuses** to modifiers, Defenses, HP maximum or Speed (*+4 STR Defense, −10 Speed*).
 - **An effect**, if any (*Reaction (1/S.R.), when an attack hits you: reduce its damage by 5*). A power with limited uses shows them on itself: **S.R.** means they come back on a short rest (or a long rest), **L.R.** only on a long rest.
-- **Keywords:** the **type** first (it sets the Slot, 3.2), then properties and requirement (*Armor · Noisy 3 · Req STR +2*). See Chapter 11.
-- **Requirement** (*Req STR +2*): to equip it, your modifier must be at least that number, counting bonuses from your Core, gear and Aspects, but not its own or any penalty. Fall short later and it stops working until you meet it again.
+- **Keywords:** the **type** first (it sets the Slot, 3.2), then properties (*Armor · Noisy 3*). See Chapter 11.
+- A card whose symbols your Calling no longer matches (a Rank V Aspect changed it) **stops working** until you swap it out.
 
 <!-- figure: card -->
 
@@ -151,74 +167,78 @@ Defeating a Boss may grant one character an **extra Gear Slot** for good. The pa
 
 ### 3.4 Samples
 
-Each sample shows the name and Rank, the bonuses (if any), the effect, then the keywords in italics.
+Each sample shows the name, Rank and lit symbols (*all* when all four are), the bonuses (if any), the effect, then the keywords in italics.
 
-> **CONJURER'S BOOK** · Rank I
+> **CONJURER'S BOOK** · Rank I · INT
 > Spell attack: INT + 2 · Spell points: 4 · Max spell level: 2nd
 > Spells: *Fire Bolt, Mage Hand* (cantrips) · *Magic Missile, Shield, Grease* (1st) · *Misty Step, Web* (2nd)
 > *Spellbook*
 
-> **PLATE** · Rank II
-> Bonuses: +4 STR Defense · −10 Speed
-> *Armor · Noisy 3 · Req STR +2*
+> **PLATE** · Rank II · STR
+> Bonuses: +4 STR Defense · +12 HP · −10 Speed
+> *Armor · Noisy 3*
 
-> **FINESSE BLADE** · Rank I
-> +2 to hit, 1d6 + STR or DEX Physical. **Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn.
-> *Weapon · Finesse*
+> **FINESSE BLADE** · Rank I · DEX · WIL
+> +2 to hit, 1d6 + DEX or WIL Physical. **Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn.
+> *Weapon*
 
-> **RING OF WARDING** · Rank I
+> **RING OF WARDING** · Rank I · all
 > **Reaction (2/S.R.)**, when an attack hits you: +2 to the targeted Defense against that attack, possibly turning it into a miss.
 > *Jewelry*
 
-> **ALCHEMIST'S FIRE RECIPE** · Rank II
+> **ALCHEMIST'S FIRE RECIPE** · Rank II · all
 > **Reaction:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss.
 > *Recipe · 3 flasks*
 
-> **SPRINGHEEL** · Rank I
+> **SPRINGHEEL** · Rank I · STR · DEX
+> Bonuses: +2 HP
 > Your jump distances are doubled, and you never need a running start.
 > *Trait*
 
-> **TWIN STRIKE** · Rank II
+> **TWIN STRIKE** · Rank II · STR · DEX
 > Once per turn, when you take the Attack action, make one extra attack.
 > *Technique*
 
-> **SECOND WIND** · Rank II
+> **SECOND WIND** · Rank II · STR · WIL
+> Bonuses: +4 HP
 > **Action (1/S.R.):** regain 1d10 + 3 HP.
 > *Trait*
 
-> **BATTLE HYMN** · Rank I
+> **BATTLE HYMN** · Rank I · DEX · WIL
 > **2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 on their next attack before the end of your next turn.
 > *Technique*
 
-> **SPELLGUARD STAFF** · Rank I
-> +2 to hit, 1d8 / 1d10 + STR Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.
+> **SPELLGUARD STAFF** · Rank I · STR · INT
+> +2 to hit, 1d8 / 1d10 + STR or INT Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.
 > *Weapon · Versatile (1d10)*
 
-> **STONE BLOOD** · Rank I
-> +2 STR Defense against poison.
+> **STONE BLOOD** · Rank I · STR · INT
+> Bonuses: +1 STR Defense · +2 HP
+> +2 STR Defense against poison and disease.
 > *Trait*
 
-> **IRON WILL** · Rank I
+> **IRON WILL** · Rank I · STR · WIL
+> Bonuses: +2 HP
 > +2 WIL Defense against fear and mind control.
 > *Trait*
 
-> **CAT BURGLAR** · Rank I
+> **CAT BURGLAR** · Rank I · DEX · INT
 > +2 on checks to sneak, climb or pick locks.
 > *Knack*
 
-> **WRIT OF FAVOR** · Rank I
+> **WRIT OF FAVOR** · Rank I · all
 > A sealed letter from a noble house, a guild or a temple. Show it to one of its members: they grant one reasonable request (shelter, an audience, safe passage, a loan up to 100 gp).
 > *Consumable*
 
-> **GUILD SIGNET** · Rank I
+> **GUILD SIGNET** · Rank I · all
 > **Action (1/L.R.)**, in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night.
 > *Jewelry*
 
-> **RENOWNED** · Rank I
-> Choose a city, guild or order when you gain this. +2 on WIL checks with its people.
+> **RENOWNED** · Rank I · INT · WIL
+> +2 on checks to persuade, haggle, gather rumors or perform.
 > *Knack*
 
-> **WANDERER'S REPERTOIRE** · Rank I
+> **WANDERER'S REPERTOIRE** · Rank I · WIL
 > Attack: WIL + 2 · Resolve: 3 + WIL (short rest)
 > Powers: *Jeer* (0) · *Rally*, *Hold the Line*, *Cutting Words*, *Steady Now* (1) · *Dread*, *Rousing Verse* (2)
 > - *Jeer* (Dirge, 0): until the end of the target's next turn, it has −2 on its next attack.
@@ -230,7 +250,7 @@ Each sample shows the name and Rank, the bonuses (if any), the effect, then the 
 > - *Rousing Verse* (Mend, 2): action, 60 ft. A creature regains 2d4 + WIL HP.
 > *Glamour*
 
-> **ACOLYTE'S LITANY** · Rank I
+> **ACOLYTE'S LITANY** · Rank I · WIL
 > Attack: WIL + 2 · Resolve: 3 + WIL (short rest)
 > Powers: *Guidance* (0) · *Bless*, *Bane*, *Twist Fate* (1) · *Healing Word*, *Cure Wounds* (2)
 > - *Guidance* (Cue, 0): add 1d4 to an ally's check.
@@ -241,7 +261,7 @@ Each sample shows the name and Rank, the bonuses (if any), the effect, then the 
 > - *Cure Wounds* (Mend, 2): action, touch. A creature regains 2d8 + WIL HP.
 > *Divine*
 
-> **WILDHEART'S REMEMBRANCE** · Rank I
+> **WILDHEART'S REMEMBRANCE** · Rank I · WIL
 > Resolve: 3 + WIL (short rest)
 > Powers: *Hawk* (1) · *Wolf*, *Mossbalm* (2) · *Bear* (3)
 > - *Hawk* (Form, 1): STR −2 · DEX +3 · 4 HP · Speed 10 ft, Fly 60 ft · Tiny. Talons: +2 to hit, 1d4 + DEX Physical. +2 on checks to notice.
@@ -250,17 +270,17 @@ Each sample shows the name and Rank, the bonuses (if any), the effect, then the 
 > - *Bear* (Form, 3): STR +3 · DEX +1 · 12 HP · Speed 30 ft, Climb 30 ft · Large. Hide: +2 STR Defense. Claws: +2 to hit, 1d8 + STR Physical.
 > *Nature*
 
-> **TRAVELER'S LUTE** · Rank I
+> **TRAVELER'S LUTE** · Rank I · DEX · WIL
 > 1 extra Resolve (short rest). Your Anthems reach 60 ft instead of 30 ft.
 > *Instrument · Focus*
 
-> **RALLYING CRY** · Rank I
+> **RALLYING CRY** · Rank I · STR · WIL
 > *Rally* as a loose Anthem. **Action (1/S.R.):** Duration 1 minute, up to 3 allies within 30 ft have +2 on attacks.
 > *Technique · Anthem*
 
 ### 3.5 Equipping and Swapping
 
-Each Slot has its own swap time. A swap moves one piece of gear between a Slot and your Pack, the Party Stash or the ground. An Aspect moves between its Slot and a Shard (3.8); so does a Core.
+Each Slot has its own swap time. A swap moves one piece of gear between a Slot and your Pack, the Party Stash or the ground. An Aspect moves between its Slot and a Shard (3.8).
 
 | Slot | Swap time | In combat |
 |---|---|---|
@@ -273,7 +293,6 @@ Each Slot has its own swap time. A swap moves one piece of gear between a Slot a
 
 - **Pack in combat:** taking gear (a Shard included) out of your Pack (or putting it away) costs **both your actions**, **plus** the Slot's swap time. The Party Stash can't be reached in combat.
 - **Out of combat**, the Pack and the Party Stash cost nothing to reach (the Party Stash only where it is, 3.7). The Slot's swap time still applies.
-- **The Core changes only at a long rest.** A captured Core waits in its Shard until then. When you change Core, your HP becomes the new Core's maximum.
 - **Expended gear and Aspects are locked:** anything with uses or spell points spent can be swapped out **only at a long rest**.
 - Gear and Aspects keep their state in the Pack, the Party Stash and Shards: new loot is fully charged.
 
@@ -308,13 +327,13 @@ Each Slot has its own swap time. A swap moves one piece of gear between a Slot a
 
 ### 3.8 Shards
 
-A **Shard** is an item that holds **one Aspect or Core**, or nothing. It never sits in a Slot: it stays in your Pack or the Party Stash. At the table, a Shard is a **Shard frame**, with the Aspect's or Core's card tucked into it (12.2).
+A **Shard** is an item that holds **one Aspect**, or nothing. It never sits in a Slot: it stays in your Pack or the Party Stash. At the table, a Shard is a **Shard frame**, with the Aspect's card tucked into it (12.2).
 
 - **Start:** each character has **3 empty Shards**; the Party Stash starts with **2 empty Shards per character**.
 - **Bulky:** you carry **at most 3 Shards** in your Pack. Some Jewelry raises this (*Shard Bandolier*). The rest wait in the Party Stash.
-- **Lingering:** when a creature is defeated, each of its Aspects and its Core linger over the body for **1 minute**, then fade for good.
-- **Capture (1 action):** within 5 ft of the body, pour one lingering Aspect or Core into an empty Shard you carry. The Pack cost (3.5) doesn't apply.
-- **Absorb (long rest):** move a Shard's Aspect into an Aspect Slot (a Core replaces your current one). The Shard is now empty.
+- **Lingering:** when a creature is defeated, each of its Aspects lingers over the body for **1 minute**, then fades for good.
+- **Capture (1 action):** within 5 ft of the body, pour one lingering Aspect into an empty Shard you carry. The Pack cost (3.5) doesn't apply. You can capture an Aspect your Calling can't equip: trade it, sell it or keep it for an ally.
+- **Absorb (long rest):** move a Shard's Aspect into an Aspect Slot. The Shard is now empty.
 - **Swap:** the Aspect you take out goes into the Shard the new one came from; no other Shard needed. To take an Aspect out **without** replacing it, you need an empty Shard, or the Aspect is released.
 - **Release (free, any time):** empty a Shard. Its Aspect is gone for good.
 - **Trade:** a Shard is handed over whole, like any gear: give it, sell it, leave it in the Stash.
@@ -328,7 +347,7 @@ A **Shard** is an item that holds **one Aspect or Core**, or nothing. It never s
 
 ## 4. Progression
 
-You grow stronger mostly through **better gear and Aspects** and a **better Core**, and a little through **more Slots**.
+You grow stronger mostly through **better gear and Aspects**, and a little through **more Slots**. Your Calling stays the same.
 
 ### 4.1 Milestones
 
@@ -336,12 +355,12 @@ A milestone grants **one new Aspect Slot** (up to 8). Every character gains one 
 
 ### 4.2 Other Ways to Grow
 
-- **Harder trials pay more:** tougher enemies, guarded treasure and high-stakes deals carry better gear, Aspects and Cores. Talking, sneaking or tricking your way through pays too: a reward, a favor, a gift.
+- **Harder trials pay more:** tougher enemies, guarded treasure and high-stakes deals carry better gear and Aspects. Talking, sneaking or tricking your way through pays too: a reward, a favor, a gift.
 - **Extra Gear Slots:** granted by Bosses (3.3).
 
 ### 4.3 The Endgame
 
-**Rank IV** gear and Aspects start to bend the rules. **Rank V** ones break them: rare Boss treasures that change how the game plays for you or your party. Hunting them is the endgame.
+**Rank IV** gear and Aspects start to bend the rules. **Rank V** ones break them: rare Boss treasures that change how the game plays for you or your party. A few even **change your Calling** for good when absorbed, and are used up. Hunting them is the endgame.
 
 ---
 
@@ -505,8 +524,7 @@ An Incapacitated creature counts for neither side. If your side has more, your a
 
 1. **Choose a target** within range.
 2. **Roll:** d20 + ability modifier + the weapon's **to-hit** bonus + other bonuses.
-  - Melee: STR (or DEX for Finesse weapons).
-  - Ranged: DEX (thrown weapons use the modifier of their melee use).
+  - Weapon: the ability it names; when it names two (*STR or WIL*), use your higher one.
   - Spell attack: INT + the book's Spell attack bonus.
 3. **Hit** if the total ≥ the target's Defense: the higher of STR and DEX Defense for weapons, the named Defense for other effects. **Natural 20: always hits and is a critical hit. Natural 1: always misses.**
 4. **Damage:** weapon die + the same ability modifier you used to attack.
@@ -554,7 +572,7 @@ A foe with the **Leader** keyword leads its group. When a Leader falls, and agai
 
 ### 7.1 Hit Points
 
-Your **HP maximum** comes from your Core (and some gear and Aspects). Damage lowers your current HP. Healing raises it, up to your maximum.
+Your **HP maximum** comes from your Calling, plus the HP your Armor, Traits and other cards print. Damage lowers your current HP. Healing raises it, up to your maximum.
 
 ### 7.2 Damage Types
 
@@ -581,6 +599,7 @@ Your **HP maximum** comes from your Core (and some gear and Aspects). Damage low
 
 - **Instant death:** if damage brings you to 0 HP and the **remaining damage ≥ your HP maximum**, you die.
 - Otherwise you fall **Unconscious** and start making death saves.
+- **Each time you fall to 0 HP, you take a Wound** (7.6).
 
 **Death saves:** at the start of each of your turns at 0 HP, roll a d20 (no modifiers).
 
@@ -593,15 +612,26 @@ Your **HP maximum** comes from your Core (and some gear and Aspects). Damage low
 
 ### 7.5 Resting
 
-|  | Short Rest | Long Rest |
-|---|---|---|
-| **Duration** | 1 hour of light activity | 8 hours (at least 6 asleep) |
-| **Limit** | 2 per long rest | 1 per 24 hours |
-| **HP** | Regain **half your missing HP** (rounded up) | Regain **all** HP |
-| **Uses** | "Short rest" uses and Resolve recharge | **All** uses, Resolve and spell points recharge |
-| **Other** | Don or doff Armor | Swap Aspects and Core, remove 1 Exhaustion |
+|  | Short Rest | Long Rest | Downtime |
+|---|---|---|---|
+| **Duration** | 1 hour of light activity | 8 hours (at least 6 asleep) | **3 days** in a safe place: a town, a temple, a guarded camp |
+| **Limit** | 2 per long rest | 1 per 24 hours | None |
+| **HP** | Regain **half your missing HP** (rounded up) | Regain **all** HP | Regain **all** HP |
+| **Uses** | "Short rest" uses and Resolve recharge | **All** uses, Resolve and spell points recharge | As a long rest |
+| **Other** | Don or doff Armor | Swap Aspects | Everything a long rest does, and **heal all your Wounds** (7.6) |
 
-A long rest is interrupted by 1 hour of fighting, walking or other strenuous activity. An interrupted rest gives no benefit. You need at least 1 HP to benefit from a long rest.
+A long rest is interrupted by 1 hour of fighting, walking or other strenuous activity. An interrupted rest gives no benefit. You need at least 1 HP to benefit from a long rest. A downtime is broken by any adventure: a fight, a journey, a dungeon.
+
+### 7.6 Wounds
+
+A **Wound** is a lasting injury. You take one each time you fall to 0 HP, and some hazards cause them too. Draw it at random from the party's Wounds.
+
+- **Penalty Wounds** print a penalty (*−10 Speed*, *−2 on melee attacks*). It counts like any bonus until the Wound heals.
+- **Crippling Wounds** each block one **Gear Slot** of the kind they name (Hand, Jewelry or Item). Its gear goes to your Pack (to the ground if the Pack is full), and the Slot holds nothing until the Wound heals. If every Slot of that kind is already blocked, put the Wound back and draw another.
+- **Wounds stack, with no maximum.** Each one stays until it heals. Too many, and you're no longer much use to the party: watch your HP.
+- **Healing:** a **downtime** (7.5) heals all your Wounds. Rests, Mends and potions don't. A few rare treasures heal one.
+
+At the table, Wounds are a deck of cards (12.3).
 
 ---
 
@@ -623,14 +653,6 @@ Conditions don't stack with themselves. Each lasts until its source ends it or i
 | **Stunned** | Incapacitated, speed 0. Attacks against you have advantage. *Also covers paralysis. Petrified = Stunned + resistance to all damage + turned to stone.* |
 | **Unconscious** | Stunned and Prone. You drop what you're holding and are unaware of your surroundings. **Any hit from within 5 ft is a critical hit.** |
 
-### Exhaustion
-
-Exhaustion has **levels 1–6** and stacks.
-
-- Each level: **−2 to all d20 tests** and **−5 ft speed**.
-- **Level 6:** you die.
-- A **long rest** removes 1 level.
-
 ### Subdue
 
 An effect with the **Subdue** keyword takes a creature out of the fight. It names the state it inflicts: **Incapacitated, Stunned, Unconscious, Charmed, banished, polymorphed or Petrified** (*Subdue · Stunned*). Every other effect lasts as long as it says (a Duration, a number of turns, while in its area) after one attack roll.
@@ -645,42 +667,42 @@ An effect with the **Subdue** keyword takes a creature out of the fight. It name
 
 ## 9. Equipment
 
-Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR Physical*. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
+Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or WIL Physical*. It uses the abilities of its lit symbols. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
 
 ### 9.1 Armor and Defense
 
-| Armor (gear) | Rank | Bonus | Requirement / Notes |
-|---|---|---|---|
-| **None** (empty Armor Slot) | — | — | +10 ft speed. |
-| **Leather** | I | +2 STR Defense, +1 DEX Defense | +5 ft speed. |
-| **Mail** | I | +3 STR Defense | STR +1 |
-| **Plate** | II | +4 STR Defense | STR +2. −10 ft speed. Noisy 3. |
-| **Shield** | I | +2 STR and DEX Defense | Takes one Hand Slot. |
+| Armor (gear) | Rank | Symbols | Bonus | Notes |
+|---|---|---|---|---|
+| **None** (empty Armor Slot) | — | — | — | +10 ft speed. |
+| **Leather** | I | all | +2 STR Defense, +1 DEX Defense, +2 HP | +5 ft speed. |
+| **Mail** | I | STR · DEX | +3 STR Defense, +4 HP | |
+| **Plate** | II | STR | +4 STR Defense, +12 HP | −10 ft speed. Noisy 3. |
+| **Shield** | I | STR · WIL | +2 STR and DEX Defense | Takes one Hand Slot. |
 
-Armor adds mostly to **STR Defense**. Weapons target your higher of STR and DEX Defense (2.3), so armor protects you when STR Defense is your best.
+Heavier armor gives more **HP** and slows you down. Armor adds mostly to **STR Defense**. Weapons target your higher of STR and DEX Defense (2.3), so armor protects you when STR Defense is your best.
 
 ### 9.2 Weapons
 
 Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" can be a longsword, a battleaxe or a spear.
 
-| Weapon (gear) | To hit | Damage | Properties |
-|---|---|---|---|
-| **Dagger** (dagger, knife) | +4 | 1d4 | Finesse, Light, Thrown (20/60) |
-| **Short Blade** (shortsword, sickle) | +3 | 1d4 | Finesse, Light |
-| **Light Weapon** (handaxe, club, light hammer) | +2 | 1d6 | Light, Thrown (20/60) |
-| **Finesse Blade** (rapier, scimitar) | +2 | 1d6 | Finesse |
-| **Versatile Weapon** (longsword, battleaxe, spear, staff) | +2 | 1d8 / 1d10 | Versatile |
-| **Heavy Weapon** (greatsword, greataxe, maul) | +2 | 2d6 | Heavy, Two-Handed |
-| **Polearm** (glaive, halberd, pike) | +2 | 1d10 | Heavy, Reach, Two-Handed |
-| **Whip** | +2 | 1d4 | Finesse, Reach |
-| **Javelins** | +2 | 1d6 | Thrown (30/120) |
-| **Sling** / **Hand Crossbow** | +2 | 1d6 | Light, Range (30/120) |
-| **Bow** (short or long) | +2 | 1d8 | Range (150/600), Two-Handed |
-| **Crossbow** (heavy) | +2 | 1d10 | Heavy, Loading, Range (100/400), Two-Handed |
+| Weapon (gear) | Usual symbols | To hit | Damage | Properties |
+|---|---|---|---|---|
+| **Dagger** (dagger, knife) | DEX · INT | +4 | 1d4 | Light, Thrown (20/60) |
+| **Short Blade** (shortsword, sickle) | STR · DEX | +3 | 1d4 | Light |
+| **Light Weapon** (handaxe, club, light hammer) | STR · DEX | +2 | 1d6 | Light, Thrown (20/60) |
+| **Finesse Blade** (rapier, scimitar) | DEX · WIL | +2 | 1d6 | — |
+| **Versatile Weapon** (longsword, battleaxe, spear, staff) | STR + one | +2 | 1d8 / 1d10 | Versatile |
+| **Heavy Weapon** (greatsword, greataxe, maul) | STR | +2 | 2d6 | Heavy, Two-Handed |
+| **Polearm** (glaive, halberd, pike) | STR | +2 | 1d10 | Heavy, Reach, Two-Handed |
+| **Whip** | DEX · WIL | +2 | 1d4 | Reach |
+| **Javelins** | STR · DEX | +2 | 1d6 | Thrown (30/120) |
+| **Sling** / **Hand Crossbow** | DEX · WIL | +2 | 1d6 | Light, Range (30/120) |
+| **Bow** (short or long) | DEX + one | +2 | 1d8 | Range (150/600), Two-Handed |
+| **Crossbow** (heavy) | DEX | +2 | 1d10 | Heavy, Loading, Range (100/400), Two-Handed |
 
-Damage adds the modifier you attack with: STR, DEX for Range weapons, STR or DEX for Finesse ones. Higher-Rank weapons are cards with their own name (*Damascus Sword*, *Katana*), a bigger to-hit bonus and often a special effect. All weapon damage is **Physical** unless the weapon says otherwise.
+A weapon attacks with the abilities of its lit symbols: your higher one when it has two. Damage adds the same modifier. Higher-Rank weapons are cards with their own name (*Damascus Sword*, *Katana*), a bigger to-hit bonus and often a special effect. All weapon damage is **Physical** unless the weapon says otherwise.
 
-**Properties** are keywords (Chapter 11): Aquatic, Finesse, Heavy, Light, Loading, Range, Reach, Thrown, Two-Handed, Versatile.
+**Properties** are keywords (Chapter 11): Aquatic, Heavy, Light, Loading, Range, Reach, Thrown, Two-Handed, Versatile.
 
 ---
 
@@ -765,8 +787,8 @@ Three kinds of magic draw on **WIL** instead of a book. Each is an **Aspect type
 | **Form** | Action | You shift into a beast (10.7). |
 
 ### 10.7 Forms
-A Remembrance holds **Forms**: beasts your body remembers. A Form is printed like a Core, for the body only: **STR, DEX, HP, Speed and Size**, then its movement, senses and natural weapons. Some print a natural Defense bonus (a hide, a shell). Shifting changes your shape for a while; you keep your mind and personality.
-- **Shift (action):** pay the Form's cost in Resolve and take a **fresh tally card** (12.3). Fill it with the Form's STR, DEX, HP, Speed and Size, your **Core's INT and WIL**, and your **Aspects**. Nothing else counts. Shifting from one Form into another costs the new Form's Resolve and a fresh tally card.
+A Remembrance holds **Forms**: beasts your body remembers. A Form is printed like a Calling, for the body only: **STR, DEX, HP, Speed and Size**, then its movement, senses and natural weapons. Some print a natural Defense bonus (a hide, a shell). Shifting changes your shape for a while; you keep your mind and personality.
+- **Shift (action):** pay the Form's cost in Resolve and take a **fresh tally card** (12.3). Fill it with the Form's STR, DEX, HP, Speed and Size, your **Calling's INT and WIL**, and your **Aspects**. Nothing else counts. Shifting from one Form into another costs the new Form's Resolve and a fresh tally card.
 - **Your gear merges into the Form:** none of it counts while you're shifted (Armor, Hands, Jewelry, Items, Focus). It comes back in its Slots when you revert, in the same state.
 - **Two bodies:** the Form's HP is its own pool. Damage comes off it first; your own HP (and any temporary HP you had) waits on your own tally card.
 - **Natural weapons:** attack with the Form's STR or DEX, as printed, + its to-hit bonus, against the higher of STR and DEX Defense, like a weapon. Underwater they count as unarmed.
@@ -786,7 +808,7 @@ The first keyword. It sets the Slot (3.2).
 
 | Keyword | Meaning |
 |---|---|
-| **Core** | You always have exactly one. Holds the four modifiers, HP maximum, Speed and Size. Changes only at a long rest. |
+| **Calling** | No Slot. You always have exactly one, for life: its two abilities at +2, HP, Speed and a perk (2.4). |
 | **Armor** | Armor Slot. Takes 10 minutes to don or doff. Never in the Pack. |
 | **Weapon** | Hand Slot. Attack: d20 + modifier + its printed to-hit bonus, against the higher of STR and DEX Defense. |
 | **Shield** | Hand Slot. |
@@ -803,8 +825,9 @@ The first keyword. It sets the Slot (3.2).
 | **Divine** | Aspect Slot. A Litany: prayers that alter fate and heal (10.6). Uses WIL. |
 | **Glamour** | Aspect Slot. A Repertoire: songs, poems and dances that lift allies and break enemies (10.6). Uses WIL. |
 | **Nature** | Aspect Slot. A Remembrance: Forms and healing (10.6). Uses WIL. |
+| **Wound** | No Slot: a lasting injury (7.6). A **Crippling** Wound blocks the Gear Slot it names. |
 | **Form** | Part of a Remembrance, never on its own. A beast you shift into (10.7). |
-| **Shard** | An item, never in a Slot. Holds one Aspect or Core, or nothing. Pack (3 at most) or Party Stash (3.8). |
+| **Shard** | An item, never in a Slot. Holds one Aspect, or nothing. Pack (3 at most) or Party Stash (3.8). |
 | **Purse** | Item Slot, Pack or Party Stash. Holds gold up to a maximum set by its Rank (3.7). |
 
 ### 11.2 Use and Timing
@@ -815,14 +838,12 @@ The first keyword. It sets the Slot (3.2).
 | **Reaction** | Using it takes your reaction: when the trigger in its text happens, or on your turn if it has none. |
 | **N/S.R.** | Short rest. Written on a power, not a keyword: that power has N uses. All come back on a short or long rest. |
 | **N/L.R.** | Long rest. Written on a power, not a keyword: that power has N uses. All come back on a long rest. |
-| **Req X +N** | Requirement: you need a total of at least +N in ability X (Core, gear and Aspects, not counting this one; penalties don't count) to equip it. |
 
 ### 11.3 Weapons and Armor
 
 | Keyword | Meaning |
 |---|---|
 | **Aquatic** | Works underwater, where other weapons and spells don't. |
-| **Finesse** | Use STR or DEX for attack and damage. |
 | **Heavy** | Needs STR +1 (melee) or DEX +1 (ranged), or −3 on attacks. |
 | **Light** | Allows two-weapon fighting (6.9). |
 | **Loading** | One shot per action or reaction, even with extra attacks. |
@@ -861,7 +882,7 @@ The first keyword. It sets the Slot (3.2).
 | **Climb N** | A climb speed: climbing costs no extra movement. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
 | **Fly N** | A fly speed: you move through the air. If you're knocked Prone or Incapacitated while flying, you fall. |
-| **Tiny, Small, Medium, Large** | Size, on a Core or a Form. Cores are Small to Large; Forms Tiny to Large. Only Rank V gear and Aspects make a player bigger. |
+| **Tiny, Small, Medium, Large** | Size, on a Form or a monster. Bearers are Medium; Forms Tiny to Large. Only Rank V gear and Aspects change a Bearer's size. |
 
 ### 11.6 Monster Keywords
 
@@ -875,17 +896,17 @@ Defined in full in the Game Master's Guide.
 
 ## 12. At the Table
 
-At the table, everything a Bearer owns is a **card** laid out in front of its player: one card per Core, piece of gear, Aspect, spell and amount of gold, and one **Slot frame** per Slot and Shard. The rules never need the cards; they keep play fast. **No card is ever written on**, except one: your **tally card** (12.3).
+At the table, everything a Bearer owns is a **card** laid out in front of its player: one card for the Calling, one per piece of gear, Aspect, spell and amount of gold, and one **Slot frame** per Slot and Shard. The rules never need the cards; they keep play fast. **No card is ever written on**, except one: your **tally card** (12.3).
 
 ### 12.1 Reading a Card
 
-Every card has four parts (see the card in 3.1):
+Every card has these parts (see the card in 3.1):
 
-- **Name and Rank** across the top (*Warden's Plate*, Rank II).
+- **Name, symbols and Rank** across the top (*Warden's Plate*, STR, Rank II). The symbols are the four abilities, the ones it uses lit (3.1).
 - **Bonus strip** down the right side: one row for each of the ten numbers (3.1). The four ability modifiers (STR, DEX, INT, WIL), the four Defenses (the same symbols inside a shield), HP maximum and Speed. Most cards leave it empty. A card that raises an ability modifier also shows the same number in the matching Defense row (+1 STR and +1 STR Defense), so each row adds up on its own.
 - **Effect** in the center, if it has one.
 - **Keywords** along the bottom, type first.
-- **ID** in the bottom-left corner (*W-II-02*): its type, Rank and number, to find it in the box.
+- **ID** in the bottom-right corner (*W-II-02*): its type, Rank and number, to find it in the box.
 
 ### 12.2 Slot Frames and Your Layout
 
@@ -895,17 +916,17 @@ Each of your Slots is a **Slot frame**: a holder a little larger than a card, wi
 
 - **Framed means equipped.** Tuck a card's top-right and bottom-left corners under a frame's slits to equip it; untuck it to take it off. Every framed card is in play. Every loose card is in your Pack, the Party Stash or on the ground.
 - **Your frames are your Slots.** You start with 9: Armor, 2 Hands, Jewelry, 2 Items and 3 Aspects. The GM hands you a new Aspect frame at each milestone (4.1), and an extra Gear Slot frame when a Boss grants one (3.3). Frames never go into your Pack.
-- **Lay out** your frames so every effect and keyword reads: Armor, Hands, Jewelry, Items, Aspects. Your Core and tally card sit beside them, unframed.
+- **Lay out** your frames so every effect and keyword reads: Armor, Hands, Jewelry, Items, Aspects. Your Calling card and tally card sit beside them, unframed.
 - **One card per frame.** A Two-Handed weapon sits in one Hand frame; turn your other Hand frame face down. A stack of Consumables shares one Item frame. A deck (12.4) puts only its cover card in the frame, and its other cards wait beside it.
 - **Between sessions,** keep each frame with its card: your build stays as you left it.
 - **Pack:** a pile of loose cards beside you. **Party Stash:** a shared pile in the middle of the table, or with the GM when the party leaves it behind.
-- **Shards:** a Shard is a **Shard frame**. Tuck the Aspect's or Core's card into it the same way. An empty Shard is the frame alone. Absorbing (3.8) moves the card from its Shard frame into an Aspect frame.
+- **Shards:** a Shard is a **Shard frame**. Tuck the Aspect's card into it the same way. An empty Shard is the frame alone. Absorbing (3.8) moves the card from its Shard frame into an Aspect frame.
 - **Spent uses and spell points:** mark them with tokens on the card. A **Subdue** keeps a die beside its target to show the decay (Chapter 8).
 - **Gold:** gold cards come in **1, 10, 50, 100, 500 and 1,000 gp**. Tuck them under the Purse card that holds them, up to its maximum. A loose gold card is one bag of coins (1 piece). Pay by handing gold cards to the GM, who makes change from the bank.
 
 ### 12.3 Keeping Your Totals
 
-Your **tally card** is your **sheet**, and the only card you write on: use a pencil or a dry-erase sleeve, and start a fresh one when it's worn. Its strip lines up with every bonus strip and holds your ten **totals**: the sum of your Core and all your other cards. Beside it, it holds your **current HP**, your **temporary HP** and your **death saves** (7.4).
+Your **tally card** is your **sheet**, and the only card you write on: use a pencil or a dry-erase sleeve, and start a fresh one when it's worn. Its strip lines up with every bonus strip and holds your ten **totals**: the sum of your Calling and all your other cards. Beside it, it holds your **current HP**, your **temporary HP** and your **death saves** (7.4).
 
 <!-- figure: tally -->
 
@@ -913,43 +934,33 @@ You only touch the totals at two moments.
 
 **When you swap**, subtract the old card's strip from the total, then add the new card's. An empty Armor Slot adds +10 Speed.
 
-> **Example: Bram swaps armor.** He takes off *Mail* (+3 STR Defense) and puts on *Plate* (+4 STR Defense, −10 Speed). STR Defense: 18 − 3 + 4 = 19. Speed: 30 − 10 = 20.
+> **Example: Bram the Templar swaps armor.** He takes off *Mail* (+3 STR Defense, +4 HP) and puts on *Plate* (+4 STR Defense, +12 HP, −10 Speed). STR Defense: 17 − 3 + 4 = 18. HP maximum: 22 − 4 + 12 = 30. Speed: 30 − 10 = 20.
 
-**Adding up from scratch** (a new Core, or a new tally card): put your tally card down first, then your Core on top of it, one strip to the left. Lay each card that has something in its strip on top of the previous one, one strip to the left, at the same height, so every strip stays visible and the rows line up. Cards with an empty strip stay out. Each row now reads like a written sum, left to right, ending on the tally card, where you write the result. Framed cards stack the same way, frames and all: each card's strip sits on its frame's right edge. An empty Armor frame shows its +10 Speed in the same place.
+**Adding up from scratch** (a new character, or a new tally card): put your tally card down first, then your Calling on top of it, one strip to the left. Lay each card that has something in its strip on top of the previous one, one strip to the left, at the same height, so every strip stays visible and the rows line up. Cards with an empty strip stay out. Each row now reads like a written sum, left to right, ending on the tally card, where you write the result. Framed cards stack the same way, frames and all: each card's strip sits on its frame's right edge. An empty Armor frame shows its +10 Speed in the same place.
 
 <!-- figure: totals -->
 
-**When you shift** into a Form (10.7), fill a fresh tally card: the Form's strip, your Core's INT and WIL, then your Aspects (gear doesn't count). Put the Form's HP in its current HP box. When you revert, go back to your own tally card.
+**Wounds** (7.6) are a shared deck of cards, shuffled, beside the table. Lay a penalty Wound in your stack like any card with a strip; tuck a Crippling Wound into the Slot frame it blocks, over nothing. When a Wound heals, it goes back into the deck.
+
+**When you shift** into a Form (10.7), fill a fresh tally card: the Form's strip, your Calling's INT and WIL, then your Aspects (gear doesn't count). Put the Form's HP in its current HP box. When you revert, go back to your own tally card.
 
 **HP:** when your current HP changes, cross out the old number and write the new one.
 
 ### 12.4 Decks
 
-A Spellbook is a **deck**: a **cover card** (Rank, spell attack, spell points, max spell level) on top, then **one card per cantrip and spell**, each marked with the book's name. The deck moves as one card, and its spell cards never move to another deck. Mark spent spell points with tokens on the cover. A Litany, a Repertoire and a Remembrance are decks too: a cover card (Rank, Attack, Resolve) and one card per power or Form, marked with spent Resolve tokens. While you're shifted, lay the Form's card on your Core card, with its own tally card.
+A Spellbook is a **deck**: a **cover card** (Rank, spell attack, spell points, max spell level) on top, then **one card per cantrip and spell**, each marked with the book's name. The deck moves as one card, and its spell cards never move to another deck. Mark spent spell points with tokens on the cover. A Litany, a Repertoire and a Remembrance are decks too: a cover card (Rank, Attack, Resolve) and one card per power or Form, marked with spent Resolve tokens. While you're shifted, lay the Form's card on your Calling card, with its own tally card.
 
 ---
 
 ## 13. Building a Character
 
-### 13.1 Starting Cores
+### 13.1 Creating a Character
 
-Pick one. All starting Cores are Rank I and Medium size.
-
-| Core | STR | DEX | INT | WIL | HP | Speed |
-|---|---|---|---|---|---|---|
-| **Brute** | +3 | +1 | +0 | +0 | 14 | 30 ft |
-| **Nimble** | +0 | +3 | +1 | +0 | 11 | 35 ft |
-| **Scholar** | +0 | +1 | +3 | +0 | 9 | 30 ft |
-| **Envoy** | +0 | +1 | +0 | +3 | 10 | 30 ft |
-| **Balanced** | +2 | +1 | +1 | +0 | 12 | 30 ft |
-
-### 13.2 Creating a Character
-
-1. **Choose a Core** from the starting Cores (13.1).
-2. **Choose your gear and Aspects** from the GM's starter list (all Rank I): **1 Armor**, up to **2** for your **Hands** (weapons or a shield), **1 Jewelry** and **3 Aspects**. A caster also picks a **Spellbook** (it takes an Item Slot and needs an empty Hand Slot to cast). A Divine, Glamour or Nature Aspect is one of your 3 Aspects.
+1. **Choose a Calling** (2.4).
+2. **Choose your gear and Aspects** from the GM's starter list (all Rank I), among the cards your Calling can equip (3.1): **1 Armor**, up to **2** for your **Hands** (weapons or a shield), **1 Jewelry** and **3 Aspects**. A caster also picks a **Spellbook** (it takes an Item Slot and needs an empty Hand Slot to cast). A Divine, Glamour or Nature Aspect is one of your 3 Aspects.
 3. **Fill your Item Slots**: one *Potion of Healing* (in the free Item Slot).
 4. **Take 3 empty Shards** and a *Coin Pouch* (Purse, Rank I) holding **50 gp** (all in your Pack). The party's Stash starts with **2 empty Shards per character** (3.8).
-5. **Calculate** your ten totals (four modifiers, four Defenses, HP maximum, Speed) by adding the bonuses of your gear and Aspects to your Core's, and write them on a tally card with your current HP (12.3). Then work out your weapon and spell attack bonuses and passive Awareness (5.3).
+5. **Calculate** your ten totals (four modifiers, four Defenses, HP maximum, Speed) by adding the bonuses of your gear and Aspects to your Calling's, and write them on a tally card with your current HP (12.3). Then work out your weapon and spell attack bonuses and passive Awareness (5.3).
 6. **Describe** who you are: name, look and a bond.
 
 ---
@@ -962,7 +973,7 @@ Each game term has one meaning, in both books.
 | Term | Meaning |
 |---|---|
 | **Ability** | One of four measures every creature has: Strength (STR), Dexterity (DEX), Intelligence (INT) and Will (WIL), each written as a modifier. |
-| **Absorb** | Moving a Shard's Aspect into an Aspect Slot, or its Core into your body, during a long rest. |
+| **Absorb** | Moving a Shard's Aspect into an Aspect Slot, during a long rest. |
 | **Action** | Using it takes one of your two actions. |
 | **Advantage on damage** | Moving an advantage die left after cancelling from an attack to its damage, chosen before rolling: roll the whole damage once more per die and keep the highest total. Disadvantage always stays on the attack. |
 | **Anthem** | A Divine or Glamour power. Action: a buff for allies who hear you, for a Duration. |
@@ -972,18 +983,18 @@ Each game term has one meaning, in both books.
 | **Aspect** | A Trait, Technique, Knack, Divine, Glamour or Nature absorbed from another being. It has no body: outside a Bearer it lives in a Shard. Only Bearers can use it. |
 | **Aspect Slot** | A Slot that holds one Aspect. You start with 3 and can reach 8. |
 | **Attack roll** | A roll of d20 + modifiers against a Defense, made by whoever harms or hinders: weapons, spells, Divine, Glamour and Nature powers, traps, poisons. |
-| **Bearer** | A humanoid who can absorb the Aspects and the Core of other beings. Every player character is one. |
+| **Bearer** | A humanoid who can absorb the Aspects of other beings. Every player character is one. |
 | **Blindsight N** | Perceive everything within N ft without sight. |
 | **Boss** | A strong monster with special abilities, including a half turn during the characters' side. |
+| **Calling** | The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Aspects you can equip. It is neither an Aspect nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Zealot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
 | **Cantrip** | A spell that costs nothing. Cast at will. |
-| **Capture** | Pouring a lingering Aspect or Core into an empty Shard. |
-| **Card** | The physical component for a Core, a piece of gear, an Aspect, a spell or an amount of gold. |
-| **Card ID** | The code in a card's bottom-left corner: type letter, Rank and number (W-II-02). |
+| **Capture** | Pouring a lingering Aspect into an empty Shard. |
+| **Card** | The physical component for a Calling, a piece of gear, an Aspect, a spell or an amount of gold. |
+| **Card ID** | The code in a card's bottom-right corner: type letter, Rank and number (W-II-02). |
 | **Challenge Rating (CR)** | A monster's danger, used with its XP value to size fights. |
 | **Check** | A roll of d20 + ability modifier + bonuses against a Difficulty Class (DC). |
 | **Climb N** | A climb speed: climbing costs no extra movement. |
 | **Consumable** | An item gone once used. Up to 3 identical Consumables share one Item Slot. |
-| **Core** | Your body: four ability modifiers, HP maximum, Speed and Size. You always have exactly one. It is neither an Aspect nor gear. |
 | **Crowd question** | The third of the three questions asked before an attack: Outnumbered. One advantage die if your side has more creatures engaged around the target, one disadvantage die if its side has more. |
 | **Cue** | A Divine or Glamour power. Reaction: changes a roll after it's made, before its result. |
 | **Darkvision N** | Treat Dark as Bright within N ft. |
@@ -991,16 +1002,16 @@ Each game term has one meaning, in both books.
 | **Defense** | The number an attack must reach: 10 + an ability modifier + bonuses. Every creature has a STR, DEX, INT and WIL Defense. |
 | **Dirge** | A Divine or Glamour power. Action: an attack against WIL Defense. |
 | **Divine** | An Aspect type: WIL magic of prayer. Its deck, a **Litany**, holds a fixed list of powers that alter fate and heal, and a pool of Resolve. |
-| **Drop** | Gear, an Aspect or a Core that a trial yields as loot; to drop is to yield it. |
+| **Downtime** | 3 days of rest in a safe place: does everything a long rest does, and heals all your Wounds. |
+| **Drop** | Gear or an Aspect that a trial yields as loot; to drop is to yield it. |
 | **Duration** | A set length of time an effect lasts, printed on it. |
 | **Effective level** | The GM's estimate of a character's power, from 1 to 12, used to size fights and trial DCs. Not a character stat. |
 | **Equipment** | Gear you wear or wield: armor, weapons, shields, Instruments and Jewelry. |
 | **Extra Gear Slot** | A permanent extra Hand, Jewelry or Item Slot, granted only by defeating a Boss: Third Hand, Second Jewel or Great Backpack. |
-| **Finesse** | A weapon keyword: use STR or DEX for attack and damage. |
 | **Fly N** | A fly speed: you move through the air. If you're knocked Prone or Incapacitated while flying, you fall. |
 | **Focus** | A keyword on equipment that strengthens your Divine, Glamour or Nature Aspects: an Instrument, a holy amulet, a druid's staff. |
-| **Foe card** | The GM's card for one kind of monster: its Core, totals and powers. Cards named in italics on it can drop; plain text never does. |
-| **Form** | One beast body in a Remembrance (Nature), printed like a Core: STR, DEX, HP, Speed and Size. While you are shifted into it, it replaces your body; your mind and Aspects stay. |
+| **Foe card** | The GM's card for one kind of monster: its body, totals and powers. Cards named in italics on it can drop; plain text never does. |
+| **Form** | One beast body in a Remembrance (Nature), printed like a Calling: STR, DEX, HP, Speed and Size. While you are shifted into it, it replaces your body; your mind and Aspects stay. |
 | **Game Master (GM)** | The player who describes the world, runs monsters and adjudicates rules. |
 | **Gear** | Every real object a Bearer can equip or store: equipment and items. Anyone can use gear. |
 | **Gear Slot** | An Armor, Hand, Jewelry or Item Slot. |
@@ -1014,7 +1025,7 @@ Each game term has one meaning, in both books.
 | **Leader** | A foe keyword: the foe leads its group, and its fall calls for Morale. |
 | **Leather, Mail, Plate** | The three armors, from lightest to heaviest. |
 | **Light** | A weapon keyword: allows two-weapon fighting. |
-| **Lingering** | The state of a defeated creature's Aspects and Core for 1 minute, before they fade for good. |
+| **Lingering** | The state of a defeated creature's Aspects for 1 minute, before they fade for good. |
 | **Loading** | A weapon keyword: one shot per action or reaction, even with extra attacks. |
 | **Mend** | A Divine, Glamour or Nature power that restores HP to a creature in range, even one who can't hear you. |
 | **Milestone** | One new Aspect Slot for every character, granted when the party completes a story. |
@@ -1031,20 +1042,19 @@ Each game term has one meaning, in both books.
 | **Purse** | An item that holds your gold, up to a maximum set by its Rank. |
 | **Quest** | A goal the party takes on, a few trials long. |
 | **Range N/M** | A ranged attack. Beyond N: disadvantage. Beyond M: impossible. A single number is a spell's maximum range. |
-| **Rank** | The fixed power of a piece of gear, an Aspect or a Core, from I to V. Characters have none. |
+| **Rank** | The fixed power of a piece of gear or an Aspect, from I to V. Characters and Callings have none. |
 | **Reach** | A weapon keyword: your reach is 10 ft instead of 5 ft. |
 | **Reaction** | Using it takes your reaction: when the trigger in its text happens, or on your turn if it has none. |
 | **Recharge 5–6** | A monster power that comes back on a 5 or 6 on a d6 at the end of the monster's turn. |
 | **Recipe** | An item: a stack that refills at each long rest. Unused items vanish when it refills. |
-| **Release** | Emptying a Shard. Its Aspect or Core is gone for good. |
-| **Requirement** | A minimum ability modifier needed to equip gear or an Aspect (*Req STR +2*). |
+| **Release** | Emptying a Shard. Its Aspect is gone for good. |
 | **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
 | **Resolve** | The points a Divine, Glamour or Nature Aspect spends on its powers. Each has its own pool; extra Resolve from Traits and gear adds to one of them. It returns on a short rest. |
-| **Shard** | A bulky crystal vessel that holds one Aspect or Core, or nothing. An item, but never in a Slot. |
+| **Shard** | A bulky crystal vessel that holds one Aspect, or nothing. An item, but never in a Slot. |
 | **Shield** | The type of held gear that raises your Defenses; it fits a Hand Slot. |
 | **Shift** | To take on a Form from your Remembrance; to revert is to return to your own body. Being polymorphed is never shifting. |
-| **Size** | Tiny, Small, Medium or Large, printed on a Core or a Form. |
+| **Size** | Tiny, Small, Medium or Large, printed on a Form or a foe card. Bearers are Medium. |
 | **Slot** | A space that holds one piece of gear or one Aspect of the matching type: Armor, Hand, Jewelry, Item or Aspect. |
 | **Slot frame** | The table component for one Slot: a holder with two corner slits that a card tucks into. A framed card is equipped. A Shard is a Shard frame. |
 | **Spell** | One card of a Spellbook, never on its own. Its level is its cost in spell points. |
@@ -1054,6 +1064,7 @@ Each game term has one meaning, in both books.
 | **Subdue** | The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
+| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities of its symbols. |
 | **Tally card** | The one card you write on: your ten totals, current and temporary HP, and death saves. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |
@@ -1070,6 +1081,7 @@ Each game term has one meaning, in both books.
 | **Versatile** | A weapon keyword: uses the bigger damage die when held in two hands. |
 | **Vulnerable (type)** | Take double damage of that type. |
 | **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage (*+2 to hit, 1d8 + STR Physical*). |
+| **Wound** | A lasting injury, drawn at random each time you fall to 0 HP. It stays until a downtime heals it. A Crippling Wound blocks a Gear Slot. |
 | **You question** | The first of the three questions asked before an attack: your position and conditions (unseen; long range, can't see the target, Prone…). One die at most. The only question asked on checks, saves and area rolls. |
 
 <!-- glossary:end -->

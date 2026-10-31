@@ -40,7 +40,7 @@ Every prompt is built as: **subject**, then **style list**, then **reference lin
   The multi-figure sketch sheet (`REF` in `gen_art.py`) gives the style without a subject to copy.
 - **Say "copy only the ink style of the reference, not its subjects or labels"**, or the sheet's name banners
   and extra creatures creep in.
-- **References must be web links.** Eachlabs has no upload feature; a local file is sent inline, which may be refused.
+- **References:** Model Studio takes local files inline. On Eachlabs they must be web links (no upload; inline may be refused).
 
 ## Writing a subject
 
@@ -53,6 +53,11 @@ Every prompt is built as: **subject**, then **style list**, then **reference lin
   - "Grips a club whose end drags behind" gave a club gripped partway along, with a mystery stub above the fist.
   - "Holding the club by its thin end, the thick end resting on the ground beside its foot, the whole club in clear view"
     gave a club that makes sense.
+- **Be specific about the character, simple about the pose.** Give the pose one clear action and a familiar stance,
+  and keep the limbs in view. Poses like "at attention", "slouching", "kneeling" and "standing firm, feet apart" came out
+  clean every time. Crowded poses broke: "crouched behind a shield, sword thrust over the rim, javelin leaning on it"
+  lost a leg behind the shield and gave an odd grip. The same legionary as "standing firm on both legs, shield on its
+  left arm, short sword in its right hand" came out right first time.
 - **Simple, readable outlines.** Weapons hanging down, resting on a shoulder or held out to the side read better
   than ones angled behind the body. Hidden parts are where the model invents nonsense.
 - **Details come through reliably; expressions and camera angles less so.** Two heads, drool, flies and javelins always appeared.
@@ -63,6 +68,17 @@ Every prompt is built as: **subject**, then **style list**, then **reference lin
   yellow or gold, and the rat got a pink nose, despite "colour" being on the avoid list.
   Use "stained", "metal" or "dull" instead. Even neutral words can leak a little: "twine" and "sweat stains" gave faint
   brown touches on the bandit.
+- **An undescribed face comes out handsome.** "Grizzled" and "a crooked smirk" still gave a pretty-boy mercenary.
+  Name two or three physical irregularities: face shape (weak chin, lantern jaw, long narrow face), features (bulbous nose,
+  jug ears, eyes too close), wear (pockmarks, missing teeth, a scar pulling the lip), asymmetry (one ear torn off).
+  For young characters, show youth through awkwardness (acne scars, a big Adam's apple, a cowlick), not "young".
+  `AVOID` also lists "handsome, pretty, idealised face, model looks, smooth skin".
+- **Figures of speech are drawn literally.** "A sharp fox face" gave a fox's head, "beak-nosed" and "a beak of a nose" a
+  bird's beak, "scooped by a fingertip" a finger with no hand, "a long horse face" a horse's head, "a black eye" an eye drawn solid black and "squinting along an arrow" an arrow pointing into the eye. Describe the shape instead: "a long thin pointed nose".
+- **Raised fingers read as gestures.** Two splinted fingers held up came out as a rude gesture; show an injured hand
+  held flat, palm out.
+- **Mostly white, even in the dark.** "Standing in darkness drawn as dense hatching" and "a long black coat" gave large
+  solid black areas that break the style; give darkness as a few strokes at the edges.
 - **Masks are a great source of variety.** "A cracked mask carved from an animal skull, tied on with twine" and
   "a stitched burlap sack mask with ragged eye holes" both read instantly.
 - **To show an item without anyone holding it, say where it is and what it's doing:**
@@ -94,7 +110,8 @@ It was made from square 2048 × 2048 images, the same reference and an icon vers
   `--force` is needed to replace an existing drawing.
   Bandit, Bandit Archer and Ogre began as supplied drawings; test against them under another name (`"Ogre Test"`).
 - **Every drawing is saved in greyscale** (Pillow, in `.venv`), because the models slip in faint colour now and then.
-- `rules/art/sources.json` records each drawing's Eachlabs web link, which a redo uses as its reference.
+- `rules/art/sources.json` records each Eachlabs drawing's web link, which an Eachlabs redo uses as its reference.
+  Model Studio links expire after 24 hours, so a Model Studio redo sends the drawing file itself.
 - Results vary from run to run. When hands or weapons matter, `--count 2` or `--count 3` and pick the best.
 
 ## Redoing a drawing
@@ -142,12 +159,22 @@ and drawings are saved in `rules/art/items/`.
 
 ## Running it
 
-- **Key:** `EACHLABS_API_KEY` in the git-ignored `.env`.
+- **Key:** `EACHLABS_API_KEY` in the git-ignored `.env`. `--model qwen-ms` uses Qwen Image 3.0 on Alibaba Model Studio
+  instead (`DASHSCOPE_API_KEY`, and `MODELSTUDIO_URL` for another workspace than `MS_API`), but in October 2026 the account
+  got "AccessDenied.Unpurchased" for both `qwen-image-3.0` and `-pro` until the model was activated in the console.
+  `qwen-image-3.0` then drew the ogre test as well as Eachlabs' 3.0 Pro (club grip right). Model Studio can't fetch
+  `REF`'s Google link ("url error"), so the script downloads the sheet once into `build/` and sends it inline.
+  `qwen-mt-image-2.0` is not a generator: it translates the text in an existing image.
 - **Python:** run with `.venv/bin/python`, which has Pillow.
 - **One foe:** `.venv/bin/python tools/gen_art.py "Name" "subject"`.
 - **All foes:** `.venv/bin/python tools/gen_art.py --batch` (skips drawn foes; `--only Orc` repeats per foe).
 - **Redo:** `.venv/bin/python tools/gen_art.py --redo Bandit` (see above).
-- **Concurrency:** while the account balance is $10 or less, Eachlabs runs at most **2 jobs at once** (HTTP 429).
+- **Animals:** names in `ANIMALS` (`tools/art_prompts.py`) get `ANIMAL_STYLE`, without the figure lines
+  ("grotesque caricature, oversized hands and feet", "one full-body figure"): with them the hawk came out as a man
+  growing out of a bird.
+- **Other card backs:** `--cards --batch` draws `CARDS` (Callings, Aspects, deck cards, Wounds: one figure acting the card
+  out, the foe `STYLE`) into `rules/art/cards/`; gold is in `ITEMS`, drawn with `--items`.
+- **Concurrency (Eachlabs):** while the account balance is $10 or less, Eachlabs runs at most **2 jobs at once** (HTTP 429).
   A slot stays busy for a while after a job finishes, so a batch of two-at-a-time jobs got refused over and over.
   The batch runs **one job at a time with a 60 s pause after each**, and the script retries on 429 for up to 5 minutes.
   Topping up the balance above $10 lifts the limit.

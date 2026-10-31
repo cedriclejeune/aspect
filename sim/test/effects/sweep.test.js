@@ -4,7 +4,7 @@
 module.exports = function register(T, H) {
   const { Eng, eq, ok, run, refused, start, C, evs } = H;
   const CARDS = () => H.cards();
-  const B = (o) => Object.assign({ core: "C-I-01", armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [] }, o);
+  const B = (o) => Object.assign({ body: { STR: 3, DEX: 1, INT: 0, WIL: 0, HP: 14, SPD: 30 }, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [] }, o);
   const pc = (id, pos, build, o) => Object.assign({ id, side: "pc", name: id, pos, build: B(build), react: "never" }, o);
   const tmpl = (id, name, pos, o) => Object.assign({ id, side: "foe", name: id, pos, build: Eng.fromFoe(CARDS().foes.find((f) => f.name === name), CARDS()), react: "never" }, o);
   const fight = (cs) => Eng.createFight({ version: 1, name: "sweep", seed: 3, map: { w: 20, h: 14, cells: {} }, surprise: null, creatures: cs }, CARDS());

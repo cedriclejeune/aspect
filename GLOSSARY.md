@@ -9,7 +9,7 @@ This file is the source of the Glossary chapter in both handbooks: `tools/sync_g
 ### Characters
 
 **Bearer**:
-A humanoid who can absorb the Aspects and the Core of other beings. Every player character is one.
+A humanoid who can absorb the Aspects of other beings. Every player character is one.
 _Avoid_: hero, adventurer, PC (in rules text)
 
 **Party**:
@@ -71,7 +71,7 @@ An item that holds your gold, up to a maximum set by its Rank.
 _Avoid_: wallet, coin pouch (as the term)
 
 **Rank**:
-The fixed power of a piece of gear, an Aspect or a Core, from I to V. Characters have none.
+The fixed power of a piece of gear or an Aspect, from I to V. Characters and Callings have none.
 _Avoid_: tier, rarity, level, quality, +1/+2/+3
 
 **Keyword**:
@@ -88,11 +88,15 @@ _Avoid_: socket, attunement slot
 
 **Aspect**:
 A Trait, Technique, Knack, Divine, Glamour or Nature absorbed from another being. It has no body: outside a Bearer it lives in a Shard. Only Bearers can use it.
-_Avoid_: feat, feature, power (as the general term), special Aspect (for the Core)
+_Avoid_: feat, feature, power (as the general term)
 
-**Core**:
-Your body: four ability modifiers, HP maximum, Speed and Size. You always have exactly one. It is neither an Aspect nor gear.
-_Avoid_: race, ancestry, class, special Aspect, stat block (for players)
+**Calling**:
+The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Aspects you can equip. It is neither an Aspect nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Zealot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL).
+_Avoid_: Core, background, archetype, class, race, stat block (for players)
+
+**Symbols**:
+The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities of its symbols.
+_Avoid_: requirement, prerequisite, Req
 
 **Gear Slot**:
 An Armor, Hand, Jewelry or Item Slot.
@@ -119,10 +123,6 @@ An Aspect type: something a being trained (a fighting move).
 An Aspect type: a bonus on checks for one narrow activity.
 _Avoid_: skill, proficiency, talent
 
-**Requirement**:
-A minimum ability modifier needed to equip gear or an Aspect (*Req STR +2*).
-_Avoid_: prerequisite
-
 **Uses**:
 A limited number of activations of one power, written on it (*2/S.R.*, *1/L.R.*), that come back on a short or long rest.
 _Avoid_: charges, per day
@@ -130,22 +130,22 @@ _Avoid_: charges, per day
 ### Shards & Storage
 
 **Shard**:
-A bulky crystal vessel that holds one Aspect or Core, or nothing. An item, but never in a Slot.
+A bulky crystal vessel that holds one Aspect, or nothing. An item, but never in a Slot.
 _Avoid_: soul gem, crystal, orb, shard (lowercase, for any other object)
 
 **Lingering**:
-The state of a defeated creature's Aspects and Core for 1 minute, before they fade for good.
+The state of a defeated creature's Aspects for 1 minute, before they fade for good.
 
 **Capture**:
-Pouring a lingering Aspect or Core into an empty Shard.
+Pouring a lingering Aspect into an empty Shard.
 _Avoid_: harvest, collect, loot (for Aspects)
 
 **Absorb**:
-Moving a Shard's Aspect into an Aspect Slot, or its Core into your body, during a long rest.
+Moving a Shard's Aspect into an Aspect Slot, during a long rest.
 _Avoid_: equip (for Aspects), learn, attune
 
 **Release**:
-Emptying a Shard. Its Aspect or Core is gone for good.
+Emptying a Shard. Its Aspect is gone for good.
 _Avoid_: destroy, discard
 
 **Pack**:
@@ -240,7 +240,7 @@ The points a Divine, Glamour or Nature Aspect spends on its powers. Each has its
 _Avoid_: Presence points, Wild points, will points, mana
 
 **Form**:
-One beast body in a Remembrance (Nature), printed like a Core: STR, DEX, HP, Speed and Size. While you are shifted into it, it replaces your body; your mind and Aspects stay.
+One beast body in a Remembrance (Nature), printed like a Calling: STR, DEX, HP, Speed and Size. While you are shifted into it, it replaces your body; your mind and Aspects stay.
 _Avoid_: form (for anything else), shape, wild shape, guise
 
 **Shift**:
@@ -293,9 +293,6 @@ _Avoid_: bonus action
 
 **Aquatic**:
 A weapon keyword: works underwater, where other weapons and spells don't.
-
-**Finesse**:
-A weapon keyword: use STR or DEX for attack and damage.
 
 **Heavy**:
 A weapon keyword: needs STR +1 (melee) or DEX +1 (ranged), or −3 on attacks.
@@ -375,7 +372,15 @@ A swim speed: swimming costs no extra movement, and full speed underwater.
 A fly speed: you move through the air. If you're knocked Prone or Incapacitated while flying, you fall.
 
 **Size**:
-Tiny, Small, Medium or Large, printed on a Core or a Form.
+Tiny, Small, Medium or Large, printed on a Form or a foe card. Bearers are Medium.
+
+**Wound**:
+A lasting injury, drawn at random each time you fall to 0 HP. It stays until a downtime heals it. A Crippling Wound blocks a Gear Slot.
+_Avoid_: injury, exhaustion, scar, fatigue
+
+**Downtime**:
+3 days of rest in a safe place: does everything a long rest does, and heals all your Wounds.
+_Avoid_: long rest (for this), recovery
 
 ### Monsters
 
@@ -391,7 +396,7 @@ One WIL check (DC 10) a foe group makes, with the best WIL among its remaining m
 _Avoid_: rout, nerve, fear check
 
 **Drop**:
-Gear, an Aspect or a Core that a trial yields as loot; to drop is to yield it.
+Gear or an Aspect that a trial yields as loot; to drop is to yield it.
 _Avoid_: drop (for falling to 0 HP: "fall")
 
 **Challenge Rating (CR)**:
@@ -399,7 +404,7 @@ A monster's danger, used with its XP value to size fights.
 _Avoid_: challenge (for anything else)
 
 **Foe card**:
-The GM's card for one kind of monster: its Core, totals and powers. Cards named in italics on it can drop; plain text never does.
+The GM's card for one kind of monster: its body, totals and powers. Cards named in italics on it can drop; plain text never does.
 _Avoid_: enemy card, monster card, kit, stat block, Monstrous
 
 **Recharge 5–6**:
@@ -408,11 +413,11 @@ A monster power that comes back on a 5 or 6 on a d6 at the end of the monster's 
 ### At the Table
 
 **Card**:
-The physical component for a Core, a piece of gear, an Aspect, a spell or an amount of gold.
+The physical component for a Calling, a piece of gear, an Aspect, a spell or an amount of gold.
 _Avoid_: card (in rules text outside At the Table)
 
 **Card ID**:
-The code in a card's bottom-left corner: type letter, Rank and number (W-II-02).
+The code in a card's bottom-right corner: type letter, Rank and number (W-II-02).
 _Avoid_: card number, serial
 
 **Tally card**:

@@ -3,7 +3,7 @@
 module.exports = function register(T, H) {
   const { Eng, eq, ok, run, refused, start, C, evs } = H;
   const CARDS = () => H.cards();
-  const B = (o) => Object.assign({ core: "C-I-01", armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [] }, o);
+  const B = (o) => Object.assign({ body: { STR: 3, DEX: 1, INT: 0, WIL: 0, HP: 14, SPD: 30 }, armor: null, hands: [], carried: [], jewelry: [], items: [], aspects: [] }, o);
   const pc = (id, pos, build, o) => Object.assign({ id, side: "pc", name: id, pos, build: B(build), react: "never" }, o);
   const foe = (id, pos, build, o) => Object.assign({ id, side: "foe", name: id, pos, build: B(build), react: "never" }, o);
   const tmpl = (id, name, pos, o) => Object.assign({ id, side: "foe", name: id, pos, build: Eng.fromFoe(CARDS().foes.find((f) => f.name === name), CARDS()), react: "never" }, o);
@@ -14,7 +14,7 @@ module.exports = function register(T, H) {
   const side = (f) => { const s = f.state.side; for (const c of Object.values(f.state.creatures)) if (c.side === s && !c.dead && !f.state.done.includes(c.id) && f.state.side === s) skip(f, c.id); };
 
   T("[qa B1] Durations keep counting after their source dies (Bless, Grease)", () => {
-    const f = fight([pc("p", [1, 1], { core: "C-I-04", aspects: ["D-I-01"] }), pc("w", [1, 3], { core: "C-I-03", items: [{ id: "B-I-01" }] }), pc("a", [2, 1]), foe("x", [20, 10])]);
+    const f = fight([pc("p", [1, 1], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, aspects: ["D-I-01"] }), pc("w", [1, 3], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, items: [{ id: "B-I-01" }] }), pc("a", [2, 1]), foe("x", [20, 10])]);
     start(f);
     run(f, { type: "beginTurn", actor: "p" }); run(f, { type: "power", actor: "p", power: "D-I-01#bless" }); run(f, { type: "endTurn", actor: "p" });
     run(f, { type: "beginTurn", actor: "w" }); run(f, { type: "power", actor: "w", power: "B-I-01#grease", point: [8, 8] }); run(f, { type: "endTurn", actor: "w" });
@@ -26,7 +26,7 @@ module.exports = function register(T, H) {
   });
 
   T("[qa B2/B15] A zone attacks with its source's bare bonus (no Bless), and still attacks after the caster dies", () => {
-    const f = fight([pc("p", [1, 3], { core: "C-I-04", aspects: ["D-I-01"] }), pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01" }] }), foe("x", [12, 5])]);
+    const f = fight([pc("p", [1, 3], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, aspects: ["D-I-01"] }), pc("w", [1, 5], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, items: [{ id: "B-I-01" }] }), foe("x", [12, 5])]);
     start(f);
     run(f, { type: "beginTurn", actor: "p" }); run(f, { type: "power", actor: "p", power: "D-I-01#bless" }); run(f, { type: "endTurn", actor: "p" });
     ok(C(f, "w").mods.some((m) => m.dice === "1d4"));
@@ -52,7 +52,7 @@ module.exports = function register(T, H) {
   });
 
   T("[qa B4] Web holds an ally (and its caster) too, for 2 of their turns, with no maintain roll", () => {
-    const f = fight([pc("w", [7, 5], { core: "C-I-03", items: [{ id: "B-I-01" }] }), pc("a", [8, 6]), foe("x", [9, 5])]);
+    const f = fight([pc("w", [7, 5], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, items: [{ id: "B-I-01" }] }), pc("a", [8, 6]), foe("x", [9, 5])]);
     start(f);
     run(f, { type: "beginTurn", actor: "w" }); run(f, { type: "power", actor: "w", power: "B-I-01#web", point: [8, 5] }, [15]);
     for (const id of ["w", "a", "x"]) ok(C(f, id).conds.some((k) => k.name === "Restrained" && !k.lasting), id);
@@ -103,7 +103,7 @@ module.exports = function register(T, H) {
   });
 
   T("[qa B10] Fire burns one 5-ft square of Web a round, even on a Large creature", () => {
-    const f = fight([pc("w", [1, 5], { core: "C-I-03", items: [{ id: "B-I-01" }] }), pc("v", [1, 8], { core: "C-I-03", items: [{ id: "B-I-01" }] }), tmpl("o", "Ogre", [8, 5])]);
+    const f = fight([pc("w", [1, 5], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, items: [{ id: "B-I-01" }] }), pc("v", [1, 8], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, items: [{ id: "B-I-01" }] }), tmpl("o", "Ogre", [8, 5])]);
     start(f);
     run(f, { type: "beginTurn", actor: "w" }); run(f, { type: "power", actor: "w", power: "B-I-01#web", point: [8, 5] }, [15]); run(f, { type: "endTurn", actor: "w" });
     run(f, { type: "beginTurn", actor: "v" });
@@ -112,7 +112,7 @@ module.exports = function register(T, H) {
   });
 
   T("[qa B11] Ring of Sparks answers a ranged hit from within 5 ft", () => {
-    const f = fight([pc("a", [5, 5], { jewelry: ["J-II-01"] }, { react: "auto" }), foe("s", [6, 5], { core: "C-I-02", hands: ["W-I-10"] })]);
+    const f = fight([pc("a", [5, 5], { jewelry: ["J-II-01"] }, { react: "auto" }), foe("s", [6, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-10"] })]);
     start(f, "foe");
     run(f, { type: "beginTurn", actor: "s" });
     run(f, { type: "attack", actor: "s", weapon: "W-I-10", target: "a" }, [18, 18, 3, 3, 1]);
@@ -141,7 +141,7 @@ module.exports = function register(T, H) {
   });
 
   T("[qa B14] Dice mods (Bless, Bane) are listed in the attack's why", () => {
-    const f = fight([pc("p", [1, 5], { core: "C-I-04", aspects: ["D-I-01"] }), pc("a", [5, 5], { hands: ["W-I-05"] }), foe("x", [6, 5])]);
+    const f = fight([pc("p", [1, 5], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, aspects: ["D-I-01"] }), pc("a", [5, 5], { hands: ["W-I-05"] }), foe("x", [6, 5])]);
     start(f);
     run(f, { type: "beginTurn", actor: "p" }); run(f, { type: "power", actor: "p", power: "D-I-01#bless" }); run(f, { type: "endTurn", actor: "p" });
     run(f, { type: "beginTurn", actor: "a" });
@@ -150,7 +150,7 @@ module.exports = function register(T, H) {
 
   T("[qa B16] An area roll doesn't depend on which target is listed first", () => {
     const cells = { "8,5": "dark" };
-    const f = fight([pc("a", [3, 5], { core: "C-I-02", items: [{ id: "R-II-01" }] }), foe("x", [8, 5]), foe("y", [8, 6])], { cells });
+    const f = fight([pc("a", [3, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, items: [{ id: "R-II-01" }] }), foe("x", [8, 5]), foe("y", [8, 6])], { cells });
     start(f);
     run(f, { type: "beginTurn", actor: "a" });
     const i = f.preview({ type: "power", actor: "a", power: "R-II-01#0", point: [8, 6] }).info;
@@ -158,7 +158,7 @@ module.exports = function register(T, H) {
   });
 
   T("[qa B17] Resolve has no plural", () => {
-    const f = fight([pc("d", [5, 5], { core: "C-I-04", aspects: ["N-I-01"] }), foe("x", [12, 5])]);
+    const f = fight([pc("d", [5, 5], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, aspects: ["N-I-01"] }), foe("x", [12, 5])]);
     start(f);
     run(f, { type: "beginTurn", actor: "d" });
     eq(f.preview({ type: "power", actor: "d", power: "N-I-01#bear" }).info.cost, "3 Resolve");
