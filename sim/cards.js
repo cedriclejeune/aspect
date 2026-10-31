@@ -2208,7 +2208,10 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "DEX"
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 4,
@@ -2248,7 +2251,9 @@ globalThis.BEARERS_CARDS = {
    "group": "starter",
    "sym": [
     "STR",
-    "DEX"
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 3,
@@ -2287,7 +2292,9 @@ globalThis.BEARERS_CARDS = {
    "group": "starter",
    "sym": [
     "STR",
-    "DEX"
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2326,7 +2333,10 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "DEX"
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2377,7 +2387,10 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR"
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2414,7 +2427,9 @@ globalThis.BEARERS_CARDS = {
    "group": "starter",
    "sym": [
     "STR",
-    "DEX"
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2452,7 +2467,10 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR"
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2490,7 +2508,10 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR"
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2527,7 +2548,10 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "DEX"
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2567,7 +2591,10 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "DEX"
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2607,7 +2634,9 @@ globalThis.BEARERS_CARDS = {
    "group": "starter",
    "sym": [
     "STR",
-    "DEX"
+    "DEX",
+    "INT",
+    "WIL"
    ],
    "atk": {
     "hit": 2,
@@ -2647,6 +2676,8 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
+    "STR",
+    "DEX",
     "INT",
     "WIL"
    ],

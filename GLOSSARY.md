@@ -95,7 +95,7 @@ The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed 
 _Avoid_: Core, background, archetype, class, race, stat block (for players)
 
 **Symbols**:
-The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities of its symbols.
+The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff); basic weapons light all four symbols.
 _Avoid_: requirement, prerequisite, Req
 
 **Gear Slot**:

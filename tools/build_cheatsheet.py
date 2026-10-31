@@ -177,7 +177,7 @@ BACK = """
 <p>The <strong>attacker always rolls</strong> vs a <strong>Defense</strong> (10 + ability + bonuses). Weapons hit the <strong>higher of STR / DEX Defense</strong>; other effects name theirs.</p>
 <table>
 <tr><th>Roll</th><th>Formula</th></tr>
-<tr><td>Weapon</td><td>d20 + its symbol's ability (higher of two) + to-hit</td></tr>
+<tr><td>Weapon</td><td>d20 + the ability it names (higher of two: STR / DEX, staff INT / WIL) + to-hit</td></tr>
 <tr><td>Spell</td><td>d20 + INT + book's Spell attack</td></tr>
 <tr><td>WIL magic</td><td>d20 + WIL + printed Attack</td></tr>
 <tr><td>Unarmed</td><td>+2 to hit · 1 + STR Physical</td></tr>

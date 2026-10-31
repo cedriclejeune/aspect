@@ -667,7 +667,7 @@ An effect with the **Subdue** keyword takes a creature out of the fight. It name
 
 ## 9. Equipment
 
-Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or DEX Physical*. It uses the abilities of its lit symbols. Weapons light only STR, DEX or both; **staves** are the exception: weaker, they light INT and WIL. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
+Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or DEX Physical*. It names the abilities it rolls with: always STR, DEX or both, except **staves**, which are weaker but roll INT or WIL. **Basic weapons** (Rank I starters) light all four symbols, so anyone can wield them; a weak ability simply means a weak attack. Loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
 
 ### 9.1 Armor and Defense
 
@@ -685,7 +685,7 @@ Heavier armor gives more **HP** and slows you down. Armor adds mostly to **STR D
 
 Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" can be a longsword, a battleaxe or a spear.
 
-| Weapon (gear) | Usual symbols | To hit | Damage | Properties |
+| Weapon (gear) | Rolls with | To hit | Damage | Properties |
 |---|---|---|---|---|
 | **Dagger** (dagger, knife) | DEX | +4 | 1d4 | Light, Thrown (20/60) |
 | **Short Blade** (shortsword, sickle) | STR · DEX | +3 | 1d4 | Light |
@@ -701,7 +701,7 @@ Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" c
 | **Bow** (short or long) | DEX | +2 | 1d8 | Range (150/600), Two-Handed |
 | **Crossbow** (heavy) | DEX | +2 | 1d10 | Heavy, Loading, Range (100/400), Two-Handed |
 
-A weapon attacks with the abilities of its lit symbols: your higher one when it has two. Damage adds the same modifier. Higher-Rank weapons are cards with their own name (*Damascus Sword*, *Katana*), a bigger to-hit bonus and often a special effect. All weapon damage is **Physical** unless the weapon says otherwise.
+A weapon attacks with the abilities it names: your higher one when it names two. Damage adds the same modifier. Higher-Rank weapons are cards with their own name (*Damascus Sword*, *Katana*), a bigger to-hit bonus and often a special effect. All weapon damage is **Physical** unless the weapon says otherwise.
 
 **Properties** are keywords (Chapter 11): Aquatic, Heavy, Light, Loading, Range, Reach, Thrown, Two-Handed, Versatile.
 
@@ -1065,7 +1065,7 @@ Each game term has one meaning, in both books.
 | **Subdue** | The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
-| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities of its symbols. |
+| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff); basic weapons light all four symbols. |
 | **Tally card** | The one card you write on: your ten totals, current and temporary HP, and death saves. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |

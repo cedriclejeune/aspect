@@ -69,10 +69,12 @@ def weapon_atk(dice, kw, attack, sym):
                 twoHanded="Two-Handed" in parts, loading="Loading" in parts, thrown=pair("Thrown"), range=ranged)
 
 
-def weapon(name, sym, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter"):
-    """sym is also the weapon's roll: you attack with the higher of its abilities (DESIGN 4)."""
-    text = [f"{attack} to hit, {dice} + {' or '.join(sym)} Physical." + (f" {effect}" if effect else "")]
-    return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym, atk=weapon_atk(dice, kw, attack, sym))
+def weapon(name, abil, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter"):
+    """abil is the weapon's roll: you attack and deal damage with the higher of them (STR / DEX; INT / WIL for staves).
+    A basic (starter) weapon lights all four symbols so anyone can wield it; a loot weapon lights only its abil (DESIGN 4)."""
+    text = [f"{attack} to hit, {dice} + {' or '.join(abil)} Physical." + (f" {effect}" if effect else "")]
+    sym = ALL if group == "starter" else abil
+    return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym, atk=weapon_atk(dice, kw, attack, abil))
 
 
 HANDS = [
