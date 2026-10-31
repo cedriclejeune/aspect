@@ -1,7 +1,6 @@
 """French text of the combat cheat sheet (tools/build_cheatsheet.py --lang fr).
 
 Hand-written like the English one: when a combat rule changes in rules/fr/JOUEURS.md, update it here too.
-Unlike the English sheet, it doesn't mention Exhaustion: the rules have none (Wounds replace it, P 7.6).
 """
 
 FRONT = """

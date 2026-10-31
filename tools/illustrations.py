@@ -838,7 +838,7 @@ def frame_figure():
     # the tucked card, its corners under the slits
     cw, ch = (x1 - x0) * s, (y1 - y0) * s
     cx, cy = hx + x0 * s, y + y0 * s
-    body.append(ledger_card(cx, cy, cw, ch, "Finesse Blade", {}, "Weapon · Finesse", "I", ["DEX", "WIL"], art=icon_sword))
+    body.append(ledger_card(cx, cy, cw, ch, "Finesse Blade", {}, "Weapon", "I", ["DEX", "WIL"], art=icon_sword))
     for (px, py), (qx, qy) in (((x1 - 105, y0 - 12), (x1 + 12, y0 + 105)), ((x0 - 12, y1 - 105), (x0 + 105, y1 + 12))):
         P, Q = (hx + px * s, y + py * s), (hx + qx * s, y + qy * s)
         tri = (f"{P[0]:.1f},{P[1]:.1f} {Q[0]:.1f},{Q[1]:.1f} {hx + (x1 if px > x0 else x0) * s:.1f},{y + (y0 if py < y0 + 50 else y1) * s:.1f}")
@@ -895,10 +895,11 @@ def initiative_timeline():
         body.append(f'<rect x="{bx + colw}" y="130" width="{colw - 10}" height="36" rx="6" fill="{CRIMSON}" stroke="{INK}" stroke-width="1.8"/>')
         body.append(_text(bx + colw + (colw - 10) / 2, 154, "Full turns", 15, BODY, PARCH, weight=600))
         body.append(f'<path d="M{bx + colw - 10} 78 Q{bx + colw} 78 {bx + colw + 2} 128" fill="none" stroke="{INK}" stroke-width="1.4" marker-end="url(#arr)"/>')
-        body.append(f'<circle cx="{bx + 2 * colw + 5}" cy="113" r="12" fill="#4b2a6b" stroke="{INK}" stroke-width="1.5"/>')
-        body.append(_text(bx + 2 * colw + 5, 118, "B", 13, HEAD, PARCH))
+        # the Boss's half turn: one action somewhere inside the characters' side (P 6.1, GM 3)
+        body.append(f'<circle cx="{bx + colw + (colw - 10) / 2}" cy="130" r="12" fill="#4b2a6b" stroke="{INK}" stroke-width="1.5"/>')
+        body.append(_text(bx + colw + (colw - 10) / 2, 135, "B", 13, HEAD, PARCH))
     body.append(f'<circle cx="160" cy="205" r="10" fill="#4b2a6b" stroke="{INK}" stroke-width="1.5"/>')
-    body.append(_text(178, 211, "Boss: second full turn at the end of each round", 18, BODY, INK, anchor="start"))
+    body.append(_text(178, 211, "A Boss on Side A also takes a half turn (one action) during Side B, the characters' side.", 18, BODY, INK, anchor="start"))
     body.append(_text(178, 238, "Within a side, creatures act in any order they agree on.", 18, BODY, MUTED, anchor="start", italic=True))
     body.append(_text(178, 265, "Ambush: if the other side is surprised, Side A takes full turns in round 1.", 18, BODY, MUTED, anchor="start", italic=True))
     return _svg(1050, 280, "".join(body), "Side initiative timeline")
@@ -944,7 +945,7 @@ def combat_grid():
     body.append(token(ox2, oy, 6, 5, "H", CRIMSON))
     body.append(f'<line x1="{ox2 + 1.5 * s}" y1="{oy + 3.5 * s}" x2="{ox2 + 6.5 * s}" y2="{oy + 2.5 * s}" stroke="{INK}" stroke-width="1.6" stroke-dasharray="4 3"/>')
     body.append(f'<line x1="{ox2 + 1.5 * s}" y1="{oy + 3.5 * s}" x2="{ox2 + 6.5 * s}" y2="{oy + 5.5 * s}" stroke="{INK}" stroke-width="1.6" stroke-dasharray="4 3"/>')
-    body.append(_text(ox2 + 4 * s, oy + 6 * s + 22, "T behind the wall's edge: cover, +2 AC.", 13, BODY, MUTED, italic=True))
+    body.append(_text(ox2 + 4 * s, oy + 6 * s + 22, "T behind the wall's edge: cover, +2 to all Defenses.", 13, BODY, MUTED, italic=True))
     body.append(_text(ox2 + 4 * s, oy + 6 * s + 40, "H fully hidden by the wall: can't be targeted.", 13, BODY, MUTED, italic=True))
     return _svg(ox2 + 8 * s + 20, oy + 6 * s + 56, "".join(body), "Opportunity attack and cover on a grid")
 

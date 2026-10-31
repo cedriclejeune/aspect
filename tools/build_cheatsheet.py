@@ -239,7 +239,7 @@ BACK = """
 <tr><td>Stunned</td><td>Incapacitated, speed 0. Attacks vs you adv. <em>Petrified: + resist all.</em></td></tr>
 <tr><td>Unconscious</td><td>Stunned + Prone, drops items. <strong>Any hit within 5 ft is a crit.</strong></td></tr>
 </table>
-<p>Conditions don't stack with themselves. <strong>Exhaustion</strong> (1–6, stacks): −2 to all d20 tests and −5 ft speed per level; level 6 is death; a long rest removes 1.</p>
+<p>Conditions don't stack with themselves.</p>
 
 <div class="box"><b>Subdue <small>8</small></b>
 <ul>
@@ -258,7 +258,7 @@ BACK = """
 <h2>Falling to 0 HP <small>7.4</small></h2>
 <ul>
 <li><strong>Instant death</strong> if leftover damage ≥ your HP max.</li>
-<li>Otherwise <strong>Unconscious</strong>; roll a death save (d20, no modifiers) at the start of each turn.</li>
+<li>Otherwise <strong>Unconscious</strong>; roll a death save (d20, no modifiers) at the start of each turn. You take a <strong>Wound</strong> (7.6).</li>
 </ul>
 <table>
 <tr><th>Death save</th><th>Result</th></tr>
@@ -283,7 +283,8 @@ When a foe group's <strong>Leader</strong> falls, and when half the group is dow
 <h2>After the Fight <small>7.5</small></h2>
 <ul>
 <li><strong>Short rest</strong> (1 h, 2 per long rest): regain half missing HP; S.R. uses and Resolve return; don or doff Armor.</li>
-<li><strong>Long rest</strong> (8 h): all HP, uses, Resolve and spell points; swap Aspects; −1 Exhaustion.</li>
+<li><strong>Long rest</strong> (8 h): all HP, uses, Resolve and spell points; swap Aspects.</li>
+<li><strong>Downtime</strong> (3 days somewhere safe): as a long rest, and heals all your Wounds.</li>
 </ul>
 </div>
 <footer>Golden rules: the rule of fun · no one left out · specific beats general · round down · everything stacks · the GM decides.</footer>
