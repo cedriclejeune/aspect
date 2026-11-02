@@ -61,7 +61,7 @@ The party advances through a **story**, one quest at a time. Play runs at three 
 
 Your character is a **Bearer**. A few humanoids carry a gift, a blessing or a curse depending on who you ask: they can **absorb the Aspects** (Traits, Techniques, Knacks, and Divine, Glamour and Nature magic) of other beings. An Aspect has no body of its own. When a creature is defeated, its Aspects linger over the body for a minute, then fade. A Bearer can catch one in a **Shard**: a bulky crystal vessel that holds one Aspect until it is absorbed. Bearers grow by gathering two kinds of resources, each occupying their own **Slots**:
 
-- **Gear:** real objects of two kinds. **Equipment** is what you wear or wield (armor, weapons, shields, Instruments, Jewelry); **items** are what you carry and use (Spellbooks, Recipes, Consumables, Purses, Shards). Gear is equipped in **Armor, Hand, Jewelry and Item Slots**, together called **Gear Slots**.
+- **Gear:** real objects of two kinds. **Equipment** is what you wear or wield (armor, weapons, shields, Instruments, Jewelry); **items** are what you carry and use (Spellbooks, Recipes, Consumables, Containers, Shards). Gear is equipped in **Armor, Hand, Jewelry and Item Slots**, together called **Gear Slots**.
 - **Aspects:** are absorbed in your **Aspect Slots**. The number of a Bearer's absorbed Aspects is limited by the number of Aspects slots it has. This number grows each time the party completes a story (milestones, 4.1). A Shard's Aspect is absorbed while you sleep, during a long rest (3.5). Empty Shards are precious: without one, a lingering Aspect is lost (3.8).
 - **The Calling** is who you are: the two abilities you were born to, your base Hit Points and Speed, and a perk. It is neither an Aspect nor gear, takes no Slot, and stays with you for life. Every piece of gear and every Aspect shows which Callings can equip it (3.1).
 
@@ -128,7 +128,7 @@ Every piece of gear and every Aspect (a **card** at the table, 12.1) has:
 
 - **A name** (*Warden's Plate*).
 - **A Rank** from I to V: its power (*II*).
-- **Symbols:** the four ability symbols, in the top corner. The abilities it uses are lit; the others are greyed out (*STR*). You can equip it only if **your Calling has at least one of its lit symbols**. Jewelry, Consumables, Recipes, Purses and Shards have all four lit: anyone can use them. A **Focus** (10.6) lights only WIL: it strengthens WIL magic.
+- **Symbols:** the four ability symbols, in the top corner. The abilities it uses are lit; the others are greyed out (*STR*). You can equip it only if **your Calling has at least one of its lit symbols**. Jewelry, Consumables, Recipes, Containers and Shards have all four lit: anyone can use them. A **Focus** (10.6) lights only WIL: it strengthens WIL magic.
 - **Bonuses** to modifiers, Defenses, HP maximum or Speed (*+4 STR Defense, −10 Speed*).
 - **An effect**, if any (*Reaction (1/S.R.), when an attack hits you: reduce its damage by 5*). A power with limited uses shows them on itself: **S.R.** means they come back on a short rest (or a long rest), **L.R.** only on a long rest.
 - **Keywords:** the **type** first (it sets the Slot, 3.2), then properties (*Armor · Noisy 3*). See Chapter 11.
@@ -145,7 +145,7 @@ Every character has the same body. Only the number of Aspect Slots grows much.
 | **Armor** | 1 | One *Armor* |
 | **Hand** | 2 | One *Weapon*, *Shield* or *Instrument* each. A Two-Handed weapon takes two Hands. |
 | **Jewelry** | 1 | One *Jewelry* (rings, amulets, circlets, cloaks, gloves, boots) |
-| **Item** | 2 | One *Spellbook*, *Recipe* or *Purse*, or a stack of up to **3 identical** *Consumables* (potions, scrolls, bombs, oils) |
+| **Item** | 2 | One *Spellbook* or *Recipe*, or a stack of up to **3 identical** *Consumables* (potions, scrolls, bombs, oils) |
 | **Aspect** | 3 | One *Trait*, *Technique*, *Knack*, *Divine*, *Glamour* or *Nature* |
 
 - A Slot can stay empty.
@@ -306,14 +306,14 @@ Each Slot has its own swap time. A swap moves one piece of gear between a Slot a
 
 ### 3.7 Pack, Party Stash, Objects & Gold
 
-- **Pack:** up to **8 pieces**, on your back: gear you haven't equipped (weapons, jewels, Spellbooks, Consumables, Purses) and **at most 3 Shards** (3.8). **No Armor** (too big). Reachable in combat at a cost (3.5). At the table, a pile of cards beside you (12.2).
+- **Pack:** up to **8 pieces**, on your back: gear you haven't equipped (weapons, jewels, Spellbooks, Consumables), **Containers** and **at most 3 Shards** (3.8). A **Container** (a Purse, a *Shard Bandolier*) is never equipped: it works from your Pack and takes 1 of its pieces. **No Armor** (too big). Reachable in combat at a cost (3.5). At the table, a pile of cards beside you (12.2).
 - **Party Stash:** up to **5 pieces per character** (gear and Shards), shared by the group. It's a mule, a cart or a wagon: it stays **where the party leaves it** (outside the dungeon, at the inn) and can't be reached in combat. The GM may threaten it (thieves, ambush, a river crossing). At the table, a shared pile of cards (12.2).
 - **Party Stash upgrades** come only as rewards (quest rewards, Bosses), never from gold. Each replaces the previous one, in pieces per character: *Pack Mule* 8, *Cart* 12, *Wagon* 20.
-- **Counting:** each piece of gear counts as 1, Shards (empty or full) and Purses included. A stack of up to 3 identical Consumables counts as 1 (as in an Item Slot).
+- **Counting:** each piece of gear counts as 1, Shards (empty or full) and Containers included. A stack of up to 3 identical Consumables counts as 1 (as in an Item Slot).
 - **Full Pack or Party Stash:** you can't keep more. Leave the extra piece, give it to an ally, or sell it.
 - **Objects:** small non-magical things that aren't gear (treasure, keys, letters, quest objects) are carried freely, with no limit. Ordinary supplies (rope, torches, rations, ammunition, clothes, tools) are **assumed**: you have them when you need them.
 - **Money:** gold pieces (gp). Gold buys consumables, services, empty Shards, Purses and, from some merchants, gear and Aspects. An Aspect is sold without a Shard: bring an empty one to capture it (3.8).
-- **Purse:** gold is kept in a **Purse**, a piece of gear that holds up to a set amount by Rank: I *Coin Pouch* **100 gp**, II *Merchant's Purse* **500**, III *Banker's Satchel* **2,000**, IV *Guildmaster's Coffer* **10,000**, V *Bottomless Purse* **no limit**. The Purse counts as 1 piece; the gold inside doesn't. Each bag of coins outside a Purse counts as 1 piece. At the table, a Purse is a card, and its gold is **gold cards** tucked under it (12.2).
+- **Purse:** gold is kept in a **Purse**, a Container that holds up to a set amount by Rank: I *Coin Pouch* **100 gp**, II *Merchant's Purse* **500**, III *Banker's Satchel* **2,000**, IV *Guildmaster's Coffer* **10,000**, V *Bottomless Purse* **no limit**. The Purse counts as 1 piece; the gold inside doesn't. Each bag of coins outside a Purse counts as 1 piece. At the table, a Purse is a card, and its gold is **gold cards** tucked under it (12.2).
 - **Where it sits:** an Item Slot, your Pack or the Party Stash. The closer to you, the better watched and protected; the GM decides what a thief or a disaster can reach. Gold is lost, stolen and given away like any gear.
 - **Paying:** the Purse must be nearby: yours, an ally's, or the Party Stash when the party is with it.
 
@@ -332,7 +332,7 @@ Each Slot has its own swap time. A swap moves one piece of gear between a Slot a
 A **Shard** is an item that holds **one Aspect**, or nothing. It never sits in a Slot: it stays in your Pack or the Party Stash. At the table, a Shard is a **Shard frame**, with the Aspect's card tucked into it (12.2).
 
 - **Start:** each character has **3 empty Shards**; the Party Stash starts with **2 empty Shards per character**.
-- **Bulky:** you carry **at most 3 Shards** in your Pack. Some Jewelry raises this (*Shard Bandolier*). The rest wait in the Party Stash.
+- **Bulky:** you carry **at most 3 Shards** in your Pack. A Container raises this (*Shard Bandolier*). The rest wait in the Party Stash.
 - **Lingering:** when a creature is defeated, each of its Aspects lingers over the body for **1 minute**, then fades for good.
 - **Capture (1 action):** within 5 ft of the body, pour one lingering Aspect into an empty Shard you carry. The Pack cost (3.5) doesn't apply. You can capture an Aspect your Calling can't equip: trade it, sell it or keep it for an ally.
 - **Absorb (long rest):** move a Shard's Aspect into an Aspect Slot. The Shard is now empty.
@@ -343,7 +343,7 @@ A **Shard** is an item that holds **one Aspect**, or nothing. It never sits in a
 
 > **SHARD BANDOLIER** · Rank I
 > Your Pack holds up to 5 Shards instead of 3, within its usual 8 pieces.
-> *Jewelry*
+> *Container*
 
 ---
 
@@ -839,7 +839,7 @@ The first keyword. It sets the Slot (3.2).
 | **Wound** | No Slot: a lasting injury (7.6). A **Crippling** Wound blocks the Gear Slot it names. |
 | **Form** | Part of a Remembrance, never on its own. A beast you shift into (10.7). |
 | **Shard** | An item, never in a Slot. Holds one Aspect, or nothing. Pack (3 at most) or Party Stash (3.8). |
-| **Purse** | Item Slot, Pack or Party Stash. Holds gold up to a maximum set by its Rank (3.7). |
+| **Container** | An item, never in a Slot: it works from your Pack (a Purse also from the Party Stash). A Purse holds gold up to a maximum set by its Rank (3.7). |
 
 ### 11.2 Use and Timing
 
@@ -935,12 +935,12 @@ Each of your Slots is a **Slot frame**: a holder a little larger than a card, wi
 - **Between sessions,** keep each frame with its card: your build stays as you left it.
 - **Pack:** a pile of loose cards beside you. **Party Stash:** a shared pile in the middle of the table, or with the GM when the party leaves it behind.
 - **Shards:** a Shard is a **Shard frame**. Tuck the Aspect's card into it the same way. An empty Shard is the frame alone. Absorbing (3.8) moves the card from its Shard frame into an Aspect frame.
-- **Spent uses:** mark them with tokens on the card. Spent spell points and Resolve go on your tally card (12.3). A **Subdue** keeps a die beside its target to show the decay (Chapter 8).
+- **Spent uses:** mark them with tokens on the card, or fill in their circles on your tally card. Spent spell points and Resolve go on your tally card (12.3). A **Subdue** keeps a die beside its target to show the decay (Chapter 8).
 - **Gold:** gold cards come in **1, 10, 50, 100, 500 and 1,000 gp**. Tuck them under the Purse card that holds them, up to its maximum. A loose gold card is one bag of coins (1 piece). Pay by handing gold cards to the GM, who makes change from the bank.
 
 ### 12.3 Keeping Your Totals
 
-Your **tally card** is your **sheet**, and the only card you write on: use a pencil or a dry-erase sleeve, and start a fresh one when it's worn. Its strip lines up with every bonus strip and holds your ten **totals**: the sum of your Calling and all your other cards. Beside it, it holds your **current HP**, your **temporary HP**, your **death saves** (7.4), your **spell points** (10.2) and your **Resolve** (10.6).
+Your **tally card** is your **sheet**, a double-width card, and the only card you write on: use a pencil or a dry-erase sleeve, and start a fresh one when it's worn. Its strip lines up with every bonus strip and holds your ten **totals**: the sum of your Calling and all your other cards. Beside it, it holds your **HP** (temporary HP in the box's grey corner), your **death saves** (7.4), your **spell points** (10.2), your **Resolve** (10.6) and ten lines to list your **features**: the effects you want to keep in mind, with their uses (*Slippery (2/S.R.)*) and a circle per use, filled in when you spend it.
 
 <!-- figure: tally -->
 
@@ -956,13 +956,13 @@ You only touch the totals at two moments.
 
 **Wounds** (7.6) are a shared deck of cards, shuffled, beside the table. Lay a penalty Wound in your stack like any card with a strip; tuck a Crippling Wound into the Slot frame it blocks, over nothing. When a Wound heals, it goes back into the deck.
 
-**When you shift** into a Form (10.7), fill a fresh tally card: the Form's strip, your Calling's INT and WIL, then your Aspects (gear doesn't count). Put the Form's HP in its current HP box. Your spell points and Resolve stay on your own tally card, and the Form's card leaves those boxes empty. When you revert, go back to your own tally card.
+**When you shift** into a Form (10.7), fill a fresh tally card: the Form's strip, your Calling's INT and WIL, then your Aspects (gear doesn't count). Put the Form's HP in its HP box. Your spell points and Resolve stay on your own tally card, and the Form's card leaves those boxes empty. When you revert, go back to your own tally card.
 
 **HP:** when your current HP changes, cross out the old number and write the new one.
 
-**Spell points and Resolve:** write the total on the left of its box, then a dash. Each time you spend a point, draw a small tally mark on the right of the dash. What you have left is the total minus the marks. A rest that brings the points back erases the marks (7.5). When the total changes (10.2, 10.6), write the new one and keep the marks. A box stays empty if you have no Spellbook, or no Divine, Glamour or Nature deck.
+**Spell points and Resolve:** write the total on the right of the printed slash. Each time you spend a point, draw a small tally mark on the left of the slash. What you have left is the total minus the marks. A rest that brings the points back erases the marks (7.5). When the total changes (10.2, 10.6), write the new one and keep the marks. A box stays empty if you have no Spellbook, or no Divine, Glamour or Nature deck.
 
-> **Example: Isolde the Sage** holds the *Conjurer's Book* (+2) with INT +2, and her *Learned* perk adds ½ INT, so 1: she writes **5 –** in her spell point box. She casts *Web* (2 points) and *Shield* (1): **5 – |||**. She has 2 left until her next long rest.
+> **Example: Isolde the Sage** holds the *Conjurer's Book* (+2) with INT +2, and her *Learned* perk adds ½ INT, so 1: she writes **/ 5** in her spell point box. She casts *Web* (2 points) and *Shield* (1): **||| / 5**. She has 2 left until her next long rest.
 
 ### 12.4 Decks
 
@@ -977,7 +977,7 @@ A Spellbook is a **deck**: a **cover card** (Rank, spell attack, spell points, m
 1. **Choose a Calling** (2.4).
 2. **Choose your gear and Aspects** from the GM's starter list (all Rank I), among the cards your Calling can equip (3.1): **1 Armor**, up to **2** for your **Hands** (weapons or a shield), **1 Jewelry** and **3 Aspects**. A caster also picks a **Spellbook** (it takes an Item Slot and needs an empty Hand Slot to cast). A Divine, Glamour or Nature Aspect is one of your 3 Aspects.
 3. **Fill your Item Slots**: one *Potion of Healing* (in the free Item Slot).
-4. **Take 3 empty Shards** and a *Coin Pouch* (Purse, Rank I) holding **50 gp** (all in your Pack). The party's Stash starts with **2 empty Shards per character** (3.8).
+4. **Take 3 empty Shards** and a *Coin Pouch* (Container, Rank I) holding **50 gp** (all in your Pack). The party's Stash starts with **2 empty Shards per character** (3.8).
 5. **Calculate** your ten totals (four modifiers, four Defenses, HP maximum, Speed) by adding the bonuses of your gear and Aspects to your Calling's, and write them on a tally card with your current HP (12.3). With a Spellbook, write your spell points (10.2); with a Divine, Glamour or Nature Aspect, your Resolve (10.6). Then work out your weapon and spell attack bonuses and passive Awareness (5.3).
 6. **Describe** who you are: name, look and a bond.
 
@@ -1014,6 +1014,7 @@ Each game term has one meaning, in both books.
 | **Check** | A roll of d20 + ability modifier + bonuses against a Difficulty Class (DC). |
 | **Climb N** | A climb speed: climbing costs no extra movement. |
 | **Consumable** | An item gone once used. Up to 3 identical Consumables share one Item Slot. |
+| **Container** | An item that is never equipped: it works from your Pack and takes 1 of its pieces. A Purse holds gold, a *Shard Bandolier* more Shards. |
 | **Crowd question** | The third of the three questions asked before an attack: Outnumbered. One advantage die if your side has more creatures engaged around the target, one disadvantage die if its side has more. |
 | **Crushing** | A weapon keyword: a hit that beats the targeted Defense by 5 or more knocks the target Prone. |
 | **Cue** | A Divine or Glamour power. Reaction: changes a roll after it's made, before its result. |
@@ -1039,7 +1040,7 @@ Each game term has one meaning, in both books.
 | **Glamour** | An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and adds to your Resolve. |
 | **Heavy** | A weapon keyword: a big weapon. As loot it lights only the STR symbol, so only a Calling with STR can equip it. |
 | **Instrument** | Equipment held in a Hand that is neither a weapon nor a shield: a lute, a drum, a horn. |
-| **Item** | Gear you carry and use: Spellbooks, Recipes, Consumables, Purses and Shards. |
+| **Item** | Gear you carry and use: Spellbooks, Recipes, Consumables, Containers and Shards. |
 | **Jewelry** | The type of worn gear that fits the Jewelry Slot: rings, amulets, circlets, cloaks, gloves, boots. |
 | **Keyword** | A word with one fixed meaning that gear and Aspects list, type first. |
 | **Knack** | An Aspect type: a bonus on checks for one narrow activity. |
@@ -1060,7 +1061,7 @@ Each game term has one meaning, in both books.
 | **Party Stash** | The group's mule, cart or wagon: gear and Shards the party owns but nobody carries. |
 | **Piece** | One unit of gear, as the Pack, the Party Stash and loot count it. A stack of up to 3 identical Consumables is one piece. |
 | **Play loop** | The repeating cycle of play: face a trial, gather the loot, rest and rebuild when needed. |
-| **Purse** | An item that holds your gold, up to a maximum set by its Rank. |
+| **Purse** | A Container that holds your gold, up to a maximum set by its Rank. |
 | **Quest** | A goal the party takes on, a few trials long. |
 | **Range N/M** | A ranged attack. Beyond N: disadvantage. Beyond M: impossible. A single number is a spell's maximum range. |
 | **Rank** | The fixed power of a piece of gear or an Aspect, from I to V. Characters and Callings have none. |
@@ -1087,7 +1088,7 @@ Each game term has one meaning, in both books.
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
 | **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols. |
-| **Tally card** | The one card you write on: your ten totals, current and temporary HP, death saves, spell points and Resolve. |
+| **Tally card** | The one card you write on: your ten totals, HP and temporary HP, death saves, spell points, Resolve and features. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |
 | **Technique** | An Aspect type: something a being trained (a fighting move). |

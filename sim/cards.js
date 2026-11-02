@@ -94,6 +94,50 @@ globalThis.BEARERS_CARDS = {
    "fx": [],
    "deck": "B-I-01"
   },
+  "C-I-01": {
+   "id": "C-I-01",
+   "name": "Coin Pouch",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Container",
+   "kw": [
+    "Container"
+   ],
+   "text": [
+    "Holds up to **100 gp**."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
+   ],
+   "fx": []
+  },
+  "C-I-02": {
+   "id": "C-I-02",
+   "name": "Shard Bandolier",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Container",
+   "kw": [
+    "Container"
+   ],
+   "text": [
+    "While it's in your Pack, your Pack holds up to 5 Shards instead of 3."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
+   ],
+   "fx": []
+  },
   "D-I-01": {
    "id": "D-I-01",
    "name": "Acolyte's Litany",
@@ -203,28 +247,6 @@ globalThis.BEARERS_CARDS = {
   },
   "J-I-03": {
    "id": "J-I-03",
-   "name": "Shard Bandolier",
-   "rank": "I",
-   "kind": "gear",
-   "type": "Jewelry",
-   "kw": [
-    "Jewelry"
-   ],
-   "text": [
-    "Your Pack holds up to 5 Shards instead of 3, within its usual 8 pieces."
-   ],
-   "strip": {},
-   "group": "starter",
-   "sym": [
-    "STR",
-    "DEX",
-    "INT",
-    "WIL"
-   ],
-   "fx": []
-  },
-  "J-I-04": {
-   "id": "J-I-04",
    "name": "Holy Amulet",
    "rank": "I",
    "kind": "gear",
@@ -244,7 +266,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": [
     {
-     "id": "J-I-04#0",
+     "id": "J-I-03#0",
      "name": "Holy Amulet",
      "use": "passive",
      "extraResolve": 1,
@@ -255,8 +277,8 @@ globalThis.BEARERS_CARDS = {
     }
    ]
   },
-  "J-I-05": {
-   "id": "J-I-05",
+  "J-I-04": {
+   "id": "J-I-04",
    "name": "Boots of the Long Stride",
    "rank": "I",
    "kind": "gear",
@@ -277,7 +299,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": [
     {
-     "id": "J-I-05#0",
+     "id": "J-I-04#0",
      "name": "Boots of the Long Stride",
      "use": "reaction",
      "uses": "1/SR",
@@ -290,8 +312,8 @@ globalThis.BEARERS_CARDS = {
     }
    ]
   },
-  "J-I-06": {
-   "id": "J-I-06",
+  "J-I-05": {
+   "id": "J-I-05",
    "name": "Dancer's Bells",
    "rank": "I",
    "kind": "gear",
@@ -311,7 +333,7 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": [
     {
-     "id": "J-I-06#0",
+     "id": "J-I-05#0",
      "name": "Dancer's Bells",
      "use": "passive",
      "extraResolve": 1,
@@ -2231,28 +2253,6 @@ globalThis.BEARERS_CARDS = {
      ]
     }
    ]
-  },
-  "U-I-01": {
-   "id": "U-I-01",
-   "name": "Coin Pouch",
-   "rank": "I",
-   "kind": "gear",
-   "type": "Purse",
-   "kw": [
-    "Purse"
-   ],
-   "text": [
-    "Holds up to **100 gp**."
-   ],
-   "strip": {},
-   "group": "starter",
-   "sym": [
-    "STR",
-    "DEX",
-    "INT",
-    "WIL"
-   ],
-   "fx": []
   },
   "W-I-01": {
    "id": "W-I-01",
@@ -4425,7 +4425,7 @@ globalThis.BEARERS_CARDS = {
     "W-I-01",
     "Q-II-01",
     "A-I-01",
-    "U-I-01"
+    "C-I-01"
    ],
    "bonus": {},
    "extraDice": 0,
@@ -5226,15 +5226,15 @@ globalThis.BEARERS_CARDS = {
   "Jewelry": [
    "J-I-01",
    "J-I-02",
-   "J-I-03",
-   "J-I-05",
-   "J-I-06"
+   "J-I-04",
+   "J-I-05"
   ],
   "Items": [
    "B-I-01",
    "P-I-01",
-   "U-I-01",
-   "P-I-02"
+   "C-I-01",
+   "P-I-02",
+   "C-I-02"
   ],
   "Aspects": [
    "T-I-01",

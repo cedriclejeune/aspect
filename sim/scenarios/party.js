@@ -10,11 +10,11 @@ globalThis.BEARERS_PARTY = function (spots) {
   const party = [ // Templar, Infiltrator, Sage, Performer
     pc("pc1", "Bram", { calling: "L-02", armor: "A-I-02", hands: ["W-I-05", "S-I-01"], jewelry: ["J-I-01"],
       items: [{ id: "P-I-01", n: 1 }], aspects: ["Q-I-03", "Q-I-01", "T-I-03"] }),
-    pc("pc2", "Wren", { calling: "L-04", armor: "A-I-01", hands: ["W-I-09"], carried: ["W-I-02"], jewelry: ["J-I-05"],
+    pc("pc2", "Wren", { calling: "L-04", armor: "A-I-01", hands: ["W-I-09"], carried: ["W-I-02"], jewelry: ["J-I-04"],
       items: [{ id: "P-I-01", n: 1 }], aspects: ["Q-I-02", "K-I-05", "T-I-04"] }),
     pc("pc3", "Isolde", { calling: "L-06", armor: "A-I-01", hands: ["W-I-12"], jewelry: ["J-I-01"],
       items: [{ id: "B-I-01", n: 1 }, { id: "P-I-01", n: 1 }], aspects: ["T-I-04", "T-I-02", "K-I-06"] }),
-    pc("pc4", "Aldo", { calling: "L-05", armor: "A-I-01", hands: ["W-I-02"], jewelry: ["J-I-04"],
+    pc("pc4", "Aldo", { calling: "L-05", armor: "A-I-01", hands: ["W-I-02"], jewelry: ["J-I-03"],
       items: [{ id: "P-I-01", n: 1 }], aspects: ["D-I-01", "Q-I-04", "T-I-03"] }),
   ];
   party.forEach((c, i) => (c.pos = spots[i]));

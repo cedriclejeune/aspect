@@ -752,9 +752,9 @@ function realTests() {
   T("[real] random fights run to the end without errors and replay identically", () => {
     const party = [
       { id: "pc1", calling: "L-02", armor: "A-I-02", hands: ["W-I-05", "S-I-01"], jewelry: ["J-I-01"], items: [{ id: "P-I-01", n: 1 }], aspects: ["Q-I-03", "Q-I-01", "T-I-03"] },
-      { id: "pc2", calling: "L-04", armor: "A-I-01", hands: ["W-I-09"], carried: ["W-I-02"], jewelry: ["J-I-05"], items: [{ id: "P-I-01", n: 1 }], aspects: ["Q-I-02", "K-I-05", "T-I-04"] },
+      { id: "pc2", calling: "L-04", armor: "A-I-01", hands: ["W-I-09"], carried: ["W-I-02"], jewelry: ["J-I-04"], items: [{ id: "P-I-01", n: 1 }], aspects: ["Q-I-02", "K-I-05", "T-I-04"] },
       { id: "pc3", calling: "L-06", armor: "A-I-01", hands: ["W-I-12"], jewelry: ["J-I-01"], items: [{ id: "B-I-01", n: 1 }, { id: "P-I-01", n: 1 }], aspects: ["T-I-04", "T-I-02", "K-I-06"] },
-      { id: "pc4", calling: "L-05", armor: "A-I-01", hands: ["W-I-02"], jewelry: ["J-I-04"], items: [{ id: "P-I-01", n: 1 }], aspects: ["D-I-01", "Q-I-04", "T-I-03"] },
+      { id: "pc4", calling: "L-05", armor: "A-I-01", hands: ["W-I-02"], jewelry: ["J-I-03"], items: [{ id: "P-I-01", n: 1 }], aspects: ["D-I-01", "Q-I-04", "T-I-03"] },
       { id: "pc5", calling: "L-05", armor: null, hands: ["M-I-01"], jewelry: [], items: [], aspects: ["G-I-01", "N-I-01", "Q-I-05"] },
     ];
     for (const b of party) eq(Eng.validate(b, REAL).filter((s) => !/^Warning/.test(s)), [], b.id);

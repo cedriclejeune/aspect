@@ -163,13 +163,13 @@ A hidden Bearer (P 5.4) can watch a group of foes before a fight: an **INT check
 |---|---|
 | **Armor** | *Leather*, *Mail* |
 | **Hands** | *Shield*, *Dagger*, *Shortsword*, *Handaxe*, *Finesse Blade*, *Longsword*, *Battleaxe*, *Greatsword*, *Glaive*, *Longbow*, *Sling*, *Javelins*, *Spellguard Staff*, *Traveler's Lute* |
-| **Jewelry** | *Ring of Warding*, *Guild Signet*, *Shard Bandolier*, *Boots of the Long Stride*, *Dancer's Bells* |
+| **Jewelry** | *Ring of Warding*, *Guild Signet*, *Boots of the Long Stride*, *Dancer's Bells* |
 | **Items** | *Conjurer's Book*, *Potion of Healing*, *Coin Pouch*, *Writ of Favor* |
 | **Aspects** | *Springheel*, *Stone Blood*, *Iron Will*, *Clear Mind*, *Cleave*, *Steady Aim*, *Shield Bash*, *Battle Hymn*, *Rallying Cry*, *Cat Burglar*, *Renowned*, *Sailor*, *Street Urchin*, *Hunter*, *Physician*, *Barkeep*, *Smith*, *Mountaineer*, *Wanderer's Repertoire* |
 
 - **Wishlists:** each player writes **3 cards** they'd like to find on the back of their tally card (P 12.3) and updates it when they want. Glance at it when you pick drops (4.1) and rewards: grant a wish now and then, at its Rank, from a fitting monster or trial. *Provisional: the card backs aren't designed yet.*
 - **Extra Gear Slots** are Boss rewards only. Never more than one of each per character. At the table, hand the player its Slot frame (P 12.2).
-- **Empty Shards** count as one piece of the loot budget when they drop. Give one when the party keeps losing Aspects it wanted. A *Shard Bandolier* (P 3.8) is a good early Jewelry reward.
+- **Empty Shards** count as one piece of the loot budget when they drop. Give one when the party keeps losing Aspects it wanted. A *Shard Bandolier* (Container, P 3.8) is a good early reward.
 - **Party Stash upgrades** (Pack Mule, Cart, Wagon) are quest rewards (1.6) or Boss rewards. Give the next one when the party starts leaving good loot behind.
 - **Milestones** (P 4.1): grant one to everyone at the **end of each story** (1.6), and hand each player a new Aspect frame (P 12.2). A full campaign is about **five stories** (3 → 8 Aspects). Everyone advances together. *Provisional until the balance pass.*
 
@@ -386,6 +386,7 @@ Each game term has one meaning, in both books.
 | **Check** | A roll of d20 + ability modifier + bonuses against a Difficulty Class (DC). |
 | **Climb N** | A climb speed: climbing costs no extra movement. |
 | **Consumable** | An item gone once used. Up to 3 identical Consumables share one Item Slot. |
+| **Container** | An item that is never equipped: it works from your Pack and takes 1 of its pieces. A Purse holds gold, a *Shard Bandolier* more Shards. |
 | **Crowd question** | The third of the three questions asked before an attack: Outnumbered. One advantage die if your side has more creatures engaged around the target, one disadvantage die if its side has more. |
 | **Crushing** | A weapon keyword: a hit that beats the targeted Defense by 5 or more knocks the target Prone. |
 | **Cue** | A Divine or Glamour power. Reaction: changes a roll after it's made, before its result. |
@@ -411,7 +412,7 @@ Each game term has one meaning, in both books.
 | **Glamour** | An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and adds to your Resolve. |
 | **Heavy** | A weapon keyword: a big weapon. As loot it lights only the STR symbol, so only a Calling with STR can equip it. |
 | **Instrument** | Equipment held in a Hand that is neither a weapon nor a shield: a lute, a drum, a horn. |
-| **Item** | Gear you carry and use: Spellbooks, Recipes, Consumables, Purses and Shards. |
+| **Item** | Gear you carry and use: Spellbooks, Recipes, Consumables, Containers and Shards. |
 | **Jewelry** | The type of worn gear that fits the Jewelry Slot: rings, amulets, circlets, cloaks, gloves, boots. |
 | **Keyword** | A word with one fixed meaning that gear and Aspects list, type first. |
 | **Knack** | An Aspect type: a bonus on checks for one narrow activity. |
@@ -432,7 +433,7 @@ Each game term has one meaning, in both books.
 | **Party Stash** | The group's mule, cart or wagon: gear and Shards the party owns but nobody carries. |
 | **Piece** | One unit of gear, as the Pack, the Party Stash and loot count it. A stack of up to 3 identical Consumables is one piece. |
 | **Play loop** | The repeating cycle of play: face a trial, gather the loot, rest and rebuild when needed. |
-| **Purse** | An item that holds your gold, up to a maximum set by its Rank. |
+| **Purse** | A Container that holds your gold, up to a maximum set by its Rank. |
 | **Quest** | A goal the party takes on, a few trials long. |
 | **Range N/M** | A ranged attack. Beyond N: disadvantage. Beyond M: impossible. A single number is a spell's maximum range. |
 | **Rank** | The fixed power of a piece of gear or an Aspect, from I to V. Characters and Callings have none. |
@@ -459,7 +460,7 @@ Each game term has one meaning, in both books.
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
 | **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols. |
-| **Tally card** | The one card you write on: your ten totals, current and temporary HP, death saves, spell points and Resolve. |
+| **Tally card** | The one card you write on: your ten totals, HP and temporary HP, death saves, spell points, Resolve and features. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |
 | **Technique** | An Aspect type: something a being trained (a fighting move). |

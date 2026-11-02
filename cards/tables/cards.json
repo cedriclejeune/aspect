@@ -938,30 +938,6 @@
   },
   {
    "id": "J-I-03",
-   "name": "Shard Bandolier",
-   "type": "Jewelry",
-   "rank": "I",
-   "group": "starter",
-   "symbols": "all",
-   "copies": 1,
-   "STR": "",
-   "DEX": "",
-   "INT": "",
-   "WIL": "",
-   "STRd": "",
-   "DEXd": "",
-   "INTd": "",
-   "WILd": "",
-   "HP": "",
-   "SPD": "",
-   "to_hit": "",
-   "damage": "",
-   "keywords": "",
-   "text": "Your Pack holds up to 5 Shards instead of 3, within its usual 8 pieces.",
-   "lore": "Leather straps padded for crystal. Shards clink softly against each other as you walk."
-  },
-  {
-   "id": "J-I-04",
    "name": "Holy Amulet",
    "type": "Jewelry",
    "rank": "I",
@@ -985,7 +961,7 @@
    "lore": "A blessed token on a worn cord. Prayers spoken over it seem to travel further."
   },
   {
-   "id": "J-I-05",
+   "id": "J-I-04",
    "name": "Boots of the Long Stride",
    "type": "Jewelry",
    "rank": "I",
@@ -1033,7 +1009,7 @@
    "lore": "Copper wire coiled around a blue stone. It bites whoever lays a hand on its wearer."
   },
   {
-   "id": "J-I-06",
+   "id": "J-I-05",
    "name": "Dancer's Bells",
    "type": "Jewelry",
    "rank": "I",
@@ -1081,9 +1057,9 @@
    "lore": "Red and faintly warm, it tastes of iron and cherries. Shake before drinking."
   },
   {
-   "id": "U-I-01",
+   "id": "C-I-01",
    "name": "Coin Pouch",
-   "type": "Purse",
+   "type": "Container",
    "rank": "I",
    "group": "starter",
    "symbols": "all",
@@ -1223,6 +1199,30 @@
    "keywords": "3 flasks",
    "text": "Reaction: throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss.",
    "lore": "Three corked flasks and the knowledge to fill them. Keep them away from the campfire."
+  },
+  {
+   "id": "C-I-02",
+   "name": "Shard Bandolier",
+   "type": "Container",
+   "rank": "I",
+   "group": "starter",
+   "symbols": "all",
+   "copies": 1,
+   "STR": "",
+   "DEX": "",
+   "INT": "",
+   "WIL": "",
+   "STRd": "",
+   "DEXd": "",
+   "INTd": "",
+   "WILd": "",
+   "HP": "",
+   "SPD": "",
+   "to_hit": "",
+   "damage": "",
+   "keywords": "",
+   "text": "While it's in your Pack, your Pack holds up to 5 Shards instead of 3.",
+   "lore": "Leather straps padded for crystal. Shards clink softly against each other as you walk."
   },
   {
    "id": "T-I-01",
@@ -3289,7 +3289,7 @@
    "WILd": 11,
    "HP": 30,
    "SPD": 35,
-   "carries": "Finesse Blade (W-I-04); Dagger (W-I-01); Twin Strike (Q-II-01); Leather (A-I-01); Coin Pouch (U-I-01)",
+   "carries": "Finesse Blade (W-I-04); Dagger (W-I-01); Twin Strike (Q-II-01); Leather (A-I-01); Coin Pouch (C-I-01)",
    "own": ""
   },
   {

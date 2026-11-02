@@ -20,7 +20,7 @@ ABILS = bs.ABILS
 RANK_BONUS = {"I": 2, "II": 3, "III": 4, "IV": 5, "V": 6}
 TRAIT_HP = {"I": 2, "II": 4, "III": 7, "IV": 10, "V": 14}
 SLOT = {"Armor": "Armor", "Weapon": "Hand", "Shield": "Hand", "Instrument": "Hand", "Jewelry": "Jewelry",
-        "Consumable": "Item", "Recipe": "Item", "Purse": "Item", "Spellbook": "Item"}
+        "Consumable": "Item", "Recipe": "Item", "Container": "Pack", "Spellbook": "Item"}
 WIL_DECKS = ("Divine", "Glamour", "Nature")
 # GM 4.3 activity table: the ability each activity belongs to (plus the extra words used on base-set cards)
 ACTIVITY = {
@@ -153,7 +153,7 @@ def checks():
             out.append(f"{c['name']}: Trait HP {c['strip'].get('HP')}, Rank {r} prints +{TRAIT_HP[r]}")
         if t in ("Knack", "Technique") and "HP" in c["strip"]:
             out.append(f"{c['name']}: a {t} prints no HP")
-        if SLOT.get(t) in ("Jewelry", "Item") and t != "Spellbook" and len(c["sym"]) != 4:
+        if SLOT.get(t) in ("Jewelry", "Item", "Pack") and t != "Spellbook" and "Focus" not in c["kw"] and len(c["sym"]) != 4:
             out.append(f"{c['name']}: {t} should light all four symbols")
         m = re.search(r"\+(\d) on checks to ([^.]*)", text)
         if m:

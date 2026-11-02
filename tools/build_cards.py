@@ -4,7 +4,7 @@ Usage: .venv/bin/python tools/build_cards.py [--lang fr]
 --lang fr: the French base set (cards/fr.py) in rules/fr/Porteurs-Set-de-base.pdf and rules/fr/Porteurs-Set-de-base-Lecture.pdf.
 Output: rules/Bearers-Base-Set.pdf to print and rules/Bearers-Base-Set-Reading.pdf to read on screen
 (and build/base-set.html, build/base-set-reading.html for inspection)
-Cards are 63 × 88 mm, 9 per Letter page; foe cards 126 × 88 mm, 3 per page; Slot frames are 67 × 98 mm, 8 per landscape page.
+Cards are 63 × 88 mm, 9 per Letter page; foe and tally cards 126 × 88 mm, 3 per page; Slot frames are 67 × 98 mm, 8 per landscape page.
 A card with a drawing is two-sided: gear and gold from rules/art/items/, Callings, Aspects, deck cards and Wounds from
 rules/art/cards/ (a Form named after a foe, and the Orcish and Hobgoblin species Traits, use the foe's drawing). The drawing goes in place of the
 text on the front, the text on the back, on facing pages printed two-sided (each back page mirrors its front page's
@@ -47,10 +47,10 @@ ROWS = ["STR", "DEX", "INT", "WIL", "STRd", "DEXd", "INTd", "WILd", "HP", "SPD"]
 SYM_FILE = {"STR": "str", "DEX": "dex", "INT": "int", "WIL": "wil", "STRd": "str-def", "DEXd": "dex-def", "INTd": "int-def",
             "WILd": "wil-def", "HP": "hp", "SPD": "spd"}
 SKETCHES = ROOT / "rules" / "symbols" / "sketch"  # stand-ins until tools/gen_symbols.py draws the ink symbol
-TYPE_SYMBOL = {t: t.lower() for t in ("Calling", "Armor", "Weapon", "Shield", "Jewelry", "Instrument", "Consumable", "Purse",
+TYPE_SYMBOL = {t: t.lower() for t in ("Calling", "Armor", "Weapon", "Shield", "Jewelry", "Instrument", "Consumable", "Container",
                                       "Recipe", "Spellbook", "Trait", "Technique", "Knack", "Divine", "Glamour", "Nature")}
 FAMILY = {"Calling": "calling", **dict.fromkeys(("Armor", "Weapon", "Shield", "Jewelry", "Instrument"), "equip"),
-          **dict.fromkeys(("Consumable", "Purse", "Recipe", "Spellbook", "Shard"), "item"),
+          **dict.fromkeys(("Consumable", "Container", "Recipe", "Spellbook", "Shard"), "item"),
           **dict.fromkeys(("Trait", "Technique", "Knack", "Divine", "Glamour", "Nature"), "aspect")}
 SUBTITLE = {"calling": "Calling", "equip": "Equipment", "item": "Item", "aspect": "Aspect"}  # GLOSSARY: gear is equipment or items
 DESCRIPTIVE = set()  # keywords that describe without a rule: printed grey on the second keyword line (none yet)
@@ -157,7 +157,8 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
 .set {{ position: absolute; right: 2mm; bottom: 3.3mm; font-family: Cinzel, serif; font-size: 4.6pt; color: #777; letter-spacing: .05em; }}
 .coin {{ display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2mm; }}
 .coin svg {{ width: 30mm; height: 30mm; }}
-.tally svg {{ width: 63mm; height: 88mm; display: block; }}
+.card.tally {{ width: 126mm; }}
+.tally svg {{ width: 126mm; height: 88mm; display: block; }}
 .tally {{ border: 0; border-radius: 0; background: none; }}
 .card.foe {{ width: 126mm; }}
 .foe .pic {{ position: absolute; left: 0; top: 11.44mm; bottom: 8.8mm; width: 50mm; border-right: .3mm solid #000;
@@ -440,7 +441,7 @@ def foe_lines(f):
         if kind in ("Weapon", "Arme"):
             extra = f["extra_dice"]
             lines.append(foe_attack(c, mods, extra.get(key, 0) if isinstance(extra, dict) else extra))
-        elif kind in ("Armor", "Shield", "Purse", "Armure", "Bouclier", "Bourse"):
+        elif kind in ("Armor", "Shield", "Container", "Armure", "Bouclier", "Contenant"):
             also.append(f'*{c["name"]}*')
         elif deck:
             lines.append(f'*{c["name"]}*{colon} ' + " · ".join(resolve(pool(t, mods), mods) for t in c["text"][:2]))
@@ -506,7 +507,7 @@ def gold_card(value, face="text"):
 
 
 def tally_card():
-    return f'<div class="card tally">{ill._svg(300, 419, ill.tally_small(0, 0, 300, 419, {}, ledger=True), "Tally card")}</div>'
+    return f'<div class="card tally">{ill._svg(600, 419, ill.tally_small(0, 0, 600, 419, {}, ledger=True), "Tally card")}</div>'
 
 
 def sheets(cards, cls="", per=9):
@@ -553,7 +554,6 @@ def build_cards(reading=False):
             put(drawing(s.get("key", s["name"]), "deck"), lambda f, s=s, deck=deck: deck_card(s, deck, f), 1)
     for value, n in bs.GOLD:
         put(drawing(f"{value:,} gp", "gold"), lambda f, value=value: gold_card(value, f), n)
-    out.extend([tally_card()] * bs.TALLIES)
     for w in bs.WOUNDS:
         add(w, 1, "WOUND")
     return out, wide if reading else pairs
@@ -562,6 +562,11 @@ def build_cards(reading=False):
 def build_foes():
     """Double-width foe cards, filled with the single cards' grid: one per row (the third column stays empty)."""
     return [foe_card(f) for f in foes.FOES] + [blank_foe_card()] * foes.BLANKS
+
+
+def build_tallies():
+    """Double-width tally cards, 3 a page like the foe cards."""
+    return [tally_card()] * bs.TALLIES
 
 
 def build_frames():
@@ -577,7 +582,7 @@ def intro(n_cards, n_frames, n_duplex):
     return f"""<section class="intro"><h1>BEARERS</h1><p style="font-family:Cinzel,serif;letter-spacing:.2em">Base Set · {bs.PLAYERS} players</p>
 <h2>Printing</h2>
 <ul><li>Print at <b>100 %</b> (no fit-to-page) on cardstock. Pages 2–{n_duplex + 1} are two-sided cards: print them double-sided, flipping on the long edge. Print the rest single-sided.</li>
-<li> Cards are 63 × 88 mm; foe cards are double width (126 × 88 mm); Slot frames are 67 × 98 mm.</li>
+<li> Cards are 63 × 88 mm; foe and tally cards are double width (126 × 88 mm); Slot frames are 67 × 98 mm.</li>
 <li>Cut out each card and frame. On each frame, cut the two <b style="color:{ill.CRIMSON}">red slits</b> with a craft knife.</li>
 <li>Tuck a card's top-right and bottom-left corners under the slits to equip it (Player Rules 12.2).</li></ul>
 <h2>Contents</h2>
@@ -619,7 +624,7 @@ def intro_fr(n_cards, n_frames, n_duplex):
     return f"""<section class="intro"><h1>PORTEURS</h1><p style="font-family:Cinzel,serif;letter-spacing:.2em">Set de base · {bs.PLAYERS} joueurs</p>
 <h2>Impression</h2>
 <ul><li>Imprimez à <b>100 %</b> (sans ajustement à la page) sur du papier cartonné. Les pages 2 à {n_duplex + 1} sont des cartes recto verso : imprimez-les en recto verso, retournement sur le bord long. Imprimez le reste en recto seul.</li>
-<li>Les cartes mesurent 63 × 88 mm ; les cartes d'Adversaire sont double largeur (126 × 88 mm) ; les cadres d'Emplacement mesurent 67 × 98 mm.</li>
+<li>Les cartes mesurent 63 × 88 mm ; les cartes d'Adversaire et de Décompte sont double largeur (126 × 88 mm) ; les cadres d'Emplacement mesurent 67 × 98 mm.</li>
 <li>Découpez chaque carte et chaque cadre. Sur chaque cadre, incisez les deux <b style="color:{ill.CRIMSON}">fentes rouges</b> au cutter.</li>
 <li>Glissez les coins supérieur droit et inférieur gauche d'une carte sous les fentes pour l'équiper (Règles du joueur 12.2).</li></ul>
 <h2>Contenu</h2>
@@ -640,16 +645,16 @@ def main():
         use_french()
     suffix = "-fr" if french else ""
     title = "Porteurs · Set de base" if french else "Bearers · Base Set"
-    (cards, pairs), frames, foe_cards = build_cards(), build_frames(), build_foes()
+    (cards, pairs), frames, foe_cards, tallies = build_cards(), build_frames(), build_foes(), build_tallies()
     n_duplex = 2 * -(-len(pairs) // 9)
     render(f"base-set{suffix}.html", title,
-           intro(len(cards) + len(pairs), len(frames), n_duplex) + duplex(pairs) + sheets(cards)
-           + sheets(foe_cards, "foes", 3) + sheets(frames, "frames", 8), OUT)
-    print(f"Wrote {OUT.relative_to(ROOT)}: {len(cards) + len(pairs)} cards ({len(pairs)} two-sided), "
+           intro(len(cards) + len(pairs) + len(tallies), len(frames), n_duplex) + duplex(pairs) + sheets(cards)
+           + sheets(tallies, "foes", 3) + sheets(foe_cards, "foes", 3) + sheets(frames, "frames", 8), OUT)
+    print(f"Wrote {OUT.relative_to(ROOT)}: {len(cards) + len(pairs) + len(tallies)} cards ({len(pairs)} two-sided), "
           f"{len(foe_cards)} foe cards, {len(frames)} frames")
     _, wide = build_cards(reading=True)
     render(f"base-set-reading{suffix}.html", title + (" (lecture)" if french else " (reading)"),
-           sheets(wide, "foes", 3) + sheets(cards) + sheets(foe_cards, "foes", 3), READING)
+           sheets(wide, "foes", 3) + sheets(cards) + sheets(tallies[:1] + foe_cards, "foes", 3), READING)
     print(f"Wrote {READING.relative_to(ROOT)}: {len(wide)} double-width two-sided cards, then the rest")
     if french:  # the simulator reads the English cards only
         return

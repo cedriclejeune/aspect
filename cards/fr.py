@@ -73,7 +73,7 @@ LEVELS = {"Cantrip": "Tour de magie", "1st": "1er", "2nd": "2e", "Anthem": "Hymn
 # keywords, one at a time ("Range 150/600" and "Thrown 20/60" convert their feet)
 KEYWORDS = {
     "Calling": "Vocation", "Armor": "Armure", "Weapon": "Arme", "Shield": "Bouclier", "Instrument": "Instrument",
-    "Focus": "Focaliseur", "Jewelry": "Bijou", "Consumable": "Consommable", "Purse": "Bourse", "Recipe": "Recette",
+    "Focus": "Focaliseur", "Jewelry": "Bijou", "Consumable": "Consommable", "Container": "Contenant", "Recipe": "Recette",
     "3 flasks": "3 fioles", "Spellbook": "Livre de sorts", "Spell": "Sort", "Cantrip": "Tour de magie",
     "Trait": "Trait", "Technique": "Technique", "Knack": "Savoir-faire", "Divine": "Divin", "Glamour": "Glamour",
     "Nature": "Nature", "Anthem": "Hymne", "Dirge": "Complainte", "Cue": "Réplique", "Mend": "Soin", "Form": "Forme",
@@ -174,8 +174,8 @@ TEXT = {
         "**Réaction (2/R.C.)**, quand une attaque vous touche : +2 à la Défense visée contre cette attaque, ce qui peut la transformer en échec.",
     "**Action (1/L.R.)**, in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night.":
         "**Action (1/R.L.)**, dans une localité où la guilde opère : un contact vous trouve dans l'heure. Il vous révèle un fait que la guilde connaîtrait, ou vous cache pour une nuit.",
-    "Your Pack holds up to 5 Shards instead of 3, within its usual 8 pieces.":
-        "Votre Sac contient jusqu'à 5 Éclats au lieu de 3, dans ses 8 pièces habituelles.",
+    "While it's in your Pack, your Pack holds up to 5 Shards instead of 3.":
+        "Tant qu'elle est dans votre Sac, il contient jusqu'à 5 Éclats au lieu de 3.",
     "Your Cues reach 90 ft instead of 60 ft.": "Vos Répliques portent à 36 m au lieu de 24 m.",
     "**Reaction (1/S.R.):** Move.": "**Réaction (1/R.C.) :** Déplacement.",
     "**Reaction (1/S.R.)**, when a creature within 5 ft hits you: it takes 2d6 Lightning.":
@@ -467,7 +467,7 @@ FRAME_TEXT = {
     "One Weapon, Shield or Instrument.": "Une Arme, un Bouclier ou un Instrument.",
     "Empty: grapple, or hold a Spellbook to cast.": "Vide : empoigner, ou tenir un Livre de sorts pour lancer.",
     "Rings, amulets, circlets, cloaks, gloves, boots.": "Anneaux, amulettes, diadèmes, capes, gants, bottes.",
-    "A Spellbook, a Recipe, a Purse, or up to 3 identical Consumables.": "Un Livre de sorts, une Recette, une Bourse, ou jusqu'à 3 Consommables identiques.",
+    "A Spellbook, a Recipe, or up to 3 identical Consumables.": "Un Livre de sorts, une Recette, ou jusqu'à 3 Consommables identiques.",
     "A Trait, Technique, Knack, Divine, Glamour or Nature.": "Un Trait, une Technique, un Savoir-faire, un Divin, un Glamour ou une Nature.",
     "Extra Gear Slot: a spectral arm, a familiar, a living tail.": "Emplacement de Matériel supplémentaire : un bras spectral, un familier, une queue vivante.",
     "Never lost, traded or stored.": "Jamais perdu, échangé ni rangé.", "Extra Gear Slot.": "Emplacement de Matériel supplémentaire.",

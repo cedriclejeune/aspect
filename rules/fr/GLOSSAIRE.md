@@ -43,7 +43,7 @@ Le matériel que vous portez ou maniez : armures, armes, boucliers, Instruments 
 _À éviter_ : objet (pour ceux-ci). (EN : Equipment)
 
 **Objet**:
-Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Bourses et Éclats.
+Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Contenants et Éclats.
 _À éviter_ : équipement (pour ceux-ci). (EN : Item)
 
 **Babiole**:
@@ -66,8 +66,12 @@ _À éviter_ : outil. (EN : Instrument)
 Un mot-clé d'équipement qui renforce vos Aspects Divins, de Glamour ou de Nature : un Instrument, une amulette sacrée, un bâton de druide.
 _À éviter_ : focaliseur arcanique, symbole sacré, catalyseur. (EN : Focus)
 
+**Contenant**:
+Un objet qui ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. Une Bourse contient de l'or, une *Bandoulière à Éclats* plus d'Éclats.
+_À éviter_ : sac, besace (comme terme) (EN : Container)
+
 **Bourse**:
-Un objet qui contient votre or, jusqu'à un maximum fixé par son Rang.
+Un Contenant qui contient votre or, jusqu'à un maximum fixé par son Rang.
 _À éviter_ : porte-monnaie, sac de pièces (comme terme). (EN : Purse)
 
 **Rang**:
@@ -435,5 +439,5 @@ Le code dans le coin inférieur droit d'une carte : lettre de type, Rang s'il en
 _À éviter_ : numéro de carte, numéro de série. (EN : Card ID)
 
 **Carte de Décompte**:
-La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV actuels et temporaires, vos jets contre la mort, vos points de sort et votre Ardeur.
+La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV et PV temporaires, vos jets contre la mort, vos points de sort, votre Ardeur et vos habiletés.
 _À éviter_ : feuille de personnage (comme terme). (EN : Tally card)

@@ -124,7 +124,6 @@ HANDS = [
 JEWELRY = [
     card("Ring of Warding", "I", "gear", "Jewelry", ["**Reaction (2/S.R.)**, when an attack hits you: +2 to the targeted Defense against that attack, possibly turning it into a miss."]),
     card("Guild Signet", "I", "gear", "Jewelry", ["**Action (1/L.R.)**, in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night."]),
-    card("Shard Bandolier", "I", "gear", "Jewelry", ["Your Pack holds up to 5 Shards instead of 3, within its usual 8 pieces."]),
     card("Holy Amulet", "I", "gear", "Jewelry · Focus", ["1 extra Resolve (short rest).", "Your Cues reach 90 ft instead of 60 ft."], group="loot", sym=["WIL"]),
     card("Boots of the Long Stride", "I", "gear", "Jewelry", ["**Reaction (1/S.R.):** Move."]),
     card("Ring of Sparks", "II", "gear", "Jewelry", ["**Reaction (1/S.R.)**, when a creature within 5 ft hits you: it takes 2d6 Lightning."], group="loot"),
@@ -133,12 +132,13 @@ JEWELRY = [
 
 ITEMS = [
     card("Potion of Healing", "I", "gear", "Consumable", ["**Action:** drink it, or give it to a creature within 5 ft. It regains 2d4 + 2 HP."], copies=6),
-    card("Coin Pouch", "I", "gear", "Purse", ["Holds up to **100 gp**."], copies=PLAYERS),
+    card("Coin Pouch", "I", "gear", "Container", ["Holds up to **100 gp**."], copies=PLAYERS),
     card("Writ of Favor", "I", "gear", "Consumable", ["A sealed letter from a noble house, a guild or a temple. Show it to one of its members: they grant one reasonable request (shelter, an audience, safe passage, a loan up to 100 gp)."]),
     card("Greater Potion of Healing", "II", "gear", "Consumable", ["**Action:** drink it, or give it to a creature within 5 ft. It regains 4d4 + 4 HP."], copies=2, group="loot"),
     card("Restorative Salve", "II", "gear", "Consumable", ["**Action:** spread it on a creature within 5 ft. Heal one of its Wounds."], group="loot"),
     card("Pocket Sand", "I", "gear", "Consumable", ["**Reaction:** throw it at a creature within 5 ft. Attack (DEX or WIL + 2) against its DEX Defense: on a hit, it has −2 on attacks until the end of its next turn."], group="loot"),
     card("Alchemist's Fire Recipe", "II", "gear", "Recipe · 3 flasks", ["**Reaction:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss."], group="loot", uses=3),
+    card("Shard Bandolier", "I", "gear", "Container", ["While it's in your Pack, your Pack holds up to 5 Shards instead of 3."]),
 ]
 
 
@@ -362,7 +362,7 @@ FRAMES = [
     ("armor", "Armor", "Swap: 10 minutes", ["Empty: **+10 ft Speed**."], PLAYERS),
     ("hand", "Hand", "Swap: free interaction", ["One Weapon, Shield or Instrument.", "Empty: grapple, or hold a Spellbook to cast."], 2 * PLAYERS),
     ("jewelry", "Jewelry", "Swap: free, once per turn", ["Rings, amulets, circlets, cloaks, gloves, boots."], PLAYERS),
-    ("item", "Item", "Swap: free · Spellbook: 1 action", ["A Spellbook, a Recipe, a Purse, or up to 3 identical Consumables."], 2 * PLAYERS),
+    ("item", "Item", "Swap: free · Spellbook: 1 action", ["A Spellbook, a Recipe, or up to 3 identical Consumables."], 2 * PLAYERS),
     ("aspect", "Aspect", "Swap: long rest", ["A Trait, Technique, Knack, Divine, Glamour or Nature."], 4 * PLAYERS),  # 3 each + 1 milestone
     ("hand", "Third Hand", "Swap: free interaction", ["Extra Gear Slot: a spectral arm, a familiar, a living tail.", "Never lost, traded or stored."], 1),
     ("jewelry", "Second Jewel", "Swap: free, once per turn", ["Extra Gear Slot.", "Never lost, traded or stored."], 1),
@@ -514,7 +514,7 @@ for _deck in DECKS:
 # ---------- card IDs (P 12.1): type letter, Rank, number in order of appearance ----------
 # Add new cards at the end of their type and Rank so existing IDs never change.
 TYPE_LETTER = {"Calling": "L", "Armor": "A", "Weapon": "W", "Shield": "S", "Instrument": "M", "Jewelry": "J",
-               "Consumable": "P", "Recipe": "R", "Purse": "U", "Spellbook": "B", "Trait": "T", "Technique": "Q",
+               "Consumable": "P", "Recipe": "R", "Container": "C", "Spellbook": "B", "Trait": "T", "Technique": "Q",
                "Knack": "K", "Divine": "D", "Glamour": "G", "Nature": "N"}
 CARDS = CALLINGS + ARMOR + HANDS + JEWELRY + ITEMS + ASPECTS + [d["cover"] for d in DECKS]
 

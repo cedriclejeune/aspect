@@ -81,7 +81,7 @@
   const SPACE = { Tiny: 1, Small: 1, Medium: 1, Large: 2, Huge: 3, Gargantuan: 4 };
   const ASPECT_TYPES = ["Trait", "Technique", "Knack", "Divine", "Glamour", "Nature"];
   const SLOT_TYPES = { armor: ["Armor"], hand: ["Weapon", "Shield", "Instrument"], jewelry: ["Jewelry"],
-    item: ["Spellbook", "Recipe", "Purse", "Consumable"], aspect: ASPECT_TYPES };
+    item: ["Spellbook", "Recipe", "Consumable"], aspect: ASPECT_TYPES };
   const DEFAULT_SLOTS = { hand: 2, jewelry: 1, item: 2, aspect: 3 };
   const INCAP = ["Incapacitated", "Stunned", "Unconscious", "Petrified"];
   const SPEED0 = ["Grappled", "Restrained", "Stunned", "Unconscious", "Petrified"];

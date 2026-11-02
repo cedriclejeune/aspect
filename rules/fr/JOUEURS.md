@@ -61,7 +61,7 @@ La Compagnie avance dans une **saga**, une quête à la fois. Le jeu se déroule
 
 Votre personnage est un **Porteur**. Quelques humanoïdes portent un don, une bénédiction ou une malédiction selon à qui l'on demande : ils peuvent **absorber les Aspects** (Traits, Techniques, Savoir-faire, et magie Divine, de Glamour et de Nature) d'autres êtres. Un Aspect n'a pas de corps à lui. Quand une créature est vaincue, ses Aspects persistent au-dessus du corps pendant une minute, puis s'éteignent. Un Porteur peut en recueillir un dans un **Éclat** : un réceptacle de cristal encombrant qui contient un Aspect jusqu'à ce qu'il soit absorbé. Les Porteurs progressent en rassemblant deux sortes de ressources, chacune occupant ses propres **Emplacements** :
 
-- **Le matériel :** des choses réelles de deux sortes. L'**équipement** est ce que vous portez ou maniez (armures, armes, boucliers, Instruments, Bijoux) ; les **objets** sont ce que vous transportez et utilisez (Livres de sorts, Recettes, Consommables, Bourses, Éclats). Le matériel s'équipe dans les **Emplacements d'Armure, de Main, de Bijou et d'Objet**, appelés ensemble **Emplacements de Matériel**.
+- **Le matériel :** des choses réelles de deux sortes. L'**équipement** est ce que vous portez ou maniez (armures, armes, boucliers, Instruments, Bijoux) ; les **objets** sont ce que vous transportez et utilisez (Livres de sorts, Recettes, Consommables, Contenants, Éclats). Le matériel s'équipe dans les **Emplacements d'Armure, de Main, de Bijou et d'Objet**, appelés ensemble **Emplacements de Matériel**.
 - **Les Aspects :** ils sont absorbés dans vos **Emplacements d'Aspect**. Le nombre d'Aspects qu'un Porteur peut avoir absorbés est limité par son nombre d'Emplacements d'Aspect. Ce nombre augmente chaque fois que la Compagnie achève une saga (jalons, 4.1). L'Aspect d'un Éclat est absorbé pendant votre sommeil, lors d'un repos long (3.5). Les Éclats vides sont précieux : sans eux, un Aspect qui persiste est perdu (3.8).
 - **La Vocation** est ce que vous êtes : les deux caractéristiques avec lesquelles vous êtes né, vos Points de vie et votre Vitesse de base, et un atout. Ce n'est ni un Aspect ni du matériel ; elle n'occupe aucun Emplacement et vous accompagne à vie. Chaque matériel et chaque Aspect indique quelles Vocations peuvent l'équiper (3.1).
 
@@ -128,7 +128,7 @@ Chaque matériel et chaque Aspect (une **carte** à la table, 12.1) a :
 
 - **Un nom** (*Plates du gardien*).
 - **Un Rang** de I à V : sa puissance (*II*).
-- **Des symboles :** les quatre symboles de caractéristique, dans le coin supérieur. Les caractéristiques qu'il utilise sont allumées ; les autres sont grisées (*FOR*). Vous ne pouvez l'équiper que si **votre Vocation possède au moins un de ses symboles allumés**. Les Bijoux, Consommables, Recettes, Bourses et Éclats ont les quatre allumés : tout le monde peut les utiliser. Un **Focaliseur** (10.6) n'allume que la VOL : il renforce la magie de VOL.
+- **Des symboles :** les quatre symboles de caractéristique, dans le coin supérieur. Les caractéristiques qu'il utilise sont allumées ; les autres sont grisées (*FOR*). Vous ne pouvez l'équiper que si **votre Vocation possède au moins un de ses symboles allumés**. Les Bijoux, Consommables, Recettes, Contenants et Éclats ont les quatre allumés : tout le monde peut les utiliser. Un **Focaliseur** (10.6) n'allume que la VOL : il renforce la magie de VOL.
 - **Des bonus** aux modificateurs, aux Défenses, au maximum de PV ou à la Vitesse (*+4 Défense de FOR, −4 m de Vitesse*).
 - **Un effet**, le cas échéant (*Réaction (1/R.C.), quand une attaque vous touche : réduisez ses dégâts de 5*). Un pouvoir aux utilisations limitées les indique sur lui-même : **R.C.** signifie qu'elles reviennent lors d'un repos court (ou d'un repos long), **R.L.** seulement lors d'un repos long.
 - **Des mots-clés :** le **type** d'abord (il fixe l'Emplacement, 3.2), puis les propriétés (*Armure · Bruyante 3*). Voir le chapitre 11.
@@ -145,7 +145,7 @@ Tous les personnages ont le même corps. Seul le nombre d'Emplacements d'Aspect 
 | **Armure** | 1 | Une *Armure* |
 | **Main** | 2 | Une *Arme*, un *Bouclier* ou un *Instrument* chacun. Une arme à Deux mains occupe deux Mains. |
 | **Bijou** | 1 | Un *Bijou* (anneaux, amulettes, diadèmes, capes, gants, bottes) |
-| **Objet** | 2 | Un *Livre de sorts*, une *Recette* ou une *Bourse*, ou une pile de jusqu'à **3 Consommables identiques** (potions, parchemins, bombes, huiles) |
+| **Objet** | 2 | Un *Livre de sorts* ou une *Recette*, ou une pile de jusqu'à **3 Consommables identiques** (potions, parchemins, bombes, huiles) |
 | **Aspect** | 3 | Un *Trait*, une *Technique*, un *Savoir-faire*, un *Divin*, un *Glamour* ou une *Nature* |
 
 - Un Emplacement peut rester vide.
@@ -306,14 +306,14 @@ Chaque Emplacement a son propre temps d'échange. Un échange déplace un matér
 
 ### 3.7 Sac, Réserve de la Compagnie, babioles et or
 
-- **Sac :** jusqu'à **8 pièces**, sur votre dos : du matériel que vous n'avez pas équipé (armes, bijoux, Livres de sorts, Consommables, Bourses) et **au plus 3 Éclats** (3.8). **Pas d'Armure** (trop volumineuse). Accessible en combat, à un coût (3.5). À la table, une pile de cartes à côté de vous (12.2).
+- **Sac :** jusqu'à **8 pièces**, sur votre dos : du matériel que vous n'avez pas équipé (armes, bijoux, Livres de sorts, Consommables), des **Contenants** et **au plus 3 Éclats** (3.8). Un **Contenant** (une Bourse, une *Bandoulière à Éclats*) ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. **Pas d'Armure** (trop volumineuse). Accessible en combat, à un coût (3.5). À la table, une pile de cartes à côté de vous (12.2).
 - **Réserve de la Compagnie :** jusqu'à **5 pièces par personnage** (matériel et Éclats), partagées par le groupe. C'est une mule, une charrette ou un chariot : elle reste **là où la Compagnie la laisse** (hors du donjon, à l'auberge) et est inaccessible en combat. Le MJ peut la menacer (voleurs, embuscade, gué à traverser). À la table, une pile de cartes commune (12.2).
 - **Les améliorations de la Réserve** ne viennent que comme récompenses (récompenses de quête, Boss), jamais contre de l'or. Chacune remplace la précédente, en pièces par personnage : *Mule de bât* 8, *Charrette* 12, *Chariot* 20.
-- **Décompte :** chaque matériel compte pour 1, Éclats (vides ou pleins) et Bourses compris. Une pile de jusqu'à 3 Consommables identiques compte pour 1 (comme dans un Emplacement d'Objet).
+- **Décompte :** chaque matériel compte pour 1, Éclats (vides ou pleins) et Contenants compris. Une pile de jusqu'à 3 Consommables identiques compte pour 1 (comme dans un Emplacement d'Objet).
 - **Sac ou Réserve pleins :** vous ne pouvez pas garder plus. Laissez la pièce en trop, donnez-la à un allié ou vendez-la.
 - **Babioles :** les petites choses non magiques qui ne sont pas du matériel (trésor, clés, lettres, objets de quête) se transportent librement, sans limite. Les fournitures ordinaires (corde, torches, rations, munitions, vêtements, outils) sont **présumées** : vous les avez quand vous en avez besoin.
 - **Argent :** des pièces d'or (po). L'or achète des consommables, des services, des Éclats vides, des Bourses et, chez certains marchands, du matériel et des Aspects. Un Aspect se vend sans Éclat : apportez-en un vide pour le capturer (3.8).
-- **Bourse :** l'or se garde dans une **Bourse**, un matériel qui contient jusqu'à une somme fixée par son Rang : I *Bourse à cordon* **100 po**, II *Bourse de marchand* **500**, III *Sacoche de banquier* **2 000**, IV *Coffret de maître de guilde* **10 000**, V *Bourse sans fond* **sans limite**. La Bourse compte pour 1 pièce ; l'or à l'intérieur, non. Chaque sac de pièces hors d'une Bourse compte pour 1 pièce. À la table, une Bourse est une carte, et son or est fait de **cartes d'or** glissées dessous (12.2).
+- **Bourse :** l'or se garde dans une **Bourse**, un Contenant qui contient jusqu'à une somme fixée par son Rang : I *Bourse à cordon* **100 po**, II *Bourse de marchand* **500**, III *Sacoche de banquier* **2 000**, IV *Coffret de maître de guilde* **10 000**, V *Bourse sans fond* **sans limite**. La Bourse compte pour 1 pièce ; l'or à l'intérieur, non. Chaque sac de pièces hors d'une Bourse compte pour 1 pièce. À la table, une Bourse est une carte, et son or est fait de **cartes d'or** glissées dessous (12.2).
 - **Où elle se trouve :** un Emplacement d'Objet, votre Sac ou la Réserve de la Compagnie. Plus elle est proche de vous, mieux elle est surveillée et protégée ; le MJ décide de ce qu'un voleur ou une catastrophe peut atteindre. L'or se perd, se vole et se donne comme n'importe quel matériel.
 - **Payer :** la Bourse doit être à proximité : la vôtre, celle d'un allié, ou la Réserve de la Compagnie quand la Compagnie est avec elle.
 
@@ -332,7 +332,7 @@ Chaque Emplacement a son propre temps d'échange. Un échange déplace un matér
 Un **Éclat** est un objet qui contient **un Aspect**, ou rien. Il n'occupe jamais d'Emplacement : il reste dans votre Sac ou dans la Réserve de la Compagnie. À la table, un Éclat est un **cadre d'Éclat**, dans lequel est glissée la carte de l'Aspect (12.2).
 
 - **Au départ :** chaque personnage a **3 Éclats vides** ; la Réserve de la Compagnie commence avec **2 Éclats vides par personnage**.
-- **Encombrants :** vous portez **au plus 3 Éclats** dans votre Sac. Certains Bijoux augmentent cette limite (*Bandoulière à Éclats*). Les autres attendent dans la Réserve de la Compagnie.
+- **Encombrants :** vous portez **au plus 3 Éclats** dans votre Sac. Un Contenant augmente cette limite (*Bandoulière à Éclats*). Les autres attendent dans la Réserve de la Compagnie.
 - **Persistance :** quand une créature est vaincue, chacun de ses Aspects persiste au-dessus du corps pendant **1 minute**, puis s'éteint pour de bon.
 - **Capturer (1 action) :** à 2 m ou moins du corps, versez un Aspect qui persiste dans un Éclat vide que vous portez. Le coût du Sac (3.5) ne s'applique pas. Vous pouvez capturer un Aspect que votre Vocation ne peut pas équiper : échangez-le, vendez-le ou gardez-le pour un allié.
 - **Absorber (repos long) :** faites passer l'Aspect d'un Éclat dans un Emplacement d'Aspect. L'Éclat est désormais vide.
@@ -839,7 +839,7 @@ Le premier mot-clé. Il fixe l'Emplacement (3.2).
 | **Blessure** | Aucun Emplacement : une lésion durable (7.6). Une Blessure **invalidante** bloque l'Emplacement de Matériel qu'elle nomme. |
 | **Forme** | Partie d'une Souvenance, jamais seule. Une bête en laquelle vous muez (10.7). |
 | **Éclat** | Un objet, jamais dans un Emplacement. Contient un Aspect, ou rien. Sac (3 au plus) ou Réserve de la Compagnie (3.8). |
-| **Bourse** | Emplacement d'Objet, Sac ou Réserve de la Compagnie. Contient de l'or jusqu'à un maximum fixé par son Rang (3.7). |
+| **Contenant** | Un objet, jamais dans un Emplacement : il fonctionne depuis votre Sac (une Bourse aussi depuis la Réserve de la Compagnie). Une Bourse contient de l'or jusqu'à un maximum fixé par son Rang (3.7). |
 
 ### 11.2 Usage et moment
 
@@ -935,12 +935,12 @@ Chacun de vos Emplacements est un **cadre d'Emplacement** : un support un peu pl
 - **Entre les séances,** gardez chaque cadre avec sa carte : votre construction reste telle que vous l'avez laissée.
 - **Sac :** une pile de cartes libres à côté de vous. **Réserve de la Compagnie :** une pile commune au milieu de la table, ou chez le MJ quand la Compagnie la laisse derrière elle.
 - **Éclats :** un Éclat est un **cadre d'Éclat**. Glissez-y la carte de l'Aspect de la même façon. Un Éclat vide est le cadre seul. Absorber (3.8) fait passer la carte de son cadre d'Éclat à un cadre d'Aspect.
-- **Utilisations dépensées :** marquez-les avec des jetons sur la carte. Les points de sort et l'Ardeur dépensés vont sur votre carte de Décompte (12.3). Une **Emprise** garde un dé à côté de sa cible pour indiquer l'usure (chapitre 8).
+- **Utilisations dépensées :** marquez-les avec des jetons sur la carte, ou noircissez leurs cercles sur votre carte de Décompte. Les points de sort et l'Ardeur dépensés vont sur votre carte de Décompte (12.3). Une **Emprise** garde un dé à côté de sa cible pour indiquer l'usure (chapitre 8).
 - **Or :** les cartes d'or existent en **1, 10, 50, 100, 500 et 1 000 po**. Glissez-les sous la carte de la Bourse qui les contient, jusqu'à son maximum. Une carte d'or libre est un sac de pièces (1 pièce). Payez en donnant des cartes d'or au MJ, qui rend la monnaie depuis la banque.
 
 ### 12.3 Tenir vos totaux
 
-Votre **carte de Décompte** est votre **fiche**, et la seule carte sur laquelle vous écrivez : utilisez un crayon ou une pochette effaçable, et prenez-en une neuve quand elle est usée. Sa bande s'aligne avec chaque bande de bonus et contient vos dix **totaux** : la somme de votre Vocation et de toutes vos autres cartes. À côté, elle contient vos **PV actuels**, vos **PV temporaires**, vos **jets contre la mort** (7.4), vos **points de sort** (10.2) et votre **Ardeur** (10.6).
+Votre **carte de Décompte** est votre **fiche**, une carte double largeur, et la seule carte sur laquelle vous écrivez : utilisez un crayon ou une pochette effaçable, et prenez-en une neuve quand elle est usée. Sa bande s'aligne avec chaque bande de bonus et contient vos dix **totaux** : la somme de votre Vocation et de toutes vos autres cartes. À côté, elle contient vos **PV** (les PV temporaires dans le coin gris de la case), vos **jets contre la mort** (7.4), vos **points de sort** (10.2), votre **Ardeur** (10.6) et dix lignes pour lister vos **habiletés** : les effets que vous voulez garder en tête, avec leurs utilisations (*Insaisissable (2/R.C.)*) et un cercle par utilisation, noirci quand vous la dépensez.
 
 <!-- figure: tally -->
 
@@ -956,13 +956,13 @@ Vous ne touchez aux totaux qu'à deux moments.
 
 Les **Blessures** (7.6) sont un paquet de cartes commun, mélangé, à côté de la table. Posez une Blessure à malus dans votre pile comme n'importe quelle carte à bande ; glissez une Blessure invalidante dans le cadre d'Emplacement qu'elle bloque, sur du vide. Quand une Blessure guérit, elle retourne dans le paquet.
 
-**Quand vous muez** en une Forme (10.7), remplissez une carte de Décompte vierge : la bande de la Forme, l'INT et la VOL de votre Vocation, puis vos Aspects (le matériel ne compte pas). Inscrivez les PV de la Forme dans sa case de PV actuels. Vos points de sort et votre Ardeur restent sur votre propre carte de Décompte, et ces cases restent vides sur celle de la Forme. Quand vous revenez, reprenez votre propre carte de Décompte.
+**Quand vous muez** en une Forme (10.7), remplissez une carte de Décompte vierge : la bande de la Forme, l'INT et la VOL de votre Vocation, puis vos Aspects (le matériel ne compte pas). Inscrivez les PV de la Forme dans sa case de PV. Vos points de sort et votre Ardeur restent sur votre propre carte de Décompte, et ces cases restent vides sur celle de la Forme. Quand vous revenez, reprenez votre propre carte de Décompte.
 
 **PV :** quand vos PV actuels changent, barrez l'ancien nombre et écrivez le nouveau.
 
-**Points de sort et Ardeur :** écrivez le total à gauche de sa case, puis un tiret. Chaque fois que vous dépensez un point, tracez un petit bâton à droite du tiret. Ce qui vous reste est le total moins les bâtons. Un repos qui rend les points efface les bâtons (7.5). Quand le total change (10.2, 10.6), écrivez le nouveau et gardez les bâtons. Une case reste vide si vous n'avez pas de Livre de sorts, ou pas de paquet Divin, de Glamour ou de Nature.
+**Points de sort et Ardeur :** écrivez le total à droite de la barre oblique imprimée. Chaque fois que vous dépensez un point, tracez un petit bâton à gauche de la barre. Ce qui vous reste est le total moins les bâtons. Un repos qui rend les points efface les bâtons (7.5). Quand le total change (10.2, 10.6), écrivez le nouveau et gardez les bâtons. Une case reste vide si vous n'avez pas de Livre de sorts, ou pas de paquet Divin, de Glamour ou de Nature.
 
-> **Exemple : Isolde la Sage** tient le *Livre du conjurateur* (+2) avec INT +2, et son atout *Érudit* ajoute ½ INT, soit 1 : elle écrit **5 –** dans sa case de points de sort. Elle lance *Toile d'araignée* (2 points) et *Bouclier* (1) : **5 – |||**. Il lui en reste 2 jusqu'à son prochain repos long.
+> **Exemple : Isolde la Sage** tient le *Livre du conjurateur* (+2) avec INT +2, et son atout *Érudit* ajoute ½ INT, soit 1 : elle écrit **/ 5** dans sa case de points de sort. Elle lance *Toile d'araignée* (2 points) et *Bouclier* (1) : **||| / 5**. Il lui en reste 2 jusqu'à son prochain repos long.
 
 ### 12.4 Paquets
 
@@ -977,7 +977,7 @@ Un Livre de sorts est un **paquet** : une **carte de couverture** (Rang, attaque
 1. **Choisissez une Vocation** (2.4).
 2. **Choisissez votre matériel et vos Aspects** dans la liste de départ du MJ (tous de Rang I), parmi les cartes que votre Vocation peut équiper (3.1) : **1 Armure**, jusqu'à **2** pour vos **Mains** (armes ou un bouclier), **1 Bijou** et **3 Aspects**. Un lanceur de sorts choisit aussi un **Livre de sorts** (il occupe un Emplacement d'Objet et demande un Emplacement de Main vide pour lancer). Un Aspect Divin, de Glamour ou de Nature compte parmi vos 3 Aspects.
 3. **Remplissez vos Emplacements d'Objet** : une *Potion de soins* (dans l'Emplacement d'Objet libre).
-4. **Prenez 3 Éclats vides** et une *Bourse à cordon* (Bourse, Rang I) contenant **50 po** (le tout dans votre Sac). La Réserve de la Compagnie commence avec **2 Éclats vides par personnage** (3.8).
+4. **Prenez 3 Éclats vides** et une *Bourse à cordon* (Contenant, Rang I) contenant **50 po** (le tout dans votre Sac). La Réserve de la Compagnie commence avec **2 Éclats vides par personnage** (3.8).
 5. **Calculez** vos dix totaux (quatre modificateurs, quatre Défenses, maximum de PV, Vitesse) en ajoutant les bonus de votre matériel et de vos Aspects à ceux de votre Vocation, et inscrivez-les sur une carte de Décompte avec vos PV actuels (12.3). Avec un Livre de sorts, inscrivez vos points de sort (10.2) ; avec un Aspect Divin, de Glamour ou de Nature, votre Ardeur (10.6). Calculez ensuite vos bonus d'attaque d'arme et de sort et votre Vigilance passive (5.3).
 6. **Décrivez** qui vous êtes : nom, apparence et un lien.
 
@@ -1005,7 +1005,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Boss** | Un monstre puissant doté de pouvoirs spéciaux, dont un demi-tour pendant le camp des personnages. |
 | **Boucle de jeu** | Le cycle répété du jeu : affronter une épreuve, ramasser le butin, se reposer et se reconstruire au besoin. |
 | **Bouclier** | Le type de matériel tenu qui augmente vos Défenses ; il va dans un Emplacement de Main. |
-| **Bourse** | Un objet qui contient votre or, jusqu'à un maximum fixé par son Rang. |
+| **Bourse** | Un Contenant qui contient votre or, jusqu'à un maximum fixé par son Rang. |
 | **Brutale** | Un mot-clé d'arme : sur un coup critique, lancez ses dés de dégâts trois fois au lieu de deux. |
 | **Bruyante N** | −N aux tests pour se faufiler. |
 | **Butin** | Le matériel ou l'Aspect qu'une épreuve rapporte ; un Adversaire qui le *lâche* le rapporte. |
@@ -1014,12 +1014,13 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Caractéristique** | L'une des quatre mesures de toute créature : Force (FOR), Dextérité (DEX), Intelligence (INT) et Volonté (VOL), chacune notée sous forme de modificateur. |
 | **Carte** | L'élément physique d'une Vocation, d'un matériel, d'un Aspect, d'un sort, d'une Blessure, d'un adversaire ou d'une somme d'or. |
 | **Carte d'Adversaire** | La carte du MJ pour une sorte de monstre : son corps, ses totaux et ses pouvoirs. Les cartes nommées en italique dessus peuvent être lâchées ; le texte droit, jamais. |
-| **Carte de Décompte** | La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV actuels et temporaires, vos jets contre la mort, vos points de sort et votre Ardeur. |
+| **Carte de Décompte** | La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV et PV temporaires, vos jets contre la mort, vos points de sort, votre Ardeur et vos habiletés. |
 | **Chargement** | Un mot-clé d'arme : un tir par action ou réaction, même avec des attaques supplémentaires. |
 | **Code de carte** | Le code dans le coin inférieur droit d'une carte : lettre de type, Rang s'il en a un, et numéro (W-II-02, L-04). |
 | **Compagnie** | Le groupe de Porteurs joués ensemble. |
 | **Complainte** | Un pouvoir Divin ou de Glamour. Action : une attaque contre la Défense de VOL. (EN : Dirge) |
 | **Consommable** | Un objet qui disparaît une fois utilisé. Jusqu'à 3 Consommables identiques partagent un Emplacement d'Objet. |
+| **Contenant** | Un objet qui ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. Une Bourse contient de l'or, une *Bandoulière à Éclats* plus d'Éclats. |
 | **Convalescence** | 3 jours de repos en lieu sûr : fait tout ce que fait un repos long, et guérit toutes vos Blessures. |
 | **Cuir, Mailles, Plates** | Les trois armures, de la plus légère à la plus lourde. |
 | **Défense** | Le nombre qu'une attaque doit atteindre : 10 + un modificateur de caractéristique + bonus. Toute créature a une Défense de FOR, de DEX, d'INT et de VOL. |
@@ -1061,7 +1062,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Nature** | Un type d'Aspect : la magie de VOL du monde sauvage. Son paquet, une **Souvenance**, contient une liste fixe de Formes et de pouvoirs de soin, et s'ajoute à votre Ardeur. |
 | **Niveau de sort** | La puissance d'un sort et son coût en points de sort, du 1er au 6e. (EN : Spell level) |
 | **Niveau effectif** | L'estimation par le MJ de la puissance d'un personnage, de 1 à 12, utilisée pour dimensionner les combats et les DD des épreuves. Ce n'est pas une valeur du personnage. |
-| **Objet** | Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Bourses et Éclats. |
+| **Objet** | Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Contenants et Éclats. |
 | **Perception aveugle N** | Perçoit tout dans un rayon de N m sans la vue. (EN : Blindsight) |
 | **Persistance** | L'état des Aspects d'une créature vaincue pendant 1 minute, avant qu'ils ne s'éteignent pour de bon. Un Aspect dans cet état *persiste*. (EN : Lingering) |
 | **Pièce** | Une unité de matériel, telle que le Sac, la Réserve de la Compagnie et le butin la comptent. Une pile de jusqu'à 3 Consommables identiques compte pour une pièce. |

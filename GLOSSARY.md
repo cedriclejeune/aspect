@@ -43,7 +43,7 @@ Gear you wear or wield: armor, weapons, shields, Instruments and Jewelry.
 _Avoid_: item (for these)
 
 **Item**:
-Gear you carry and use: Spellbooks, Recipes, Consumables, Purses and Shards.
+Gear you carry and use: Spellbooks, Recipes, Consumables, Containers and Shards.
 _Avoid_: equipment (for these)
 
 **Object**:
@@ -66,8 +66,12 @@ _Avoid_: tool
 A keyword on equipment that strengthens your Divine, Glamour or Nature Aspects: an Instrument, a holy amulet, a druid's staff.
 _Avoid_: arcane focus, holy symbol, implement (as the term)
 
+**Container**:
+An item that is never equipped: it works from your Pack and takes 1 of its pieces. A Purse holds gold, a *Shard Bandolier* more Shards.
+_Avoid_: bag, sack (as the term)
+
 **Purse**:
-An item that holds your gold, up to a maximum set by its Rank.
+A Container that holds your gold, up to a maximum set by its Rank.
 _Avoid_: wallet, coin pouch (as the term)
 
 **Rank**:
@@ -434,5 +438,5 @@ The code in a card's bottom-right corner: type letter, Rank if it has one, and n
 _Avoid_: card number, serial
 
 **Tally card**:
-The one card you write on: your ten totals, current and temporary HP, death saves, spell points and Resolve.
+The one card you write on: your ten totals, HP and temporary HP, death saves, spell points, Resolve and features.
 _Avoid_: character sheet (as the term)

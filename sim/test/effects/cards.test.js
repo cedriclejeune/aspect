@@ -237,20 +237,20 @@ module.exports = function register(T, H) {
   });
 
   T("[fx] Boots of the Long Stride: reaction 1/S.R., a free Move", () => {
-    const f = fight([pc("a", [1, 5], { jewelry: ["J-I-05"] }), foe("x", [20, 5])]);
+    const f = fight([pc("a", [1, 5], { jewelry: ["J-I-04"] }), foe("x", [20, 5])]);
     pcTurn(f, "a");
-    ok(tpl(f, "a", (t) => t.power === "J-I-05#0"));
-    run(f, power(f, "a", "J-I-05#0"));
+    ok(tpl(f, "a", (t) => t.power === "J-I-04#0"));
+    run(f, power(f, "a", "J-I-04#0"));
     eq(C(f, "a").turn.speed, 40); ok(C(f, "a").turn.reaction); eq(C(f, "a").turn.acts, 2);
     run(f, { type: "move", actor: "a", path: Array.from({ length: 16 }, (_, i) => [2 + i, 5]) });
     eq([C(f, "a").pos, C(f, "a").turn.acts], [[17, 5], 1], "80 ft: the Boots' Move and one Move action");
     end(f, "a"); skip(f, "x"); go(f, "a");
-    ok(/no uses/.test(refused(f, power(f, "a", "J-I-05#0"))));
+    ok(/no uses/.test(refused(f, power(f, "a", "J-I-04#0"))));
   });
 
   T("[fx] Holy Amulet: Cues reach 90 ft; 1 extra Resolve added to the Litany's pool (P 10.6)", () => {
     const mk = (jewelry) => fight([pc("p", [1, 5], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, jewelry, aspects: ["D-I-01"] }), pc("a", [18, 5], { hands: ["W-I-05"] }), foe("x", [19, 5])]);
-    const f = mk(["J-I-04"]);
+    const f = mk(["J-I-03"]);
     eq(C(f, "p").resolve, 7, "3 + WIL 3 + 1");
     pcTurn(f, "p"); end(f, "p"); go(f, "a");
     const r = run(f, atk("a", "W-I-05", "x"), [3, { c: 0 }, 17, 4]); // 85 ft: Twist Fate rerolls the 3
@@ -260,7 +260,7 @@ module.exports = function register(T, H) {
     const r2 = run(g, atk("a", "W-I-05", "x"), [3]);
     eq(r2.prompts.filter((p) => p.kind === "reaction").length, 0, "60 ft without the amulet");
     // a WIL +0 bearer (Resolve 3 + 1) spends Bless (1) and Cure Wounds (2), then a Cue spends the last one
-    const h = fight([pc("p", [2, 5], { jewelry: ["J-I-04"], aspects: ["D-I-01"] }), pc("a", [3, 5], { hands: ["W-I-05"] }), foe("x", [4, 5])]);
+    const h = fight([pc("p", [2, 5], { jewelry: ["J-I-03"], aspects: ["D-I-01"] }), pc("a", [3, 5], { hands: ["W-I-05"] }), foe("x", [4, 5])]);
     pcTurn(h, "p");
     run(h, power(h, "p", "D-I-01#bless"));
     run(h, power(h, "p", "D-I-01#cure-wounds", { targets: ["a"] }), [1, 1]);

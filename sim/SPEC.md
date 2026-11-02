@@ -40,7 +40,7 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
 {
   "id": "W-I-05", "name": "Finesse Blade", "rank": "I",
   "kind": "calling" | "gear" | "aspect",
-  "type": "Weapon",                    // first keyword: Calling Armor Weapon Shield Instrument Jewelry Consumable Recipe Purse Spellbook Trait Technique Knack Divine Glamour Nature
+  "type": "Weapon",                    // first keyword: Calling Armor Weapon Shield Instrument Jewelry Consumable Recipe Container Spellbook Trait Technique Knack Divine Glamour Nature
   "kw": ["Weapon", "Finesse"],         // keywords split on " · "
   "text": ["..."],                     // printed text, markdown ** and *
   "strip": { "STR": 1, "STRd": 1, "SPD": 5 },   // integers. Calling: absolute values; other cards: bonuses. Keys STR DEX INT WIL STRd DEXd INTd WILd HP SPD

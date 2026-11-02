@@ -5,7 +5,7 @@ Goblin,Small,,Darkvision 60,-1,2,0,-1,5,30,-1,2,0,-1,11,13,10,9,7,35,Sling (W-I-
 Wolf,Medium,,,1,2,-1,-2,7,40,1,2,-1,-2,11,12,9,8,11,40,Pack Hunter (T-II-08),"Bite: +4 to hit, 1d6 + 2 Physical. Keen Nose: alert (passive Awareness +5)."
 Cultist,Medium,,,0,1,0,3,8,30,0,1,0,3,10,11,10,13,10,30,Dagger (W-I-01); Acolyte's Litany (D-I-01); Iron Will (T-I-03),
 Legionary,Medium,,,3,1,0,0,10,30,3,1,0,0,18,13,10,10,14,30,Pilum (W-II-02); Gladius (W-I-14); Shield Wall (Q-I-06); Mail (A-I-02); Shield (S-I-01),"Throws its Pilum, then draws its Gladius."
-Bandit Captain,Medium,Leader,,2,3,0,1,28,30,2,3,0,1,14,14,10,11,30,35,Finesse Blade (W-I-04); Dagger (W-I-01); Twin Strike (Q-II-01); Leather (A-I-01); Coin Pouch (U-I-01),
+Bandit Captain,Medium,Leader,,2,3,0,1,28,30,2,3,0,1,14,14,10,11,30,35,Finesse Blade (W-I-04); Dagger (W-I-01); Twin Strike (Q-II-01); Leather (A-I-01); Coin Pouch (C-I-01),
 Ogre,Large,,Darkvision 60,4,0,0,0,35,35,4,0,0,0,14,10,10,10,95,35,Greatclub (W-I-13); Javelins (W-I-11); Sweeping Blow (Q-II-02),Giant Strength: +60 HP. Its Javelins roll one extra damage die (included). Its Sweeping Blow recharges on a 5–6 instead of 1/S.R.
 Ogre Chieftain,Large,Boss Leader,Darkvision 60,5,0,0,1,54,40,5,0,0,1,19,10,10,11,70,30,Greatclub (W-I-13); Cleave (Q-I-01); Second Wind (T-II-01); Sweeping Blow (Q-II-02); Plate (A-II-01),Warlord: its Sweeping Blow recharges on a 5–6 instead of 1/S.R. Bellow (Recharge 5–6): reaction. Attack (+5) against the WIL Defense of each enemy within 30 ft: Frightened of the chieftain until the end of its next turn.
 Guard,Medium,,,1,1,1,1,6,30,1,1,1,1,16,13,11,11,12,30,Longsword (W-I-05); Shield (S-I-01); Javelins (W-I-11); Mail (A-I-02); Human Grit (T-I-05),

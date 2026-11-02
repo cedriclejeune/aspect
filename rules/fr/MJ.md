@@ -163,13 +163,13 @@ Un Porteur caché (J 5.4) peut observer un groupe d'Adversaires avant un combat 
 |---|---|
 | **Armure** | *Cuir*, *Mailles* |
 | **Mains** | *Bouclier*, *Dague*, *Épée courte*, *Hachette*, *Lame fine*, *Épée longue*, *Hache d'armes*, *Épée à deux mains*, *Glaive sur lance*, *Arc long*, *Fronde*, *Javelots*, *Bâton de garde-sort*, *Luth du voyageur* |
-| **Bijou** | *Anneau de protection*, *Chevalière de guilde*, *Bandoulière à Éclats*, *Bottes de grande foulée*, *Grelots de danseur* |
+| **Bijou** | *Anneau de protection*, *Chevalière de guilde*, *Bottes de grande foulée*, *Grelots de danseur* |
 | **Objets** | *Livre du conjurateur*, *Potion de soins*, *Bourse à cordon*, *Lettre d'introduction* |
 | **Aspects** | *Saute-ruisseau*, *Sang de pierre*, *Volonté de fer*, *Esprit clair*, *Enchaînement*, *Visée juste*, *Coup de bouclier*, *Hymne de bataille*, *Cri de ralliement*, *Passe-muraille*, *Renommé*, *Marin*, *Gamin des rues*, *Chasseur*, *Médecin*, *Tavernier*, *Forgeron*, *Montagnard*, *Répertoire du vagabond* |
 
 - **Listes de souhaits :** chaque joueur écrit **3 cartes** qu'il aimerait trouver au dos de sa carte de Décompte (J 12.3) et la met à jour quand il le souhaite. Jetez-y un œil quand vous choisissez le butin (4.1) et les récompenses : exaucez un souhait de temps en temps, à son Rang, par un monstre ou une épreuve adaptés. *Provisoire : le dos des cartes n'est pas encore conçu.*
 - **Les Emplacements de Matériel supplémentaires** ne sont que des récompenses de Boss. Jamais plus d'un de chaque par personnage. À la table, remettez au joueur son cadre d'Emplacement (J 12.2).
-- **Les Éclats vides** comptent pour une pièce du budget de butin quand ils sont lâchés. Donnez-en un quand la Compagnie perd sans cesse des Aspects qu'elle voulait. Une *Bandoulière à Éclats* (J 3.8) est une bonne récompense de Bijou en début de partie.
+- **Les Éclats vides** comptent pour une pièce du budget de butin quand ils sont lâchés. Donnez-en un quand la Compagnie perd sans cesse des Aspects qu'elle voulait. Une *Bandoulière à Éclats* (Contenant, J 3.8) est une bonne récompense en début de partie.
 - **Les améliorations de la Réserve de la Compagnie** (Mule de bât, Charrette, Chariot) sont des récompenses de quête (1.6) ou de Boss. Donnez la suivante quand la Compagnie commence à abandonner du bon butin.
 - **Jalons** (J 4.1) : accordez-en un à tous à la **fin de chaque saga** (1.6), et remettez à chaque joueur un nouveau cadre d'Aspect (J 12.2). Une campagne complète compte environ **cinq sagas** (3 → 8 Aspects). Tout le monde progresse ensemble. *Provisoire jusqu'à la passe d'équilibrage.*
 
@@ -377,7 +377,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Boss** | Un monstre puissant doté de pouvoirs spéciaux, dont un demi-tour pendant le camp des personnages. |
 | **Boucle de jeu** | Le cycle répété du jeu : affronter une épreuve, ramasser le butin, se reposer et se reconstruire au besoin. |
 | **Bouclier** | Le type de matériel tenu qui augmente vos Défenses ; il va dans un Emplacement de Main. |
-| **Bourse** | Un objet qui contient votre or, jusqu'à un maximum fixé par son Rang. |
+| **Bourse** | Un Contenant qui contient votre or, jusqu'à un maximum fixé par son Rang. |
 | **Brutale** | Un mot-clé d'arme : sur un coup critique, lancez ses dés de dégâts trois fois au lieu de deux. |
 | **Bruyante N** | −N aux tests pour se faufiler. |
 | **Butin** | Le matériel ou l'Aspect qu'une épreuve rapporte ; un Adversaire qui le *lâche* le rapporte. |
@@ -386,12 +386,13 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Caractéristique** | L'une des quatre mesures de toute créature : Force (FOR), Dextérité (DEX), Intelligence (INT) et Volonté (VOL), chacune notée sous forme de modificateur. |
 | **Carte** | L'élément physique d'une Vocation, d'un matériel, d'un Aspect, d'un sort, d'une Blessure, d'un adversaire ou d'une somme d'or. |
 | **Carte d'Adversaire** | La carte du MJ pour une sorte de monstre : son corps, ses totaux et ses pouvoirs. Les cartes nommées en italique dessus peuvent être lâchées ; le texte droit, jamais. |
-| **Carte de Décompte** | La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV actuels et temporaires, vos jets contre la mort, vos points de sort et votre Ardeur. |
+| **Carte de Décompte** | La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV et PV temporaires, vos jets contre la mort, vos points de sort, votre Ardeur et vos habiletés. |
 | **Chargement** | Un mot-clé d'arme : un tir par action ou réaction, même avec des attaques supplémentaires. |
 | **Code de carte** | Le code dans le coin inférieur droit d'une carte : lettre de type, Rang s'il en a un, et numéro (W-II-02, L-04). |
 | **Compagnie** | Le groupe de Porteurs joués ensemble. |
 | **Complainte** | Un pouvoir Divin ou de Glamour. Action : une attaque contre la Défense de VOL. (EN : Dirge) |
 | **Consommable** | Un objet qui disparaît une fois utilisé. Jusqu'à 3 Consommables identiques partagent un Emplacement d'Objet. |
+| **Contenant** | Un objet qui ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. Une Bourse contient de l'or, une *Bandoulière à Éclats* plus d'Éclats. |
 | **Convalescence** | 3 jours de repos en lieu sûr : fait tout ce que fait un repos long, et guérit toutes vos Blessures. |
 | **Cuir, Mailles, Plates** | Les trois armures, de la plus légère à la plus lourde. |
 | **Défense** | Le nombre qu'une attaque doit atteindre : 10 + un modificateur de caractéristique + bonus. Toute créature a une Défense de FOR, de DEX, d'INT et de VOL. |
@@ -433,7 +434,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Nature** | Un type d'Aspect : la magie de VOL du monde sauvage. Son paquet, une **Souvenance**, contient une liste fixe de Formes et de pouvoirs de soin, et s'ajoute à votre Ardeur. |
 | **Niveau de sort** | La puissance d'un sort et son coût en points de sort, du 1er au 6e. (EN : Spell level) |
 | **Niveau effectif** | L'estimation par le MJ de la puissance d'un personnage, de 1 à 12, utilisée pour dimensionner les combats et les DD des épreuves. Ce n'est pas une valeur du personnage. |
-| **Objet** | Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Bourses et Éclats. |
+| **Objet** | Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Contenants et Éclats. |
 | **Perception aveugle N** | Perçoit tout dans un rayon de N m sans la vue. (EN : Blindsight) |
 | **Persistance** | L'état des Aspects d'une créature vaincue pendant 1 minute, avant qu'ils ne s'éteignent pour de bon. Un Aspect dans cet état *persiste*. (EN : Lingering) |
 | **Pièce** | Une unité de matériel, telle que le Sac, la Réserve de la Compagnie et le butin la comptent. Une pile de jusqu'à 3 Consommables identiques compte pour une pièce. |
