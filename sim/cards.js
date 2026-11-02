@@ -211,7 +211,7 @@ globalThis.BEARERS_CARDS = {
     "Jewelry"
    ],
    "text": [
-    "You can carry 2 more Shards in your Pack (5 in all). They still count toward its 8 pieces."
+    "Your Pack holds up to 5 Shards instead of 3, within its usual 8 pieces."
    ],
    "strip": {},
    "group": "starter",
@@ -240,9 +240,6 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "loot",
    "sym": [
-    "STR",
-    "DEX",
-    "INT",
     "WIL"
    ],
    "fx": [
@@ -310,9 +307,6 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR",
-    "DEX",
-    "INT",
     "WIL"
    ],
    "fx": [
@@ -1158,7 +1152,6 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "DEX",
     "WIL"
    ],
    "fx": [
@@ -2781,8 +2774,6 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR",
-    "DEX",
     "INT",
     "WIL"
    ],

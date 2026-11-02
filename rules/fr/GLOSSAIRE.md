@@ -95,7 +95,7 @@ La paire de caractéristiques avec laquelle un Porteur est né, gardée à vie :
 _À éviter_ : Noyau, historique, archétype, classe, race, profil (pour les joueurs). (EN : Calling)
 
 **Symboles**:
-Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou DEX ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles.
+Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou DEX ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles, sauf le Bâton de garde-sort (INT · VOL).
 _À éviter_ : prérequis, condition, Req. (EN : Symbols)
 
 **Emplacement de Matériel**:
@@ -149,11 +149,11 @@ Vider un Éclat. Son Aspect est perdu pour de bon.
 _À éviter_ : détruire, défausser. (EN : Release)
 
 **Sac**:
-Votre sac personnel : jusqu'à 8 pièces de matériel que vous transportez sans les avoir équipées, dont au plus 3 Éclats.
+Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Éclats.
 _À éviter_ : sac à dos (sauf *Grand Sac à dos*), besace, inventaire. (EN : Pack)
 
 **Réserve de la Compagnie**:
-La mule, la charrette ou le chariot du groupe : le matériel que la Compagnie possède mais que personne ne porte.
+La mule, la charrette ou le chariot du groupe : le matériel et les Éclats que la Compagnie possède mais que personne ne porte.
 _À éviter_ : banque, coffre, entrepôt. (EN : Party Stash)
 
 ### Jeu

@@ -165,7 +165,7 @@ Un Porteur caché (J 5.4) peut observer un groupe d'Adversaires avant un combat 
 | **Mains** | *Bouclier*, *Dague*, *Épée courte*, *Hachette*, *Lame fine*, *Épée longue*, *Hache d'armes*, *Épée à deux mains*, *Glaive sur lance*, *Arc long*, *Fronde*, *Javelots*, *Bâton de garde-sort*, *Luth du voyageur* |
 | **Bijou** | *Anneau de protection*, *Chevalière de guilde*, *Bandoulière à Éclats*, *Bottes de grande foulée*, *Grelots de danseur* |
 | **Objets** | *Livre du conjurateur*, *Potion de soins*, *Bourse à cordon*, *Lettre d'introduction* |
-| **Aspects** | *Saute-ruisseau*, *Sang de pierre*, *Volonté de fer*, *Esprit clair*, *Enchaînement*, *Visée stable*, *Coup de bouclier*, *Hymne de bataille*, *Cri de ralliement*, *Passe-muraille*, *Renommé*, *Marin*, *Gamin des rues*, *Chasseur*, *Médecin*, *Tavernier*, *Forgeron*, *Montagnard*, *Répertoire du vagabond* |
+| **Aspects** | *Saute-ruisseau*, *Sang de pierre*, *Volonté de fer*, *Esprit clair*, *Enchaînement*, *Visée juste*, *Coup de bouclier*, *Hymne de bataille*, *Cri de ralliement*, *Passe-muraille*, *Renommé*, *Marin*, *Gamin des rues*, *Chasseur*, *Médecin*, *Tavernier*, *Forgeron*, *Montagnard*, *Répertoire du vagabond* |
 
 - **Listes de souhaits :** chaque joueur écrit **3 cartes** qu'il aimerait trouver au dos de sa carte de Décompte (J 12.3) et la met à jour quand il le souhaite. Jetez-y un œil quand vous choisissez le butin (4.1) et les récompenses : exaucez un souhait de temps en temps, à son Rang, par un monstre ou une épreuve adaptés. *Provisoire : le dos des cartes n'est pas encore conçu.*
 - **Les Emplacements de Matériel supplémentaires** ne sont que des récompenses de Boss. Jamais plus d'un de chaque par personnage. À la table, remettez au joueur son cadre d'Emplacement (J 12.2).
@@ -452,14 +452,14 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Recharge 5–6** | Un pouvoir de monstre qui revient sur un 5 ou un 6 au d6 à la fin du tour du monstre. |
 | **Relance** | Le jet est refait (tous ses d20) et le nouveau résultat compte. Un jet ne peut être relancé qu'une fois. (EN : Reroll) |
 | **Réplique** | Un pouvoir Divin ou de Glamour. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue) |
-| **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel que la Compagnie possède mais que personne ne porte. |
+| **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel et les Éclats que la Compagnie possède mais que personne ne porte. |
 | **Résiste (type)** | Ne subit que la moitié des dégâts de ce type. |
-| **Sac** | Votre sac personnel : jusqu'à 8 pièces de matériel que vous transportez sans les avoir équipées, dont au plus 3 Éclats. |
+| **Sac** | Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Éclats. |
 | **Saga** | Le grand arc de la campagne, fait de quêtes. En achever une accorde un jalon. |
 | **Savoir-faire** | Un type d'Aspect : un bonus aux tests d'une activité précise. |
 | **Soin** | Un pouvoir Divin, de Glamour ou de Nature qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |
 | **Sort** | Une carte d'un Livre de sorts, jamais seule. Son niveau est son coût en points de sort. |
-| **Symboles** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou DEX ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles. |
+| **Symboles** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou DEX ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles, sauf le Bâton de garde-sort (INT · VOL). |
 | **Taille** | Très petit, Petit, Moyen ou Grand, imprimé sur une Forme ou une carte d'Adversaire. Les Porteurs sont de taille Moyenne. |
 | **Technique** | Un type d'Aspect : ce qu'un être a appris (une botte de combat). (EN : Technique) |
 | **Test** | Un jet de d20 + modificateur de caractéristique + bonus contre un Degré de difficulté (DD). |

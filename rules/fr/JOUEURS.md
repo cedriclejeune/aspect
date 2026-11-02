@@ -128,7 +128,7 @@ Chaque matériel et chaque Aspect (une **carte** à la table, 12.1) a :
 
 - **Un nom** (*Plates du gardien*).
 - **Un Rang** de I à V : sa puissance (*II*).
-- **Des symboles :** les quatre symboles de caractéristique, dans le coin supérieur. Les caractéristiques qu'il utilise sont allumées ; les autres sont grisées (*FOR*). Vous ne pouvez l'équiper que si **votre Vocation possède au moins un de ses symboles allumés**. Les Bijoux, Consommables, Recettes, Bourses et Éclats ont les quatre allumés : tout le monde peut les utiliser.
+- **Des symboles :** les quatre symboles de caractéristique, dans le coin supérieur. Les caractéristiques qu'il utilise sont allumées ; les autres sont grisées (*FOR*). Vous ne pouvez l'équiper que si **votre Vocation possède au moins un de ses symboles allumés**. Les Bijoux, Consommables, Recettes, Bourses et Éclats ont les quatre allumés : tout le monde peut les utiliser. Un **Focaliseur** (10.6) n'allume que la VOL : il renforce la magie de VOL.
 - **Des bonus** aux modificateurs, aux Défenses, au maximum de PV ou à la Vitesse (*+4 Défense de FOR, −4 m de Vitesse*).
 - **Un effet**, le cas échéant (*Réaction (1/R.C.), quand une attaque vous touche : réduisez ses dégâts de 5*). Un pouvoir aux utilisations limitées les indique sur lui-même : **R.C.** signifie qu'elles reviennent lors d'un repos court (ou d'un repos long), **R.L.** seulement lors d'un repos long.
 - **Des mots-clés :** le **type** d'abord (il fixe l'Emplacement, 3.2), puis les propriétés (*Armure · Bruyante 3*). Voir le chapitre 11.
@@ -210,7 +210,7 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > **2/R.C.**, quand vous touchez avec une attaque d'arme : jusqu'à 3 alliés à 12 m ou moins qui peuvent vous entendre ont +2 à leur prochaine attaque avant la fin de votre prochain tour.
 > *Technique*
 
-> **BÂTON DE GARDE-SORT** · Rang I · tous
+> **BÂTON DE GARDE-SORT** · Rang I · INT · VOL
 > +2 au toucher, 1d6 / 1d8 + INT ou VOL Physique. Tant que vous le tenez, il compte comme une Main vide pour lancer des sorts depuis un Livre de sorts.
 > *Arme · Polyvalente*
 
@@ -272,7 +272,7 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > - *Ours* (Forme, 3) : FOR +3 · DEX +1 · 12 PV · Vitesse 12 m, Escalade 12 m · Grand. Cuir épais : +2 Défense de FOR. Griffes : +2 au toucher, 1d8 + FOR Physique.
 > *Nature*
 
-> **LUTH DU VOYAGEUR** · Rang I · DEX · VOL
+> **LUTH DU VOYAGEUR** · Rang I · VOL
 > 1 Ardeur supplémentaire (repos court). Vos Hymnes portent à 24 m au lieu de 12 m.
 > *Instrument · Focaliseur*
 
@@ -306,8 +306,8 @@ Chaque Emplacement a son propre temps d'échange. Un échange déplace un matér
 
 ### 3.7 Sac, Réserve de la Compagnie, babioles et or
 
-- **Sac :** jusqu'à **8 pièces de matériel**, sur votre dos : armes, bijoux, Livres de sorts, Consommables, Bourses et **au plus 3 Éclats** (3.8). **Pas d'Armure** (trop volumineuse). Accessible en combat, à un coût (3.5). À la table, une pile de cartes à côté de vous (12.2).
-- **Réserve de la Compagnie :** jusqu'à **5 pièces de matériel par personnage**, partagées par le groupe. C'est une mule, une charrette ou un chariot : elle reste **là où la Compagnie la laisse** (hors du donjon, à l'auberge) et est inaccessible en combat. Le MJ peut la menacer (voleurs, embuscade, gué à traverser). À la table, une pile de cartes commune (12.2).
+- **Sac :** jusqu'à **8 pièces**, sur votre dos : du matériel que vous n'avez pas équipé (armes, bijoux, Livres de sorts, Consommables, Bourses) et **au plus 3 Éclats** (3.8). **Pas d'Armure** (trop volumineuse). Accessible en combat, à un coût (3.5). À la table, une pile de cartes à côté de vous (12.2).
+- **Réserve de la Compagnie :** jusqu'à **5 pièces par personnage** (matériel et Éclats), partagées par le groupe. C'est une mule, une charrette ou un chariot : elle reste **là où la Compagnie la laisse** (hors du donjon, à l'auberge) et est inaccessible en combat. Le MJ peut la menacer (voleurs, embuscade, gué à traverser). À la table, une pile de cartes commune (12.2).
 - **Les améliorations de la Réserve** ne viennent que comme récompenses (récompenses de quête, Boss), jamais contre de l'or. Chacune remplace la précédente, en pièces par personnage : *Mule de bât* 8, *Charrette* 12, *Chariot* 20.
 - **Décompte :** chaque matériel compte pour 1, Éclats (vides ou pleins) et Bourses compris. Une pile de jusqu'à 3 Consommables identiques compte pour 1 (comme dans un Emplacement d'Objet).
 - **Sac ou Réserve pleins :** vous ne pouvez pas garder plus. Laissez la pièce en trop, donnez-la à un allié ou vendez-la.
@@ -342,7 +342,7 @@ Un **Éclat** est un objet qui contient **un Aspect**, ou rien. Il n'occupe jama
 - **Plus d'Éclats :** achetez-en (250 po), ou trouvez-en comme butin et comme récompenses de quête. Les améliorations de la Réserve (3.7) leur donnent plus de place.
 
 > **BANDOULIÈRE À ÉCLATS** · Rang I
-> Vous pouvez porter 2 Éclats de plus dans votre Sac (5 en tout). Ils comptent toujours dans ses 8 pièces.
+> Votre Sac contient jusqu'à 5 Éclats au lieu de 3, dans ses 8 pièces habituelles.
 > *Bijou*
 
 ---
@@ -669,7 +669,7 @@ Un effet doté du mot-clé **Emprise** met une créature hors de combat. Il nomm
 
 ## 9. Équipement
 
-Les armures, les boucliers, les armes, les Instruments et les Bijoux sont de l'**équipement** : du matériel que vous portez ou maniez. Une arme imprime son bonus **au toucher** et ses dégâts : *+2 au toucher, 1d8 + FOR ou DEX Physique*. Elle nomme les caractéristiques avec lesquelles elle attaque : toujours FOR, DEX ou les deux, sauf les **bâtons** et les **baguettes**, plus faibles mais qui utilisent l'INT ou la VOL. Les **armes de base** (le matériel de départ de Rang I) allument les quatre symboles : tout le monde peut les manier ; une caractéristique faible donne simplement une attaque faible. Les armes de butin n'allument que les caractéristiques avec lesquelles elles attaquent. Un **Instrument** (un luth, un tambour, un cor) occupe un Emplacement de Main et est généralement un **Focaliseur** (10.6).
+Les armures, les boucliers, les armes, les Instruments et les Bijoux sont de l'**équipement** : du matériel que vous portez ou maniez. Une arme imprime son bonus **au toucher** et ses dégâts : *+2 au toucher, 1d8 + FOR ou DEX Physique*. Elle nomme les caractéristiques avec lesquelles elle attaque : toujours FOR, DEX ou les deux, sauf les **bâtons** et les **baguettes**, plus faibles mais qui utilisent l'INT ou la VOL. Les **armes de base** (le matériel de départ de Rang I) allument les quatre symboles : tout le monde peut les manier ; une caractéristique faible donne simplement une attaque faible. Le *Bâton de garde-sort* fait exception : il n'allume que l'INT et la VOL. Les armes de butin n'allument que les caractéristiques avec lesquelles elles attaquent. Un **Instrument** (un luth, un tambour, un cor) occupe un Emplacement de Main et est généralement un **Focaliseur** (10.6).
 
 ### 9.1 Armure et Défense
 
@@ -1080,14 +1080,14 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Recharge 5–6** | Un pouvoir de monstre qui revient sur un 5 ou un 6 au d6 à la fin du tour du monstre. |
 | **Relance** | Le jet est refait (tous ses d20) et le nouveau résultat compte. Un jet ne peut être relancé qu'une fois. (EN : Reroll) |
 | **Réplique** | Un pouvoir Divin ou de Glamour. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue) |
-| **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel que la Compagnie possède mais que personne ne porte. |
+| **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel et les Éclats que la Compagnie possède mais que personne ne porte. |
 | **Résiste (type)** | Ne subit que la moitié des dégâts de ce type. |
-| **Sac** | Votre sac personnel : jusqu'à 8 pièces de matériel que vous transportez sans les avoir équipées, dont au plus 3 Éclats. |
+| **Sac** | Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Éclats. |
 | **Saga** | Le grand arc de la campagne, fait de quêtes. En achever une accorde un jalon. |
 | **Savoir-faire** | Un type d'Aspect : un bonus aux tests d'une activité précise. |
 | **Soin** | Un pouvoir Divin, de Glamour ou de Nature qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |
 | **Sort** | Une carte d'un Livre de sorts, jamais seule. Son niveau est son coût en points de sort. |
-| **Symboles** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou DEX ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles. |
+| **Symboles** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou DEX ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles, sauf le Bâton de garde-sort (INT · VOL). |
 | **Taille** | Très petit, Petit, Moyen ou Grand, imprimé sur une Forme ou une carte d'Adversaire. Les Porteurs sont de taille Moyenne. |
 | **Technique** | Un type d'Aspect : ce qu'un être a appris (une botte de combat). (EN : Technique) |
 | **Test** | Un jet de d20 + modificateur de caractéristique + bonus contre un Degré de difficulté (DD). |

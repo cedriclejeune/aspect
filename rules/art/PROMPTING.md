@@ -75,6 +75,11 @@ Every prompt is built as: **subject**, then **style list**, then **reference lin
   `AVOID` also lists "handsome, pretty, idealised face, model looks, smooth skin".
 - **Figures of speech are drawn literally.** "A sharp fox face" gave a fox's head, "beak-nosed" and "a beak of a nose" a
   bird's beak, "scooped by a fingertip" a finger with no hand, "a long horse face" a horse's head, "a black eye" an eye drawn solid black and "squinting along an arrow" an arrow pointing into the eye. Describe the shape instead: "a long thin pointed nose".
+- **Say which end of a stuck arrow shows.** "Arrows stuck in it" gave arrows pointing out of the shield, fletching in the wood,
+  and on the Templar arrows on the inner face she sees. Write "points buried in the wood, fletched ends sticking out",
+  and for a held shield "its outer face toward us, the arm hidden behind it".
+- **A plain "mace" can come out as a lumpy rag head that reads as a torch.** Give the head: "a solid metal ball ringed with sharp flanges".
+- **Drop decorative eyes.** "A crude painted eye" on the shield came out as a realistic eyeball in a socket.
 - **Raised fingers read as gestures.** Two splinted fingers held up came out as a rude gesture; show an injured hand
   held flat, palm out.
 - **Mostly white, even in the dark.** "Standing in darkness drawn as dense hatching" and "a long black coat" gave large

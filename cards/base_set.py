@@ -83,13 +83,14 @@ def weapon_atk(dice, kw, attack, sym, dtype="Physical"):
                 twoHanded="Two-Handed" in parts, loading="Loading" in parts, thrown=pair("Thrown"), range=ranged)
 
 
-def weapon(name, abil, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter", dtype="Physical"):
+def weapon(name, abil, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter", dtype="Physical", sym=None):
     """abil is the weapon's roll: you attack and deal damage with the higher of them (STR / DEX; INT / WIL for staves and wands).
     A basic (starter) weapon lights all four symbols so anyone can wield it; a loot weapon lights only its abil (DESIGN 4).
+    sym overrides that (the Spellguard Staff is a starter that lights only INT · WIL).
     The range of a Range or Thrown weapon is printed in its attack line, so the card doesn't print that keyword (DESIGN 4)."""
     reach = next((f"{p.split()[0].lower()} {p.split()[1]} ft, " for p in kw.split(" · ") if p.startswith(("Range ", "Thrown "))), "")
     text = [f"{attack} to hit, {reach}{dice} + {' or '.join(abil)} {dtype}." + (f" {effect}" if effect else "")]
-    sym = ALL if group == "starter" else abil
+    sym = sym or (ALL if group == "starter" else abil)
     return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym,
                 atk=weapon_atk(dice, kw, attack, abil, dtype))
 
@@ -107,8 +108,8 @@ HANDS = [
     weapon("Longbow", ["DEX"], "1d8", "Range 150/600 · Two-Handed"),
     weapon("Sling", ["DEX"], "1d6", "Light · Range 30/120"),
     weapon("Javelins", ["STR", "DEX"], "1d6", "Thrown 30/120"),
-    weapon("Spellguard Staff", ["INT", "WIL"], "1d6 / 1d8", "Versatile (1d8)", "While you hold it, it counts as an empty Hand for casting from a Spellbook."),
-    card("Traveler's Lute", "I", "gear", "Instrument · Focus", ["1 extra Resolve (short rest).", "Your Anthems reach 60 ft instead of 30 ft."], sym=["DEX", "WIL"]),
+    weapon("Spellguard Staff", ["INT", "WIL"], "1d6 / 1d8", "Versatile (1d8)", "While you hold it, it counts as an empty Hand for casting from a Spellbook.", sym=["INT", "WIL"]),
+    card("Traveler's Lute", "I", "gear", "Instrument · Focus", ["1 extra Resolve (short rest).", "Your Anthems reach 60 ft instead of 30 ft."], sym=["WIL"]),
     weapon("Greatclub", ["STR"], "1d10", "Heavy · Two-Handed · Crushing", group="loot"),
     weapon("Gladius", ["STR", "DEX"], "1d6", "Light", "**Close Order:** +1d4 damage while an ally is engaged with the same creature.", group="loot"),
     weapon("Boarspear", ["STR"], "1d8 / 1d10", "Versatile (1d10)", "**Brace:** your opportunity attacks with it deal +1d8 damage.", attack="+3", rank="II", group="loot"),
@@ -123,11 +124,11 @@ HANDS = [
 JEWELRY = [
     card("Ring of Warding", "I", "gear", "Jewelry", ["**Reaction (2/S.R.)**, when an attack hits you: +2 to the targeted Defense against that attack, possibly turning it into a miss."]),
     card("Guild Signet", "I", "gear", "Jewelry", ["**Action (1/L.R.)**, in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night."]),
-    card("Shard Bandolier", "I", "gear", "Jewelry", ["You can carry 2 more Shards in your Pack (5 in all). They still count toward its 8 pieces."]),
-    card("Holy Amulet", "I", "gear", "Jewelry · Focus", ["1 extra Resolve (short rest).", "Your Cues reach 90 ft instead of 60 ft."], group="loot"),
+    card("Shard Bandolier", "I", "gear", "Jewelry", ["Your Pack holds up to 5 Shards instead of 3, within its usual 8 pieces."]),
+    card("Holy Amulet", "I", "gear", "Jewelry · Focus", ["1 extra Resolve (short rest).", "Your Cues reach 90 ft instead of 60 ft."], group="loot", sym=["WIL"]),
     card("Boots of the Long Stride", "I", "gear", "Jewelry", ["**Reaction (1/S.R.):** Move."]),
     card("Ring of Sparks", "II", "gear", "Jewelry", ["**Reaction (1/S.R.)**, when a creature within 5 ft hits you: it takes 2d6 Lightning."], group="loot"),
-    card("Dancer's Bells", "I", "gear", "Jewelry · Focus", ["1 extra Resolve (short rest).", "Your Dirges reach 90 ft instead of 60 ft."]),
+    card("Dancer's Bells", "I", "gear", "Jewelry · Focus", ["1 extra Resolve (short rest).", "Your Dirges reach 90 ft instead of 60 ft."], sym=["WIL"]),
 ]
 
 ITEMS = [

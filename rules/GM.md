@@ -427,9 +427,9 @@ Each game term has one meaning, in both books.
 | **Nature** | An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and adds to your Resolve. |
 | **Noisy N** | −N on checks to sneak. |
 | **Object** | A small non-magical thing that isn't gear: a key, a letter, treasure, rope, a torch. Carried freely, with no limit. |
-| **Pack** | Your personal bag: up to 8 pieces of gear you carry but haven't equipped, at most 3 of them Shards. |
+| **Pack** | Your personal bag: up to 8 pieces, gear you carry but haven't equipped and at most 3 Shards. |
 | **Party** | The group of Bearers played together. |
-| **Party Stash** | The group's mule, cart or wagon: gear the party owns but nobody carries. |
+| **Party Stash** | The group's mule, cart or wagon: gear and Shards the party owns but nobody carries. |
 | **Piece** | One unit of gear, as the Pack, the Party Stash and loot count it. A stack of up to 3 identical Consumables is one piece. |
 | **Play loop** | The repeating cycle of play: face a trial, gather the loot, rest and rebuild when needed. |
 | **Purse** | An item that holds your gold, up to a maximum set by its Rank. |

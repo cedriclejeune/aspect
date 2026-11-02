@@ -506,7 +506,7 @@ def gold_card(value, face="text"):
 
 
 def tally_card():
-    return f'<div class="card tally">{ill._svg(300, 419, ill.tally_small(0, 0, 300, 419, {}, paper="#fff", band="#fff"), "Tally card")}</div>'
+    return f'<div class="card tally">{ill._svg(300, 419, ill.tally_small(0, 0, 300, 419, {}, ledger=True), "Tally card")}</div>'
 
 
 def sheets(cards, cls="", per=9):

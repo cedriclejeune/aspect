@@ -108,8 +108,8 @@ ITEMS = {
     "Plate": "a full suit of dented plate armour standing empty, helmet visor raised, one pauldron hanging by a single "
              "rivet, scratches and hammered-out dents, arms at its sides. Front view, standing straight, legs apart, "
              "the whole suit in clear view",
-    "Shield": "a round wooden shield standing on its edge, iron rim bent in one place, planks split, an arrowhead "
-              "stuck in it, a crude painted eye half scraped off, a frayed strap. Front view, flat face to the viewer, "
+    "Shield": "a round wooden shield standing on its edge, iron rim bent in one place, planks split, two arrows "
+              "stuck in it, points buried in the wood, fletched ends sticking out, a frayed strap. Front view, flat face to the viewer, "
               "the whole shield in clear view",
     # Weapons
     "Dagger": "a plain dagger floating upright, point down, blade nicked along the edge, cord-wrapped grip worn "
@@ -122,8 +122,7 @@ ITEMS = {
                      "tassel hanging from the pommel, blade long and needle-thin. Front view, the whole sword in "
                      "clear view",
     "Longsword": "a long straight sword floating upright, point down, long cross-shaped hilt, leather grip wound with "
-                 "wire, one notch in the blade, a battered scabbard lying flat on the ground beside it. Front view, "
-                 "the whole sword and scabbard in clear view",
+                 "wire, one notch in the blade. Front view, the whole sword in clear view",
     "Battleaxe": "a heavy battleaxe standing on the end of its long handle, head at the top, one broad crescent blade, "
                  "chipped, a spike on the back, handle wrapped in strips of hide. Side view, upright, the whole axe in "
                  "clear view",
@@ -141,7 +140,7 @@ ITEMS = {
     "Javelins": "three javelins standing upright side by side, spaced apart, leaf-shaped iron heads at the top, "
                 "wooden shafts scuffed, one shaft cracked and bound, butts resting on the ground. Front view, all "
                 "three javelins in clear view",
-    "Spellguard Staff": "a tall gnarled wooden staff standing upright on its own, the top split into three twisted "
+    "Spellguard Staff": "a tall gnarled wooden staff floating upright, a slim shaft ending in a plain metal-capped butt, the top split into three twisted "
                         "branches cradling a cloudy crystal, carved runes spiralling down the shaft. Front view, the "
                         "whole staff and crystal in clear view",
     "Greatclub": "a huge knotted tree-trunk club standing upright on its thick end, the thick end studded with old "
@@ -162,8 +161,8 @@ ITEMS = {
                 "blades chipped, a skull-shaped rivet in the middle, handle bound with leather. Front view, the whole "
                 "axe in clear view",
     # Instrument, Jewelry, Spellbook
-    "Traveler's Lute": "a battered round-bellied lute standing upright, neck at the top, cracked soundboard patched "
-                       "with a nailed board, one string snapped and hanging loose, mismatched pegs. Front view, the "
+    "Traveler's Lute": "a well-travelled round-bellied lute standing upright, neck at the top, worn and scuffed wood, "
+                       "one small neat patch on the soundboard, all strings intact, mismatched pegs. Front view, the "
                        "whole lute in clear view, nothing behind it",
     "Ring of Warding": "a thick ring standing upright on its edge, a small shield engraved on its face, worn smooth, "
                        "one tiny crack across the band. Close up, front view, the whole ring in clear view",
@@ -234,7 +233,8 @@ CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure a
                "view, left arm raised behind for balance",
     "Templar": "a short, very broad dwarf woman templar with a square jaw, a broken nose and two thick braids, a "
                "plain surcoat with a sun sigil over mail. Front view, standing with feet planted, a big round shield "
-               "raised on the left arm with three arrows stuck in it, right hand pressed flat on the chest as if "
+               "raised on the left arm, its outer face toward us, the arm hidden behind it, three arrows "
+               "stuck in that face, right hand pressed flat on the chest as if "
                "swearing an oath",
     "Spellblade": "a tall, gaunt hobgoblin man spellblade with a flat nose, a jutting jaw and a shaved head tattooed "
                   "with runes, a long coat over a breastplate. Three-quarter view, a longsword held up in the right "
@@ -253,7 +253,8 @@ CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure a
                "wide, hands open and reaching forward as if to grab",
     "Zealot": "a wild-eyed, hollow-cheeked dark-skinned human man zealot with a long matted beard, a rope belt and "
               "a ragged sun-sigil tabard. Side view, charging forward mid-stride, a mace raised high in the right "
-              "hand, the whole mace in clear view, mouth open in a shout",
+              "hand by its handle, its head a solid metal ball ringed with sharp flanges, the whole mace in clear "
+              "view, mouth open in a shout",
     "Tactician": "a stout, grey-haired halfling woman tactician with round spectacles, a tight bun and a buttoned "
                  "officer's coat, big hairy bare feet. Three-quarter view, standing on a crate, a rolled map tucked "
                  "under the left arm, right arm stretched out pointing forward with a short baton",

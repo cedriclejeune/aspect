@@ -32,7 +32,7 @@ NAMES = {
     "Alchemist's Fire Recipe": "Recette de feu grégeois",
     # Aspects
     "Springheel": "Saute-ruisseau", "Stone Blood": "Sang de pierre", "Iron Will": "Volonté de fer",
-    "Clear Mind": "Esprit clair", "Cleave": "Enchaînement", "Steady Aim": "Visée stable",
+    "Clear Mind": "Esprit clair", "Cleave": "Enchaînement", "Steady Aim": "Visée juste",
     "Shield Bash": "Coup de bouclier", "Battle Hymn": "Hymne de bataille", "Rallying Cry": "Cri de ralliement",
     "Shield Wall": "Mur de boucliers", "Cat Burglar": "Passe-muraille", "Renowned": "Renommé", "Sailor": "Marin",
     "Street Urchin": "Gamin des rues", "Hunter": "Chasseur", "Physician": "Médecin", "Barkeep": "Tavernier",
@@ -174,8 +174,8 @@ TEXT = {
         "**Réaction (2/R.C.)**, quand une attaque vous touche : +2 à la Défense visée contre cette attaque, ce qui peut la transformer en échec.",
     "**Action (1/L.R.)**, in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night.":
         "**Action (1/R.L.)**, dans une localité où la guilde opère : un contact vous trouve dans l'heure. Il vous révèle un fait que la guilde connaîtrait, ou vous cache pour une nuit.",
-    "You can carry 2 more Shards in your Pack (5 in all). They still count toward its 8 pieces.":
-        "Vous pouvez porter 2 Éclats de plus dans votre Sac (5 en tout). Ils comptent toujours dans ses 8 pièces.",
+    "Your Pack holds up to 5 Shards instead of 3, within its usual 8 pieces.":
+        "Votre Sac contient jusqu'à 5 Éclats au lieu de 3, dans ses 8 pièces habituelles.",
     "Your Cues reach 90 ft instead of 60 ft.": "Vos Répliques portent à 36 m au lieu de 24 m.",
     "**Reaction (1/S.R.):** Move.": "**Réaction (1/R.C.) :** Déplacement.",
     "**Reaction (1/S.R.)**, when a creature within 5 ft hits you: it takes 2d6 Lightning.":

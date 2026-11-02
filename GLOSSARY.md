@@ -149,11 +149,11 @@ Emptying a Shard. Its Aspect is gone for good.
 _Avoid_: destroy, discard
 
 **Pack**:
-Your personal bag: up to 8 pieces of gear you carry but haven't equipped, at most 3 of them Shards.
+Your personal bag: up to 8 pieces, gear you carry but haven't equipped and at most 3 Shards.
 _Avoid_: backpack (except *Great Backpack*), bag
 
 **Party Stash**:
-The group's mule, cart or wagon: gear the party owns but nobody carries.
+The group's mule, cart or wagon: gear and Shards the party owns but nobody carries.
 _Avoid_: bank, vault, storage
 
 ### Play

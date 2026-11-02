@@ -128,7 +128,7 @@ Every piece of gear and every Aspect (a **card** at the table, 12.1) has:
 
 - **A name** (*Warden's Plate*).
 - **A Rank** from I to V: its power (*II*).
-- **Symbols:** the four ability symbols, in the top corner. The abilities it uses are lit; the others are greyed out (*STR*). You can equip it only if **your Calling has at least one of its lit symbols**. Jewelry, Consumables, Recipes, Purses and Shards have all four lit: anyone can use them.
+- **Symbols:** the four ability symbols, in the top corner. The abilities it uses are lit; the others are greyed out (*STR*). You can equip it only if **your Calling has at least one of its lit symbols**. Jewelry, Consumables, Recipes, Purses and Shards have all four lit: anyone can use them. A **Focus** (10.6) lights only WIL: it strengthens WIL magic.
 - **Bonuses** to modifiers, Defenses, HP maximum or Speed (*+4 STR Defense, −10 Speed*).
 - **An effect**, if any (*Reaction (1/S.R.), when an attack hits you: reduce its damage by 5*). A power with limited uses shows them on itself: **S.R.** means they come back on a short rest (or a long rest), **L.R.** only on a long rest.
 - **Keywords:** the **type** first (it sets the Slot, 3.2), then properties (*Armor · Noisy 3*). See Chapter 11.
@@ -210,7 +210,7 @@ Each sample shows the name, Rank and lit symbols (*all* when all four are), the 
 > **2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 on their next attack before the end of your next turn.
 > *Technique*
 
-> **SPELLGUARD STAFF** · Rank I · all
+> **SPELLGUARD STAFF** · Rank I · INT · WIL
 > +2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.
 > *Weapon · Versatile*
 
@@ -272,7 +272,7 @@ Each sample shows the name, Rank and lit symbols (*all* when all four are), the 
 > - *Bear* (Form, 3): STR +3 · DEX +1 · 12 HP · Speed 30 ft, Climb 30 ft · Large. Hide: +2 STR Defense. Claws: +2 to hit, 1d8 + STR Physical.
 > *Nature*
 
-> **TRAVELER'S LUTE** · Rank I · DEX · WIL
+> **TRAVELER'S LUTE** · Rank I · WIL
 > 1 extra Resolve (short rest). Your Anthems reach 60 ft instead of 30 ft.
 > *Instrument · Focus*
 
@@ -306,8 +306,8 @@ Each Slot has its own swap time. A swap moves one piece of gear between a Slot a
 
 ### 3.7 Pack, Party Stash, Objects & Gold
 
-- **Pack:** up to **8 pieces of gear**, on your back: weapons, jewels, Spellbooks, Consumables, Purses and **at most 3 Shards** (3.8). **No Armor** (too big). Reachable in combat at a cost (3.5). At the table, a pile of cards beside you (12.2).
-- **Party Stash:** up to **5 pieces of gear per character**, shared by the group. It's a mule, a cart or a wagon: it stays **where the party leaves it** (outside the dungeon, at the inn) and can't be reached in combat. The GM may threaten it (thieves, ambush, a river crossing). At the table, a shared pile of cards (12.2).
+- **Pack:** up to **8 pieces**, on your back: gear you haven't equipped (weapons, jewels, Spellbooks, Consumables, Purses) and **at most 3 Shards** (3.8). **No Armor** (too big). Reachable in combat at a cost (3.5). At the table, a pile of cards beside you (12.2).
+- **Party Stash:** up to **5 pieces per character** (gear and Shards), shared by the group. It's a mule, a cart or a wagon: it stays **where the party leaves it** (outside the dungeon, at the inn) and can't be reached in combat. The GM may threaten it (thieves, ambush, a river crossing). At the table, a shared pile of cards (12.2).
 - **Party Stash upgrades** come only as rewards (quest rewards, Bosses), never from gold. Each replaces the previous one, in pieces per character: *Pack Mule* 8, *Cart* 12, *Wagon* 20.
 - **Counting:** each piece of gear counts as 1, Shards (empty or full) and Purses included. A stack of up to 3 identical Consumables counts as 1 (as in an Item Slot).
 - **Full Pack or Party Stash:** you can't keep more. Leave the extra piece, give it to an ally, or sell it.
@@ -342,7 +342,7 @@ A **Shard** is an item that holds **one Aspect**, or nothing. It never sits in a
 - **More Shards:** buy them (250 gp), or find them as loot and quest rewards. Party Stash upgrades (3.7) give more room for them.
 
 > **SHARD BANDOLIER** · Rank I
-> You can carry 2 more Shards in your Pack (5 in all). They still count toward its 8 pieces.
+> Your Pack holds up to 5 Shards instead of 3, within its usual 8 pieces.
 > *Jewelry*
 
 ---
@@ -669,7 +669,7 @@ An effect with the **Subdue** keyword takes a creature out of the fight. It name
 
 ## 9. Equipment
 
-Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or DEX Physical*. It names the abilities it rolls with: always STR, DEX or both, except **staves** and **wands**, which are weaker but roll INT or WIL. **Basic weapons** (Rank I starters) light all four symbols, so anyone can wield them; a weak ability simply means a weak attack. Loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
+Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or DEX Physical*. It names the abilities it rolls with: always STR, DEX or both, except **staves** and **wands**, which are weaker but roll INT or WIL. **Basic weapons** (Rank I starters) light all four symbols, so anyone can wield them; a weak ability simply means a weak attack. The *Spellguard Staff* is the exception: it lights only INT and WIL. Loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
 
 ### 9.1 Armor and Defense
 
@@ -1055,9 +1055,9 @@ Each game term has one meaning, in both books.
 | **Nature** | An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and adds to your Resolve. |
 | **Noisy N** | −N on checks to sneak. |
 | **Object** | A small non-magical thing that isn't gear: a key, a letter, treasure, rope, a torch. Carried freely, with no limit. |
-| **Pack** | Your personal bag: up to 8 pieces of gear you carry but haven't equipped, at most 3 of them Shards. |
+| **Pack** | Your personal bag: up to 8 pieces, gear you carry but haven't equipped and at most 3 Shards. |
 | **Party** | The group of Bearers played together. |
-| **Party Stash** | The group's mule, cart or wagon: gear the party owns but nobody carries. |
+| **Party Stash** | The group's mule, cart or wagon: gear and Shards the party owns but nobody carries. |
 | **Piece** | One unit of gear, as the Pack, the Party Stash and loot count it. A stack of up to 3 identical Consumables is one piece. |
 | **Play loop** | The repeating cycle of play: face a trial, gather the loot, rest and rebuild when needed. |
 | **Purse** | An item that holds your gold, up to a maximum set by its Rank. |
