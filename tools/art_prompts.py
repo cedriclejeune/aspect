@@ -157,6 +157,12 @@ ITEMS = {
              "iron collars. Side view, the whole pilum in clear view",
     "Shortbow": "a short curved bow standing upright, recurved tips of horn, the string taut, grip wrapped in leather, "
                 "one arrow lying flat on the ground beside it. Front view, the whole bow and arrow in clear view",
+    "Fine Bow": "an elegant composite recurve bow standing upright, laminated layers of horn and wood, deeply "
+                "recurved tips, the string tied to both tips and pulled taut, a fine carved grip wrapped in silk cord. Front view, the whole bow "
+                "in clear view",
+    "Wand": "a very thin, pencil-slim wand of black wood floating upright, tapering to a fine point at the top, a "
+            "tiny copper ring at the base, a few small sparks crackling at the point. Front view, the whole wand in "
+            "clear view, small in the middle of the empty white page",
     "Greataxe": "a huge double-bladed greataxe standing on the end of its long handle, head at the top, both crescent "
                 "blades chipped, a skull-shaped rivet in the middle, handle bound with leather. Front view, the whole "
                 "axe in clear view",
