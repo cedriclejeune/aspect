@@ -58,6 +58,11 @@ Every prompt is built as: **subject**, then **style list**, then **reference lin
   clean every time. Crowded poses broke: "crouched behind a shield, sword thrust over the rim, javelin leaning on it"
   lost a leg behind the shield and gave an odd grip. The same legionary as "standing firm on both legs, shield on its
   left arm, short sword in its right hand" came out right first time.
+- **A stick held in both hands in front of the body replaced a leg.** The Shattered Knee orc lost its right leg behind
+  the walking stick. "Standing on both legs, both legs and both feet in clear view", the stick in one hand
+  "planted beside the right foot, outside the legs" fixed it in a fresh drawing.
+- **"Wild-eyed" and shouting faces can come out with blank white eyes,** which read as undead. An edit
+  ("small dark pupils looking forward, fierce and alive") fixed it.
 - **Simple, readable outlines.** Weapons hanging down, resting on a shoulder or held out to the side read better
   than ones angled behind the body. Hidden parts are where the model invents nonsense.
 - **Details come through reliably; expressions and camera angles less so.** Two heads, drool, flies and javelins always appeared.
@@ -153,6 +158,10 @@ What we learned:
   such as the weapon held across the body at chest height.
 - **Fresh drawings can fix limb counts;** edits can't. The side-view spider prompt with "exactly eight legs, four on each
   side and no more" came out close to eight, but the raised legs got hand-like claws.
+- **Reshaping an object: remove it, then add the new one.** Three edits asking to turn the Patriot's long stocking
+  cap into a short folded tuque left it almost unchanged. "Remove the hat entirely", then a second edit
+  "put a short knitted wool tuque on his head…", worked. Several edits in a row fade the lines: darken afterwards
+  (a gamma curve in Pillow).
 - **A second reference image (`--ref`) works for a feature,** but the model may copy it too literally.
   "Flatten the head like image 2" gave the hobgoblin the flat skull and side ears, but also a second pair of
   frog eyes on top, taken from the reference, while keeping its own. Say what to replace, not only what to copy.

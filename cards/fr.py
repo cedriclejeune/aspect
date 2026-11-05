@@ -7,12 +7,12 @@ Distances: 5 ft = 2 m (1 square = 2 m). Terms follow rules/fr/GLOSSAIRE.md.
 """
 import re
 
-ABBR = {"STR": "FOR", "DEX": "DEX", "INT": "INT", "WIL": "VOL"}
+ABBR = {"STR": "FOR", "DEX": "AGI", "INT": "INT", "WIL": "VOL"}
 
 NAMES = {
     # Callings
     "Duelist": "Duelliste", "Templar": "Templier", "Spellblade": "Lame-mage", "Infiltrator": "Infiltrateur",
-    "Performer": "Artiste", "Sage": "Sage", "Brawler": "Bagarreur", "Zealot": "Zélote", "Tactician": "Tacticien",
+    "Performer": "Artiste", "Sage": "Sage", "Brawler": "Bagarreur", "Patriot": "Patriote", "Tactician": "Tacticien",
     "Ranger": "Rôdeur", "Trickster": "Filou", "Hermit": "Ermite",
     # armor and hands
     "Leather": "Cuir", "Mail": "Mailles", "Plate": "Plates", "Shield": "Bouclier", "Dagger": "Dague",
@@ -80,7 +80,7 @@ KEYWORDS = {
     "Wound": "Blessure", "Crippling": "Invalidante", "Hand": "Main", "Item": "Objet", "Heavy": "Lourde",
     "Light": "Légère", "Reach": "Allonge", "Two-Handed": "Deux mains", "Versatile (1d10)": "Polyvalente (1d10)",
     "Versatile (1d8)": "Polyvalente (1d8)", "Brutal": "Brutale", "Crushing": "Écrasante", "Flurry": "Rafale",
-    "Restrained": "Entravé", "Targets DEX": "Vise DEX", "Duration 1 minute": "Durée 1 minute",
+    "Restrained": "Entravé", "Targets DEX": "Vise AGI", "Duration 1 minute": "Durée 1 minute",
     "Duration 1 round": "Durée 1 round", "Gold": "Or", "Foe": "Adversaire", "Boss": "Boss", "Leader": "Meneur",
     "Tiny": "Très petit", "Small": "Petit", "Medium": "Moyen", "Large": "Grand",
 }
@@ -96,7 +96,7 @@ def keyword(k):
         return KEYWORDS[k]
     m = re.fullmatch(r"(Range|Thrown|Darkvision|Cube|Noisy) ([\d/]+)", k)
     if m:
-        word = {"Range": "Portée", "Thrown": "Lancer", "Darkvision": "Vision dans le noir", "Cube": "Cube",
+        word = {"Range": "Portée", "Thrown": "Lancer", "Darkvision": "Vision nocturne", "Cube": "Cube",
                 "Noisy": "Bruyante"}[m[1]]
         nums = m[2] if m[1] == "Noisy" else "/".join(feet(n) for n in m[2].split("/"))
         return f"{word} {nums}"
@@ -128,7 +128,7 @@ TEXT = {
     "**Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook.":
         "**Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts.",
     "**Footwork:** once per turn, after you hit with a melee attack, move 5 ft × ½ DEX. This movement doesn't provoke opportunity attacks.":
-        "**Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 2 m × ½ DEX. Ce déplacement ne provoque pas d'attaque d'opportunité.",
+        "**Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 2 m × ½ AGI. Ce déplacement ne provoque pas d'attaque d'opportunité.",
     "**Riposte (½ STR/S.R.):** reaction, when a melee attack misses you: make one melee weapon attack against the attacker.":
         "**Riposte (½ FOR/R.C.) :** réaction, quand une attaque au corps à corps vous rate : faites une attaque d'arme au corps à corps contre l'attaquant.",
     "**Oath (½ WIL/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead, reduced by 2 × STR.":
@@ -136,23 +136,23 @@ TEXT = {
     "**Spell Strike (½ STR/S.R.):** when you hit with a melee weapon attack: +INT damage.":
         "**Frappe ensorcelée (½ FOR/R.C.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts.",
     "**Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT.":
-        "**Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent la DEX et l'INT.",
+        "**Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent l'AGI et l'INT.",
     "**Crowd Work (½ DEX/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +WIL to that roll.":
-        "**Grande ovation (½ DEX/R.C.) :** réaction, après qu'un allié à 12 m ou moins a fait une attaque ou un test : +VOL à ce jet.",
+        "**Grande ovation (½ AGI/R.C.) :** réaction, après qu'un allié à 12 m ou moins a fait une attaque ou un test : +VOL à ce jet.",
     "**Learned:** ½ INT extra spell points. Your checks to recall lore add both INT and WIL.":
         "**Érudit :** ½ INT points de sort supplémentaires. Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL.",
     "**Scrapper:** +STR to hit with Grapples and Shoves.":
         "**Teigneux :** +FOR au toucher pour Empoigner et Bousculer.",
     "**Slip Free:** your Escape attacks add 2 × DEX instead of STR or DEX.":
-        "**Dégagement :** vos attaques pour S'échapper ajoutent 2 × DEX au lieu de FOR ou DEX.",
+        "**Dégagement :** vos attaques pour S'échapper ajoutent 2 × AGI au lieu de FOR ou AGI.",
     "**Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage.":
         "**Juste colère (½ VOL/R.C.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants.",
     "**Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit.":
         "**Commandement (½ FOR/R.C.) :** action. Un allié à 12 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher.",
     "**Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn.":
-        "**Proie (½ INT/R.C.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ DEX aux attaques contre elle jusqu'au début de votre prochain tour.",
+        "**Proie (½ INT/R.C.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ AGI aux attaques contre elle jusqu'au début de votre prochain tour.",
     "**Feint (½ WIL/S.R.):** reaction, when an attack hits you: −DEX to that attack roll, possibly turning it into a miss.":
-        "**Feinte (½ VOL/R.C.) :** réaction, quand une attaque vous touche : −DEX à ce jet d'attaque, ce qui peut le transformer en échec.",
+        "**Feinte (½ VOL/R.C.) :** réaction, quand une attaque vous touche : −AGI à ce jet d'attaque, ce qui peut le transformer en échec.",
     "**Solitude:** ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL.":
         "**Solitude :** ½ VOL Ardeur supplémentaire. Vos tests pour cueillir et endurer ajoutent l'INT et la VOL.",
     # hands
@@ -192,9 +192,9 @@ TEXT = {
     "**Action:** spread it on a creature within 5 ft. Heal one of its Wounds.":
         "**Action :** étalez-le sur une créature à 2 m ou moins. Guérissez l'une de ses Blessures.",
     "**Reaction:** throw it at a creature within 5 ft. Attack (DEX or WIL + 2) against its DEX Defense: on a hit, it has −2 on attacks until the end of its next turn.":
-        "**Réaction :** lancez-le sur une créature à 2 m ou moins. Attaque (DEX ou VOL + 2) contre sa Défense de DEX : si elle touche, la créature a −2 aux attaques jusqu'à la fin de son prochain tour.",
+        "**Réaction :** lancez-le sur une créature à 2 m ou moins. Attaque (AGI ou VOL + 2) contre sa Défense d'AGI : si elle touche, la créature a −2 aux attaques jusqu'à la fin de son prochain tour.",
     "**Reaction:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss.":
-        "**Réaction :** lancez une fiole jusqu'à 12 m. Faites une attaque (DEX ou INT + 3) contre la Défense de DEX de chaque créature à 2 m ou moins du point d'impact : 2d6 Feu si elle touche, la moitié en cas d'échec.",
+        "**Réaction :** lancez une fiole jusqu'à 12 m. Faites une attaque (AGI ou INT + 3) contre la Défense d'AGI de chaque créature à 2 m ou moins du point d'impact : 2d6 Feu si elle touche, la moitié en cas d'échec.",
     # Aspects
     "Your jump distances are doubled, and you never need a running start.":
         "Vos distances de saut sont doublées, et vous n'avez jamais besoin d'élan.",
@@ -259,29 +259,29 @@ TEXT = {
     # spells and powers
     "**Action**, range 120 ft.": "**Action**, portée 48 m.",
     "Spell attack against DEX Defense: **1d10 Fire**. A flammable object it hits catches fire.":
-        "Attaque de sort contre la Défense de DEX : **1d10 Feu**. Un objet inflammable touché prend feu.",
+        "Attaque de sort contre la Défense d'AGI : **1d10 Feu**. Un objet inflammable touché prend feu.",
     "**Action**, range 30 ft, Duration 1 minute.": "**Action**, portée 12 m, Durée 1 minute.",
     "A spectral hand lifts, carries or works an object up to 10 lb. It can't attack. Move it with your reaction.":
         "Une main spectrale soulève, porte ou manipule un objet de 5 kg au plus. Elle ne peut pas attaquer. Déplacez-la avec votre réaction.",
     "Three darts at one to three creatures. One spell attack against the DEX Defense of each target: **1d4 + 1 Radiant** per dart on a hit, half on a miss.":
-        "Trois fléchettes sur une à trois créatures. Une attaque de sort contre la Défense de DEX de chaque cible : **1d4 + 1 Radiant** par fléchette si elle touche, la moitié en cas d'échec.",
+        "Trois fléchettes sur une à trois créatures. Une attaque de sort contre la Défense d'AGI de chaque cible : **1d4 + 1 Radiant** par fléchette si elle touche, la moitié en cas d'échec.",
     "**Upcast:** +1 dart per level above 1st.": "**Surpuissance :** +1 fléchette par niveau au-delà du 1er.",
     "**Reaction**, when an attack hits you.": "**Réaction**, quand une attaque vous touche.",
     "+5 to your STR and DEX Defense until the start of your next turn, against the triggering attack too.":
-        "+5 à vos Défenses de FOR et de DEX jusqu'au début de votre prochain tour, y compris contre l'attaque déclencheuse.",
+        "+5 à vos Défenses de FOR et d'AGI jusqu'au début de votre prochain tour, y compris contre l'attaque déclencheuse.",
     "**Action**, range 60 ft, Duration 1 minute.": "**Action**, portée 24 m, Durée 1 minute.",
     "A 10-ft cube of slick grease: difficult terrain. Spell attack against the DEX Defense of each creature in it, and of each one that enters it or ends its turn there: on a hit, it falls **Prone**.":
-        "Un cube de 4 m de graisse glissante : terrain difficile. Attaque de sort contre la Défense de DEX de chaque créature à l'intérieur, et de chacune qui y entre ou y termine son tour : si elle touche, la créature tombe **À terre**.",
+        "Un cube de 4 m de graisse glissante : terrain difficile. Attaque de sort contre la Défense d'AGI de chaque créature à l'intérieur, et de chacune qui y entre ou y termine son tour : si elle touche, la créature tombe **À terre**.",
     "**Reaction.**": "**Réaction.**",
     "Teleport up to 30 ft to an unoccupied space you can see.": "Téléportez-vous jusqu'à 12 m vers un espace inoccupé que vous voyez.",
     "**Action**, range 60 ft, Duration 1 hour.": "**Action**, portée 24 m, Durée 1 heure.",
     "A 20-ft cube of webs: difficult terrain. Spell attack against the DEX Defense of each creature in it, and of each one that enters it: on a hit, it is **Restrained** for 2 turns. Fire burns a 5-ft square away each round.":
-        "Un cube de 8 m de toiles : terrain difficile. Attaque de sort contre la Défense de DEX de chaque créature à l'intérieur, et de chacune qui y entre : si elle touche, la créature est **Entravée** pendant 2 tours. Le feu en brûle une case de 2 m par round.",
+        "Un cube de 8 m de toiles : terrain difficile. Attaque de sort contre la Défense d'AGI de chaque créature à l'intérieur, et de chacune qui y entre : si elle touche, la créature est **Entravée** pendant 2 tours. Le feu en brûle une case de 2 m par round.",
     "**Action.** Attack against WIL Defense: until the end of the target's next turn, it has −2 on its next attack.":
         "**Action.** Attaque contre la Défense de VOL : jusqu'à la fin du prochain tour de la cible, elle a −2 à sa prochaine attaque.",
     "**Action**, Duration 1 minute.": "**Action**, Durée 1 minute.",
     "Up to 3 allies within 30 ft have +2 on attacks.": "Jusqu'à 3 alliés à 12 m ou moins ont +2 aux attaques.",
-    "Allies within 30 ft have +2 to STR and DEX Defense.": "Les alliés à 12 m ou moins ont +2 aux Défenses de FOR et de DEX.",
+    "Allies within 30 ft have +2 to STR and DEX Defense.": "Les alliés à 12 m ou moins ont +2 aux Défenses de FOR et d'AGI.",
     "**Reaction**, after a creature within 60 ft rolls.": "**Réaction**, après le jet d'une créature à 24 m ou moins.",
     "−2 to an enemy's attack roll or check.": "−2 au jet d'attaque ou au test d'un ennemi.",
     "+2 to an ally's roll, or to the Defense an attack targets.": "+2 au jet d'un allié, ou à la Défense que vise une attaque.",
@@ -296,9 +296,9 @@ TEXT = {
         "Attaque contre la Défense de VOL : la cible soustrait 1d4 à ses jets d'attaque.",
     "**Reroll:** make it reroll an attack roll or a check.": "**Relance :** faites-lui relancer un jet d'attaque ou un test.",
     "**Action**, touch.": "**Action**, contact.", "A creature regains 2d8 + WIL HP.": "Une créature récupère 2d8 + VOL PV.",
-    "**Tiny** · Fly 60 ft.": "**Très petit** · Vol 24 m.", "Talons: +2 to hit, 1d4 + DEX Physical.": "Serres : +2 au toucher, 1d4 + DEX Physique.",
+    "**Tiny** · Fly 60 ft.": "**Très petit** · Vol 24 m.", "Talons: +2 to hit, 1d4 + DEX Physical.": "Serres : +2 au toucher, 1d4 + AGI Physique.",
     "+2 on checks to notice.": "+2 aux tests pour remarquer.", "**Medium**.": "**Moyen**.",
-    "Bite: +2 to hit, 1d6 + DEX Physical.": "Morsure : +2 au toucher, 1d6 + DEX Physique.",
+    "Bite: +2 to hit, 1d6 + DEX Physical.": "Morsure : +2 au toucher, 1d6 + AGI Physique.",
     "+2 on checks to track.": "+2 aux tests pour pister.", "**Large** · Climb 30 ft.": "**Grand** · Escalade 12 m.",
     "Hide: +2 STR Defense (included).": "Cuir épais : +2 Défense de FOR (compris).",
     "Claws: +2 to hit, 1d8 + STR Physical.": "Griffes : +2 au toucher, 1d8 + FOR Physique.",
@@ -322,7 +322,7 @@ TEXT = {
         "**Pattes d'araignée :** grimpe aux murs et aux plafonds à pleine Vitesse. **Sens de la toile :** alerte (Vigilance passive +5).",
     "**Bite:** +5 to hit, 1d8 + 3 Physical plus 1d8 Poison.": "**Morsure :** +5 au toucher, 1d8 + 3 Physique plus 1d8 Poison.",
     "**Web (Recharge 5–6):** action, range 30 ft. Attack (+3) against DEX Defense: **Restrained** for 2 turns.":
-        "**Toile (Recharge 5–6) :** action, portée 12 m. Attaque (+3) contre la Défense de DEX : **Entravé** pendant 2 tours.",
+        "**Toile (Recharge 5–6) :** action, portée 12 m. Attaque (+3) contre la Défense d'AGI : **Entravé** pendant 2 tours.",
     "**Claws:** +6 to hit, 2d6 + 4 Physical.": "**Griffes :** +6 au toucher, 2d6 + 4 Physique.",
     "**Regeneration:** regains 10 HP at the start of its turn, unless it took Fire or Poison damage since its last turn.":
         "**Régénération :** récupère 10 PV au début de son tour, sauf s'il a subi des dégâts de Feu ou de Poison depuis son dernier tour.",

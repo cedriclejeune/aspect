@@ -104,7 +104,7 @@ A Calling gives **+2 to its two abilities** and +0 to the other two, a **Hit Poi
 | **Performer** | DEX · WIL | 10 | 35 ft | **Crowd Work (½ DEX/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +WIL to that roll. |
 | **Sage** | INT · WIL | 9 | 35 ft | **Learned:** ½ INT extra spell points (10.2). Your checks to recall lore add both INT and WIL. |
 | **Brawler** | STR · DEX | 14 | 30 ft | **Scrapper:** +STR to hit with Grapples and Shoves. **Slip Free:** your Escape attacks (6.10) add 2 × DEX instead of STR or DEX. |
-| **Zealot** | STR · WIL | 12 | 35 ft | **Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage. |
+| **Patriot** | STR · WIL | 12 | 35 ft | **Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage. |
 | **Tactician** | STR · INT | 12 | 35 ft | **Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit. |
 | **Ranger** | DEX · INT | 11 | 35 ft | **Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn. |
 | **Trickster** | DEX · WIL | 9 | 35 ft | **Feint (½ WIL/S.R.):** reaction, when an attack hits you: −DEX to that attack roll, possibly turning it into a miss. |
@@ -1005,7 +1005,7 @@ Each game term has one meaning, in both books.
 | **Blindsight N** | Perceive everything within N ft without sight. |
 | **Boss** | A strong monster with special powers, including a half turn during the characters' side. |
 | **Brutal** | A weapon keyword: on a critical hit, roll its damage dice three times instead of twice. |
-| **Calling** | The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Aspects you can equip. It is neither an Aspect nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Zealot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
+| **Calling** | The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Aspects you can equip. It is neither an Aspect nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Patriot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
 | **Cantrip** | A spell that costs nothing. Cast at will. |
 | **Capture** | Pouring a lingering Aspect into an empty Shard. |
 | **Card** | The physical component for a Calling, a piece of gear, an Aspect, a spell, a Wound, a foe or an amount of gold. |

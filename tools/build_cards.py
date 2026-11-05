@@ -4,7 +4,7 @@ Usage: .venv/bin/python tools/build_cards.py [--lang fr]
 --lang fr: the French base set (cards/fr.py) in rules/fr/Porteurs-Set-de-base.pdf and rules/fr/Porteurs-Set-de-base-Lecture.pdf.
 Output: rules/Bearers-Base-Set.pdf to print and rules/Bearers-Base-Set-Reading.pdf to read on screen
 (and build/base-set.html, build/base-set-reading.html for inspection)
-Cards are 63 × 88 mm, 9 per Letter page; foe and tally cards 126 × 88 mm, 3 per page; Slot frames are 67 × 98 mm, 8 per landscape page.
+Cards are 63 × 88 mm, 9 per Letter page; foe and tally cards 126 × 88 mm and two-sided, 4 per landscape page (a foe's back: its drawing and name, turned a quarter); Slot frames are 67 × 98 mm, 8 per landscape page.
 A card with a drawing is two-sided: gear and gold from rules/art/items/, Callings, Aspects, deck cards and Wounds from
 rules/art/cards/ (a Form named after a foe, and the Orcish and Hobgoblin species Traits, use the foe's drawing). The drawing goes in place of the
 text on the front, the text on the back, on facing pages printed two-sided (each back page mirrors its front page's
@@ -63,7 +63,7 @@ UI = {
                groups={}, coin="In a Purse, it takes no room. Loose, it is a bag of coins: 1 piece.",
                blank=("Body", "Attacks", "Powers", "Drops"), blank_kw="Foe · size · senses",
                sizes={}, senses=lambda x: x, sub=SUBTITLE),
-    "fr": dict(lang="fr", to_hit="au toucher", or_="ou", abil={"STR": "FOR", "DEX": "DEX", "INT": "INT", "WIL": "VOL"},
+    "fr": dict(lang="fr", to_hit="au toucher", or_="ou", abil={"STR": "FOR", "DEX": "AGI", "INT": "INT", "WIL": "VOL"},
                ranged=("Lancer", "Portée"), uses=r"\d+/R\.[CL]\.", recharge="Recharge {n}–6", also="Porte aussi ",
                drops="Butin : ", foe="Adversaire", boss="Boss", leader="Meneur", set_foe="ADVERSAIRE", gp="po", gold="Or",
                groups={"STARTER": "DÉPART", "LOOT": "BUTIN", "WOUND": "BLESSURE"},
@@ -82,6 +82,7 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
 .sheet {{ width: 215.9mm; height: 279.4mm; display: grid; grid-template-columns: repeat(3, 63mm); grid-auto-rows: 88mm;
   gap: 2mm; justify-content: center; align-content: center; break-after: page; overflow: hidden; }}
 .sheet.foes {{ grid-template-columns: 126mm; }}
+.sheet.wide4 {{ page: frames; width: 279.4mm; height: 215.9mm; grid-template-columns: repeat(2, 126mm); }}
 .sheet.frames {{ page: frames; width: 279.4mm; height: 215.9mm; grid-template-columns: repeat(4, 67mm); grid-auto-rows: 98mm; gap: 0; }}
 .sheet.frames svg {{ width: 67mm; height: 98mm; display: block; }}
 .intro {{ width: 215.9mm; height: 279.4mm; box-sizing: border-box; padding: 22mm 24mm; break-after: page; background: {ill.PARCH}; }}
@@ -120,7 +121,7 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
 .body p {{ margin: 0; line-height: 1.2; }}
 .body .art {{ display: flex; justify-content: center; opacity: .9; }}
 .body .main {{ flex: 1 0 auto; display: flex; flex-direction: column; justify-content: center; gap: 1.4mm; }}
-.body .lore {{ font-size: 6.4pt; font-style: italic; line-height: 1.15; color: #555; text-align: center; }}
+.body .lore {{ font-size: 7.4pt; font-style: italic; line-height: 1.15; color: #555; text-align: center; }}
 .wide .body {{ right: 0; }}
 .deck .body {{ left: 8mm; }}
 .index {{ position: absolute; left: 0; top: 11.44mm; bottom: 8.8mm; width: 8mm; border-right: .25mm solid #000;
@@ -131,17 +132,17 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
   white-space: nowrap; }}
 .kw {{ position: absolute; left: 0; right: 0; bottom: 0; height: 8.8mm; border-top: .3mm solid #000; display: flex;
   align-items: center; justify-content: flex-start; gap: 1.4mm; padding: 0 19mm 0 2.4mm; box-sizing: border-box;
-  font-style: italic; font-size: 7.6pt; line-height: 1.1; }}
+  font-style: italic; font-weight: 600; font-size: 7.6pt; line-height: 1.1; }}
 .kw img {{ width: 4.4mm; height: 4.4mm; flex: none; }}
 .band .ttl {{ display: flex; flex-direction: column; min-width: 0; gap: .35mm; }}
-.band .sub {{ font-family: 'EB Garamond', serif; font-style: italic; font-weight: 400; letter-spacing: .02em; color: #8a8a8a;
-  font-size: 6pt; line-height: 1.1; }}
+.band .sub {{ font-family: 'EB Garamond', serif; font-style: italic; font-weight: 600; letter-spacing: .02em; color: #000;
+  font-size: 7.4pt; line-height: 1.05; }}
 .band .bsym {{ width: 4.6mm; height: 4.6mm; flex: none; margin-right: 1.2mm; }}
 .band .bsym img {{ width: 100%; height: 100%; display: block; }}
 .f-calling .band {{ background: #000; color: #fff; }}
-.f-calling .band .sub {{ color: #b0b0b0; }}
+.f-calling .band .sub {{ color: #fff; }}
 .f-calling .band .sym4 img {{ filter: invert(1); }}
-.f-calling .band .sym4 .off {{ opacity: .32; }}
+.f-calling .band .sym4 .off {{ opacity: .5; }}
 .f-equip .band {{ border-bottom: 1.3mm double #000; }}
 .f-item .band, .deck.src-item .index {{ background: repeating-linear-gradient(135deg, #fff 0 .9mm, #e6e6e6 .9mm 1.15mm); }}
 .body .wm {{ position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }}
@@ -151,10 +152,11 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
 .index .isym img {{ width: 100%; height: 100%; display: block; }}
 .kw .kl {{ flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: .4mm; max-height: 100%; }}
 .kw .k1, .kw .k2 {{ display: block; overflow: hidden; line-height: 1.12; }}
-.kw .k1 {{ font-size: 7pt; max-height: 8.2mm; }}
-.kw .kl:has(.k2) .k1 {{ max-height: 4.4mm; }}
-.kw .k2 {{ font-size: 5.8pt; opacity: .55; max-height: 3.8mm; }}
-.set {{ position: absolute; right: 2mm; bottom: 3.3mm; font-family: Cinzel, serif; font-size: 4.6pt; color: #777; letter-spacing: .05em; }}
+.kw .kn {{ white-space: nowrap; }}
+.kw .k1 {{ font-size: 8.2pt; max-height: 8.2mm; }}
+.kw .kl:has(.k2) .k1 {{ max-height: 4.6mm; }}
+.kw .k2 {{ font-size: 6.8pt; opacity: .55; max-height: 3.8mm; }}
+.set {{ position: absolute; right: 2mm; bottom: 3.3mm; font-family: Cinzel, serif; font-weight: 600; font-size: 4.6pt; color: #000; letter-spacing: .05em; }}
 .coin {{ display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2mm; }}
 .coin svg {{ width: 30mm; height: 30mm; }}
 .card.tally {{ width: 126mm; }}
@@ -166,6 +168,11 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
 .foe .pic img {{ width: 100%; height: 100%; object-fit: cover; display: block; }}
 .foe .pic svg {{ width: 42mm; height: 42mm; }}
 .foe .body {{ left: 50mm; justify-content: flex-start; gap: .9mm; }}
+.foe.back {{ overflow: hidden; }}
+.foe.back .rot {{ position: absolute; left: 0; top: 87.3mm; width: 87.3mm; height: 125.3mm; transform-origin: 0 0; transform: rotate(-90deg); }}
+.foe.back .pic {{ width: auto; right: 0; bottom: 0; border-right: 0; border-radius: 0 0 3mm 3mm; padding: 2mm; box-sizing: border-box; }}
+.foe.back .pic img {{ object-fit: contain; }}
+.foe.back .pic svg {{ width: 76mm; height: 76mm; }}
 .foe .tag {{ position: absolute; right: 2mm; top: 3.4mm; font-size: 6.4pt; font-family: 'EB Garamond', serif; font-style: italic; font-weight: 400; }}
 .foe .ids {{ font-size: 6.4pt; color: #555; }}
 .card .art {{ position: absolute; left: 0; right: 12.6mm; top: 11.44mm; bottom: 8.8mm; padding: 1.4mm; box-sizing: border-box;
@@ -238,7 +245,8 @@ def keywords(kw, sub=None):
     if parts[0] == sub:
         parts = parts[1:]
     rule, desc = [p for p in parts if p not in DESCRIPTIVE], [p for p in parts if p in DESCRIPTIVE]
-    lines = f'<span class="k1">{md(" · ".join(rule))}</span>' + (f'<span class="k2">{md(" · ".join(desc))}</span>' if desc else "")
+    join = lambda ps: " · ".join(f'<span class="kn">{md(p)}</span>' for p in ps)  # a wrapped line breaks between keywords only
+    lines = f'<span class="k1">{join(rule)}</span>' + (f'<span class="k2">{join(desc)}</span>' if desc else "")
     return f'<div class="kw">{sym}<span class="kl">{lines}</span></div>'
 
 
@@ -263,14 +271,16 @@ FIT_LORE = """<script>document.fonts.ready.then(() => {
   const size = (e, pt) => { e.style.fontSize = pt + 'pt'; return pt; };
   document.querySelectorAll('.kw .k1, .kw .k2').forEach(e => {  // one line, smaller; then two lines, smaller still
     const two = e.classList.contains('k2');
-    let pt = size(e, two ? 5.8 : 7); e.style.whiteSpace = 'nowrap';
-    while (!fits(e) && pt > (two ? 4.8 : 5.4)) pt = size(e, +(pt - .2).toFixed(1));
+    let pt = size(e, two ? 6.8 : 8.2); e.style.whiteSpace = 'nowrap';
+    while (!fits(e) && pt > (two ? 5.6 : 6.4)) pt = size(e, +(pt - .2).toFixed(1));
     if (fits(e)) return;
-    e.style.whiteSpace = 'normal'; pt = size(e, two ? 5 : 5.6);
-    while (!fits(e) && pt > (two ? 4 : 4.4)) pt = size(e, +(pt - .2).toFixed(1));
+    e.style.whiteSpace = 'normal'; pt = size(e, two ? 5.8 : 6.6);
+    while (!fits(e) && pt > (two ? 4.6 : 5.2)) pt = size(e, +(pt - .2).toFixed(1));
   });
   document.querySelectorAll('.body .lore').forEach(l => {
-    const b = l.parentNode; if (b.scrollHeight > b.clientHeight + 1) l.remove();
+    const b = l.parentNode, over = () => b.scrollHeight > b.clientHeight + 1;  // shrink before giving up
+    for (let pt = 7.4; over() && pt > 6.4; ) { pt = +(pt - .2).toFixed(1); l.style.fontSize = pt + 'pt'; }
+    if (over()) l.remove();
   });
 });</script>"""
 
@@ -388,7 +398,7 @@ def more_dice(dice, n):
 
 
 def _abil():
-    """The four ability abbreviations as printed (FOR/VOL in French), and a lookup back to the English keys."""
+    """The four ability abbreviations as printed (FOR/AGI/VOL in French), and a lookup back to the English keys."""
     back = {v: k for k, v in T["abil"].items()}
     return "(" + "|".join(back) + ")", back
 
@@ -479,6 +489,18 @@ def foe_card(f):
             f'<div class="kw">{kw}</div><div class="set">{T["set_foe"]}</div></div>')
 
 
+def foe_back(f):
+    """A foe card's back: its name in the title band and its drawing, large, turned a quarter so the drawing gets
+    the card's length."""
+    drawing = ART / f'{f["name"].lower().replace(" ", "-")}.png'
+    art = f'<img src="{print_image(drawing)}" alt="">' if drawing.exists() else card_art.foe_art(f["name"]) or ""
+    name = f["name"]
+    if T["lang"] == "fr":
+        import fr
+        name = fr.NAMES[name]
+    return f'<div class="card foe back"><div class="rot">{band(name, "")}<div class="pic">{art}</div></div></div>'
+
+
 def blank_foe_card():
     b, a, p, d = T["blank"]
     tag = f'<span class=tag>{T["foe"]}</span>'
@@ -560,13 +582,26 @@ def build_cards(reading=False):
 
 
 def build_foes():
-    """Double-width foe cards, filled with the single cards' grid: one per row (the third column stays empty)."""
-    return [foe_card(f) for f in foes.FOES] + [blank_foe_card()] * foes.BLANKS
+    """Double-width foe cards as (front, back) pairs: the stats, then the drawing and name."""
+    blank_back = '<div class="card foe back"><div class="rot">' + band("", "") + '<div class="pic"></div></div></div>'
+    return [(foe_card(f), foe_back(f)) for f in foes.FOES] + [(blank_foe_card(), blank_back)] * foes.BLANKS
 
 
 def build_tallies():
-    """Double-width tally cards, 3 a page like the foe cards."""
-    return [tally_card()] * bs.TALLIES
+    """Double-width tally cards, the same on both faces, as (front, back) pairs."""
+    return [(tally_card(), tally_card())] * bs.TALLIES
+
+
+def duplex_wide(pairs):
+    """Two-sided double-width cards as a front page and a back page, 4 a landscape sheet. Flipped on the short edge,
+    each row's two cards swap sides."""
+    gap = '<div class="card gap"></div>'
+    out = []
+    for i in range(0, len(pairs), 4):
+        chunk = pairs[i:i + 4] + [(gap, gap)] * (4 - len(pairs[i:i + 4]))
+        backs = [chunk[k][1] for k in (1, 0, 3, 2)]
+        out.append(sheets([f for f, _ in chunk], "wide4", 4) + sheets(backs, "wide4", 4))
+    return "".join(out)
 
 
 def build_frames():
@@ -576,13 +611,13 @@ def build_frames():
     return out
 
 
-def intro(n_cards, n_frames, n_duplex):
+def intro(n_cards, n_frames, n_duplex, wide):
     rows = "".join(f"<tr><td>{k}</td><td>{', '.join(v)}</td></tr>" for k, v in bs.STARTER_LIST.items())
     frames = ", ".join(f"{n} {name}" for _, name, _, _, n in bs.FRAMES)
     return f"""<section class="intro"><h1>BEARERS</h1><p style="font-family:Cinzel,serif;letter-spacing:.2em">Base Set · {bs.PLAYERS} players</p>
 <h2>Printing</h2>
-<ul><li>Print at <b>100 %</b> (no fit-to-page) on cardstock. Pages 2–{n_duplex + 1} are two-sided cards: print them double-sided, flipping on the long edge. Print the rest single-sided.</li>
-<li> Cards are 63 × 88 mm; foe and tally cards are double width (126 × 88 mm); Slot frames are 67 × 98 mm.</li>
+<ul><li>Print at <b>100 %</b> (no fit-to-page) on cardstock. Pages 2–{n_duplex + 1} are two-sided cards: print them double-sided, flipping on the long edge. Pages {wide[0]}–{wide[1]} (landscape: tally and foe cards) are two-sided too, flipping on the short edge. Print the rest single-sided.</li>
+<li> Cards are 63 × 88 mm; foe and tally cards are double width (126 × 88 mm) and two-sided, 4 to a landscape page; Slot frames are 67 × 98 mm.</li>
 <li>Cut out each card and frame. On each frame, cut the two <b style="color:{ill.CRIMSON}">red slits</b> with a craft knife.</li>
 <li>Tuck a card's top-right and bottom-left corners under the slits to equip it (Player Rules 12.2).</li></ul>
 <h2>Contents</h2>
@@ -618,13 +653,13 @@ def use_french():
     intro = intro_fr
 
 
-def intro_fr(n_cards, n_frames, n_duplex):
+def intro_fr(n_cards, n_frames, n_duplex, wide):
     rows = "".join(f"<tr><td>{k}</td><td>{', '.join(v)}</td></tr>" for k, v in bs.STARTER_LIST.items())
     frames = ", ".join(f"{n} {name}" for _, name, _, _, n in bs.FRAMES)
     return f"""<section class="intro"><h1>PORTEURS</h1><p style="font-family:Cinzel,serif;letter-spacing:.2em">Set de base · {bs.PLAYERS} joueurs</p>
 <h2>Impression</h2>
-<ul><li>Imprimez à <b>100 %</b> (sans ajustement à la page) sur du papier cartonné. Les pages 2 à {n_duplex + 1} sont des cartes recto verso : imprimez-les en recto verso, retournement sur le bord long. Imprimez le reste en recto seul.</li>
-<li>Les cartes mesurent 63 × 88 mm ; les cartes d'Adversaire et de Décompte sont double largeur (126 × 88 mm) ; les cadres d'Emplacement mesurent 67 × 98 mm.</li>
+<ul><li>Imprimez à <b>100 %</b> (sans ajustement à la page) sur du papier cartonné. Les pages 2 à {n_duplex + 1} sont des cartes recto verso : imprimez-les en recto verso, retournement sur le bord long. Les pages {wide[0]} à {wide[1]} (en paysage : cartes de Décompte et d'Adversaire) sont aussi recto verso, retournement sur le bord court. Imprimez le reste en recto seul.</li>
+<li>Les cartes mesurent 63 × 88 mm ; les cartes d'Adversaire et de Décompte sont double largeur (126 × 88 mm) et recto verso, 4 par page paysage ; les cadres d'Emplacement mesurent 67 × 98 mm.</li>
 <li>Découpez chaque carte et chaque cadre. Sur chaque cadre, incisez les deux <b style="color:{ill.CRIMSON}">fentes rouges</b> au cutter.</li>
 <li>Glissez les coins supérieur droit et inférieur gauche d'une carte sous les fentes pour l'équiper (Règles du joueur 12.2).</li></ul>
 <h2>Contenu</h2>
@@ -647,14 +682,16 @@ def main():
     title = "Porteurs · Set de base" if french else "Bearers · Base Set"
     (cards, pairs), frames, foe_cards, tallies = build_cards(), build_frames(), build_foes(), build_tallies()
     n_duplex = 2 * -(-len(pairs) // 9)
+    first = n_duplex + 2 + -(-len(cards) // 9)  # the landscape two-sided pages follow the single cards
+    wide = (first, first - 1 + 2 * -(-len(tallies) // 4) + 2 * -(-len(foe_cards) // 4))
     render(f"base-set{suffix}.html", title,
-           intro(len(cards) + len(pairs) + len(tallies), len(frames), n_duplex) + duplex(pairs) + sheets(cards)
-           + sheets(tallies, "foes", 3) + sheets(foe_cards, "foes", 3) + sheets(frames, "frames", 8), OUT)
-    print(f"Wrote {OUT.relative_to(ROOT)}: {len(cards) + len(pairs) + len(tallies)} cards ({len(pairs)} two-sided), "
+           intro(len(cards) + len(pairs) + bs.TALLIES, len(frames), n_duplex, wide) + duplex(pairs) + sheets(cards)
+           + duplex_wide(tallies) + duplex_wide(foe_cards) + sheets(frames, "frames", 8), OUT)
+    print(f"Wrote {OUT.relative_to(ROOT)}: {len(cards) + len(pairs) + bs.TALLIES} cards ({len(pairs) + bs.TALLIES} two-sided), "
           f"{len(foe_cards)} foe cards, {len(frames)} frames")
     _, wide = build_cards(reading=True)
     render(f"base-set-reading{suffix}.html", title + (" (lecture)" if french else " (reading)"),
-           sheets(wide, "foes", 3) + sheets(cards) + sheets(tallies[:1] + foe_cards, "foes", 3), READING)
+           sheets(wide, "foes", 3) + sheets(cards) + sheets([tally_card()] + [f for f, _ in foe_cards], "wide4", 4), READING)
     print(f"Wrote {READING.relative_to(ROOT)}: {len(wide)} double-width two-sided cards, then the rest")
     if french:  # the simulator reads the English cards only
         return

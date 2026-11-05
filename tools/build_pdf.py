@@ -106,8 +106,8 @@ figcaption { font-style: italic; font-size: 9.8pt; color: #7a6648; margin-top: 3
 """
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
-         '<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&'
-         'family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=block" rel="stylesheet">')
+         '<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&'
+         'family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=block" rel="stylesheet">')
 
 
 def slug(text):

@@ -553,7 +553,7 @@ module.exports = function register(T, H) {
     eq(r.info.toHit, 2 + 2 + 2, "STR + 2 + Scrapper");
     eq(C(f, "h").resolve, 3 + 2 + 1);
   });
-  T("[fx] Zealot Righteous Fury: ½ WIL/S.R., +½ STR d6 Radiant on a weapon hit", () => {
+  T("[fx] Patriot Righteous Fury: ½ WIL/S.R., +½ STR d6 Radiant on a weapon hit", () => {
     const f = fight([pc("z", [5, 5], calling("L-08", { hands: ["W-I-05"] }), { react: "auto" }), foe("x", [6, 5])]);
     pcTurn(f, "z");
     const r = run(f, atk("z", "W-I-05", "x"), [18, 4, 3]);

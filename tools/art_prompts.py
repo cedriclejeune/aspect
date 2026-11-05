@@ -240,8 +240,8 @@ CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure a
                   "with runes, a long coat over a breastplate. Three-quarter view, a longsword held up in the right "
                   "hand, the whole blade in clear view with small sparks crackling along it, left hand holding an open "
                   "book against the hip",
-    "Infiltrator": "a skinny, long-limbed young female thief, wild tangled hair, a ragged short rogue like cloak, "
-              "bare dirty feet. Side view, tip-toeing, arms out for balance, hands empty",
+    "Infiltrator": "a skinny, long-limbed young wood elf woman, wild tangled hair, a fitted leather jerkin, a long "
+              "hooded cloak of overlapping leaves, laced leggings, soft wrapped leather boots, a slim knife belt. Side view, tip-toeing, arms out for balance, hands empty",
     "Sage": "a stooped, pot-bellied old scholar with a bald head, huge round spectacles and ink-stained fingers, a "
                "long scruffy robe, a quill tucked behind the ear. Front view, standing, carrying a tall stack of "
                "books against the chest with both arms, the whole stack in clear view",
@@ -251,10 +251,10 @@ CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure a
     "Brawler": "a squat, bull-necked orc woman brawler with small tusks, cauliflower ears, a flattened nose and a "
                "shaved head, a torn sleeveless shirt, rag-wrapped fists. Three-quarter view, crouched low, both arms "
                "wide, hands open and reaching forward as if to grab",
-    "Zealot": "a wild-eyed, hollow-cheeked dark-skinned human man zealot with a long matted beard, a rope belt and "
-              "a ragged sun-sigil tabard. Side view, charging forward mid-stride, a mace raised high in the right "
-              "hand by its handle, its head a solid metal ball ringed with sharp flanges, the whole mace in clear "
-              "view, mouth open in a shout",
+    "Patriot": "a young, lean, charismatic peasant orator, bright fierce eyes, a big open-mouthed shout, a short "
+               "snug knitted wool tuque, its top folded over, a hooded wool coat, a woven sash with a zigzag arrow pattern "
+               "tied at the waist, fringed ends hanging. Front view from below, standing atop a street barricade of "
+               "barrels and planks, sword raised high in the right hand, left arm flung out, leaflets flying from it",
     "Tactician": "a stout, grey-haired halfling woman tactician with round spectacles, a tight bun and a buttoned "
                  "officer's coat, big hairy bare feet. Three-quarter view, standing on a crate, a rolled map tucked "
                  "under the left arm, right arm stretched out pointing forward with a short baton",
@@ -508,14 +508,16 @@ CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure a
                     "the ground beside it. Front view, standing bent forward, one arm wrapped round the chest",
     "Wrenched Back": "a stout old adventurer with a bushy beard, bent double at the waist, frozen in place, both hands "
                      "on the small of the back, a full backpack lying dropped on the ground beside it. Side view",
-    "Shattered Knee": "a grizzled old orc soldier with a scarred face, one leg in a long splint from hip to "
-                      "ankle. Front view, standing, leaning heavily on a walking stick held in both hands, "
-                      "its tip on the ground",
+    "Shattered Knee": "a grizzled old orc soldier with a scarred face, the left leg in a long splint from hip to "
+                      "ankle. Front view, standing on both legs, both legs and both feet in clear view, the splinted "
+                      "leg held stiff, leaning on a walking stick in the right hand planted on the ground beside the "
+                      "right foot, outside the legs, left hand on the hip",
     "Skull Fracture": "a dazed, bookish adventurer with a bandage wrapped round the head and cracked spectacles, a "
                       "robe. Front view, standing, holding an open book upside down in both hands, frowning at it",
-    "Internal Bleeding": "a pale, sweating messenger with a gaunt face and a hand pressed to the side, a satchel "
-                         "on the shoulder. Side view, stumbling forward, the other hand reaching out, the knees "
-                         "buckling",
+    "Internal Bleeding": "a pale, sweating, gaunt hobgoblin messenger with a flat nose, a jutting jaw and long "
+                         "pointed ears, the face twisted in pain, eyes squeezed shut, teeth gritted, a satchel on the "
+                         "shoulder. Three-quarter view, hunched forward, knees buckling, both arms wrapped tightly "
+                         "around the belly, both hands clutching the sides",
 }
 
 

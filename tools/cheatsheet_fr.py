@@ -23,20 +23,20 @@ FRONT = """
 <tr><td>Désengagement</td><td>Votre déplacement ne provoque pas d'attaque d'opportunité ce tour-ci. <strong>Pas si vous êtes Encerclé.</strong></td></tr>
 <tr><td>Esquive</td><td>Jusqu'à votre prochain tour : <strong>+3 à toutes vos Défenses</strong>. Perdu si Neutralisé ou Vitesse 0.</td></tr>
 <tr><td>Aide</td><td>Avant votre prochain tour, un allié a <strong>+3</strong> à son prochain test pour une tâche, ou à sa prochaine attaque contre une créature à 2 m de vous.</td></tr>
-<tr><td>Se cacher</td><td>Test de DEX pour se cacher. Hors de vue obligatoire (abri total ou Obscurité). Échec sous 15 ou sous la Vigilance passive d'un observateur. Réussite : <strong>Invisible</strong> pour eux.</td></tr>
+<tr><td>Se cacher</td><td>Test d'AGI pour se cacher. Hors de vue obligatoire (abri total ou Obscurité). Échec sous 15 ou sous la Vigilance passive d'un observateur. Réussite : <strong>Invisible</strong> pour eux.</td></tr>
 <tr><td>Utiliser</td><td>Utilisez une babiole, ou un matériel qui demande une action : boire ou donner une potion.</td></tr>
 <tr><td>Se relever</td><td>Quitter l'état À terre.</td></tr>
 <tr><td>Se tenir prêt</td><td>Choisissez un déclencheur et une action ou un déplacement. Quand il survient, dépensez votre <strong>réaction</strong> pour le faire.</td></tr>
 <tr><td>Fouiller</td><td>Test d'INT pour trouver quelque chose de caché.</td></tr>
 <tr><td>Se souvenir</td><td>Test d'INT pour se rappeler des connaissances.</td></tr>
 <tr><td>Premiers soins</td><td>Test d'INT DD 10 : stabiliser une créature mourante.</td></tr>
-<tr><td>S'échapper</td><td>Attaque à mains nues (FOR ou DEX + 2) contre la plus haute Défense de FOR / DEX de celui qui vous agrippe. Touché : vous êtes libre.</td></tr>
+<tr><td>S'échapper</td><td>Attaque à mains nues (FOR ou AGI + 2) contre la plus haute Défense de FOR / AGI de celui qui vous agrippe. Touché : vous êtes libre.</td></tr>
 <tr><td>Maintenir<br><small>deux actions</small></td><td>Prolongez une Emprise : la prochaine répétition qui touche n'ajoute pas d'usure.</td></tr>
 <tr><td>Autre</td><td>Tout ce que vous décrivez d'autre. Le MJ tranche.</td></tr>
 </table>
 
 <div class="box"><b>Empoigner et Bousculer <small>6.10</small></b>
-Remplace une attaque. Cible à votre allonge, au plus <strong>une taille de plus</strong>. Faites une <strong>attaque à mains nues (FOR + 2)</strong> contre sa plus haute Défense de FOR ou de DEX.
+Remplace une attaque. Cible à votre allonge, au plus <strong>une taille de plus</strong>. Faites une <strong>attaque à mains nues (FOR + 2)</strong> contre sa plus haute Défense de FOR ou d'AGI.
 <ul>
 <li><strong>Empoigner</strong> (main libre) : la cible est <strong>Agrippée</strong>. Vous pouvez la traîner : chaque mètre coûte 1 m de plus sauf si elle a 2 tailles de moins ou plus.</li>
 <li><strong>Bousculer :</strong> repoussez-la de 2 m, ou mettez-la <strong>À terre</strong>.</li>
@@ -104,7 +104,7 @@ BACK = """
 <h2>Déroulement du combat <small>6.1</small></h2>
 <ul>
 <li><strong>Surprise :</strong> un camp qui approche sans être remarqué surprend l'autre et agit en premier, sans jet.</li>
-<li><strong>Initiative de camp :</strong> sinon chaque camp lance <strong>d20 + la meilleure DEX</strong> de ses membres. Relancez les égalités. Un camp entièrement Invisible : avantage.</li>
+<li><strong>Initiative de camp :</strong> sinon chaque camp lance <strong>d20 + la meilleure AGI</strong> de ses membres. Relancez les égalités. Un camp entièrement Invisible : avantage.</li>
 <li><strong>Round</strong> (~6 s) : le premier camp joue tous ses tours, puis l'autre camp.</li>
 <li>Les <strong>Boss</strong> jouent aussi un <strong>demi-tour</strong> (une action) pendant le camp des personnages.</li>
 <li>Au sein d'un camp, agissez dans l'ordre convenu, un tour complet à la fois.</li>
@@ -112,10 +112,10 @@ BACK = """
 </ul>
 
 <h2>Faire une attaque <small>6.6</small></h2>
-<p>C'est <strong>toujours l'attaquant qui lance</strong>, contre une <strong>Défense</strong> (10 + caractéristique + bonus). Les armes visent la <strong>plus haute Défense de FOR / DEX</strong> ; les autres effets nomment la leur.</p>
+<p>C'est <strong>toujours l'attaquant qui lance</strong>, contre une <strong>Défense</strong> (10 + caractéristique + bonus). Les armes visent la <strong>plus haute Défense de FOR / AGI</strong> ; les autres effets nomment la leur.</p>
 <table>
 <tr><th>Jet</th><th>Formule</th></tr>
-<tr><td>Arme</td><td>d20 + la caractéristique qu'elle nomme (la plus haute des deux : FOR / DEX, bâton ou baguette INT / VOL) + au toucher</td></tr>
+<tr><td>Arme</td><td>d20 + la caractéristique qu'elle nomme (la plus haute des deux : FOR / AGI, bâton ou baguette INT / VOL) + au toucher</td></tr>
 <tr><td>Sort</td><td>d20 + INT + attaque de sort du livre</td></tr>
 <tr><td>Magie de VOL</td><td>d20 + VOL + Attaque imprimée</td></tr>
 <tr><td>Mains nues</td><td>+2 au toucher · 1 + FOR Physique</td></tr>
@@ -155,7 +155,7 @@ BACK = """
 
 <h2>Abri <small>6.8</small></h2>
 <ul>
-<li><strong>Abri :</strong> +2 aux Défenses de FOR et de DEX.</li>
+<li><strong>Abri :</strong> +2 aux Défenses de FOR et d'AGI.</li>
 <li><strong>Abri total :</strong> ne peut être visé ; bloque la vue et les zones ; permet de se cacher et d'approcher sans être vu.</li>
 </ul>
 

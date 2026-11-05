@@ -21,11 +21,11 @@ Le joueur qui décrit le monde, fait agir les monstres et arbitre les règles.
 _À éviter_ : MD, meneur (réservé au mot-clé Meneur). (EN : Game Master)
 
 **Caractéristique**:
-L'une des quatre mesures de toute créature : Force (FOR), Dextérité (DEX), Intelligence (INT) et Volonté (VOL), chacune notée sous forme de modificateur.
+L'une des quatre mesures de toute créature : Force (FOR), Agilité (AGI), Intelligence (INT) et Volonté (VOL), chacune notée sous forme de modificateur.
 _À éviter_ : stat, attribut, valeur de caractéristique, CON, SAG, CHA. (EN : Ability)
 
 **Défense**:
-Le nombre qu'une attaque doit atteindre : 10 + un modificateur de caractéristique + bonus. Toute créature a une Défense de FOR, de DEX, d'INT et de VOL.
+Le nombre qu'une attaque doit atteindre : 10 + un modificateur de caractéristique + bonus. Toute créature a une Défense de FOR, d'AGI, d'INT et de VOL.
 _À éviter_ : CA, classe d'armure, sauvegarde, jet de sauvegarde. (EN : Defense)
 
 **Totaux**:
@@ -95,11 +95,11 @@ Un Trait, une Technique, un Savoir-faire, un Divin, un Glamour ou une Nature abs
 _À éviter_ : don, aptitude, pouvoir (comme terme général). (EN : Aspect)
 
 **Vocation**:
-La paire de caractéristiques avec laquelle un Porteur est né, gardée à vie : +2 dans les deux, des PV, une Vitesse et un atout. Elle décide quel matériel et quels Aspects vous pouvez équiper. Ce n'est ni un Aspect ni du matériel. Deux par paire : Duelliste et Bagarreur (FOR · DEX), Templier et Zélote (FOR · VOL), Lame-mage et Tacticien (FOR · INT), Infiltrateur et Rôdeur (DEX · INT), Artiste et Filou (DEX · VOL), Sage et Ermite (INT · VOL).
+La paire de caractéristiques avec laquelle un Porteur est né, gardée à vie : +2 dans les deux, des PV, une Vitesse et un atout. Elle décide quel matériel et quels Aspects vous pouvez équiper. Ce n'est ni un Aspect ni du matériel. Deux par paire : Duelliste et Bagarreur (FOR · AGI), Templier et Patriote (FOR · VOL), Lame-mage et Tacticien (FOR · INT), Infiltrateur et Rôdeur (AGI · INT), Artiste et Filou (AGI · VOL), Sage et Ermite (INT · VOL).
 _À éviter_ : Noyau, historique, archétype, classe, race, profil (pour les joueurs). (EN : Calling)
 
 **Symboles**:
-Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou DEX ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles, sauf le Bâton de garde-sort (INT · VOL).
+Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles, sauf le Bâton de garde-sort (INT · VOL).
 _À éviter_ : prérequis, condition, Req. (EN : Symbols)
 
 **Emplacement de Matériel**:
@@ -248,7 +248,7 @@ Les points que coûtent vos pouvoirs Divins, de Glamour et de Nature : une seule
 _À éviter_ : résolution, points de volonté, mana. (EN : Resolve)
 
 **Forme**:
-Un corps de bête dans une Souvenance (Nature), imprimé comme une Vocation : FOR, DEX, PV, Vitesse et Taille. Tant que vous avez mué en elle, elle remplace votre corps ; votre esprit et vos Aspects demeurent.
+Un corps de bête dans une Souvenance (Nature), imprimé comme une Vocation : FOR, AGI, PV, Vitesse et Taille. Tant que vous avez mué en elle, elle remplace votre corps ; votre esprit et vos Aspects demeurent.
 _À éviter_ : forme (en minuscule, pour autre chose), apparence, forme sauvage. (EN : Form)
 
 **Muer**:
@@ -268,7 +268,7 @@ _À éviter_ : niveau (seul), niveau de personnage. (EN : Effective level)
 Le type de matériel porté sur le corps ; il va dans l'Emplacement d'Armure. Il faut 10 minutes pour l'enfiler ou l'ôter. Jamais dans le Sac.
 
 **Arme**:
-Le type de matériel tenu avec lequel on attaque ; il va dans un Emplacement de Main. Elle imprime son bonus au toucher et ses dégâts, en ajoutant la plus haute des caractéristiques qu'elle nomme (*+2 au toucher, 1d8 + FOR ou DEX Physique*).
+Le type de matériel tenu avec lequel on attaque ; il va dans un Emplacement de Main. Elle imprime son bonus au toucher et ses dégâts, en ajoutant la plus haute des caractéristiques qu'elle nomme (*+2 au toucher, 1d8 + FOR ou AGI Physique*).
 
 **Bouclier**:
 Le type de matériel tenu qui augmente vos Défenses ; il va dans un Emplacement de Main.
@@ -339,7 +339,7 @@ Occupe deux Emplacements de Main.
 Un mot-clé d'arme : utilise le plus gros dé de dégâts quand elle est tenue à deux mains.
 
 **Vise X**:
-L'attaque se fait contre la Défense de X de la cible (FOR, DEX, INT ou VOL).
+L'attaque se fait contre la Défense de X de la cible (FOR, AGI, INT ou VOL).
 
 **Zone**:
 Cône, Cube, Cylindre, Émanation, Ligne ou Sphère N : une zone de cette forme et de cette taille. Un seul jet contre chaque créature à l'intérieur. Moitié des dégâts en cas d'échec.
@@ -370,14 +370,14 @@ _À éviter_ : résistance (comme mot-clé).
 **Vulnérable (type)**:
 Subit le double des dégâts de ce type.
 
-**Vision dans le noir N**:
+**Vision nocturne N**:
 Traite l'Obscurité comme de la Lumière dans un rayon de N m.
 
 **Perception aveugle N**:
 Perçoit tout dans un rayon de N m sans la vue. (EN : Blindsight)
 
 **Vision lucide N**:
-Comme Vision dans le noir, et voit les créatures invisibles et à travers les illusions et les changements de forme. (EN : Truesight)
+Comme Vision nocturne, et voit les créatures invisibles et à travers les illusions et les changements de forme. (EN : Truesight)
 
 **Escalade N**:
 Une vitesse d'escalade : grimper ne coûte pas de déplacement supplémentaire.

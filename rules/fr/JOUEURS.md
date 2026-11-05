@@ -73,8 +73,8 @@ Toute créature a **quatre caractéristiques**, chacune notée sous forme de **m
 
 |  | Caractéristique | Usages et tests |  | Sa Défense arrête… |
 |---|---|---|---|---|
-| <img class="sym" src="../symbols/str.svg" alt="FOR" width="22"> | **Force (FOR)** | Grimper, sauter, nager, soulever, briser, empoigner, endurer la douleur, marcher longtemps, retenir son souffle | <img class="sym" src="../symbols/str-def.svg" alt="Défense de FOR" width="22"> | **Les armes** (ou DEX), le poison, la maladie, être poussé ou empoigné |
-| <img class="sym" src="../symbols/dex.svg" alt="DEX" width="22"> | **Dextérité (DEX)** | Se faufiler, se cacher, garder l'équilibre, faire des acrobaties, crocheter les serrures et les poches, se libérer de liens | <img class="sym" src="../symbols/dex-def.svg" alt="Défense de DEX" width="22"> | **Les armes** (ou FOR), les explosions, les pièges, les souffles, les effets de zone |
+| <img class="sym" src="../symbols/str.svg" alt="FOR" width="22"> | **Force (FOR)** | Grimper, sauter, nager, soulever, briser, empoigner, endurer la douleur, marcher longtemps, retenir son souffle | <img class="sym" src="../symbols/str-def.svg" alt="Défense de FOR" width="22"> | **Les armes** (ou AGI), le poison, la maladie, être poussé ou empoigné |
+| <img class="sym" src="../symbols/dex.svg" alt="AGI" width="22"> | **Agilité (AGI)** | Se faufiler, se cacher, garder l'équilibre, faire des acrobaties, crocheter les serrures et les poches, se libérer de liens | <img class="sym" src="../symbols/dex-def.svg" alt="Défense d'AGI" width="22"> | **Les armes** (ou FOR), les explosions, les pièges, les souffles, les effets de zone |
 | <img class="sym" src="../symbols/int.svg" alt="INT" width="22"> | **Intelligence (INT)** | Remarquer, fouiller, deviner les intentions, se souvenir de connaissances, pister, s'orienter, soigner les blessures. **Toute incantation.** | <img class="sym" src="../symbols/int-def.svg" alt="Défense d'INT" width="22"> | Les illusions, la confusion et la folie |
 | <img class="sym" src="../symbols/wil.svg" alt="VOL" width="22"> | **Volonté (VOL)** | Persuader, tromper, se produire, intimider, dresser les animaux, tenir bon. **Magie Divine, de Glamour et de Nature.** | <img class="sym" src="../symbols/wil-def.svg" alt="Défense de VOL" width="22"> | Le charme, la peur, le contrôle mental, la possession, le bannissement, les malédictions, la métamorphose |
 
@@ -85,9 +85,9 @@ Toute créature a **quatre caractéristiques**, chacune notée sous forme de **m
 
 ### 2.3 Défenses
 
-- **Défense** = 10 + modificateur de caractéristique + bonus (armure, bouclier, autre matériel et Aspects). Toute créature en a quatre : **Défense de FOR, de DEX, d'INT et de VOL**. Les attaques se jouent contre elles (5.1).
-  - Les **attaques d'arme**, au corps à corps ou à distance, visent la **plus haute** des Défenses de FOR et de DEX du défenseur.
-  - Les **autres effets** nomment la Défense qu'ils visent. *Un boulet de canon ne vise que la Défense de DEX : les plates ne servent à rien.*
+- **Défense** = 10 + modificateur de caractéristique + bonus (armure, bouclier, autre matériel et Aspects). Toute créature en a quatre : **Défense de FOR, d'AGI, d'INT et de VOL**. Les attaques se jouent contre elles (5.1).
+  - Les **attaques d'arme**, au corps à corps ou à distance, visent la **plus haute** des Défenses de FOR et d'AGI du défenseur.
+  - Les **autres effets** nomment la Défense qu'ils visent. *Un boulet de canon ne vise que la Défense d'AGI : les plates ne servent à rien.*
 
 ### 2.4 La Vocation
 
@@ -97,17 +97,17 @@ Une Vocation donne **+2 à ses deux caractéristiques** et +0 aux deux autres, u
 
 | Vocation | Caractéristiques | PV | Vitesse | Atout |
 |---|---|---|---|---|
-| **Duelliste** | FOR · DEX | 12 | 14 m | **Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 2 m × ½ DEX. Ce déplacement ne provoque pas d'attaque d'opportunité. **Riposte (½ FOR/R.C.) :** réaction, quand une attaque au corps à corps vous rate : faites une attaque d'arme au corps à corps contre l'attaquant. |
+| **Duelliste** | FOR · AGI | 12 | 14 m | **Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 2 m × ½ AGI. Ce déplacement ne provoque pas d'attaque d'opportunité. **Riposte (½ FOR/R.C.) :** réaction, quand une attaque au corps à corps vous rate : faites une attaque d'arme au corps à corps contre l'attaquant. |
 | **Templier** | FOR · VOL | 14 | 12 m | **Serment (½ VOL/R.C.) :** réaction, quand une attaque touche un allié à 2 m ou moins : vous subissez ses dégâts à sa place, réduits de 2 × FOR. |
 | **Lame-mage** | FOR · INT | 13 | 12 m | **Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. **Frappe ensorcelée (½ FOR/R.C.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts. |
-| **Infiltrateur** | DEX · INT | 10 | 14 m | **Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent la DEX et l'INT. |
-| **Artiste** | DEX · VOL | 10 | 14 m | **Grande ovation (½ DEX/R.C.) :** réaction, après qu'un allié à 12 m ou moins a fait une attaque ou un test : +VOL à ce jet. |
+| **Infiltrateur** | AGI · INT | 10 | 14 m | **Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent l'AGI et l'INT. |
+| **Artiste** | AGI · VOL | 10 | 14 m | **Grande ovation (½ AGI/R.C.) :** réaction, après qu'un allié à 12 m ou moins a fait une attaque ou un test : +VOL à ce jet. |
 | **Sage** | INT · VOL | 9 | 14 m | **Érudit :** ½ INT points de sort supplémentaires (10.2). Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL. |
-| **Bagarreur** | FOR · DEX | 14 | 12 m | **Teigneux :** +FOR au toucher pour Empoigner et Bousculer. **Dégagement :** vos attaques pour S'échapper (6.10) ajoutent 2 × DEX au lieu de FOR ou DEX. |
-| **Zélote** | FOR · VOL | 12 | 14 m | **Juste colère (½ VOL/R.C.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants. |
+| **Bagarreur** | FOR · AGI | 14 | 12 m | **Teigneux :** +FOR au toucher pour Empoigner et Bousculer. **Dégagement :** vos attaques pour S'échapper (6.10) ajoutent 2 × AGI au lieu de FOR ou AGI. |
+| **Patriote** | FOR · VOL | 12 | 14 m | **Juste colère (½ VOL/R.C.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants. |
 | **Tacticien** | FOR · INT | 12 | 14 m | **Commandement (½ FOR/R.C.) :** action. Un allié à 12 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher. |
-| **Rôdeur** | DEX · INT | 11 | 14 m | **Proie (½ INT/R.C.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ DEX aux attaques contre elle jusqu'au début de votre prochain tour. |
-| **Filou** | DEX · VOL | 9 | 14 m | **Feinte (½ VOL/R.C.) :** réaction, quand une attaque vous touche : −DEX à ce jet d'attaque, ce qui peut le transformer en échec. |
+| **Rôdeur** | AGI · INT | 11 | 14 m | **Proie (½ INT/R.C.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ AGI aux attaques contre elle jusqu'au début de votre prochain tour. |
+| **Filou** | AGI · VOL | 9 | 14 m | **Feinte (½ VOL/R.C.) :** réaction, quand une attaque vous touche : −AGI à ce jet d'attaque, ce qui peut le transformer en échec. |
 | **Ermite** | INT · VOL | 11 | 12 m | **Solitude :** ½ VOL Ardeur supplémentaire (10.6). Vos tests pour cueillir et endurer ajoutent l'INT et la VOL. |
 
 Les nombres d'un atout grandissent avec vous. Ils utilisent vos modificateurs actuels, matériel compris : *+FOR* ajoute votre FOR, *2 × FOR* le double, et *½ VOL* vaut la moitié de votre VOL, arrondie à l'inférieur, pour les utilisations, les dés et les distances (*½ VOL/R.C.* : deux utilisations avec VOL +4). Avec VOL +1 ou moins, un *½ VOL* vaut 0. Chaque atout puise dans les deux caractéristiques de sa Vocation, ou la Vocation a deux atouts, un pour chacune.
@@ -180,8 +180,8 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > Bonus : +4 Défense de FOR · +12 PV · −4 m de Vitesse
 > *Armure · Bruyante 3*
 
-> **LAME FINE** · Rang I · DEX · VOL
-> +2 au toucher, 1d6 + DEX ou VOL Physique. **Saignée :** quand vous touchez, la cible a −2 à son prochain jet d'attaque avant le début de votre prochain tour.
+> **LAME FINE** · Rang I · AGI · VOL
+> +2 au toucher, 1d6 + AGI ou VOL Physique. **Saignée :** quand vous touchez, la cible a −2 à son prochain jet d'attaque avant le début de votre prochain tour.
 > *Arme*
 
 > **ANNEAU DE PROTECTION** · Rang I · tous
@@ -189,15 +189,15 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > *Bijou*
 
 > **RECETTE DE FEU GRÉGEOIS** · Rang II · tous
-> **Réaction :** lancez une fiole jusqu'à 12 m. Faites une attaque (DEX ou INT + 3) contre la Défense de DEX de chaque créature à 2 m ou moins du point d'impact : 2d6 Feu si elle touche, la moitié en cas d'échec.
+> **Réaction :** lancez une fiole jusqu'à 12 m. Faites une attaque (AGI ou INT + 3) contre la Défense d'AGI de chaque créature à 2 m ou moins du point d'impact : 2d6 Feu si elle touche, la moitié en cas d'échec.
 > *Recette · 3 fioles*
 
-> **SAUTE-RUISSEAU** · Rang I · FOR · DEX
+> **SAUTE-RUISSEAU** · Rang I · FOR · AGI
 > Bonus : +2 PV
 > Vos distances de saut sont doublées, et vous n'avez jamais besoin d'élan.
 > *Trait*
 
-> **DOUBLE FRAPPE** · Rang II · FOR · DEX
+> **DOUBLE FRAPPE** · Rang II · FOR · AGI
 > Une fois par tour, quand vous effectuez l'action Attaque, faites une attaque supplémentaire.
 > *Technique*
 
@@ -206,7 +206,7 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > **Action (1/R.C.) :** récupérez 1d10 + 3 PV.
 > *Trait*
 
-> **HYMNE DE BATAILLE** · Rang I · DEX · VOL
+> **HYMNE DE BATAILLE** · Rang I · AGI · VOL
 > **2/R.C.**, quand vous touchez avec une attaque d'arme : jusqu'à 3 alliés à 12 m ou moins qui peuvent vous entendre ont +2 à leur prochaine attaque avant la fin de votre prochain tour.
 > *Technique*
 
@@ -224,7 +224,7 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > +2 à la Défense de VOL contre la peur et le contrôle mental.
 > *Trait*
 
-> **PASSE-MURAILLE** · Rang I · DEX · INT
+> **PASSE-MURAILLE** · Rang I · AGI · INT
 > +2 aux tests pour se faufiler, grimper ou crocheter les serrures.
 > *Savoir-faire*
 
@@ -245,7 +245,7 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > Pouvoirs : *Raillerie* (0) · *Ralliement*, *Tenez la ligne*, *Réplique cinglante*, *Du calme* (1) · *Effroi*, *Vers exaltant* (2)
 > - *Raillerie* (Complainte, 0) : jusqu'à la fin du prochain tour de la cible, elle a −2 à sa prochaine attaque.
 > - *Ralliement* (Hymne, 1) : Durée 1 minute. Jusqu'à 3 alliés à 12 m ou moins ont +2 aux attaques.
-> - *Tenez la ligne* (Hymne, 1) : Durée 1 minute. Les alliés à 12 m ou moins ont +2 aux Défenses de FOR et de DEX.
+> - *Tenez la ligne* (Hymne, 1) : Durée 1 minute. Les alliés à 12 m ou moins ont +2 aux Défenses de FOR et d'AGI.
 > - *Réplique cinglante* (Réplique, 1) : −2 au jet d'attaque ou au test d'un ennemi.
 > - *Du calme* (Réplique, 1) : +2 au jet d'un allié, ou à la Défense que vise une attaque.
 > - *Effroi* (Complainte, 2) : la cible est Effrayée par vous pendant 2 tours.
@@ -266,10 +266,10 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > **SOUVENANCE DU CŒUR SAUVAGE** · Rang I · VOL
 > Ardeur : +3 (repos court)
 > Pouvoirs : *Faucon* (1) · *Loup*, *Baume de mousse* (2) · *Ours* (3)
-> - *Faucon* (Forme, 1) : FOR −2 · DEX +3 · 4 PV · Vitesse 4 m, Vol 24 m · Très petit. Serres : +2 au toucher, 1d4 + DEX Physique. +2 aux tests pour remarquer.
-> - *Loup* (Forme, 2) : FOR +1 · DEX +3 · 8 PV · Vitesse 16 m · Moyen. Morsure : +2 au toucher, 1d6 + DEX Physique. +2 aux tests pour pister.
+> - *Faucon* (Forme, 1) : FOR −2 · AGI +3 · 4 PV · Vitesse 4 m, Vol 24 m · Très petit. Serres : +2 au toucher, 1d4 + AGI Physique. +2 aux tests pour remarquer.
+> - *Loup* (Forme, 2) : FOR +1 · AGI +3 · 8 PV · Vitesse 16 m · Moyen. Morsure : +2 au toucher, 1d6 + AGI Physique. +2 aux tests pour pister.
 > - *Baume de mousse* (Soin, 2) : action, contact. Une créature récupère 2d8 + VOL PV.
-> - *Ours* (Forme, 3) : FOR +3 · DEX +1 · 12 PV · Vitesse 12 m, Escalade 12 m · Grand. Cuir épais : +2 Défense de FOR. Griffes : +2 au toucher, 1d8 + FOR Physique.
+> - *Ours* (Forme, 3) : FOR +3 · AGI +1 · 12 PV · Vitesse 12 m, Escalade 12 m · Grand. Cuir épais : +2 Défense de FOR. Griffes : +2 au toucher, 1d8 + FOR Physique.
 > *Nature*
 
 > **LUTH DU VOYAGEUR** · Rang I · VOL
@@ -423,7 +423,7 @@ Le MJ utilise la **Vigilance passive = 10 + INT + bonus pour remarquer** afin de
 
 ### 5.4 Se cacher
 
-- Pour vous cacher, vous devez être **hors de vue** des créatures auxquelles vous vous cachez (derrière un abri total ou dans l'Obscurité), puis faire un **test de DEX** pour vous faufiler.
+- Pour vous cacher, vous devez être **hors de vue** des créatures auxquelles vous vous cachez (derrière un abri total ou dans l'Obscurité), puis faire un **test d'AGI** pour vous faufiler.
 - **Échec** si le résultat est inférieur à 15 ou à la Vigilance passive d'une créature qui pourrait vous remarquer.
 - En cas de réussite, vous avez l'état **Invisible** vis-à-vis de ces créatures. Il prend fin quand vous faites un bruit fort, attaquez, lancez un sort, ou que quelqu'un vous trouve (un test d'INT qui bat votre résultat).
 
@@ -438,9 +438,9 @@ Il y a deux niveaux de lumière :
 
 **Sens spéciaux :**
 
-- **Vision dans le noir (portée) :** vous traitez l'Obscurité comme de la Lumière dans cette portée.
+- **Vision nocturne (portée) :** vous traitez l'Obscurité comme de la Lumière dans cette portée.
 - **Perception aveugle (portée) :** vous percevez tout dans cette portée sans la vue.
-- **Vision lucide (portée) :** comme Vision dans le noir, et vous voyez les créatures invisibles et à travers les illusions et les changements de forme.
+- **Vision lucide (portée) :** comme Vision nocturne, et vous voyez les créatures invisibles et à travers les illusions et les changements de forme.
 
 ### 5.6 Déplacement hors combat
 
@@ -461,7 +461,7 @@ Il y a deux niveaux de lumière :
 ### 6.1 Déroulement du combat
 
 1. **Surprise :** le MJ décide si quelqu'un est pris au dépourvu. Un camp qui approche sans être remarqué (5.4) **surprend** l'autre et agit en premier, sans jet.
-2. **Initiative de camp :** si personne n'est surpris, chaque camp lance **un d20 + la meilleure DEX parmi ses membres**. Relancez les égalités. Le camp le plus haut **agit en premier**.
+2. **Initiative de camp :** si personne n'est surpris, chaque camp lance **un d20 + la meilleure AGI parmi ses membres**. Relancez les égalités. Le camp le plus haut **agit en premier**.
 3. **Rounds :** le premier camp joue tous ses tours, puis le second. Puis un nouveau round commence. Un round dure environ 6 secondes. Les **Boss** jouent aussi un demi-tour pendant le camp des personnages : une action.
 4. **Au sein d'un camp**, les créatures agissent **dans l'ordre** dont elles conviennent, un tour complet à la fois.
 
@@ -488,7 +488,7 @@ Il y a deux niveaux de lumière :
 | **Désengagement** | Votre déplacement ne provoque pas d'attaque d'opportunité ce tour-ci. Impossible si vous êtes encerclé (6.5). |
 | **Esquive** | Jusqu'à votre prochain tour, vous avez +3 à toutes vos Défenses. Perdu si vous êtes Neutralisé ou si votre Vitesse est de 0. |
 | **Aide** | Donnez à un allié +3 à son prochain test pour une tâche, ou à sa prochaine attaque contre une créature à 2 m ou moins de vous, avant votre prochain tour. |
-| **Se cacher** | Faites un test de DEX pour vous cacher (5.4). |
+| **Se cacher** | Faites un test d'AGI pour vous cacher (5.4). |
 | **Utiliser** | Utilisez une babiole, ou un matériel qui demande une action (boire ou donner une potion). |
 | **Autre** | **Se tenir prêt** (choisissez un déclencheur et une action ou un déplacement ; quand il survient, utilisez votre réaction pour le faire), **Fouiller** (test d'INT), **Se souvenir** (test d'INT), **Premiers soins** (test d'INT DD 10 pour stabiliser une créature mourante), **S'échapper** d'une empoignade, ou toute autre chose que vous décrivez. |
 
@@ -528,7 +528,7 @@ Une créature Neutralisée ne compte pour aucun camp. Si votre camp est plus nom
 2. **Lancez :** d20 + modificateur de caractéristique + le bonus **au toucher** de l'arme + autres bonus.
   - Arme : la caractéristique qu'elle nomme ; quand elle en nomme deux (*FOR ou VOL*), utilisez la plus haute.
   - Attaque de sort : INT + le bonus d'attaque de sort du livre.
-3. **Touché** si le total ≥ la Défense de la cible : la plus haute des Défenses de FOR et de DEX pour les armes, la Défense nommée pour les autres effets. **20 naturel : touche toujours et c'est un coup critique. 1 naturel : rate toujours.**
+3. **Touché** si le total ≥ la Défense de la cible : la plus haute des Défenses de FOR et d'AGI pour les armes, la Défense nommée pour les autres effets. **20 naturel : touche toujours et c'est un coup critique. 1 naturel : rate toujours.**
 4. **Dégâts :** dé de l'arme + le même modificateur de caractéristique que pour attaquer.
 
 **Coup critique :** lancez deux fois tous les dés de dégâts de l'attaque, puis ajoutez les modificateurs une seule fois.
@@ -548,7 +548,7 @@ Une créature Neutralisée ne compte pour aucun camp. Si votre camp est plus nom
 
 ### 6.8 Abri
 
-Une cible derrière un obstacle bénéficie d'un **abri** : **+2 à ses Défenses de FOR et de DEX.** Ses Défenses d'INT et de VOL ne changent pas : un mur n'arrête ni une illusion ni une malédiction. Une cible entièrement derrière un obstacle bénéficie d'un **abri total** et ne peut pas être visée directement.
+Une cible derrière un obstacle bénéficie d'un **abri** : **+2 à ses Défenses de FOR et d'AGI.** Ses Défenses d'INT et de VOL ne changent pas : un mur n'arrête ni une illusion ni une malédiction. Une cible entièrement derrière un obstacle bénéficie d'un **abri total** et ne peut pas être visée directement.
 
 L'**abri total** bloque aussi la vue : derrière un mur, une haie ou un bâtiment, vous pouvez vous cacher (5.4) et vous déplacer sans être vu. Un camp qui approche sans être vu surprend l'autre (6.1).
 
@@ -558,11 +558,11 @@ Quand vous attaquez avec une arme **Légère**, vous pouvez utiliser votre **ré
 
 ### 6.10 Empoigner et Bousculer
 
-Remplacez une attaque par **Empoigner** ou **Bousculer** à mains nues, contre une créature à votre allonge qui n'a **pas plus d'une taille de plus** que vous. Faites une attaque à mains nues (FOR + 2) contre la plus haute des Défenses de FOR et de DEX de la cible.
+Remplacez une attaque par **Empoigner** ou **Bousculer** à mains nues, contre une créature à votre allonge qui n'a **pas plus d'une taille de plus** que vous. Faites une attaque à mains nues (FOR + 2) contre la plus haute des Défenses de FOR et d'AGI de la cible.
 
 - **Empoigner** (il vous faut une main libre) : si vous touchez, la cible est **Agrippée** par vous. Vous pouvez la déplacer avec vous, mais chaque mètre coûte 1 mètre supplémentaire sauf si elle a deux tailles de moins que vous ou plus.
 - **Bousculer :** si vous touchez, repoussez la cible de 2 m ou mettez-la **À terre**.
-- **S'échapper :** une créature Agrippée peut utiliser son action pour faire une attaque à mains nues (FOR ou DEX + 2) contre la plus haute des Défenses de FOR et de DEX de celui qui l'agrippe. Si elle touche, elle est libre.
+- **S'échapper :** une créature Agrippée peut utiliser son action pour faire une attaque à mains nues (FOR ou AGI + 2) contre la plus haute des Défenses de FOR et d'AGI de celui qui l'agrippe. Si elle touche, elle est libre.
 
 ### 6.11 Moral
 
@@ -669,19 +669,19 @@ Un effet doté du mot-clé **Emprise** met une créature hors de combat. Il nomm
 
 ## 9. Équipement
 
-Les armures, les boucliers, les armes, les Instruments et les Bijoux sont de l'**équipement** : du matériel que vous portez ou maniez. Une arme imprime son bonus **au toucher** et ses dégâts : *+2 au toucher, 1d8 + FOR ou DEX Physique*. Elle nomme les caractéristiques avec lesquelles elle attaque : toujours FOR, DEX ou les deux, sauf les **bâtons** et les **baguettes**, plus faibles mais qui utilisent l'INT ou la VOL. Les **armes de base** (le matériel de départ de Rang I) allument les quatre symboles : tout le monde peut les manier ; une caractéristique faible donne simplement une attaque faible. Le *Bâton de garde-sort* fait exception : il n'allume que l'INT et la VOL. Les armes de butin n'allument que les caractéristiques avec lesquelles elles attaquent. Un **Instrument** (un luth, un tambour, un cor) occupe un Emplacement de Main et est généralement un **Focaliseur** (10.6).
+Les armures, les boucliers, les armes, les Instruments et les Bijoux sont de l'**équipement** : du matériel que vous portez ou maniez. Une arme imprime son bonus **au toucher** et ses dégâts : *+2 au toucher, 1d8 + FOR ou AGI Physique*. Elle nomme les caractéristiques avec lesquelles elle attaque : toujours FOR, AGI ou les deux, sauf les **bâtons** et les **baguettes**, plus faibles mais qui utilisent l'INT ou la VOL. Les **armes de base** (le matériel de départ de Rang I) allument les quatre symboles : tout le monde peut les manier ; une caractéristique faible donne simplement une attaque faible. Le *Bâton de garde-sort* fait exception : il n'allume que l'INT et la VOL. Les armes de butin n'allument que les caractéristiques avec lesquelles elles attaquent. Un **Instrument** (un luth, un tambour, un cor) occupe un Emplacement de Main et est généralement un **Focaliseur** (10.6).
 
 ### 9.1 Armure et Défense
 
 | Armure (matériel) | Rang | Symboles | Bonus | Notes |
 |---|---|---|---|---|
 | **Aucune** (Emplacement d'Armure vide) | — | — | — | +4 m de Vitesse. |
-| **Cuir** | I | tous | +2 Défense de FOR, +1 Défense de DEX, +2 PV | +2 m de Vitesse. |
-| **Mailles** | I | FOR · DEX | +3 Défense de FOR, +4 PV | |
+| **Cuir** | I | tous | +2 Défense de FOR, +1 Défense d'AGI, +2 PV | +2 m de Vitesse. |
+| **Mailles** | I | FOR · AGI | +3 Défense de FOR, +4 PV | |
 | **Plates** | II | FOR | +4 Défense de FOR, +12 PV | −4 m de Vitesse. Bruyante 3. |
-| **Bouclier** | I | FOR · VOL | +2 Défenses de FOR et de DEX | Occupe un Emplacement de Main. |
+| **Bouclier** | I | FOR · VOL | +2 Défenses de FOR et d'AGI | Occupe un Emplacement de Main. |
 
-Une armure plus lourde donne plus de **PV** et vous ralentit. L'armure renforce surtout la **Défense de FOR**. Les armes visent la plus haute de vos Défenses de FOR et de DEX (2.3), donc l'armure vous protège quand votre Défense de FOR est la meilleure.
+Une armure plus lourde donne plus de **PV** et vous ralentit. L'armure renforce surtout la **Défense de FOR**. Les armes visent la plus haute de vos Défenses de FOR et d'AGI (2.3), donc l'armure vous protège quand votre Défense de FOR est la meilleure.
 
 ### 9.2 Armes
 
@@ -689,23 +689,23 @@ Chaque ligne est une sorte d'arme de Rang I. Son nom est une simple couleur : un
 
 | Arme (matériel) | Attaque avec | Au toucher | Dégâts | Propriétés |
 |---|---|---|---|---|
-| **Dague** (dague, couteau) | DEX | +2 | 1d4 | Légère, Lancer (6/18), Rafale |
-| **Lame courte** (épée courte, serpe) | FOR · DEX | +2 | 1d6 | Légère, Rafale |
-| **Arme légère** (hachette, gourdin, marteau léger) | FOR · DEX | +2 | 1d6 | Légère, Lancer (6/18) |
-| **Lame fine** (rapière, cimeterre) | DEX | +2 | 1d6 | — |
-| **Arme polyvalente** (épée longue, hache d'armes, lance) | FOR ou FOR · DEX | +2 | 1d8 / 1d10 | Polyvalente |
+| **Dague** (dague, couteau) | AGI | +2 | 1d4 | Légère, Lancer (6/18), Rafale |
+| **Lame courte** (épée courte, serpe) | FOR · AGI | +2 | 1d6 | Légère, Rafale |
+| **Arme légère** (hachette, gourdin, marteau léger) | FOR · AGI | +2 | 1d6 | Légère, Lancer (6/18) |
+| **Lame fine** (rapière, cimeterre) | AGI | +2 | 1d6 | — |
+| **Arme polyvalente** (épée longue, hache d'armes, lance) | FOR ou FOR · AGI | +2 | 1d8 / 1d10 | Polyvalente |
 | **Bâton** (bâton, sceptre) | INT · VOL | +2 | 1d6 / 1d8 | Polyvalente |
 | **Arme lourde** (épée à deux mains, maillet) | FOR | +2 | 2d6 | Lourde, Deux mains |
 | **Grande hache** (grande hache) | FOR | +2 | 1d12 | Lourde, Deux mains, Brutale |
 | **Massue** (massue) | FOR | +2 | 1d10 | Lourde, Deux mains, Écrasante |
 | **Arme d'hast** (glaive sur lance, hallebarde, pique) | FOR | +2 | 1d10 | Lourde, Allonge, Deux mains |
-| **Fouet** | DEX | +2 | 1d4 | Allonge |
-| **Javelots** | FOR · DEX | +2 | 1d6 | Lancer (9/36) |
-| **Fronde** / **Arbalète de poing** | DEX | +2 | 1d6 | Légère, Portée (9/36) |
-| **Arc** (court ou long) | DEX | +2 | 1d8 | Portée (45/180), Deux mains |
-| **Arc composite** | DEX | +2 | 1d10 | Portée (45/180), Deux mains |
+| **Fouet** | AGI | +2 | 1d4 | Allonge |
+| **Javelots** | FOR · AGI | +2 | 1d6 | Lancer (9/36) |
+| **Fronde** / **Arbalète de poing** | AGI | +2 | 1d6 | Légère, Portée (9/36) |
+| **Arc** (court ou long) | AGI | +2 | 1d8 | Portée (45/180), Deux mains |
+| **Arc composite** | AGI | +2 | 1d10 | Portée (45/180), Deux mains |
 | **Baguette** | INT | +2 | 1d8 Foudre | Portée (18/36) |
-| **Arbalète** (lourde) | DEX | +2 | 1d10 | Chargement, Portée (30/120), Deux mains |
+| **Arbalète** (lourde) | AGI | +2 | 1d10 | Chargement, Portée (30/120), Deux mains |
 
 Une arme attaque avec les caractéristiques qu'elle nomme : la plus haute des deux quand elle en nomme deux. Les dégâts ajoutent le même modificateur. Les armes de Rang supérieur sont des cartes avec leur propre nom (*Épée de Damas*, *Katana*), un bonus au toucher plus élevé et souvent un effet spécial. Tous les dégâts d'arme sont **Physiques** sauf si l'arme dit le contraire.
 
@@ -796,11 +796,11 @@ Trois sortes de magie puisent dans la **VOL** au lieu d'un livre. Chacune est un
 | **Forme** | Action | Vous muez en bête (10.7). |
 
 ### 10.7 Formes
-Une Souvenance contient des **Formes** : des bêtes dont votre corps se souvient. Une Forme est imprimée comme une Vocation, pour le corps seulement : **FOR, DEX, PV, Vitesse et Taille**, puis ses déplacements, ses sens et ses armes naturelles. Certaines impriment un bonus de Défense naturel (un cuir épais, une carapace). Muer change votre silhouette pour un temps ; vous gardez votre esprit et votre personnalité.
-- **Muer (action) :** payez le coût de la Forme en Ardeur et prenez une **carte de Décompte vierge** (12.3). Remplissez-la avec la FOR, la DEX, les PV, la Vitesse et la Taille de la Forme, l'**INT et la VOL de votre Vocation**, et vos **Aspects**. Rien d'autre ne compte. Muer d'une Forme à une autre coûte l'Ardeur de la nouvelle Forme et une carte de Décompte vierge.
+Une Souvenance contient des **Formes** : des bêtes dont votre corps se souvient. Une Forme est imprimée comme une Vocation, pour le corps seulement : **FOR, AGI, PV, Vitesse et Taille**, puis ses déplacements, ses sens et ses armes naturelles. Certaines impriment un bonus de Défense naturel (un cuir épais, une carapace). Muer change votre silhouette pour un temps ; vous gardez votre esprit et votre personnalité.
+- **Muer (action) :** payez le coût de la Forme en Ardeur et prenez une **carte de Décompte vierge** (12.3). Remplissez-la avec la FOR, l'AGI, les PV, la Vitesse et la Taille de la Forme, l'**INT et la VOL de votre Vocation**, et vos **Aspects**. Rien d'autre ne compte. Muer d'une Forme à une autre coûte l'Ardeur de la nouvelle Forme et une carte de Décompte vierge.
 - **Votre matériel se fond dans la Forme :** rien n'en compte tant que vous êtes en Forme (Armure, Mains, Bijoux, Objets, Focaliseur). Il revient dans ses Emplacements quand vous revenez, dans le même état.
 - **Deux corps :** les PV de la Forme sont une réserve à part. Les dégâts s'y imputent d'abord ; vos propres PV (et vos éventuels PV temporaires) attendent sur votre propre carte de Décompte.
-- **Armes naturelles :** attaquez avec la FOR ou la DEX de la Forme, comme imprimé, + son bonus au toucher, contre la plus haute des Défenses de FOR et de DEX, comme avec une arme. Sous l'eau, elles comptent comme des attaques à mains nues.
+- **Armes naturelles :** attaquez avec la FOR ou l'AGI de la Forme, comme imprimé, + son bonus au toucher, contre la plus haute des Défenses de FOR et d'AGI, comme avec une arme. Sous l'eau, elles comptent comme des attaques à mains nues.
 - **Ni Mains, ni voix :** vous ne pouvez pas parler ni utiliser de pouvoirs Divins, de Glamour ou de Soin. Les Emprises que vous maintenez continuent.
 - **Revenir** (gratuit, à votre tour) à votre propre corps et à votre carte de Décompte. Une Forme prend aussi fin au bout d'**1 heure**, ou quand **ses PV tombent à 0** : vous revenez, et les dégâts excédentaires se reportent sur vous. Rien d'autre n'y met fin.
 - Les Formes vont de **Très petit à Grand**. Seules les Souvenances de Rang V en contiennent de plus grandes.
@@ -811,7 +811,7 @@ Une Souvenance contient des **Formes** : des bêtes dont votre corps se souvient
 
 Un mot-clé a toujours le même sens, sur chaque matériel et chaque Aspect. Un nombre ou un mot qui le suit (*Lancer 8/24*, *Résiste Feu*) précise le détail. Les états (chapitre 8) et les types de dégâts (7.2) sont aussi des mots réservés.
 
-Une carte n'imprime jamais deux fois la même chose. La portée d'une arme est dans sa ligne d'attaque (*+2 au toucher, lancer 8/24 m, 1d4 + DEX Physique*) et celle d'un sort dans sa ligne d'incantation : la carte omet donc *Portée* et *Lancer*. Le grand dé d'une arme Polyvalente est dans ses dégâts (*1d8 / 1d10*) : la carte imprime simplement *Polyvalente*. Les mots-clés s'appliquent toujours.
+Une carte n'imprime jamais deux fois la même chose. La portée d'une arme est dans sa ligne d'attaque (*+2 au toucher, lancer 8/24 m, 1d4 + AGI Physique*) et celle d'un sort dans sa ligne d'incantation : la carte omet donc *Portée* et *Lancer*. Le grand dé d'une arme Polyvalente est dans ses dégâts (*1d8 / 1d10*) : la carte imprime simplement *Polyvalente*. Les mots-clés s'appliquent toujours.
 
 ### 11.1 Types
 
@@ -821,7 +821,7 @@ Le premier mot-clé. Il fixe l'Emplacement (3.2).
 |---|---|
 | **Vocation** | Aucun Emplacement. Vous en avez toujours exactement une, à vie : ses deux caractéristiques à +2, des PV, une Vitesse et un atout (2.4). |
 | **Armure** | Emplacement d'Armure. Il faut 10 minutes pour l'enfiler ou l'ôter. Jamais dans le Sac. |
-| **Arme** | Emplacement de Main. Attaque : d20 + la plus haute des caractéristiques qu'elle nomme + son bonus au toucher imprimé, contre la plus haute des Défenses de FOR et de DEX. |
+| **Arme** | Emplacement de Main. Attaque : d20 + la plus haute des caractéristiques qu'elle nomme + son bonus au toucher imprimé, contre la plus haute des Défenses de FOR et d'AGI. |
 | **Bouclier** | Emplacement de Main. |
 | **Instrument** | Emplacement de Main. Matériel tenu qui n'est ni une arme ni un bouclier : un luth, un tambour, un cor. |
 | **Bijou** | Emplacement de Bijou. Anneaux, amulettes, diadèmes, capes, gants, bottes. |
@@ -872,7 +872,7 @@ Le premier mot-clé. Il fixe l'Emplacement (3.2).
 
 | Mot-clé | Sens |
 |---|---|
-| **Vise X** | L'attaque se fait contre la Défense de X de la cible (FOR, DEX, INT ou VOL). |
+| **Vise X** | L'attaque se fait contre la Défense de X de la cible (FOR, AGI, INT ou VOL). |
 | **Cône, Cube, Cylindre, Émanation, Ligne, Sphère N** | Une zone de cette forme et de cette taille (10.5). Un seul jet contre chaque créature à l'intérieur. Moitié des dégâts en cas d'échec. |
 | **Emprise** | Met une créature hors de combat ; nomme l'état infligé (Étourdi, Charmé, banni…). La cible perd son prochain tour, puis la source répète l'attaque à chaque tour, avec usure (chapitre 8). |
 | **Durée T** | Dure T (*1 minute*, *1 heure*), puis prend fin. Vous pouvez y mettre fin plus tôt, sans action. **Pendant N tours** sur une cible : jusqu'à la fin de son Ne tour à partir de maintenant (les demi-tours d'un Boss comptent). |
@@ -890,9 +890,9 @@ Le premier mot-clé. Il fixe l'Emplacement (3.2).
 
 | Mot-clé | Sens |
 |---|---|
-| **Vision dans le noir N** | Traite l'Obscurité comme de la Lumière dans un rayon de N m. |
+| **Vision nocturne N** | Traite l'Obscurité comme de la Lumière dans un rayon de N m. |
 | **Perception aveugle N** | Perçoit tout dans un rayon de N m sans la vue. |
-| **Vision lucide N** | Comme Vision dans le noir, et voit les créatures invisibles et à travers les illusions et les changements de forme. |
+| **Vision lucide N** | Comme Vision nocturne, et voit les créatures invisibles et à travers les illusions et les changements de forme. |
 | **Escalade N** | Une vitesse d'escalade : grimper ne coûte pas de déplacement supplémentaire. |
 | **Nage N** | Une vitesse de nage : nager ne coûte pas de déplacement supplémentaire, et vitesse normale sous l'eau. |
 | **Vol N** | Une vitesse de vol : vous vous déplacez dans les airs. Si vous êtes mis À terre ou Neutralisé en vol, vous tombez. |
@@ -917,7 +917,7 @@ Définis en détail dans le Guide du Maître du jeu.
 Chaque carte a ces parties (voir la carte en 3.1) :
 
 - **Nom, symboles et Rang** en haut (*Plates du gardien*, FOR, Rang II). Les symboles sont les quatre caractéristiques, celles qu'elle utilise allumées (3.1).
-- **Bande de bonus** le long du bord droit : une ligne pour chacun des dix nombres (3.1). Les quatre modificateurs de caractéristique (FOR, DEX, INT, VOL), les quatre Défenses (les mêmes symboles dans un bouclier), le maximum de PV et la Vitesse. La plupart des cartes la laissent vide. Une carte qui augmente un modificateur de caractéristique indique aussi le même nombre dans la ligne de la Défense correspondante (+1 FOR et +1 Défense de FOR), pour que chaque ligne s'additionne seule.
+- **Bande de bonus** le long du bord droit : une ligne pour chacun des dix nombres (3.1). Les quatre modificateurs de caractéristique (FOR, AGI, INT, VOL), les quatre Défenses (les mêmes symboles dans un bouclier), le maximum de PV et la Vitesse. La plupart des cartes la laissent vide. Une carte qui augmente un modificateur de caractéristique indique aussi le même nombre dans la ligne de la Défense correspondante (+1 FOR et +1 Défense de FOR), pour que chaque ligne s'additionne seule.
 - **Effet** au centre, s'il y en a un.
 - **Mots-clés** en bas, le type en premier.
 - **Code** dans le coin inférieur droit (*W-II-02*) : son type, son Rang et son numéro, pour la retrouver dans la boîte.
@@ -995,7 +995,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Allonge** | Un mot-clé d'arme : votre allonge est de 4 m au lieu de 2 m. |
 | **Aquatique** | Un mot-clé d'arme : elle fonctionne sous l'eau, là où les autres armes et sorts ne fonctionnent pas. |
 | **Ardeur** | Les points que coûtent vos pouvoirs Divins, de Glamour et de Nature : une seule réserve, la somme de ce qu'impriment leurs paquets + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un repos court. |
-| **Arme** | Le type de matériel tenu avec lequel on attaque ; il va dans un Emplacement de Main. Elle imprime son bonus au toucher et ses dégâts, en ajoutant la plus haute des caractéristiques qu'elle nomme (*+2 au toucher, 1d8 + FOR ou DEX Physique*). |
+| **Arme** | Le type de matériel tenu avec lequel on attaque ; il va dans un Emplacement de Main. Elle imprime son bonus au toucher et ses dégâts, en ajoutant la plus haute des caractéristiques qu'elle nomme (*+2 au toucher, 1d8 + FOR ou AGI Physique*). |
 | **Armure** | Le type de matériel porté sur le corps ; il va dans l'Emplacement d'Armure. Il faut 10 minutes pour l'enfiler ou l'ôter. Jamais dans le Sac. |
 | **Aspect** | Un Trait, une Technique, un Savoir-faire, un Divin, un Glamour ou une Nature absorbé d'un autre être. Il n'a pas de corps : hors d'un Porteur, il vit dans un Éclat. Seuls les Porteurs peuvent l'utiliser. |
 | **Avantage aux dégâts** | Reporter sur les dégâts d'une attaque un dé d'avantage restant après compensation, choisi avant de lancer : relancez tous les dégâts une fois de plus par dé et gardez le total le plus haut. Le désavantage reste toujours sur l'attaque. |
@@ -1011,7 +1011,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Butin** | Le matériel ou l'Aspect qu'une épreuve rapporte ; un Adversaire qui le *lâche* le rapporte. |
 | **Cadre d'Emplacement** | L'élément de table d'un Emplacement : un support percé de deux fentes en coin où l'on glisse une carte. Une carte encadrée est équipée. Un Éclat est un cadre d'Éclat. |
 | **Capturer** | Verser un Aspect qui persiste dans un Éclat vide. |
-| **Caractéristique** | L'une des quatre mesures de toute créature : Force (FOR), Dextérité (DEX), Intelligence (INT) et Volonté (VOL), chacune notée sous forme de modificateur. |
+| **Caractéristique** | L'une des quatre mesures de toute créature : Force (FOR), Agilité (AGI), Intelligence (INT) et Volonté (VOL), chacune notée sous forme de modificateur. |
 | **Carte** | L'élément physique d'une Vocation, d'un matériel, d'un Aspect, d'un sort, d'une Blessure, d'un adversaire ou d'une somme d'or. |
 | **Carte d'Adversaire** | La carte du MJ pour une sorte de monstre : son corps, ses totaux et ses pouvoirs. Les cartes nommées en italique dessus peuvent être lâchées ; le texte droit, jamais. |
 | **Carte de Décompte** | La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV et PV temporaires, vos jets contre la mort, vos points de sort, votre Ardeur et vos habiletés. |
@@ -1023,7 +1023,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Contenant** | Un objet qui ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. Une Bourse contient de l'or, une *Bandoulière à Éclats* plus d'Éclats. |
 | **Convalescence** | 3 jours de repos en lieu sûr : fait tout ce que fait un repos long, et guérit toutes vos Blessures. |
 | **Cuir, Mailles, Plates** | Les trois armures, de la plus légère à la plus lourde. |
-| **Défense** | Le nombre qu'une attaque doit atteindre : 10 + un modificateur de caractéristique + bonus. Toute créature a une Défense de FOR, de DEX, d'INT et de VOL. |
+| **Défense** | Le nombre qu'une attaque doit atteindre : 10 + un modificateur de caractéristique + bonus. Toute créature a une Défense de FOR, d'AGI, d'INT et de VOL. |
 | **Déplacement** | Une action : se déplacer jusqu'à votre Vitesse, en coupant avant et après votre autre action si vous le souhaitez. |
 | **Deux mains** | Occupe deux Emplacements de Main. |
 | **Discret** | Personne ne vous remarque en train de le lancer. (EN : Subtle) |
@@ -1041,7 +1041,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Escalade N** | Une vitesse d'escalade : grimper ne coûte pas de déplacement supplémentaire. |
 | **Facteur de puissance (FP)** | Le danger d'un monstre, utilisé avec sa valeur en PX pour dimensionner les combats. |
 | **Focaliseur** | Un mot-clé d'équipement qui renforce vos Aspects Divins, de Glamour ou de Nature : un Instrument, une amulette sacrée, un bâton de druide. |
-| **Forme** | Un corps de bête dans une Souvenance (Nature), imprimé comme une Vocation : FOR, DEX, PV, Vitesse et Taille. Tant que vous avez mué en elle, elle remplace votre corps ; votre esprit et vos Aspects demeurent. |
+| **Forme** | Un corps de bête dans une Souvenance (Nature), imprimé comme une Vocation : FOR, AGI, PV, Vitesse et Taille. Tant que vous avez mué en elle, elle remplace votre corps ; votre esprit et vos Aspects demeurent. |
 | **Glamour** | Un type d'Aspect : la magie de VOL de la représentation et du commandement. Son paquet, un **Répertoire**, contient une liste fixe de pouvoirs qui galvanisent les alliés et brisent les ennemis, et s'ajoute à votre Ardeur. |
 | **Hymne** | Un pouvoir Divin ou de Glamour. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem) |
 | **Instrument** | Un équipement tenu dans une Main qui n'est ni une arme ni un bouclier : un luth, un tambour, un cor. |
@@ -1088,7 +1088,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Savoir-faire** | Un type d'Aspect : un bonus aux tests d'une activité précise. |
 | **Soin** | Un pouvoir Divin, de Glamour ou de Nature qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |
 | **Sort** | Une carte d'un Livre de sorts, jamais seule. Son niveau est son coût en points de sort. |
-| **Symboles** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou DEX ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles, sauf le Bâton de garde-sort (INT · VOL). |
+| **Symboles** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles, sauf le Bâton de garde-sort (INT · VOL). |
 | **Taille** | Très petit, Petit, Moyen ou Grand, imprimé sur une Forme ou une carte d'Adversaire. Les Porteurs sont de taille Moyenne. |
 | **Technique** | Un type d'Aspect : ce qu'un être a appris (une botte de combat). (EN : Technique) |
 | **Test** | Un jet de d20 + modificateur de caractéristique + bonus contre un Degré de difficulté (DD). |
@@ -1099,10 +1099,10 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Usure** | Les dés de désavantage qu'accumule l'attaque répétée d'une Emprise : un par répétition réussie et un chaque fois que la source a subi des dégâts. |
 | **Utilisations** | Un nombre limité d'activations d'un pouvoir, inscrit dessus (*2/R.C.*, *1/R.L.*), qui reviennent lors d'un repos court ou long. |
 | **Utiliser** | L'action qui utilise une babiole, ou un matériel qui demande une action. |
-| **Vise X** | L'attaque se fait contre la Défense de X de la cible (FOR, DEX, INT ou VOL). |
-| **Vision dans le noir N** | Traite l'Obscurité comme de la Lumière dans un rayon de N m. |
-| **Vision lucide N** | Comme Vision dans le noir, et voit les créatures invisibles et à travers les illusions et les changements de forme. (EN : Truesight) |
-| **Vocation** | La paire de caractéristiques avec laquelle un Porteur est né, gardée à vie : +2 dans les deux, des PV, une Vitesse et un atout. Elle décide quel matériel et quels Aspects vous pouvez équiper. Ce n'est ni un Aspect ni du matériel. Deux par paire : Duelliste et Bagarreur (FOR · DEX), Templier et Zélote (FOR · VOL), Lame-mage et Tacticien (FOR · INT), Infiltrateur et Rôdeur (DEX · INT), Artiste et Filou (DEX · VOL), Sage et Ermite (INT · VOL). |
+| **Vise X** | L'attaque se fait contre la Défense de X de la cible (FOR, AGI, INT ou VOL). |
+| **Vision lucide N** | Comme Vision nocturne, et voit les créatures invisibles et à travers les illusions et les changements de forme. (EN : Truesight) |
+| **Vision nocturne N** | Traite l'Obscurité comme de la Lumière dans un rayon de N m. |
+| **Vocation** | La paire de caractéristiques avec laquelle un Porteur est né, gardée à vie : +2 dans les deux, des PV, une Vitesse et un atout. Elle décide quel matériel et quels Aspects vous pouvez équiper. Ce n'est ni un Aspect ni du matériel. Deux par paire : Duelliste et Bagarreur (FOR · AGI), Templier et Patriote (FOR · VOL), Lame-mage et Tacticien (FOR · INT), Infiltrateur et Rôdeur (AGI · INT), Artiste et Filou (AGI · VOL), Sage et Ermite (INT · VOL). |
 | **Vol N** | Une vitesse de vol : vous vous déplacez dans les airs. Si vous êtes mis À terre ou Neutralisé en vol, vous tombez. |
 | **Vulnérable (type)** | Subit le double des dégâts de ce type. |
 | **Zone** | Cône, Cube, Cylindre, Émanation, Ligne ou Sphère N : une zone de cette forme et de cette taille. Un seul jet contre chaque créature à l'intérieur. Moitié des dégâts en cas d'échec. |

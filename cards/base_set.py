@@ -51,7 +51,7 @@ CALLINGS = [
     calling("Brawler", ("STR", "DEX"), 14, 30,
             "**Scrapper:** +STR to hit with Grapples and Shoves.",
             "**Slip Free:** your Escape attacks add 2 × DEX instead of STR or DEX."),
-    calling("Zealot", ("STR", "WIL"), 12, 35,
+    calling("Patriot", ("STR", "WIL"), 12, 35,
             "**Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage."),
     calling("Tactician", ("STR", "INT"), 12, 35,
             "**Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit."),
@@ -354,7 +354,7 @@ REMEMBRANCE = dict(
 DECKS = [CONJURER, REPERTOIRE, LITANY, REMEMBRANCE]
 
 GOLD = [(1, 8), (10, 8), (50, 6), (100, 4), (500, 2), (1000, 1)]  # (value, copies)
-TALLIES = 6
+TALLIES = 8
 
 # ---------- Slot frames ----------
 # (key, name, swap time, empty-Slot reminder, copies)
@@ -390,7 +390,7 @@ LORE = {
     "Performer": "Quick feet and a quicker smile. Every room is a stage, every fight an audience.",
     "Sage": "A mind that kept every page it ever read, and a voice that makes the pages speak.",
     "Brawler": "Taverns, docks and pit fights. Swords are for people who can't hold on.",
-    "Zealot": "A fire that won't go out, and a cause worth burning for. Doubt is for other people.",
+    "Patriot": "A fire that won't go out, and a cause worth burning for. Doubt is for other people.",
     "Tactician": "Every fight is a board, every ally a piece. They see the move three turns before it lands.",
     "Ranger": "Weeks alone on a trail, and an arrow that never wastes its flight.",
     "Trickster": "Never where you swing. Always where you look away. The grin is the last thing you see.",
@@ -574,7 +574,7 @@ CARD_FX = {
                        params=dict(rollKinds=["attack", "check"]))],
     "Sage": [dict(use="passive", extraSp="½INT")],
     "Brawler": [dict(use="passive", grabHit="STR"), dict(use="passive", escapeAbil="2×DEX")],
-    "Zealot": [dict(use="trigger", uses="½WIL/SR", on="weaponHit", do=[dict(dmg="½STR d6", type="Radiant")])],
+    "Patriot": [dict(use="trigger", uses="½WIL/SR", on="weaponHit", do=[dict(dmg="½STR d6", type="Radiant")])],
     "Tactician": [dict(use="action", uses="½STR/SR", reach=30, target="ally", need=VOICE, do=[dict(command=True, hit="INT")])],
     # Quarry's mark: −½ DEX to every Defense of the target, so you and your allies hit it more (RULING R714)
     "Ranger": [dict(use="trigger", uses="½INT/SR", on="rangedHit", do=[dict(mod="def", n="-½DEX", until="startSourceTurn")])],

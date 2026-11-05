@@ -926,7 +926,7 @@ globalThis.BEARERS_CARDS = {
   },
   "L-08": {
    "id": "L-08",
-   "name": "Zealot",
+   "name": "Patriot",
    "rank": "",
    "kind": "calling",
    "type": "Calling",
@@ -957,7 +957,7 @@ globalThis.BEARERS_CARDS = {
    "fx": [
     {
      "id": "L-08#0",
-     "name": "Zealot",
+     "name": "Patriot",
      "use": "trigger",
      "uses": "½WIL/SR",
      "on": "weaponHit",
