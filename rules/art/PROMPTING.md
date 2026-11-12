@@ -191,7 +191,7 @@ and drawings are saved in `rules/art/items/`.
 - **Animals:** names in `ANIMALS` (`tools/art_prompts.py`) get `ANIMAL_STYLE`, without the figure lines
   ("grotesque caricature, oversized hands and feet", "one full-body figure"): with them the hawk came out as a man
   growing out of a bird.
-- **Other card backs:** `--cards --batch` draws `CARDS` (Callings, Aspects, deck cards, Wounds: one figure acting the card
+- **Other card backs:** `--cards --batch` draws `CARDS` (Callings, Runes, deck cards, Wounds: one figure acting the card
   out, the foe `STYLE`) into `rules/art/cards/`; gold is in `ITEMS`, drawn with `--items`.
 - **Concurrency (Eachlabs):** while the account balance is $10 or less, Eachlabs runs at most **2 jobs at once** (HTTP 429).
   A slot stays busy for a while after a job finishes, so a batch of two-at-a-time jobs got refused over and over.

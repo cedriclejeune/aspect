@@ -269,7 +269,7 @@ def bandit_core():
     return core(sym_dex) + f'<g transform="translate(2 2) scale(.42)">{dagger()}</g>'
 
 
-# ---------- Aspects ----------
+# ---------- Runes ----------
 def eye(cx=50, cy=50, s=1, iris=GOLD):
     return f'<g transform="translate({cx} {cy}) scale({s}) translate(-50 -50)">' + P("M10 50 Q50 14 90 50 Q50 86 10 50 Z", PARCH) + C(50, 50, 16, iris) + C(50, 50, 7, INK, 0) + C(54, 45, 3, "#fff", 0) + "</g>"
 
@@ -536,10 +536,6 @@ def pack_hunter():
             + f'<g transform="translate(19 -4) scale(.7)">{wolf()}</g>')
 
 
-def slippery():
-    return (boots_small(62, 52) + P("M14 40 L34 40 M8 54 L32 54 M16 68 L36 68", sw=2.2, extra=f' stroke="{GOLD}"')
-            + P("M20 86 Q50 78 80 86", sw=2, extra=f' stroke="{MUTED}"'))
-
 
 # ---------- foes: drawn for the left half of a foe card ----------
 SKIN = "#d8b48a"
@@ -686,21 +682,21 @@ ART = {
     "Greataxe": lambda: rot(haft(6, 96) + P("M53 10 Q92 0 90 34 Q88 60 53 48 Z", STEEL), -30),
     "Greatclub": greatclub, "Gladius": gladius, "Pilum": pilum,
     # Jewelry and Items
-    "Ring of Warding": ring_of_warding, "Guild Signet": guild_signet, "Shard Bandolier": bandolier, "Holy Amulet": amulet,
+    "Ring of Warding": ring_of_warding, "Guild Signet": guild_signet, "Runestone Bandolier": bandolier, "Holy Amulet": amulet,
     "Boots of the Long Stride": boots, "Ring of Sparks": ring_of_sparks,
     "Dancer's Bells": lambda: P("M14 30 Q50 60 86 30", sw=2.4, extra=f' stroke="{CRIMSON}"') + "".join(C(x, y, 9, GOLD) + C(x, y + 4, 2, INK, 0) for x, y in ((26, 48), (50, 58), (74, 48))),
     "Potion of Healing": flask, "Greater Potion of Healing": lambda: flask(CRIMSON, big=True) + star(50, 62, 10, 5, .45, GOLD),
     "Coin Pouch": pouch, "Pocket Sand": pocket_sand, "Writ of Favor": scroll, "Alchemist's Fire Recipe": fire_flask,
-    # Aspects
+    # Runes
     "Springheel": springheel, "Stone Blood": stone_blood, "Iron Will": iron_will, "Clear Mind": clear_mind, "Cleave": cleave,
-    "Steady Aim": steady_aim, "Shield Bash": shield_bash, "Battle Hymn": battle_hymn, "Rallying Cry": banner, "Shield Wall": shield_wall, "Pack Hunter": pack_hunter, "Slippery": slippery,
-    "Cat Burglar": padlock, "Renowned": laurel, "Sailor": anchor, "Street Urchin": street_urchin, "Hunter": tracks,
-    "Physician": mortar, "Barkeep": tankard, "Smith": smith, "Mountaineer": mountains, "Twin Strike": crossed_swords,
-    "Second Wind": second_wind, "Relentless": lambda: heart(50, 54, .8) + L(50, 20, 50, 88, 3, CRIMSON), "Wiry": wiry, "Night Eyes": night_eyes, "Sellsword": sellsword, "Acrobat": acrobat, "Hedge Witch": cauldron,
+    "Steady Aim": steady_aim, "Shield Bash": shield_bash, "Battle Hymn": battle_hymn, "Rallying Cry": banner, "Shield Wall": shield_wall, "Wolfpack": pack_hunter,
+    "Larceny": padlock, "Minstrel": laurel, "Navigation": anchor, "Backstreets": street_urchin, "Hunt": tracks,
+    "Healing": mortar, "Tavern": tankard, "Forge": smith, "Peaks": mountains, "Twin Strike": crossed_swords,
+    "Second Wind": second_wind, "Defiance": lambda: heart(50, 54, .8) + L(50, 20, 50, 88, 3, CRIMSON), "Sinew": wiry, "Night Eyes": night_eyes, "Bravado": sellsword, "Tumbling": acrobat, "Herbalist": cauldron,
     # deck covers
     "Conjurer's Book": lambda: book(star(53, 50, 14, 5, .45, GOLD)), "Wanderer's Repertoire": lambda: lute(),
     "Acolyte's Litany": lambda: book(f'<g transform="translate(53 50) scale(.5) translate(-50 -50)">{sun()}</g>'),
-    "Wildheart's Remembrance": remembrance,
+    "Wildheart's Instinct": remembrance,
 }
 
 DECK_ART = {

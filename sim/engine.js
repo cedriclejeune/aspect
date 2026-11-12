@@ -79,7 +79,7 @@
   const KEYS = ["STR", "DEX", "INT", "WIL", "STRd", "DEXd", "INTd", "WILd", "HP", "SPD"];
   const SIZE_N = { Tiny: 0, Small: 1, Medium: 2, Large: 3, Huge: 4, Gargantuan: 5 };
   const SPACE = { Tiny: 1, Small: 1, Medium: 1, Large: 2, Huge: 3, Gargantuan: 4 };
-  const ASPECT_TYPES = ["Trait", "Technique", "Knack", "Divine", "Glamour", "Nature"];
+  const ASPECT_TYPES = ["Trait", "Technique", "Domain", "Divine", "Glamour", "Nature"];
   const SLOT_TYPES = { armor: ["Armor"], hand: ["Weapon", "Shield", "Instrument"], jewelry: ["Jewelry"],
     item: ["Spellbook", "Recipe", "Consumable"], aspect: ASPECT_TYPES };
   const DEFAULT_SLOTS = { hand: 2, jewelry: 1, item: 2, aspect: 3 };
@@ -121,9 +121,10 @@
       const sign = tok[0] === "-" ? -1 : 1, body = tok.replace(/^[+-]/, "");
       const m = body.match(/^(\d*)d(\d+)$/);
       // a scaling dice count (Righteous Fury: "½STR d6"): half the ability, rounded down
-      const h = body.match(/^(½)?(STR|DEX|INT|WIL)d(\d+)$/);
+      // "½DEX|WIL d6": the higher of the abilities named (Sure Thing)
+      const h = body.match(/^(½)?((?:STR|DEX|INT|WIL)(?:\|(?:STR|DEX|INT|WIL))*)d(\d+)$/);
       if (m) out.dice.push({ n: m[1] ? +m[1] : 1, sides: +m[2], sign });
-      else if (h) { const v = (mods && mods[h[2]]) || 0; out.dice.push({ n: Math.max(0, h[1] ? Math.floor(v / 2) : v), sides: +h[3], sign }); }
+      else if (h) { const v = Math.max(...h[2].split("|").map((k) => (mods && mods[k]) || 0)); out.dice.push({ n: Math.max(0, h[1] ? Math.floor(v / 2) : v), sides: +h[3], sign }); }
       else if (ABILS.includes(body)) out.flat += sign * ((mods && mods[body]) || 0);
       else out.flat += sign * (parseInt(body, 10) || 0);
     }
@@ -752,7 +753,7 @@
     const q = { you: [], target: [], crowd: [] };
     const sit = (k, n, why) => q[k].push({ n, why });
     if (!src.area && !canSee(F, a, t)) sit("you", -1, "can't see the target");
-    if (!src.area && !canSee(F, t, a)) sit("you", 1, "unseen");
+    if (!src.area && !canSee(F, t, a)) { sit("you", 1, "unseen"); info.unseen = true; }
     if (has(a, "Prone")) sit("you", -1, "Prone");
     if (has(a, "Restrained")) sit("you", -1, "Restrained");
     if (has(a, "Poisoned")) sit("you", -1, "Poisoned");
@@ -1104,16 +1105,17 @@
   function needsOk(F, c, e, why) {
     const p = e.p, deck = deckOf(F, e);
     const needs = (p.need || []).slice();
-    if (deck && (deck.kind === "divine" || deck.kind === "glamour")) needs.push("voice");
-    if (["Anthem", "Dirge", "Cue"].includes(p.kind)) needs.push("voice");
+    // P 10.6: every WIL power needs your voice, whatever its deck's type; only a Form doesn't.
+    // A Visual power (need: ["sight"]) needs no voice; whether its targets see you is the GM's call.
+    const wil = ["Anthem", "Dirge", "Cue", "Mend"].includes(p.kind);
+    if (wil && c.form) return why ? `${p.name}: not while shifted` : false;
+    if (wil && !needs.includes("sight")) needs.push("voice");
     for (const n of needs) {
       if (n === "voice" && !canSpeak(c)) return why ? `${p.name} needs your voice` : false;
       if (n === "shield" && !holdsShield(F, c)) return why ? `${p.name} needs a Shield in hand` : false;
       if (n === "emptyHand" && !freeHand(F, c)) return why ? `${p.name} needs an empty Hand` : false;
       if (n === "attackAction" && !c.turn.attackAction) return why ? `${p.name}: take the Attack action first` : false;
     }
-    // P 10.7: no Divine, Glamour or Mend while shifted.
-    if (c.form && (p.kind === "Mend" || (deck && (deck.kind === "divine" || deck.kind === "glamour")))) return why ? `${p.name}: not while shifted` : false;
     if (deck && deck.kind === "spellbook" && !canCastBook(F, c)) return why ? `${p.name} needs an empty Hand to hold the book` : false;
     return why ? null : true;
   }
@@ -1458,7 +1460,7 @@
       applyDo(X, a, r, (r.p.do || []).filter((d) => !d.dmg), t, { hit: true });
     }
     crushing(X, a, t, w, res.total, best(res.defs));
-    afterHit(X, a, t, { weapon: true, armed: true, melee: info.melee, ranged: info.ranged, crit, engaged: engagedNow });
+    afterHit(X, a, t, { weapon: true, armed: true, melee: info.melee, ranged: info.ranged, crit, engaged: engagedNow, unseen: info.unseen });
     return res;
   }
   // An area weapon attack (Sweeping Blow): one attack roll compared to each target's Defense, as an area roll (P 6.6:
@@ -1541,7 +1543,8 @@
   }
   // hitEngaged is judged when the hit lands, before damage.
   const allyEngaged = (st, a, t) => living(st).some((c) => c.side === a.side && c !== a && engaged(c, t));
-  // Triggers after a hit lands: meleeDrop, weaponHit, meleeWeaponHit (an attack with a weapon in hand), rangedHit, hitEngaged.
+  // Triggers after a hit lands: meleeDrop, weaponHit, meleeWeaponHit (an attack with a weapon in hand), rangedHit, hitEngaged,
+  // hitUnseen (the target couldn't see the attacker: Sure Thing).
   function afterHit(X, a, t, o) {
     const st = X.st;
     t.oath = null;
@@ -1550,6 +1553,7 @@
     if (o.armed && o.melee) fireTriggers(X, a, "meleeWeaponHit", { target: t });
     if (o.ranged && !t.dead) fireTriggers(X, a, "rangedHit", { target: t });
     if (o.engaged) fireTriggers(X, a, "hitEngaged", { target: t });
+    if (o.unseen && !t.dead) fireTriggers(X, a, "hitUnseen", { target: t });
     if (o.melee && (t.hp === 0 || t.dead)) fireTriggers(X, a, "meleeDrop", { target: t });
   }
   function fireTriggers(X, c, on, ctx) {
@@ -1868,7 +1872,7 @@
       applyDo(X, c, e, p.do || [], t, { hit: r.hit, crit, darts: counts[id], mode: cmd.mode, bonus: r.total - r.roll.kept, best: info.toDamage });
       // RULING R219: a power attack against "weapon" Defense within 5 ft (a foe's Bite) is a melee weapon attack
       // for triggers (weaponHit, hitEngaged, meleeDrop, Ring of Sparks).
-      if (r.hit) afterHit(X, c, t, { weapon: info.vs === "weapon", melee: info.melee, ranged: info.ranged, engaged: eng });
+      if (r.hit) afterHit(X, c, t, { weapon: info.vs === "weapon", melee: info.melee, ranged: info.ranged, engaged: eng, unseen: info.unseen });
     }
   }
   function triggerZone(X, z, t, why) {

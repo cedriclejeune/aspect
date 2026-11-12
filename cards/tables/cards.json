@@ -117,7 +117,7 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Crowd Work (½ DEX/S.R.): reaction, after an ally within 30 ft rolls an attack or a check: +WIL to that roll.",
+   "text": "Presence: your checks to perform, persuade and deceive add both DEX and WIL.",
    "lore": "Quick feet and a quicker smile. Every room is a stage, every fight an audience."
   },
   {
@@ -261,7 +261,7 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Feint (½ WIL/S.R.): reaction, when an attack hits you: −DEX to that attack roll, possibly turning it into a miss.",
+   "text": "Sure Thing: on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher.",
    "lore": "Never where you swing. Always where you look away. The grin is the last thing you see."
   },
   {
@@ -670,7 +670,7 @@
    "damage": "1d6 / 1d8",
    "keywords": "Versatile (1d8)",
    "text": "+2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.",
-   "lore": "Runes run along its grain. The wood remembers the shape of a casting hand."
+   "lore": "Glyphs run along its grain. The wood remembers the shape of a casting hand."
   },
   {
    "id": "M-I-01",
@@ -1202,7 +1202,7 @@
   },
   {
    "id": "C-I-02",
-   "name": "Shard Bandolier",
+   "name": "Runestone Bandolier",
    "type": "Container",
    "rank": "I",
    "group": "starter",
@@ -1221,8 +1221,8 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "While it's in your Pack, your Pack holds up to 5 Shards instead of 3.",
-   "lore": "Leather straps padded for crystal. Shards clink softly against each other as you walk."
+   "text": "While it's in your Pack, your Pack holds up to 5 Runestones instead of 3.",
+   "lore": "Leather straps padded for stone. Runestones knock softly against each other as you walk."
   },
   {
    "id": "T-I-01",
@@ -1246,7 +1246,7 @@
    "damage": "",
    "keywords": "",
    "text": "Your jump distances are doubled, and you never need a running start.",
-   "lore": "It came from someone who never learned to walk, only to bound."
+   "lore": "The ground lets go of you a little sooner, and takes you back a little later."
   },
   {
    "id": "T-I-02",
@@ -1270,7 +1270,7 @@
    "damage": "",
    "keywords": "",
    "text": "+2 STR Defense against poison and disease.",
-   "lore": "Taken from a taster at a poisoner's court. Nothing in a cup ever hurt them again."
+   "lore": "Blood gone thick and slow as stone. Poison sinks into it and goes no further."
   },
   {
    "id": "T-I-03",
@@ -1294,7 +1294,7 @@
    "damage": "",
    "keywords": "",
    "text": "+2 WIL Defense against fear and mind control.",
-   "lore": "The resolve of someone who stared down terrors and did not blink."
+   "lore": "A resolve that stares down terrors and does not blink."
   },
   {
    "id": "T-I-04",
@@ -1342,7 +1342,7 @@
    "damage": "",
    "keywords": "",
    "text": "1/S.R., when your melee attack drops a creature to 0 HP: make one melee attack against another creature within your reach.",
-   "lore": "A soldier's reflex: when one foe falls, the blade is already moving to the next."
+   "lore": "One foe falls, and the blade is already moving to the next."
   },
   {
    "id": "Q-I-02",
@@ -1366,7 +1366,7 @@
    "damage": "",
    "keywords": "",
    "text": "Reaction (2/S.R.): your next ranged attack this turn has +2 to hit.",
-   "lore": "A hunter's breath, held between heartbeats, until the arrow flies."
+   "lore": "A breath held between heartbeats, until the arrow flies."
   },
   {
    "id": "Q-I-03",
@@ -1390,7 +1390,7 @@
    "damage": "",
    "keywords": "",
    "text": "Reaction (1/S.R.), when you take the Attack action while holding a Shield: Shove a creature within 5 ft.",
-   "lore": "Shields aren't only for hiding behind. A veteran knows the rim is a weapon too."
+   "lore": "Shields aren't only for hiding behind. The rim is a weapon too."
   },
   {
    "id": "Q-I-04",
@@ -1413,8 +1413,8 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "2/S.R., when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 on their next attack before the end of your next turn.",
-   "lore": "A warrior's chant that rose with every strike, until the whole line sang along."
+   "text": "2/S.R., when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 to STR and DEX Defense until the start of your next turn.",
+   "lore": "A chant that rises with every strike, until the whole line sings along."
   },
   {
    "id": "Q-I-05",
@@ -1438,7 +1438,7 @@
    "damage": "",
    "keywords": "Anthem",
    "text": "Rally as a loose Anthem. Action (1/S.R.): Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks.",
-   "lore": "One voice that turns a rout into a charge. It remembers every battlefield it saved."
+   "lore": "One voice that turns a rout into a charge. It carries farther than a voice should."
   },
   {
    "id": "Q-I-06",
@@ -1462,12 +1462,12 @@
    "damage": "",
    "keywords": "",
    "text": "Reaction (1/S.R.), when an attack hits an ally within 5 ft while you hold a Shield: +2 to the targeted Defense against that attack, possibly turning it into a miss.",
-   "lore": "Learned in the front rank, where your shield guards the friend beside you."
+   "lore": "The rule of the front rank: your shield guards the friend beside you."
   },
   {
    "id": "K-I-01",
-   "name": "Cat Burglar",
-   "type": "Knack",
+   "name": "Larceny",
+   "type": "Domain",
    "rank": "I",
    "group": "starter",
    "symbols": "DEX INT",
@@ -1486,12 +1486,12 @@
    "damage": "",
    "keywords": "",
    "text": "+2 on checks to sneak, climb or pick locks.",
-   "lore": "The habits of someone who never used a door if a window would do."
+   "lore": "Why use a door when a window will do?"
   },
   {
    "id": "K-I-02",
-   "name": "Renowned",
-   "type": "Knack",
+   "name": "Minstrel",
+   "type": "Domain",
    "rank": "I",
    "group": "starter",
    "symbols": "INT WIL",
@@ -1514,8 +1514,8 @@
   },
   {
    "id": "K-I-03",
-   "name": "Sailor",
-   "type": "Knack",
+   "name": "Navigation",
+   "type": "Domain",
    "rank": "I",
    "group": "starter",
    "symbols": "STR INT",
@@ -1534,12 +1534,12 @@
    "damage": "",
    "keywords": "",
    "text": "+2 on checks to swim, climb, navigate or gather rumors.",
-   "lore": "Salt in the blood, knots in the fingers, and a tavern story for every port."
+   "lore": "Salt on the lips, knots in the fingers, and a tale for every port."
   },
   {
    "id": "K-I-04",
-   "name": "Street Urchin",
-   "type": "Knack",
+   "name": "Backstreets",
+   "type": "Domain",
    "rank": "I",
    "group": "starter",
    "symbols": "DEX WIL",
@@ -1558,12 +1558,12 @@
    "damage": "",
    "keywords": "",
    "text": "+2 on checks to pick pockets, sneak, read intentions or gather rumors.",
-   "lore": "Taught by gutters and hunger. Nobody sees a child in the crowd until their purse is gone."
+   "lore": "Every alley has a shortcut, every crowd a loose purse, every corner a whisper."
   },
   {
    "id": "K-I-05",
-   "name": "Hunter",
-   "type": "Knack",
+   "name": "Hunt",
+   "type": "Domain",
    "rank": "I",
    "group": "starter",
    "symbols": "DEX INT",
@@ -1582,12 +1582,12 @@
    "damage": "",
    "keywords": "",
    "text": "+2 on checks to track, notice, sneak or handle animals.",
-   "lore": "Broken twigs, bent grass, the hush before a deer bolts. The wild speaks; this one listens."
+   "lore": "Broken twigs, bent grass, the hush before a deer bolts. The wild speaks, and you listen."
   },
   {
    "id": "K-I-06",
-   "name": "Physician",
-   "type": "Knack",
+   "name": "Healing",
+   "type": "Domain",
    "rank": "I",
    "group": "starter",
    "symbols": "INT WIL",
@@ -1606,12 +1606,12 @@
    "damage": "",
    "keywords": "",
    "text": "+2 on checks to treat wounds, recall lore, read intentions or persuade.",
-   "lore": "Steady hands and a calm voice, honed over a thousand sickbeds."
+   "lore": "Steady hands, a calm voice, and the right herb for the right fever."
   },
   {
    "id": "K-I-07",
-   "name": "Barkeep",
-   "type": "Knack",
+   "name": "Tavern",
+   "type": "Domain",
    "rank": "I",
    "group": "starter",
    "symbols": "INT WIL",
@@ -1630,12 +1630,12 @@
    "damage": "",
    "keywords": "",
    "text": "+2 on checks to read intentions, gather rumors, intimidate or lift.",
-   "lore": "Years behind the bar teach a lot: who lies, who drinks, who will start the fight."
+   "lore": "The whole room at a glance: who lies, who drinks, who will start the fight."
   },
   {
    "id": "K-I-08",
-   "name": "Smith",
-   "type": "Knack",
+   "name": "Forge",
+   "type": "Domain",
    "rank": "I",
    "group": "starter",
    "symbols": "STR INT",
@@ -1658,8 +1658,8 @@
   },
   {
    "id": "K-I-09",
-   "name": "Mountaineer",
-   "type": "Knack",
+   "name": "Peaks",
+   "type": "Domain",
    "rank": "I",
    "group": "starter",
    "symbols": "DEX INT",
@@ -1678,7 +1678,7 @@
    "damage": "",
    "keywords": "",
    "text": "+2 on checks to climb, endure, navigate or balance.",
-   "lore": "Thin air and sheer cliffs were a home to them. The mountain never won."
+   "lore": "Thin air and sheer cliffs feel like home. The mountain doesn't win."
   },
   {
    "id": "Q-II-01",
@@ -1702,7 +1702,7 @@
    "damage": "",
    "keywords": "",
    "text": "Once per turn, when you take the Attack action, make one extra attack.",
-   "lore": "A blade master's rhythm: a feint and a cut, so fast they sound like one blow."
+   "lore": "A feint and a cut, so fast they sound like one blow."
   },
   {
    "id": "T-II-01",
@@ -1726,11 +1726,11 @@
    "damage": "",
    "keywords": "",
    "text": "Action (1/S.R.): regain 1d10 + 3 HP.",
-   "lore": "When others lie down, this one gets back up. Pain is a problem for later."
+   "lore": "When others lie down, you get back up. Pain is a problem for later."
   },
   {
    "id": "T-II-02",
-   "name": "Wiry",
+   "name": "Sinew",
    "type": "Trait",
    "rank": "II",
    "group": "loot",
@@ -1750,7 +1750,7 @@
    "damage": "",
    "keywords": "",
    "text": "",
-   "lore": "Lean, ropy strength. There was never much meat on them, but they never tired."
+   "lore": "Lean, ropy strength. Not much meat on it, and it never tires."
   },
   {
    "id": "T-II-03",
@@ -1774,11 +1774,11 @@
    "damage": "",
    "keywords": "Darkvision 120",
    "text": "",
-   "lore": "Eyes from something that lived in the dark. Shadows turn to shapes, then to detail."
+   "lore": "Eyes made for the dark. Shadows turn to shapes, then to detail."
   },
   {
    "id": "T-II-04",
-   "name": "Sellsword",
+   "name": "Bravado",
    "type": "Trait",
    "rank": "II",
    "group": "loot",
@@ -1798,11 +1798,11 @@
    "damage": "",
    "keywords": "",
    "text": "+3 on checks to intimidate, endure, haggle or gather rumors.",
-   "lore": "Hard years selling a blade to whoever paid. You learn the price of everything, and of everyone."
+   "lore": "A hard stare and a hand on the hilt. It knows the price of everything, and of everyone."
   },
   {
    "id": "T-II-05",
-   "name": "Acrobat",
+   "name": "Tumbling",
    "type": "Trait",
    "rank": "II",
    "group": "loot",
@@ -1822,35 +1822,11 @@
    "damage": "",
    "keywords": "",
    "text": "+3 on checks to tumble, balance, jump or perform.",
-   "lore": "From a traveling troupe: flips, falls and a crowd that gasped every night."
-  },
-  {
-   "id": "Q-I-07",
-   "name": "Slippery",
-   "type": "Technique",
-   "rank": "I",
-   "group": "loot",
-   "symbols": "DEX INT",
-   "copies": 1,
-   "STR": "",
-   "DEX": "",
-   "INT": "",
-   "WIL": "",
-   "STRd": "",
-   "DEXd": "",
-   "INTd": "",
-   "WILd": "",
-   "HP": "",
-   "SPD": "",
-   "to_hit": "",
-   "damage": "",
-   "keywords": "",
-   "text": "Reaction (2/S.R.): move up to half your Speed. This movement doesn't provoke opportunity attacks.",
-   "lore": "A knack for being somewhere else when the blow arrives."
+   "lore": "Flips, falls and landings that make a crowd gasp."
   },
   {
    "id": "T-II-06",
-   "name": "Hedge Witch",
+   "name": "Herbalist",
    "type": "Trait",
    "rank": "II",
    "group": "loot",
@@ -1870,7 +1846,7 @@
    "damage": "",
    "keywords": "",
    "text": "1 extra spell point (long rest). +3 on checks to handle animals, recall lore, treat wounds or deceive.",
-   "lore": "Herb lore and old charms from a cottage at the edge of the woods."
+   "lore": "Roots, leaves and old charms, and what each one is good for."
   },
   {
    "id": "Q-II-02",
@@ -1898,7 +1874,7 @@
   },
   {
    "id": "T-II-07",
-   "name": "Relentless",
+   "name": "Defiance",
    "type": "Trait",
    "rank": "II",
    "group": "loot",
@@ -1918,11 +1894,11 @@
    "damage": "",
    "keywords": "",
    "text": "1/S.R., when damage drops you to 0 HP without killing you outright: you drop to 1 HP instead.",
-   "lore": "Something that would not stay down. Death had to ask twice, and it never asked again."
+   "lore": "It will not stay down. Death has to ask twice."
   },
   {
    "id": "T-II-08",
-   "name": "Pack Hunter",
+   "name": "Wolfpack",
    "type": "Trait",
    "rank": "II",
    "group": "loot",
@@ -1942,11 +1918,11 @@
    "damage": "",
    "keywords": "",
    "text": "1/S.R., when you hit a creature one of your allies is engaged with: it falls Prone.",
-   "lore": "Taken from a wolf. It knows the moment a friend has the prey, and when to pull it down."
+   "lore": "It knows the moment a friend has the prey, and when to pull it down."
   },
   {
    "id": "T-I-05",
-   "name": "Human Grit",
+   "name": "Grit",
    "type": "Trait",
    "rank": "I",
    "group": "loot",
@@ -1966,11 +1942,11 @@
    "damage": "",
    "keywords": "",
    "text": "Stubborn (1/S.R.): when you fail a check, add +2 to that roll, possibly turning it into a success.",
-   "lore": "Short-lived, stubborn and everywhere. Whatever they lack, they make up for by trying again."
+   "lore": "Stubborn to the bone. What skill can't do, trying again will."
   },
   {
    "id": "T-I-06",
-   "name": "Elven Blood",
+   "name": "Dusk Eyes",
    "type": "Trait",
    "rank": "I",
    "group": "loot",
@@ -1990,11 +1966,11 @@
    "damage": "",
    "keywords": "Darkvision 60",
    "text": "",
-   "lore": "Long years in a slender frame, and eyes that never quite lost the starlight."
+   "lore": "Eyes that never quite lose the starlight. For them, dusk lasts all night."
   },
   {
    "id": "T-I-07",
-   "name": "Dwarven Blood",
+   "name": "Bedrock",
    "type": "Trait",
    "rank": "I",
    "group": "loot",
@@ -2014,11 +1990,11 @@
    "damage": "",
    "keywords": "",
    "text": "+2 STR Defense against poison, Shoves and Grapples.",
-   "lore": "Stone-born and slow to fall. Their blood shrugs off what would fell a lesser body."
+   "lore": "Feet like roots in rock. It shrugs off the shove, the grip and the poison."
   },
   {
    "id": "T-I-08",
-   "name": "Halfling Luck",
+   "name": "Luck",
    "type": "Trait",
    "rank": "I",
    "group": "loot",
@@ -2038,12 +2014,12 @@
    "damage": "",
    "keywords": "",
    "text": "Lucky (1/S.R.): when you roll a 1 on a d20, reroll it.",
-   "lore": "Small, cheerful and impossibly lucky. Fate seems to like them, and nobody knows why."
+   "lore": "Fate likes whoever carries it, and nobody knows why."
   },
   {
    "id": "K-I-10",
-   "name": "Orcish Blood",
-   "type": "Knack",
+   "name": "Campaign",
+   "type": "Domain",
    "rank": "I",
    "group": "loot",
    "symbols": "STR WIL",
@@ -2062,12 +2038,12 @@
    "damage": "",
    "keywords": "",
    "text": "+2 on checks to intimidate, endure, lift or march.",
-   "lore": "Made for war and for the long march after it. The dark holds no secrets from those eyes."
+   "lore": "Made for war and for the long march after it. Strike hard, carry it all home."
   },
   {
    "id": "K-I-11",
-   "name": "Hobgoblin Discipline",
-   "type": "Knack",
+   "name": "Discipline",
+   "type": "Domain",
    "rank": "I",
    "group": "loot",
    "symbols": "INT WIL",
@@ -2086,7 +2062,7 @@
    "damage": "",
    "keywords": "",
    "text": "+2 on checks to march, navigate, stand firm or read intentions.",
-   "lore": "Drilled from birth: a good soldier, a good scout, a good officer. Discipline is in the bones."
+   "lore": "March in step, hold the post, read the order before it is given."
   },
   {
    "id": "B-I-01",
@@ -2134,7 +2110,7 @@
    "damage": "",
    "keywords": "",
    "text": "Attack: WIL + 2 Resolve: +3 (short rest) Songs, poems and dances.",
-   "lore": "Songs gathered at roadside fires and in tavern corners, sung by someone who never stayed long."
+   "lore": "Songs of roadside fires and tavern corners, made for someone who never stays long."
   },
   {
    "id": "D-I-01",
@@ -2157,12 +2133,12 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Attack: WIL + 2 Resolve: +3 (short rest) Prayers. Fate dice: d4.",
-   "lore": "Prayers learned by heart in a quiet temple. The faith came with them."
+   "text": "Attack: WIL + 2 Resolve: +3 (short rest) Prayers.",
+   "lore": "Prayers worn smooth by a thousand voices. The faith comes with them."
   },
   {
    "id": "N-I-01",
-   "name": "Wildheart's Remembrance",
+   "name": "Wildheart's Instinct",
    "type": "Nature",
    "rank": "I",
    "group": "loot",
@@ -2181,8 +2157,8 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Resolve: +3 (short rest) Beasts your body remembers. Shift: action.",
-   "lore": "The memory of fur, feather and claw. The body knows these shapes, and longs for them."
+   "text": "Attack: WIL + 2 Resolve: +3 (short rest) Beasts your body knows.",
+   "lore": "Fur, feather and claw. The body knows these shapes, and longs for them."
   },
   {
    "id": "",
@@ -3048,7 +3024,7 @@
   },
   {
    "deck_id": "N-I-01",
-   "deck": "Wildheart's Remembrance",
+   "deck": "Wildheart's Instinct",
    "name": "Hawk",
    "kind": "Form",
    "cost": 1,
@@ -3067,7 +3043,7 @@
   },
   {
    "deck_id": "N-I-01",
-   "deck": "Wildheart's Remembrance",
+   "deck": "Wildheart's Instinct",
    "name": "Wolf",
    "kind": "Form",
    "cost": 2,
@@ -3086,7 +3062,7 @@
   },
   {
    "deck_id": "N-I-01",
-   "deck": "Wildheart's Remembrance",
+   "deck": "Wildheart's Instinct",
    "name": "Mossbalm",
    "kind": "Mend",
    "cost": 2,
@@ -3105,7 +3081,7 @@
   },
   {
    "deck_id": "N-I-01",
-   "deck": "Wildheart's Remembrance",
+   "deck": "Wildheart's Instinct",
    "name": "Bear",
    "kind": "Form",
    "cost": 3,
@@ -3193,8 +3169,8 @@
    "WILd": 9,
    "HP": 7,
    "SPD": 35,
-   "carries": "Sling (W-I-10); Dagger (W-I-01); Slippery (Q-I-07); Leather (A-I-01)",
-   "own": ""
+   "carries": "Sling (W-I-10); Dagger (W-I-01); Leather (A-I-01)",
+   "own": "Nimble (2/S.R.): reaction. Move up to half its Speed without provoking opportunity attacks."
   },
   {
    "name": "Wolf",
@@ -3217,7 +3193,7 @@
    "WILd": 8,
    "HP": 11,
    "SPD": 40,
-   "carries": "Pack Hunter (T-II-08)",
+   "carries": "Wolfpack (T-II-08)",
    "own": "Bite: +4 to hit, 1d6 + 2 Physical. Keen Nose: alert (passive Awareness +5)."
   },
   {
@@ -3361,7 +3337,7 @@
    "WILd": 11,
    "HP": 12,
    "SPD": 30,
-   "carries": "Longsword (W-I-05); Shield (S-I-01); Javelins (W-I-11); Mail (A-I-02); Human Grit (T-I-05)",
+   "carries": "Longsword (W-I-05); Shield (S-I-01); Javelins (W-I-11); Mail (A-I-02); Grit (T-I-05)",
    "own": ""
   },
   {
@@ -3385,7 +3361,7 @@
    "WILd": 10,
    "HP": 10,
    "SPD": 40,
-   "carries": "Longbow (W-I-09); Shortsword (W-I-02); Hunter (K-I-05); Leather (A-I-01); Elven Blood (T-I-06)",
+   "carries": "Longbow (W-I-09); Shortsword (W-I-02); Hunt (K-I-05); Leather (A-I-01); Dusk Eyes (T-I-06)",
    "own": "Keen Eyes: alert (passive Awareness +5)."
   },
   {
@@ -3433,7 +3409,7 @@
    "WILd": 10,
    "HP": 14,
    "SPD": 35,
-   "carries": "Greataxe (W-I-16); Javelins (W-I-11); Relentless (T-II-07); Leather (A-I-01); Orcish Blood (K-I-10)",
+   "carries": "Greataxe (W-I-16); Javelins (W-I-11); Defiance (T-II-07); Leather (A-I-01); Campaign (K-I-10)",
    "own": ""
   },
   {
@@ -3457,7 +3433,7 @@
    "WILd": 10,
    "HP": 12,
    "SPD": 30,
-   "carries": "Longsword (W-I-05); Shield (S-I-01); Longbow (W-I-09); Mail (A-I-02); Battle Hymn (Q-I-04); Hobgoblin Discipline (K-I-11)",
+   "carries": "Longsword (W-I-05); Shield (S-I-01); Longbow (W-I-09); Mail (A-I-02); Battle Hymn (Q-I-04); Discipline (K-I-11)",
    "own": ""
   },
   {
@@ -3505,7 +3481,7 @@
    "WILd": 8,
    "HP": 20,
    "SPD": 20,
-   "carries": "Relentless (T-II-07)",
+   "carries": "Defiance (T-II-07)",
    "own": "Undead: resists Poison and Necrotic, vulnerable to Radiant. Never checks Morale. Slam: +3 to hit, 1d8 + 1 Physical."
   },
   {
@@ -3529,7 +3505,7 @@
    "WILd": 9,
    "HP": 5,
    "SPD": 30,
-   "carries": "Dagger (W-I-01); Sling (W-I-10); Pack Hunter (T-II-08)",
+   "carries": "Dagger (W-I-01); Sling (W-I-10); Wolfpack (T-II-08)",
    "own": ""
   },
   {
@@ -3553,7 +3529,7 @@
    "WILd": 8,
    "HP": 5,
    "SPD": 30,
-   "carries": "Pack Hunter (T-II-08)",
+   "carries": "Wolfpack (T-II-08)",
    "own": "Bite: +4 to hit, 1d4 + 2 Physical. Keen Nose: alert (passive Awareness +5)."
   },
   {
@@ -3577,7 +3553,7 @@
    "WILd": 8,
    "HP": 26,
    "SPD": 30,
-   "carries": "Cat Burglar (K-I-01)",
+   "carries": "Larceny (K-I-01)",
    "own": "Spider Climb: climbs walls and ceilings at full Speed. Web Sense: alert (passive Awareness +5). Bite: +5 to hit, 1d8 + 3 Physical plus 1d8 Poison. Web (Recharge 5–6): action, range 30 ft. Attack (+3) against DEX Defense: Restrained for 2 turns."
   },
   {

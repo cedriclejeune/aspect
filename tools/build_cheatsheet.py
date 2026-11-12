@@ -82,8 +82,8 @@ FRONT = """
 <table>
 <tr><th>Action</th><th>Effect</th></tr>
 <tr><td>Move</td><td>Move up to your speed. You can split it around your other action.</td></tr>
-<tr><td>Attack</td><td>One weapon or unarmed attack (more with Aspects like <em>Twin Strike</em>). Any attack can be swapped for a <strong>Grapple</strong> or <strong>Shove</strong>.</td></tr>
-<tr><td>Cast</td><td>Cast a 1-action spell, or use a power of your gear or Aspects that takes an action (Anthem, Dirge, Shift into a Form).</td></tr>
+<tr><td>Attack</td><td>One weapon or unarmed attack (more with Runes like <em>Twin Strike</em>). Any attack can be swapped for a <strong>Grapple</strong> or <strong>Shove</strong>.</td></tr>
+<tr><td>Cast</td><td>Cast a 1-action spell, or use a power of your gear or Runes that takes an action (Anthem, Dirge, Shift into a Form).</td></tr>
 <tr><td>Disengage</td><td>Your movement doesn't provoke opportunity attacks this turn. <strong>Not while Surrounded.</strong></td></tr>
 <tr><td>Dodge</td><td>Until your next turn: <strong>+3 to all your Defenses</strong>. Lost if Incapacitated or speed 0.</td></tr>
 <tr><td>Help</td><td>Before your next turn, one ally gets <strong>+3</strong> on its next check for a task, or its next attack vs a creature within 5 ft of you.</td></tr>
@@ -114,8 +114,8 @@ Replaces one attack. Target within reach, at most <strong>one size larger</stron
 <tr><td>Off-hand<br>attack</td><td>You attack with a <strong>Light</strong> weapon → one attack with a <em>different</em> Light weapon in your other hand. No ability modifier to damage (unless negative). Both in Hand Slots. <small>6.9</small></td></tr>
 <tr><td>Readied<br>action</td><td>The trigger you named with Ready happens → take the readied action or move.</td></tr>
 <tr><td>Spell</td><td>A spell with a reaction casting time (e.g. <em>Shield</em> from <em>Conjurer's Book</em>). Needs an empty Hand.</td></tr>
-<tr><td>Cue</td><td>Divine or Glamour: change a roll by a creature within 60 ft who hears you, <strong>after the roll</strong>, before the GM says if it succeeds.</td></tr>
-<tr><td>Gear &amp; Aspects</td><td>Any power marked <strong>Reaction</strong>. With a trigger: <em>Ring of Warding</em> (an attack hits you → +2 to that Defense). Without one, on your own turn: <em>Alchemist's Fire</em> (throw a flask).</td></tr>
+<tr><td>Cue</td><td>WIL magic: change a roll by a creature within 60 ft who hears you, <strong>after the roll</strong>, before the GM says if it succeeds.</td></tr>
+<tr><td>Gear &amp; Runes</td><td>Any power marked <strong>Reaction</strong>. With a trigger: <em>Ring of Warding</em> (an attack hits you → +2 to that Defense). Without one, on your own turn: <em>Alchemist's Fire</em> (throw a flask).</td></tr>
 </table>
 
 <div class="box gold"><b>Free (no action)</b>
@@ -152,11 +152,11 @@ Replaces one attack. Target within reach, at most <strong>one size larger</stron
 <li><strong>Grappled / Restrained / Stunned:</strong> speed 0.</li>
 <li><strong>Loading</strong> weapon: one shot per action or reaction.</li>
 <li><strong>Spellbook:</strong> needs an empty Hand to cast.</li>
-<li><strong>Divine &amp; Glamour:</strong> need your voice. Not while Incapacitated, underwater or shifted.</li>
+<li><strong>WIL magic:</strong> needs your voice (except a <strong>Visual</strong> power, or shifting into a Form). Not while Incapacitated, underwater or shifted.</li>
 <li><strong>Subdued:</strong> you lose your turn until a repeat misses.</li>
 </ul></div>
 </div>
-<footer>Section numbers refer to the Bearers Player Rules. Specific beats general: gear or an Aspect that says otherwise wins.</footer>
+<footer>Section numbers refer to the Bearers Player Rules. Specific beats general: gear or a Rune that says otherwise wins.</footer>
 </section>
 """
 
@@ -203,7 +203,7 @@ BACK = """
 <li>Checks and saves: only <strong>You</strong> applies.</li>
 <li>Each disadvantage cancels one advantage. Roll <strong>1 + what's left</strong>: keep highest (adv) or lowest (dis). Nat 20 / 1 read on the kept die.</li>
 <li><strong>Advantage on damage:</strong> before rolling, move leftover advantage dice to damage. Each one rolls all damage again; keep the best. Disadvantage stays on the attack.</li>
-<li>Gear, Aspects, Help and Dodge give <strong>flat</strong> bonuses (+3 / −3), not dice.</li>
+<li>Gear, Runes, Help and Dodge give <strong>flat</strong> bonuses (+3 / −3), not dice.</li>
 </ul>
 <div class="adv">
 <span>4.5<i>4d20 ↓</i></span><span>5.5<i>3d20 ↓</i></span><span>7.2<i>2d20 ↓</i></span>
@@ -272,7 +272,7 @@ BACK = """
 <h2>Magic in Combat <small>10</small></h2>
 <ul>
 <li><strong>Spellbook:</strong> an empty Hand to cast. One pool of <strong>spell points</strong> (all books + INT) pays any book's spells (cost 1/2/3/4/6/8 by level, cantrips free). Obvious unless Subtle.</li>
-<li><strong>Divine, Glamour, Nature:</strong> WIL, paid from one pool of <strong>Resolve</strong> (all decks + WIL, back on a short rest). Always obvious.</li>
+<li><strong>WIL magic</strong> (Divine, Glamour, Nature): same rules, paid from one pool of <strong>Resolve</strong> (all decks + WIL, back on a short rest). Always obvious.</li>
 <li><strong>Forms:</strong> gear stops counting; Form HP goes first, extra damage carries over.</li>
 </ul>
 
@@ -282,7 +282,7 @@ When a foe group's <strong>Leader</strong> falls, and when half the group is dow
 <h2>After the Fight <small>7.5</small></h2>
 <ul>
 <li><strong>Short rest</strong> (1 h, 2 per long rest): regain half missing HP; S.R. uses and Resolve return; don or doff Armor.</li>
-<li><strong>Long rest</strong> (8 h): all HP, uses, Resolve and spell points; swap Aspects.</li>
+<li><strong>Long rest</strong> (8 h): all HP, uses, Resolve and spell points; swap Runes.</li>
 <li><strong>Downtime</strong> (3 days somewhere safe): as a long rest, and heals all your Wounds.</li>
 </ul>
 </div>

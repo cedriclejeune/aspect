@@ -18,10 +18,12 @@ IGNORE = [
     r"\d+ lb",                              # object weight
     r"to 0 HP",                            # drop threshold
     r"\d+ gp",                              # gold amounts
-    r"\+\d+ on checks to [^.]*",            # Knack-style check bonuses
+    r"\+\d+ on checks to [^.]*",            # a Domain's check bonus, and the like
     r"passive Awareness \+\d+",             # Keen Nose
     r"[Rr]echarges?(?: on a)? (\d)–\d",     # "Recharge 5–6", "recharges on a 5–6": the data holds 5
     r"instead of \d/[SL]\.R\.",            # the printed limit a recharge override replaces
+    r"a d20 that shows",                    # the d20 of the roll itself, not dice a card rolls (Sure Thing)
+    r"less than 10 counts as a 10",         # Sure Thing's floor on checks: the sim has no checks (R706)
 ]
 SKIP_KEYS = {"id", "name", "text", "kw", "deck", "cover"}
 DICE = re.compile(r"\b(\d*)d(\d+)\b")

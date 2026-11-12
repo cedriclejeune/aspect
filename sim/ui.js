@@ -14,7 +14,7 @@
   const SIDE = { pc: "Characters", foe: "Foes" };
   const SLOT_TYPES = {
     armor: ["Armor"], hand: ["Weapon", "Shield", "Instrument"], jewelry: ["Jewelry"],
-    item: ["Consumable", "Recipe", "Spellbook"], aspect: ["Trait", "Technique", "Knack", "Divine", "Glamour", "Nature"],
+    item: ["Consumable", "Recipe", "Spellbook"], aspect: ["Trait", "Technique", "Domain", "Divine", "Glamour", "Nature"],
   };
   const USE_LABEL = { action: "Action", reaction: "Reaction", trigger: "Trigger", passive: "Passive", free: "Free" };
 

@@ -101,8 +101,10 @@ WOUNDS = [dict(w, id=f"wound-{slug(w['name'])}") for w in bs.WOUNDS]
 
 def build():
     base = {"armor": 1, "hand": 2, "jewelry": 1, "item": 2, "aspect": 3}  # starting Slots per player (P 3.2)
-    frames = [{"key": key, "name": name, "perPlayer": base[key]} for key, name, *_ in bs.FRAMES
-              if key in base and name.lower() == key]
+    first = {}  # the starting frame of each Slot type is the first with its key (later ones are extra Gear Slots)
+    for key, name, *_ in bs.FRAMES:
+        first.setdefault(key, name)
+    frames = [{"key": key, "name": first[key], "perPlayer": n} for key, n in base.items()]
     return {
         "version": 1,
         "cards": {**{c["id"]: export_card(c) for c in sorted(bs.CARDS, key=lambda c: c["id"])},

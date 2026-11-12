@@ -9,7 +9,7 @@ Ce fichier est la traduction française de GLOSSARY.md et la source du chapitre 
 ### Personnages
 
 **Porteur**:
-Un humanoïde capable d'absorber les Aspects d'autres êtres. Chaque personnage joueur en est un.
+Un humanoïde capable de graver des Runes en lui, puis de les en retirer. Chaque personnage joueur en est un.
 _À éviter_ : héros, aventurier, PJ (dans le texte des règles). (EN : Bearer)
 
 **Compagnie**:
@@ -32,7 +32,7 @@ _À éviter_ : CA, classe d'armure, sauvegarde, jet de sauvegarde. (EN : Defense
 Vos dix nombres courants : quatre modificateurs de caractéristique, quatre Défenses, PV maximum et Vitesse.
 _À éviter_ : stats, valeurs dérivées. (EN : Totals)
 
-### Matériel, Aspects et Emplacements
+### Matériel, Runes et Emplacements
 
 **Matériel**:
 Tout objet réel qu'un Porteur peut équiper ou ranger : l'équipement et les objets. Toute créature peut utiliser du matériel ; un Porteur, seulement les cartes que les symboles de sa Vocation permettent.
@@ -43,7 +43,7 @@ Le matériel que vous portez ou maniez : armures, armes, boucliers, Instruments 
 _À éviter_ : objet (pour ceux-ci). (EN : Equipment)
 
 **Objet**:
-Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Contenants et Éclats.
+Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Contenants et Pierres runiques.
 _À éviter_ : équipement (pour ceux-ci). (EN : Item)
 
 **Babiole**:
@@ -56,18 +56,18 @@ _À éviter_ : armure légère, intermédiaire, lourde. (EN : Leather, Mail, Pla
 
 **Pièce**:
 Une unité de matériel, telle que le Sac, la Réserve de la Compagnie et le butin la comptent. Une pile de jusqu'à 3 Consommables identiques compte pour une pièce.
-_À éviter_ : pièce (pour les pouvoirs Divins, de Glamour ou de Nature, ou les sources de construction des Traits). Ne pas confondre avec les pièces d'or (po). (EN : Piece)
+_À éviter_ : pièce (pour les pouvoirs de magie de VOL, ou les sources de construction des Traits). Ne pas confondre avec les pièces d'or (po). (EN : Piece)
 
 **Instrument**:
 Un équipement tenu dans une Main qui n'est ni une arme ni un bouclier : un luth, un tambour, un cor.
 _À éviter_ : outil. (EN : Instrument)
 
 **Focaliseur**:
-Un mot-clé d'équipement qui renforce vos Aspects Divins, de Glamour ou de Nature : un Instrument, une amulette sacrée, un bâton de druide.
+Un mot-clé d'équipement qui renforce votre magie de VOL : un Instrument, une amulette sacrée, un bâton de druide.
 _À éviter_ : focaliseur arcanique, symbole sacré, catalyseur. (EN : Focus)
 
 **Contenant**:
-Un objet qui ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. Une Bourse contient de l'or, une *Bandoulière à Éclats* plus d'Éclats.
+Un objet qui ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. Une Bourse contient de l'or, une *Bandoulière runique* plus de Pierres runiques.
 _À éviter_ : sac, besace (comme terme) (EN : Container)
 
 **Bourse**:
@@ -75,27 +75,27 @@ Un Contenant qui contient votre or, jusqu'à un maximum fixé par son Rang.
 _À éviter_ : porte-monnaie, sac de pièces (comme terme). (EN : Purse)
 
 **Rang**:
-La puissance fixe d'un matériel ou d'un Aspect, de I à V. Les personnages et les Vocations n'en ont pas.
+La puissance fixe d'un matériel ou d'une Rune, de I à V. Les personnages et les Vocations n'en ont pas.
 _À éviter_ : palier, rareté, niveau, qualité, +1/+2/+3. (EN : Rank)
 
 **Mot-clé**:
-Un mot au sens unique et fixe que le matériel et les Aspects affichent, le type en premier.
+Un mot au sens unique et fixe que le matériel et les Runes affichent, le type en premier.
 _À éviter_ : étiquette, propriété (comme terme général). (EN : Keyword)
 
 **Type**:
-Le premier mot-clé d'un matériel ou d'un Aspect. Il nomme l'Emplacement qui l'accueille.
+Le premier mot-clé d'un matériel ou d'une Rune. Il nomme l'Emplacement qui l'accueille.
 _À éviter_ : catégorie, sorte. (EN : Type)
 
 **Emplacement**:
-Un espace qui contient un matériel ou un Aspect du type correspondant : Armure, Main, Bijou, Objet ou Aspect.
+Un espace qui contient un matériel ou une Rune du type correspondant : Armure, Main, Bijou, Objet ou Rune.
 _À éviter_ : case, slot, emplacement d'harmonisation. (EN : Slot)
 
-**Aspect**:
-Un Trait, une Technique, un Savoir-faire, un Divin, un Glamour ou une Nature absorbé d'un autre être. Il n'a pas de corps : hors d'un Porteur, il vit dans un Éclat. Seuls les Porteurs peuvent l'utiliser.
-_À éviter_ : don, aptitude, pouvoir (comme terme général). (EN : Aspect)
+**Rune**:
+Un pouvoir en forme de signe : un Trait, une Technique, un Domaine, un Divin, un Glamour ou une Nature. La plupart des créatures en portent quelques-unes, ancrées en elles à vie. Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique.
+_À éviter_ : Aspect, don, aptitude, pouvoir (comme terme général), glyphe, sceau (comme terme). (EN : Rune)
 
 **Vocation**:
-La paire de caractéristiques avec laquelle un Porteur est né, gardée à vie : +2 dans les deux, des PV, une Vitesse et un atout. Elle décide quel matériel et quels Aspects vous pouvez équiper. Ce n'est ni un Aspect ni du matériel. Deux par paire : Duelliste et Bagarreur (FOR · AGI), Templier et Patriote (FOR · VOL), Lame-mage et Tacticien (FOR · INT), Infiltrateur et Rôdeur (AGI · INT), Artiste et Filou (AGI · VOL), Sage et Ermite (INT · VOL).
+La paire de caractéristiques avec laquelle un Porteur est né, gardée à vie : +2 dans les deux, des PV, une Vitesse et un atout. Elle décide quel matériel et quelles Runes vous pouvez équiper. Ce n'est ni une Rune ni du matériel. Deux par paire : Duelliste et Bagarreur (FOR · AGI), Templier et Patriote (FOR · VOL), Lame-mage et Tacticien (FOR · INT), Infiltrateur et Rôdeur (AGI · INT), Artiste et Filou (AGI · VOL), Sage et Ermite (INT · VOL).
 _À éviter_ : Noyau, historique, archétype, classe, race, profil (pour les joueurs). (EN : Calling)
 
 **Symboles**:
@@ -105,59 +105,63 @@ _À éviter_ : prérequis, condition, Req. (EN : Symbols)
 **Emplacement de Matériel**:
 Un Emplacement d'Armure, de Main, de Bijou ou d'Objet.
 
-**Emplacement d'Aspect**:
-Un Emplacement qui contient un Aspect. Vous commencez avec 3 et pouvez atteindre 8.
+**Emplacement de Rune**:
+Un Emplacement qui contient une Rune. Vous commencez avec 3 et pouvez atteindre 8.
 
 **Emplacement de Matériel supplémentaire**:
 Un Emplacement de Main, de Bijou ou d'Objet en plus, permanent, accordé uniquement par la défaite d'un Boss : Troisième Main, Second Bijou ou Grand Sac à dos.
 _À éviter_ : carte d'Emplacement. (EN : Extra Gear Slot)
 
 **Cadre d'Emplacement**:
-L'élément de table d'un Emplacement : un support percé de deux fentes en coin où l'on glisse une carte. Une carte encadrée est équipée. Un Éclat est un cadre d'Éclat.
+L'élément de table d'un Emplacement : un support percé de deux fentes en coin où l'on glisse une carte. Une carte encadrée est équipée. Une Pierre runique est un cadre de Pierre runique.
 _À éviter_ : carte d'Emplacement, pochette, socle. (EN : Slot frame)
 
 **Trait**:
-Un type d'Aspect : ce qu'un être est (un corps, un sang, une bénédiction).
-_À éviter_ : trait (en minuscule, pour n'importe quel Aspect), aptitude. (EN : Trait)
+Un type de Rune : un changement durable du corps ou de l'esprit.
+_À éviter_ : trait (en minuscule, pour n'importe quelle Rune), aptitude. (EN : Trait)
 
 **Technique**:
-Un type d'Aspect : ce qu'un être a appris (une botte de combat). (EN : Technique)
+Un type de Rune : une botte de combat. (EN : Technique)
 
-**Savoir-faire**:
-Un type d'Aspect : un bonus aux tests d'une activité précise.
-_À éviter_ : compétence, maîtrise, talent. (EN : Knack)
+**Domaine**:
+Un type de Rune : un bonus aux tests des activités d'un domaine.
+_À éviter_ : Savoir-faire, compétence, maîtrise, talent, historique. (EN : Domain)
 
 **Utilisations**:
-Un nombre limité d'activations d'un pouvoir, inscrit dessus (*2/R.C.*, *1/R.L.*), qui reviennent lors d'un repos court ou long.
+Un nombre limité d'activations d'un pouvoir, inscrit dessus (*2/C.R.*, *1/L.R.*), qui reviennent lors d'un court ou long repos.
 _À éviter_ : charges, par jour. (EN : Uses, S.R./L.R.)
 
-### Éclats et rangement
+### Pierres runiques et rangement
 
-**Éclat**:
-Un réceptacle de cristal encombrant qui contient un Aspect, ou rien. C'est un objet, mais jamais dans un Emplacement.
-_À éviter_ : gemme d'âme, cristal, orbe, éclat (en minuscule, pour tout autre objet). (EN : Shard)
+**Pierre runique**:
+Une pierre encombrante qui contient une Rune, ou rien (une Pierre vierge). C'est un objet, mais jamais dans un Emplacement.
+_À éviter_ : Éclat, gemme d'âme, cristal, orbe, vide (pour une Pierre vierge). (EN : Runestone)
 
 **Persistance**:
-L'état des Aspects d'une créature vaincue pendant 1 minute, avant qu'ils ne s'éteignent pour de bon. Un Aspect dans cet état *persiste*. (EN : Lingering)
+L'état des Runes d'une créature morte pendant 1 minute, une fois détachées et avant qu'elles ne s'éteignent pour de bon. Une Rune dans cet état *persiste*. (EN : Lingering)
 
 **Capturer**:
-Verser un Aspect qui persiste dans un Éclat vide.
-_À éviter_ : récolter, collecter, looter (pour les Aspects). (EN : Capture)
+Fixer une Rune qui persiste dans une Pierre vierge.
+_À éviter_ : récolter, collecter, looter (pour les Runes). (EN : Capture)
 
-**Absorber**:
-Faire passer l'Aspect d'un Éclat dans un Emplacement d'Aspect, pendant un repos long.
-_À éviter_ : équiper (pour les Aspects), apprendre, s'harmoniser. (EN : Absorb)
+**Don**:
+La copie d'une Rune qu'une créature vivante autre qu'un Porteur donne de son plein gré, fixée dans une Pierre vierge. La créature garde la sienne. Seule une Rune ancrée se copie : un Porteur ne copie donc jamais.
+_À éviter_ : enseigner, transférer, voler. (EN : Gift)
+
+**Graver**:
+Faire passer la Rune d'une Pierre runique dans un Emplacement de Rune, pendant un long repos.
+_À éviter_ : Absorber, équiper (pour les Runes), apprendre, s'harmoniser, inscrire. (EN : Etch)
 
 **Libérer**:
-Vider un Éclat. Son Aspect est perdu pour de bon.
+Effacer une Pierre runique. Sa Rune est perdue pour de bon.
 _À éviter_ : détruire, défausser. (EN : Release)
 
 **Sac**:
-Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Éclats.
+Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Pierres runiques.
 _À éviter_ : sac à dos (sauf *Grand Sac à dos*), besace, inventaire. (EN : Pack)
 
 **Réserve de la Compagnie**:
-La mule, la charrette ou le chariot du groupe : le matériel et les Éclats que la Compagnie possède mais que personne ne porte.
+La mule, la charrette ou le chariot du groupe : le matériel et les Pierres runiques que la Compagnie possède mais que personne ne porte.
 _À éviter_ : banque, coffre, entrepôt. (EN : Party Stash)
 
 ### Jeu
@@ -175,7 +179,7 @@ Un problème à l'issue nette : un combat, une négociation, un cambriolage, un 
 _À éviter_ : défi (réservé au Facteur de puissance), rencontre (hors combats), scène. (EN : Trial)
 
 **Jalon**:
-Un nouvel Emplacement d'Aspect pour chaque personnage, accordé quand la Compagnie achève une saga.
+Un nouvel Emplacement de Rune pour chaque personnage, accordé quand la Compagnie achève une saga.
 _À éviter_ : montée de niveau, PX. (EN : Milestone)
 
 **Boucle de jeu**:
@@ -187,7 +191,7 @@ Un jet de d20 + modificateur de caractéristique + bonus contre un Degré de dif
 _À éviter_ : test de compétence, jet de caractéristique. (EN : Check)
 
 **Jet d'attaque**:
-Un jet de d20 + modificateurs contre une Défense, fait par celui qui blesse ou entrave : armes, sorts, pouvoirs Divins, de Glamour et de Nature, pièges, poisons.
+Un jet de d20 + modificateurs contre une Défense, fait par celui qui blesse ou entrave : armes, sorts, magie de VOL, pièges, poisons.
 _À éviter_ : jet de sauvegarde, sauvegarde. (EN : Attack roll)
 
 **Avantage aux dégâts**:
@@ -228,31 +232,35 @@ Un objet contenant une liste fixe de sorts. Ses points de sort s'ajoutent à vot
 _À éviter_ : grimoire, liste de sorts. (EN : Spellbook)
 
 **Points de sort**:
-Les points que coûtent vos sorts : une seule réserve, la somme de ce qu'impriment vos Livres de sorts + INT (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un repos long.
+Les points que coûtent vos sorts : une seule réserve, la somme de ce qu'impriment vos Livres de sorts + INT (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un long repos.
 _À éviter_ : emplacements de sort, mana. (EN : Spell points)
 
+**Paquet de VOL**:
+Une Rune de magie de VOL : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour ou Nature) dit quels pouvoirs elle contient et ne change aucune autre règle.
+_À éviter_ : livre de prières, recueil de chants, sort (pour ses pouvoirs). (EN : WIL deck)
+
 **Divin**:
-Un type d'Aspect : la magie de VOL de la prière. Son paquet, une **Litanie**, contient une liste fixe de pouvoirs qui infléchissent le destin et soignent, et s'ajoute à votre Ardeur.
+Un type de paquet de VOL : la magie de la prière. Son paquet est une **Litanie**, qui contient des pouvoirs de destin et de guérison : Hymnes, Complaintes, Répliques et Soins.
 _À éviter_ : livre saint, magie de clerc, foi (comme terme). (EN : Divine)
 
 **Glamour**:
-Un type d'Aspect : la magie de VOL de la représentation et du commandement. Son paquet, un **Répertoire**, contient une liste fixe de pouvoirs qui galvanisent les alliés et brisent les ennemis, et s'ajoute à votre Ardeur.
+Un type de paquet de VOL : la magie de la représentation et du commandement. Son paquet est un **Répertoire**, qui contient des pouvoirs de courage et de peur : Hymnes, Complaintes, Répliques et Soins.
 _À éviter_ : muse, inspiration, magie de barde, recueil de chants. (EN : Glamour)
 
 **Nature**:
-Un type d'Aspect : la magie de VOL du monde sauvage. Son paquet, une **Souvenance**, contient une liste fixe de Formes et de pouvoirs de soin, et s'ajoute à votre Ardeur.
-_À éviter_ : Mémoires, bestiaire, magie druidique, magie primordiale. (EN : Nature, Remembrance)
+Un type de paquet de VOL : la magie du monde sauvage. Son paquet est un **Instinct**, qui contient des Formes et des Soins.
+_À éviter_ : Souvenance, Mémoires, bestiaire, magie druidique, magie primordiale. (EN : Nature, Instinct)
 
 **Ardeur**:
-Les points que coûtent vos pouvoirs Divins, de Glamour et de Nature : une seule réserve, la somme de ce qu'impriment leurs paquets + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un repos court.
+Les points que coûte votre magie de VOL : une seule réserve, la somme de ce qu'impriment vos paquets de VOL + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un court repos.
 _À éviter_ : résolution, points de volonté, mana. (EN : Resolve)
 
 **Forme**:
-Un corps de bête dans une Souvenance (Nature), imprimé comme une Vocation : FOR, AGI, PV, Vitesse et Taille. Tant que vous avez mué en elle, elle remplace votre corps ; votre esprit et vos Aspects demeurent.
+Un corps de bête dans un Instinct (Nature), imprimé comme une Vocation : FOR, AGI, PV, Vitesse et Taille. Tant que vous avez mué en elle, elle remplace votre corps ; votre esprit et vos Runes demeurent.
 _À éviter_ : forme (en minuscule, pour autre chose), apparence, forme sauvage. (EN : Form)
 
 **Muer**:
-Prendre une Forme de votre Souvenance ; revenir, c'est retrouver votre propre corps. Être métamorphosé n'est jamais muer.
+Prendre une Forme de votre Instinct ; revenir, c'est retrouver votre propre corps. Être métamorphosé n'est jamais muer.
 _À éviter_ : se transformer, métamorphoser, forme sauvage. (EN : Shift)
 
 **Niveau de sort**:
@@ -286,7 +294,7 @@ Un sort qui ne coûte rien. Lancé à volonté.
 Un objet qui disparaît une fois utilisé. Jusqu'à 3 Consommables identiques partagent un Emplacement d'Objet.
 
 **Recette**:
-Un objet : une pile qui se reconstitue à chaque repos long. Les exemplaires inutilisés disparaissent quand elle se reconstitue.
+Un objet : une pile qui se reconstitue à chaque long repos. Les exemplaires inutilisés disparaissent quand elle se reconstitue.
 
 **Action**:
 L'utiliser prend l'une de vos deux actions.
@@ -349,16 +357,20 @@ _À éviter_ : AoE, gabarit.
 Personne ne vous remarque en train de le lancer. (EN : Subtle)
 
 **Hymne**:
-Un pouvoir Divin ou de Glamour. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem)
+Un pouvoir de magie de VOL. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem)
 
 **Complainte**:
-Un pouvoir Divin ou de Glamour. Action : une attaque contre la Défense de VOL. (EN : Dirge)
+Un pouvoir de magie de VOL. Action : une attaque contre la Défense de VOL. (EN : Dirge)
 
 **Réplique**:
-Un pouvoir Divin ou de Glamour. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue)
+Un pouvoir de magie de VOL. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue)
 
 **Soin**:
-Un pouvoir Divin, de Glamour ou de Nature qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend)
+Un pouvoir de magie de VOL qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend)
+
+**Visuel**:
+Un mot-clé d'un pouvoir de magie de VOL : il ne demande pas de voix et agit sur les créatures qui vous voient, pas sur celles qui vous entendent (une danse, un signe).
+_À éviter_ : somatique, gestuel, à vue. (EN : Visual)
 
 **Relance**:
 Le jet est refait (tous ses d20) et le nouveau résultat compte. Un jet ne peut être relancé qu'une fois. (EN : Reroll)
@@ -396,8 +408,8 @@ Une lésion durable, tirée au hasard chaque fois que vous tombez à 0 PV. Elle 
 _À éviter_ : épuisement, cicatrice, fatigue. (EN : Wound, Crippling)
 
 **Convalescence**:
-3 jours de repos en lieu sûr : fait tout ce que fait un repos long, et guérit toutes vos Blessures.
-_À éviter_ : repos long (pour ceci), relâche, temps mort. (EN : Downtime)
+3 jours de repos en lieu sûr : fait tout ce que fait un long repos, et guérit toutes vos Blessures.
+_À éviter_ : long repos (pour ceci), relâche, temps mort. (EN : Downtime)
 
 ### Monstres
 
@@ -414,7 +426,7 @@ Un test de VOL (DD 10) que fait un groupe d'Adversaires, avec la meilleure VOL p
 _À éviter_ : déroute, test de peur. (EN : Morale)
 
 **Butin**:
-Le matériel ou l'Aspect qu'une épreuve rapporte ; un Adversaire qui le *lâche* le rapporte.
+Le matériel ou la Rune qu'une épreuve rapporte ; un Adversaire qui le *lâche* le rapporte.
 _À éviter_ : lâcher (pour tomber à 0 PV : « tomber »). (EN : Drop)
 
 **Facteur de puissance (FP)**:
@@ -431,7 +443,7 @@ Un pouvoir de monstre qui revient sur un 5 ou un 6 au d6 à la fin du tour du mo
 ### À la table
 
 **Carte**:
-L'élément physique d'une Vocation, d'un matériel, d'un Aspect, d'un sort, d'une Blessure, d'un adversaire ou d'une somme d'or.
+L'élément physique d'une Vocation, d'un matériel, d'une Rune, d'un sort, d'une Blessure, d'un adversaire ou d'une somme d'or.
 _À éviter_ : carte (dans le texte des règles hors chapitre À la table).
 
 **Code de carte**:

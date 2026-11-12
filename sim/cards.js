@@ -118,7 +118,7 @@ globalThis.BEARERS_CARDS = {
   },
   "C-I-02": {
    "id": "C-I-02",
-   "name": "Shard Bandolier",
+   "name": "Runestone Bandolier",
    "rank": "I",
    "kind": "gear",
    "type": "Container",
@@ -126,7 +126,7 @@ globalThis.BEARERS_CARDS = {
     "Container"
    ],
    "text": [
-    "While it's in your Pack, your Pack holds up to 5 Shards instead of 3."
+    "While it's in your Pack, your Pack holds up to 5 Runestones instead of 3."
    ],
    "strip": {},
    "group": "starter",
@@ -150,7 +150,7 @@ globalThis.BEARERS_CARDS = {
    "text": [
     "Attack: **WIL + 2**",
     "Resolve: **+3** (short rest)",
-    "Prayers. Fate dice: **d4**."
+    "Prayers."
    ],
    "strip": {},
    "group": "loot",
@@ -383,12 +383,12 @@ globalThis.BEARERS_CARDS = {
   },
   "K-I-01": {
    "id": "K-I-01",
-   "name": "Cat Burglar",
+   "name": "Larceny",
    "rank": "I",
    "kind": "aspect",
-   "type": "Knack",
+   "type": "Domain",
    "kw": [
-    "Knack"
+    "Domain"
    ],
    "text": [
     "+2 on checks to sneak, climb or pick locks."
@@ -403,12 +403,12 @@ globalThis.BEARERS_CARDS = {
   },
   "K-I-02": {
    "id": "K-I-02",
-   "name": "Renowned",
+   "name": "Minstrel",
    "rank": "I",
    "kind": "aspect",
-   "type": "Knack",
+   "type": "Domain",
    "kw": [
-    "Knack"
+    "Domain"
    ],
    "text": [
     "+2 on checks to persuade, haggle, gather rumors or perform."
@@ -423,12 +423,12 @@ globalThis.BEARERS_CARDS = {
   },
   "K-I-03": {
    "id": "K-I-03",
-   "name": "Sailor",
+   "name": "Navigation",
    "rank": "I",
    "kind": "aspect",
-   "type": "Knack",
+   "type": "Domain",
    "kw": [
-    "Knack"
+    "Domain"
    ],
    "text": [
     "+2 on checks to swim, climb, navigate or gather rumors."
@@ -443,12 +443,12 @@ globalThis.BEARERS_CARDS = {
   },
   "K-I-04": {
    "id": "K-I-04",
-   "name": "Street Urchin",
+   "name": "Backstreets",
    "rank": "I",
    "kind": "aspect",
-   "type": "Knack",
+   "type": "Domain",
    "kw": [
-    "Knack"
+    "Domain"
    ],
    "text": [
     "+2 on checks to pick pockets, sneak, read intentions or gather rumors."
@@ -463,12 +463,12 @@ globalThis.BEARERS_CARDS = {
   },
   "K-I-05": {
    "id": "K-I-05",
-   "name": "Hunter",
+   "name": "Hunt",
    "rank": "I",
    "kind": "aspect",
-   "type": "Knack",
+   "type": "Domain",
    "kw": [
-    "Knack"
+    "Domain"
    ],
    "text": [
     "+2 on checks to track, notice, sneak or handle animals."
@@ -483,12 +483,12 @@ globalThis.BEARERS_CARDS = {
   },
   "K-I-06": {
    "id": "K-I-06",
-   "name": "Physician",
+   "name": "Healing",
    "rank": "I",
    "kind": "aspect",
-   "type": "Knack",
+   "type": "Domain",
    "kw": [
-    "Knack"
+    "Domain"
    ],
    "text": [
     "+2 on checks to treat wounds, recall lore, read intentions or persuade."
@@ -503,12 +503,12 @@ globalThis.BEARERS_CARDS = {
   },
   "K-I-07": {
    "id": "K-I-07",
-   "name": "Barkeep",
+   "name": "Tavern",
    "rank": "I",
    "kind": "aspect",
-   "type": "Knack",
+   "type": "Domain",
    "kw": [
-    "Knack"
+    "Domain"
    ],
    "text": [
     "+2 on checks to read intentions, gather rumors, intimidate or lift."
@@ -523,12 +523,12 @@ globalThis.BEARERS_CARDS = {
   },
   "K-I-08": {
    "id": "K-I-08",
-   "name": "Smith",
+   "name": "Forge",
    "rank": "I",
    "kind": "aspect",
-   "type": "Knack",
+   "type": "Domain",
    "kw": [
-    "Knack"
+    "Domain"
    ],
    "text": [
     "+2 on checks to lift, break, haggle or recall lore."
@@ -543,12 +543,12 @@ globalThis.BEARERS_CARDS = {
   },
   "K-I-09": {
    "id": "K-I-09",
-   "name": "Mountaineer",
+   "name": "Peaks",
    "rank": "I",
    "kind": "aspect",
-   "type": "Knack",
+   "type": "Domain",
    "kw": [
-    "Knack"
+    "Domain"
    ],
    "text": [
     "+2 on checks to climb, endure, navigate or balance."
@@ -563,12 +563,12 @@ globalThis.BEARERS_CARDS = {
   },
   "K-I-10": {
    "id": "K-I-10",
-   "name": "Orcish Blood",
+   "name": "Campaign",
    "rank": "I",
    "kind": "aspect",
-   "type": "Knack",
+   "type": "Domain",
    "kw": [
-    "Knack"
+    "Domain"
    ],
    "text": [
     "+2 on checks to intimidate, endure, lift or march."
@@ -583,12 +583,12 @@ globalThis.BEARERS_CARDS = {
   },
   "K-I-11": {
    "id": "K-I-11",
-   "name": "Hobgoblin Discipline",
+   "name": "Discipline",
    "rank": "I",
    "kind": "aspect",
-   "type": "Knack",
+   "type": "Domain",
    "kw": [
-    "Knack"
+    "Domain"
    ],
    "text": [
     "+2 on checks to march, navigate, stand firm or read intentions."
@@ -795,7 +795,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Crowd Work (½ DEX/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +WIL to that roll."
+    "**Presence:** your checks to perform, persuade and deceive add both DEX and WIL."
    ],
    "strip": {
     "STR": 0,
@@ -815,29 +815,7 @@ globalThis.BEARERS_CARDS = {
     "DEX",
     "WIL"
    ],
-   "fx": [
-    {
-     "id": "L-05#0",
-     "name": "Performer",
-     "use": "reaction",
-     "uses": "½DEX/SR",
-     "on": "rollNear",
-     "reach": 30,
-     "target": "ally",
-     "do": [
-      {
-       "mod": "roll",
-       "n": "WIL"
-      }
-     ],
-     "params": {
-      "rollKinds": [
-       "attack",
-       "check"
-      ]
-     }
-    }
-   ]
+   "fx": []
   },
   "L-06": {
    "id": "L-06",
@@ -1077,7 +1055,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Feint (½ WIL/S.R.):** reaction, when an attack hits you: −DEX to that attack roll, possibly turning it into a miss."
+    "**Sure Thing:** on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher."
    ],
    "strip": {
     "STR": 0,
@@ -1101,18 +1079,11 @@ globalThis.BEARERS_CARDS = {
     {
      "id": "L-11#0",
      "name": "Trickster",
-     "use": "reaction",
-     "uses": "½WIL/SR",
-     "on": "hitSelf",
-     "target": "self",
+     "use": "trigger",
+     "on": "hitUnseen",
      "do": [
       {
-       "mod": "def",
-       "n": "DEX",
-       "defs": [
-        "targeted"
-       ],
-       "next": true
+       "dmg": "½DEX|WIL d6"
       }
      ]
     }
@@ -1191,7 +1162,7 @@ globalThis.BEARERS_CARDS = {
   },
   "N-I-01": {
    "id": "N-I-01",
-   "name": "Wildheart's Remembrance",
+   "name": "Wildheart's Instinct",
    "rank": "I",
    "kind": "aspect",
    "type": "Nature",
@@ -1199,8 +1170,9 @@ globalThis.BEARERS_CARDS = {
     "Nature"
    ],
    "text": [
+    "Attack: **WIL + 2**",
     "Resolve: **+3** (short rest)",
-    "Beasts your body remembers. Shift: action."
+    "Beasts your body knows."
    ],
    "strip": {},
    "group": "loot",
@@ -1489,7 +1461,7 @@ globalThis.BEARERS_CARDS = {
     "Technique"
    ],
    "text": [
-    "**2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 on their next attack before the end of your next turn."
+    "**2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 to STR and DEX Defense until the start of your next turn."
    ],
    "strip": {},
    "group": "starter",
@@ -1512,10 +1484,13 @@ globalThis.BEARERS_CARDS = {
      ],
      "do": [
       {
-       "mod": "attack",
+       "mod": "def",
        "n": 2,
-       "next": true,
-       "until": "endSourceTurn"
+       "defs": [
+        "STR",
+        "DEX"
+       ],
+       "until": "startSourceTurn"
       }
      ]
     }
@@ -1602,40 +1577,6 @@ globalThis.BEARERS_CARDS = {
         "targeted"
        ],
        "next": true
-      }
-     ]
-    }
-   ]
-  },
-  "Q-I-07": {
-   "id": "Q-I-07",
-   "name": "Slippery",
-   "rank": "I",
-   "kind": "aspect",
-   "type": "Technique",
-   "kw": [
-    "Technique"
-   ],
-   "text": [
-    "**Reaction (2/S.R.):** move up to half your Speed. This movement doesn't provoke opportunity attacks."
-   ],
-   "strip": {},
-   "group": "loot",
-   "sym": [
-    "DEX",
-    "INT"
-   ],
-   "fx": [
-    {
-     "id": "Q-I-07#0",
-     "name": "Slippery",
-     "use": "reaction",
-     "uses": "2/SR",
-     "target": "self",
-     "do": [
-      {
-       "move": "safe",
-       "ft": "half"
       }
      ]
     }
@@ -1908,7 +1849,7 @@ globalThis.BEARERS_CARDS = {
   },
   "T-I-05": {
    "id": "T-I-05",
-   "name": "Human Grit",
+   "name": "Grit",
    "rank": "I",
    "kind": "aspect",
    "type": "Trait",
@@ -1932,7 +1873,7 @@ globalThis.BEARERS_CARDS = {
   },
   "T-I-06": {
    "id": "T-I-06",
-   "name": "Elven Blood",
+   "name": "Dusk Eyes",
    "rank": "I",
    "kind": "aspect",
    "type": "Trait",
@@ -1952,7 +1893,7 @@ globalThis.BEARERS_CARDS = {
    "fx": [
     {
      "id": "T-I-06#0",
-     "name": "Elven Blood",
+     "name": "Dusk Eyes",
      "use": "passive",
      "darkvision": 60
     }
@@ -1960,7 +1901,7 @@ globalThis.BEARERS_CARDS = {
   },
   "T-I-07": {
    "id": "T-I-07",
-   "name": "Dwarven Blood",
+   "name": "Bedrock",
    "rank": "I",
    "kind": "aspect",
    "type": "Trait",
@@ -1981,7 +1922,7 @@ globalThis.BEARERS_CARDS = {
    "fx": [
     {
      "id": "T-I-07#0",
-     "name": "Dwarven Blood",
+     "name": "Bedrock",
      "use": "passive",
      "defVs": {
       "STR": 2
@@ -1996,7 +1937,7 @@ globalThis.BEARERS_CARDS = {
   },
   "T-I-08": {
    "id": "T-I-08",
-   "name": "Halfling Luck",
+   "name": "Luck",
    "rank": "I",
    "kind": "aspect",
    "type": "Trait",
@@ -2017,7 +1958,7 @@ globalThis.BEARERS_CARDS = {
    "fx": [
     {
      "id": "T-I-08#0",
-     "name": "Halfling Luck",
+     "name": "Luck",
      "use": "passive",
      "uses": "1/SR",
      "lucky": true,
@@ -2062,7 +2003,7 @@ globalThis.BEARERS_CARDS = {
   },
   "T-II-02": {
    "id": "T-II-02",
-   "name": "Wiry",
+   "name": "Sinew",
    "rank": "II",
    "kind": "aspect",
    "type": "Trait",
@@ -2113,7 +2054,7 @@ globalThis.BEARERS_CARDS = {
   },
   "T-II-04": {
    "id": "T-II-04",
-   "name": "Sellsword",
+   "name": "Bravado",
    "rank": "II",
    "kind": "aspect",
    "type": "Trait",
@@ -2137,7 +2078,7 @@ globalThis.BEARERS_CARDS = {
   },
   "T-II-05": {
    "id": "T-II-05",
-   "name": "Acrobat",
+   "name": "Tumbling",
    "rank": "II",
    "kind": "aspect",
    "type": "Trait",
@@ -2161,7 +2102,7 @@ globalThis.BEARERS_CARDS = {
   },
   "T-II-06": {
    "id": "T-II-06",
-   "name": "Hedge Witch",
+   "name": "Herbalist",
    "rank": "II",
    "kind": "aspect",
    "type": "Trait",
@@ -2183,7 +2124,7 @@ globalThis.BEARERS_CARDS = {
    "fx": [
     {
      "id": "T-II-06#0",
-     "name": "Hedge Witch",
+     "name": "Herbalist",
      "use": "passive",
      "extraSp": 1
     }
@@ -2191,7 +2132,7 @@ globalThis.BEARERS_CARDS = {
   },
   "T-II-07": {
    "id": "T-II-07",
-   "name": "Relentless",
+   "name": "Defiance",
    "rank": "II",
    "kind": "aspect",
    "type": "Trait",
@@ -2212,7 +2153,7 @@ globalThis.BEARERS_CARDS = {
    "fx": [
     {
      "id": "T-II-07#0",
-     "name": "Relentless",
+     "name": "Defiance",
      "use": "passive",
      "uses": "1/SR",
      "relentless": true
@@ -2221,7 +2162,7 @@ globalThis.BEARERS_CARDS = {
   },
   "T-II-08": {
    "id": "T-II-08",
-   "name": "Pack Hunter",
+   "name": "Wolfpack",
    "rank": "II",
    "kind": "aspect",
    "type": "Trait",
@@ -2242,7 +2183,7 @@ globalThis.BEARERS_CARDS = {
    "fx": [
     {
      "id": "T-II-08#0",
-     "name": "Pack Hunter",
+     "name": "Wolfpack",
      "use": "trigger",
      "uses": "1/SR",
      "on": "hitEngaged",
@@ -3900,7 +3841,6 @@ globalThis.BEARERS_CARDS = {
    "kind": "divine",
    "atk": 2,
    "resolve": 3,
-   "fate": "1d4",
    "powers": [
     {
      "id": "D-I-01#guidance",
@@ -4034,6 +3974,7 @@ globalThis.BEARERS_CARDS = {
   "N-I-01": {
    "cover": "N-I-01",
    "kind": "nature",
+   "atk": 2,
    "resolve": 3,
    "powers": [
     {
@@ -4104,6 +4045,9 @@ globalThis.BEARERS_CARDS = {
      "use": "action",
      "reach": 5,
      "target": "creature",
+     "need": [
+      "voice"
+     ],
      "do": [
       {
        "heal": "2d8+WIL"
@@ -4237,7 +4181,6 @@ globalThis.BEARERS_CARDS = {
    "carries": [
     "W-I-10",
     "W-I-01",
-    "Q-I-07",
     "A-I-01"
    ],
    "bonus": {},
@@ -4250,8 +4193,24 @@ globalThis.BEARERS_CARDS = {
    "alert": false,
    "boss": false,
    "leader": false,
-   "own": [],
-   "ownFx": [],
+   "own": [
+    "**Nimble (2/S.R.):** reaction. Move up to half its Speed without provoking opportunity attacks."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-goblin#0",
+     "name": "Nimble",
+     "use": "reaction",
+     "uses": "2/SR",
+     "target": "self",
+     "do": [
+      {
+       "move": "safe",
+       "ft": "half"
+      }
+     ]
+    }
+   ],
    "totals": {
     "STR": -1,
     "DEX": 2,
@@ -5198,7 +5157,7 @@ globalThis.BEARERS_CARDS = {
   },
   {
    "key": "aspect",
-   "name": "Aspect",
+   "name": "Rune",
    "perPlayer": 3
   }
  ],
@@ -5236,7 +5195,7 @@ globalThis.BEARERS_CARDS = {
    "P-I-02",
    "C-I-02"
   ],
-  "Aspects": [
+  "Runes": [
    "T-I-01",
    "T-I-02",
    "T-I-03",

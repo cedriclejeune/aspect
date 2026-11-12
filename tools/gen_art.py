@@ -6,7 +6,7 @@ Usage: .venv/bin/python tools/gen_art.py "Goblin Shaman" "a hunched goblin with 
        .venv/bin/python tools/gen_art.py --redo Bandit --change "bone mask instead of the sack mask"   (edit the drawing)
        .venv/bin/python tools/gen_art.py --items --batch [--only Dagger]   (gear card backs, ITEMS in tools/art_prompts.py)
        .venv/bin/python tools/gen_art.py --items Dagger --count 2   (a name alone takes its subject from tools/art_prompts.py)
-       .venv/bin/python tools/gen_art.py --cards --batch   (Callings, Aspects, deck cards and Wounds: CARDS, in rules/art/cards/)
+       .venv/bin/python tools/gen_art.py --cards --batch   (Callings, Runes, deck cards and Wounds: CARDS, in rules/art/cards/)
        .venv/bin/python tools/gen_art.py --symbols --batch --force [--only str]   (card symbols: SYMBOLS, in rules/symbols/qwen/;
          then run tools/ink_symbols.py)
 Drawings are saved in greyscale (Pillow, in .venv). --redo sends the current drawing as the reference: inline to Model Studio,
@@ -359,7 +359,7 @@ def main():
     kind.add_argument("--symbols", action="store_const", const="symbols", dest="kind",
                       help="the card symbols (SYMBOLS, SYMBOL_STYLE, no style reference, rules/symbols/qwen/)")
     kind.add_argument("--cards", action="store_const", const="cards", dest="kind",
-                      help="the other card backs: Callings, Aspects, deck cards, Wounds (CARDS, rules/art/cards/)")
+                      help="the other card backs: Callings, Runes, deck cards, Wounds (CARDS, rules/art/cards/)")
     ap.add_argument("--force", action="store_true", help="overwrite an existing drawing")
     a = ap.parse_args()
     refs = [] if a.no_ref or (a.kind == "symbols" and not a.ref) else a.ref or [REF]

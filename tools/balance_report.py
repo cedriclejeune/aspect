@@ -4,7 +4,7 @@ Usage: python3 tools/balance_report.py [--strict]
 Reads cards/base_set.py only (no packages needed). Prints tables; with --strict, exits non-zero when a check fails.
 
 "Equippable" follows P 3.1 (the Calling has one of the card's lit symbols). "Usable" also drops cards whose effect
-needs gear or Aspects the Calling can never equip: a Focus without a Divine, Glamour or Nature deck, a Shield
+needs gear or Runes the Calling can never equip: a Focus without a Divine, Glamour or Nature deck, a Shield
 Technique without a Shield, a Heavy or Reach Technique without such a weapon.
 """
 import collections
@@ -30,7 +30,7 @@ ACTIVITY = {
     "WIL": ["persuade", "deceive", "perform", "intimidate", "haggle", "gather rumors", "handle animals", "stand firm"],
 }
 
-ACTIVITY_EXCEPTIONS = {"Renowned"}  # GM 4.3: the pure WIL social Knack
+ACTIVITY_EXCEPTIONS = {"Minstrel"}  # GM 4.3: the pure WIL social Domain
 ROLL_EXCEPTIONS = {"Pocket Sand", "Alchemist's Fire Recipe"}  # anyone can throw them, at +0 without the ability (accepted)
 
 CARDS = [c for c in bs.CARDS if c["kind"] != "calling"]
@@ -46,7 +46,7 @@ def ctype(c):
 
 
 def slot(c):
-    return SLOT.get(ctype(c), "Aspect")
+    return SLOT.get(ctype(c), "Rune")
 
 
 def fits(c, pair):
@@ -87,11 +87,11 @@ def callings_report():
         us = [c for c in CARDS if usable(c, pair)]
         st = sum(c["group"] == "starter" for c in us)
         lo = sum(c["group"] == "loot" for c in us)
-        asp = collections.Counter(c["rank"] for c in us if slot(c) == "Aspect")
+        asp = collections.Counter(c["rank"] for c in us if slot(c) == "Rune")
         hands = sum(slot(c) == "Hand" for c in us)
         rows.append(["·".join(pair), names, len(eq), len(us), st, lo, hands, asp.get("I", 0), asp.get("II", 0)])
         totals.append(len(us))
-    table(["Pair", "Callings", "Equip", "Usable", "Starter", "Loot", "Hand", "Aspect I", "Aspect II"], rows)
+    table(["Pair", "Callings", "Equip", "Usable", "Starter", "Loot", "Hand", "Rune I", "Rune II"], rows)
     print(f"Usable spread: {min(totals)}–{max(totals)} of {len(CARDS)} cards "
           f"({max(totals) - min(totals)} apart, {100 * (max(totals) - min(totals)) / max(totals):.0f}%)\n")
     return max(totals) - min(totals)
@@ -151,7 +151,7 @@ def checks():
             out.append(f"{c['name']}: to hit +{c['atk']['hit']}, Rank {r} bonus is +{RANK_BONUS[r]} (DESIGN 4: size every number by Rank)")
         if t == "Trait" and c["strip"].get("HP") != f"+{TRAIT_HP[r]}":
             out.append(f"{c['name']}: Trait HP {c['strip'].get('HP')}, Rank {r} prints +{TRAIT_HP[r]}")
-        if t in ("Knack", "Technique") and "HP" in c["strip"]:
+        if t in ("Domain", "Technique") and "HP" in c["strip"]:
             out.append(f"{c['name']}: a {t} prints no HP")
         if SLOT.get(t) in ("Jewelry", "Item", "Pack") and t != "Spellbook" and "Focus" not in c["kw"] and len(c["sym"]) != 4:
             out.append(f"{c['name']}: {t} should light all four symbols")

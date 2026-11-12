@@ -24,24 +24,24 @@ NAMES = {
     "Fine Bow": "Arc composite", "Wand": "Baguette",
     # jewelry and items
     "Ring of Warding": "Anneau de protection", "Guild Signet": "Chevalière de guilde",
-    "Shard Bandolier": "Bandoulière à Éclats", "Holy Amulet": "Amulette sacrée",
+    "Runestone Bandolier": "Bandoulière runique", "Holy Amulet": "Amulette sacrée",
     "Boots of the Long Stride": "Bottes de grande foulée", "Ring of Sparks": "Anneau d'étincelles",
     "Dancer's Bells": "Grelots de danseur", "Potion of Healing": "Potion de soins", "Coin Pouch": "Bourse à cordon",
     "Writ of Favor": "Lettre d'introduction", "Greater Potion of Healing": "Potion de soins supérieurs",
     "Restorative Salve": "Onguent réparateur", "Pocket Sand": "Sable de poche",
     "Alchemist's Fire Recipe": "Recette de feu grégeois",
-    # Aspects
-    "Springheel": "Saute-ruisseau", "Stone Blood": "Sang de pierre", "Iron Will": "Volonté de fer",
+    # Runes
+    "Springheel": "Bond", "Stone Blood": "Sang de pierre", "Iron Will": "Volonté de fer",
     "Clear Mind": "Esprit clair", "Cleave": "Enchaînement", "Steady Aim": "Visée juste",
     "Shield Bash": "Coup de bouclier", "Battle Hymn": "Hymne de bataille", "Rallying Cry": "Cri de ralliement",
-    "Shield Wall": "Mur de boucliers", "Cat Burglar": "Passe-muraille", "Renowned": "Renommé", "Sailor": "Marin",
-    "Street Urchin": "Gamin des rues", "Hunter": "Chasseur", "Physician": "Médecin", "Barkeep": "Tavernier",
-    "Smith": "Forgeron", "Mountaineer": "Montagnard", "Twin Strike": "Double frappe", "Second Wind": "Second souffle",
-    "Wiry": "Nerveux", "Night Eyes": "Yeux de nuit", "Sellsword": "Lame à louer", "Acrobat": "Acrobate",
-    "Pack Hunter": "Chasseur de meute", "Slippery": "Insaisissable", "Hedge Witch": "Sorcière des bois",
-    "Sweeping Blow": "Coup balayant", "Relentless": "Implacable", "Human Grit": "Ténacité humaine",
-    "Elven Blood": "Sang elfique", "Dwarven Blood": "Sang nain", "Halfling Luck": "Chance halfeline",
-    "Orcish Blood": "Sang orque", "Hobgoblin Discipline": "Discipline hobgobeline",
+    "Shield Wall": "Mur de boucliers", "Larceny": "Larcin", "Minstrel": "Ménestrel", "Navigation": "Navigation",
+    "Backstreets": "Ruelles", "Hunt": "Traque", "Healing": "Guérison", "Tavern": "Taverne",
+    "Forge": "Forge", "Peaks": "Cimes", "Twin Strike": "Double frappe", "Second Wind": "Second souffle",
+    "Sinew": "Nerf", "Night Eyes": "Yeux de nuit", "Bravado": "Bravade", "Tumbling": "Voltige",
+    "Wolfpack": "Meute", "Herbalist": "Herboriste",
+    "Sweeping Blow": "Coup balayant", "Defiance": "Acharnement", "Grit": "Ténacité",
+    "Dusk Eyes": "Yeux de crépuscule", "Bedrock": "Socle", "Luck": "Chance",
+    "Campaign": "Campagne", "Discipline": "Discipline",
     # Wounds
     "Twisted Ankle": "Cheville tordue", "Bruised Ribs": "Côtes contusionnées", "Pulled Muscle": "Claquage",
     "Concussion": "Commotion", "Shaken": "Ébranlé", "Deep Cut": "Entaille profonde", "Black Eye": "Œil au beurre noir",
@@ -52,7 +52,7 @@ NAMES = {
     "Internal Bleeding": "Hémorragie interne",
     # decks: covers, spells, powers, Forms
     "Conjurer's Book": "Livre du conjurateur", "Wanderer's Repertoire": "Répertoire du vagabond",
-    "Acolyte's Litany": "Litanie de l'acolyte", "Wildheart's Remembrance": "Souvenance du cœur sauvage",
+    "Acolyte's Litany": "Litanie de l'acolyte", "Wildheart's Instinct": "Instinct du cœur sauvage",
     "Fire Bolt": "Trait de feu", "Mage Hand": "Main de mage", "Magic Missile": "Projectile magique",
     "Grease": "Graisse", "Misty Step": "Foulée brumeuse", "Web": "Toile d'araignée", "Jeer": "Raillerie",
     "Rally": "Ralliement", "Hold the Line": "Tenez la ligne", "Cutting Words": "Réplique cinglante",
@@ -75,7 +75,7 @@ KEYWORDS = {
     "Calling": "Vocation", "Armor": "Armure", "Weapon": "Arme", "Shield": "Bouclier", "Instrument": "Instrument",
     "Focus": "Focaliseur", "Jewelry": "Bijou", "Consumable": "Consommable", "Container": "Contenant", "Recipe": "Recette",
     "3 flasks": "3 fioles", "Spellbook": "Livre de sorts", "Spell": "Sort", "Cantrip": "Tour de magie",
-    "Trait": "Trait", "Technique": "Technique", "Knack": "Savoir-faire", "Divine": "Divin", "Glamour": "Glamour",
+    "Trait": "Trait", "Technique": "Technique", "Domain": "Domaine", "Divine": "Divin", "Glamour": "Glamour",
     "Nature": "Nature", "Anthem": "Hymne", "Dirge": "Complainte", "Cue": "Réplique", "Mend": "Soin", "Form": "Forme",
     "Wound": "Blessure", "Crippling": "Invalidante", "Hand": "Main", "Item": "Objet", "Heavy": "Lourde",
     "Light": "Légère", "Reach": "Allonge", "Two-Handed": "Deux mains", "Versatile (1d10)": "Polyvalente (1d10)",
@@ -130,15 +130,15 @@ TEXT = {
     "**Footwork:** once per turn, after you hit with a melee attack, move 5 ft × ½ DEX. This movement doesn't provoke opportunity attacks.":
         "**Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 2 m × ½ AGI. Ce déplacement ne provoque pas d'attaque d'opportunité.",
     "**Riposte (½ STR/S.R.):** reaction, when a melee attack misses you: make one melee weapon attack against the attacker.":
-        "**Riposte (½ FOR/R.C.) :** réaction, quand une attaque au corps à corps vous rate : faites une attaque d'arme au corps à corps contre l'attaquant.",
+        "**Riposte (½ FOR/C.R.) :** réaction, quand une attaque au corps à corps vous rate : faites une attaque d'arme au corps à corps contre l'attaquant.",
     "**Oath (½ WIL/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead, reduced by 2 × STR.":
-        "**Serment (½ VOL/R.C.) :** réaction, quand une attaque touche un allié à 2 m ou moins : vous subissez ses dégâts à sa place, réduits de 2 × FOR.",
+        "**Serment (½ VOL/C.R.) :** réaction, quand une attaque touche un allié à 2 m ou moins : vous subissez ses dégâts à sa place, réduits de 2 × FOR.",
     "**Spell Strike (½ STR/S.R.):** when you hit with a melee weapon attack: +INT damage.":
-        "**Frappe ensorcelée (½ FOR/R.C.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts.",
+        "**Frappe ensorcelée (½ FOR/C.R.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts.",
     "**Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT.":
         "**Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent l'AGI et l'INT.",
-    "**Crowd Work (½ DEX/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +WIL to that roll.":
-        "**Grande ovation (½ AGI/R.C.) :** réaction, après qu'un allié à 12 m ou moins a fait une attaque ou un test : +VOL à ce jet.",
+    "**Presence:** your checks to perform, persuade and deceive add both DEX and WIL.":
+        "**Présence :** vos tests pour se produire, persuader et tromper ajoutent l'AGI et la VOL.",
     "**Learned:** ½ INT extra spell points. Your checks to recall lore add both INT and WIL.":
         "**Érudit :** ½ INT points de sort supplémentaires. Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL.",
     "**Scrapper:** +STR to hit with Grapples and Shoves.":
@@ -146,13 +146,13 @@ TEXT = {
     "**Slip Free:** your Escape attacks add 2 × DEX instead of STR or DEX.":
         "**Dégagement :** vos attaques pour S'échapper ajoutent 2 × AGI au lieu de FOR ou AGI.",
     "**Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage.":
-        "**Juste colère (½ VOL/R.C.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants.",
+        "**Juste colère (½ VOL/C.R.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants.",
     "**Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit.":
-        "**Commandement (½ FOR/R.C.) :** action. Un allié à 12 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher.",
+        "**Commandement (½ FOR/C.R.) :** action. Un allié à 12 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher.",
     "**Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn.":
-        "**Proie (½ INT/R.C.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ AGI aux attaques contre elle jusqu'au début de votre prochain tour.",
-    "**Feint (½ WIL/S.R.):** reaction, when an attack hits you: −DEX to that attack roll, possibly turning it into a miss.":
-        "**Feinte (½ VOL/R.C.) :** réaction, quand une attaque vous touche : −AGI à ce jet d'attaque, ce qui peut le transformer en échec.",
+        "**Proie (½ INT/C.R.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ AGI aux attaques contre elle jusqu'au début de votre prochain tour.",
+    "**Sure Thing:** on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher.":
+        "**Coup sûr :** pour vos tests pour se faufiler, crocheter les serrures, faire les poches et désamorcer les pièges, un d20 qui affiche moins de 10 compte comme un 10. Quand vous touchez une créature qui ne vous voit pas : +½ AGI ou ½ VOL d6 dégâts, la plus haute des deux.",
     "**Solitude:** ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL.":
         "**Solitude :** ½ VOL Ardeur supplémentaire. Vos tests pour cueillir et endurer ajoutent l'INT et la VOL.",
     # hands
@@ -161,7 +161,7 @@ TEXT = {
         "**Saignée :** quand vous touchez, la cible a −2 à son prochain jet d'attaque avant le début de votre prochain tour.",
     "While you hold it, it counts as an empty Hand for casting from a Spellbook.":
         "Tant que vous le tenez, il compte comme une Main vide pour lancer des sorts depuis un Livre de sorts.",
-    "1 extra Resolve (short rest).": "1 Ardeur supplémentaire (repos court).",
+    "1 extra Resolve (short rest).": "1 Ardeur supplémentaire (court repos).",
     "Your Anthems reach 60 ft instead of 30 ft.": "Vos Hymnes portent à 24 m au lieu de 12 m.",
     "**Crushing:** on a critical hit, the target is knocked Prone.": "**Écrasement :** sur un coup critique, la cible est mise À terre.",
     "**Close Order:** +1d4 damage while an ally is engaged with the same creature.":
@@ -171,15 +171,15 @@ TEXT = {
         "**Perforation :** si l'attaque touche, un Bouclier que tient la cible ne donne plus de bonus jusqu'à ce qu'elle dépense une action pour arracher le pilum.",
     # jewelry
     "**Reaction (2/S.R.)**, when an attack hits you: +2 to the targeted Defense against that attack, possibly turning it into a miss.":
-        "**Réaction (2/R.C.)**, quand une attaque vous touche : +2 à la Défense visée contre cette attaque, ce qui peut la transformer en échec.",
+        "**Réaction (2/C.R.)**, quand une attaque vous touche : +2 à la Défense visée contre cette attaque, ce qui peut la transformer en échec.",
     "**Action (1/L.R.)**, in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night.":
-        "**Action (1/R.L.)**, dans une localité où la guilde opère : un contact vous trouve dans l'heure. Il vous révèle un fait que la guilde connaîtrait, ou vous cache pour une nuit.",
-    "While it's in your Pack, your Pack holds up to 5 Shards instead of 3.":
-        "Tant qu'elle est dans votre Sac, il contient jusqu'à 5 Éclats au lieu de 3.",
+        "**Action (1/L.R.)**, dans une localité où la guilde opère : un contact vous trouve dans l'heure. Il vous révèle un fait que la guilde connaîtrait, ou vous cache pour une nuit.",
+    "While it's in your Pack, your Pack holds up to 5 Runestones instead of 3.":
+        "Tant qu'elle est dans votre Sac, il contient jusqu'à 5 Pierres runiques au lieu de 3.",
     "Your Cues reach 90 ft instead of 60 ft.": "Vos Répliques portent à 36 m au lieu de 24 m.",
-    "**Reaction (1/S.R.):** Move.": "**Réaction (1/R.C.) :** Déplacement.",
+    "**Reaction (1/S.R.):** Move.": "**Réaction (1/C.R.) :** Déplacement.",
     "**Reaction (1/S.R.)**, when a creature within 5 ft hits you: it takes 2d6 Lightning.":
-        "**Réaction (1/R.C.)**, quand une créature à 2 m ou moins vous touche : elle subit 2d6 Foudre.",
+        "**Réaction (1/C.R.)**, quand une créature à 2 m ou moins vous touche : elle subit 2d6 Foudre.",
     "Your Dirges reach 90 ft instead of 60 ft.": "Vos Complaintes portent à 36 m au lieu de 24 m.",
     # items
     "**Action:** drink it, or give it to a creature within 5 ft. It regains 2d4 + 2 HP.":
@@ -195,33 +195,33 @@ TEXT = {
         "**Réaction :** lancez-le sur une créature à 2 m ou moins. Attaque (AGI ou VOL + 2) contre sa Défense d'AGI : si elle touche, la créature a −2 aux attaques jusqu'à la fin de son prochain tour.",
     "**Reaction:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss.":
         "**Réaction :** lancez une fiole jusqu'à 12 m. Faites une attaque (AGI ou INT + 3) contre la Défense d'AGI de chaque créature à 2 m ou moins du point d'impact : 2d6 Feu si elle touche, la moitié en cas d'échec.",
-    # Aspects
+    # Runes
     "Your jump distances are doubled, and you never need a running start.":
         "Vos distances de saut sont doublées, et vous n'avez jamais besoin d'élan.",
     "+2 STR Defense against poison and disease.": "+2 à la Défense de FOR contre le poison et la maladie.",
     "+2 WIL Defense against fear and mind control.": "+2 à la Défense de VOL contre la peur et le contrôle mental.",
     "+2 INT Defense against illusions and confusion.": "+2 à la Défense d'INT contre les illusions et la confusion.",
     "**1/S.R.**, when your melee attack drops a creature to 0 HP: make one melee attack against another creature within your reach.":
-        "**1/R.C.**, quand votre attaque au corps à corps fait tomber une créature à 0 PV : faites une attaque au corps à corps contre une autre créature à votre allonge.",
+        "**1/C.R.**, quand votre attaque au corps à corps fait tomber une créature à 0 PV : faites une attaque au corps à corps contre une autre créature à votre allonge.",
     "**Reaction (2/S.R.):** your next ranged attack this turn has +2 to hit.":
-        "**Réaction (2/R.C.) :** votre prochaine attaque à distance de ce tour a +2 au toucher.",
+        "**Réaction (2/C.R.) :** votre prochaine attaque à distance de ce tour a +2 au toucher.",
     "**Reaction (1/S.R.)**, when you take the Attack action while holding a Shield: Shove a creature within 5 ft.":
-        "**Réaction (1/R.C.)**, quand vous effectuez l'action Attaque en tenant un Bouclier : Bousculez une créature à 2 m ou moins.",
-    "**2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 on their next attack before the end of your next turn.":
-        "**2/R.C.**, quand vous touchez avec une attaque d'arme : jusqu'à 3 alliés à 12 m ou moins qui peuvent vous entendre ont +2 à leur prochaine attaque avant la fin de votre prochain tour.",
+        "**Réaction (1/C.R.)**, quand vous effectuez l'action Attaque en tenant un Bouclier : Bousculez une créature à 2 m ou moins.",
+    "**2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 to STR and DEX Defense until the start of your next turn.":
+        "**2/C.R.**, quand vous touchez avec une attaque d'arme : jusqu'à 3 alliés à 12 m ou moins qui peuvent vous entendre ont +2 aux Défenses de FOR et d'AGI jusqu'au début de votre prochain tour.",
     "*Rally* as a loose Anthem.": "*Ralliement* comme Hymne isolé.",
     "**Action (1/S.R.):** Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks.":
-        "**Action (1/R.C.) :** Durée 1 minute. Jusqu'à 3 alliés à 12 m ou moins ont +2 aux attaques.",
+        "**Action (1/C.R.) :** Durée 1 minute. Jusqu'à 3 alliés à 12 m ou moins ont +2 aux attaques.",
     "**Reaction (1/S.R.)**, when an attack hits an ally within 5 ft while you hold a Shield: +2 to the targeted Defense against that attack, possibly turning it into a miss.":
-        "**Réaction (1/R.C.)**, quand une attaque touche un allié à 2 m ou moins pendant que vous tenez un Bouclier : +2 à la Défense visée contre cette attaque, ce qui peut la transformer en échec.",
+        "**Réaction (1/C.R.)**, quand une attaque touche un allié à 2 m ou moins pendant que vous tenez un Bouclier : +2 à la Défense visée contre cette attaque, ce qui peut la transformer en échec.",
     "Once per turn, when you take the Attack action, make one extra attack.":
         "Une fois par tour, quand vous effectuez l'action Attaque, faites une attaque supplémentaire.",
-    "**Action (1/S.R.):** regain 1d10 + 3 HP.": "**Action (1/R.C.) :** récupérez 1d10 + 3 PV.",
+    "**Action (1/S.R.):** regain 1d10 + 3 HP.": "**Action (1/C.R.) :** récupérez 1d10 + 3 PV.",
     "**1/S.R.**, when you hit a creature one of your allies is engaged with: it falls Prone.":
-        "**1/R.C.**, quand vous touchez une créature avec laquelle l'un de vos alliés est engagé : elle tombe À terre.",
+        "**1/C.R.**, quand vous touchez une créature avec laquelle l'un de vos alliés est engagé : elle tombe À terre.",
     "**Reaction (2/S.R.):** move up to half your Speed. This movement doesn't provoke opportunity attacks.":
-        "**Réaction (2/R.C.) :** déplacez-vous jusqu'à la moitié de votre Vitesse. Ce déplacement ne provoque pas d'attaque d'opportunité.",
-    "1 extra spell point (long rest).": "1 point de sort supplémentaire (repos long).",
+        "**Réaction (2/C.R.) :** déplacez-vous jusqu'à la moitié de votre Vitesse. Ce déplacement ne provoque pas d'attaque d'opportunité.",
+    "1 extra spell point (long rest).": "1 point de sort supplémentaire (long repos).",
     "+3 on checks to handle animals, recall lore, treat wounds or deceive.":
         "+3 aux tests pour dresser les animaux, se souvenir de connaissances, soigner les blessures ou tromper.",
     "+3 on checks to intimidate, endure, haggle or gather rumors.":
@@ -229,14 +229,14 @@ TEXT = {
     "+3 on checks to tumble, balance, jump or perform.":
         "+3 aux tests pour faire des acrobaties, garder l'équilibre, sauter ou se produire.",
     "**1/S.R.**, when you take the Attack action with a Heavy or Reach weapon: make one attack roll against each enemy within your reach instead. Half damage on a miss.":
-        "**1/R.C.**, quand vous effectuez l'action Attaque avec une arme Lourde ou à Allonge : faites à la place un jet d'attaque contre chaque ennemi à votre allonge. Moitié des dégâts en cas d'échec.",
+        "**1/C.R.**, quand vous effectuez l'action Attaque avec une arme Lourde ou à Allonge : faites à la place un jet d'attaque contre chaque ennemi à votre allonge. Moitié des dégâts en cas d'échec.",
     "**1/S.R.**, when damage drops you to 0 HP without killing you outright: you drop to 1 HP instead.":
-        "**1/R.C.**, quand des dégâts vous font tomber à 0 PV sans vous tuer sur le coup : vous tombez à 1 PV à la place.",
+        "**1/C.R.**, quand des dégâts vous font tomber à 0 PV sans vous tuer sur le coup : vous tombez à 1 PV à la place.",
     "**Stubborn (1/S.R.):** when you fail a check, add +2 to that roll, possibly turning it into a success.":
-        "**Têtu (1/R.C.) :** quand vous ratez un test, ajoutez +2 à ce jet, ce qui peut le transformer en réussite.",
+        "**Têtu (1/C.R.) :** quand vous ratez un test, ajoutez +2 à ce jet, ce qui peut le transformer en réussite.",
     "+2 STR Defense against poison.": "+2 à la Défense de FOR contre le poison.",
     "+2 STR Defense against poison, Shoves and Grapples.": "+2 à la Défense de FOR contre le poison, Bousculer et Empoigner.",
-    "**Lucky (1/S.R.):** when you roll a 1 on a d20, reroll it.": "**Veinard (1/R.C.) :** quand vous faites 1 sur un d20, relancez-le.",
+    "**Lucky (1/S.R.):** when you roll a 1 on a d20, reroll it.": "**Veinard (1/C.R.) :** quand vous faites 1 sur un d20, relancez-le.",
     # Wounds
     "You hobble.": "Vous boitez.", "Every breath hurts.": "Chaque respiration fait mal.",
     "You can't twist away in time.": "Vous ne pivotez plus assez vite.", "The world swims a little.": "Le monde tangue un peu.",
@@ -246,16 +246,16 @@ TEXT = {
     "−2 on melee attacks.": "−2 aux attaques au corps à corps.",
     "1 less Resolve and 1 less spell point.": "1 Ardeur de moins et 1 point de sort de moins.",
     "A short rest heals only a quarter of your missing HP (rounded up).":
-        "Un repos court ne soigne qu'un quart de vos PV manquants (arrondi au supérieur).",
+        "Un court repos ne soigne qu'un quart de vos PV manquants (arrondi au supérieur).",
     "You may never run the same again.": "Vous ne courrez peut-être plus jamais comme avant.",
     "−2 on INT checks.": "−2 aux tests d'INT.", "You lose blood every time you move too fast.": "Vous perdez du sang dès que vous bougez trop vite.",
     # deck covers
-    "Spell attack: **INT + 2**": "Attaque de sort : **INT + 2**", "Spell points: **4** (long rest)": "Points de sort : **4** (repos long)",
-    "Spell points: **+2** (long rest)": "Points de sort : **+2** (repos long)", "Resolve: **+3** (short rest)": "Ardeur : **+3** (repos court)",
+    "Spell attack: **INT + 2**": "Attaque de sort : **INT + 2**", "Spell points: **4** (long rest)": "Points de sort : **4** (long repos)",
+    "Spell points: **+2** (long rest)": "Points de sort : **+2** (long repos)", "Resolve: **+3** (short rest)": "Ardeur : **+3** (court repos)",
     "Max spell level: **2nd**": "Niveau de sort max : **2e**", "Casting needs an empty Hand.": "L'incantation demande une Main vide.",
-    "Attack: **WIL + 2**": "Attaque : **VOL + 2**", "Resolve: **3 + WIL** (short rest)": "Ardeur : **3 + VOL** (repos court)",
-    "Songs, poems and dances.": "Chants, poèmes et danses.", "Prayers. Fate dice: **d4**.": "Prières. Dés du destin : **d4**.",
-    "Beasts your body remembers. Shift: action.": "Des bêtes dont votre corps se souvient. Muer : action.",
+    "Attack: **WIL + 2**": "Attaque : **VOL + 2**", "Resolve: **3 + WIL** (short rest)": "Ardeur : **3 + VOL** (court repos)",
+    "Songs, poems and dances.": "Chants, poèmes et danses.", "Prayers.": "Prières.",
+    "Beasts your body knows.": "Des bêtes que votre corps connaît.",
     # spells and powers
     "**Action**, range 120 ft.": "**Action**, portée 48 m.",
     "Spell attack against DEX Defense: **1d10 Fire**. A flammable object it hits catches fire.":
@@ -306,11 +306,12 @@ TEXT = {
     "**Bite:** +4 to hit, 1d6 + 2 Physical.": "**Morsure :** +4 au toucher, 1d6 + 2 Physique.",
     "**Thick Hide:** +1 STR Defense (included).": "**Cuir épais :** +1 à la Défense de FOR (inclus).",
     "**Keen Nose:** alert (passive Awareness +5).": "**Flair :** alerte (Vigilance passive +5).",
+    "**Nimble (2/S.R.):** reaction. Move up to half its Speed without provoking opportunity attacks.": "**Leste (2/C.R.) :** réaction. Il se déplace de la moitié de sa Vitesse sans provoquer d'attaque d'opportunité.",
     "Throws its *Pilum*, then draws its *Gladius*.": "Lance son *Pilum*, puis dégaine son *Gladius*.",
     "**Giant Strength:** +60 HP. Its *Javelins* roll one extra damage die (included). Its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R.":
-        "**Force de géant :** +60 PV. Ses *Javelots* lancent un dé de dégâts supplémentaire (compris). Son *Coup balayant* se recharge sur 5–6 au lieu de 1/R.C.",
+        "**Force de géant :** +60 PV. Ses *Javelots* lancent un dé de dégâts supplémentaire (compris). Son *Coup balayant* se recharge sur 5–6 au lieu de 1/C.R.",
     "**Warlord:** its *Sweeping Blow* recharges on a 5–6 instead of 1/S.R.":
-        "**Seigneur de guerre :** son *Coup balayant* se recharge sur 5–6 au lieu de 1/R.C.",
+        "**Seigneur de guerre :** son *Coup balayant* se recharge sur 5–6 au lieu de 1/C.R.",
     "**Bellow (Recharge 5–6):** reaction. Attack (+5) against the WIL Defense of each enemy within 30 ft: Frightened of the chieftain until the end of its next turn.":
         "**Beuglement (Recharge 5–6) :** réaction. Attaque (+5) contre la Défense de VOL de chaque ennemi à 12 m ou moins : Effrayé par le chef jusqu'à la fin de son prochain tour.",
     "**Keen Eyes:** alert (passive Awareness +5).": "**Œil perçant :** alerte (Vigilance passive +5).",
@@ -363,7 +364,7 @@ LORE = {
     "Yew, horn and patience. A trained archer drops a charging boar before it closes.": "If, corne et patience. Un archer entraîné abat un sanglier qui charge avant qu'il n'arrive.",
     "A strip of leather and a pouch of stones. Shepherds have killed giants with less.": "Une lanière de cuir et une bourse de pierres. Des bergers ont tué des géants avec moins.",
     "A bundle of light spears, made to be thrown first and asked about later.": "Une botte de lances légères, faites pour être lancées d'abord et discutées ensuite.",
-    "Runes run along its grain. The wood remembers the shape of a casting hand.": "Des runes courent le long du fil. Le bois se souvient de la forme d'une main qui incante.",
+    "Glyphs run along its grain. The wood remembers the shape of a casting hand.": "Des glyphes courent le long du fil. Le bois se souvient de la forme d'une main qui incante.",
     "Its varnish is worn where a hundred hands have strummed it. The tunes carry far.": "Son vernis est usé là où cent mains l'ont gratté. Ses airs portent loin.",
     "A tree limb with ambitions. What it hits stays down for a while.": "Une branche qui a de l'ambition. Ce qu'elle frappe reste à terre un moment.",
     "A soldier's sword, short and wide, made for fighting shoulder to shoulder.": "Une épée de soldat, courte et large, faite pour combattre coude à coude.",
@@ -374,7 +375,7 @@ LORE = {
     # jewelry
     "A band of cold silver. It tightens around the finger just before the blow lands.": "Un anneau d'argent froid. Il se resserre sur le doigt juste avant que le coup ne porte.",
     "Press it into wax and doors open. Lose it, and someone comes asking why.": "Pressez-la dans la cire et les portes s'ouvrent. Perdez-la, et quelqu'un viendra demander pourquoi.",
-    "Leather straps padded for crystal. Shards clink softly against each other as you walk.": "Des sangles de cuir rembourrées pour le cristal. Les Éclats tintent doucement à chaque pas.",
+    "Leather straps padded for stone. Runestones knock softly against each other as you walk.": "Des sangles de cuir rembourrées pour la pierre. Les Pierres runiques s'entrechoquent doucement à chaque pas.",
     "A blessed token on a worn cord. Prayers spoken over it seem to travel further.": "Un médaillon béni sur un cordon usé. Les prières dites sur lui semblent porter plus loin.",
     "Soft boots that never wear out. Every few steps, one lands farther than it should.": "Des bottes souples qui ne s'usent jamais. Tous les quelques pas, l'un d'eux tombe plus loin qu'il ne devrait.",
     "Copper wire coiled around a blue stone. It bites whoever lays a hand on its wearer.": "Un fil de cuivre enroulé autour d'une pierre bleue. Il mord quiconque porte la main sur son porteur.",
@@ -387,48 +388,48 @@ LORE = {
     "Bitter herbs, river clay and a healer's patience, sealed in a tin.": "Herbes amères, argile de rivière et patience de guérisseur, scellées dans une boîte en fer.",
     "The oldest trick there is. It still works.": "Le plus vieux tour qui soit. Il marche encore.",
     "Three corked flasks and the knowledge to fill them. Keep them away from the campfire.": "Trois fioles bouchées et le savoir pour les remplir. À tenir loin du feu de camp.",
-    # aspects
-    "It came from someone who never learned to walk, only to bound.": "Il vient de quelqu'un qui n'a jamais appris à marcher, seulement à bondir.",
-    "Taken from a taster at a poisoner's court. Nothing in a cup ever hurt them again.": "Pris à un goûteur d'une cour d'empoisonneurs. Plus rien dans une coupe ne lui a jamais fait de mal.",
-    "The resolve of someone who stared down terrors and did not blink.": "La résolution de quelqu'un qui a toisé l'épouvante sans ciller.",
+    # Runes
+    "The ground lets go of you a little sooner, and takes you back a little later.": "Le sol vous lâche un peu plus tôt, et vous reprend un peu plus tard.",
+    "Blood gone thick and slow as stone. Poison sinks into it and goes no further.": "Un sang devenu épais et lent comme la pierre. Le poison s'y enfonce et ne va pas plus loin.",
+    "A resolve that stares down terrors and does not blink.": "Une résolution qui toise l'épouvante sans ciller.",
     "A mind that sees through mist and mirrors. Illusions slide off it like rain.": "Un esprit qui voit à travers brumes et miroirs. Les illusions glissent dessus comme la pluie.",
-    "A soldier's reflex: when one foe falls, the blade is already moving to the next.": "Un réflexe de soldat : quand un ennemi tombe, la lame file déjà vers le suivant.",
-    "A hunter's breath, held between heartbeats, until the arrow flies.": "Le souffle d'un chasseur, retenu entre deux battements, jusqu'à ce que la flèche parte.",
-    "Shields aren't only for hiding behind. A veteran knows the rim is a weapon too.": "Un bouclier ne sert pas qu'à se cacher. Un vétéran sait que son rebord est aussi une arme.",
-    "A warrior's chant that rose with every strike, until the whole line sang along.": "Le chant d'un guerrier, qui montait à chaque coup jusqu'à ce que toute la ligne le reprenne.",
-    "One voice that turns a rout into a charge. It remembers every battlefield it saved.": "Une seule voix qui change une déroute en charge. Elle se souvient de chaque champ de bataille qu'elle a sauvé.",
-    "Learned in the front rank, where your shield guards the friend beside you.": "Appris au premier rang, là où votre bouclier garde l'ami à vos côtés.",
-    "The habits of someone who never used a door if a window would do.": "Les habitudes de quelqu'un qui n'a jamais pris une porte quand une fenêtre suffisait.",
+    "One foe falls, and the blade is already moving to the next.": "Un ennemi tombe, et la lame file déjà vers le suivant.",
+    "A breath held between heartbeats, until the arrow flies.": "Un souffle retenu entre deux battements, jusqu'à ce que la flèche parte.",
+    "Shields aren't only for hiding behind. The rim is a weapon too.": "Un bouclier ne sert pas qu'à se cacher. Son rebord est aussi une arme.",
+    "A chant that rises with every strike, until the whole line sings along.": "Un chant qui monte à chaque coup, jusqu'à ce que toute la ligne le reprenne.",
+    "One voice that turns a rout into a charge. It carries farther than a voice should.": "Une seule voix qui change une déroute en charge. Elle porte plus loin qu'une voix ne devrait.",
+    "The rule of the front rank: your shield guards the friend beside you.": "La règle du premier rang : votre bouclier garde l'ami à vos côtés.",
+    "Why use a door when a window will do?": "Pourquoi prendre la porte quand une fenêtre suffit ?",
     "A name that opens doors. Everyone has heard the stories, true or not.": "Un nom qui ouvre les portes. Tout le monde connaît les histoires, vraies ou non.",
-    "Salt in the blood, knots in the fingers, and a tavern story for every port.": "Du sel dans le sang, des nœuds dans les doigts, et une histoire de taverne pour chaque port.",
-    "Taught by gutters and hunger. Nobody sees a child in the crowd until their purse is gone.": "Formé par le caniveau et la faim. Personne ne voit l'enfant dans la foule avant que sa bourse ait disparu.",
-    "Broken twigs, bent grass, the hush before a deer bolts. The wild speaks; this one listens.": "Brindilles cassées, herbe couchée, le silence avant qu'un cerf ne détale. La nature parle ; celui-ci écoute.",
-    "Steady hands and a calm voice, honed over a thousand sickbeds.": "Des mains sûres et une voix calme, affûtées au chevet de mille malades.",
-    "Years behind the bar teach a lot: who lies, who drinks, who will start the fight.": "Des années derrière le comptoir en apprennent beaucoup : qui ment, qui boit, qui lancera la bagarre.",
+    "Salt on the lips, knots in the fingers, and a tale for every port.": "Du sel sur les lèvres, des nœuds dans les doigts, et une histoire pour chaque port.",
+    "Every alley has a shortcut, every crowd a loose purse, every corner a whisper.": "Chaque ruelle a son raccourci, chaque foule sa bourse mal fermée, chaque coin son murmure.",
+    "Broken twigs, bent grass, the hush before a deer bolts. The wild speaks, and you listen.": "Brindilles cassées, herbe couchée, le silence avant qu'un cerf ne détale. La nature parle, et vous écoutez.",
+    "Steady hands, a calm voice, and the right herb for the right fever.": "Des mains sûres, une voix calme, et la bonne herbe pour la bonne fièvre.",
+    "The whole room at a glance: who lies, who drinks, who will start the fight.": "Toute la salle d'un coup d'œil : qui ment, qui boit, qui lancera la bagarre.",
     "The forge's wisdom: the weight of iron, the price of iron, where iron breaks.": "La sagesse de la forge : le poids du fer, le prix du fer, l'endroit où le fer se brise.",
-    "Thin air and sheer cliffs were a home to them. The mountain never won.": "L'air rare et les falaises abruptes étaient sa maison. La montagne n'a jamais gagné.",
-    "A blade master's rhythm: a feint and a cut, so fast they sound like one blow.": "Le rythme d'un maître d'armes : une feinte et une taille, si rapides qu'on n'entend qu'un coup.",
-    "When others lie down, this one gets back up. Pain is a problem for later.": "Quand les autres se couchent, celui-ci se relève. La douleur, ce sera pour plus tard.",
-    "Lean, ropy strength. There was never much meat on them, but they never tired.": "Une force sèche et noueuse. Jamais bien épais, jamais fatigué.",
-    "Eyes from something that lived in the dark. Shadows turn to shapes, then to detail.": "Les yeux d'une chose qui vivait dans le noir. Les ombres deviennent des formes, puis des détails.",
-    "Hard years selling a blade to whoever paid. You learn the price of everything, and of everyone.": "De dures années à vendre sa lame au plus offrant. On apprend le prix de tout, et de chacun.",
-    "From a traveling troupe: flips, falls and a crowd that gasped every night.": "D'une troupe ambulante : saltos, chutes et une foule qui retenait son souffle chaque soir.",
-    "Taken from a wolf. It knows the moment a friend has the prey, and when to pull it down.": "Pris à un loup. Il sait quand un compagnon tient la proie, et quand la faire tomber.",
-    "A knack for being somewhere else when the blow arrives.": "Un don pour être ailleurs quand le coup arrive.",
-    "Herb lore and old charms from a cottage at the edge of the woods.": "Science des herbes et vieux charmes d'une chaumière à l'orée du bois.",
+    "Thin air and sheer cliffs feel like home. The mountain doesn't win.": "L'air rare et les falaises abruptes ont un goût de chez-soi. La montagne ne gagne pas.",
+    "A feint and a cut, so fast they sound like one blow.": "Une feinte et une taille, si rapides qu'on n'entend qu'un coup.",
+    "When others lie down, you get back up. Pain is a problem for later.": "Quand les autres se couchent, vous vous relevez. La douleur, ce sera pour plus tard.",
+    "Lean, ropy strength. Not much meat on it, and it never tires.": "Une force sèche et noueuse. Jamais bien épaisse, jamais fatiguée.",
+    "Eyes made for the dark. Shadows turn to shapes, then to detail.": "Des yeux faits pour le noir. Les ombres deviennent des formes, puis des détails.",
+    "A hard stare and a hand on the hilt. It knows the price of everything, and of everyone.": "Un regard dur et une main sur la garde. Elle connaît le prix de tout, et de chacun.",
+    "Flips, falls and landings that make a crowd gasp.": "Saltos, chutes et réceptions qui coupent le souffle à la foule.",
+    "It knows the moment a friend has the prey, and when to pull it down.": "Elle sait quand un compagnon tient la proie, et quand la faire tomber.",
+    "A way of being somewhere else when the blow arrives.": "Une façon d'être ailleurs quand le coup arrive.",
+    "Roots, leaves and old charms, and what each one is good for.": "Racines, feuilles et vieux charmes, et ce à quoi chacun est bon.",
     "The wide arc of a giant's swing. Everyone in reach learns to fear it.": "Le large arc d'un coup de géant. Tous ceux à portée apprennent à le craindre.",
-    "Something that would not stay down. Death had to ask twice, and it never asked again.": "Quelque chose qui refusait de rester à terre. La mort a dû demander deux fois, et n'a plus jamais redemandé.",
-    "Short-lived, stubborn and everywhere. Whatever they lack, they make up for by trying again.": "Brève vie, tête dure, et partout. Ce qui leur manque, ils le compensent en réessayant.",
-    "Long years in a slender frame, and eyes that never quite lost the starlight.": "De longues années dans un corps élancé, et des yeux qui n'ont jamais tout à fait perdu la lueur des étoiles.",
-    "Stone-born and slow to fall. Their blood shrugs off what would fell a lesser body.": "Né de la pierre et lent à tomber. Ce sang encaisse ce qui abattrait un corps plus faible.",
-    "Small, cheerful and impossibly lucky. Fate seems to like them, and nobody knows why.": "Petits, joyeux et d'une chance insolente. Le destin semble les aimer, et personne ne sait pourquoi.",
-    "Made for war and for the long march after it. The dark holds no secrets from those eyes.": "Fait pour la guerre et la longue marche qui suit. Le noir n'a pas de secrets pour ces yeux.",
-    "Drilled from birth: a good soldier, a good scout, a good officer. Discipline is in the bones.": "Dressé dès la naissance : bon soldat, bon éclaireur, bon officier. La discipline est dans les os.",
+    "It will not stay down. Death has to ask twice.": "Elle refuse de rester à terre. La mort doit demander deux fois.",
+    "Stubborn to the bone. What skill can't do, trying again will.": "Une tête dure jusqu'à l'os. Ce que l'adresse ne fait pas, un nouvel essai le fera.",
+    "Eyes that never quite lose the starlight. For them, dusk lasts all night.": "Des yeux qui ne perdent jamais tout à fait la lueur des étoiles. Pour eux, le crépuscule dure toute la nuit.",
+    "Feet like roots in rock. It shrugs off the shove, the grip and the poison.": "Des pieds comme des racines dans le roc. Elle encaisse la poussée, la prise et le poison.",
+    "Fate likes whoever carries it, and nobody knows why.": "Le destin aime qui la porte, et personne ne sait pourquoi.",
+    "Made for war and for the long march after it. Strike hard, carry it all home.": "Faite pour la guerre et la longue marche qui suit. Frapper fort, tout rapporter.",
+    "March in step, hold the post, read the order before it is given.": "Marcher au pas, tenir le poste, lire l'ordre avant qu'il soit donné.",
     # deck covers
     "Spells copied in a careful hand, the margins full of warnings. The ink still smells of ozone.": "Des sorts recopiés d'une main soigneuse, les marges pleines d'avertissements. L'encre sent encore l'ozone.",
-    "Songs gathered at roadside fires and in tavern corners, sung by someone who never stayed long.": "Des chansons glanées aux feux de route et aux coins des tavernes, chantées par quelqu'un qui ne restait jamais longtemps.",
-    "Prayers learned by heart in a quiet temple. The faith came with them.": "Des prières apprises par cœur dans un temple paisible. La foi est venue avec.",
-    "The memory of fur, feather and claw. The body knows these shapes, and longs for them.": "Le souvenir du poil, de la plume et de la griffe. Le corps connaît ces formes, et s'en languit.",
+    "Songs of roadside fires and tavern corners, made for someone who never stays long.": "Des chansons de feux de route et de coins de taverne, faites pour qui ne reste jamais longtemps.",
+    "Prayers worn smooth by a thousand voices. The faith comes with them.": "Des prières polies par mille voix. La foi vient avec.",
+    "Fur, feather and claw. The body knows these shapes, and longs for them.": "Poil, plume et griffe. Le corps connaît ces formes, et s'en languit.",
     # deck cards
     "The first spell every conjurer learns, and the one they burn their eyebrows with.": "Le premier sort de tout conjurateur, et celui avec lequel il se brûle les sourcils.",
     "An unseen hand for the jar on the high shelf, or the key on the guard's belt.": "Une main invisible pour le pot sur l'étagère du haut, ou la clé à la ceinture du garde.",
@@ -458,26 +459,26 @@ LORE = {
 
 # Slot frames (base_set.FRAMES): name, swap time, reminder
 FRAME_TEXT = {
-    "Armor": "Armure", "Hand": "Main", "Jewelry": "Bijou", "Item": "Objet", "Aspect": "Aspect",
-    "Third Hand": "Troisième Main", "Second Jewel": "Second Bijou", "Great Backpack": "Grand Sac à dos", "Shard": "Éclat",
+    "Armor": "Armure", "Hand": "Main", "Jewelry": "Bijou", "Item": "Objet", "Rune": "Rune",
+    "Third Hand": "Troisième Main", "Second Jewel": "Second Bijou", "Great Backpack": "Grand Sac à dos", "Runestone": "Pierre runique",
     "Swap: 10 minutes": "Échange : 10 minutes", "Swap: free interaction": "Échange : interaction gratuite",
     "Swap: free, once per turn": "Échange : gratuit, 1 fois par tour", "Swap: free · Spellbook: 1 action": "Échange : gratuit · Livre : 1 action",
-    "Swap: long rest": "Échange : repos long", "Pack (3 at most) or Party Stash": "Sac (3 au plus) ou Réserve",
+    "Swap: long rest": "Échange : long repos", "Pack (3 at most) or Party Stash": "Sac (3 au plus) ou Réserve",
     "Empty: **+10 ft Speed**.": "Vide : **+4 m de Vitesse**.",
     "One Weapon, Shield or Instrument.": "Une Arme, un Bouclier ou un Instrument.",
     "Empty: grapple, or hold a Spellbook to cast.": "Vide : empoigner, ou tenir un Livre de sorts pour lancer.",
     "Rings, amulets, circlets, cloaks, gloves, boots.": "Anneaux, amulettes, diadèmes, capes, gants, bottes.",
     "A Spellbook, a Recipe, or up to 3 identical Consumables.": "Un Livre de sorts, une Recette, ou jusqu'à 3 Consommables identiques.",
-    "A Trait, Technique, Knack, Divine, Glamour or Nature.": "Un Trait, une Technique, un Savoir-faire, un Divin, un Glamour ou une Nature.",
+    "A Trait, Technique, Domain, Divine, Glamour or Nature.": "Un Trait, une Technique, un Domaine, un Divin, un Glamour ou une Nature.",
     "Extra Gear Slot: a spectral arm, a familiar, a living tail.": "Emplacement de Matériel supplémentaire : un bras spectral, un familier, une queue vivante.",
     "Never lost, traded or stored.": "Jamais perdu, échangé ni rangé.", "Extra Gear Slot.": "Emplacement de Matériel supplémentaire.",
-    "Holds one Aspect, or nothing.": "Contient un Aspect, ou rien.",
-    "**Capture:** 1 action · **Absorb:** long rest · **Release:** free": "**Capturer :** 1 action · **Absorber :** repos long · **Libérer :** gratuit",
+    "Holds one Rune, or nothing.": "Contient une Rune, ou rien.",
+    "**Capture:** 1 action · **Etch:** long rest · **Release:** free": "**Capturer :** 1 action · **Graver :** long repos · **Libérer :** gratuit",
 }
 
 DAMAGE = {"Physical": "Physique", "Lightning": "Foudre"}
 
-STARTER_KEYS = {"Armor": "Armure", "Hands": "Mains", "Jewelry": "Bijou", "Items": "Objets", "Aspects": "Aspects"}
+STARTER_KEYS = {"Armor": "Armure", "Hands": "Mains", "Jewelry": "Bijou", "Items": "Objets", "Runes": "Runes"}
 
 
 def ability_words(s):
@@ -486,7 +487,7 @@ def ability_words(s):
 
 
 def text(t, missing):
-    """One paragraph of card text in French (generated weapon, Knack and Wound lines are rebuilt)."""
+    """One paragraph of card text in French (generated weapon, Domain and Wound lines are rebuilt)."""
     if t in TEXT:
         return TEXT[t]
     m = re.fullmatch(r"([+−-]\d+) to hit, (?:(thrown|range) (\d+)/(\d+) ft, )?(.+?) \+ ((?:STR|DEX|INT|WIL)(?: or (?:STR|DEX|INT|WIL))*)"
@@ -545,3 +546,47 @@ def localize(bs, foes):
         name(f["name"])
     if missing:
         raise SystemExit("Untranslated (cards/fr.py):\n  " + "\n  ".join(dict.fromkeys(missing)))
+
+
+# What a Rune card prints in small above its name: Rune du / de la / de l' / des (DESIGN 1b)
+RUNE_DE = {
+    'Bond': 'du',
+    'Sang de pierre': 'du',
+    'Volonté de fer': 'de la',
+    'Esprit clair': "de l'",
+    'Enchaînement': "de l'",
+    'Visée juste': 'de la',
+    'Coup de bouclier': 'du',
+    'Hymne de bataille': "de l'",
+    'Cri de ralliement': 'du',
+    'Mur de boucliers': 'du',
+    'Larcin': 'du',
+    'Ménestrel': 'du',
+    'Navigation': 'de la',
+    'Ruelles': 'des',
+    'Traque': 'de la',
+    'Guérison': 'de la',
+    'Taverne': 'de la',
+    'Forge': 'de la',
+    'Cimes': 'des',
+    'Double frappe': 'de la',
+    'Second souffle': 'du',
+    'Nerf': 'du',
+    'Yeux de nuit': 'des',
+    'Bravade': 'de la',
+    'Voltige': 'de la',
+    'Herboriste': "de l'",
+    'Coup balayant': 'du',
+    'Acharnement': "de l'",
+    'Meute': 'de la',
+    'Ténacité': 'de la',
+    'Yeux de crépuscule': 'des',
+    'Socle': 'du',
+    'Chance': 'de la',
+    'Campagne': 'de la',
+    'Discipline': 'de la',
+}
+
+
+def rune_de(name):
+    return "Rune " + RUNE_DE[name]

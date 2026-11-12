@@ -1,6 +1,6 @@
 """What to draw for each foe card (cards/foes.py) and each card back in the base set (cards/base_set.py), sent by
-tools/gen_art.py --batch: SUBJECTS for foes, ITEMS (--items) for gear and gold, CARDS (--cards) for Callings, Aspects, deck
-cards and Wounds. *Orcish Blood*, *Hobgoblin Discipline* and the Wolf Form use the foe's drawing (build_cards.FOE_DRAWING).
+tools/gen_art.py --batch: SUBJECTS for foes, ITEMS (--items) for gear and gold, CARDS (--cards) for Callings, Runes, deck
+cards and Wounds. *Campaign*, *Discipline* and the Wolf Form use the foe's drawing (build_cards.FOE_DRAWING).
 
 Each subject is added before the house style (gen_art.STYLE, or ITEM_STYLE for ITEMS); Qwen takes 800 characters in all, so keep them short.
 """
@@ -175,7 +175,7 @@ ITEMS = {
     "Guild Signet": "a heavy signet ring standing upright on its edge, a set of scales carved on its flat face, "
                     "scratches on the band; a round wax seal with the same scales lying flat beside it. Close up, the "
                     "whole ring and seal in clear view",
-    "Shard Bandolier": "a leather bandolier laid out flat in a wide open U, five stitched pockets spaced along it, a "
+    "Runestone Bandolier": "a leather bandolier laid out flat in a wide open U, five stitched pockets spaced along it, a "
                        "jagged crystal shard standing out of each, buckle tarnished, stitching coming loose. Seen from "
                        "the front, the whole bandolier in clear view",
     "Holy Amulet": "a round amulet hanging from a leather cord, the cord in a clean V above it, a sunburst carved on "
@@ -231,7 +231,7 @@ ITEMS = {
 
 ANIMALS = {"Hawk", "Bear"}  # drawn with gen_art.ANIMAL_STYLE: a real animal, not a caricature figure
 
-CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure acting the card out, drawn with --cards
+CARDS = {  # Callings, Runes, deck covers, deck cards and Wounds: one figure acting the card out, drawn with --cards
     # Callings: who the Bearer is, acting out the perk
     "Duelist": "a wiry elf woman duelist with a sharp narrow face, long pointed ears, a high ponytail and a thin "
                "scar on the chin, a padded doublet with slashed sleeves, tall scuffed boots. Side view, in a deep "
@@ -274,19 +274,19 @@ CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure a
               "feet and a robe of sewn furs and leaves. Front view, standing, leaning on a gnarled staff in the "
               "right hand, a small owl on the left shoulder",
     # species Traits
-    "Human Grit": "a stubborn middle-aged farmer with a weathered square face, a crooked nose and thinning hair, sleeves "
+    "Grit": "a stubborn middle-aged farmer with a weathered square face, a crooked nose and thinning hair, sleeves "
              "rolled up, a patched apron, muddy boots. Front view, standing, a pitchfork held upright in the right "
              "hand, its prongs up, its butt on the ground, left hand on the hip",
-    "Elven Blood": "a slender, very tall elf with an ageless beautiful narrow face, long pointed ears, long straight hair, "
+    "Dusk Eyes": "a slender, very tall elf with an ageless beautiful narrow face, long pointed ears, long straight hair, "
            "large calm eyes, a simple long cloak with leaves stitched at the hem. Side view, standing very still, "
            "left hand shading the eyes, gazing into the distance, right hand empty",
-    "Dwarven Blood": "a short, very broad dwarf, a huge braided beard down to the belt, a bulbous nose, bushy eyebrows, a "
+    "Bedrock": "a short, very broad dwarf, a huge braided beard down to the belt, a bulbous nose, bushy eyebrows, a "
              "leather apron over mail, thick boots. Front view, standing with feet planted, a tankard held in the "
              "right hand, left hand gripping the belt",
-    "Halfling Luck": "a small, round-cheeked, cheerful halfling with curly hair, a button nose and big hairy bare feet, a "
+    "Luck": "a small, round-cheeked, cheerful halfling with curly hair, a button nose and big hairy bare feet, a "
                 "waistcoat with one button missing. Three-quarter view, standing, flipping a coin up with the right "
                 "thumb, the coin in the air, left hand in a pocket",
-    # Aspects
+    # Runes
     "Springheel": "a gangly, knobbly-kneed youth with springy hair and a gap-toothed grin, a ragged tunic, oversized "
                   "boots. Side view, in mid-leap high above the ground, legs tucked, arms flung up, a short shadow on "
                   "the ground far below",
@@ -316,34 +316,34 @@ CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure a
     "Shield Wall": "two soldiers standing shoulder to shoulder, one tall and thin, one short and fat, both with "
                    "squashed helmets. Front view, both standing firm, feet apart, their two tall rectangular shields "
                    "held side by side, rims overlapping, eyes peeking over the top",
-    "Cat Burglar": "a skinny, hunched burglar with a long pointed nose, a striped shirt, a burglars mask over "
+    "Larceny": "a skinny, hunched burglar with a long pointed nose, a striped shirt, a burglars mask over "
                    "the eyes, a sack over the shoulder. Side view, tiptoeing on the toes of both feet, a "
                    "lockpick held up in the right hand, left hand raised with one finger to the lips. Two hands"
                    " only.",
-    "Renowned": "a pompous, beaming hero with a big chin and a perfect wavy hairdo, a medal-covered sash, a cape. "
+    "Minstrel": "a pompous, beaming hero with a big chin and a perfect wavy hairdo, a medal-covered sash, a cape. "
                 "Front view, standing, chest puffed out, both hands on the hips, a scatter of tossed flowers lying "
                 "on the ground at the feet",
-    "Sailor": "a squat, bow-legged old halfling woman sailor with a pipe, a leathery wrinkled face, a grey "
+    "Navigation": "a squat, bow-legged old halfling woman sailor with a pipe, a leathery wrinkled face, a grey "
               "braid under a knit cap, a striped shirt, tattooed forearms, big hairy bare feet. Front view, "
               "standing, a coil of rope over the left shoulder, right hand holding the pipe, an anchor tattoo"
               " on the arm",
-    "Street Urchin": "a tiny, grubby street urchin with a gap-toothed grin, huge eyes, a cap too big and a coat "
+    "Backstreets": "a tiny, grubby street urchin with a gap-toothed grin, huge eyes, a cap too big and a coat "
                      "with ragged sleeves, bare feet. Three-quarter view, tiptoeing away, a fat stolen purse held "
                      "behind the back in the right hand, left hand waving innocently",
-    "Hunter": "a rangy woodsman with a hooked nose and a scruffy beard, a fur hat, a hide coat, a hunting knife at the "
+    "Hunt": "a rangy woodsman with a hooked nose and a scruffy beard, a fur hat, a hide coat, a hunting knife at the "
               "belt. Side view, crouched low on both feet, one hand touching a large paw print on the ground, the "
               "other holding a longbow upright, the whole bow in clear view",
-    "Physician": "a plump, kindly physician with a round bald head, small spectacles and a big moustache, a long "
+    "Healing": "a plump, kindly physician with a round bald head, small spectacles and a big moustache, a long "
                  "apron with many pockets. Front view, standing, rolling a bandage between both hands, a leather "
                  "satchel open on the ground beside the feet",
-    "Barkeep": "a hulking goliath woman barkeep, a grey-skinned giant-kin with a bald head marked with dark "
+    "Tavern": "a hulking goliath woman barkeep, a grey-skinned giant-kin with a bald head marked with dark "
                "stony patches, a heavy jaw, big hoop earrings, a broad bosom and huge forearms, a stained "
                "apron, a rag over the shoulder. Front view, standing, polishing a tankard with a rag in both "
                "hands, one eyebrow raised, squinting suspiciously",
-    "Smith": "a stocky dwarf woman smith with thick braided hair tied back, singed sideburns, a sooty face, a"
+    "Forge": "a stocky dwarf woman smith with thick braided hair tied back, singed sideburns, a sooty face, a"
              " burn scar on the cheek and bulging arms, a heavy leather apron, thick gloves. Three-quarter "
              "view, standing and forging on an anvil, hammer raised",
-    "Mountaineer": "a wiry, weathered elf woman mountaineer with long pointed ears, a sunburnt, wind-chapped "
+    "Peaks": "a wiry, weathered elf woman mountaineer with long pointed ears, a sunburnt, wind-chapped "
                    "face, a beaked nose, crow's feet and frost in her eyebrows, a fur-lined hood, a rope "
                    "coiled across the chest, spiked boots. Side view, climbing a big solid cliff face of rock"
                    " drawn as a wall at one side of the picture, both hands gripping one pick driven into the"
@@ -355,33 +355,29 @@ CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure a
                    "swollen black eye and a split lip, a chipped front tooth, sweaty hair plastered to the brow, a torn shirt, "
                    "one boot missing. Three-quarter view, getting up off one knee, one hand pushing on the knee, the other "
                    "wiping the mouth, a determined grin",
-    "Wiry": "an extremely thin, ropy labourer with stringy muscles, a long neck and a beak of a nose, a sleeveless "
+    "Sinew": "an extremely thin, ropy labourer with stringy muscles, a long neck and a beak of a nose, a sleeveless "
             "vest, rolled trousers. Front view, standing, carrying a heavy sack on one shoulder with one hand, "
             "unbothered, left hand empty",
     "Night Eyes": "a pale, hunched cave-dweller with enormous round staring eyes, a pinched little face and huge "
                   "ears, a ragged hooded cloak. Front view, standing in darkness drawn as dense hatching around the "
                   "edges, the figure itself left clear, peering ahead",
-    "Sellsword": "a grizzled, broken-nosed woman mercenary of fifty with a lantern jaw, a pockmarked weathered face, "
+    "Bravado": "a grizzled, broken-nosed woman mercenary of fifty with a lantern jaw, a pockmarked weathered face, "
                  "cropped hair and one ear torn off to a stump, a crooked smirk showing missing teeth; mismatched scavenged "
                  "armour, a coin purse at the belt. Front view, standing, a longsword resting on the right shoulder, left "
                  "hand held out, palm up, waiting to be paid",
-    "Acrobat": "a lanky acrobat with a long jaw and a waxed moustache, a striped leotard, soft slippers. Front view, "
+    "Tumbling": "a lanky acrobat with a long jaw and a waxed moustache, a striped leotard, soft slippers. Front view, "
                "doing a handstand on both hands, legs straight up in the air, the whole body in clear view",
-    "Pack Hunter": "a wiry human woman hunter with shaggy matted hair, a long bony face, filed pointed teeth and a scar "
+    "Wolfpack": "a wiry human woman hunter with shaggy matted hair, a long bony face, filed pointed teeth and a scar "
                    "across the nose, a fur cloak with a wolf's head hood. Side view, crouched low on both feet, ready to "
                    "pounce, human hands with five fingers spread and curled; beside her, a separate real wolf on four legs "
                    "crouched in the same pose",
-    "Slippery": "a slick, androgynous rogue with a long sinuous body, a greasy smile, a thin pencil moustache "
-                "and slicked-back hair, a tight coat, dodging arrows like Neo in the Matrix: side view, bending"
-                " far backwards from the knees, two arms flung out to the sides, two legs with both feet "
-                "planted flat on the ground, three arrows streaking past just above the body",
-    "Hedge Witch": "a hunched, warty old hedge witch with a long chin, wild hair stuck with twigs, a patched shawl, a "
+    "Herbalist": "a hunched, warty old hedge witch with a long chin, wild hair stuck with twigs, a patched shawl, a "
                    "crow on the shoulder. Front view, standing, stirring a small cauldron on the ground with a long "
                    "spoon held in both hands, herbs hanging from the belt",
     "Sweeping Blow": "a giant, slab-shouldered half-ogre with a tiny head and a tusked underbite, a fur loincloth. "
                      "Front view, mid-swing, a long two-handed maul held level in both hands, sweeping round, three "
                      "small helmets flying off to the side",
-    "Relentless": "a bruised, bloodied brawler with a battered pear-shaped face, a cauliflower ear, a nose "
+    "Defiance": "a bruised, bloodied brawler with a battered pear-shaped face, a cauliflower ear, a nose "
                   "broken flat and bent to one side, one eye swollen shut, a missing front tooth, a shaved head"
                   " with a fresh stitched cut; a torn shirt, bandaged fists. Front view, standing unsteadily, "
                   "one arm hanging, the other fist raised, a grim lopsided grin",
@@ -392,7 +388,7 @@ CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure a
     "Acolyte's Litany": "a young, round-faced acolyte with a bowl haircut and a plain hooded robe, a rope belt."
                         " Front view, standing, eyes closed in prayer, holding a small open prayer book in both"
                         " hands, a few beads hanging from the fingers, with two hands",
-    "Wildheart's Remembrance": "a lean, wild-haired druid with leaves and feathers tangled in the hair, a gaunt "
+    "Wildheart's Instinct": "a lean, wild-haired druid with leaves and feathers tangled in the hair, a gaunt "
                                "beautiful face, a cloak of patched furs, bare feet. Front view, standing, a knobbly "
                                "wooden staff in the right hand, a hawk perched on the left forearm",
     # Conjurer's Book
@@ -453,7 +449,7 @@ CARDS = {  # Callings, Aspects, deck covers, deck cards and Wounds: one figure a
     "Cure Wounds": "a gentle, heavy-set healer with a broad face and a shaved head, rolled sleeves. Three-quarter "
                    "view, kneeling on one knee, both hands laid on the bandaged arm of a wounded soldier sitting "
                    "beside it",
-    # Wildheart's Remembrance
+    # Wildheart's Instinct
     "Hawk": "a lean, fierce hawk with a hooked beak, staring eye. Side view, in flight, wings spread wide",
     "Mossbalm": "a gaunt druid with leaves in the hair, a patched fur cloak. Three-quarter view, kneeling on one "
                 "knee, pressing a thick clump of moss onto the leg of a sitting wounded hunter beside it with both "

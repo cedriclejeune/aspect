@@ -45,7 +45,7 @@ CALLINGS = [
             "**Spell Strike (½ STR/S.R.):** when you hit with a melee weapon attack: +INT damage."),
     calling("Infiltrator", ("DEX", "INT"), 10, 35, "**Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT."),
     calling("Performer", ("DEX", "WIL"), 10, 35,
-            "**Crowd Work (½ DEX/S.R.):** reaction, after an ally within 30 ft rolls an attack or a check: +WIL to that roll."),
+            "**Presence:** your checks to perform, persuade and deceive add both DEX and WIL."),
     calling("Sage", ("INT", "WIL"), 9, 35, "**Learned:** ½ INT extra spell points. Your checks to recall lore add both INT and WIL."),
     # the second Calling of each pair: same +2 / +2, another perk, HP and Speed
     calling("Brawler", ("STR", "DEX"), 14, 30,
@@ -58,7 +58,7 @@ CALLINGS = [
     calling("Ranger", ("DEX", "INT"), 11, 35,
             "**Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn."),
     calling("Trickster", ("DEX", "WIL"), 9, 35,
-            "**Feint (½ WIL/S.R.):** reaction, when an attack hits you: −DEX to that attack roll, possibly turning it into a miss."),
+            "**Sure Thing:** on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher."),
     calling("Hermit", ("INT", "WIL"), 11, 30, "**Solitude:** ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL."),
 ]
 
@@ -138,12 +138,13 @@ ITEMS = [
     card("Restorative Salve", "II", "gear", "Consumable", ["**Action:** spread it on a creature within 5 ft. Heal one of its Wounds."], group="loot"),
     card("Pocket Sand", "I", "gear", "Consumable", ["**Reaction:** throw it at a creature within 5 ft. Attack (DEX or WIL + 2) against its DEX Defense: on a hit, it has −2 on attacks until the end of its next turn."], group="loot"),
     card("Alchemist's Fire Recipe", "II", "gear", "Recipe · 3 flasks", ["**Reaction:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss."], group="loot", uses=3),
-    card("Shard Bandolier", "I", "gear", "Container", ["While it's in your Pack, your Pack holds up to 5 Shards instead of 3."]),
+    card("Runestone Bandolier", "I", "gear", "Container", ["While it's in your Pack, your Pack holds up to 5 Runestones instead of 3."]),
 ]
 
 
-def knack(name, acts, rank="I", bonus="+2", group="starter", sym=None):
-    return card(name, rank, "aspect", "Knack", [f"{bonus} on checks to {acts}."], group=group, sym=sym)
+def domain(name, acts, rank="I", bonus="+2", group="starter", sym=None):
+    """A Domain (GM 4.3): one bonus on the checks of four activities. A Rune's kind stays "aspect" in the data (sim/)."""
+    return card(name, rank, "aspect", "Domain", [f"{bonus} on checks to {acts}."], group=group, sym=sym)
 
 
 ASPECTS = [
@@ -154,38 +155,45 @@ ASPECTS = [
     card("Cleave", "I", "aspect", "Technique", ["**1/S.R.**, when your melee attack drops a creature to 0 HP: make one melee attack against another creature within your reach."], sym=["STR", "DEX"]),
     card("Steady Aim", "I", "aspect", "Technique", ["**Reaction (2/S.R.):** your next ranged attack this turn has +2 to hit."], sym=["DEX", "INT"]),
     card("Shield Bash", "I", "aspect", "Technique", ["**Reaction (1/S.R.)**, when you take the Attack action while holding a Shield: Shove a creature within 5 ft."], sym=["STR", "WIL"]),
-    card("Battle Hymn", "I", "aspect", "Technique", ["**2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 on their next attack before the end of your next turn."], sym=["DEX", "WIL"]),
+    card("Battle Hymn", "I", "aspect", "Technique", ["**2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 to STR and DEX Defense until the start of your next turn."], sym=["DEX", "WIL"]),
     card("Rallying Cry", "I", "aspect", "Technique · Anthem", ["*Rally* as a loose Anthem.", "**Action (1/S.R.):** Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks."], sym=["STR", "WIL"]),
     card("Shield Wall", "I", "aspect", "Technique", ["**Reaction (1/S.R.)**, when an attack hits an ally within 5 ft while you hold a Shield: +2 to the targeted Defense against that attack, possibly turning it into a miss."], group="loot", sym=["STR", "WIL"]),
-    knack("Cat Burglar", "sneak, climb or pick locks", sym=["DEX", "INT"]),
-    knack("Renowned", "persuade, haggle, gather rumors or perform", sym=["INT", "WIL"]),
-    knack("Sailor", "swim, climb, navigate or gather rumors", sym=["STR", "INT"]),
-    knack("Street Urchin", "pick pockets, sneak, read intentions or gather rumors", sym=["DEX", "WIL"]),
-    knack("Hunter", "track, notice, sneak or handle animals", sym=["DEX", "INT"]),
-    knack("Physician", "treat wounds, recall lore, read intentions or persuade", sym=["INT", "WIL"]),
-    knack("Barkeep", "read intentions, gather rumors, intimidate or lift", sym=["INT", "WIL"]),
-    knack("Smith", "lift, break, haggle or recall lore", sym=["STR", "INT"]),
-    knack("Mountaineer", "climb, endure, navigate or balance", sym=["DEX", "INT"]),
+    domain("Larceny", "sneak, climb or pick locks", sym=["DEX", "INT"]),
+    domain("Minstrel", "persuade, haggle, gather rumors or perform", sym=["INT", "WIL"]),
+    domain("Navigation", "swim, climb, navigate or gather rumors", sym=["STR", "INT"]),
+    domain("Backstreets", "pick pockets, sneak, read intentions or gather rumors", sym=["DEX", "WIL"]),
+    domain("Hunt", "track, notice, sneak or handle animals", sym=["DEX", "INT"]),
+    domain("Healing", "treat wounds, recall lore, read intentions or persuade", sym=["INT", "WIL"]),
+    domain("Tavern", "read intentions, gather rumors, intimidate or lift", sym=["INT", "WIL"]),
+    domain("Forge", "lift, break, haggle or recall lore", sym=["STR", "INT"]),
+    domain("Peaks", "climb, endure, navigate or balance", sym=["DEX", "INT"]),
     # loot
     card("Twin Strike", "II", "aspect", "Technique", ["Once per turn, when you take the Attack action, make one extra attack."], group="loot", sym=["STR", "DEX"]),
     card("Second Wind", "II", "aspect", "Trait", ["**Action (1/S.R.):** regain 1d10 + 3 HP."], {"HP": "+4"}, group="loot", sym=["STR", "WIL"]),
-    card("Wiry", "II", "aspect", "Trait", [], {"HP": "+4", "STR": "+1", "STRd": "+1", "SPD": "+5"}, group="loot", sym=["STR", "DEX"]),
+    card("Sinew", "II", "aspect", "Trait", [], {"HP": "+4", "STR": "+1", "STRd": "+1", "SPD": "+5"}, group="loot", sym=["STR", "DEX"]),
     card("Night Eyes", "II", "aspect", "Trait · Darkvision 120", [], {"HP": "+4"}, group="loot", sym=["DEX", "INT"]),
-    card("Sellsword", "II", "aspect", "Trait", ["+3 on checks to intimidate, endure, haggle or gather rumors."], {"HP": "+4", "STR": "+1", "STRd": "+1"}, group="loot", sym=["STR", "WIL"]),
-    card("Acrobat", "II", "aspect", "Trait", ["+3 on checks to tumble, balance, jump or perform."], {"HP": "+4", "DEX": "+1", "DEXd": "+1"}, group="loot", sym=["DEX", "WIL"]),
-    card("Slippery", "I", "aspect", "Technique", ["**Reaction (2/S.R.):** move up to half your Speed. This movement doesn't provoke opportunity attacks."], group="loot", sym=["DEX", "INT"]),
-    card("Hedge Witch", "II", "aspect", "Trait", ["1 extra spell point (long rest).", "+3 on checks to handle animals, recall lore, treat wounds or deceive."], {"HP": "+4"}, group="loot", sym=["INT", "WIL"]),
+    card("Bravado", "II", "aspect", "Trait", ["+3 on checks to intimidate, endure, haggle or gather rumors."], {"HP": "+4", "STR": "+1", "STRd": "+1"}, group="loot", sym=["STR", "WIL"]),
+    card("Tumbling", "II", "aspect", "Trait", ["+3 on checks to tumble, balance, jump or perform."], {"HP": "+4", "DEX": "+1", "DEXd": "+1"}, group="loot", sym=["DEX", "WIL"]),
+    card("Herbalist", "II", "aspect", "Trait", ["1 extra spell point (long rest).", "+3 on checks to handle animals, recall lore, treat wounds or deceive."], {"HP": "+4"}, group="loot", sym=["INT", "WIL"]),
     card("Sweeping Blow", "II", "aspect", "Technique", ["**1/S.R.**, when you take the Attack action with a Heavy or Reach weapon: make one attack roll against each enemy within your reach instead. Half damage on a miss."], group="loot", sym=["STR"]),
-    card("Relentless", "II", "aspect", "Trait", ["**1/S.R.**, when damage drops you to 0 HP without killing you outright: you drop to 1 HP instead."], {"HP": "+4"}, group="loot", sym=["STR", "WIL"]),
-    card("Pack Hunter", "II", "aspect", "Trait", ["**1/S.R.**, when you hit a creature one of your allies is engaged with: it falls Prone."], {"HP": "+4"}, group="loot", sym=["DEX", "INT"]),
-    # species (DESIGN 4): Rank I loot Traits and Knacks that humanoid foes drop
-    card("Human Grit", "I", "aspect", "Trait", ["**Stubborn (1/S.R.):** when you fail a check, add +2 to that roll, possibly turning it into a success."], {"HP": "+2"}, group="loot"),
-    card("Elven Blood", "I", "aspect", "Trait · Darkvision 60", [], {"HP": "+2"}, group="loot", sym=["DEX", "INT"]),
-    card("Dwarven Blood", "I", "aspect", "Trait", ["+2 STR Defense against poison, Shoves and Grapples."], {"HP": "+2"}, group="loot", sym=["STR", "WIL"]),
-    card("Halfling Luck", "I", "aspect", "Trait", ["**Lucky (1/S.R.):** when you roll a 1 on a d20, reroll it."], {"HP": "+2"}, group="loot", sym=["DEX", "WIL"]),
-    knack("Orcish Blood", "intimidate, endure, lift or march", group="loot", sym=["STR", "WIL"]),
-    knack("Hobgoblin Discipline", "march, navigate, stand firm or read intentions", group="loot", sym=["INT", "WIL"]),
+    card("Defiance", "II", "aspect", "Trait", ["**1/S.R.**, when damage drops you to 0 HP without killing you outright: you drop to 1 HP instead."], {"HP": "+4"}, group="loot", sym=["STR", "WIL"]),
+    card("Wolfpack", "II", "aspect", "Trait", ["**1/S.R.**, when you hit a creature one of your allies is engaged with: it falls Prone."], {"HP": "+4"}, group="loot", sym=["DEX", "INT"]),
+    # Rank I loot Traits and Domains that humanoid foes drop (DESIGN 4: species has no card)
+    card("Grit", "I", "aspect", "Trait", ["**Stubborn (1/S.R.):** when you fail a check, add +2 to that roll, possibly turning it into a success."], {"HP": "+2"}, group="loot"),
+    card("Dusk Eyes", "I", "aspect", "Trait · Darkvision 60", [], {"HP": "+2"}, group="loot", sym=["DEX", "INT"]),
+    card("Bedrock", "I", "aspect", "Trait", ["+2 STR Defense against poison, Shoves and Grapples."], {"HP": "+2"}, group="loot", sym=["STR", "WIL"]),
+    card("Luck", "I", "aspect", "Trait", ["**Lucky (1/S.R.):** when you roll a 1 on a d20, reroll it."], {"HP": "+2"}, group="loot", sym=["DEX", "WIL"]),
+    domain("Campaign", "intimidate, endure, lift or march", group="loot", sym=["STR", "WIL"]),
+    domain("Discipline", "march, navigate, stand firm or read intentions", group="loot", sym=["INT", "WIL"]),
 ]
+
+
+# A Rune card prints "Rune of" in small above its name (DESIGN 1b); these few take "the".
+RUNE_OF_THE = ['Minstrel', 'Herbalist', 'Wolfpack']
+
+
+def rune_of(name):
+    return "Rune of the" if name in RUNE_OF_THE else "Rune of"
 
 
 # ---------- Wounds (P 7.6): one shared deck, drawn at random at each fall to 0 HP ----------
@@ -224,6 +232,9 @@ WOUNDS = [
 
 
 # ---------- decks: a cover card, then one card per spell or power ----------
+# Every WIL deck has the same structure, whatever its type (P 10.6, DESIGN 3): a cover that prints Attack, Resolve
+# and one flavor line, then its powers. The type only decides which powers it holds (Litany, Repertoire: Anthem, Dirge,
+# Cue, Mend; Instinct: Form, Mend). All of them need the voice but a Form.
 # ---------- mechanics of decks (SPEC 2.1): name → Power, id/name/kind/cost are filled in by spell() / power() ----------
 VOICE = ["voice"]
 POWER_FX = {
@@ -263,7 +274,7 @@ POWER_FX = {
     "Healing Word": dict(use="action", reach=60, target="creature", need=VOICE, do=[dict(heal="2d4+WIL")]),
     "Rousing Verse": dict(use="action", reach=60, target="creature", need=VOICE, do=[dict(heal="2d4+WIL")]),
     "Cure Wounds": dict(use="action", reach=5, target="creature", need=VOICE, do=[dict(heal="2d8+WIL")]),
-    "Mossbalm": dict(use="action", reach=5, target="creature", do=[dict(heal="2d8+WIL")]),
+    "Mossbalm": dict(use="action", reach=5, target="creature", need=VOICE, do=[dict(heal="2d8+WIL")]),
     "Hawk": dict(use="action", target="self", form=dict(
         strip={"STR": -2, "DEX": 3, "STRd": 8, "DEXd": 13, "HP": 4, "SPD": 10}, size="Tiny", fly=60, climb=0,
         weapon=dict(name="Talons", hit=2, dice="1d4", abil=["DEX"], type="Physical"))),
@@ -321,8 +332,8 @@ REPERTOIRE = dict(
 
 LITANY = dict(
     cover=card("Acolyte's Litany", "I", "aspect", "Divine", [
-        "Attack: **WIL + 2**", "Resolve: **+3** (short rest)", "Prayers. Fate dice: **d4**."], group="loot", sym=["WIL"]),
-    color="aspect", stats=dict(kind="divine", atk=2, resolve=3, fate="1d4"),
+        "Attack: **WIL + 2**", "Resolve: **+3** (short rest)", "Prayers."], group="loot", sym=["WIL"]),
+    color="aspect", stats=dict(kind="divine", atk=2, resolve=3),
     cards=[
         power("Guidance", "Cue", 0, ["**Reaction**, after an ally within 60 ft rolls a check.", "Add 1d4 to it."]),
         power("Bless", "Anthem", 1, ["**Action**, Duration 1 minute.", "Up to 3 allies within 30 ft add 1d4 to their attack rolls."]),
@@ -339,10 +350,10 @@ def form(s, d, hp, spd, hide=0):
             "STRd": str(10 + s + hide), "DEXd": str(10 + d), "HP": str(hp), "SPD": str(spd)}
 
 
-REMEMBRANCE = dict(
-    cover=card("Wildheart's Remembrance", "I", "aspect", "Nature", [
-        "Resolve: **+3** (short rest)", "Beasts your body remembers. Shift: action."], group="loot", sym=["WIL"]),
-    color="aspect", stats=dict(kind="nature", resolve=3),
+INSTINCT = dict(
+    cover=card("Wildheart's Instinct", "I", "aspect", "Nature", [
+        "Attack: **WIL + 2**", "Resolve: **+3** (short rest)", "Beasts your body knows."], group="loot", sym=["WIL"]),
+    color="aspect", stats=dict(kind="nature", atk=2, resolve=3),
     cards=[
         power("Hawk", "Form", 1, ["**Tiny** · Fly 60 ft.", "Talons: +2 to hit, 1d4 + DEX Physical.", "+2 on checks to notice."], form(-2, 3, 4, 10)),
         power("Wolf", "Form", 2, ["**Medium**.", "Bite: +2 to hit, 1d6 + DEX Physical.", "+2 on checks to track."], form(1, 3, 8, 40)),
@@ -351,7 +362,7 @@ REMEMBRANCE = dict(
     ],
 )
 
-DECKS = [CONJURER, REPERTOIRE, LITANY, REMEMBRANCE]
+DECKS = [CONJURER, REPERTOIRE, LITANY, INSTINCT]
 
 GOLD = [(1, 8), (10, 8), (50, 6), (100, 4), (500, 2), (1000, 1)]  # (value, copies)
 TALLIES = 8
@@ -363,11 +374,11 @@ FRAMES = [
     ("hand", "Hand", "Swap: free interaction", ["One Weapon, Shield or Instrument.", "Empty: grapple, or hold a Spellbook to cast."], 2 * PLAYERS),
     ("jewelry", "Jewelry", "Swap: free, once per turn", ["Rings, amulets, circlets, cloaks, gloves, boots."], PLAYERS),
     ("item", "Item", "Swap: free · Spellbook: 1 action", ["A Spellbook, a Recipe, or up to 3 identical Consumables."], 2 * PLAYERS),
-    ("aspect", "Aspect", "Swap: long rest", ["A Trait, Technique, Knack, Divine, Glamour or Nature."], 4 * PLAYERS),  # 3 each + 1 milestone
+    ("aspect", "Rune", "Swap: long rest", ["A Trait, Technique, Domain, Divine, Glamour or Nature."], 4 * PLAYERS),  # 3 each + 1 milestone
     ("hand", "Third Hand", "Swap: free interaction", ["Extra Gear Slot: a spectral arm, a familiar, a living tail.", "Never lost, traded or stored."], 1),
     ("jewelry", "Second Jewel", "Swap: free, once per turn", ["Extra Gear Slot.", "Never lost, traded or stored."], 1),
     ("item", "Great Backpack", "Swap: free · Spellbook: 1 action", ["Extra Gear Slot.", "Never lost, traded or stored."], 1),
-    ("shard", "Shard", "Pack (3 at most) or Party Stash", ["Holds one Aspect, or nothing.", "**Capture:** 1 action · **Absorb:** long rest · **Release:** free"], 5 * PLAYERS),  # 3 each + 2 each in the Stash
+    ("shard", "Runestone", "Pack (3 at most) or Party Stash", ["Holds one Rune, or nothing.", "**Capture:** 1 action · **Etch:** long rest · **Release:** free"], 5 * PLAYERS),  # 3 each + 2 each in the Stash
 ]
 
 STARTER_LIST = {  # GM's Guide 4.2 table, generated from the cards above
@@ -376,7 +387,7 @@ STARTER_LIST = {  # GM's Guide 4.2 table, generated from the cards above
     "Jewelry": [c["name"] for c in JEWELRY if c["group"] == "starter"],
     "Items": [d["cover"]["name"] for d in DECKS if d["cover"]["kind"] == "gear" and d["cover"]["group"] == "starter"]
              + [c["name"] for c in ITEMS if c["group"] == "starter"],
-    "Aspects": [c["name"] for c in ASPECTS if c["group"] == "starter"]
+    "Runes": [c["name"] for c in ASPECTS if c["group"] == "starter"]
                + [d["cover"]["name"] for d in DECKS if d["cover"]["kind"] == "aspect" and d["cover"]["group"] == "starter"],
 }
 
@@ -412,7 +423,7 @@ LORE = {
     "Longbow": "Yew, horn and patience. A trained archer drops a charging boar before it closes.",
     "Sling": "A strip of leather and a pouch of stones. Shepherds have killed giants with less.",
     "Javelins": "A bundle of light spears, made to be thrown first and asked about later.",
-    "Spellguard Staff": "Runes run along its grain. The wood remembers the shape of a casting hand.",
+    "Spellguard Staff": "Glyphs run along its grain. The wood remembers the shape of a casting hand.",
     "Traveler's Lute": "Its varnish is worn where a hundred hands have strummed it. The tunes carry far.",
     "Greatclub": "A tree limb with ambitions. What it hits stays down for a while.",
     "Gladius": "A soldier's sword, short and wide, made for fighting shoulder to shoulder.",
@@ -425,7 +436,7 @@ LORE = {
     # jewelry
     "Ring of Warding": "A band of cold silver. It tightens around the finger just before the blow lands.",
     "Guild Signet": "Press it into wax and doors open. Lose it, and someone comes asking why.",
-    "Shard Bandolier": "Leather straps padded for crystal. Shards clink softly against each other as you walk.",
+    "Runestone Bandolier": "Leather straps padded for stone. Runestones knock softly against each other as you walk.",
     "Holy Amulet": "A blessed token on a worn cord. Prayers spoken over it seem to travel further.",
     "Boots of the Long Stride": "Soft boots that never wear out. Every few steps, one lands farther than it should.",
     "Ring of Sparks": "Copper wire coiled around a blue stone. It bites whoever lays a hand on its wearer.",
@@ -438,48 +449,47 @@ LORE = {
     "Restorative Salve": "Bitter herbs, river clay and a healer's patience, sealed in a tin.",
     "Pocket Sand": "The oldest trick there is. It still works.",
     "Alchemist's Fire Recipe": "Three corked flasks and the knowledge to fill them. Keep them away from the campfire.",
-    # aspects
-    "Springheel": "It came from someone who never learned to walk, only to bound.",
-    "Stone Blood": "Taken from a taster at a poisoner's court. Nothing in a cup ever hurt them again.",
-    "Iron Will": "The resolve of someone who stared down terrors and did not blink.",
+    # Runes: a line about the power, never about a former owner (DESIGN 4)
+    "Springheel": "The ground lets go of you a little sooner, and takes you back a little later.",
+    "Stone Blood": "Blood gone thick and slow as stone. Poison sinks into it and goes no further.",
+    "Iron Will": "A resolve that stares down terrors and does not blink.",
     "Clear Mind": "A mind that sees through mist and mirrors. Illusions slide off it like rain.",
-    "Cleave": "A soldier's reflex: when one foe falls, the blade is already moving to the next.",
-    "Steady Aim": "A hunter's breath, held between heartbeats, until the arrow flies.",
-    "Shield Bash": "Shields aren't only for hiding behind. A veteran knows the rim is a weapon too.",
-    "Battle Hymn": "A warrior's chant that rose with every strike, until the whole line sang along.",
-    "Rallying Cry": "One voice that turns a rout into a charge. It remembers every battlefield it saved.",
-    "Shield Wall": "Learned in the front rank, where your shield guards the friend beside you.",
-    "Cat Burglar": "The habits of someone who never used a door if a window would do.",
-    "Renowned": "A name that opens doors. Everyone has heard the stories, true or not.",
-    "Sailor": "Salt in the blood, knots in the fingers, and a tavern story for every port.",
-    "Street Urchin": "Taught by gutters and hunger. Nobody sees a child in the crowd until their purse is gone.",
-    "Hunter": "Broken twigs, bent grass, the hush before a deer bolts. The wild speaks; this one listens.",
-    "Physician": "Steady hands and a calm voice, honed over a thousand sickbeds.",
-    "Barkeep": "Years behind the bar teach a lot: who lies, who drinks, who will start the fight.",
-    "Smith": "The forge's wisdom: the weight of iron, the price of iron, where iron breaks.",
-    "Mountaineer": "Thin air and sheer cliffs were a home to them. The mountain never won.",
-    "Twin Strike": "A blade master's rhythm: a feint and a cut, so fast they sound like one blow.",
-    "Second Wind": "When others lie down, this one gets back up. Pain is a problem for later.",
-    "Wiry": "Lean, ropy strength. There was never much meat on them, but they never tired.",
-    "Night Eyes": "Eyes from something that lived in the dark. Shadows turn to shapes, then to detail.",
-    "Sellsword": "Hard years selling a blade to whoever paid. You learn the price of everything, and of everyone.",
-    "Acrobat": "From a traveling troupe: flips, falls and a crowd that gasped every night.",
-    "Pack Hunter": "Taken from a wolf. It knows the moment a friend has the prey, and when to pull it down.",
-    "Slippery": "A knack for being somewhere else when the blow arrives.",
-    "Hedge Witch": "Herb lore and old charms from a cottage at the edge of the woods.",
+    "Cleave": "One foe falls, and the blade is already moving to the next.",
+    "Steady Aim": "A breath held between heartbeats, until the arrow flies.",
+    "Shield Bash": "Shields aren't only for hiding behind. The rim is a weapon too.",
+    "Battle Hymn": "A chant that rises with every strike, until the whole line sings along.",
+    "Rallying Cry": "One voice that turns a rout into a charge. It carries farther than a voice should.",
+    "Shield Wall": "The rule of the front rank: your shield guards the friend beside you.",
+    "Larceny": "Why use a door when a window will do?",
+    "Minstrel": "A name that opens doors. Everyone has heard the stories, true or not.",
+    "Navigation": "Salt on the lips, knots in the fingers, and a tale for every port.",
+    "Backstreets": "Every alley has a shortcut, every crowd a loose purse, every corner a whisper.",
+    "Hunt": "Broken twigs, bent grass, the hush before a deer bolts. The wild speaks, and you listen.",
+    "Healing": "Steady hands, a calm voice, and the right herb for the right fever.",
+    "Tavern": "The whole room at a glance: who lies, who drinks, who will start the fight.",
+    "Forge": "The forge's wisdom: the weight of iron, the price of iron, where iron breaks.",
+    "Peaks": "Thin air and sheer cliffs feel like home. The mountain doesn't win.",
+    "Twin Strike": "A feint and a cut, so fast they sound like one blow.",
+    "Second Wind": "When others lie down, you get back up. Pain is a problem for later.",
+    "Sinew": "Lean, ropy strength. Not much meat on it, and it never tires.",
+    "Night Eyes": "Eyes made for the dark. Shadows turn to shapes, then to detail.",
+    "Bravado": "A hard stare and a hand on the hilt. It knows the price of everything, and of everyone.",
+    "Tumbling": "Flips, falls and landings that make a crowd gasp.",
+    "Wolfpack": "It knows the moment a friend has the prey, and when to pull it down.",
+    "Herbalist": "Roots, leaves and old charms, and what each one is good for.",
     "Sweeping Blow": "The wide arc of a giant's swing. Everyone in reach learns to fear it.",
-    "Relentless": "Something that would not stay down. Death had to ask twice, and it never asked again.",
-    "Human Grit": "Short-lived, stubborn and everywhere. Whatever they lack, they make up for by trying again.",
-    "Elven Blood": "Long years in a slender frame, and eyes that never quite lost the starlight.",
-    "Dwarven Blood": "Stone-born and slow to fall. Their blood shrugs off what would fell a lesser body.",
-    "Halfling Luck": "Small, cheerful and impossibly lucky. Fate seems to like them, and nobody knows why.",
-    "Orcish Blood": "Made for war and for the long march after it. The dark holds no secrets from those eyes.",
-    "Hobgoblin Discipline": "Drilled from birth: a good soldier, a good scout, a good officer. Discipline is in the bones.",
+    "Defiance": "It will not stay down. Death has to ask twice.",
+    "Grit": "Stubborn to the bone. What skill can't do, trying again will.",
+    "Dusk Eyes": "Eyes that never quite lose the starlight. For them, dusk lasts all night.",
+    "Bedrock": "Feet like roots in rock. It shrugs off the shove, the grip and the poison.",
+    "Luck": "Fate likes whoever carries it, and nobody knows why.",
+    "Campaign": "Made for war and for the long march after it. Strike hard, carry it all home.",
+    "Discipline": "March in step, hold the post, read the order before it is given.",
     # deck covers
     "Conjurer's Book": "Spells copied in a careful hand, the margins full of warnings. The ink still smells of ozone.",
-    "Wanderer's Repertoire": "Songs gathered at roadside fires and in tavern corners, sung by someone who never stayed long.",
-    "Acolyte's Litany": "Prayers learned by heart in a quiet temple. The faith came with them.",
-    "Wildheart's Remembrance": "The memory of fur, feather and claw. The body knows these shapes, and longs for them.",
+    "Wanderer's Repertoire": "Songs of roadside fires and tavern corners, made for someone who never stays long.",
+    "Acolyte's Litany": "Prayers worn smooth by a thousand voices. The faith comes with them.",
+    "Wildheart's Instinct": "Fur, feather and claw. The body knows these shapes, and longs for them.",
 }
 POWER_LORE = {  # deck cards: their names may repeat a gear card's (Shield)
     "Fire Bolt": "The first spell every conjurer learns, and the one they burn their eyebrows with.",
@@ -512,10 +522,11 @@ for _deck in DECKS:
         _p["lore"] = POWER_LORE[_p["name"]]
 
 # ---------- card IDs (P 12.1): type letter, Rank, number in order of appearance ----------
+# A Domain keeps the letter K it had as a Knack, so no ID changes.
 # Add new cards at the end of their type and Rank so existing IDs never change.
 TYPE_LETTER = {"Calling": "L", "Armor": "A", "Weapon": "W", "Shield": "S", "Instrument": "M", "Jewelry": "J",
                "Consumable": "P", "Recipe": "R", "Container": "C", "Spellbook": "B", "Trait": "T", "Technique": "Q",
-               "Knack": "K", "Divine": "D", "Glamour": "G", "Nature": "N"}
+               "Domain": "K", "Divine": "D", "Glamour": "G", "Nature": "N"}
 CARDS = CALLINGS + ARMOR + HANDS + JEWELRY + ITEMS + ASPECTS + [d["cover"] for d in DECKS]
 
 # ---------- mechanics of cards (SPEC 2.1): card name → list of Powers; ids are added by tools/export_sim.py ----------
@@ -542,7 +553,7 @@ CARD_FX = {
     "Alchemist's Fire Recipe": [dict(use="reaction", reach=30, target="point", area=dict(shape="sphere", size=5),
                                      atk=dict(abil=["DEX", "INT"], hit=3, vs="DEX"), half=True,
                                      do=[dict(dmg="2d6", type="Fire")], tags=["fire"])],
-    # aspects
+    # Runes
     "Iron Will": [dict(use="passive", defVs=dict(WIL=2), tags=["fear", "mind control"])],
     "Stone Blood": [dict(use="passive", defVs=dict(STR=2), tags=["poison", "disease"])],
     "Clear Mind": [dict(use="passive", defVs=dict(INT=2), tags=["illusion", "confusion"])],
@@ -552,37 +563,34 @@ CARD_FX = {
     "Shield Bash": [dict(use="reaction", uses="1/SR", need=["shield", "attackAction"], reach=5, target="enemy",
                          do=[dict(shove=True)])],
     "Battle Hymn": [dict(use="trigger", uses="2/SR", on="weaponHit", target="allies", count=3, reach=30, need=VOICE,
-                         do=[dict(mod="attack", n=2, next=True, until="endSourceTurn")])],
+                         do=[dict(mod="def", n=2, defs=["STR", "DEX"], until="startSourceTurn")])],
     "Rallying Cry": [dict(kind="Anthem", use="action", uses="1/SR", reach=30, target="allies", count=3, need=VOICE,
                           dur="1 minute", do=[dict(mod="attack", n=2, until="dur")])],
     "Shield Wall": [dict(use="reaction", uses="1/SR", on="hitAlly5", need=["shield"], target="ally", do=TWO_SHIELD_MOD)],
     "Twin Strike": [dict(use="passive", attacks=2)],
     "Second Wind": [dict(use="action", uses="1/SR", target="self", do=[dict(heal="1d10+3")])],
     "Night Eyes": [dict(use="passive", darkvision=120)],
-    "Relentless": [dict(use="passive", uses="1/SR", relentless=True)],
-    # species Traits
-    "Elven Blood": [dict(use="passive", darkvision=60)],
-    "Dwarven Blood": [dict(use="passive", defVs=dict(STR=2), tags=["poison", "shove", "grapple"])],
-    "Halfling Luck": [dict(use="passive", uses="1/SR", lucky=True, reroll="1d20")],
+    "Defiance": [dict(use="passive", uses="1/SR", relentless=True)],
+    # Rank I loot Traits
+    "Dusk Eyes": [dict(use="passive", darkvision=60)],
+    "Bedrock": [dict(use="passive", defVs=dict(STR=2), tags=["poison", "shove", "grapple"])],
+    "Luck": [dict(use="passive", uses="1/SR", lucky=True, reroll="1d20")],
     # Calling perks (scaling values: "STR", "-DEX", "½WIL", "2×STR", "5×½DEX" read the creature's current modifiers)
     "Duelist": [dict(use="trigger", on="meleeHit", target="self", do=[dict(move="safe", ft="5×½DEX", once=True)]),
                 dict(use="reaction", uses="½STR/SR", on="meleeMissSelf", target="enemy", riposte=True)],
     "Templar": [dict(use="reaction", uses="½WIL/SR", on="hitAlly5", target="ally", oath=True, oathCut="2×STR")],
     "Spellblade": [dict(use="passive", castingHand=True),
                    dict(use="trigger", uses="½STR/SR", on="meleeWeaponHit", do=[dict(dmg="INT")])],
-    "Performer": [dict(use="reaction", uses="½DEX/SR", on="rollNear", reach=30, target="ally", do=[dict(mod="roll", n="WIL")],
-                       params=dict(rollKinds=["attack", "check"]))],
     "Sage": [dict(use="passive", extraSp="½INT")],
     "Brawler": [dict(use="passive", grabHit="STR"), dict(use="passive", escapeAbil="2×DEX")],
     "Patriot": [dict(use="trigger", uses="½WIL/SR", on="weaponHit", do=[dict(dmg="½STR d6", type="Radiant")])],
     "Tactician": [dict(use="action", uses="½STR/SR", reach=30, target="ally", need=VOICE, do=[dict(command=True, hit="INT")])],
     # Quarry's mark: −½ DEX to every Defense of the target, so you and your allies hit it more (RULING R714)
     "Ranger": [dict(use="trigger", uses="½INT/SR", on="rangedHit", do=[dict(mod="def", n="-½DEX", until="startSourceTurn")])],
-    "Trickster": [dict(use="reaction", uses="½WIL/SR", on="hitSelf", target="self", do=[dict(mod="def", n="DEX", defs=["targeted"], next=True)])],
+    "Trickster": [dict(use="trigger", on="hitUnseen", do=[dict(dmg="½DEX|WIL d6")])],
     "Hermit": [dict(use="passive", extraResolve="½WIL")],
-    "Pack Hunter": [dict(use="trigger", uses="1/SR", on="hitEngaged", do=[dict(cond="Prone")])],
-    "Slippery": [dict(use="reaction", uses="2/SR", target="self", do=[dict(move="safe", ft="half")])],
-    "Hedge Witch": [dict(use="passive", extraSp=1)],
+    "Wolfpack": [dict(use="trigger", uses="1/SR", on="hitEngaged", do=[dict(cond="Prone")])],
+    "Herbalist": [dict(use="passive", extraSp=1)],
     # an Attack action of its own: one roll against each enemy in the weapon's reach (sim/effects.js)
     "Sweeping Blow": [dict(use="action", uses="1/SR", target="enemies", hook="sweep", params=dict(props=["heavy", "reach"]))],
 }

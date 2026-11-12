@@ -29,7 +29,7 @@ FIGURES = {
     "calling": (ill.calling_card, "A Calling card: its own values in the strip. Your totals go on the tally card (12.3).", "full"),
     "card": (ill.card_elements, "Where each element sits on a card.", "wide"),
     "rank": (ill.rank_ladder, "Rank I is a small edge; Rank V breaks the rules.", "side"),
-    "3.2 Your Slots": (ill.character_anatomy, "A starting Duelist: Calling, Armor, two Hands, Jewelry, two Items and three Aspects.", "wide"),
+    "3.2 Your Slots": (ill.character_anatomy, "A starting Duelist: Calling, Armor, two Hands, Jewelry, two Items and three Runes.", "wide"),
     "tally": (ill.tally_card, "The tally card, the one card you write on.", "full"),
     "frame": (ill.frame_figure, "An empty Armor frame, and a Hand frame holding a weapon by two corner slits.", "wide"),
     "totals": (ill.keeping_totals, "Bram's cards in play beside his tally card (top), and stacked on it to add up (bottom).", "full"),

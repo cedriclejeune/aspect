@@ -60,10 +60,9 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
 ```jsonc
 {
   "cover": "B-I-01", "kind": "spellbook" | "glamour" | "divine" | "nature",
-  "atk": 2,                            // Spell attack / Attack bonus (absent for nature)
+  "atk": 2,                            // Spell attack / Attack bonus
   "sp": 2, "maxLevel": 2,              // spellbook: spell points it adds (pool = all books + INT, min 1)
   "resolve": 3,                        // WIL decks: printed Resolve (pool = all WIL decks + WIL once, min 1)
-  "fate": "1d4",                       // divine
   "powers": [Power]                    // one per spell / power card, in deck order
 }
 ```
@@ -93,7 +92,7 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
   "uses": "2/SR" | "1/LR",             // limited uses (reset at the start of each fight, GM 2.1)
   "recharge": 5,                       // Recharge 5–6
   "on": Trigger,                       // trigger, and a reaction with a trigger
-  "need": ["shield"],                  // shield | emptyHand | voice | attackAction | melee | ranged | weapon
+  "need": ["shield"],                  // shield | emptyHand | voice | sight (Visual: no voice) | attackAction | melee | ranged | weapon
   "reach": 30,                         // range in ft from the user (5 = touch or within 5 ft)
   "target": "self" | "creature" | "ally" | "enemy" | "allies" | "enemies" | "point" | "darts",
   "count": 3,                          // max targets for allies/enemies/darts; absent = all in reach
@@ -127,9 +126,10 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
 | `meleeDrop` | your melee attack drops a creature to 0 HP |
 | `attackAction` | you take the Attack action |
 | `hitEngaged` | you hit a creature one of your allies is engaged with |
+| `hitUnseen` | you hit a creature that can't see you (Sure Thing) |
 | `opportunity` | your opportunity attack with this weapon |
 
-**Scaling values** (Calling perks, P 2.4): wherever a power takes a number (`uses`, `n`, `ft`, `extraSp`, `extraResolve`, `grabHit`, `escapeAbil`, `oathCut`, `hit`), it may name the creature's current modifier: `"STR"`, `"-DEX"`, `"½WIL"` (half, rounded down), `"2×STR"`, `"5×½DEX"`; `uses: "½WIL/SR"`; dice `"½STR d6"`.
+**Scaling values** (Calling perks, P 2.4): wherever a power takes a number (`uses`, `n`, `ft`, `extraSp`, `extraResolve`, `grabHit`, `escapeAbil`, `oathCut`, `hit`), it may name the creature's current modifier: `"STR"`, `"-DEX"`, `"½WIL"` (half, rounded down), `"2×STR"`, `"5×½DEX"`; `uses: "½WIL/SR"`; dice `"½STR d6"`, or `"½DEX|WIL d6"` for the higher of two abilities.
 
 **Effect** (`do` entries)
 ```jsonc

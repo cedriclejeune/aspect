@@ -6,7 +6,7 @@
 ## Sommaire
 1. [Introduction](#1-introduction)
 2. [Personnages](#2-personnages)
-3. [Matériel, Aspects et Emplacements](#3-matériel-aspects-et-emplacements)
+3. [Matériel, Runes et Emplacements](#3-matériel-runes-et-emplacements)
 4. [Progression](#4-progression)
 5. [Jouer](#5-jouer)
 6. [Combat](#6-combat)
@@ -24,7 +24,7 @@
 
 ## 1. Introduction
 
-**Porteurs** est un jeu de narration coopératif qui met l'accent sur la personnalisation des personnages et des mécaniques rapides. Un joueur est le **Maître du jeu (MJ)** : il décrit le monde, fait agir les monstres et arbitre les règles. Chacun des autres joue un personnage appelé **Porteur** ; ensemble, ils forment une **Compagnie**. Les personnages **n'ont pas de niveau** : un Porteur se définit par une **Vocation** qu'il garde à vie et par son matériel et ses Aspects, et il progresse en en trouvant de meilleurs.
+**Porteurs** est un jeu de narration coopératif qui met l'accent sur la personnalisation des personnages et des mécaniques rapides. Un joueur est le **Maître du jeu (MJ)** : il décrit le monde, fait agir les monstres et arbitre les règles. Chacun des autres joue un personnage appelé **Porteur** ; ensemble, ils forment une **Compagnie**. Les personnages **n'ont pas de niveau** : un Porteur se définit par une **Vocation** qu'il garde à vie et par son matériel et ses Runes, et il progresse en en trouvant de meilleurs.
 
 ### Le rythme du jeu
 
@@ -41,14 +41,14 @@ En combat, la conversation suit des tours (6.1) ; sinon, elle circule librement.
 La Compagnie avance dans une **saga**, une quête à la fois. Le jeu se déroule à trois échelles, chacune contenue dans la suivante :
 
 - **Saga :** le grand arc de la campagne, fait de plusieurs quêtes. Ce peut être une révolte contre un tyran, la recherche d'un artefact perdu ou la vengeance d'un mentor trahi.
-- **Quête :** un objectif que la Compagnie se donne : nettoyer la mine, escorter l'émissaire, retrouver la relique volée. Entre ses épreuves, vous explorez : vous voyagez, fouillez et parlementez à travers le monde (5.5, 5.6), et le MJ décrit ce que vous trouvez. Une quête dure quelques épreuves. L'achever peut rapporter une **récompense de quête** : une amélioration de la Réserve de la Compagnie, une faveur, un matériel rare ou un Aspect rare.
-- **Épreuve :** un problème à l'issue nette : un combat, une négociation, un cambriolage, un danger, une poursuite. Chacune rapporte, quelle que soit son issue : équipez le nouveau matériel et les nouveaux Aspects (3.5) ou gardez-les. Enchaînez les épreuves, et reposez-vous et reconstruisez-vous quand la Compagnie en a besoin (7.5).
+- **Quête :** un objectif que la Compagnie se donne : nettoyer la mine, escorter l'émissaire, retrouver la relique volée. Entre ses épreuves, vous explorez : vous voyagez, fouillez et parlementez à travers le monde (5.5, 5.6), et le MJ décrit ce que vous trouvez. Une quête dure quelques épreuves. L'achever peut rapporter une **récompense de quête** : une amélioration de la Réserve de la Compagnie, une faveur, un matériel rare ou une Rune rare.
+- **Épreuve :** un problème à l'issue nette : un combat, une négociation, un cambriolage, un danger, une poursuite. Chacune rapporte, quelle que soit son issue : équipez le nouveau matériel et les nouvelles Runes (3.5) ou gardez-les. Enchaînez les épreuves, et reposez-vous et reconstruisez-vous quand la Compagnie en a besoin (7.5).
 
 ### Règles d'or
 
 - **La règle du plaisir.** Le jeu existe pour que tout le monde à la table passe un bon moment. Quand une règle s'y oppose, la table peut la plier.
 - **Personne n'est laissé de côté.** Chaque joueur a son moment sous les projecteurs. Partagez les scènes, faites de la place aux joueurs plus discrets et donnez à chaque personnage quelque chose à faire.
-- **Le particulier l'emporte sur le général.** Un matériel, un Aspect ou un sort qui contredit une règle l'emporte.
+- **Le particulier l'emporte sur le général.** Un matériel, une Rune ou un sort qui contredit une règle l'emporte.
 - **Arrondissez à l'inférieur** sauf mention contraire.
 - **Tout se cumule :** chaque bonus et chaque malus s'additionnent, de même que l'avantage et le désavantage (un dé par question, 5.2). Une règle qui dit le contraire nomme son exception, comme un état ou un pouvoir qui ne se cumule pas avec lui-même (3.6, chapitre 8).
 - **Le MJ tranche** quand une règle ne couvre pas une situation, et fait avancer la partie.
@@ -59,13 +59,13 @@ La Compagnie avance dans une **saga**, une quête à la fois. Le jeu se déroule
 
 ### 2.1 Les Porteurs
 
-Votre personnage est un **Porteur**. Quelques humanoïdes portent un don, une bénédiction ou une malédiction selon à qui l'on demande : ils peuvent **absorber les Aspects** (Traits, Techniques, Savoir-faire, et magie Divine, de Glamour et de Nature) d'autres êtres. Un Aspect n'a pas de corps à lui. Quand une créature est vaincue, ses Aspects persistent au-dessus du corps pendant une minute, puis s'éteignent. Un Porteur peut en recueillir un dans un **Éclat** : un réceptacle de cristal encombrant qui contient un Aspect jusqu'à ce qu'il soit absorbé. Les Porteurs progressent en rassemblant deux sortes de ressources, chacune occupant ses propres **Emplacements** :
+Votre personnage est un **Porteur**. Une **Rune** est un pouvoir en forme de signe : un Trait, une Technique, un Domaine, ou une magie Divine, de Glamour ou de Nature. Le signe n'est que sa trace : le redessiner ne donne rien. La plupart des créatures en portent quelques-unes, ancrées en elles : elles gardent les mêmes toute leur vie. Quelques humanoïdes portent un don, une bénédiction ou une malédiction selon à qui l'on demande : une Rune ne s'ancre jamais dans un Porteur, qui peut la **graver** en lui, puis l'en retirer. Quand une créature meurt, ses Runes se détachent et persistent au-dessus du corps pendant une minute, puis s'éteignent. Un Porteur peut en recueillir une dans une **Pierre runique** : une pierre encombrante qui contient une Rune jusqu'à ce qu'elle soit gravée. Les Porteurs progressent en rassemblant deux sortes de ressources, chacune occupant ses propres **Emplacements** :
 
-- **Le matériel :** des choses réelles de deux sortes. L'**équipement** est ce que vous portez ou maniez (armures, armes, boucliers, Instruments, Bijoux) ; les **objets** sont ce que vous transportez et utilisez (Livres de sorts, Recettes, Consommables, Contenants, Éclats). Le matériel s'équipe dans les **Emplacements d'Armure, de Main, de Bijou et d'Objet**, appelés ensemble **Emplacements de Matériel**.
-- **Les Aspects :** ils sont absorbés dans vos **Emplacements d'Aspect**. Le nombre d'Aspects qu'un Porteur peut avoir absorbés est limité par son nombre d'Emplacements d'Aspect. Ce nombre augmente chaque fois que la Compagnie achève une saga (jalons, 4.1). L'Aspect d'un Éclat est absorbé pendant votre sommeil, lors d'un repos long (3.5). Les Éclats vides sont précieux : sans eux, un Aspect qui persiste est perdu (3.8).
-- **La Vocation** est ce que vous êtes : les deux caractéristiques avec lesquelles vous êtes né, vos Points de vie et votre Vitesse de base, et un atout. Ce n'est ni un Aspect ni du matériel ; elle n'occupe aucun Emplacement et vous accompagne à vie. Chaque matériel et chaque Aspect indique quelles Vocations peuvent l'équiper (3.1).
+- **Le matériel :** des choses réelles de deux sortes. L'**équipement** est ce que vous portez ou maniez (armures, armes, boucliers, Instruments, Bijoux) ; les **objets** sont ce que vous transportez et utilisez (Livres de sorts, Recettes, Consommables, Contenants, Pierres runiques). Le matériel s'équipe dans les **Emplacements d'Armure, de Main, de Bijou et d'Objet**, appelés ensemble **Emplacements de Matériel**.
+- **Les Runes :** elles sont gravées dans vos **Emplacements de Rune**. Le nombre de Runes qu'un Porteur peut avoir gravées est limité par son nombre d'Emplacements de Rune. Ce nombre augmente chaque fois que la Compagnie achève une saga (jalons, 4.1). La Rune d'une Pierre runique est gravée pendant votre sommeil, lors d'un long repos (3.5). Les Pierres vierges sont précieuses : sans elles, une Rune qui persiste est perdue (3.8).
+- **La Vocation** est ce que vous êtes : les deux caractéristiques avec lesquelles vous êtes né, vos Points de vie et votre Vitesse de base, et un atout. Ce n'est ni une Rune ni du matériel ; elle n'occupe aucun Emplacement et vous accompagne à vie. Chaque matériel et chaque Rune indique quelles Vocations peuvent l'équiper (3.1).
 
-Votre apparence et votre personnalité restent les mêmes, quels que soient les Aspects que vous avez équipés. Seule une Forme (10.7) change votre silhouette, pour un temps.
+Votre corps et votre personnalité restent les mêmes, quelles que soient les Runes que vous avez gravées. Seule une Forme (10.7) change votre silhouette, pour un temps. Une Rune que vous retirez emporte son pouvoir : rien n'en reste en vous.
 
 ### 2.2 Caractéristiques
 
@@ -74,7 +74,7 @@ Toute créature a **quatre caractéristiques**, chacune notée sous forme de **m
 |  | Caractéristique | Usages et tests |  | Sa Défense arrête… |
 |---|---|---|---|---|
 | <img class="sym" src="../symbols/str.svg" alt="FOR" width="22"> | **Force (FOR)** | Grimper, sauter, nager, soulever, briser, empoigner, endurer la douleur, marcher longtemps, retenir son souffle | <img class="sym" src="../symbols/str-def.svg" alt="Défense de FOR" width="22"> | **Les armes** (ou AGI), le poison, la maladie, être poussé ou empoigné |
-| <img class="sym" src="../symbols/dex.svg" alt="AGI" width="22"> | **Agilité (AGI)** | Se faufiler, se cacher, garder l'équilibre, faire des acrobaties, crocheter les serrures et les poches, se libérer de liens | <img class="sym" src="../symbols/dex-def.svg" alt="Défense d'AGI" width="22"> | **Les armes** (ou FOR), les explosions, les pièges, les souffles, les effets de zone |
+| <img class="sym" src="../symbols/dex.svg" alt="AGI" width="22"> | **Agilité (AGI)** | Se faufiler, se cacher, garder l'équilibre, faire des acrobaties, crocheter les serrures, faire les poches, désamorcer les pièges, se libérer de liens | <img class="sym" src="../symbols/dex-def.svg" alt="Défense d'AGI" width="22"> | **Les armes** (ou FOR), les explosions, les pièges, les souffles, les effets de zone |
 | <img class="sym" src="../symbols/int.svg" alt="INT" width="22"> | **Intelligence (INT)** | Remarquer, fouiller, deviner les intentions, se souvenir de connaissances, pister, s'orienter, soigner les blessures. **Toute incantation.** | <img class="sym" src="../symbols/int-def.svg" alt="Défense d'INT" width="22"> | Les illusions, la confusion et la folie |
 | <img class="sym" src="../symbols/wil.svg" alt="VOL" width="22"> | **Volonté (VOL)** | Persuader, tromper, se produire, intimider, dresser les animaux, tenir bon. **Magie Divine, de Glamour et de Nature.** | <img class="sym" src="../symbols/wil-def.svg" alt="Défense de VOL" width="22"> | Le charme, la peur, le contrôle mental, la possession, le bannissement, les malédictions, la métamorphose |
 
@@ -85,60 +85,60 @@ Toute créature a **quatre caractéristiques**, chacune notée sous forme de **m
 
 ### 2.3 Défenses
 
-- **Défense** = 10 + modificateur de caractéristique + bonus (armure, bouclier, autre matériel et Aspects). Toute créature en a quatre : **Défense de FOR, d'AGI, d'INT et de VOL**. Les attaques se jouent contre elles (5.1).
+- **Défense** = 10 + modificateur de caractéristique + bonus (armure, bouclier, autre matériel et Runes). Toute créature en a quatre : **Défense de FOR, d'AGI, d'INT et de VOL**. Les attaques se jouent contre elles (5.1).
   - Les **attaques d'arme**, au corps à corps ou à distance, visent la **plus haute** des Défenses de FOR et d'AGI du défenseur.
   - Les **autres effets** nomment la Défense qu'ils visent. *Un boulet de canon ne vise que la Défense d'AGI : les plates ne servent à rien.*
 
 ### 2.4 La Vocation
 
-Votre **Vocation** est la paire de caractéristiques avec laquelle vous êtes né. Elle fixe vos nombres de base et décide quel matériel et quels Aspects vous répondent. Ce n'est ni un Aspect ni du matériel, et elle n'occupe aucun Emplacement. Vous la choisissez à la création de votre personnage et la gardez à vie ; seul un rare Aspect de Rang V la change.
+Votre **Vocation** est la paire de caractéristiques avec laquelle vous êtes né. Elle fixe vos nombres de base et décide quel matériel et quelles Runes vous répondent. Ce n'est ni une Rune ni du matériel, et elle n'occupe aucun Emplacement. Vous la choisissez à la création de votre personnage et la gardez à vie ; seule une rare Rune de Rang V la change.
 
-Une Vocation donne **+2 à ses deux caractéristiques** et +0 aux deux autres, un maximum de **Points de vie**, une **Vitesse** et un **atout**. Chaque paire de caractéristiques a deux Vocations : mêmes caractéristiques, autre atout. Tout Porteur est de taille **Moyenne** ; seuls du matériel et des Aspects de Rang V changent cela.
+Une Vocation donne **+2 à ses deux caractéristiques** et +0 aux deux autres, un maximum de **Points de vie**, une **Vitesse** et un **atout**. Chaque paire de caractéristiques a deux Vocations : mêmes caractéristiques, autre atout. Tout Porteur est de taille **Moyenne** ; seuls du matériel et des Runes de Rang V changent cela.
 
 | Vocation | Caractéristiques | PV | Vitesse | Atout |
 |---|---|---|---|---|
-| **Duelliste** | FOR · AGI | 12 | 14 m | **Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 2 m × ½ AGI. Ce déplacement ne provoque pas d'attaque d'opportunité. **Riposte (½ FOR/R.C.) :** réaction, quand une attaque au corps à corps vous rate : faites une attaque d'arme au corps à corps contre l'attaquant. |
-| **Templier** | FOR · VOL | 14 | 12 m | **Serment (½ VOL/R.C.) :** réaction, quand une attaque touche un allié à 2 m ou moins : vous subissez ses dégâts à sa place, réduits de 2 × FOR. |
-| **Lame-mage** | FOR · INT | 13 | 12 m | **Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. **Frappe ensorcelée (½ FOR/R.C.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts. |
+| **Duelliste** | FOR · AGI | 12 | 14 m | **Jeu de jambes :** une fois par tour, après avoir touché au corps à corps, déplacez-vous de 2 m × ½ AGI. Ce déplacement ne provoque pas d'attaque d'opportunité. **Riposte (½ FOR/C.R.) :** réaction, quand une attaque au corps à corps vous rate : faites une attaque d'arme au corps à corps contre l'attaquant. |
+| **Templier** | FOR · VOL | 14 | 12 m | **Serment (½ VOL/C.R.) :** réaction, quand une attaque touche un allié à 2 m ou moins : vous subissez ses dégâts à sa place, réduits de 2 × FOR. |
+| **Lame-mage** | FOR · INT | 13 | 12 m | **Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. **Frappe ensorcelée (½ FOR/C.R.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts. |
 | **Infiltrateur** | AGI · INT | 10 | 14 m | **Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent l'AGI et l'INT. |
-| **Artiste** | AGI · VOL | 10 | 14 m | **Grande ovation (½ AGI/R.C.) :** réaction, après qu'un allié à 12 m ou moins a fait une attaque ou un test : +VOL à ce jet. |
+| **Artiste** | AGI · VOL | 10 | 14 m | **Présence :** vos tests pour se produire, persuader et tromper ajoutent l'AGI et la VOL. |
 | **Sage** | INT · VOL | 9 | 14 m | **Érudit :** ½ INT points de sort supplémentaires (10.2). Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL. |
 | **Bagarreur** | FOR · AGI | 14 | 12 m | **Teigneux :** +FOR au toucher pour Empoigner et Bousculer. **Dégagement :** vos attaques pour S'échapper (6.10) ajoutent 2 × AGI au lieu de FOR ou AGI. |
-| **Patriote** | FOR · VOL | 12 | 14 m | **Juste colère (½ VOL/R.C.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants. |
-| **Tacticien** | FOR · INT | 12 | 14 m | **Commandement (½ FOR/R.C.) :** action. Un allié à 12 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher. |
-| **Rôdeur** | AGI · INT | 11 | 14 m | **Proie (½ INT/R.C.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ AGI aux attaques contre elle jusqu'au début de votre prochain tour. |
-| **Filou** | AGI · VOL | 9 | 14 m | **Feinte (½ VOL/R.C.) :** réaction, quand une attaque vous touche : −AGI à ce jet d'attaque, ce qui peut le transformer en échec. |
+| **Patriote** | FOR · VOL | 12 | 14 m | **Juste colère (½ VOL/C.R.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants. |
+| **Tacticien** | FOR · INT | 12 | 14 m | **Commandement (½ FOR/C.R.) :** action. Un allié à 12 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher. |
+| **Rôdeur** | AGI · INT | 11 | 14 m | **Proie (½ INT/C.R.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ AGI aux attaques contre elle jusqu'au début de votre prochain tour. |
+| **Filou** | AGI · VOL | 9 | 14 m | **Coup sûr :** pour vos tests pour se faufiler, crocheter les serrures, faire les poches et désamorcer les pièges, un d20 qui affiche moins de 10 compte comme un 10. Quand vous touchez une créature qui ne vous voit pas : +½ AGI ou ½ VOL d6 dégâts, la plus haute des deux. |
 | **Ermite** | INT · VOL | 11 | 12 m | **Solitude :** ½ VOL Ardeur supplémentaire (10.6). Vos tests pour cueillir et endurer ajoutent l'INT et la VOL. |
 
-Les nombres d'un atout grandissent avec vous. Ils utilisent vos modificateurs actuels, matériel compris : *+FOR* ajoute votre FOR, *2 × FOR* le double, et *½ VOL* vaut la moitié de votre VOL, arrondie à l'inférieur, pour les utilisations, les dés et les distances (*½ VOL/R.C.* : deux utilisations avec VOL +4). Avec VOL +1 ou moins, un *½ VOL* vaut 0. Chaque atout puise dans les deux caractéristiques de sa Vocation, ou la Vocation a deux atouts, un pour chacune.
+Les nombres d'un atout grandissent avec vous. Ils utilisent vos modificateurs actuels, matériel compris : *+FOR* ajoute votre FOR, *2 × FOR* le double, et *½ VOL* vaut la moitié de votre VOL, arrondie à l'inférieur, pour les utilisations, les dés et les distances (*½ VOL/C.R.* : deux utilisations avec VOL +4). Avec VOL +1 ou moins, un *½ VOL* vaut 0. Chaque atout puise dans les deux caractéristiques de sa Vocation, ou la Vocation a deux atouts, un pour chacune.
 
-Vos autres nombres augmentent grâce à vos cartes : les **Armures** et les **Traits** impriment l'essentiel des PV que vous gagnez, et le matériel et les Aspects augmentent vos modificateurs et vos Défenses.
+Vos autres nombres augmentent grâce à vos cartes : les **Armures** et les **Traits** impriment l'essentiel des PV que vous gagnez, et le matériel et les Runes augmentent vos modificateurs et vos Défenses.
 
 À la table, votre Vocation est une **carte de Vocation**, et vous inscrivez vos dix totaux sur une **carte de Décompte** (12.3).
 
 <!-- figure: calling -->
 
-## 3. Matériel, Aspects et Emplacements
+## 3. Matériel, Runes et Emplacements
 
-### 3.1 Matériel et Aspects
+### 3.1 Matériel et Runes
 
 <!-- figure: rank -->
 
-Chaque matériel et chaque Aspect (une **carte** à la table, 12.1) a :
+Chaque matériel et chaque Rune (une **carte** à la table, 12.1) a :
 
 - **Un nom** (*Plates du gardien*).
-- **Un Rang** de I à V : sa puissance (*II*).
-- **Des symboles :** les quatre symboles de caractéristique, dans le coin supérieur. Les caractéristiques qu'il utilise sont allumées ; les autres sont grisées (*FOR*). Vous ne pouvez l'équiper que si **votre Vocation possède au moins un de ses symboles allumés**. Les Bijoux, Consommables, Recettes, Contenants et Éclats ont les quatre allumés : tout le monde peut les utiliser. Un **Focaliseur** (10.6) n'allume que la VOL : il renforce la magie de VOL.
+- **Un Rang** de I à V : sa puissance, gravée dans une pierre en haut à droite, une branche par Rang : trois à droite, puis à gauche (*II* : deux branches).
+- **Des symboles :** les quatre symboles de caractéristique, dans le coin supérieur. Les caractéristiques qu'il utilise sont allumées ; les autres sont grisées (*FOR*). Vous ne pouvez l'équiper que si **votre Vocation possède au moins un de ses symboles allumés**. Les Bijoux, Consommables, Recettes, Contenants et Pierres runiques ont les quatre allumés : tout le monde peut les utiliser. Un **Focaliseur** (10.6) n'allume que la VOL : il renforce la magie de VOL.
 - **Des bonus** aux modificateurs, aux Défenses, au maximum de PV ou à la Vitesse (*+4 Défense de FOR, −4 m de Vitesse*).
-- **Un effet**, le cas échéant (*Réaction (1/R.C.), quand une attaque vous touche : réduisez ses dégâts de 5*). Un pouvoir aux utilisations limitées les indique sur lui-même : **R.C.** signifie qu'elles reviennent lors d'un repos court (ou d'un repos long), **R.L.** seulement lors d'un repos long.
-- **Des mots-clés :** le **type** d'abord (il fixe l'Emplacement, 3.2), puis les propriétés (*Armure · Bruyante 3*). Voir le chapitre 11.
-- Une carte dont votre Vocation ne correspond plus aux symboles (un Aspect de Rang V l'a changée) **cesse de fonctionner** jusqu'à ce que vous la remplaciez.
+- **Un effet**, le cas échéant (*Réaction (1/C.R.), quand une attaque vous touche : réduisez ses dégâts de 5*). Un pouvoir aux utilisations limitées les indique sur lui-même : **C.R.** signifie qu'elles reviennent lors d'un court repos (ou d'un long repos), **L.R.** seulement lors d'un long repos.
+- **Des mots-clés :** le **type** d'abord (il fixe l'Emplacement, 3.2), puis les propriétés (*Armure · Bruyante 3*). Une Rune porte *Rune de* en petit au-dessus de son nom, et son type dessous (*Rune du* **Larcin**, *Domaine*) ; ses mots-clés se lisent *Rune*, puis son type (*Rune · Trait*). Voir le chapitre 11.
+- Une carte dont votre Vocation ne correspond plus aux symboles (une Rune de Rang V l'a changée) **cesse de fonctionner** jusqu'à ce que vous la remplaciez.
 
 <!-- figure: card -->
 
 ### 3.2 Vos Emplacements
 
-Tous les personnages ont le même corps. Seul le nombre d'Emplacements d'Aspect augmente vraiment.
+Tous les personnages ont le même corps. Seul le nombre d'Emplacements de Rune augmente vraiment.
 
 | Emplacement | Au départ | Contient |
 |---|---|---|
@@ -146,12 +146,12 @@ Tous les personnages ont le même corps. Seul le nombre d'Emplacements d'Aspect 
 | **Main** | 2 | Une *Arme*, un *Bouclier* ou un *Instrument* chacun. Une arme à Deux mains occupe deux Mains. |
 | **Bijou** | 1 | Un *Bijou* (anneaux, amulettes, diadèmes, capes, gants, bottes) |
 | **Objet** | 2 | Un *Livre de sorts* ou une *Recette*, ou une pile de jusqu'à **3 Consommables identiques** (potions, parchemins, bombes, huiles) |
-| **Aspect** | 3 | Un *Trait*, une *Technique*, un *Savoir-faire*, un *Divin*, un *Glamour* ou une *Nature* |
+| **Rune** | 3 | Un *Trait*, une *Technique*, un *Domaine*, un *Divin*, un *Glamour* ou une *Nature* |
 
 - Un Emplacement peut rester vide.
-- Un matériel ou un Aspect ne va que dans l'Emplacement que nomme son mot-clé de type (11.1).
-- Les **Consommables** disparaissent une fois utilisés. Les **Recettes** en sont la version forte : une Recette est une pile qui **se reconstitue à chaque repos long**. Les exemplaires inutilisés d'une Recette disparaissent quand elle se reconstitue ; d'ici là, vous pouvez les donner à vos alliés.
-- Les **Emplacements d'Aspect supplémentaires** viennent des jalons (4.1). Les **Emplacements de Main, de Bijou et d'Objet supplémentaires** ne viennent que des Boss (3.3).
+- Un matériel ou une Rune ne va que dans l'Emplacement que nomme son mot-clé de type (11.1).
+- Les **Consommables** disparaissent une fois utilisés. Les **Recettes** en sont la version forte : une Recette est une pile qui **se reconstitue à chaque long repos**. Les exemplaires inutilisés d'une Recette disparaissent quand elle se reconstitue ; d'ici là, vous pouvez les donner à vos alliés.
+- Les **Emplacements de Rune supplémentaires** viennent des jalons (4.1). Les **Emplacements de Main, de Bijou et d'Objet supplémentaires** ne viennent que des Boss (3.3).
 - À la table, chaque Emplacement est un **cadre d'Emplacement**, et la carte qu'il contient y est glissée (12.2).
 
 ### 3.3 Emplacements de Matériel supplémentaires
@@ -185,30 +185,30 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > *Arme*
 
 > **ANNEAU DE PROTECTION** · Rang I · tous
-> **Réaction (2/R.C.)**, quand une attaque vous touche : +2 à la Défense visée contre cette attaque, ce qui peut la transformer en échec.
+> **Réaction (2/C.R.)**, quand une attaque vous touche : +2 à la Défense visée contre cette attaque, ce qui peut la transformer en échec.
 > *Bijou*
 
 > **RECETTE DE FEU GRÉGEOIS** · Rang II · tous
 > **Réaction :** lancez une fiole jusqu'à 12 m. Faites une attaque (AGI ou INT + 3) contre la Défense d'AGI de chaque créature à 2 m ou moins du point d'impact : 2d6 Feu si elle touche, la moitié en cas d'échec.
 > *Recette · 3 fioles*
 
-> **SAUTE-RUISSEAU** · Rang I · FOR · AGI
+> **BOND** · Rang I · FOR · AGI
 > Bonus : +2 PV
 > Vos distances de saut sont doublées, et vous n'avez jamais besoin d'élan.
-> *Trait*
+> *Rune · Trait*
 
 > **DOUBLE FRAPPE** · Rang II · FOR · AGI
 > Une fois par tour, quand vous effectuez l'action Attaque, faites une attaque supplémentaire.
-> *Technique*
+> *Rune · Technique*
 
 > **SECOND SOUFFLE** · Rang II · FOR · VOL
 > Bonus : +4 PV
-> **Action (1/R.C.) :** récupérez 1d10 + 3 PV.
-> *Trait*
+> **Action (1/C.R.) :** récupérez 1d10 + 3 PV.
+> *Rune · Trait*
 
 > **HYMNE DE BATAILLE** · Rang I · AGI · VOL
-> **2/R.C.**, quand vous touchez avec une attaque d'arme : jusqu'à 3 alliés à 12 m ou moins qui peuvent vous entendre ont +2 à leur prochaine attaque avant la fin de votre prochain tour.
-> *Technique*
+> **2/C.R.**, quand vous touchez avec une attaque d'arme : jusqu'à 3 alliés à 12 m ou moins qui peuvent vous entendre ont +2 à leur prochaine attaque avant la fin de votre prochain tour.
+> *Rune · Technique*
 
 > **BÂTON DE GARDE-SORT** · Rang I · INT · VOL
 > +2 au toucher, 1d6 / 1d8 + INT ou VOL Physique. Tant que vous le tenez, il compte comme une Main vide pour lancer des sorts depuis un Livre de sorts.
@@ -217,31 +217,31 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > **SANG DE PIERRE** · Rang I · FOR · INT
 > Bonus : +2 PV
 > +2 à la Défense de FOR contre le poison et la maladie.
-> *Trait*
+> *Rune · Trait*
 
 > **VOLONTÉ DE FER** · Rang I · INT · VOL
 > Bonus : +2 PV
 > +2 à la Défense de VOL contre la peur et le contrôle mental.
-> *Trait*
+> *Rune · Trait*
 
-> **PASSE-MURAILLE** · Rang I · AGI · INT
+> **LARCIN** · Rang I · AGI · INT
 > +2 aux tests pour se faufiler, grimper ou crocheter les serrures.
-> *Savoir-faire*
+> *Rune · Domaine*
 
 > **LETTRE D'INTRODUCTION** · Rang I · tous
 > Une lettre scellée d'une maison noble, d'une guilde ou d'un temple. Montrez-la à l'un de ses membres : il accède à une demande raisonnable (un abri, une audience, un sauf-conduit, un prêt jusqu'à 100 po).
 > *Consommable*
 
 > **CHEVALIÈRE DE GUILDE** · Rang I · tous
-> **Action (1/R.L.)**, dans une localité où la guilde opère : un contact vous trouve dans l'heure. Il vous révèle un fait que la guilde connaîtrait, ou vous cache pour une nuit.
+> **Action (1/L.R.)**, dans une localité où la guilde opère : un contact vous trouve dans l'heure. Il vous révèle un fait que la guilde connaîtrait, ou vous cache pour une nuit.
 > *Bijou*
 
-> **RENOMMÉ** · Rang I · INT · VOL
+> **MÉNESTREL** · Rang I · INT · VOL
 > +2 aux tests pour persuader, marchander, recueillir des rumeurs ou se produire.
-> *Savoir-faire*
+> *Rune · Domaine*
 
 > **RÉPERTOIRE DU VAGABOND** · Rang I · VOL
-> Attaque : VOL + 2 · Ardeur : +3 (repos court)
+> Attaque : VOL + 2 · Ardeur : +3 (court repos)
 > Pouvoirs : *Raillerie* (0) · *Ralliement*, *Tenez la ligne*, *Réplique cinglante*, *Du calme* (1) · *Effroi*, *Vers exaltant* (2)
 > - *Raillerie* (Complainte, 0) : jusqu'à la fin du prochain tour de la cible, elle a −2 à sa prochaine attaque.
 > - *Ralliement* (Hymne, 1) : Durée 1 minute. Jusqu'à 3 alliés à 12 m ou moins ont +2 aux attaques.
@@ -250,10 +250,10 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > - *Du calme* (Réplique, 1) : +2 au jet d'un allié, ou à la Défense que vise une attaque.
 > - *Effroi* (Complainte, 2) : la cible est Effrayée par vous pendant 2 tours.
 > - *Vers exaltant* (Soin, 2) : action, 24 m. Une créature récupère 2d4 + VOL PV.
-> *Glamour*
+> *Rune · Glamour*
 
 > **LITANIE DE L'ACOLYTE** · Rang I · VOL
-> Attaque : VOL + 2 · Ardeur : +3 (repos court)
+> Attaque : VOL + 2 · Ardeur : +3 (court repos)
 > Pouvoirs : *Assistance* (0) · *Bénédiction*, *Fléau*, *Altération du destin* (1) · *Mot de guérison*, *Soins* (2)
 > - *Assistance* (Réplique, 0) : ajoutez 1d4 au test d'un allié.
 > - *Bénédiction* (Hymne, 1) : Durée 1 minute. Jusqu'à 3 alliés à 12 m ou moins ajoutent 1d4 à leurs jets d'attaque.
@@ -261,28 +261,28 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > - *Altération du destin* (Réplique, 1) : Relance. Faites relancer un jet d'attaque ou un test à un allié ou à un ennemi.
 > - *Mot de guérison* (Soin, 2) : action, 24 m. Une créature récupère 2d4 + VOL PV.
 > - *Soins* (Soin, 2) : action, contact. Une créature récupère 2d8 + VOL PV.
-> *Divin*
+> *Rune · Divin*
 
-> **SOUVENANCE DU CŒUR SAUVAGE** · Rang I · VOL
-> Ardeur : +3 (repos court)
+> **INSTINCT DU CŒUR SAUVAGE** · Rang I · VOL
+> Attaque : VOL + 2 · Ardeur : +3 (court repos)
 > Pouvoirs : *Faucon* (1) · *Loup*, *Baume de mousse* (2) · *Ours* (3)
 > - *Faucon* (Forme, 1) : FOR −2 · AGI +3 · 4 PV · Vitesse 4 m, Vol 24 m · Très petit. Serres : +2 au toucher, 1d4 + AGI Physique. +2 aux tests pour remarquer.
 > - *Loup* (Forme, 2) : FOR +1 · AGI +3 · 8 PV · Vitesse 16 m · Moyen. Morsure : +2 au toucher, 1d6 + AGI Physique. +2 aux tests pour pister.
 > - *Baume de mousse* (Soin, 2) : action, contact. Une créature récupère 2d8 + VOL PV.
 > - *Ours* (Forme, 3) : FOR +3 · AGI +1 · 12 PV · Vitesse 12 m, Escalade 12 m · Grand. Cuir épais : +2 Défense de FOR. Griffes : +2 au toucher, 1d8 + FOR Physique.
-> *Nature*
+> *Rune · Nature*
 
 > **LUTH DU VOYAGEUR** · Rang I · VOL
-> 1 Ardeur supplémentaire (repos court). Vos Hymnes portent à 24 m au lieu de 12 m.
+> 1 Ardeur supplémentaire (court repos). Vos Hymnes portent à 24 m au lieu de 12 m.
 > *Instrument · Focaliseur*
 
 > **CRI DE RALLIEMENT** · Rang I · FOR · VOL
-> *Ralliement* comme Hymne isolé. **Action (1/R.C.) :** Durée 1 minute, jusqu'à 3 alliés à 12 m ou moins ont +2 aux attaques.
-> *Technique · Hymne*
+> *Ralliement* comme Hymne isolé. **Action (1/C.R.) :** Durée 1 minute, jusqu'à 3 alliés à 12 m ou moins ont +2 aux attaques.
+> *Rune · Technique · Hymne*
 
 ### 3.5 Équiper et échanger
 
-Chaque Emplacement a son propre temps d'échange. Un échange déplace un matériel entre un Emplacement et votre Sac, la Réserve de la Compagnie ou le sol. Un Aspect passe entre son Emplacement et un Éclat (3.8).
+Chaque Emplacement a son propre temps d'échange. Un échange déplace un matériel entre un Emplacement et votre Sac, la Réserve de la Compagnie ou le sol. Une Rune passe entre son Emplacement et une Pierre runique (3.8).
 
 | Emplacement | Temps d'échange | En combat |
 |---|---|---|
@@ -291,28 +291,28 @@ Chaque Emplacement a son propre temps d'échange. Un échange déplace un matér
 | **Objet : Consommable, Recette** | Votre interaction gratuite avec un objet | Oui. L'utiliser coûte ce qui est indiqué (boire une potion : une action). |
 | **Objet : Livre de sorts** | 1 action | Oui |
 | **Armure** | 10 minutes pour l'enfiler ou l'ôter | Non |
-| **Aspect** | Repos long | Non |
+| **Rune** | Long repos | Non |
 
-- **Le Sac en combat :** sortir un matériel (Éclat compris) de votre Sac (ou l'y ranger) coûte **vos deux actions**, **plus** le temps d'échange de l'Emplacement. La Réserve de la Compagnie est inaccessible en combat.
+- **Le Sac en combat :** sortir un matériel (Pierre runique comprise) de votre Sac (ou l'y ranger) coûte **vos deux actions**, **plus** le temps d'échange de l'Emplacement. La Réserve de la Compagnie est inaccessible en combat.
 - **Hors combat**, le Sac et la Réserve de la Compagnie ne coûtent rien à atteindre (la Réserve seulement là où elle se trouve, 3.7). Le temps d'échange de l'Emplacement s'applique toujours.
-- **Le matériel et les Aspects entamés sont verrouillés :** tout ce dont des utilisations ont été dépensées ne peut être retiré **que lors d'un repos long**. Les Livres de sorts et les paquets Divins, de Glamour et de Nature n'ont pas d'utilisations : on peut en retirer un dès que son temps d'échange le permet, tant que les points déjà dépensés tiennent encore dans votre nouveau total (10.2, 10.6).
-- Le matériel et les Aspects conservent leur état dans le Sac, la Réserve de la Compagnie et les Éclats : un nouveau butin est entièrement chargé.
+- **Le matériel et les Runes entamés sont verrouillés :** tout ce dont des utilisations ont été dépensées ne peut être retiré **que lors d'un long repos**. Les Livres de sorts et les paquets de VOL n'ont pas d'utilisations : on peut en retirer un dès que son temps d'échange le permet, tant que les points déjà dépensés tiennent encore dans votre nouveau total (10.2, 10.6).
+- Le matériel et les Runes conservent leur état dans le Sac, la Réserve de la Compagnie et les Pierres runiques : un nouveau butin est entièrement chargé.
 
 ### 3.6 Règles de cumul
 
-- Vous ne pouvez pas équiper **deux exemplaires** du même matériel ou du même Aspect. Des Consommables identiques dans une même pile, si.
-- **Tous les bonus se cumulent.** Le bonus au toucher d'une arme, le bonus d'un Savoir-faire et celui d'un Bijou s'ajoutent au même jet.
+- Vous ne pouvez pas équiper **deux exemplaires** du même matériel ou de la même Rune. Des Consommables identiques dans une même pile, si.
+- **Tous les bonus se cumulent.** Le bonus au toucher d'une arme, le bonus d'un Domaine et celui d'un Bijou s'ajoutent au même jet.
 - **Un pouvoir ne se cumule pas avec lui-même.** Utiliser un pouvoir sur une créature qui le subit déjà remplace l'ancien et relance sa Durée. Des pouvoirs différents se cumulent (*Bénédiction* et *Ralliement*).
 
 ### 3.7 Sac, Réserve de la Compagnie, babioles et or
 
-- **Sac :** jusqu'à **8 pièces**, sur votre dos : du matériel que vous n'avez pas équipé (armes, bijoux, Livres de sorts, Consommables), des **Contenants** et **au plus 3 Éclats** (3.8). Un **Contenant** (une Bourse, une *Bandoulière à Éclats*) ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. **Pas d'Armure** (trop volumineuse). Accessible en combat, à un coût (3.5). À la table, une pile de cartes à côté de vous (12.2).
-- **Réserve de la Compagnie :** jusqu'à **5 pièces par personnage** (matériel et Éclats), partagées par le groupe. C'est une mule, une charrette ou un chariot : elle reste **là où la Compagnie la laisse** (hors du donjon, à l'auberge) et est inaccessible en combat. Le MJ peut la menacer (voleurs, embuscade, gué à traverser). À la table, une pile de cartes commune (12.2).
+- **Sac :** jusqu'à **8 pièces**, sur votre dos : du matériel que vous n'avez pas équipé (armes, bijoux, Livres de sorts, Consommables), des **Contenants** et **au plus 3 Pierres runiques** (3.8). Un **Contenant** (une Bourse, une *Bandoulière runique*) ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. **Pas d'Armure** (trop volumineuse). Accessible en combat, à un coût (3.5). À la table, une pile de cartes à côté de vous (12.2).
+- **Réserve de la Compagnie :** jusqu'à **5 pièces par personnage** (matériel et Pierres runiques), partagées par le groupe. C'est une mule, une charrette ou un chariot : elle reste **là où la Compagnie la laisse** (hors du donjon, à l'auberge) et est inaccessible en combat. Le MJ peut la menacer (voleurs, embuscade, gué à traverser). À la table, une pile de cartes commune (12.2).
 - **Les améliorations de la Réserve** ne viennent que comme récompenses (récompenses de quête, Boss), jamais contre de l'or. Chacune remplace la précédente, en pièces par personnage : *Mule de bât* 8, *Charrette* 12, *Chariot* 20.
-- **Décompte :** chaque matériel compte pour 1, Éclats (vides ou pleins) et Contenants compris. Une pile de jusqu'à 3 Consommables identiques compte pour 1 (comme dans un Emplacement d'Objet).
+- **Décompte :** chaque matériel compte pour 1, Pierres runiques (vierges ou pleines) et Contenants compris. Une pile de jusqu'à 3 Consommables identiques compte pour 1 (comme dans un Emplacement d'Objet).
 - **Sac ou Réserve pleins :** vous ne pouvez pas garder plus. Laissez la pièce en trop, donnez-la à un allié ou vendez-la.
 - **Babioles :** les petites choses non magiques qui ne sont pas du matériel (trésor, clés, lettres, objets de quête) se transportent librement, sans limite. Les fournitures ordinaires (corde, torches, rations, munitions, vêtements, outils) sont **présumées** : vous les avez quand vous en avez besoin.
-- **Argent :** des pièces d'or (po). L'or achète des consommables, des services, des Éclats vides, des Bourses et, chez certains marchands, du matériel et des Aspects. Un Aspect se vend sans Éclat : apportez-en un vide pour le capturer (3.8).
+- **Argent :** des pièces d'or (po). L'or achète des consommables, des services, des Pierres vierges, des Bourses et, chez certains marchands, du matériel et des Runes. Une Rune se vend sans Pierre runique : apportez-en une vierge pour la recueillir (3.8).
 - **Bourse :** l'or se garde dans une **Bourse**, un Contenant qui contient jusqu'à une somme fixée par son Rang : I *Bourse à cordon* **100 po**, II *Bourse de marchand* **500**, III *Sacoche de banquier* **2 000**, IV *Coffret de maître de guilde* **10 000**, V *Bourse sans fond* **sans limite**. La Bourse compte pour 1 pièce ; l'or à l'intérieur, non. Chaque sac de pièces hors d'une Bourse compte pour 1 pièce. À la table, une Bourse est une carte, et son or est fait de **cartes d'or** glissées dessous (12.2).
 - **Où elle se trouve :** un Emplacement d'Objet, votre Sac ou la Réserve de la Compagnie. Plus elle est proche de vous, mieux elle est surveillée et protégée ; le MJ décide de ce qu'un voleur ou une catastrophe peut atteindre. L'or se perd, se vole et se donne comme n'importe quel matériel.
 - **Payer :** la Bourse doit être à proximité : la vôtre, celle d'un allié, ou la Réserve de la Compagnie quand la Compagnie est avec elle.
@@ -322,47 +322,48 @@ Chaque Emplacement a son propre temps d'échange. Un échange déplace un matér
 | Potion de soins (2d4 + 2 PV) | 50 po |
 | Potion de soins supérieurs (4d4 + 4 PV) | 150 po |
 | Nuit à l'auberge, repas compris | 1 po |
-| Matériel ou Aspect de Rang I (si un marchand en vend) | 100 po |
-| Matériel ou Aspect de Rang II | 500 po |
-| Éclat vide | 250 po |
+| Matériel ou Rune de Rang I (si un marchand en vend) | 100 po |
+| Matériel ou Rune de Rang II | 500 po |
+| Pierre vierge | 250 po |
 | Bourse, Rang I / II / III / IV / V | 10 / 50 / 200 / 1 000 / 5 000 po |
 
-### 3.8 Éclats
+### 3.8 Pierres runiques
 
-Un **Éclat** est un objet qui contient **un Aspect**, ou rien. Il n'occupe jamais d'Emplacement : il reste dans votre Sac ou dans la Réserve de la Compagnie. À la table, un Éclat est un **cadre d'Éclat**, dans lequel est glissée la carte de l'Aspect (12.2).
+Une **Pierre runique** est un objet qui contient **une Rune**, ou rien. Elle n'occupe jamais d'Emplacement : elle reste dans votre Sac ou dans la Réserve de la Compagnie. À la table, une Pierre runique est un **cadre de Pierre runique**, dans lequel est glissée la carte de la Rune (12.2).
 
-- **Au départ :** chaque personnage a **3 Éclats vides** ; la Réserve de la Compagnie commence avec **2 Éclats vides par personnage**.
-- **Encombrants :** vous portez **au plus 3 Éclats** dans votre Sac. Un Contenant augmente cette limite (*Bandoulière à Éclats*). Les autres attendent dans la Réserve de la Compagnie.
-- **Persistance :** quand une créature est vaincue, chacun de ses Aspects persiste au-dessus du corps pendant **1 minute**, puis s'éteint pour de bon.
-- **Capturer (1 action) :** à 2 m ou moins du corps, versez un Aspect qui persiste dans un Éclat vide que vous portez. Le coût du Sac (3.5) ne s'applique pas. Vous pouvez capturer un Aspect que votre Vocation ne peut pas équiper : échangez-le, vendez-le ou gardez-le pour un allié.
-- **Absorber (repos long) :** faites passer l'Aspect d'un Éclat dans un Emplacement d'Aspect. L'Éclat est désormais vide.
-- **Échanger :** l'Aspect que vous retirez va dans l'Éclat d'où vient le nouveau ; nul besoin d'un autre Éclat. Pour retirer un Aspect **sans** le remplacer, il vous faut un Éclat vide, sinon l'Aspect est libéré.
-- **Libérer (gratuit, à tout moment) :** videz un Éclat. Son Aspect est perdu pour de bon.
-- **Commerce :** un Éclat se transmet entier, comme n'importe quel matériel : donnez-le, vendez-le, laissez-le dans la Réserve.
-- **Plus d'Éclats :** achetez-en (250 po), ou trouvez-en comme butin et comme récompenses de quête. Les améliorations de la Réserve (3.7) leur donnent plus de place.
+- **Au départ :** chaque personnage a **3 Pierres vierges** ; la Réserve de la Compagnie commence avec **2 Pierres vierges par personnage**.
+- **Encombrantes :** vous portez **au plus 3 Pierres runiques** dans votre Sac. Un Contenant augmente cette limite (*Bandoulière runique*). Les autres attendent dans la Réserve de la Compagnie.
+- **Persistance :** quand une créature meurt, chacune de ses Runes se détache et persiste au-dessus du corps pendant **1 minute**, puis s'éteint pour de bon.
+- **Capturer (1 action) :** à 2 m ou moins du corps, fixez une Rune qui persiste dans une Pierre vierge que vous portez. Le coût du Sac (3.5) ne s'applique pas. Vous pouvez capturer une Rune que votre Vocation ne peut pas équiper : échangez-la, vendez-la ou gardez-la pour un allié.
+- **Don :** une créature vivante qui n'est pas un Porteur peut vous donner une de ses Runes, si elle le veut bien (un maître, un mécène, un adversaire qui se rend). Une copie se fixe dans une Pierre vierge que vous tendez, sans action, et la créature garde la sienne. Seule une Rune ancrée se copie (2.1) : un Porteur ne copie jamais, et sa Rune change de mains dans sa Pierre runique.
+- **Graver (long repos) :** faites passer la Rune d'une Pierre runique dans un Emplacement de Rune. La Pierre runique est désormais vierge.
+- **Échanger :** la Rune que vous retirez va dans la Pierre runique d'où vient la nouvelle ; nul besoin d'une autre Pierre runique. Pour retirer une Rune **sans** la remplacer, il vous faut une Pierre vierge, sinon la Rune est libérée.
+- **Libérer (gratuit, à tout moment) :** effacez une Pierre runique. Sa Rune est perdue pour de bon.
+- **Commerce :** une Pierre runique se transmet entière, comme n'importe quel matériel : donnez-la, vendez-la, laissez-la dans la Réserve.
+- **Plus de Pierres runiques :** achetez-en (250 po), ou trouvez-en comme butin et comme récompenses de quête. Les améliorations de la Réserve (3.7) leur donnent plus de place.
 
-> **BANDOULIÈRE À ÉCLATS** · Rang I
-> Votre Sac contient jusqu'à 5 Éclats au lieu de 3, dans ses 8 pièces habituelles.
+> **BANDOULIÈRE RUNIQUE** · Rang I
+> Votre Sac contient jusqu'à 5 Pierres runiques au lieu de 3, dans ses 8 pièces habituelles.
 > *Bijou*
 
 ---
 
 ## 4. Progression
 
-Vous devenez plus fort surtout grâce à **un meilleur matériel et de meilleurs Aspects**, et un peu grâce à **plus d'Emplacements**. Votre Vocation reste la même.
+Vous devenez plus fort surtout grâce à **un meilleur matériel et de meilleures Runes**, et un peu grâce à **plus d'Emplacements**. Votre Vocation reste la même.
 
 ### 4.1 Jalons
 
-Un jalon accorde **un nouvel Emplacement d'Aspect** (jusqu'à 8). Chaque personnage en gagne un quand la Compagnie **achève une saga** (chapitre 1).
+Un jalon accorde **un nouvel Emplacement de Rune** (jusqu'à 8). Chaque personnage en gagne un quand la Compagnie **achève une saga** (chapitre 1).
 
 ### 4.2 Autres façons de progresser
 
-- **Les épreuves plus dures rapportent plus :** des ennemis plus coriaces, des trésors gardés et des marchés à gros enjeux offrent un meilleur matériel et de meilleurs Aspects. Passer par la parole, la discrétion ou la ruse rapporte aussi : une récompense, une faveur, un cadeau.
+- **Les épreuves plus dures rapportent plus :** des ennemis plus coriaces, des trésors gardés et des marchés à gros enjeux offrent un meilleur matériel et de meilleures Runes. Passer par la parole, la discrétion ou la ruse rapporte aussi : une récompense, une faveur, un cadeau.
 - **Emplacements de Matériel supplémentaires :** accordés par les Boss (3.3).
 
 ### 4.3 La fin de partie
 
-Le matériel et les Aspects de **Rang IV** commencent à plier les règles. Ceux de **Rang V** les brisent : de rares trésors de Boss qui changent la façon de jouer pour vous ou votre Compagnie. Quelques-uns **changent même votre Vocation** pour de bon une fois absorbés, et sont consommés. Les traquer, c'est la fin de partie.
+Le matériel et les Runes de **Rang IV** commencent à plier les règles. Ceux de **Rang V** les brisent : de rares trésors de Boss qui changent la façon de jouer pour vous ou votre Compagnie. Quelques Runes **changent même votre Vocation** pour de bon une fois gravées, et sont consommées. Les traquer, c'est la fin de partie.
 
 ---
 
@@ -378,7 +379,7 @@ Le **test de caractéristique** est le cœur du jeu : chaque fois que vous tente
 
 1. **Dites ce que vous faites** et comment. Le MJ décide s'il faut un jet (voir Hors combat, ci-dessous).
 2. **Le MJ choisit la caractéristique** qui convient à l'action (2.2) et fixe un **Degré de difficulté (DD)** : de 5 (très facile) à 30 (presque impossible) ; 15 est moyen.
-3. **Lancez d20 + le modificateur de caractéristique + chaque bonus** de votre matériel et de vos Aspects qui s'applique à cette action.
+3. **Lancez d20 + le modificateur de caractéristique + chaque bonus** de votre matériel et de vos Runes qui s'applique à cette action.
 4. **Un résultat égal ou supérieur au DD réussit.** Un échec fait quand même avancer l'histoire, à un prix.
 
 **Jets d'attaque :** **c'est toujours l'attaquant qui lance.** Tout ce qui blesse ou entrave une créature (une épée, une flèche, un sort, un piège, un souffle, un poison) est un **jet d'attaque** : d20 + modificateurs contre l'une des **Défenses** de la cible (2.3). **Égal ou supérieur, ça touche.**
@@ -395,7 +396,7 @@ Le **test de caractéristique** est le cœur du jeu : chaque fois que vous tente
 
 ### 5.2 Avantage et désavantage
 
-Avec l'**avantage**, vous lancez des d20 supplémentaires et gardez le **plus haut**. Avec le **désavantage**, vous lancez des d20 supplémentaires et gardez le **plus bas**. Seules les **situations** les accordent : le **lieu** (longue portée), la **position** (non vu, un ennemi à 2 m de votre arc) et les **états** (Aveuglé, À terre, Entravé…). Le matériel et les Aspects donnent plutôt des bonus et des malus fixes, ou changent une situation (*votre coup met la cible À terre*).
+Avec l'**avantage**, vous lancez des d20 supplémentaires et gardez le **plus haut**. Avec le **désavantage**, vous lancez des d20 supplémentaires et gardez le **plus bas**. Seules les **situations** les accordent : le **lieu** (longue portée), la **position** (non vu, un ennemi à 2 m de votre arc) et les **états** (Aveuglé, À terre, Entravé…). Le matériel et les Runes donnent plutôt des bonus et des malus fixes, ou changent une situation (*votre coup met la cible À terre*).
 
 **Trois questions.** Avant une attaque, posez-les dans l'ordre. Chacune donne **un dé au plus**, quel que soit son nombre de raisons. Si une question a des raisons dans les deux sens, elles s'annulent au sein de la question.
 
@@ -425,7 +426,7 @@ Le MJ utilise la **Vigilance passive = 10 + INT + bonus pour remarquer** afin de
 
 - Pour vous cacher, vous devez être **hors de vue** des créatures auxquelles vous vous cachez (derrière un abri total ou dans l'Obscurité), puis faire un **test d'AGI** pour vous faufiler.
 - **Échec** si le résultat est inférieur à 15 ou à la Vigilance passive d'une créature qui pourrait vous remarquer.
-- En cas de réussite, vous avez l'état **Invisible** vis-à-vis de ces créatures. Il prend fin quand vous faites un bruit fort, attaquez, lancez un sort, ou que quelqu'un vous trouve (un test d'INT qui bat votre résultat).
+- En cas de réussite, vous avez l'état **Invisible** vis-à-vis de ces créatures. Il prend fin quand vous faites un bruit fort, lancez un sort, ou que quelqu'un vous trouve (un test d'INT qui bat votre résultat), et juste après votre première attaque : si une action vous donne plusieurs attaques, seule la première se fait caché.
 
 ### 5.5 Lumière et vision
 
@@ -483,8 +484,8 @@ Il y a deux niveaux de lumière :
 | Action | Effet |
 |---|---|
 | **Déplacement** | Déplacez-vous jusqu'à votre Vitesse. Vous pouvez le couper avant et après votre autre action. |
-| **Attaque** | Faites une attaque d'arme ou à mains nues (davantage avec des Aspects comme *Double frappe*). Une attaque peut être remplacée par Empoigner ou Bousculer. |
-| **Incantation** | Lancez un sort dont le temps d'incantation est d'une action, ou utilisez un pouvoir de votre matériel ou de vos Aspects qui demande une action. |
+| **Attaque** | Faites une attaque d'arme ou à mains nues (davantage avec des Runes comme *Double frappe*). Une attaque peut être remplacée par Empoigner ou Bousculer. |
+| **Incantation** | Lancez un sort dont le temps d'incantation est d'une action, ou utilisez un pouvoir de votre matériel ou de vos Runes qui demande une action. |
 | **Désengagement** | Votre déplacement ne provoque pas d'attaque d'opportunité ce tour-ci. Impossible si vous êtes encerclé (6.5). |
 | **Esquive** | Jusqu'à votre prochain tour, vous avez +3 à toutes vos Défenses. Perdu si vous êtes Neutralisé ou si votre Vitesse est de 0. |
 | **Aide** | Donnez à un allié +3 à son prochain test pour une tâche, ou à sa prochaine attaque contre une créature à 2 m ou moins de vous, avant votre prochain tour. |
@@ -595,7 +596,7 @@ Votre **maximum de PV** vient de votre Vocation, plus les PV qu'impriment votre 
 - Un tampon : les dégâts retirent d'abord les PV temporaires.
 - Ils ne se cumulent pas : si vous en gagnez davantage, gardez le montant le plus élevé.
 - Ce ne sont pas des soins et ils ne peuvent pas vous relever de 0 PV.
-- Ils durent jusqu'à la fin de votre prochain repos long sauf si un effet dit le contraire.
+- Ils durent jusqu'à la fin de votre prochain long repos sauf si un effet dit le contraire.
 
 ### 7.4 Tomber à 0 PV
 
@@ -614,15 +615,15 @@ Votre **maximum de PV** vient de votre Vocation, plus les PV qu'impriment votre 
 
 ### 7.5 Se reposer
 
-|  | Repos court | Repos long | Convalescence |
+|  | Court repos | Long repos | Convalescence |
 |---|---|---|---|
 | **Durée** | 1 heure d'activité légère | 8 heures (dont au moins 6 de sommeil) | **3 jours** en lieu sûr : une ville, un temple, un camp gardé |
-| **Limite** | 2 par repos long | 1 par 24 heures | Aucune |
+| **Limite** | 2 par long repos | 1 par 24 heures | Aucune |
 | **PV** | Récupérez **la moitié de vos PV manquants** (arrondie au supérieur) | Récupérez **tous** vos PV | Récupérez **tous** vos PV |
-| **Utilisations** | Les utilisations « repos court » et l'Ardeur se rechargent | **Toutes** les utilisations, l'Ardeur et les points de sort se rechargent | Comme un repos long |
-| **Autre** | Enfiler ou ôter une Armure | Échanger des Aspects | Tout ce que fait un repos long, et **guérit toutes vos Blessures** (7.6) |
+| **Utilisations** | Les utilisations « court repos » et l'Ardeur se rechargent | **Toutes** les utilisations, l'Ardeur et les points de sort se rechargent | Comme un long repos |
+| **Autre** | Enfiler ou ôter une Armure | Échanger des Runes | Tout ce que fait un long repos, et **guérit toutes vos Blessures** (7.6) |
 
-Un repos long est interrompu par 1 heure de combat, de marche ou d'autre activité éprouvante. Un repos interrompu ne donne aucun bénéfice. Il vous faut au moins 1 PV pour bénéficier d'un repos long. Une convalescence est rompue par toute aventure : un combat, un voyage, un donjon.
+Un long repos est interrompu par 1 heure de combat, de marche ou d'autre activité éprouvante. Un repos interrompu ne donne aucun bénéfice. Il vous faut au moins 1 PV pour bénéficier d'un long repos. Une convalescence est rompue par toute aventure : un combat, un voyage, un donjon.
 
 ### 7.6 Blessures
 
@@ -736,7 +737,7 @@ Un livre occupe un **Emplacement d'Objet**, et pour lancer un sort depuis lui, *
 | **Coût** | 1 | 2 | 3 | 4 | 6 | 8 |
 
 - **Une seule réserve :** vos **points de sort** = les points de sort de chaque Livre de sorts que vous avez équipé **+ votre INT** (minimum 1), plus les points de sort supplémentaires de votre Vocation, de vos Traits et de votre matériel. Sans Livre de sorts équipé, vous n'en avez aucun. Tenez le compte sur votre carte de Décompte (12.3).
-- **Repos long :** les points de sort dépensés reviennent lors d'un repos long.
+- **Long repos :** les points de sort dépensés reviennent lors d'un long repos.
 - **Changements :** si votre INT ou vos livres changent, votre total change ; les points déjà dépensés restent dépensés. Vous ne pouvez retirer un livre que si ce que vous avez dépensé tient encore dans le nouveau total.
 - Les **tours de magie** ne coûtent rien.
 - **Surpuissance :** payez le coût d'un niveau supérieur (jusqu'au max du livre) pour lancer un sort à ce niveau. Le niveau de sort max de chaque livre s'applique à ses propres sorts.
@@ -769,23 +770,25 @@ Un livre occupe un **Emplacement d'Objet**, et pour lancer un sort depuis lui, *
 
 Un abri total bloque l'effet d'une zone.
 
-### 10.6 Divin, Glamour et Nature
+### 10.6 Magie de VOL
 
-Trois sortes de magie puisent dans la **VOL** au lieu d'un livre. Chacune est un **type d'Aspect** : vous la capturez et l'absorbez comme n'importe quel Aspect (3.8), elle occupe un **Emplacement d'Aspect**, et elle ne change que lors d'un repos long. Ce n'est pas de l'incantation : les règles des sorts (10.1–10.5) ne s'y appliquent pas.
+La magie qui puise dans la **VOL** n'a pas besoin de livre : c'est une **Rune**, appelée **paquet de VOL**. Vous la capturez et la gravez comme n'importe quelle Rune (3.8), elle occupe un **Emplacement de Rune**, et elle ne change que lors d'un long repos. Ce n'est pas de l'incantation : les règles des sorts (10.1–10.5) ne s'y appliquent pas.
 
-| Type | Son paquet | Ce qu'il fait |
+Un paquet de VOL a un **type**. **Tous les types suivent les mêmes règles** : le type dit d'où vient le pouvoir, et quels pouvoirs son paquet contient.
+
+| Type | Son paquet | Ce qu'il contient |
 |---|---|---|
-| **Divin** | Une **Litanie** de prières | Infléchit le destin (relances, dés du destin) et soigne : Hymnes, Complaintes, Répliques, Soins |
-| **Glamour** | Un **Répertoire** de chants, de poèmes et de danses | Galvanise les alliés et brise les ennemis avec des bonus et des malus fixes, et soigne un peu : Hymnes, Complaintes, Répliques, Soins |
-| **Nature** | Une **Souvenance** de bêtes | Mue en Formes (10.7) et soigne : Formes, Soins |
+| **Divin** | Une **Litanie** de prières | Le destin (relances, dés du destin) et la guérison : Hymnes, Complaintes, Répliques, Soins |
+| **Glamour** | Un **Répertoire** de chants, de poèmes et de danses | Le courage et la peur (bonus et malus fixes) : Hymnes, Complaintes, Répliques, Soins |
+| **Nature** | Un **Instinct** de bêtes | Les bêtes et la guérison : Formes (10.7), Soins |
 
-- **Une liste fixe :** chacun indique son Rang, son bonus d'Attaque, l'Ardeur qu'il ajoute, puis ses pouvoirs. Pour changer de pouvoirs, absorbez-en un autre. À la table, c'est un paquet (12.4).
-- **Ardeur :** une seule réserve pour tous : l'Ardeur imprimée sur chacun de vos paquets Divins, de Glamour et de Nature, additionnée, **+ votre VOL** une fois (minimum 1), plus l'Ardeur supplémentaire de votre Vocation, de vos Traits et de votre matériel. Sans aucun de ces paquets, vous n'en avez aucune. Tenez le compte sur votre carte de Décompte (12.3). Les pouvoirs de n'importe lequel de vos paquets peuvent la dépenser. Elle revient lors d'un **repos court** (et d'un repos long). Si votre VOL ou vos paquets changent, votre total change ; l'Ardeur déjà dépensée reste dépensée. Un pouvoir qui coûte **0** s'utilise à volonté.
+- **Une liste fixe :** un paquet de VOL indique son Rang, son bonus d'Attaque, l'Ardeur qu'il ajoute, puis ses pouvoirs. Pour changer de pouvoirs, gravez un autre paquet. À la table, c'est un paquet (12.4).
+- **Ardeur :** une seule réserve pour tous : l'Ardeur imprimée sur chacun de vos paquets de VOL, additionnée, **+ votre VOL** une fois (minimum 1), plus l'Ardeur supplémentaire de votre Vocation, de vos Traits et de votre matériel. Sans aucun de ces paquets, vous n'en avez aucune. Tenez le compte sur votre carte de Décompte (12.3). Les pouvoirs de n'importe lequel de vos paquets peuvent la dépenser. Elle revient lors d'un **court repos** (et d'un long repos). Si votre VOL ou vos paquets changent, votre total change ; l'Ardeur déjà dépensée reste dépensée. Un pouvoir qui coûte **0** s'utilise à volonté.
 - **Attaque :** d20 + VOL + le bonus d'**Attaque** imprimé.
-- **Se faire entendre :** le Divin et le Glamour ont besoin de votre voix : vous devez pouvoir parler, et les cibles doivent vous entendre (une danse de Glamour agit plutôt sur les cibles qui vous **voient**). Pas de Divin ni de Glamour quand vous êtes Neutralisé, sous l'eau ou en Forme. La Nature n'a pas besoin de voix. Aucun n'a besoin d'une Main, et tous sont **évidents**.
+- **Se faire entendre :** un pouvoir a besoin de votre voix : vous devez pouvoir parler (pas quand vous êtes Neutralisé, sous l'eau ou en Forme), et les créatures sur lesquelles agit un Hymne, une Complainte ou une Réplique doivent vous entendre. Un pouvoir imprime sa propre condition quand elle diffère : un pouvoir **Visuel** (une danse, un signe) ne demande pas de voix et agit sur les créatures qui vous **voient**. Muer en une Forme ne demande ni l'un ni l'autre. Aucun pouvoir n'a besoin d'une Main, et tous sont **évidents**.
 - **Dés du destin :** un d4 aux Rangs I–II, d6 au III, d8 aux IV–V, ajouté à un jet ou retranché.
-- **Pouvoirs isolés :** certains Aspects portent un seul pouvoir, avec des utilisations au lieu d'Ardeur (*Cri de ralliement*).
-- **Focaliseur :** le matériel doté du mot-clé **Focaliseur** (un Instrument, une amulette sacrée, un bâton de druide) renforce ces Aspects comme il l'indique.
+- **Pouvoirs isolés :** certaines Runes portent un seul pouvoir, avec des utilisations au lieu d'Ardeur (*Cri de ralliement*).
+- **Focaliseur :** le matériel doté du mot-clé **Focaliseur** (un Instrument, une amulette sacrée, un bâton de druide) renforce votre magie de VOL comme il l'indique.
 
 | Pouvoir | Quand | Ce qu'il fait |
 |---|---|---|
@@ -796,20 +799,20 @@ Trois sortes de magie puisent dans la **VOL** au lieu d'un livre. Chacune est un
 | **Forme** | Action | Vous muez en bête (10.7). |
 
 ### 10.7 Formes
-Une Souvenance contient des **Formes** : des bêtes dont votre corps se souvient. Une Forme est imprimée comme une Vocation, pour le corps seulement : **FOR, AGI, PV, Vitesse et Taille**, puis ses déplacements, ses sens et ses armes naturelles. Certaines impriment un bonus de Défense naturel (un cuir épais, une carapace). Muer change votre silhouette pour un temps ; vous gardez votre esprit et votre personnalité.
-- **Muer (action) :** payez le coût de la Forme en Ardeur et prenez une **carte de Décompte vierge** (12.3). Remplissez-la avec la FOR, l'AGI, les PV, la Vitesse et la Taille de la Forme, l'**INT et la VOL de votre Vocation**, et vos **Aspects**. Rien d'autre ne compte. Muer d'une Forme à une autre coûte l'Ardeur de la nouvelle Forme et une carte de Décompte vierge.
+Un Instinct contient des **Formes** : des bêtes que votre corps sait devenir. Une Forme est imprimée comme une Vocation, pour le corps seulement : **FOR, AGI, PV, Vitesse et Taille**, puis ses déplacements, ses sens et ses armes naturelles. Certaines impriment un bonus de Défense naturel (un cuir épais, une carapace). Muer change votre silhouette pour un temps ; vous gardez votre esprit et votre personnalité.
+- **Muer (action) :** payez le coût de la Forme en Ardeur et prenez une **carte de Décompte vierge** (12.3). Remplissez-la avec la FOR, l'AGI, les PV, la Vitesse et la Taille de la Forme, l'**INT et la VOL de votre Vocation**, et vos **Runes**. Rien d'autre ne compte. Muer d'une Forme à une autre coûte l'Ardeur de la nouvelle Forme et une carte de Décompte vierge.
 - **Votre matériel se fond dans la Forme :** rien n'en compte tant que vous êtes en Forme (Armure, Mains, Bijoux, Objets, Focaliseur). Il revient dans ses Emplacements quand vous revenez, dans le même état.
 - **Deux corps :** les PV de la Forme sont une réserve à part. Les dégâts s'y imputent d'abord ; vos propres PV (et vos éventuels PV temporaires) attendent sur votre propre carte de Décompte.
 - **Armes naturelles :** attaquez avec la FOR ou l'AGI de la Forme, comme imprimé, + son bonus au toucher, contre la plus haute des Défenses de FOR et d'AGI, comme avec une arme. Sous l'eau, elles comptent comme des attaques à mains nues.
-- **Ni Mains, ni voix :** vous ne pouvez pas parler ni utiliser de pouvoirs Divins, de Glamour ou de Soin. Les Emprises que vous maintenez continuent.
+- **Ni Mains, ni voix :** vous ne pouvez pas parler : le seul pouvoir de VOL que vous pouvez utiliser est une autre Forme (10.6). Les Emprises que vous maintenez continuent.
 - **Revenir** (gratuit, à votre tour) à votre propre corps et à votre carte de Décompte. Une Forme prend aussi fin au bout d'**1 heure**, ou quand **ses PV tombent à 0** : vous revenez, et les dégâts excédentaires se reportent sur vous. Rien d'autre n'y met fin.
-- Les Formes vont de **Très petit à Grand**. Seules les Souvenances de Rang V en contiennent de plus grandes.
+- Les Formes vont de **Très petit à Grand**. Seuls les Instincts de Rang V en contiennent de plus grandes.
 
 ---
 
 ## 11. Mots-clés
 
-Un mot-clé a toujours le même sens, sur chaque matériel et chaque Aspect. Un nombre ou un mot qui le suit (*Lancer 8/24*, *Résiste Feu*) précise le détail. Les états (chapitre 8) et les types de dégâts (7.2) sont aussi des mots réservés.
+Un mot-clé a toujours le même sens, sur chaque matériel et chaque Rune. Un nombre ou un mot qui le suit (*Lancer 8/24*, *Résiste Feu*) précise le détail. Les états (chapitre 8) et les types de dégâts (7.2) sont aussi des mots réservés.
 
 Une carte n'imprime jamais deux fois la même chose. La portée d'une arme est dans sa ligne d'attaque (*+2 au toucher, lancer 8/24 m, 1d4 + AGI Physique*) et celle d'un sort dans sa ligne d'incantation : la carte omet donc *Portée* et *Lancer*. Le grand dé d'une arme Polyvalente est dans ses dégâts (*1d8 / 1d10*) : la carte imprime simplement *Polyvalente*. Les mots-clés s'appliquent toujours.
 
@@ -829,16 +832,16 @@ Le premier mot-clé. Il fixe l'Emplacement (3.2).
 | **Sort** | Partie d'un Livre de sorts, jamais seul. Son **niveau** (1er–6e) est son coût en points de sort. |
 | **Tour de magie** | Un sort qui ne coûte rien. Lancé à volonté. |
 | **Consommable** | Emplacement d'Objet, une pile de jusqu'à 3 Consommables identiques. Disparaît une fois utilisé. |
-| **Recette** | Emplacement d'Objet. Une pile qui se reconstitue à chaque repos long. Les exemplaires inutilisés disparaissent quand elle se reconstitue. |
-| **Trait** | Emplacement d'Aspect. Ce que vous êtes : un corps, un sang, une bénédiction. |
-| **Technique** | Emplacement d'Aspect. Ce que vous avez appris : une botte de combat. |
-| **Savoir-faire** | Emplacement d'Aspect. Un bonus aux tests d'une activité précise. |
-| **Divin** | Emplacement d'Aspect. Une Litanie : des prières qui infléchissent le destin et soignent (10.6). Utilise la VOL. |
-| **Glamour** | Emplacement d'Aspect. Un Répertoire : des chants, des poèmes et des danses qui galvanisent les alliés et brisent les ennemis (10.6). Utilise la VOL. |
-| **Nature** | Emplacement d'Aspect. Une Souvenance : des Formes et des soins (10.6). Utilise la VOL. |
+| **Recette** | Emplacement d'Objet. Une pile qui se reconstitue à chaque long repos. Les exemplaires inutilisés disparaissent quand elle se reconstitue. |
+| **Trait** | Emplacement de Rune. Un changement durable du corps ou de l'esprit. |
+| **Technique** | Emplacement de Rune. Une botte de combat. |
+| **Domaine** | Emplacement de Rune. Un bonus aux tests des activités d'un domaine. |
+| **Divin** | Emplacement de Rune. Une Litanie : un paquet de VOL de prières (10.6). |
+| **Glamour** | Emplacement de Rune. Un Répertoire : un paquet de VOL de chants, de poèmes et de danses (10.6). |
+| **Nature** | Emplacement de Rune. Un Instinct : un paquet de VOL de bêtes (10.6). |
 | **Blessure** | Aucun Emplacement : une lésion durable (7.6). Une Blessure **invalidante** bloque l'Emplacement de Matériel qu'elle nomme. |
-| **Forme** | Partie d'une Souvenance, jamais seule. Une bête en laquelle vous muez (10.7). |
-| **Éclat** | Un objet, jamais dans un Emplacement. Contient un Aspect, ou rien. Sac (3 au plus) ou Réserve de la Compagnie (3.8). |
+| **Forme** | Partie d'un Instinct, jamais seule. Une bête en laquelle vous muez (10.7). |
+| **Pierre runique** | Un objet, jamais dans un Emplacement. Contient une Rune, ou rien. Sac (3 au plus) ou Réserve de la Compagnie (3.8). |
 | **Contenant** | Un objet, jamais dans un Emplacement : il fonctionne depuis votre Sac (une Bourse aussi depuis la Réserve de la Compagnie). Une Bourse contient de l'or jusqu'à un maximum fixé par son Rang (3.7). |
 
 ### 11.2 Usage et moment
@@ -847,8 +850,8 @@ Le premier mot-clé. Il fixe l'Emplacement (3.2).
 |---|---|
 | **Action** | L'utiliser prend l'une de vos deux actions. |
 | **Réaction** | L'utiliser prend votre réaction : quand le déclencheur de son texte survient, ou à votre tour s'il n'en a pas. |
-| **N/R.C.** | Repos court. Inscrit sur un pouvoir, ce n'est pas un mot-clé : ce pouvoir a N utilisations. Toutes reviennent lors d'un repos court ou long. |
-| **N/R.L.** | Repos long. Inscrit sur un pouvoir, ce n'est pas un mot-clé : ce pouvoir a N utilisations. Toutes reviennent lors d'un repos long. |
+| **N/C.R.** | Court repos. Inscrit sur un pouvoir, ce n'est pas un mot-clé : ce pouvoir a N utilisations. Toutes reviennent lors d'un court ou long repos. |
+| **N/L.R.** | Long repos. Inscrit sur un pouvoir, ce n'est pas un mot-clé : ce pouvoir a N utilisations. Toutes reviennent lors d'un long repos. |
 
 ### 11.3 Armes et armures
 
@@ -877,11 +880,12 @@ Le premier mot-clé. Il fixe l'Emplacement (3.2).
 | **Emprise** | Met une créature hors de combat ; nomme l'état infligé (Étourdi, Charmé, banni…). La cible perd son prochain tour, puis la source répète l'attaque à chaque tour, avec usure (chapitre 8). |
 | **Durée T** | Dure T (*1 minute*, *1 heure*), puis prend fin. Vous pouvez y mettre fin plus tôt, sans action. **Pendant N tours** sur une cible : jusqu'à la fin de son Ne tour à partir de maintenant (les demi-tours d'un Boss comptent). |
 | **Discret** | Personne ne vous remarque en train de le lancer. |
-| **Focaliseur** | Renforce vos Aspects Divins, de Glamour ou de Nature comme imprimé (10.6). Sur des Bijoux, des Instruments ou des armes. |
-| **Hymne** | Divin ou Glamour (10.6). Action : un bonus pour les alliés qui vous entendent, pendant une Durée. |
-| **Complainte** | Divin ou Glamour (10.6). Action : une attaque contre la Défense de VOL. |
-| **Réplique** | Divin ou Glamour (10.6). Réaction : modifie un jet après qu'il a été fait, avant son résultat. |
-| **Soin** | Divin, Glamour ou Nature (10.6). Rend des PV à une créature à portée, même si elle ne peut pas vous entendre. |
+| **Focaliseur** | Renforce votre magie de VOL comme imprimé (10.6). Sur des Bijoux, des Instruments ou des armes. |
+| **Hymne** | Magie de VOL (10.6). Action : un bonus pour les alliés qui vous entendent, pendant une Durée. |
+| **Complainte** | Magie de VOL (10.6). Action : une attaque contre la Défense de VOL. |
+| **Réplique** | Magie de VOL (10.6). Réaction : modifie un jet après qu'il a été fait, avant son résultat. |
+| **Visuel** | Sur un pouvoir de magie de VOL (10.6) : il ne demande pas de voix et agit sur les créatures qui vous voient, pas sur celles qui vous entendent. |
+| **Soin** | Magie de VOL (10.6). Rend des PV à une créature à portée, même si elle ne peut pas vous entendre. |
 | **Relance** | Le jet est refait (tous ses d20) et le nouveau résultat compte. Un jet ne peut être relancé qu'une fois. |
 | **Résiste (type)** | Ne subit que la moitié des dégâts de ce type. |
 | **Vulnérable (type)** | Subit le double des dégâts de ce type. |
@@ -896,7 +900,7 @@ Le premier mot-clé. Il fixe l'Emplacement (3.2).
 | **Escalade N** | Une vitesse d'escalade : grimper ne coûte pas de déplacement supplémentaire. |
 | **Nage N** | Une vitesse de nage : nager ne coûte pas de déplacement supplémentaire, et vitesse normale sous l'eau. |
 | **Vol N** | Une vitesse de vol : vous vous déplacez dans les airs. Si vous êtes mis À terre ou Neutralisé en vol, vous tombez. |
-| **Très petit, Petit, Moyen, Grand** | La taille, sur une Forme ou un monstre. Les Porteurs sont de taille Moyenne ; les Formes vont de Très petit à Grand. Seuls du matériel et des Aspects de Rang V changent la taille d'un Porteur. |
+| **Très petit, Petit, Moyen, Grand** | La taille, sur une Forme ou un monstre. Les Porteurs sont de taille Moyenne ; les Formes vont de Très petit à Grand. Seuls du matériel et des Runes de Rang V changent la taille d'un Porteur. |
 
 ### 11.6 Mots-clés de monstre
 
@@ -910,7 +914,7 @@ Définis en détail dans le Guide du Maître du jeu.
 
 ## 12. À la table
 
-À la table, tout ce que possède un Porteur est une **carte** disposée devant son joueur : une carte pour la Vocation, une par matériel, Aspect, sort et somme d'or, et un **cadre d'Emplacement** par Emplacement et par Éclat. Les règles n'ont jamais besoin des cartes ; elles rendent le jeu rapide. **On n'écrit jamais sur une carte**, sauf une : votre **carte de Décompte** (12.3).
+À la table, tout ce que possède un Porteur est une **carte** disposée devant son joueur : une carte pour la Vocation, une par matériel, Rune, sort et somme d'or, et un **cadre d'Emplacement** par Emplacement et par Pierre runique. Les règles n'ont jamais besoin des cartes ; elles rendent le jeu rapide. **On n'écrit jamais sur une carte**, sauf une : votre **carte de Décompte** (12.3).
 
 ### 12.1 Lire une carte
 
@@ -929,18 +933,18 @@ Chacun de vos Emplacements est un **cadre d'Emplacement** : un support un peu pl
 <!-- figure: frame -->
 
 - **Encadré veut dire équipé.** Glissez les coins supérieur droit et inférieur gauche d'une carte sous les fentes d'un cadre pour l'équiper ; dégagez-la pour la retirer. Toute carte encadrée est en jeu. Toute carte libre est dans votre Sac, dans la Réserve de la Compagnie ou au sol.
-- **Vos cadres sont vos Emplacements.** Vous commencez avec 9 : Armure, 2 Mains, Bijou, 2 Objets et 3 Aspects. Le MJ vous remet un nouveau cadre d'Aspect à chaque jalon (4.1), et un cadre d'Emplacement de Matériel supplémentaire quand un Boss en accorde un (3.3). Les cadres ne vont jamais dans votre Sac.
-- **Disposez** vos cadres pour que chaque effet et chaque mot-clé soient lisibles : Armure, Mains, Bijou, Objets, Aspects. Votre carte de Vocation et votre carte de Décompte se placent à côté, sans cadre.
+- **Vos cadres sont vos Emplacements.** Vous commencez avec 9 : Armure, 2 Mains, Bijou, 2 Objets et 3 Runes. Le MJ vous remet un nouveau cadre de Rune à chaque jalon (4.1), et un cadre d'Emplacement de Matériel supplémentaire quand un Boss en accorde un (3.3). Les cadres ne vont jamais dans votre Sac.
+- **Disposez** vos cadres pour que chaque effet et chaque mot-clé soient lisibles : Armure, Mains, Bijou, Objets, Runes. Votre carte de Vocation et votre carte de Décompte se placent à côté, sans cadre.
 - **Une carte par cadre.** Une arme à Deux mains se place dans un cadre de Main ; retournez votre autre cadre de Main face cachée. Une pile de Consommables partage un cadre d'Objet. Un paquet (12.4) ne met que sa carte de couverture dans le cadre, et ses autres cartes attendent à côté.
 - **Entre les séances,** gardez chaque cadre avec sa carte : votre construction reste telle que vous l'avez laissée.
 - **Sac :** une pile de cartes libres à côté de vous. **Réserve de la Compagnie :** une pile commune au milieu de la table, ou chez le MJ quand la Compagnie la laisse derrière elle.
-- **Éclats :** un Éclat est un **cadre d'Éclat**. Glissez-y la carte de l'Aspect de la même façon. Un Éclat vide est le cadre seul. Absorber (3.8) fait passer la carte de son cadre d'Éclat à un cadre d'Aspect.
+- **Pierres runiques :** une Pierre runique est un **cadre de Pierre runique**. Glissez-y la carte de la Rune de la même façon. Une Pierre vierge est le cadre seul. Graver (3.8) fait passer la carte de son cadre de Pierre runique à un cadre de Rune.
 - **Utilisations dépensées :** marquez-les avec des jetons sur la carte, ou noircissez leurs cercles sur votre carte de Décompte. Les points de sort et l'Ardeur dépensés vont sur votre carte de Décompte (12.3). Une **Emprise** garde un dé à côté de sa cible pour indiquer l'usure (chapitre 8).
 - **Or :** les cartes d'or existent en **1, 10, 50, 100, 500 et 1 000 po**. Glissez-les sous la carte de la Bourse qui les contient, jusqu'à son maximum. Une carte d'or libre est un sac de pièces (1 pièce). Payez en donnant des cartes d'or au MJ, qui rend la monnaie depuis la banque.
 
 ### 12.3 Tenir vos totaux
 
-Votre **carte de Décompte** est votre **fiche**, une carte double largeur, et la seule carte sur laquelle vous écrivez : utilisez un crayon ou une pochette effaçable, et prenez-en une neuve quand elle est usée. Sa bande s'aligne avec chaque bande de bonus et contient vos dix **totaux** : la somme de votre Vocation et de toutes vos autres cartes. À côté, elle contient vos **PV** (les PV temporaires dans le coin gris de la case), vos **jets contre la mort** (7.4), vos **points de sort** (10.2), votre **Ardeur** (10.6) et dix lignes pour lister vos **habiletés** : les effets que vous voulez garder en tête, avec leurs utilisations (*Insaisissable (2/R.C.)*) et un cercle par utilisation, noirci quand vous la dépensez.
+Votre **carte de Décompte** est votre **fiche**, une carte double largeur, et la seule carte sur laquelle vous écrivez : utilisez un crayon ou une pochette effaçable, et prenez-en une neuve quand elle est usée. Sa bande s'aligne avec chaque bande de bonus et contient vos dix **totaux** : la somme de votre Vocation et de toutes vos autres cartes. À côté, elle contient vos **PV** (les PV temporaires dans le coin gris de la case), vos **jets contre la mort** (7.4), vos **points de sort** (10.2), votre **Ardeur** (10.6) et dix lignes pour lister vos **habiletés** : les effets que vous voulez garder en tête, avec leurs utilisations (*Ténacité (1/C.R.)*) et un cercle par utilisation, noirci quand vous la dépensez.
 
 <!-- figure: tally -->
 
@@ -956,17 +960,17 @@ Vous ne touchez aux totaux qu'à deux moments.
 
 Les **Blessures** (7.6) sont un paquet de cartes commun, mélangé, à côté de la table. Posez une Blessure à malus dans votre pile comme n'importe quelle carte à bande ; glissez une Blessure invalidante dans le cadre d'Emplacement qu'elle bloque, sur du vide. Quand une Blessure guérit, elle retourne dans le paquet.
 
-**Quand vous muez** en une Forme (10.7), remplissez une carte de Décompte vierge : la bande de la Forme, l'INT et la VOL de votre Vocation, puis vos Aspects (le matériel ne compte pas). Inscrivez les PV de la Forme dans sa case de PV. Vos points de sort et votre Ardeur restent sur votre propre carte de Décompte, et ces cases restent vides sur celle de la Forme. Quand vous revenez, reprenez votre propre carte de Décompte.
+**Quand vous muez** en une Forme (10.7), remplissez une carte de Décompte vierge : la bande de la Forme, l'INT et la VOL de votre Vocation, puis vos Runes (le matériel ne compte pas). Inscrivez les PV de la Forme dans sa case de PV. Vos points de sort et votre Ardeur restent sur votre propre carte de Décompte, et ces cases restent vides sur celle de la Forme. Quand vous revenez, reprenez votre propre carte de Décompte.
 
 **PV :** quand vos PV actuels changent, barrez l'ancien nombre et écrivez le nouveau.
 
-**Points de sort et Ardeur :** écrivez le total à droite de la barre oblique imprimée. Chaque fois que vous dépensez un point, tracez un petit bâton à gauche de la barre. Ce qui vous reste est le total moins les bâtons. Un repos qui rend les points efface les bâtons (7.5). Quand le total change (10.2, 10.6), écrivez le nouveau et gardez les bâtons. Une case reste vide si vous n'avez pas de Livre de sorts, ou pas de paquet Divin, de Glamour ou de Nature.
+**Points de sort et Ardeur :** écrivez le total à droite de la barre oblique imprimée. Chaque fois que vous dépensez un point, tracez un petit bâton à gauche de la barre. Ce qui vous reste est le total moins les bâtons. Un repos qui rend les points efface les bâtons (7.5). Quand le total change (10.2, 10.6), écrivez le nouveau et gardez les bâtons. Une case reste vide si vous n'avez pas de Livre de sorts, ou pas de paquet de VOL.
 
-> **Exemple : Isolde la Sage** tient le *Livre du conjurateur* (+2) avec INT +2, et son atout *Érudit* ajoute ½ INT, soit 1 : elle écrit **/ 5** dans sa case de points de sort. Elle lance *Toile d'araignée* (2 points) et *Bouclier* (1) : **||| / 5**. Il lui en reste 2 jusqu'à son prochain repos long.
+> **Exemple : Isolde la Sage** tient le *Livre du conjurateur* (+2) avec INT +2, et son atout *Érudit* ajoute ½ INT, soit 1 : elle écrit **/ 5** dans sa case de points de sort. Elle lance *Toile d'araignée* (2 points) et *Bouclier* (1) : **||| / 5**. Il lui en reste 2 jusqu'à son prochain long repos.
 
 ### 12.4 Paquets
 
-Un Livre de sorts est un **paquet** : une **carte de couverture** (Rang, attaque de sort, points de sort, niveau de sort max) sur le dessus, puis **une carte par tour de magie et par sort**, chacune marquée du nom du livre. Le paquet se déplace comme une seule carte, et ses cartes de sort ne passent jamais dans un autre paquet. Une Litanie, un Répertoire et une Souvenance sont aussi des paquets : une carte de couverture (Rang, Attaque, Ardeur) et une carte par pouvoir ou par Forme. Les points de sort ou l'Ardeur d'une carte de couverture comptent dans votre total sur la carte de Décompte (12.3) ; rien ne se marque sur le paquet. Tant que vous êtes en Forme, posez la carte de la Forme sur votre carte de Vocation, avec sa propre carte de Décompte.
+Un Livre de sorts est un **paquet** : une **carte de couverture** (Rang, attaque de sort, points de sort, niveau de sort max) sur le dessus, puis **une carte par tour de magie et par sort**, chacune marquée du nom du livre. Le paquet se déplace comme une seule carte, et ses cartes de sort ne passent jamais dans un autre paquet. Un paquet de VOL (une Litanie, un Répertoire, un Instinct) est aussi un paquet : une carte de couverture (Rang, Attaque, Ardeur) et une carte par pouvoir. Les points de sort ou l'Ardeur d'une carte de couverture comptent dans votre total sur la carte de Décompte (12.3) ; rien ne se marque sur le paquet. Tant que vous êtes en Forme, posez la carte de la Forme sur votre carte de Vocation, avec sa propre carte de Décompte.
 
 ---
 
@@ -975,10 +979,10 @@ Un Livre de sorts est un **paquet** : une **carte de couverture** (Rang, attaque
 ### 13.1 Création d'un personnage
 
 1. **Choisissez une Vocation** (2.4).
-2. **Choisissez votre matériel et vos Aspects** dans la liste de départ du MJ (tous de Rang I), parmi les cartes que votre Vocation peut équiper (3.1) : **1 Armure**, jusqu'à **2** pour vos **Mains** (armes ou un bouclier), **1 Bijou** et **3 Aspects**. Un lanceur de sorts choisit aussi un **Livre de sorts** (il occupe un Emplacement d'Objet et demande un Emplacement de Main vide pour lancer). Un Aspect Divin, de Glamour ou de Nature compte parmi vos 3 Aspects.
+2. **Choisissez votre matériel et vos Runes** dans la liste de départ du MJ (tous de Rang I), parmi les cartes que votre Vocation peut équiper (3.1) : **1 Armure**, jusqu'à **2** pour vos **Mains** (armes ou un bouclier), **1 Bijou** et **3 Runes**. Un lanceur de sorts choisit aussi un **Livre de sorts** (il occupe un Emplacement d'Objet et demande un Emplacement de Main vide pour lancer). Un paquet de VOL compte parmi vos 3 Runes.
 3. **Remplissez vos Emplacements d'Objet** : une *Potion de soins* (dans l'Emplacement d'Objet libre).
-4. **Prenez 3 Éclats vides** et une *Bourse à cordon* (Contenant, Rang I) contenant **50 po** (le tout dans votre Sac). La Réserve de la Compagnie commence avec **2 Éclats vides par personnage** (3.8).
-5. **Calculez** vos dix totaux (quatre modificateurs, quatre Défenses, maximum de PV, Vitesse) en ajoutant les bonus de votre matériel et de vos Aspects à ceux de votre Vocation, et inscrivez-les sur une carte de Décompte avec vos PV actuels (12.3). Avec un Livre de sorts, inscrivez vos points de sort (10.2) ; avec un Aspect Divin, de Glamour ou de Nature, votre Ardeur (10.6). Calculez ensuite vos bonus d'attaque d'arme et de sort et votre Vigilance passive (5.3).
+4. **Prenez 3 Pierres vierges** et une *Bourse à cordon* (Contenant, Rang I) contenant **50 po** (le tout dans votre Sac). La Réserve de la Compagnie commence avec **2 Pierres vierges par personnage** (3.8).
+5. **Calculez** vos dix totaux (quatre modificateurs, quatre Défenses, maximum de PV, Vitesse) en ajoutant les bonus de votre matériel et de vos Runes à ceux de votre Vocation, et inscrivez-les sur une carte de Décompte avec vos PV actuels (12.3). Avec un Livre de sorts, inscrivez vos points de sort (10.2) ; avec un paquet de VOL, votre Ardeur (10.6). Calculez ensuite vos bonus d'attaque d'arme et de sort et votre Vigilance passive (5.3).
 6. **Décrivez** qui vous êtes : nom, apparence et un lien.
 
 ---
@@ -990,14 +994,12 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 
 | Terme | Sens |
 |---|---|
-| **Absorber** | Faire passer l'Aspect d'un Éclat dans un Emplacement d'Aspect, pendant un repos long. |
 | **Action** | L'utiliser prend l'une de vos deux actions. |
 | **Allonge** | Un mot-clé d'arme : votre allonge est de 4 m au lieu de 2 m. |
 | **Aquatique** | Un mot-clé d'arme : elle fonctionne sous l'eau, là où les autres armes et sorts ne fonctionnent pas. |
-| **Ardeur** | Les points que coûtent vos pouvoirs Divins, de Glamour et de Nature : une seule réserve, la somme de ce qu'impriment leurs paquets + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un repos court. |
+| **Ardeur** | Les points que coûte votre magie de VOL : une seule réserve, la somme de ce qu'impriment vos paquets de VOL + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un court repos. |
 | **Arme** | Le type de matériel tenu avec lequel on attaque ; il va dans un Emplacement de Main. Elle imprime son bonus au toucher et ses dégâts, en ajoutant la plus haute des caractéristiques qu'elle nomme (*+2 au toucher, 1d8 + FOR ou AGI Physique*). |
 | **Armure** | Le type de matériel porté sur le corps ; il va dans l'Emplacement d'Armure. Il faut 10 minutes pour l'enfiler ou l'ôter. Jamais dans le Sac. |
-| **Aspect** | Un Trait, une Technique, un Savoir-faire, un Divin, un Glamour ou une Nature absorbé d'un autre être. Il n'a pas de corps : hors d'un Porteur, il vit dans un Éclat. Seuls les Porteurs peuvent l'utiliser. |
 | **Avantage aux dégâts** | Reporter sur les dégâts d'une attaque un dé d'avantage restant après compensation, choisi avant de lancer : relancez tous les dégâts une fois de plus par dé et gardez le total le plus haut. Le désavantage reste toujours sur l'attaque. |
 | **Babiole** | Une petite chose non magique qui n'est pas du matériel : une clé, une lettre, un trésor, une corde, une torche. Transportée librement, sans limite. |
 | **Bijou** | Le type de matériel porté qui va dans l'Emplacement de Bijou : anneaux, amulettes, diadèmes, capes, gants, bottes. |
@@ -1008,101 +1010,106 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Bourse** | Un Contenant qui contient votre or, jusqu'à un maximum fixé par son Rang. |
 | **Brutale** | Un mot-clé d'arme : sur un coup critique, lancez ses dés de dégâts trois fois au lieu de deux. |
 | **Bruyante N** | −N aux tests pour se faufiler. |
-| **Butin** | Le matériel ou l'Aspect qu'une épreuve rapporte ; un Adversaire qui le *lâche* le rapporte. |
-| **Cadre d'Emplacement** | L'élément de table d'un Emplacement : un support percé de deux fentes en coin où l'on glisse une carte. Une carte encadrée est équipée. Un Éclat est un cadre d'Éclat. |
-| **Capturer** | Verser un Aspect qui persiste dans un Éclat vide. |
+| **Butin** | Le matériel ou la Rune qu'une épreuve rapporte ; un Adversaire qui le *lâche* le rapporte. |
+| **Cadre d'Emplacement** | L'élément de table d'un Emplacement : un support percé de deux fentes en coin où l'on glisse une carte. Une carte encadrée est équipée. Une Pierre runique est un cadre de Pierre runique. |
+| **Capturer** | Fixer une Rune qui persiste dans une Pierre vierge. |
 | **Caractéristique** | L'une des quatre mesures de toute créature : Force (FOR), Agilité (AGI), Intelligence (INT) et Volonté (VOL), chacune notée sous forme de modificateur. |
-| **Carte** | L'élément physique d'une Vocation, d'un matériel, d'un Aspect, d'un sort, d'une Blessure, d'un adversaire ou d'une somme d'or. |
+| **Carte** | L'élément physique d'une Vocation, d'un matériel, d'une Rune, d'un sort, d'une Blessure, d'un adversaire ou d'une somme d'or. |
 | **Carte d'Adversaire** | La carte du MJ pour une sorte de monstre : son corps, ses totaux et ses pouvoirs. Les cartes nommées en italique dessus peuvent être lâchées ; le texte droit, jamais. |
 | **Carte de Décompte** | La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV et PV temporaires, vos jets contre la mort, vos points de sort, votre Ardeur et vos habiletés. |
 | **Chargement** | Un mot-clé d'arme : un tir par action ou réaction, même avec des attaques supplémentaires. |
 | **Code de carte** | Le code dans le coin inférieur droit d'une carte : lettre de type, Rang s'il en a un, et numéro (W-II-02, L-04). |
 | **Compagnie** | Le groupe de Porteurs joués ensemble. |
-| **Complainte** | Un pouvoir Divin ou de Glamour. Action : une attaque contre la Défense de VOL. (EN : Dirge) |
+| **Complainte** | Un pouvoir de magie de VOL. Action : une attaque contre la Défense de VOL. (EN : Dirge) |
 | **Consommable** | Un objet qui disparaît une fois utilisé. Jusqu'à 3 Consommables identiques partagent un Emplacement d'Objet. |
-| **Contenant** | Un objet qui ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. Une Bourse contient de l'or, une *Bandoulière à Éclats* plus d'Éclats. |
-| **Convalescence** | 3 jours de repos en lieu sûr : fait tout ce que fait un repos long, et guérit toutes vos Blessures. |
+| **Contenant** | Un objet qui ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. Une Bourse contient de l'or, une *Bandoulière runique* plus de Pierres runiques. |
+| **Convalescence** | 3 jours de repos en lieu sûr : fait tout ce que fait un long repos, et guérit toutes vos Blessures. |
 | **Cuir, Mailles, Plates** | Les trois armures, de la plus légère à la plus lourde. |
 | **Défense** | Le nombre qu'une attaque doit atteindre : 10 + un modificateur de caractéristique + bonus. Toute créature a une Défense de FOR, d'AGI, d'INT et de VOL. |
 | **Déplacement** | Une action : se déplacer jusqu'à votre Vitesse, en coupant avant et après votre autre action si vous le souhaitez. |
 | **Deux mains** | Occupe deux Emplacements de Main. |
 | **Discret** | Personne ne vous remarque en train de le lancer. (EN : Subtle) |
-| **Divin** | Un type d'Aspect : la magie de VOL de la prière. Son paquet, une **Litanie**, contient une liste fixe de pouvoirs qui infléchissent le destin et soignent, et s'ajoute à votre Ardeur. |
+| **Divin** | Un type de paquet de VOL : la magie de la prière. Son paquet est une **Litanie**, qui contient des pouvoirs de destin et de guérison : Hymnes, Complaintes, Répliques et Soins. |
+| **Domaine** | Un type de Rune : un bonus aux tests des activités d'un domaine. |
+| **Don** | La copie d'une Rune qu'une créature vivante autre qu'un Porteur donne de son plein gré, fixée dans une Pierre vierge. La créature garde la sienne. Seule une Rune ancrée se copie : un Porteur ne copie donc jamais. |
 | **Durée** | Une durée fixe pendant laquelle un effet agit, imprimée dessus. (EN : Duration) |
-| **Éclat** | Un réceptacle de cristal encombrant qui contient un Aspect, ou rien. C'est un objet, mais jamais dans un Emplacement. |
 | **Écrasante** | Un mot-clé d'arme : une attaque qui touche en dépassant la Défense visée de 5 ou plus met la cible À terre. |
-| **Emplacement** | Un espace qui contient un matériel ou un Aspect du type correspondant : Armure, Main, Bijou, Objet ou Aspect. |
-| **Emplacement d'Aspect** | Un Emplacement qui contient un Aspect. Vous commencez avec 3 et pouvez atteindre 8. |
+| **Emplacement** | Un espace qui contient un matériel ou une Rune du type correspondant : Armure, Main, Bijou, Objet ou Rune. |
 | **Emplacement de Matériel** | Un Emplacement d'Armure, de Main, de Bijou ou d'Objet. |
 | **Emplacement de Matériel supplémentaire** | Un Emplacement de Main, de Bijou ou d'Objet en plus, permanent, accordé uniquement par la défaite d'un Boss : Troisième Main, Second Bijou ou Grand Sac à dos. |
+| **Emplacement de Rune** | Un Emplacement qui contient une Rune. Vous commencez avec 3 et pouvez atteindre 8. |
 | **Emprise** | Le mot-clé d'un effet qui met une créature hors de combat. Il nomme l'état infligé (Étourdi, Charmé, banni…). La cible perd son prochain tour, puis la source répète l'attaque à chacun de ses tours, avec usure, jusqu'à ce qu'une répétition échoue. |
 | **Épreuve** | Un problème à l'issue nette : un combat, une négociation, un cambriolage, un danger, une poursuite. Chacune rapporte du butin, quelle que soit son issue. |
 | **Équipement** | Le matériel que vous portez ou maniez : armures, armes, boucliers, Instruments et Bijoux. |
 | **Escalade N** | Une vitesse d'escalade : grimper ne coûte pas de déplacement supplémentaire. |
 | **Facteur de puissance (FP)** | Le danger d'un monstre, utilisé avec sa valeur en PX pour dimensionner les combats. |
-| **Focaliseur** | Un mot-clé d'équipement qui renforce vos Aspects Divins, de Glamour ou de Nature : un Instrument, une amulette sacrée, un bâton de druide. |
-| **Forme** | Un corps de bête dans une Souvenance (Nature), imprimé comme une Vocation : FOR, AGI, PV, Vitesse et Taille. Tant que vous avez mué en elle, elle remplace votre corps ; votre esprit et vos Aspects demeurent. |
-| **Glamour** | Un type d'Aspect : la magie de VOL de la représentation et du commandement. Son paquet, un **Répertoire**, contient une liste fixe de pouvoirs qui galvanisent les alliés et brisent les ennemis, et s'ajoute à votre Ardeur. |
-| **Hymne** | Un pouvoir Divin ou de Glamour. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem) |
+| **Focaliseur** | Un mot-clé d'équipement qui renforce votre magie de VOL : un Instrument, une amulette sacrée, un bâton de druide. |
+| **Forme** | Un corps de bête dans un Instinct (Nature), imprimé comme une Vocation : FOR, AGI, PV, Vitesse et Taille. Tant que vous avez mué en elle, elle remplace votre corps ; votre esprit et vos Runes demeurent. |
+| **Glamour** | Un type de paquet de VOL : la magie de la représentation et du commandement. Son paquet est un **Répertoire**, qui contient des pouvoirs de courage et de peur : Hymnes, Complaintes, Répliques et Soins. |
+| **Graver** | Faire passer la Rune d'une Pierre runique dans un Emplacement de Rune, pendant un long repos. |
+| **Hymne** | Un pouvoir de magie de VOL. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem) |
 | **Instrument** | Un équipement tenu dans une Main qui n'est ni une arme ni un bouclier : un luth, un tambour, un cor. |
-| **Jalon** | Un nouvel Emplacement d'Aspect pour chaque personnage, accordé quand la Compagnie achève une saga. |
-| **Jet d'attaque** | Un jet de d20 + modificateurs contre une Défense, fait par celui qui blesse ou entrave : armes, sorts, pouvoirs Divins, de Glamour et de Nature, pièges, poisons. |
+| **Jalon** | Un nouvel Emplacement de Rune pour chaque personnage, accordé quand la Compagnie achève une saga. |
+| **Jet d'attaque** | Un jet de d20 + modificateurs contre une Défense, fait par celui qui blesse ou entrave : armes, sorts, magie de VOL, pièges, poisons. |
 | **Lancer N/M** | Un mot-clé d'arme : elle peut être lancée comme attaque à distance, avec le modificateur de son usage au corps à corps. Au-delà de N m : désavantage. Au-delà de M m : impossible (*Lancer 8/24*). |
 | **Légère** | Un mot-clé d'arme : permet le combat à deux armes. |
-| **Libérer** | Vider un Éclat. Son Aspect est perdu pour de bon. |
+| **Libérer** | Effacer une Pierre runique. Sa Rune est perdue pour de bon. |
 | **Livre de sorts** | Un objet contenant une liste fixe de sorts. Ses points de sort s'ajoutent à votre réserve unique. Toute incantation utilise l'INT. |
 | **Lourde** | Un mot-clé d'arme : une grande arme. En butin, elle n'allume que le symbole de FOR : seule une Vocation qui a la FOR peut l'équiper. |
 | **Maître du jeu (MJ)** | Le joueur qui décrit le monde, fait agir les monstres et arbitre les règles. |
 | **Matériel** | Tout objet réel qu'un Porteur peut équiper ou ranger : l'équipement et les objets. Toute créature peut utiliser du matériel ; un Porteur, seulement les cartes que les symboles de sa Vocation permettent. |
 | **Meneur** | Un mot-clé d'Adversaire : l'Adversaire mène son groupe, et sa chute appelle un test de Moral. |
 | **Moral** | Un test de VOL (DD 10) que fait un groupe d'Adversaires, avec la meilleure VOL parmi ses membres restants, quand son Meneur tombe et quand la moitié du groupe est hors de combat. En cas d'échec, le groupe fuit ou se rend. Un Boss n'en fait jamais. |
-| **Mot-clé** | Un mot au sens unique et fixe que le matériel et les Aspects affichent, le type en premier. |
-| **Muer** | Prendre une Forme de votre Souvenance ; revenir, c'est retrouver votre propre corps. Être métamorphosé n'est jamais muer. |
+| **Mot-clé** | Un mot au sens unique et fixe que le matériel et les Runes affichent, le type en premier. |
+| **Muer** | Prendre une Forme de votre Instinct ; revenir, c'est retrouver votre propre corps. Être métamorphosé n'est jamais muer. |
 | **Nage N** | Une vitesse de nage : nager ne coûte pas de déplacement supplémentaire, et vitesse normale sous l'eau. |
-| **Nature** | Un type d'Aspect : la magie de VOL du monde sauvage. Son paquet, une **Souvenance**, contient une liste fixe de Formes et de pouvoirs de soin, et s'ajoute à votre Ardeur. |
+| **Nature** | Un type de paquet de VOL : la magie du monde sauvage. Son paquet est un **Instinct**, qui contient des Formes et des Soins. |
 | **Niveau de sort** | La puissance d'un sort et son coût en points de sort, du 1er au 6e. (EN : Spell level) |
 | **Niveau effectif** | L'estimation par le MJ de la puissance d'un personnage, de 1 à 12, utilisée pour dimensionner les combats et les DD des épreuves. Ce n'est pas une valeur du personnage. |
-| **Objet** | Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Contenants et Éclats. |
+| **Objet** | Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Contenants et Pierres runiques. |
+| **Paquet de VOL** | Une Rune de magie de VOL : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour ou Nature) dit quels pouvoirs elle contient et ne change aucune autre règle. |
 | **Perception aveugle N** | Perçoit tout dans un rayon de N m sans la vue. (EN : Blindsight) |
-| **Persistance** | L'état des Aspects d'une créature vaincue pendant 1 minute, avant qu'ils ne s'éteignent pour de bon. Un Aspect dans cet état *persiste*. (EN : Lingering) |
+| **Persistance** | L'état des Runes d'une créature morte pendant 1 minute, une fois détachées et avant qu'elles ne s'éteignent pour de bon. Une Rune dans cet état *persiste*. (EN : Lingering) |
 | **Pièce** | Une unité de matériel, telle que le Sac, la Réserve de la Compagnie et le butin la comptent. Une pile de jusqu'à 3 Consommables identiques compte pour une pièce. |
-| **Points de sort** | Les points que coûtent vos sorts : une seule réserve, la somme de ce qu'impriment vos Livres de sorts + INT (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un repos long. |
+| **Pierre runique** | Une pierre encombrante qui contient une Rune, ou rien (une Pierre vierge). C'est un objet, mais jamais dans un Emplacement. |
+| **Points de sort** | Les points que coûtent vos sorts : une seule réserve, la somme de ce qu'impriment vos Livres de sorts + INT (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un long repos. |
 | **Polyvalente** | Un mot-clé d'arme : utilise le plus gros dé de dégâts quand elle est tenue à deux mains. |
 | **Portée N/M** | Une attaque à distance. Au-delà de N : désavantage. Au-delà de M : impossible. Un nombre seul est la portée maximale d'un sort. |
-| **Porteur** | Un humanoïde capable d'absorber les Aspects d'autres êtres. Chaque personnage joueur en est un. |
+| **Porteur** | Un humanoïde capable de graver des Runes en lui, puis de les en retirer. Chaque personnage joueur en est un. |
 | **Question Cible** | La deuxième des trois questions posées avant une attaque : les états de la cible (À terre, Entravé, Étourdi). Un dé d'avantage au plus, quel que soit leur nombre. |
 | **Question Foule** | La troisième des trois questions posées avant une attaque : le Surnombre. Un dé d'avantage si votre camp a plus de créatures engagées autour de la cible, un dé de désavantage si c'est le sien. |
 | **Question Vous** | La première des trois questions posées avant une attaque : votre position et vos états (non vu ; longue portée, cible invisible pour vous, À terre…). Un dé au plus. La seule question posée pour les tests, les sauvegardes et les jets de zone. |
 | **Quête** | Un objectif que la Compagnie se donne, long de quelques épreuves. |
 | **Rafale** | Un mot-clé d'arme : +2 à chaque attaque après la première que vous faites avec elle pendant votre tour. |
-| **Rang** | La puissance fixe d'un matériel ou d'un Aspect, de I à V. Les personnages et les Vocations n'en ont pas. |
+| **Rang** | La puissance fixe d'un matériel ou d'une Rune, de I à V. Les personnages et les Vocations n'en ont pas. |
 | **Réaction** | L'utiliser prend votre réaction : quand le déclencheur de son texte survient, ou à votre tour s'il n'en a pas. |
-| **Recette** | Un objet : une pile qui se reconstitue à chaque repos long. Les exemplaires inutilisés disparaissent quand elle se reconstitue. |
+| **Recette** | Un objet : une pile qui se reconstitue à chaque long repos. Les exemplaires inutilisés disparaissent quand elle se reconstitue. |
 | **Recharge 5–6** | Un pouvoir de monstre qui revient sur un 5 ou un 6 au d6 à la fin du tour du monstre. |
 | **Relance** | Le jet est refait (tous ses d20) et le nouveau résultat compte. Un jet ne peut être relancé qu'une fois. (EN : Reroll) |
-| **Réplique** | Un pouvoir Divin ou de Glamour. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue) |
-| **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel et les Éclats que la Compagnie possède mais que personne ne porte. |
+| **Réplique** | Un pouvoir de magie de VOL. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue) |
+| **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel et les Pierres runiques que la Compagnie possède mais que personne ne porte. |
 | **Résiste (type)** | Ne subit que la moitié des dégâts de ce type. |
-| **Sac** | Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Éclats. |
+| **Rune** | Un pouvoir en forme de signe : un Trait, une Technique, un Domaine, un Divin, un Glamour ou une Nature. La plupart des créatures en portent quelques-unes, ancrées en elles à vie. Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique. |
+| **Sac** | Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Pierres runiques. |
 | **Saga** | Le grand arc de la campagne, fait de quêtes. En achever une accorde un jalon. |
-| **Savoir-faire** | Un type d'Aspect : un bonus aux tests d'une activité précise. |
-| **Soin** | Un pouvoir Divin, de Glamour ou de Nature qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |
+| **Soin** | Un pouvoir de magie de VOL qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |
 | **Sort** | Une carte d'un Livre de sorts, jamais seule. Son niveau est son coût en points de sort. |
 | **Symboles** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles, sauf le Bâton de garde-sort (INT · VOL). |
 | **Taille** | Très petit, Petit, Moyen ou Grand, imprimé sur une Forme ou une carte d'Adversaire. Les Porteurs sont de taille Moyenne. |
-| **Technique** | Un type d'Aspect : ce qu'un être a appris (une botte de combat). (EN : Technique) |
+| **Technique** | Un type de Rune : une botte de combat. (EN : Technique) |
 | **Test** | Un jet de d20 + modificateur de caractéristique + bonus contre un Degré de difficulté (DD). |
 | **Totaux** | Vos dix nombres courants : quatre modificateurs de caractéristique, quatre Défenses, PV maximum et Vitesse. |
 | **Tour de magie** | Un sort qui ne coûte rien. Lancé à volonté. |
-| **Trait** | Un type d'Aspect : ce qu'un être est (un corps, un sang, une bénédiction). |
-| **Type** | Le premier mot-clé d'un matériel ou d'un Aspect. Il nomme l'Emplacement qui l'accueille. |
+| **Trait** | Un type de Rune : un changement durable du corps ou de l'esprit. |
+| **Type** | Le premier mot-clé d'un matériel ou d'une Rune. Il nomme l'Emplacement qui l'accueille. |
 | **Usure** | Les dés de désavantage qu'accumule l'attaque répétée d'une Emprise : un par répétition réussie et un chaque fois que la source a subi des dégâts. |
-| **Utilisations** | Un nombre limité d'activations d'un pouvoir, inscrit dessus (*2/R.C.*, *1/R.L.*), qui reviennent lors d'un repos court ou long. |
+| **Utilisations** | Un nombre limité d'activations d'un pouvoir, inscrit dessus (*2/C.R.*, *1/L.R.*), qui reviennent lors d'un court ou long repos. |
 | **Utiliser** | L'action qui utilise une babiole, ou un matériel qui demande une action. |
 | **Vise X** | L'attaque se fait contre la Défense de X de la cible (FOR, AGI, INT ou VOL). |
 | **Vision lucide N** | Comme Vision nocturne, et voit les créatures invisibles et à travers les illusions et les changements de forme. (EN : Truesight) |
 | **Vision nocturne N** | Traite l'Obscurité comme de la Lumière dans un rayon de N m. |
-| **Vocation** | La paire de caractéristiques avec laquelle un Porteur est né, gardée à vie : +2 dans les deux, des PV, une Vitesse et un atout. Elle décide quel matériel et quels Aspects vous pouvez équiper. Ce n'est ni un Aspect ni du matériel. Deux par paire : Duelliste et Bagarreur (FOR · AGI), Templier et Patriote (FOR · VOL), Lame-mage et Tacticien (FOR · INT), Infiltrateur et Rôdeur (AGI · INT), Artiste et Filou (AGI · VOL), Sage et Ermite (INT · VOL). |
+| **Visuel** | Un mot-clé d'un pouvoir de magie de VOL : il ne demande pas de voix et agit sur les créatures qui vous voient, pas sur celles qui vous entendent (une danse, un signe). |
+| **Vocation** | La paire de caractéristiques avec laquelle un Porteur est né, gardée à vie : +2 dans les deux, des PV, une Vitesse et un atout. Elle décide quel matériel et quelles Runes vous pouvez équiper. Ce n'est ni une Rune ni du matériel. Deux par paire : Duelliste et Bagarreur (FOR · AGI), Templier et Patriote (FOR · VOL), Lame-mage et Tacticien (FOR · INT), Infiltrateur et Rôdeur (AGI · INT), Artiste et Filou (AGI · VOL), Sage et Ermite (INT · VOL). |
 | **Vol N** | Une vitesse de vol : vous vous déplacez dans les airs. Si vous êtes mis À terre ou Neutralisé en vol, vous tombez. |
 | **Vulnérable (type)** | Subit le double des dégâts de ce type. |
 | **Zone** | Cône, Cube, Cylindre, Émanation, Ligne ou Sphère N : une zone de cette forme et de cette taille. Un seul jet contre chaque créature à l'intérieur. Moitié des dégâts en cas d'échec. |

@@ -1,6 +1,6 @@
 """Inline SVG illustrations for the PDF rulebook.
 
-Style: ink line art on parchment, crimson for the Calling, gold for Aspects. Cards are drawn in the printed base set's
+Style: ink line art on parchment, crimson for the Calling, gold for Runes. Cards are drawn in the printed base set's
 black-and-white Ledger look (ledger_card), with the ink stat symbols from rules/symbols/ink/.
 Each public function returns an <svg> string sized by its viewBox (CSS sets width).
 """
@@ -69,6 +69,22 @@ def _hex(cx, cy, r, fill="none", stroke=INK, sw=2, dash=None, rot=0):
     )
     d = f' stroke-dasharray="{dash}"' if dash else ""
     return f'<polygon points="{pts}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"{d}/>'
+
+
+RANKS = ("I", "II", "III", "IV", "V")
+RANK_STONE = "M4,2 L16,1 L20,7 L19,21 L13,27 L4,26 L1,17 L2,8 Z"  # the rough stone the Rank is carved in
+
+
+def rank_rune(rank, ink="#000", stone_fill="none"):
+    """A card's Rank as a branch rune in a stone, in a 21 × 28 box: a stave with one branch per Rank, up to three on
+    the right, then IV and V add branches on the left."""
+    n = RANKS.index(rank) + 1
+    out = [f'<path d="{RANK_STONE}" fill="{stone_fill}" stroke="{ink}" stroke-width="1" stroke-linejoin="round"/>',
+           f'<g stroke="{ink}" stroke-width="1.7" stroke-linecap="square">',
+           '<line x1="10.5" y1="4.5" x2="10.5" y2="23.5"/>']
+    out += [f'<line x1="10.5" y1="{10 + i * 5.5}" x2="15.5" y2="{5.5 + i * 5.5}"/>' for i in range(min(n, 3))]
+    out += [f'<line x1="10.5" y1="{10 + i * 5.5}" x2="5.5" y2="{5.5 + i * 5.5}"/>' for i in range(max(n - 3, 0))]
+    return "".join(out) + "</g>"
 
 
 def gem(cx, cy, r, color=CRIMSON, label=None, label_size=None):
@@ -390,7 +406,7 @@ def character_anatomy():
         ("Hands", 370, 85, [("Finesse Blade", icon_sword), ("Dagger", icon_sword)]),
         ("Jewelry", 230, 215, [("Ring of Warding", icon_ring)]),
         ("Items", 370, 215, [("Potion ×1", icon_potion), ("empty", None)]),
-        ("Aspects", 230, 345, [("Cat Burglar", icon_mask), ("Springheel", icon_jump), ("Iron Will", icon_fire)]),
+        ("Runes", 230, 345, [("Larceny", icon_mask), ("Springheel", icon_jump), ("Iron Will", icon_fire)]),
     ]
     for title, x0, y, slots in groups:
         body.append(_text(x0 - 34, y - 42, title.upper(), 13, HEAD, GOLD, anchor="start"))
@@ -411,7 +427,7 @@ def character_anatomy():
     body.append(f'<rect x="{sx + 35}" y="{222}" width="70" height="22" rx="6" fill="{GOLD}" stroke="{INK}" stroke-width="1.8"/>')
     body.append(_text(sx + 50, 335, "unequipped cards", 12, BODY, MUTED, italic=True))
     body.append(_text(sx + 50, 352, "swap at rests", 12, BODY, CRIMSON, italic=True))
-    return _svg(700, 400, "".join(body), "A character: Calling, Armor, two Hands, Jewelry, two Items, three Aspects and a Stash")
+    return _svg(700, 400, "".join(body), "A character: Calling, Armor, two Hands, Jewelry, two Items, three Runes and a Stash")
 
 
 def _callout(px, py, lx, ly, label, sub=None, side=1):
@@ -433,7 +449,7 @@ def _callout(px, py, lx, ly, label, sub=None, side=1):
 # ---------- Ledger cards (P 3.1): the printed base set's black-and-white look, laid out in mm of a 63 × 88 mm card ----------
 INK_SYMBOLS = Path(__file__).resolve().parent.parent / "rules" / "symbols" / "ink"
 LEDGER_ROWS = ["str", "dex", "int", "wil", "str-def", "dex-def", "int-def", "wil-def", "hp", "spd"]
-LEDGER_TYPES = {"Trait": "trait", "Technique": "technique", "Knack": "knack"}  # Aspect types with a symbol
+LEDGER_TYPES = {"Trait": "trait", "Technique": "technique", "Domain": "knack", "Domaine": "knack"}  # Rune types with a symbol (kw is already translated)
 ALL4 = ["STR", "DEX", "INT", "WIL"]
 PT = .3528  # mm per point
 
@@ -465,7 +481,7 @@ def _line(x1, y1, x2, y2, sw, col="#000"):
 def ledger_card(x, y, w, h, name, vals=None, kw="", rank=None, lit=None, own=None, art=None, text=(), tid="", size=9.4):
     """A card in the Ledger look, w × h px at (x, y): name, symbols (lit) and Rank in the title band (no Rank: symbols
     flush right), the bonus strip (vals: {row: "+3"}; own: all ten values, a Calling's), an art icon over effect lines
-    (**bold**; size in pt on the printed card), the keyword line (kw=None: none) with an Aspect's type symbol, the ID.
+    (**bold**; size in pt on the printed card), the keyword line (kw=None: none) with a Rune's type symbol, the ID.
     A wider card (the tally card, 126 mm) keeps the 12.6 mm strip on its right edge."""
     u = h / 88  # px per mm
     th, kh, sw = h * .13, h * .1, 12.6 * u
@@ -482,9 +498,9 @@ def ledger_card(x, y, w, h, name, vals=None, kw="", rank=None, lit=None, own=Non
     if lit:
         out.append(sym4(x + w - (10 if rank else 2) * u - 7.6 * u, my - 3.8 * u, 3.8 * u, lit))
     if rank:
-        rs = 8 * PT * u
-        out += [f'<circle cx="{x + w - 5.4 * u:.2f}" cy="{my:.2f}" r="{3.63 * u:.2f}" fill="#fff" stroke="#000" stroke-width="{.35 * u:.2f}"/>',
-                _text(f"{x + w - 5.4 * u:.2f}", f"{my + rs * .36:.2f}", rank, round(rs, 2), HEAD, "#000")]
+        k = 7.6 * u / 21  # the printed card's 7.6 mm wide stone
+        out.append(f'<g transform="translate({x + w - 5.4 * u - 10.5 * k:.2f},{my - 14 * k:.2f}) scale({k:.4f})">'
+                   f'{rank_rune(rank, "#000", "#fff")}</g>')
     # bonus strip: heavier rules before the Defenses and before HP, unused rows faded
     out.append(_line(sx, y + th, sx, y + h - kh, .3 * u))
     s, vs = min(4.8 * u, row * .72), 7.4 * PT * u
@@ -681,7 +697,7 @@ def tally_card():
     u = h / 88
     w = 126 * u
     body = [tally_small(x, y, w, h, {0: "+0", 1: "+1", 2: "+2", 3: "+2", 4: "11", 5: "11", 6: "12", 7: "12", 8: "15", 9: "30"}, ["15", "9", "12"], ledger=True,
-                        pools={"SPELL POINTS": ("5", 3)}, features=[("Slippery", "2/S.R.", 1), ("Halfling Luck", "1/S.R.", 0)])]  # Isolde the Sage (P 12.3 example)
+                        pools={"SPELL POINTS": ("5", 3)}, features=[("Grit", "1/S.R.", 1), ("Luck", "1/S.R.", 0)])]  # Isolde the Sage (P 12.3 example)
     th, kh = h * .13, h * .1
     rh = (h - th - kh) / 10
     top = y + th
@@ -725,9 +741,9 @@ def keeping_totals():
             ("", "Versatile Weapon", {}, "Weapon · Versatile", icon_sword, None, sw),
             ("JEWELRY", "Ring of Warding", {}, "Jewelry · Reaction", None, None, ALL4)]
     row2 = [("ITEM", "Potion of Healing", {}, "Consumable", None, None, ALL4),
-            ("ASPECTS", "Springheel", {8: "+2"}, "Trait", None, None, si),
+            ("RUNES", "Springheel", {8: "+2"}, "Trait", None, None, si),
             ("", "Iron Will", {8: "+2"}, "Trait", None, None, iw),
-            ("", "Barkeep", {}, "Knack", None, None, iw)]
+            ("", "Tavern", {}, "Domain", None, None, iw)]
     for r, cards in enumerate([row1, row2]):
         y = 52 + r * (h + 34)
         for i, (slot, name, vals, kw, art, own, lit) in enumerate(cards):
@@ -760,7 +776,7 @@ def keeping_totals():
     names = [n for n, *_ in reversed(stack)] + ["Calling", "Tally"]
     names = [{"Mail": "Armor", "Springheel": "Spring."}.get(n, n) for n in names]
     if LANG == "fr":  # French names are longer: abbreviate so the labels don't run together
-        names = [{"Iron Will": "Vol.", "Spring.": "Saut.", "Shield": "Boucl.", "Armor": "Arm.", "Calling": "Voc.",
+        names = [{"Iron Will": "Vol.", "Spring.": "Bond", "Shield": "Boucl.", "Armor": "Arm.", "Calling": "Voc.",
                   "Tally": "Déc."}.get(n, n) for n in names]
     for k, nm in enumerate(names):
         body.append(_text(x0 + W - dx / 2 + k * dx, y0 + H + 16, nm, 9, BODY, MUTED, italic=True))
@@ -821,7 +837,7 @@ def _wrap(s, n):
 
 
 def frame_body(key, name, swap, reminder, slits=True):
-    """One Slot frame (or Shard frame) as SVG elements in 0.1 mm units."""
+    """One Slot frame (or Runestone frame) as SVG elements in 0.1 mm units."""
     x0, y0, x1, y1 = FRAME_CARD
     band = FRAME_BAND[key]
     name, swap, reminder = tr(name), tr(swap), [tr(p) for p in reminder]
@@ -892,16 +908,15 @@ def rank_ladder():
     """Vertical ladder, Rank I at the bottom to V at the top, sized to sit beside a list."""
     body = []
     data = [("I", "Small edge"), ("II", "Defining"), ("III", "Strong"), ("IV", "Bends rules"), ("V", "Breaks rules")]
-    colors = ["#9a8a6a", GOLD, CRIMSON, "#4b2a6b", INK]
     step, gx = 62, 52
     for i, (r, label) in enumerate(data):
         cy = 40 + (4 - i) * step
-        size = 16 + i * 3.5
-        body.append(f'<line x1="18" y1="{cy}" x2="{gx - size - 4:.1f}" y2="{cy}" stroke="{GOLD}" stroke-width="1.5"/>')
-        body.append(gem(gx, cy, size, colors[i], r, 11 + i * 1.5))
-        body.append(_text(gx + 40, cy + 5, label, 15, HEAD, anchor="start"))
+        body.append(f'<line x1="18" y1="{cy}" x2="{gx - 24}" y2="{cy}" stroke="{GOLD}" stroke-width="1.5"/>')
+        body.append(f'<g transform="translate({gx - 21},{cy - 28}) scale(2)">{rank_rune(r, INK, PARCH)}</g>')
+        body.append(_text(gx + 44, cy + 5, r, 15, HEAD))
+        body.append(_text(gx + 66, cy + 5, label, 15, HEAD, anchor="start"))
     body.append(f'<line x1="14" y1="{40 + 4 * step + 24}" x2="14" y2="14" stroke="{INK}" stroke-width="1.5" marker-end="url(#arr)"/>')
-    return _svg(215, 40 + 4 * step + 34, "".join(body), "The five Ranks, from a small edge at the bottom to rule-breaking at the top")
+    return _svg(250,40 + 4 * step + 34, "".join(body), "The five Ranks, from a small edge at the bottom to rule-breaking at the top")
 
 
 def initiative_timeline():

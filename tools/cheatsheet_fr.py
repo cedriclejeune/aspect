@@ -18,8 +18,8 @@ FRONT = """
 <table>
 <tr><th>Action</th><th>Effet</th></tr>
 <tr><td>Déplacement</td><td>Déplacez-vous jusqu'à votre Vitesse. Vous pouvez le couper autour de votre autre action.</td></tr>
-<tr><td>Attaque</td><td>Une attaque d'arme ou à mains nues (davantage avec des Aspects comme <em>Double frappe</em>). Toute attaque peut devenir <strong>Empoigner</strong> ou <strong>Bousculer</strong>.</td></tr>
-<tr><td>Incantation</td><td>Lancez un sort à 1 action, ou utilisez un pouvoir de votre matériel ou de vos Aspects qui demande une action (Hymne, Complainte, muer en une Forme).</td></tr>
+<tr><td>Attaque</td><td>Une attaque d'arme ou à mains nues (davantage avec des Runes comme <em>Double frappe</em>). Toute attaque peut devenir <strong>Empoigner</strong> ou <strong>Bousculer</strong>.</td></tr>
+<tr><td>Incantation</td><td>Lancez un sort à 1 action, ou utilisez un pouvoir de votre matériel ou de vos Runes qui demande une action (Hymne, Complainte, muer en une Forme).</td></tr>
 <tr><td>Désengagement</td><td>Votre déplacement ne provoque pas d'attaque d'opportunité ce tour-ci. <strong>Pas si vous êtes Encerclé.</strong></td></tr>
 <tr><td>Esquive</td><td>Jusqu'à votre prochain tour : <strong>+3 à toutes vos Défenses</strong>. Perdu si Neutralisé ou Vitesse 0.</td></tr>
 <tr><td>Aide</td><td>Avant votre prochain tour, un allié a <strong>+3</strong> à son prochain test pour une tâche, ou à sa prochaine attaque contre une créature à 2 m de vous.</td></tr>
@@ -50,8 +50,8 @@ Remplace une attaque. Cible à votre allonge, au plus <strong>une taille de plus
 <tr><td>Attaque de<br>l'autre main</td><td>Vous attaquez avec une arme <strong>Légère</strong> → une attaque avec une <em>autre</em> arme Légère dans l'autre main. Pas de modificateur de caractéristique aux dégâts (sauf s'il est négatif). Les deux dans des Emplacements de Main. <small>6.9</small></td></tr>
 <tr><td>Action<br>préparée</td><td>Le déclencheur nommé avec Se tenir prêt survient → effectuez l'action ou le déplacement préparé.</td></tr>
 <tr><td>Sort</td><td>Un sort au temps d'incantation d'une réaction (p. ex. <em>Bouclier</em> du <em>Livre du conjurateur</em>). Demande une Main vide.</td></tr>
-<tr><td>Réplique</td><td>Divin ou Glamour : modifiez le jet d'une créature à 24 m ou moins qui vous entend, <strong>après le jet</strong>, avant que le MJ dise s'il réussit.</td></tr>
-<tr><td>Matériel et Aspects</td><td>Tout pouvoir marqué <strong>Réaction</strong>. Avec déclencheur : <em>Anneau de protection</em> (une attaque vous touche → +2 à cette Défense). Sans, à votre tour : <em>Feu grégeois</em> (lancer une fiole).</td></tr>
+<tr><td>Réplique</td><td>Magie de VOL : modifiez le jet d'une créature à 24 m ou moins qui vous entend, <strong>après le jet</strong>, avant que le MJ dise s'il réussit.</td></tr>
+<tr><td>Matériel et Runes</td><td>Tout pouvoir marqué <strong>Réaction</strong>. Avec déclencheur : <em>Anneau de protection</em> (une attaque vous touche → +2 à cette Défense). Sans, à votre tour : <em>Feu grégeois</em> (lancer une fiole).</td></tr>
 </table>
 
 <div class="box gold"><b>Gratuit (sans action)</b>
@@ -88,11 +88,11 @@ Remplace une attaque. Cible à votre allonge, au plus <strong>une taille de plus
 <li><strong>Agrippé / Entravé / Étourdi :</strong> Vitesse 0.</li>
 <li>Arme à <strong>Chargement</strong> : un tir par action ou réaction.</li>
 <li><strong>Livre de sorts :</strong> une Main vide pour lancer.</li>
-<li><strong>Divin et Glamour :</strong> demandent votre voix. Pas si Neutralisé, sous l'eau ou en Forme.</li>
+<li><strong>Magie de VOL :</strong> demande votre voix (sauf un pouvoir <strong>Visuel</strong>, ou pour muer en une Forme). Pas si Neutralisé, sous l'eau ou en Forme.</li>
 <li><strong>Sous Emprise :</strong> vous perdez votre tour jusqu'à ce qu'une répétition rate.</li>
 </ul></div>
 </div>
-<footer>Les numéros de section renvoient aux Règles du joueur de Porteurs. Le particulier l'emporte sur le général : un matériel ou un Aspect qui dit le contraire l'emporte.</footer>
+<footer>Les numéros de section renvoient aux Règles du joueur de Porteurs. Le particulier l'emporte sur le général : un matériel ou une Rune qui dit le contraire l'emporte.</footer>
 </section>
 """
 
@@ -139,7 +139,7 @@ BACK = """
 <li>Tests et sauvegardes : seule la question <strong>Vous</strong> s'applique.</li>
 <li>Chaque désavantage annule un avantage. Lancez <strong>1 + ce qui reste</strong> : gardez le plus haut (av.) ou le plus bas (désav.). 20 / 1 naturels lus sur le dé gardé.</li>
 <li><strong>Avantage aux dégâts :</strong> avant de lancer, reportez les dés d'avantage restants sur les dégâts. Chacun relance tous les dégâts ; gardez le meilleur. Le désavantage reste sur l'attaque.</li>
-<li>Matériel, Aspects, Aide et Esquive donnent des bonus <strong>fixes</strong> (+3 / −3), pas des dés.</li>
+<li>Matériel, Runes, Aide et Esquive donnent des bonus <strong>fixes</strong> (+3 / −3), pas des dés.</li>
 </ul>
 <div class="adv">
 <span>4,5<i>4d20 ↓</i></span><span>5,5<i>3d20 ↓</i></span><span>7,2<i>2d20 ↓</i></span>
@@ -187,7 +187,7 @@ BACK = """
 <h2>Dégâts <small>7.2–7.3</small></h2>
 <ul>
 <li>La <strong>résistance</strong> divise par deux, la <strong>vulnérabilité</strong> double (dans cet ordre, après les autres modificateurs). Deux résistances = une.</li>
-<li><strong>PV temporaires :</strong> perdus en premier, ne se cumulent pas (gardez le plus haut), ne sont pas des soins, durent jusqu'à un repos long.</li>
+<li><strong>PV temporaires :</strong> perdus en premier, ne se cumulent pas (gardez le plus haut), ne sont pas des soins, durent jusqu'à un long repos.</li>
 </ul>
 
 <h2>Tomber à 0 PV <small>7.4</small></h2>
@@ -208,7 +208,7 @@ BACK = """
 <h2>Magie en combat <small>10</small></h2>
 <ul>
 <li><strong>Livre de sorts :</strong> une Main vide pour lancer. Une seule réserve de <strong>points de sort</strong> (tous les livres + INT) paie les sorts de n'importe quel livre (coût 1/2/3/4/6/8 selon le niveau, tours de magie gratuits). Évident sauf si Discret.</li>
-<li><strong>Divin, Glamour, Nature :</strong> VOL, payés sur une seule réserve d'<strong>Ardeur</strong> (tous les paquets + VOL, revient au repos court). Toujours évidents.</li>
+<li><strong>Magie de VOL</strong> (Divin, Glamour, Nature) : mêmes règles, payée sur une seule réserve d'<strong>Ardeur</strong> (tous les paquets + VOL, revient au court repos). Toujours évidente.</li>
 <li><strong>Formes :</strong> le matériel ne compte plus ; les PV de la Forme partent d'abord, l'excédent se reporte.</li>
 </ul>
 
@@ -217,9 +217,9 @@ Quand le <strong>Meneur</strong> d'un groupe d'Adversaires tombe, et quand la mo
 
 <h2>Après le combat <small>7.5</small></h2>
 <ul>
-<li><strong>Repos court</strong> (1 h, 2 par repos long) : récupérez la moitié des PV manquants ; les utilisations R.C. et l'Ardeur reviennent ; enfiler ou ôter une Armure.</li>
-<li><strong>Repos long</strong> (8 h) : tous les PV, utilisations, Ardeur et points de sort ; échanger des Aspects.</li>
-<li><strong>Convalescence</strong> (3 jours en lieu sûr) : comme un repos long, et guérit toutes les Blessures.</li>
+<li><strong>Court repos</strong> (1 h, 2 par long repos) : récupérez la moitié des PV manquants ; les utilisations C.R. et l'Ardeur reviennent ; enfiler ou ôter une Armure.</li>
+<li><strong>Long repos</strong> (8 h) : tous les PV, utilisations, Ardeur et points de sort ; échanger des Runes.</li>
+<li><strong>Convalescence</strong> (3 jours en lieu sûr) : comme un long repos, et guérit toutes les Blessures.</li>
 </ul>
 </div>
 <footer>Règles d'or : la règle du plaisir · personne n'est laissé de côté · le particulier l'emporte sur le général · arrondir à l'inférieur · tout se cumule · le MJ tranche.</footer>

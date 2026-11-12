@@ -9,7 +9,7 @@ This file is the source of the Glossary chapter in both handbooks: `tools/sync_g
 ### Characters
 
 **Bearer**:
-A humanoid who can absorb the Aspects of other beings. Every player character is one.
+A humanoid who can etch Runes into themself and take them out again. Every player character is one.
 _Avoid_: hero, adventurer, PC (in rules text)
 
 **Party**:
@@ -32,7 +32,7 @@ _Avoid_: AC, armor class, save, saving throw
 Your ten running numbers: four ability modifiers, four Defenses, HP maximum and Speed.
 _Avoid_: stats, derived stats
 
-### Gear, Aspects & Slots
+### Gear, Runes & Slots
 
 **Gear**:
 Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards its Calling's symbols allow.
@@ -43,7 +43,7 @@ Gear you wear or wield: armor, weapons, shields, Instruments and Jewelry.
 _Avoid_: item (for these)
 
 **Item**:
-Gear you carry and use: Spellbooks, Recipes, Consumables, Containers and Shards.
+Gear you carry and use: Spellbooks, Recipes, Consumables, Containers and Runestones.
 _Avoid_: equipment (for these)
 
 **Object**:
@@ -56,18 +56,18 @@ _Avoid_: Light Armor, Medium Armor, Heavy Armor
 
 **Piece**:
 One unit of gear, as the Pack, the Party Stash and loot count it. A stack of up to 3 identical Consumables is one piece.
-_Avoid_: piece (for Divine, Glamour or Nature powers, or Trait-building sources)
+_Avoid_: piece (for WIL magic powers, or Trait-building sources)
 
 **Instrument**:
 Equipment held in a Hand that is neither a weapon nor a shield: a lute, a drum, a horn.
 _Avoid_: tool
 
 **Focus**:
-A keyword on equipment that strengthens your Divine, Glamour or Nature Aspects: an Instrument, a holy amulet, a druid's staff.
+A keyword on equipment that strengthens your WIL magic: an Instrument, a holy amulet, a druid's staff.
 _Avoid_: arcane focus, holy symbol, implement (as the term)
 
 **Container**:
-An item that is never equipped: it works from your Pack and takes 1 of its pieces. A Purse holds gold, a *Shard Bandolier* more Shards.
+An item that is never equipped: it works from your Pack and takes 1 of its pieces. A Purse holds gold, a *Runestone Bandolier* more Runestones.
 _Avoid_: bag, sack (as the term)
 
 **Purse**:
@@ -75,27 +75,27 @@ A Container that holds your gold, up to a maximum set by its Rank.
 _Avoid_: wallet, coin pouch (as the term)
 
 **Rank**:
-The fixed power of a piece of gear or an Aspect, from I to V. Characters and Callings have none.
+The fixed power of a piece of gear or a Rune, from I to V. Characters and Callings have none.
 _Avoid_: tier, rarity, level, quality, +1/+2/+3
 
 **Keyword**:
-A word with one fixed meaning that gear and Aspects list, type first.
+A word with one fixed meaning that gear and Runes list, type first.
 _Avoid_: tag, property (as the general term)
 
 **Type**:
-The first keyword of gear or an Aspect. It names the Slot it fits.
+The first keyword of gear or a Rune. It names the Slot it fits.
 _Avoid_: category, kind
 
 **Slot**:
-A space that holds one piece of gear or one Aspect of the matching type: Armor, Hand, Jewelry, Item or Aspect.
+A space that holds one piece of gear or one Rune of the matching type: Armor, Hand, Jewelry, Item or Rune.
 _Avoid_: socket, attunement slot
 
-**Aspect**:
-A Trait, Technique, Knack, Divine, Glamour or Nature absorbed from another being. It has no body: outside a Bearer it lives in a Shard. Only Bearers can use it.
-_Avoid_: feat, feature, power (as the general term)
+**Rune**:
+A power in the shape of a sign: a Trait, Technique, Domain, Divine, Glamour or Nature. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone.
+_Avoid_: Aspect, feat, feature, power (as the general term), glyph, sigil (as the term)
 
 **Calling**:
-The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Aspects you can equip. It is neither an Aspect nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Patriot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL).
+The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Runes you can equip. It is neither a Rune nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Patriot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL).
 _Avoid_: Core, background, archetype, class, race, stat block (for players)
 
 **Symbols**:
@@ -105,59 +105,63 @@ _Avoid_: requirement, prerequisite, Req
 **Gear Slot**:
 An Armor, Hand, Jewelry or Item Slot.
 
-**Aspect Slot**:
-A Slot that holds one Aspect. You start with 3 and can reach 8.
+**Rune Slot**:
+A Slot that holds one Rune. You start with 3 and can reach 8.
 
 **Extra Gear Slot**:
 A permanent extra Hand, Jewelry or Item Slot, granted only by defeating a Boss: Third Hand, Second Jewel or Great Backpack.
 _Avoid_: Slot card
 
 **Slot frame**:
-The table component for one Slot: a holder with two corner slits that a card tucks into. A framed card is equipped. A Shard is a Shard frame.
+The table component for one Slot: a holder with two corner slits that a card tucks into. A framed card is equipped. A Runestone is a Runestone frame.
 _Avoid_: Slot card, sleeve, socket
 
 **Trait**:
-An Aspect type: something a being is (a body, a blood, a blessing).
-_Avoid_: trait (for any Aspect), feature
+A Rune type: a lasting change to your body or mind.
+_Avoid_: trait (for any Rune), feature
 
 **Technique**:
-An Aspect type: something a being trained (a fighting move).
+A Rune type: a fighting move.
 
-**Knack**:
-An Aspect type: a bonus on checks for one narrow activity.
-_Avoid_: skill, proficiency, talent
+**Domain**:
+A Rune type: a bonus on checks for the activities of one domain.
+_Avoid_: Knack, skill, proficiency, talent, background
 
 **Uses**:
 A limited number of activations of one power, written on it (*2/S.R.*, *1/L.R.*), that come back on a short or long rest.
 _Avoid_: charges, per day
 
-### Shards & Storage
+### Runestones & Storage
 
-**Shard**:
-A bulky crystal vessel that holds one Aspect, or nothing. An item, but never in a Slot.
-_Avoid_: soul gem, crystal, orb, shard (lowercase, for any other object)
+**Runestone**:
+A bulky stone that holds one Rune, or nothing (a blank Runestone). An item, but never in a Slot.
+_Avoid_: Shard, soul gem, crystal, orb, empty (for a blank Runestone)
 
 **Lingering**:
-The state of a defeated creature's Aspects for 1 minute, before they fade for good.
+The state of a dead creature's Runes for 1 minute, once they come loose and before they fade for good.
 
 **Capture**:
-Pouring a lingering Aspect into an empty Shard.
-_Avoid_: harvest, collect, loot (for Aspects)
+Setting a lingering Rune into a blank Runestone.
+_Avoid_: harvest, collect, loot (for Runes)
 
-**Absorb**:
-Moving a Shard's Aspect into an Aspect Slot, during a long rest.
-_Avoid_: equip (for Aspects), learn, attune
+**Gift**:
+A copy of a Rune that a living creature other than a Bearer gives willingly, set into a blank Runestone. The giver keeps its own. Only an anchored Rune can be copied, so a Bearer never copies.
+_Avoid_: teach, transfer, steal
+
+**Etch**:
+Moving a Runestone's Rune into a Rune Slot, during a long rest.
+_Avoid_: Absorb, equip (for Runes), learn, attune, engrave
 
 **Release**:
-Emptying a Shard. Its Aspect is gone for good.
+Wiping a Runestone blank. Its Rune is gone for good.
 _Avoid_: destroy, discard
 
 **Pack**:
-Your personal bag: up to 8 pieces, gear you carry but haven't equipped and at most 3 Shards.
+Your personal bag: up to 8 pieces, gear you carry but haven't equipped and at most 3 Runestones.
 _Avoid_: backpack (except *Great Backpack*), bag
 
 **Party Stash**:
-The group's mule, cart or wagon: gear and Shards the party owns but nobody carries.
+The group's mule, cart or wagon: gear and Runestones the party owns but nobody carries.
 _Avoid_: bank, vault, storage
 
 ### Play
@@ -175,7 +179,7 @@ One problem with a clear outcome: a fight, a negotiation, a heist, a hazard, a c
 _Avoid_: challenge (reserved for Challenge Rating), encounter (for non-fights), scene
 
 **Milestone**:
-One new Aspect Slot for every character, granted when the party completes a story.
+One new Rune Slot for every character, granted when the party completes a story.
 _Avoid_: level up, XP
 
 **Play loop**:
@@ -187,7 +191,7 @@ A roll of d20 + ability modifier + bonuses against a Difficulty Class (DC).
 _Avoid_: skill check, test
 
 **Attack roll**:
-A roll of d20 + modifiers against a Defense, made by whoever harms or hinders: weapons, spells, Divine, Glamour and Nature powers, traps, poisons.
+A roll of d20 + modifiers against a Defense, made by whoever harms or hinders: weapons, spells, WIL magic, traps, poisons.
 _Avoid_: saving throw, save
 
 **Advantage on damage**:
@@ -231,28 +235,32 @@ _Avoid_: grimoire, spell list
 The points your spells cost: one pool, the sum your Spellbooks print + INT (minimum 1), kept on your tally card. It returns on a long rest.
 _Avoid_: spell slots, mana
 
+**WIL deck**:
+A Rune of WIL magic: a fixed list of powers, with an Attack bonus and the Resolve it adds to yours. Its type (Divine, Glamour or Nature) says which powers it holds and changes no other rule.
+_Avoid_: prayer book, songbook, WIL book, spell (for its powers)
+
 **Divine**:
-An Aspect type: WIL magic of prayer. Its deck, a **Litany**, holds a fixed list of powers that alter fate and heal, and adds to your Resolve.
+A type of WIL deck: the magic of prayer. Its deck is a **Litany**, which holds fate and healing powers: Anthems, Dirges, Cues and Mends.
 _Avoid_: Holy Book, Presence, Calling, cleric magic, faith (as the term)
 
 **Glamour**:
-An Aspect type: WIL magic of performance and command. Its deck, a **Repertoire**, holds a fixed list of powers that lift allies and break enemies, and adds to your Resolve.
+A type of WIL deck: the magic of performance and command. Its deck is a **Repertoire**, which holds powers of courage and fear: Anthems, Dirges, Cues and Mends.
 _Avoid_: Muse, Presence, Calling, songbook, bardic magic, inspiration
 
 **Nature**:
-An Aspect type: WIL magic of the wild. Its deck, a **Remembrance**, holds a fixed list of Forms and healing powers, and adds to your Resolve.
-_Avoid_: Memories, Bestiary, Wilds, Calling, druidic magic, primal magic
+A type of WIL deck: the magic of the wild. Its deck is an **Instinct**, which holds Forms and Mends.
+_Avoid_: Remembrance, Memories, Bestiary, Wilds, Calling, druidic magic, primal magic
 
 **Resolve**:
-The points your Divine, Glamour and Nature powers cost: one pool, the sum their decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest.
+The points your WIL magic costs: one pool, the sum your WIL decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest.
 _Avoid_: Presence points, Wild points, will points, mana
 
 **Form**:
-One beast body in a Remembrance (Nature), printed like a Calling: STR, DEX, HP, Speed and Size. While you are shifted into it, it replaces your body; your mind and Aspects stay.
+One beast body in an Instinct (Nature), printed like a Calling: STR, DEX, HP, Speed and Size. While you are shifted into it, it replaces your body; your mind and Runes stay.
 _Avoid_: form (for anything else), shape, wild shape, guise
 
 **Shift**:
-To take on a Form from your Remembrance; to revert is to return to your own body. Being polymorphed is never shifting.
+To take on a Form from your Instinct; to revert is to return to your own body. Being polymorphed is never shifting.
 _Avoid_: transform, polymorph, wild shape
 
 **Spell level**:
@@ -349,16 +357,20 @@ _Avoid_: AoE, template
 Nobody notices you casting it.
 
 **Anthem**:
-A Divine or Glamour power. Action: a buff for allies who hear you, for a Duration.
+A WIL magic power. Action: a buff for allies who hear you, for a Duration.
 
 **Dirge**:
-A Divine or Glamour power. Action: an attack against WIL Defense.
+A WIL magic power. Action: an attack against WIL Defense.
 
 **Cue**:
-A Divine or Glamour power. Reaction: changes a roll after it's made, before its result.
+A WIL magic power. Reaction: changes a roll after it's made, before its result.
 
 **Mend**:
-A Divine, Glamour or Nature power that restores HP to a creature in range, even one who can't hear you.
+A WIL magic power that restores HP to a creature in range, even one who can't hear you.
+
+**Visual**:
+A keyword on a WIL magic power: it needs no voice and acts on creatures who see you, not on those who hear you (a dance, a sign).
+_Avoid_: somatic, gesture, Seen (as the keyword)
 
 **Reroll**:
 The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once.
@@ -413,7 +425,7 @@ One WIL check (DC 10) a foe group makes, with the best WIL among its remaining m
 _Avoid_: rout, nerve, fear check
 
 **Drop**:
-Gear or an Aspect that a trial yields as loot; to drop is to yield it.
+Gear or a Rune that a trial yields as loot; to drop is to yield it.
 _Avoid_: drop (for falling to 0 HP: "fall")
 
 **Challenge Rating (CR)**:
@@ -430,7 +442,7 @@ A monster power that comes back on a 5 or 6 on a d6 at the end of the monster's 
 ### At the Table
 
 **Card**:
-The physical component for a Calling, a piece of gear, an Aspect, a spell, a Wound, a foe or an amount of gold.
+The physical component for a Calling, a piece of gear, a Rune, a spell, a Wound, a foe or an amount of gold.
 _Avoid_: card (in rules text outside At the Table)
 
 **Card ID**:

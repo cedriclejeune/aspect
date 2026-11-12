@@ -5,16 +5,16 @@ Usage: .venv/bin/python tools/build_cards.py [--lang fr]
 Output: rules/Bearers-Base-Set.pdf to print and rules/Bearers-Base-Set-Reading.pdf to read on screen
 (and build/base-set.html, build/base-set-reading.html for inspection)
 Cards are 63 × 88 mm, 9 per Letter page; foe and tally cards 126 × 88 mm and two-sided, 4 per landscape page (a foe's back: its drawing and name, turned a quarter); Slot frames are 67 × 98 mm, 8 per landscape page.
-A card with a drawing is two-sided: gear and gold from rules/art/items/, Callings, Aspects, deck cards and Wounds from
-rules/art/cards/ (a Form named after a foe, and the Orcish and Hobgoblin species Traits, use the foe's drawing). The drawing goes in place of the
+A card with a drawing is two-sided: gear and gold from rules/art/items/, Callings, Runes, deck cards and Wounds from
+rules/art/cards/ (a Form named after a foe, and the Runes in FOE_DRAWING, use the foe's drawing). The drawing goes in place of the
 text on the front, the text on the back, on facing pages printed two-sided (each back page mirrors its front page's
 columns). The reading PDF shows those cards once, double width: drawing and text side by side.
 Card geometry matches the tally card (P 12.3): title band 13 %, keywords 10 %, bonus strip 20 % wide.
 Cards are black and white ("Ledger"): stat symbols are ink PNGs from rules/symbols/ink/ (made by tools/ink_symbols.py),
 the four ability symbols sit in the top corner (the ones a card doesn't print greyed out, P 3.1), and a foe's drawing is
 rules/art/<name>.png when there is one. The look by family (DESIGN 4): every card type has its symbol at the bottom left and
-faint behind the text, and the family in grey under the name (Calling, Equipment, Item, Aspect, Spell, Power); a Calling
-has a black band, Equipment a double rule under it, an Item a hatched band, an Aspect its symbol before its name, and a deck
+faint behind the text, and the family in grey under the name (Calling, Equipment, Item, Rune · its type, Spell, Power); a Calling
+has a black band, Equipment a double rule under it, an Item a hatched band, a Rune its symbol before its name, and a deck
 card its cover's symbol at the foot of its index. Type symbols are ink PNGs from rules/symbols/ink/, or until one is drawn
 (tools/gen_symbols.py), its sketch from rules/symbols/sketch/.
 Foe cards (GM 2.1) come from cards/foes.py: their totals and attacks are added up from the cards they name.
@@ -48,11 +48,12 @@ SYM_FILE = {"STR": "str", "DEX": "dex", "INT": "int", "WIL": "wil", "STRd": "str
             "WILd": "wil-def", "HP": "hp", "SPD": "spd"}
 SKETCHES = ROOT / "rules" / "symbols" / "sketch"  # stand-ins until tools/gen_symbols.py draws the ink symbol
 TYPE_SYMBOL = {t: t.lower() for t in ("Calling", "Armor", "Weapon", "Shield", "Jewelry", "Instrument", "Consumable", "Container",
-                                      "Recipe", "Spellbook", "Trait", "Technique", "Knack", "Divine", "Glamour", "Nature")}
+                                      "Recipe", "Spellbook", "Trait", "Technique", "Divine", "Glamour", "Nature")}
+TYPE_SYMBOL["Domain"] = "knack"  # the symbol file keeps the name the type had before it became Domain
 FAMILY = {"Calling": "calling", **dict.fromkeys(("Armor", "Weapon", "Shield", "Jewelry", "Instrument"), "equip"),
-          **dict.fromkeys(("Consumable", "Container", "Recipe", "Spellbook", "Shard"), "item"),
-          **dict.fromkeys(("Trait", "Technique", "Knack", "Divine", "Glamour", "Nature"), "aspect")}
-SUBTITLE = {"calling": "Calling", "equip": "Equipment", "item": "Item", "aspect": "Aspect"}  # GLOSSARY: gear is equipment or items
+          **dict.fromkeys(("Consumable", "Container", "Recipe", "Spellbook", "Runestone"), "item"),
+          **dict.fromkeys(("Trait", "Technique", "Domain", "Divine", "Glamour", "Nature"), "aspect")}  # "aspect": the Rune family
+SUBTITLE = {"calling": "Calling", "equip": "Equipment", "item": "Item", "aspect": "Rune", "spell": "Spell", "power": "Power"}  # GLOSSARY: gear is equipment or items
 DESCRIPTIVE = set()  # keywords that describe without a rule: printed grey on the second keyword line (none yet)
 
 # Words the builder writes itself (the cards' own text comes from cards/base_set.py, or cards/fr.py in French).
@@ -70,7 +71,7 @@ UI = {
                coin="Dans une Bourse, il ne prend pas de place. En vrac, c'est un sac de pièces : 1 pièce.",
                blank=("Corps", "Attaques", "Pouvoirs", "Butin"), blank_kw="Adversaire · taille · sens",
                sizes={"Tiny": "Très petit", "Small": "Petit", "Medium": "Moyen", "Large": "Grand"}, senses=None,
-               sub={"calling": "Vocation", "equip": "Équipement", "item": "Objet", "aspect": "Aspect"}),
+               sub={"calling": "Vocation", "equip": "Équipement", "item": "Objet", "aspect": "Rune", "spell": "Sort", "power": "Pouvoir"}),
 }
 T = UI["en"]
 
@@ -98,8 +99,8 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
 .band {{ position: absolute; left: 0; right: 0; top: 0; height: 11.44mm; background: #fff; color: #000;
   display: flex; align-items: center; padding: 0 10mm 0 2.4mm; box-sizing: border-box; border-bottom: .7mm solid #000;
   font-family: Cinzel, serif; font-weight: 700; line-height: 1.05; letter-spacing: .04em; }}
-.band .rank {{ position: absolute; right: 1.6mm; top: 50%; transform: translateY(-50%); width: 7.6mm; height: 7.6mm; box-sizing: border-box;
-  border: .35mm solid #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8pt; letter-spacing: 0; }}
+.band .rank {{ position: absolute; right: 1.6mm; top: 50%; transform: translateY(-50%); width: 7.1mm; height: 9.4mm; }}
+.band .rank svg {{ width: 100%; height: 100%; display: block; }}
 .band.syms {{ padding-right: 18.4mm; }}
 .band .sym4 {{ position: absolute; right: 10mm; top: 50%; transform: translateY(-50%); display: grid; grid-template-columns: 3.5mm 3.5mm;
   gap: .3mm; }}
@@ -135,6 +136,8 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
   font-style: italic; font-weight: 600; font-size: 7.6pt; line-height: 1.1; }}
 .kw img {{ width: 4.4mm; height: 4.4mm; flex: none; }}
 .band .ttl {{ display: flex; flex-direction: column; min-width: 0; gap: .35mm; }}
+.band .pre {{ font-family: 'EB Garamond', serif; font-weight: 600; font-size: 6.4pt; line-height: 1; letter-spacing: .02em;
+  margin-bottom: .1mm; }}
 .band .sub {{ font-family: 'EB Garamond', serif; font-style: italic; font-weight: 600; letter-spacing: .02em; color: #000;
   font-size: 7.4pt; line-height: 1.05; }}
 .band .bsym {{ width: 4.6mm; height: 4.6mm; flex: none; margin-right: 1.2mm; }}
@@ -286,7 +289,9 @@ FIT_LORE = """<script>document.fonts.ready.then(() => {
 
 
 def rank_mark(rank):
-    return f'<span class="rank">{rank}</span>' if rank else ""
+    """The Rank carved as a branch rune in a stone (one branch per Rank, P 3.1)."""
+    return (f'<span class="rank"><svg viewBox="0 0 21 28" role="img" aria-label="Rank {rank}">{ill.rank_rune(rank, "#000", "#fff")}</svg></span>'
+            if rank else "")
 
 
 def strip(values, own=False):
@@ -307,14 +312,16 @@ def sym4(sym):
         for a in ("STR", "DEX", "INT", "WIL")) + "</span>"
 
 
-def band(name, right, sym=None, sub=None, lead=""):
-    """sub: the family in grey under the name; lead: a symbol before the name (an Aspect's type)."""
+def band(name, right, sym=None, sub=None, lead="", pre=""):
+    """sub: the family in grey under the name; lead: a symbol before the name (a Rune's type); pre: small words above
+    the name (a Rune's "Rune of the", DESIGN 1b)."""
     size = 9.2 if len(name) <= 14 else 8 if len(name) <= 18 else 7
     if sym:
         size = min(size, 8.4 if len(name) <= 12 else 7.4 if len(name) <= 16 else 6.6)
     title = html.escape(name.upper())
     if sub:
-        title = f'<span class="ttl"><span class="nm">{title}</span><span class="sub">{sub}</span></span>'
+        pre = f'<span class="pre">{html.escape(pre)}</span>' if pre else ""
+        title = f'<span class="ttl">{pre}<span class="nm">{title}</span><span class="sub">{sub}</span></span>'
     lead = f'<span class="bsym">{lead}</span>' if lead else ""
     return (f'<div class="band{" syms" if sym else ""}{" norank" if sym and not right else ""}" style="font-size:{size}pt">{lead}{title}'
             f'{sym4(sym) if sym else ""}{right}</div>')
@@ -324,12 +331,12 @@ def slug(name):
     return name.lower().replace(" ", "-")
 
 
-FOE_DRAWING = {"Orcish Blood": "orc", "Hobgoblin Discipline": "hobgoblin"}  # species Traits drawn as their foe
+FOE_DRAWING = {"Campaign": "orc", "Discipline": "hobgoblin"}  # Runes drawn as a foe that carries them
 
 
 def drawing(name, kind):
     """The card's drawing, or None: gear and gold in rules/art/items/, the rest in rules/art/cards/ (a deck card named
-    after a foe, and a species Trait in FOE_DRAWING, use the foe's drawing in rules/art/)."""
+    after a foe, and a Rune in FOE_DRAWING, use the foe's drawing in rules/art/)."""
     if name in FOE_DRAWING and (ART / f"{FOE_DRAWING[name]}.png").exists():
         return ART / f"{FOE_DRAWING[name]}.png"
     folders = [ITEM_ART] if kind in ("gear", "gold") else [CARD_ART] + ([ART] if kind == "deck" else [])
@@ -340,20 +347,40 @@ def item_drawing(c):
     return drawing(c.get("key", c["name"]), c["kind"])
 
 
+RUNE_NAMES = {c["name"] for c in bs.ASPECTS}  # deck covers (Repertoire, Litany, Instinct) print no "Rune of"
+
+
+def rune_of(c):
+    """'Rune of the' / 'Rune du' printed above a Rune card's name, or "" for a deck cover."""
+    key = c.get("key", c["name"])
+    if key not in RUNE_NAMES:
+        return ""
+    if T["lang"] == "fr":
+        import fr
+        return fr.rune_de(c["name"])
+    return bs.rune_of(key)
+
+
 def item_card(c, group, face="text"):
     """face: "text" (the card as rules text), "art" (the front of a two-sided card: its drawing in place of the text),
     "read" (double width, drawing and text side by side)."""
     paras = "".join(f"<p>{md(t)}</p>" for t in c["text"])
     kind = c["kw"].split(" · ")[0]
     fam, sub = family(kind)
+    typed = kind if fam == "aspect" else sub  # the type the subtitle already says: left out of the keyword line
+    if fam == "aspect":
+        sub = f"{sub} · {kind}"  # a Rune's type line: "Rune · Trait"
     art = f'<div class="art"><img src="{print_image(item_drawing(c))}" alt=""></div>' if face != "text" else ""
     body = "" if face == "art" else (f'<div class="body" style="font-size:{fit(c["text"], "")}pt">{watermark(kind)}'
                                      f'<div class="main">{paras}</div>{lore(c)}</div>')
     sym = c["sym"] if c["kind"] in ("gear", "aspect", "calling") else None
     lead = type_symbol(kind) if fam == "aspect" else ""
-    return (f'<div class="card f-{fam}{" read" if face == "read" else ""}">{band(c["name"], rank_mark(c["rank"]), sym, sub, lead)}{art}'
+    pre = rune_of(c) if fam == "aspect" else ""
+    if pre:
+        sub = kind  # "Rune of the" above the name already says Rune: the line under it gives the type alone
+    return (f'<div class="card f-{fam}{" read" if face == "read" else ""}">{band(c["name"], rank_mark(c["rank"]), sym, sub, lead, pre)}{art}'
             f'{strip(c["strip"], own=c["kind"] == "calling")}{body}'
-            f'{keywords(c["kw"], sub)}<div class="set">{T["groups"].get(group, group)}{" · " + c["id"] if c.get("id") else ""}</div></div>')
+            f'{keywords(c["kw"], typed)}<div class="set">{T["groups"].get(group, group)}{" · " + c["id"] if c.get("id") else ""}</div></div>')
 
 
 def deck_card(s, deck, face="text"):
@@ -362,7 +389,7 @@ def deck_card(s, deck, face="text"):
         return f'<div class="pair">{deck_card(s, deck, "art")}{deck_card(s, deck)}</div>'
     cover = deck["cover"]
     source = cover["kw"].split(" · ")[0]  # the cover's type: its symbol marks the deck's cards
-    sub = "Spell" if source == "Spellbook" else "Power"
+    sub = T["sub"]["spell" if en_type(source) == "Spellbook" else "power"]
     has_strip = bool(s["strip"]) or s["level"] == "Form"
     level = f'<span class="lvl">{s["level"]}</span>'
     if face == "art":
@@ -627,7 +654,7 @@ def intro(n_cards, n_frames, n_duplex, wide):
 <p>{n_frames} frames: {frames}.</p>
 <h2>Starter list</h2><table>{rows}</table>
 <h2>Each player takes</h2>
-<p>A Calling, then gear and Aspects from the starter list that it can equip (Player Rules 13.2), 9 Slot frames (Armor, 2 Hand, Jewelry, 2 Item, 3 Aspect), 3 Shard frames, a Potion of Healing, a Coin Pouch with 50 gp and a tally card. The Party Stash starts with 2 Shard frames per player. Keep the milestone Aspect frames and the extra Gear Slot frames for the GM to hand out.</p>
+<p>A Calling, then gear and Runes from the starter list that it can equip (Player Rules 13.2), 9 Slot frames (Armor, 2 Hand, Jewelry, 2 Item, 3 Rune), 3 Runestone frames, a Potion of Healing, a Coin Pouch with 50 gp and a tally card. The Party Stash starts with 2 Runestone frames per player. Keep the milestone Rune frames and the extra Gear Slot frames for the GM to hand out.</p>
 </section>"""
 
 
@@ -669,7 +696,7 @@ def intro_fr(n_cards, n_frames, n_duplex, wide):
 <p>{n_frames} cadres : {frames}.</p>
 <h2>Liste de départ</h2><table>{rows}</table>
 <h2>Chaque joueur prend</h2>
-<p>Une Vocation, puis du matériel et des Aspects de la liste de départ qu'elle peut équiper (Règles du joueur 13.1), 9 cadres d'Emplacement (Armure, 2 Mains, Bijou, 2 Objets, 3 Aspects), 3 cadres d'Éclat, une Potion de soins, une Bourse à cordon avec 50 po et une carte de Décompte. La Réserve de la Compagnie commence avec 2 cadres d'Éclat par joueur. Gardez les cadres d'Aspect de jalon et les cadres d'Emplacement de Matériel supplémentaire pour que le MJ les distribue.</p>
+<p>Une Vocation, puis du matériel et des Runes de la liste de départ qu'elle peut équiper (Règles du joueur 13.1), 9 cadres d'Emplacement (Armure, 2 Mains, Bijou, 2 Objets, 3 Runes), 3 cadres de Pierre runique, une Potion de soins, une Bourse à cordon avec 50 po et une carte de Décompte. La Réserve de la Compagnie commence avec 2 cadres de Pierre runique par joueur. Gardez les cadres de Rune de jalon et les cadres d'Emplacement de Matériel supplémentaire pour que le MJ les distribue.</p>
 </section>"""
 
 
