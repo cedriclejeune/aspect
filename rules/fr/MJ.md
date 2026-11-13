@@ -157,15 +157,15 @@ Un Porteur caché (J 5.4) peut observer un groupe d'Adversaires avant un combat 
 - **Un budget par épreuve, pas par cadavre.** Donnez les mêmes 1 à 3 pièces de butin par personnage quelle que soit la façon dont la Compagnie s'en sort : un combat laisse du matériel sur les corps et des Runes qui persistent au-dessus ; un marché apporte un paiement, un cadeau (6.3) ou une faveur (*Lettre d'introduction*, *Chevalière de guilde*, J 3.4) ; la discrétion ou la ruse atteint le trésor que gardaient les monstres. Les joueurs ne perdent ainsi jamais de butin pour avoir évité un combat.
 
 ### 4.2 Récompenses
-- **Liste de départ** (J 13.1) : proposez du matériel et des Runes de Rang I pour chaque style et chaque Vocation, dont un paquet de VOL et un Focaliseur. Chaque joueur ne choisit que des cartes que sa Vocation peut équiper. Le set de base fait commencer les joueurs avec un Répertoire (Glamour) et garde sa Litanie (Divin) et son Instinct (Nature) comme butin. Sa liste :
+- **Liste de départ** (J 13.1) : proposez du matériel et des Runes de Rang I pour chaque style et chaque Vocation, dont un paquet de VOL et un Focaliseur. Chaque joueur ne choisit que des cartes que sa Vocation peut équiper. Le set de base propose tous ses paquets de VOL au départ : un Répertoire (Glamour), une Litanie (Divin), un Instinct (Nature) et un Pacte. Sa liste :
 
 | Emplacement | Matériel et Runes de départ (Rang I) |
 |---|---|
-| **Armure** | *Cuir*, *Mailles* |
-| **Mains** | *Bouclier*, *Dague*, *Épée courte*, *Hachette*, *Lame fine*, *Épée longue*, *Hache d'armes*, *Épée à deux mains*, *Glaive sur lance*, *Arc long*, *Fronde*, *Javelots*, *Bâton de garde-sort*, *Luth du voyageur* |
-| **Bijou** | *Anneau de protection*, *Chevalière de guilde*, *Bottes de grande foulée*, *Grelots de danseur* |
-| **Objets** | *Livre du conjurateur*, *Potion de soins*, *Bourse à cordon*, *Lettre d'introduction* |
-| **Runes** | *Bond*, *Sang de pierre*, *Volonté de fer*, *Esprit clair*, *Enchaînement*, *Visée juste*, *Coup de bouclier*, *Hymne de bataille*, *Cri de ralliement*, *Larcin*, *Ménestrel*, *Navigation*, *Ruelles*, *Traque*, *Guérison*, *Taverne*, *Forge*, *Cimes*, *Répertoire du vagabond* |
+| **Armure** | *Cuir*, *Mailles*, *Peaux*, *Cuir clouté* |
+| **Mains** | *Bouclier*, *Dague*, *Épée courte*, *Hachette*, *Lame fine*, *Épée longue*, *Hache d'armes*, *Épée à deux mains*, *Glaive sur lance*, *Arc long*, *Fronde*, *Javelots*, *Bâton de garde-sort*, *Luth du voyageur*, *Massue*, *Arc court*, *Grande hache*, *Baguette*, *Fouet*, *Arbalète de poing*, *Arbalète*, *Bâton druidique* |
+| **Bijou** | *Anneau de protection*, *Chevalière de guilde*, *Amulette sacrée*, *Bottes de grande foulée*, *Grelots de danseur*, *Totem druidique*, *Cristal arcanique* |
+| **Objets** | *Livre du conjurateur*, *Livre de l'évocateur*, *Livre de l'abjurateur*, *Livre de l'illusionniste*, *Livre de l'enchanteur*, *Potion de soins*, *Bourse à cordon*, *Lettre d'introduction*, *Bandoulière runique*, *Trousse de soins* |
+| **Runes** | *Bond*, *Sang de pierre*, *Volonté de fer*, *Esprit clair*, *Enchaînement*, *Visée juste*, *Coup de bouclier*, *Hymne de bataille*, *Cri de ralliement*, *Larcin*, *Ménestrel*, *Navigation*, *Ruelles*, *Traque*, *Guérison*, *Taverne*, *Forge*, *Cimes*, *Archerie*, *Rempart*, *Duel*, *Armes lourdes*, *Lancer vif*, *Rage*, *Ruse*, *Garde sans armure*, *Arts martiaux*, *Expertise*, *Recouvrement arcanique*, *Bibliothèque*, *Cour*, *Contrées sauvages*, *Duperie*, *Ascèse*, *Répertoire du vagabond*, *Litanie de l'acolyte*, *Instinct du cœur sauvage*, *Pacte de l'occultiste* |
 
 - **Listes de souhaits :** chaque joueur écrit **3 cartes** qu'il aimerait trouver au dos de sa carte de Décompte (J 12.3) et la met à jour quand il le souhaite. Jetez-y un œil quand vous choisissez le butin (4.1) et les récompenses : exaucez un souhait de temps en temps, à son Rang, par un monstre ou une épreuve adaptés. *Provisoire : le dos des cartes n'est pas encore conçu.*
 - **Les Emplacements de Matériel supplémentaires** ne sont que des récompenses de Boss. Jamais plus d'un de chaque par personnage. À la table, remettez au joueur son cadre d'Emplacement (J 12.2).
@@ -442,7 +442,8 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Niveau de sort** | La puissance d'un sort et son coût en points de sort, du 1er au 6e. (EN : Spell level) |
 | **Niveau effectif** | L'estimation par le MJ de la puissance d'un personnage, de 1 à 12, utilisée pour dimensionner les combats et les DD des épreuves. Ce n'est pas une valeur du personnage. |
 | **Objet** | Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Contenants et Pierres runiques. |
-| **Paquet de VOL** | Une Rune de magie de VOL : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour ou Nature) dit quels pouvoirs elle contient et ne change aucune autre règle. |
+| **Pacte** | Un type de paquet de VOL : la magie accordée par un protecteur. Son paquet est un **Pacte**, qui contient des malédictions et des dégâts : Complaintes et Répliques. |
+| **Paquet de VOL** | Une Rune de magie de VOL : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour, Nature ou Pacte) dit quels pouvoirs elle contient et ne change aucune autre règle. |
 | **Perception aveugle N** | Perçoit tout dans un rayon de N m sans la vue. (EN : Blindsight) |
 | **Persistance** | L'état des Runes d'une créature morte pendant 1 minute, une fois détachées et avant qu'elles ne s'éteignent pour de bon. Une Rune dans cet état *persiste*. (EN : Lingering) |
 | **Pièce** | Une unité de matériel, telle que le Sac, la Réserve de la Compagnie et le butin la comptent. Une pile de jusqu'à 3 Consommables identiques compte pour une pièce. |
@@ -464,7 +465,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Réplique** | Un pouvoir de magie de VOL. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue) |
 | **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel et les Pierres runiques que la Compagnie possède mais que personne ne porte. |
 | **Résiste (type)** | Ne subit que la moitié des dégâts de ce type. |
-| **Rune** | Un pouvoir en forme de signe : un Trait, une Technique, un Domaine, un Divin, un Glamour ou une Nature. La plupart des créatures en portent quelques-unes, ancrées en elles à vie. Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique. |
+| **Rune** | Un pouvoir en forme de signe : un Trait, une Technique, un Domaine ou un paquet de VOL. La plupart des créatures en portent quelques-unes, ancrées en elles à vie. Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique. |
 | **Sac** | Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Pierres runiques. |
 | **Saga** | Le grand arc de la campagne, fait de quêtes. En achever une accorde un jalon. |
 | **Soin** | Un pouvoir de magie de VOL qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |

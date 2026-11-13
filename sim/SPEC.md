@@ -59,7 +59,7 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
 **Deck**
 ```jsonc
 {
-  "cover": "B-I-01", "kind": "spellbook" | "glamour" | "divine" | "nature",
+  "cover": "B-I-01", "kind": "spellbook" | "glamour" | "divine" | "nature" | "pact",
   "atk": 2,                            // Spell attack / Attack bonus
   "sp": 2, "maxLevel": 2,              // spellbook: spell points it adds (pool = all books + INT, min 1)
   "resolve": 3,                        // WIL decks: printed Resolve (pool = all WIL decks + WIL once, min 1)

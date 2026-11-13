@@ -48,6 +48,49 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": []
   },
+  "A-I-03": {
+   "id": "A-I-03",
+   "name": "Hide",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Armor",
+   "kw": [
+    "Armor"
+   ],
+   "text": [],
+   "strip": {
+    "STRd": 2,
+    "HP": 4
+   },
+   "group": "starter",
+   "sym": [
+    "STR",
+    "WIL"
+   ],
+   "fx": []
+  },
+  "A-I-04": {
+   "id": "A-I-04",
+   "name": "Studded Leather",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Armor",
+   "kw": [
+    "Armor"
+   ],
+   "text": [],
+   "strip": {
+    "STRd": 2,
+    "DEXd": 2,
+    "HP": 2
+   },
+   "group": "starter",
+   "sym": [
+    "DEX",
+    "INT"
+   ],
+   "fx": []
+  },
   "A-II-01": {
    "id": "A-II-01",
    "name": "Plate",
@@ -93,6 +136,98 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": [],
    "deck": "B-I-01"
+  },
+  "B-I-02": {
+   "id": "B-I-02",
+   "name": "Evoker's Book",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Spellbook",
+   "kw": [
+    "Spellbook"
+   ],
+   "text": [
+    "Spell attack: **INT + 2**",
+    "Spell points: **+2** (long rest)",
+    "Max spell level: **2nd**",
+    "Casting needs an empty Hand."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "INT"
+   ],
+   "fx": [],
+   "deck": "B-I-02"
+  },
+  "B-I-03": {
+   "id": "B-I-03",
+   "name": "Abjurer's Book",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Spellbook",
+   "kw": [
+    "Spellbook"
+   ],
+   "text": [
+    "Spell attack: **INT + 2**",
+    "Spell points: **+2** (long rest)",
+    "Max spell level: **2nd**",
+    "Casting needs an empty Hand."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "INT"
+   ],
+   "fx": [],
+   "deck": "B-I-03"
+  },
+  "B-I-04": {
+   "id": "B-I-04",
+   "name": "Illusionist's Book",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Spellbook",
+   "kw": [
+    "Spellbook"
+   ],
+   "text": [
+    "Spell attack: **INT + 2**",
+    "Spell points: **+2** (long rest)",
+    "Max spell level: **2nd**",
+    "Casting needs an empty Hand."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "INT"
+   ],
+   "fx": [],
+   "deck": "B-I-04"
+  },
+  "B-I-05": {
+   "id": "B-I-05",
+   "name": "Enchanter's Book",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Spellbook",
+   "kw": [
+    "Spellbook"
+   ],
+   "text": [
+    "Spell attack: **INT + 2**",
+    "Spell points: **+2** (long rest)",
+    "Max spell level: **2nd**",
+    "Casting needs an empty Hand."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "INT"
+   ],
+   "fx": [],
+   "deck": "B-I-05"
   },
   "C-I-01": {
    "id": "C-I-01",
@@ -153,7 +288,7 @@ globalThis.BEARERS_CARDS = {
     "Prayers."
    ],
    "strip": {},
-   "group": "loot",
+   "group": "starter",
    "sym": [
     "WIL"
    ],
@@ -181,6 +316,28 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": [],
    "deck": "G-I-01"
+  },
+  "H-I-01": {
+   "id": "H-I-01",
+   "name": "Occultist's Pact",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Pact",
+   "kw": [
+    "Pact"
+   ],
+   "text": [
+    "Attack: **WIL + 2**",
+    "Resolve: **+3** (short rest)",
+    "Gifts of a patron."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "WIL"
+   ],
+   "fx": [],
+   "deck": "H-I-01"
   },
   "J-I-01": {
    "id": "J-I-01",
@@ -260,7 +417,7 @@ globalThis.BEARERS_CARDS = {
     "Your Cues reach 90 ft instead of 60 ft."
    ],
    "strip": {},
-   "group": "loot",
+   "group": "starter",
    "sym": [
     "WIL"
    ],
@@ -341,6 +498,63 @@ globalThis.BEARERS_CARDS = {
      "params": {
       "default": 60
      }
+    }
+   ]
+  },
+  "J-I-06": {
+   "id": "J-I-06",
+   "name": "Druid's Totem",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Jewelry",
+   "kw": [
+    "Jewelry",
+    "Focus"
+   ],
+   "text": [
+    "1 extra Resolve (short rest).",
+    "When you shift into a Form, it gains 2 temporary HP."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "WIL"
+   ],
+   "fx": [
+    {
+     "id": "J-I-06#0",
+     "name": "Druid's Totem",
+     "use": "passive",
+     "extraResolve": 1,
+     "params": {
+      "formTemp": 2
+     }
+    }
+   ]
+  },
+  "J-I-07": {
+   "id": "J-I-07",
+   "name": "Arcane Crystal",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Jewelry",
+   "kw": [
+    "Jewelry"
+   ],
+   "text": [
+    "1 extra spell point (long rest)."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "INT"
+   ],
+   "fx": [
+    {
+     "id": "J-I-07#0",
+     "name": "Arcane Crystal",
+     "use": "passive",
+     "extraSp": 1
     }
    ]
   },
@@ -598,6 +812,106 @@ globalThis.BEARERS_CARDS = {
    "sym": [
     "INT",
     "WIL"
+   ],
+   "fx": []
+  },
+  "K-I-12": {
+   "id": "K-I-12",
+   "name": "Library",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Domain",
+   "kw": [
+    "Domain"
+   ],
+   "text": [
+    "+2 on checks to recall lore, notice, search or haggle."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "DEX",
+    "INT"
+   ],
+   "fx": []
+  },
+  "K-I-13": {
+   "id": "K-I-13",
+   "name": "Court",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Domain",
+   "kw": [
+    "Domain"
+   ],
+   "text": [
+    "+2 on checks to persuade, read intentions, recall lore or perform."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "INT"
+   ],
+   "fx": []
+  },
+  "K-I-14": {
+   "id": "K-I-14",
+   "name": "Frontier",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Domain",
+   "kw": [
+    "Domain"
+   ],
+   "text": [
+    "+2 on checks to track, navigate, endure or notice."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "DEX"
+   ],
+   "fx": []
+  },
+  "K-I-15": {
+   "id": "K-I-15",
+   "name": "Deceit",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Domain",
+   "kw": [
+    "Domain"
+   ],
+   "text": [
+    "+2 on checks to deceive, hide, pick pockets or perform."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "DEX",
+    "WIL"
+   ],
+   "fx": []
+  },
+  "K-I-16": {
+   "id": "K-I-16",
+   "name": "Asceticism",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Domain",
+   "kw": [
+    "Domain"
+   ],
+   "text": [
+    "+2 on checks to endure, notice, treat wounds or read intentions."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "DEX"
    ],
    "fx": []
   },
@@ -1175,7 +1489,7 @@ globalThis.BEARERS_CARDS = {
     "Beasts your body knows."
    ],
    "strip": {},
-   "group": "loot",
+   "group": "starter",
    "sym": [
     "WIL"
    ],
@@ -1279,6 +1593,41 @@ globalThis.BEARERS_CARDS = {
        "mod": "attack",
        "n": -2,
        "until": "endTargetTurn"
+      }
+     ]
+    }
+   ]
+  },
+  "P-I-04": {
+   "id": "P-I-04",
+   "name": "Healer's Kit",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Consumable",
+   "kw": [
+    "Consumable"
+   ],
+   "text": [
+    "**Action:** tend a creature within 5 ft. It regains 1d4 HP."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
+   ],
+   "fx": [
+    {
+     "id": "P-I-04#0",
+     "name": "Healer's Kit",
+     "use": "action",
+     "reach": 5,
+     "target": "creature",
+     "do": [
+      {
+       "heal": "1d4"
       }
      ]
     }
@@ -1581,6 +1930,166 @@ globalThis.BEARERS_CARDS = {
      ]
     }
    ]
+  },
+  "Q-I-07": {
+   "id": "Q-I-07",
+   "name": "Archery",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "Long range gives your ranged weapon attacks no disadvantage."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "DEX",
+    "INT"
+   ],
+   "fx": []
+  },
+  "Q-I-08": {
+   "id": "Q-I-08",
+   "name": "Bulwark",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "+1 STR Defense while you wear Armor."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "WIL"
+   ],
+   "fx": []
+  },
+  "Q-I-09": {
+   "id": "Q-I-09",
+   "name": "Dueling",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "While you hold a one-handed melee weapon and your other Hand is empty: +1 STR and DEX Defense against melee attacks."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "DEX"
+   ],
+   "fx": []
+  },
+  "Q-I-10": {
+   "id": "Q-I-10",
+   "name": "Great Weapons",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "When a damage die of your Two-Handed weapon shows 1 or 2, reroll it once."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "INT"
+   ],
+   "fx": []
+  },
+  "Q-I-11": {
+   "id": "Q-I-11",
+   "name": "Quick Throw",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "You draw a Thrown weapon as part of the attack that throws it, and your Thrown ranges are doubled."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "DEX",
+    "WIL"
+   ],
+   "fx": []
+  },
+  "Q-I-12": {
+   "id": "Q-I-12",
+   "name": "Rage",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "**Reaction (2/L.R.)**, when you roll initiative or a creature hits you: for 1 minute, you Resist Physical damage and can't cast spells or use WIL magic."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "WIL"
+   ],
+   "fx": []
+  },
+  "Q-I-13": {
+   "id": "Q-I-13",
+   "name": "Cunning",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "Once per turn, if you end your movement out of sight, you can Hide without spending an action."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "DEX",
+    "INT"
+   ],
+   "fx": []
+  },
+  "Q-I-14": {
+   "id": "Q-I-14",
+   "name": "Martial Arts",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Technique",
+   "kw": [
+    "Technique"
+   ],
+   "text": [
+    "Your unarmed strikes deal 1d6 + STR or DEX Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "DEX"
+   ],
+   "fx": []
   },
   "Q-II-01": {
    "id": "Q-II-01",
@@ -1965,6 +2474,71 @@ globalThis.BEARERS_CARDS = {
      "reroll": "1d20"
     }
    ]
+  },
+  "T-I-09": {
+   "id": "T-I-09",
+   "name": "Unarmored Guard",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "+2 STR Defense while your Armor Slot is empty."
+   ],
+   "strip": {
+    "HP": 2
+   },
+   "group": "starter",
+   "sym": [
+    "DEX",
+    "WIL"
+   ],
+   "fx": []
+  },
+  "T-I-10": {
+   "id": "T-I-10",
+   "name": "Expertise",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "**1/S.R.**, when you fail a check one of your Domains covers: reroll it."
+   ],
+   "strip": {
+    "HP": 2
+   },
+   "group": "starter",
+   "sym": [
+    "DEX",
+    "WIL"
+   ],
+   "fx": []
+  },
+  "T-I-11": {
+   "id": "T-I-11",
+   "name": "Arcane Recovery",
+   "rank": "I",
+   "kind": "aspect",
+   "type": "Trait",
+   "kw": [
+    "Trait"
+   ],
+   "text": [
+    "**1/L.R.**, during a short rest: regain 2 spell points."
+   ],
+   "strip": {
+    "HP": 2
+   },
+   "group": "starter",
+   "sym": [
+    "INT"
+   ],
+   "fx": []
   },
   "T-II-01": {
    "id": "T-II-01",
@@ -2763,7 +3337,7 @@ globalThis.BEARERS_CARDS = {
     "+2 to hit, 1d10 + STR Physical."
    ],
    "strip": {},
-   "group": "loot",
+   "group": "starter",
    "sym": [
     "STR"
    ],
@@ -2854,7 +3428,7 @@ globalThis.BEARERS_CARDS = {
     "+2 to hit, range 80/320 ft, 1d6 + DEX Physical."
    ],
    "strip": {},
-   "group": "loot",
+   "group": "starter",
    "sym": [
     "DEX"
    ],
@@ -2898,7 +3472,7 @@ globalThis.BEARERS_CARDS = {
     "+2 to hit, 1d12 + STR Physical."
    ],
    "strip": {},
-   "group": "loot",
+   "group": "starter",
    "sym": [
     "STR"
    ],
@@ -2980,7 +3554,7 @@ globalThis.BEARERS_CARDS = {
     "+2 to hit, range 60/120 ft, 1d8 + INT Lightning."
    ],
    "strip": {},
-   "group": "loot",
+   "group": "starter",
    "sym": [
     "INT"
    ],
@@ -3007,6 +3581,192 @@ globalThis.BEARERS_CARDS = {
     ]
    },
    "fx": []
+  },
+  "W-I-19": {
+   "id": "W-I-19",
+   "name": "Whip",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Reach"
+   ],
+   "text": [
+    "+2 to hit, 1d4 + DEX Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
+   ],
+   "atk": {
+    "hit": 2,
+    "dice": "1d4",
+    "two": null,
+    "abil": [
+     "DEX"
+    ],
+    "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
+    "light": false,
+    "heavy": false,
+    "reach": true,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": []
+  },
+  "W-I-20": {
+   "id": "W-I-20",
+   "name": "Hand Crossbow",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Light",
+    "Range 30/120"
+   ],
+   "text": [
+    "+2 to hit, range 30/120 ft, 1d6 + DEX Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
+   ],
+   "atk": {
+    "hit": 2,
+    "dice": "1d6",
+    "two": null,
+    "abil": [
+     "DEX"
+    ],
+    "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
+    "light": true,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": [
+     30,
+     120
+    ]
+   },
+   "fx": []
+  },
+  "W-I-21": {
+   "id": "W-I-21",
+   "name": "Crossbow",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Loading",
+    "Range 100/400",
+    "Two-Handed"
+   ],
+   "text": [
+    "+2 to hit, range 100/400 ft, 1d10 + DEX Physical."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "STR",
+    "DEX",
+    "INT",
+    "WIL"
+   ],
+   "atk": {
+    "hit": 2,
+    "dice": "1d10",
+    "two": null,
+    "abil": [
+     "DEX"
+    ],
+    "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": true,
+    "loading": true,
+    "thrown": null,
+    "range": [
+     100,
+     400
+    ]
+   },
+   "fx": []
+  },
+  "W-I-22": {
+   "id": "W-I-22",
+   "name": "Druid's Staff",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Weapon",
+   "kw": [
+    "Weapon",
+    "Versatile (1d8)",
+    "Focus"
+   ],
+   "text": [
+    "+2 to hit, 1d6 / 1d8 + INT or WIL Physical. 1 extra Resolve (short rest). Your Mends restore 2 extra HP."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "WIL"
+   ],
+   "atk": {
+    "hit": 2,
+    "dice": "1d6",
+    "two": "1d8",
+    "abil": [
+     "INT",
+     "WIL"
+    ],
+    "type": "Physical",
+    "brutal": false,
+    "crushing": false,
+    "flurry": false,
+    "light": false,
+    "heavy": false,
+    "reach": false,
+    "twoHanded": false,
+    "loading": false,
+    "thrown": null,
+    "range": null
+   },
+   "fx": [
+    {
+     "id": "W-I-22#0",
+     "name": "Druid's Staff",
+     "use": "passive",
+     "extraResolve": 1,
+     "params": {
+      "mendBonus": 2
+     }
+    }
+   ]
   },
   "W-II-01": {
    "id": "W-II-01",
@@ -4083,6 +4843,665 @@ globalThis.BEARERS_CARDS = {
        "type": "Physical"
       }
      }
+    }
+   ]
+  },
+  "B-I-02": {
+   "cover": "B-I-02",
+   "kind": "spellbook",
+   "atk": 2,
+   "sp": 2,
+   "maxLevel": 2,
+   "powers": [
+    {
+     "id": "B-I-02#ray-of-frost",
+     "name": "Ray of Frost",
+     "kind": "Cantrip",
+     "cost": 0,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "DEX"
+     },
+     "do": [
+      {
+       "dmg": "1d8",
+       "type": "Cold"
+      }
+     ],
+     "params": {
+      "slowFt": 10
+     }
+    },
+    {
+     "id": "B-I-02#shocking-grasp",
+     "name": "Shocking Grasp",
+     "kind": "Cantrip",
+     "cost": 0,
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "DEX"
+     },
+     "do": [
+      {
+       "dmg": "1d8",
+       "type": "Lightning"
+      }
+     ],
+     "params": {
+      "noReactions": true
+     }
+    },
+    {
+     "id": "B-I-02#burning-hands",
+     "name": "Burning Hands",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 15,
+     "target": "point",
+     "area": {
+      "shape": "cube",
+      "size": 10
+     },
+     "atk": {
+      "abil": "deck",
+      "vs": "DEX"
+     },
+     "half": true,
+     "do": [
+      {
+       "dmg": "3d6",
+       "type": "Fire"
+      }
+     ],
+     "tags": [
+      "fire"
+     ]
+    },
+    {
+     "id": "B-I-02#thunderwave",
+     "name": "Thunderwave",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 30,
+     "target": "point",
+     "area": {
+      "shape": "cube",
+      "size": 10
+     },
+     "atk": {
+      "abil": "deck",
+      "vs": "STR"
+     },
+     "half": true,
+     "do": [
+      {
+       "dmg": "2d8",
+       "type": "Lightning"
+      },
+      {
+       "cond": "Prone"
+      }
+     ]
+    },
+    {
+     "id": "B-I-02#chromatic-orb",
+     "name": "Chromatic Orb",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 90,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "DEX"
+     },
+     "do": [
+      {
+       "dmg": "3d8",
+       "type": "Fire"
+      }
+     ],
+     "params": {
+      "types": [
+       "Fire",
+       "Cold",
+       "Lightning",
+       "Poison"
+      ]
+     }
+    },
+    {
+     "id": "B-I-02#scorching-ray",
+     "name": "Scorching Ray",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "action",
+     "reach": 120,
+     "target": "darts",
+     "count": 3,
+     "atk": {
+      "abil": "deck",
+      "vs": "DEX"
+     },
+     "do": [
+      {
+       "dmg": "2d6",
+       "type": "Fire"
+      }
+     ],
+     "tags": [
+      "fire"
+     ]
+    },
+    {
+     "id": "B-I-02#shatter",
+     "name": "Shatter",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "action",
+     "reach": 60,
+     "target": "point",
+     "area": {
+      "shape": "sphere",
+      "size": 10
+     },
+     "atk": {
+      "abil": "deck",
+      "vs": "STR"
+     },
+     "half": true,
+     "do": [
+      {
+       "dmg": "3d8",
+       "type": "Lightning"
+      }
+     ]
+    }
+   ]
+  },
+  "B-I-03": {
+   "cover": "B-I-03",
+   "kind": "spellbook",
+   "atk": 2,
+   "sp": 2,
+   "maxLevel": 2,
+   "powers": [
+    {
+     "id": "B-I-03#blade-ward",
+     "name": "Blade Ward",
+     "kind": "Cantrip",
+     "cost": 0,
+     "use": "action",
+     "target": "self",
+     "dur": "1 round",
+     "do": [],
+     "params": {
+      "resist": [
+       "Physical"
+      ]
+     }
+    },
+    {
+     "id": "B-I-03#mending",
+     "name": "Mending",
+     "kind": "Cantrip",
+     "cost": 0,
+     "use": "action",
+     "reach": 5,
+     "do": []
+    },
+    {
+     "id": "B-I-03#mage-armor",
+     "name": "Mage Armor",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 5,
+     "target": "creature",
+     "dur": "8 hours",
+     "do": [
+      {
+       "mod": "def",
+       "n": 3,
+       "defs": [
+        "STR"
+       ],
+       "until": "dur"
+      }
+     ],
+     "params": {
+      "noArmor": true
+     }
+    },
+    {
+     "id": "B-I-03#absorb-elements",
+     "name": "Absorb Elements",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "reaction",
+     "target": "self",
+     "dur": "1 round",
+     "do": [],
+     "params": {
+      "resist": [
+       "Fire",
+       "Cold",
+       "Lightning",
+       "Poison"
+      ]
+     }
+    },
+    {
+     "id": "B-I-03#protection-from-evil",
+     "name": "Protection from Evil",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 5,
+     "target": "creature",
+     "dur": "10 minutes",
+     "do": [],
+     "params": {
+      "n": -2,
+      "vs": [
+       "undead",
+       "fiend",
+       "fey",
+       "elemental"
+      ]
+     }
+    },
+    {
+     "id": "B-I-03#aid",
+     "name": "Aid",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "action",
+     "reach": 30,
+     "target": "allies",
+     "count": 3,
+     "do": [
+      {
+       "temp": "5"
+      }
+     ]
+    },
+    {
+     "id": "B-I-03#arcane-lock",
+     "name": "Arcane Lock",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "action",
+     "reach": 5,
+     "do": []
+    }
+   ]
+  },
+  "B-I-04": {
+   "cover": "B-I-04",
+   "kind": "spellbook",
+   "atk": 2,
+   "sp": 2,
+   "maxLevel": 2,
+   "powers": [
+    {
+     "id": "B-I-04#minor-illusion",
+     "name": "Minor Illusion",
+     "kind": "Cantrip",
+     "cost": 0,
+     "use": "action",
+     "reach": 30,
+     "dur": "1 minute",
+     "do": [],
+     "params": {
+      "size": 5
+     }
+    },
+    {
+     "id": "B-I-04#disguise-self",
+     "name": "Disguise Self",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "target": "self",
+     "dur": "1 hour",
+     "do": []
+    },
+    {
+     "id": "B-I-04#silent-image",
+     "name": "Silent Image",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 60,
+     "dur": "10 minutes",
+     "do": [],
+     "params": {
+      "size": 15
+     }
+    },
+    {
+     "id": "B-I-04#color-spray",
+     "name": "Color Spray",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 15,
+     "target": "point",
+     "area": {
+      "shape": "cube",
+      "size": 10
+     },
+     "atk": {
+      "abil": "deck",
+      "vs": "INT"
+     },
+     "do": [
+      {
+       "cond": "Blinded",
+       "until": "endTargetTurn"
+      }
+     ],
+     "tags": [
+      "illusion"
+     ]
+    },
+    {
+     "id": "B-I-04#mirror-image",
+     "name": "Mirror Image",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "action",
+     "target": "self",
+     "dur": "1 minute",
+     "do": [
+      {
+       "mod": "def",
+       "n": 3,
+       "defs": [
+        "STR",
+        "DEX"
+       ],
+       "until": "dur"
+      }
+     ]
+    },
+    {
+     "id": "B-I-04#invisibility",
+     "name": "Invisibility",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "action",
+     "reach": 5,
+     "target": "creature",
+     "dur": "1 hour",
+     "do": [
+      {
+       "cond": "Invisible",
+       "until": "dur"
+      }
+     ],
+     "params": {
+      "endsOnAttack": true
+     }
+    }
+   ]
+  },
+  "B-I-05": {
+   "cover": "B-I-05",
+   "kind": "spellbook",
+   "atk": 2,
+   "sp": 2,
+   "maxLevel": 2,
+   "powers": [
+    {
+     "id": "B-I-05#mind-sliver",
+     "name": "Mind Sliver",
+     "kind": "Cantrip",
+     "cost": 0,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "INT"
+     },
+     "do": [
+      {
+       "dmg": "1d6",
+       "type": "Necrotic"
+      },
+      {
+       "mod": "attack",
+       "dice": "-1d4",
+       "next": true,
+       "until": "endSourceTurn"
+      }
+     ]
+    },
+    {
+     "id": "B-I-05#sleep",
+     "name": "Sleep",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "subdue": true,
+     "do": [
+      {
+       "cond": "Unconscious"
+      }
+     ],
+     "tags": [
+      "mind control"
+     ],
+     "params": {
+      "wake": true
+     }
+    },
+    {
+     "id": "B-I-05#charm-person",
+     "name": "Charm Person",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 30,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "subdue": true,
+     "do": [
+      {
+       "cond": "Charmed"
+      }
+     ],
+     "tags": [
+      "mind control"
+     ]
+    },
+    {
+     "id": "B-I-05#compel",
+     "name": "Compel",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "cond": "Prone"
+      }
+     ],
+     "tags": [
+      "mind control"
+     ]
+    },
+    {
+     "id": "B-I-05#hideous-laughter",
+     "name": "Hideous Laughter",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "action",
+     "reach": 30,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "subdue": true,
+     "do": [
+      {
+       "cond": "Incapacitated"
+      }
+     ],
+     "tags": [
+      "mind control"
+     ]
+    },
+    {
+     "id": "B-I-05#hold-person",
+     "name": "Hold Person",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "subdue": true,
+     "do": [
+      {
+       "cond": "Stunned"
+      }
+     ],
+     "tags": [
+      "mind control"
+     ]
+    }
+   ]
+  },
+  "H-I-01": {
+   "cover": "H-I-01",
+   "kind": "pact",
+   "atk": 2,
+   "resolve": 3,
+   "powers": [
+    {
+     "id": "H-I-01#eldritch-blast",
+     "name": "Eldritch Blast",
+     "kind": "Dirge",
+     "cost": 0,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "dmg": "1d10",
+       "type": "Necrotic"
+      }
+     ]
+    },
+    {
+     "id": "H-I-01#enfeeble",
+     "name": "Enfeeble",
+     "kind": "Dirge",
+     "cost": 1,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "dur": "1 minute",
+     "do": [
+      {
+       "mod": "dmg",
+       "dice": "-1d6",
+       "until": "dur"
+      }
+     ]
+    },
+    {
+     "id": "H-I-01#hellish-rebuke",
+     "name": "Hellish Rebuke",
+     "kind": "Cue",
+     "cost": 1,
+     "use": "reaction",
+     "on": "rollNear",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "do": [
+      {
+       "mod": "roll",
+       "n": -2
+      },
+      {
+       "dmg": "1d10",
+       "type": "Fire"
+      }
+     ],
+     "params": {
+      "rollKinds": [
+       "attack"
+      ]
+     }
+    },
+    {
+     "id": "H-I-01#hex",
+     "name": "Hex",
+     "kind": "Dirge",
+     "cost": 2,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "cond": "Poisoned",
+       "until": "targetTurns2"
+      }
+     ]
     }
    ]
   }
@@ -5164,7 +6583,9 @@ globalThis.BEARERS_CARDS = {
  "starter": {
   "Armor": [
    "A-I-01",
-   "A-I-02"
+   "A-I-02",
+   "A-I-03",
+   "A-I-04"
   ],
   "Hands": [
    "S-I-01",
@@ -5180,20 +6601,36 @@ globalThis.BEARERS_CARDS = {
    "W-I-10",
    "W-I-11",
    "W-I-12",
-   "M-I-01"
+   "M-I-01",
+   "W-I-13",
+   "W-I-15",
+   "W-I-16",
+   "W-I-18",
+   "W-I-19",
+   "W-I-20",
+   "W-I-21",
+   "W-I-22"
   ],
   "Jewelry": [
    "J-I-01",
    "J-I-02",
+   "J-I-03",
    "J-I-04",
-   "J-I-05"
+   "J-I-05",
+   "J-I-06",
+   "J-I-07"
   ],
   "Items": [
    "B-I-01",
+   "B-I-02",
+   "B-I-03",
+   "B-I-04",
+   "B-I-05",
    "P-I-01",
    "C-I-01",
    "P-I-02",
-   "C-I-02"
+   "C-I-02",
+   "P-I-04"
   ],
   "Runes": [
    "T-I-01",
@@ -5214,7 +6651,26 @@ globalThis.BEARERS_CARDS = {
    "K-I-07",
    "K-I-08",
    "K-I-09",
-   "G-I-01"
+   "Q-I-07",
+   "Q-I-08",
+   "Q-I-09",
+   "Q-I-10",
+   "Q-I-11",
+   "Q-I-12",
+   "Q-I-13",
+   "T-I-09",
+   "Q-I-14",
+   "T-I-10",
+   "T-I-11",
+   "K-I-12",
+   "K-I-13",
+   "K-I-14",
+   "K-I-15",
+   "K-I-16",
+   "G-I-01",
+   "D-I-01",
+   "N-I-01",
+   "H-I-01"
   ]
  }
 };

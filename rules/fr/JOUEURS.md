@@ -59,7 +59,7 @@ La Compagnie avance dans une **saga**, une quête à la fois. Le jeu se déroule
 
 ### 2.1 Les Porteurs
 
-Votre personnage est un **Porteur**. Une **Rune** est un pouvoir en forme de signe : un Trait, une Technique, un Domaine, ou une magie Divine, de Glamour ou de Nature. Le signe n'est que sa trace : le redessiner ne donne rien. La plupart des créatures en portent quelques-unes, ancrées en elles : elles gardent les mêmes toute leur vie. Quelques humanoïdes portent un don, une bénédiction ou une malédiction selon à qui l'on demande : une Rune ne s'ancre jamais dans un Porteur, qui peut la **graver** en lui, puis l'en retirer. Quand une créature meurt, ses Runes se détachent et persistent au-dessus du corps pendant une minute, puis s'éteignent. Un Porteur peut en recueillir une dans une **Pierre runique** : une pierre encombrante qui contient une Rune jusqu'à ce qu'elle soit gravée. Les Porteurs progressent en rassemblant deux sortes de ressources, chacune occupant ses propres **Emplacements** :
+Votre personnage est un **Porteur**. Une **Rune** est un pouvoir en forme de signe : un Trait, une Technique, un Domaine, ou une magie de VOL. Le signe n'est que sa trace : le redessiner ne donne rien. La plupart des créatures en portent quelques-unes, ancrées en elles : elles gardent les mêmes toute leur vie. Quelques humanoïdes portent un don, une bénédiction ou une malédiction selon à qui l'on demande : une Rune ne s'ancre jamais dans un Porteur, qui peut la **graver** en lui, puis l'en retirer. Quand une créature meurt, ses Runes se détachent et persistent au-dessus du corps pendant une minute, puis s'éteignent. Un Porteur peut en recueillir une dans une **Pierre runique** : une pierre encombrante qui contient une Rune jusqu'à ce qu'elle soit gravée. Les Porteurs progressent en rassemblant deux sortes de ressources, chacune occupant ses propres **Emplacements** :
 
 - **Le matériel :** des choses réelles de deux sortes. L'**équipement** est ce que vous portez ou maniez (armures, armes, boucliers, Instruments, Bijoux) ; les **objets** sont ce que vous transportez et utilisez (Livres de sorts, Recettes, Consommables, Contenants, Pierres runiques). Le matériel s'équipe dans les **Emplacements d'Armure, de Main, de Bijou et d'Objet**, appelés ensemble **Emplacements de Matériel**.
 - **Les Runes :** elles sont gravées dans vos **Emplacements de Rune**. Le nombre de Runes qu'un Porteur peut avoir gravées est limité par son nombre d'Emplacements de Rune. Ce nombre augmente chaque fois que la Compagnie achève une saga (jalons, 4.1). La Rune d'une Pierre runique est gravée pendant votre sommeil, lors d'un long repos (3.5). Les Pierres vierges sont précieuses : sans elles, une Rune qui persiste est perdue (3.8).
@@ -76,7 +76,7 @@ Toute créature a **quatre caractéristiques**, chacune notée sous forme de **m
 | <img class="sym" src="../symbols/str.svg" alt="FOR" width="22"> | **Force (FOR)** | Grimper, sauter, nager, soulever, briser, empoigner, endurer la douleur, marcher longtemps, retenir son souffle | <img class="sym" src="../symbols/str-def.svg" alt="Défense de FOR" width="22"> | **Les armes** (ou AGI), le poison, la maladie, être poussé ou empoigné |
 | <img class="sym" src="../symbols/dex.svg" alt="AGI" width="22"> | **Agilité (AGI)** | Se faufiler, se cacher, garder l'équilibre, faire des acrobaties, crocheter les serrures, faire les poches, désamorcer les pièges, se libérer de liens | <img class="sym" src="../symbols/dex-def.svg" alt="Défense d'AGI" width="22"> | **Les armes** (ou FOR), les explosions, les pièges, les souffles, les effets de zone |
 | <img class="sym" src="../symbols/int.svg" alt="INT" width="22"> | **Intelligence (INT)** | Remarquer, fouiller, deviner les intentions, se souvenir de connaissances, pister, s'orienter, soigner les blessures. **Toute incantation.** | <img class="sym" src="../symbols/int-def.svg" alt="Défense d'INT" width="22"> | Les illusions, la confusion et la folie |
-| <img class="sym" src="../symbols/wil.svg" alt="VOL" width="22"> | **Volonté (VOL)** | Persuader, tromper, se produire, intimider, dresser les animaux, tenir bon. **Magie Divine, de Glamour et de Nature.** | <img class="sym" src="../symbols/wil-def.svg" alt="Défense de VOL" width="22"> | Le charme, la peur, le contrôle mental, la possession, le bannissement, les malédictions, la métamorphose |
+| <img class="sym" src="../symbols/wil.svg" alt="VOL" width="22"> | **Volonté (VOL)** | Persuader, tromper, se produire, intimider, dresser les animaux, tenir bon. **Magie de VOL (10.6).** | <img class="sym" src="../symbols/wil-def.svg" alt="Défense de VOL" width="22"> | Le charme, la peur, le contrôle mental, la possession, le bannissement, les malédictions, la métamorphose |
 
 |  | Nombre | Ce qu'il mesure |
 |---|---|---|
@@ -679,6 +679,8 @@ Les armures, les boucliers, les armes, les Instruments et les Bijoux sont de l'*
 | **Aucune** (Emplacement d'Armure vide) | — | — | — | +4 m de Vitesse. |
 | **Cuir** | I | tous | +2 Défense de FOR, +1 Défense d'AGI, +2 PV | +2 m de Vitesse. |
 | **Mailles** | I | FOR · AGI | +3 Défense de FOR, +4 PV | |
+| **Peaux** | I | FOR · VOL | +2 Défense de FOR, +4 PV | |
+| **Cuir clouté** | I | AGI · INT | +2 Défense de FOR, +2 Défense d'AGI, +2 PV | |
 | **Plates** | II | FOR | +4 Défense de FOR, +12 PV | −4 m de Vitesse. Bruyante 3. |
 | **Bouclier** | I | FOR · VOL | +2 Défenses de FOR et d'AGI | Occupe un Emplacement de Main. |
 
@@ -781,6 +783,7 @@ Un paquet de VOL a un **type**. **Tous les types suivent les mêmes règles** : 
 | **Divin** | Une **Litanie** de prières | Le destin (relances, dés du destin) et la guérison : Hymnes, Complaintes, Répliques, Soins |
 | **Glamour** | Un **Répertoire** de chants, de poèmes et de danses | Le courage et la peur (bonus et malus fixes) : Hymnes, Complaintes, Répliques, Soins |
 | **Nature** | Un **Instinct** de bêtes | Les bêtes et la guérison : Formes (10.7), Soins |
+| **Pacte** | Un **Pacte** avec un protecteur | Les malédictions et les dégâts : Complaintes, Répliques |
 
 - **Une liste fixe :** un paquet de VOL indique son Rang, son bonus d'Attaque, l'Ardeur qu'il ajoute, puis ses pouvoirs. Pour changer de pouvoirs, gravez un autre paquet. À la table, c'est un paquet (12.4).
 - **Ardeur :** une seule réserve pour tous : l'Ardeur imprimée sur chacun de vos paquets de VOL, additionnée, **+ votre VOL** une fois (minimum 1), plus l'Ardeur supplémentaire de votre Vocation, de vos Traits et de votre matériel. Sans aucun de ces paquets, vous n'en avez aucune. Tenez le compte sur votre carte de Décompte (12.3). Les pouvoirs de n'importe lequel de vos paquets peuvent la dépenser. Elle revient lors d'un **court repos** (et d'un long repos). Si votre VOL ou vos paquets changent, votre total change ; l'Ardeur déjà dépensée reste dépensée. Un pouvoir qui coûte **0** s'utilise à volonté.
@@ -839,6 +842,7 @@ Le premier mot-clé. Il fixe l'Emplacement (3.2).
 | **Divin** | Emplacement de Rune. Une Litanie : un paquet de VOL de prières (10.6). |
 | **Glamour** | Emplacement de Rune. Un Répertoire : un paquet de VOL de chants, de poèmes et de danses (10.6). |
 | **Nature** | Emplacement de Rune. Un Instinct : un paquet de VOL de bêtes (10.6). |
+| **Pacte** | Emplacement de Rune. Un Pacte : un paquet de VOL des dons d'un protecteur (10.6). |
 | **Blessure** | Aucun Emplacement : une lésion durable (7.6). Une Blessure **invalidante** bloque l'Emplacement de Matériel qu'elle nomme. |
 | **Forme** | Partie d'un Instinct, jamais seule. Une bête en laquelle vous muez (10.7). |
 | **Pierre runique** | Un objet, jamais dans un Emplacement. Contient une Rune, ou rien. Sac (3 au plus) ou Réserve de la Compagnie (3.8). |
@@ -970,7 +974,7 @@ Les **Blessures** (7.6) sont un paquet de cartes commun, mélangé, à côté de
 
 ### 12.4 Paquets
 
-Un Livre de sorts est un **paquet** : une **carte de couverture** (Rang, attaque de sort, points de sort, niveau de sort max) sur le dessus, puis **une carte par tour de magie et par sort**, chacune marquée du nom du livre. Le paquet se déplace comme une seule carte, et ses cartes de sort ne passent jamais dans un autre paquet. Un paquet de VOL (une Litanie, un Répertoire, un Instinct) est aussi un paquet : une carte de couverture (Rang, Attaque, Ardeur) et une carte par pouvoir. Les points de sort ou l'Ardeur d'une carte de couverture comptent dans votre total sur la carte de Décompte (12.3) ; rien ne se marque sur le paquet. Tant que vous êtes en Forme, posez la carte de la Forme sur votre carte de Vocation, avec sa propre carte de Décompte.
+Un Livre de sorts est un **paquet** : une **carte de couverture** (Rang, attaque de sort, points de sort, niveau de sort max) sur le dessus, puis **une carte par tour de magie et par sort**, chacune marquée du nom du livre. Le paquet se déplace comme une seule carte, et ses cartes de sort ne passent jamais dans un autre paquet. Un paquet de VOL (une Litanie, un Répertoire, un Instinct, un Pacte) est aussi un paquet : une carte de couverture (Rang, Attaque, Ardeur) et une carte par pouvoir. Les points de sort ou l'Ardeur d'une carte de couverture comptent dans votre total sur la carte de Décompte (12.3) ; rien ne se marque sur le paquet. Tant que vous êtes en Forme, posez la carte de la Forme sur votre carte de Vocation, avec sa propre carte de Décompte.
 
 ---
 
@@ -1067,7 +1071,8 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Niveau de sort** | La puissance d'un sort et son coût en points de sort, du 1er au 6e. (EN : Spell level) |
 | **Niveau effectif** | L'estimation par le MJ de la puissance d'un personnage, de 1 à 12, utilisée pour dimensionner les combats et les DD des épreuves. Ce n'est pas une valeur du personnage. |
 | **Objet** | Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Contenants et Pierres runiques. |
-| **Paquet de VOL** | Une Rune de magie de VOL : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour ou Nature) dit quels pouvoirs elle contient et ne change aucune autre règle. |
+| **Pacte** | Un type de paquet de VOL : la magie accordée par un protecteur. Son paquet est un **Pacte**, qui contient des malédictions et des dégâts : Complaintes et Répliques. |
+| **Paquet de VOL** | Une Rune de magie de VOL : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour, Nature ou Pacte) dit quels pouvoirs elle contient et ne change aucune autre règle. |
 | **Perception aveugle N** | Perçoit tout dans un rayon de N m sans la vue. (EN : Blindsight) |
 | **Persistance** | L'état des Runes d'une créature morte pendant 1 minute, une fois détachées et avant qu'elles ne s'éteignent pour de bon. Une Rune dans cet état *persiste*. (EN : Lingering) |
 | **Pièce** | Une unité de matériel, telle que le Sac, la Réserve de la Compagnie et le butin la comptent. Une pile de jusqu'à 3 Consommables identiques compte pour une pièce. |
@@ -1089,7 +1094,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Réplique** | Un pouvoir de magie de VOL. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue) |
 | **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel et les Pierres runiques que la Compagnie possède mais que personne ne porte. |
 | **Résiste (type)** | Ne subit que la moitié des dégâts de ce type. |
-| **Rune** | Un pouvoir en forme de signe : un Trait, une Technique, un Domaine, un Divin, un Glamour ou une Nature. La plupart des créatures en portent quelques-unes, ancrées en elles à vie. Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique. |
+| **Rune** | Un pouvoir en forme de signe : un Trait, une Technique, un Domaine ou un paquet de VOL. La plupart des créatures en portent quelques-unes, ancrées en elles à vie. Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique. |
 | **Sac** | Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Pierres runiques. |
 | **Saga** | Le grand arc de la campagne, fait de quêtes. En achever une accorde un jalon. |
 | **Soin** | Un pouvoir de magie de VOL qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |

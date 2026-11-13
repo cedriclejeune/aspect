@@ -21,7 +21,7 @@ RANK_BONUS = {"I": 2, "II": 3, "III": 4, "IV": 5, "V": 6}
 TRAIT_HP = {"I": 2, "II": 4, "III": 7, "IV": 10, "V": 14}
 SLOT = {"Armor": "Armor", "Weapon": "Hand", "Shield": "Hand", "Instrument": "Hand", "Jewelry": "Jewelry",
         "Consumable": "Item", "Recipe": "Item", "Container": "Pack", "Spellbook": "Item"}
-WIL_DECKS = ("Divine", "Glamour", "Nature")
+WIL_DECKS = ("Divine", "Glamour", "Nature", "Pact")
 # GM 4.3 activity table: the ability each activity belongs to (plus the extra words used on base-set cards)
 ACTIVITY = {
     "STR": ["climb", "swim", "jump", "lift", "break", "endure", "march"],

@@ -68,6 +68,8 @@ ARMOR = [
     card("Leather", "I", "gear", "Armor", [], {"STRd": "+2", "DEXd": "+1", "HP": "+2", "SPD": "+5"}, copies=2),
     card("Mail", "I", "gear", "Armor", [], {"STRd": "+3", "HP": "+4"}, copies=2, sym=["STR", "DEX"]),
     card("Plate", "II", "gear", "Armor · Noisy 3", [], {"STRd": "+4", "HP": "+12", "SPD": "−10"}, group="loot", sym=["STR"]),
+    card("Hide", "I", "gear", "Armor", [], {"STRd": "+2", "HP": "+4"}, sym=["STR", "WIL"]),
+    card("Studded Leather", "I", "gear", "Armor", [], {"STRd": "+2", "DEXd": "+2", "HP": "+2"}, sym=["DEX", "INT"]),
 ]
 
 
@@ -110,24 +112,31 @@ HANDS = [
     weapon("Javelins", ["STR", "DEX"], "1d6", "Thrown 30/120"),
     weapon("Spellguard Staff", ["INT", "WIL"], "1d6 / 1d8", "Versatile (1d8)", "While you hold it, it counts as an empty Hand for casting from a Spellbook.", sym=["INT", "WIL"]),
     card("Traveler's Lute", "I", "gear", "Instrument · Focus", ["1 extra Resolve (short rest).", "Your Anthems reach 60 ft instead of 30 ft."], sym=["WIL"]),
-    weapon("Greatclub", ["STR"], "1d10", "Heavy · Two-Handed · Crushing", group="loot"),
+    weapon("Greatclub", ["STR"], "1d10", "Heavy · Two-Handed · Crushing", sym=["STR"]),
     weapon("Gladius", ["STR", "DEX"], "1d6", "Light", "**Close Order:** +1d4 damage while an ally is engaged with the same creature.", group="loot"),
     weapon("Boarspear", ["STR"], "1d8 / 1d10", "Versatile (1d10)", "**Brace:** your opportunity attacks with it deal +1d8 damage.", attack="+3", rank="II", group="loot"),
     weapon("Pilum", ["STR", "DEX"], "1d6", "Thrown 30/120", "**Pierce:** on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free.", attack="+3", rank="II", group="loot"),
-    weapon("Shortbow", ["DEX"], "1d6", "Range 80/320 · Two-Handed", group="loot"),
-    weapon("Greataxe", ["STR"], "1d12", "Heavy · Two-Handed · Brutal", group="loot"),
+    weapon("Shortbow", ["DEX"], "1d6", "Range 80/320 · Two-Handed", sym=["DEX"]),
+    weapon("Greataxe", ["STR"], "1d12", "Heavy · Two-Handed · Brutal", sym=["STR"]),
     # identity cards (DESIGN 4, symbol parity): one symbol each, like the heavy weapons for STR
     weapon("Fine Bow", ["DEX"], "1d10", "Range 150/600 · Two-Handed", group="loot"),
-    weapon("Wand", ["INT"], "1d8", "Range 60/120", group="loot", dtype="Lightning"),
+    weapon("Wand", ["INT"], "1d8", "Range 60/120", dtype="Lightning", sym=["INT"]),
+    weapon("Whip", ["DEX"], "1d4", "Reach"),
+    weapon("Hand Crossbow", ["DEX"], "1d6", "Light · Range 30/120"),
+    weapon("Crossbow", ["DEX"], "1d10", "Loading · Range 100/400 · Two-Handed"),
+    weapon("Druid's Staff", ["INT", "WIL"], "1d6 / 1d8", "Versatile (1d8) · Focus",
+           "1 extra Resolve (short rest). Your Mends restore 2 extra HP.", sym=["WIL"]),
 ]
 
 JEWELRY = [
     card("Ring of Warding", "I", "gear", "Jewelry", ["**Reaction (2/S.R.)**, when an attack hits you: +2 to the targeted Defense against that attack, possibly turning it into a miss."]),
     card("Guild Signet", "I", "gear", "Jewelry", ["**Action (1/L.R.)**, in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night."]),
-    card("Holy Amulet", "I", "gear", "Jewelry · Focus", ["1 extra Resolve (short rest).", "Your Cues reach 90 ft instead of 60 ft."], group="loot", sym=["WIL"]),
+    card("Holy Amulet", "I", "gear", "Jewelry · Focus", ["1 extra Resolve (short rest).", "Your Cues reach 90 ft instead of 60 ft."], sym=["WIL"]),
     card("Boots of the Long Stride", "I", "gear", "Jewelry", ["**Reaction (1/S.R.):** Move."]),
     card("Ring of Sparks", "II", "gear", "Jewelry", ["**Reaction (1/S.R.)**, when a creature within 5 ft hits you: it takes 2d6 Lightning."], group="loot"),
     card("Dancer's Bells", "I", "gear", "Jewelry · Focus", ["1 extra Resolve (short rest).", "Your Dirges reach 90 ft instead of 60 ft."], sym=["WIL"]),
+    card("Druid's Totem", "I", "gear", "Jewelry · Focus", ["1 extra Resolve (short rest).", "When you shift into a Form, it gains 2 temporary HP."], sym=["WIL"]),
+    card("Arcane Crystal", "I", "gear", "Jewelry", ["1 extra spell point (long rest)."], sym=["INT"]),
 ]
 
 ITEMS = [
@@ -139,6 +148,7 @@ ITEMS = [
     card("Pocket Sand", "I", "gear", "Consumable", ["**Reaction:** throw it at a creature within 5 ft. Attack (DEX or WIL + 2) against its DEX Defense: on a hit, it has −2 on attacks until the end of its next turn."], group="loot"),
     card("Alchemist's Fire Recipe", "II", "gear", "Recipe · 3 flasks", ["**Reaction:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss."], group="loot", uses=3),
     card("Runestone Bandolier", "I", "gear", "Container", ["While it's in your Pack, your Pack holds up to 5 Runestones instead of 3."]),
+    card("Healer's Kit", "I", "gear", "Consumable", ["**Action:** tend a creature within 5 ft. It regains 1d4 HP."], copies=2),
 ]
 
 
@@ -185,11 +195,28 @@ ASPECTS = [
     card("Luck", "I", "aspect", "Trait", ["**Lucky (1/S.R.):** when you roll a 1 on a d20, reroll it."], {"HP": "+2"}, group="loot", sym=["DEX", "WIL"]),
     domain("Campaign", "intimidate, endure, lift or march", group="loot", sym=["STR", "WIL"]),
     domain("Discipline", "march, navigate, stand firm or read intentions", group="loot", sym=["INT", "WIL"]),
+    # starter expansion (2026-11-12): fighting styles, signature Runes and Domains (DESIGN 4)
+    card("Archery", "I", "aspect", "Technique", ["Long range gives your ranged weapon attacks no disadvantage."], sym=["DEX", "INT"]),
+    card("Bulwark", "I", "aspect", "Technique", ["+1 STR Defense while you wear Armor."], sym=["STR", "WIL"]),
+    card("Dueling", "I", "aspect", "Technique", ["While you hold a one-handed melee weapon and your other Hand is empty: +1 STR and DEX Defense against melee attacks."], sym=["STR", "DEX"]),
+    card("Great Weapons", "I", "aspect", "Technique", ["When a damage die of your Two-Handed weapon shows 1 or 2, reroll it once."], sym=["STR", "INT"]),
+    card("Quick Throw", "I", "aspect", "Technique", ["You draw a Thrown weapon as part of the attack that throws it, and your Thrown ranges are doubled."], sym=["DEX", "WIL"]),
+    card("Rage", "I", "aspect", "Technique", ["**Reaction (2/L.R.)**, when you roll initiative or a creature hits you: for 1 minute, you Resist Physical damage and can't cast spells or use WIL magic."], sym=["STR", "WIL"]),
+    card("Cunning", "I", "aspect", "Technique", ["Once per turn, if you end your movement out of sight, you can Hide without spending an action."], sym=["DEX", "INT"]),
+    card("Unarmored Guard", "I", "aspect", "Trait", ["+2 STR Defense while your Armor Slot is empty."], {"HP": "+2"}, sym=["DEX", "WIL"]),
+    card("Martial Arts", "I", "aspect", "Technique", ["Your unarmed strikes deal 1d6 + STR or DEX Physical."], sym=["STR", "DEX"]),
+    card("Expertise", "I", "aspect", "Trait", ["**1/S.R.**, when you fail a check one of your Domains covers: reroll it."], {"HP": "+2"}, sym=["DEX", "WIL"]),
+    card("Arcane Recovery", "I", "aspect", "Trait", ["**1/L.R.**, during a short rest: regain 2 spell points."], {"HP": "+2"}, sym=["INT"]),
+    domain("Library", "recall lore, notice, search or haggle", sym=["DEX", "INT"]),
+    domain("Court", "persuade, read intentions, recall lore or perform", sym=["STR", "INT"]),
+    domain("Frontier", "track, navigate, endure or notice", sym=["STR", "DEX"]),
+    domain("Deceit", "deceive, hide, pick pockets or perform", sym=["DEX", "WIL"]),
+    domain("Asceticism", "endure, notice, treat wounds or read intentions", sym=["STR", "DEX"]),
 ]
 
 
 # A Rune card prints "Rune of" in small above its name (DESIGN 1b); these few take "the".
-RUNE_OF_THE = ['Minstrel', 'Herbalist', 'Wolfpack']
+RUNE_OF_THE = ['Minstrel', 'Herbalist', 'Wolfpack', 'Bulwark', 'Quick Throw', 'Unarmored Guard', 'Library', 'Court', 'Frontier']
 
 
 def rune_of(name):
@@ -234,7 +261,7 @@ WOUNDS = [
 # ---------- decks: a cover card, then one card per spell or power ----------
 # Every WIL deck has the same structure, whatever its type (P 10.6, DESIGN 3): a cover that prints Attack, Resolve
 # and one flavor line, then its powers. The type only decides which powers it holds (Litany, Repertoire: Anthem, Dirge,
-# Cue, Mend; Instinct: Form, Mend). All of them need the voice but a Form.
+# Cue, Mend; Instinct: Form, Mend; Pact: Dirge, Cue). All of them need the voice but a Form.
 # ---------- mechanics of decks (SPEC 2.1): name → Power, id/name/kind/cost are filled in by spell() / power() ----------
 VOICE = ["voice"]
 POWER_FX = {
@@ -281,6 +308,63 @@ POWER_FX = {
     "Wolf": dict(use="action", target="self", form=dict(
         strip={"STR": 1, "DEX": 3, "STRd": 11, "DEXd": 13, "HP": 8, "SPD": 40}, size="Medium", fly=0, climb=0,
         weapon=dict(name="Bite", hit=2, dice="1d6", abil=["DEX"], type="Physical"))),
+    # Evoker's Book
+    "Ray of Frost": dict(use="action", reach=60, target="enemy", atk=dict(abil="deck", vs="DEX"),
+                         do=[dict(dmg="1d8", type="Cold")], params=dict(slowFt=10)),
+    "Shocking Grasp": dict(use="action", reach=5, target="enemy", atk=dict(abil="deck", vs="DEX"),
+                           do=[dict(dmg="1d8", type="Lightning")], params=dict(noReactions=True)),
+    "Burning Hands": dict(use="action", reach=15, target="point", area=dict(shape="cube", size=10), atk=dict(abil="deck", vs="DEX"),
+                          half=True, do=[dict(dmg="3d6", type="Fire")], tags=["fire"]),
+    "Thunderwave": dict(use="action", reach=30, target="point", area=dict(shape="cube", size=10), atk=dict(abil="deck", vs="STR"),
+                        half=True, do=[dict(dmg="2d8", type="Lightning"), dict(cond="Prone")]),
+    "Chromatic Orb": dict(use="action", reach=90, target="enemy", atk=dict(abil="deck", vs="DEX"),
+                          do=[dict(dmg="3d8", type="Fire")], params=dict(types=["Fire", "Cold", "Lightning", "Poison"])),
+    "Scorching Ray": dict(use="action", reach=120, target="darts", count=3, atk=dict(abil="deck", vs="DEX"),
+                          do=[dict(dmg="2d6", type="Fire")], tags=["fire"]),
+    "Shatter": dict(use="action", reach=60, target="point", area=dict(shape="sphere", size=10), atk=dict(abil="deck", vs="STR"),
+                    half=True, do=[dict(dmg="3d8", type="Lightning")]),
+    # Abjurer's Book
+    "Blade Ward": dict(use="action", target="self", dur="1 round", do=[], params=dict(resist=["Physical"])),
+    "Mending": dict(use="action", reach=5, do=[]),
+    "Mage Armor": dict(use="action", reach=5, target="creature", dur="8 hours",
+                       do=[dict(mod="def", n=3, defs=["STR"], until="dur")], params=dict(noArmor=True)),
+    "Absorb Elements": dict(use="reaction", target="self", dur="1 round", do=[],
+                            params=dict(resist=["Fire", "Cold", "Lightning", "Poison"])),
+    "Protection from Evil": dict(use="action", reach=5, target="creature", dur="10 minutes", do=[],
+                                 params=dict(n=-2, vs=["undead", "fiend", "fey", "elemental"])),
+    "Aid": dict(use="action", reach=30, target="allies", count=3, do=[dict(temp="5")]),
+    "Arcane Lock": dict(use="action", reach=5, do=[]),
+    # Illusionist's Book
+    "Minor Illusion": dict(use="action", reach=30, dur="1 minute", do=[], params=dict(size=5)),
+    "Disguise Self": dict(use="action", target="self", dur="1 hour", do=[]),
+    "Silent Image": dict(use="action", reach=60, dur="10 minutes", do=[], params=dict(size=15)),
+    "Color Spray": dict(use="action", reach=15, target="point", area=dict(shape="cube", size=10), atk=dict(abil="deck", vs="INT"),
+                        do=[dict(cond="Blinded", until="endTargetTurn")], tags=["illusion"]),
+    "Mirror Image": dict(use="action", target="self", dur="1 minute", do=[dict(mod="def", n=3, defs=["STR", "DEX"], until="dur")]),
+    "Invisibility": dict(use="action", reach=5, target="creature", dur="1 hour", do=[dict(cond="Invisible", until="dur")],
+                         params=dict(endsOnAttack=True)),
+    # Enchanter's Book
+    "Mind Sliver": dict(use="action", reach=60, target="enemy", atk=dict(abil="deck", vs="INT"),
+                        do=[dict(dmg="1d6", type="Necrotic"), dict(mod="attack", dice="-1d4", next=True, until="endSourceTurn")]),
+    "Sleep": dict(use="action", reach=60, target="enemy", atk=dict(abil="deck", vs="WIL"), subdue=True,
+                  do=[dict(cond="Unconscious")], tags=["mind control"], params=dict(wake=True)),
+    "Charm Person": dict(use="action", reach=30, target="enemy", atk=dict(abil="deck", vs="WIL"), subdue=True,
+                         do=[dict(cond="Charmed")], tags=["mind control"]),
+    "Compel": dict(use="action", reach=60, target="enemy", atk=dict(abil="deck", vs="WIL"),
+                   do=[dict(cond="Prone")], tags=["mind control"]),
+    "Hideous Laughter": dict(use="action", reach=30, target="enemy", atk=dict(abil="deck", vs="WIL"), subdue=True,
+                             do=[dict(cond="Incapacitated")], tags=["mind control"]),
+    "Hold Person": dict(use="action", reach=60, target="enemy", atk=dict(abil="deck", vs="WIL"), subdue=True,
+                        do=[dict(cond="Stunned")], tags=["mind control"]),
+    # Occultist's Pact
+    "Eldritch Blast": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"),
+                           do=[dict(dmg="1d10", type="Necrotic")]),
+    "Enfeeble": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"),
+                     dur="1 minute", do=[dict(mod="dmg", dice="-1d6", until="dur")]),
+    "Hellish Rebuke": dict(use="reaction", on="rollNear", reach=60, target="enemy", need=VOICE,
+                           do=[dict(mod="roll", n=-2), dict(dmg="1d10", type="Fire")], params=dict(rollKinds=["attack"])),
+    "Hex": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"),
+                do=[dict(cond="Poisoned", until="targetTurns2")]),
     "Bear": dict(use="action", target="self", form=dict(
         strip={"STR": 3, "DEX": 1, "STRd": 15, "DEXd": 11, "HP": 12, "SPD": 30}, size="Large", fly=0, climb=30,
         weapon=dict(name="Claws", hit=2, dice="1d8", abil=["STR"], type="Physical"))),
@@ -332,7 +416,7 @@ REPERTOIRE = dict(
 
 LITANY = dict(
     cover=card("Acolyte's Litany", "I", "aspect", "Divine", [
-        "Attack: **WIL + 2**", "Resolve: **+3** (short rest)", "Prayers."], group="loot", sym=["WIL"]),
+        "Attack: **WIL + 2**", "Resolve: **+3** (short rest)", "Prayers."], sym=["WIL"]),
     color="aspect", stats=dict(kind="divine", atk=2, resolve=3),
     cards=[
         power("Guidance", "Cue", 0, ["**Reaction**, after an ally within 60 ft rolls a check.", "Add 1d4 to it."]),
@@ -352,7 +436,7 @@ def form(s, d, hp, spd, hide=0):
 
 INSTINCT = dict(
     cover=card("Wildheart's Instinct", "I", "aspect", "Nature", [
-        "Attack: **WIL + 2**", "Resolve: **+3** (short rest)", "Beasts your body knows."], group="loot", sym=["WIL"]),
+        "Attack: **WIL + 2**", "Resolve: **+3** (short rest)", "Beasts your body knows."], sym=["WIL"]),
     color="aspect", stats=dict(kind="nature", atk=2, resolve=3),
     cards=[
         power("Hawk", "Form", 1, ["**Tiny** · Fly 60 ft.", "Talons: +2 to hit, 1d4 + DEX Physical.", "+2 on checks to notice."], form(-2, 3, 4, 10)),
@@ -362,7 +446,81 @@ INSTINCT = dict(
     ],
 )
 
-DECKS = [CONJURER, REPERTOIRE, LITANY, INSTINCT]
+EVOKER = dict(
+    cover=card("Evoker's Book", "I", "gear", "Spellbook", [
+        "Spell attack: **INT + 2**", "Spell points: **+2** (long rest)", "Max spell level: **2nd**",
+        "Casting needs an empty Hand."], sym=["INT"]),
+    color="gear", stats=dict(kind="spellbook", atk=2, sp=2, maxLevel=2),
+    cards=[
+        spell("Ray of Frost", "Cantrip", ["**Action**, range 60 ft.", "Spell attack against DEX Defense: **1d8 Cold**, and its Speed drops by 10 ft until the start of your next turn."], "Cantrip · Targets DEX · Range 60"),
+        spell("Shocking Grasp", "Cantrip", ["**Action**, touch.", "Spell attack against DEX Defense: **1d8 Lightning**, and it can't take reactions until the start of its next turn."], "Cantrip · Targets DEX"),
+        spell("Burning Hands", "1st", ["**Action**, range 15 ft.", "Flames fill a 10-ft cube. Spell attack against the DEX Defense of each creature in it: **3d6 Fire**, half on a miss."], "Spell · Cube 10 · Targets DEX"),
+        spell("Thunderwave", "1st", ["**Action**, range 30 ft.", "A 10-ft cube of thunder. Spell attack against the STR Defense of each creature in it: **2d8 Lightning** and it falls **Prone**; on a miss, half damage and it stays standing."], "Spell · Cube 10 · Targets STR"),
+        spell("Chromatic Orb", "1st", ["**Action**, range 90 ft.", "Spell attack against DEX Defense: **3d8** Fire, Cold, Lightning or Poison, your choice."], "Spell · Targets DEX · Range 90"),
+        spell("Scorching Ray", "2nd", ["**Action**, range 120 ft.", "Three rays at one to three creatures. One spell attack against the DEX Defense of each target: **2d6 Fire** per ray on a hit."], "Spell · Targets DEX · Range 120"),
+        spell("Shatter", "2nd", ["**Action**, range 60 ft.", "A 10-ft sphere of ringing sound. Spell attack against the STR Defense of each creature in it: **3d8 Lightning**, half on a miss."], "Spell · Sphere 10 · Targets STR"),
+    ],
+)
+
+ABJURER = dict(
+    cover=card("Abjurer's Book", "I", "gear", "Spellbook", [
+        "Spell attack: **INT + 2**", "Spell points: **+2** (long rest)", "Max spell level: **2nd**",
+        "Casting needs an empty Hand."], sym=["INT"]),
+    color="gear", stats=dict(kind="spellbook", atk=2, sp=2, maxLevel=2),
+    cards=[
+        spell("Blade Ward", "Cantrip", ["**Action.**", "You Resist Physical damage until the start of your next turn."], "Cantrip · Duration 1 round"),
+        spell("Mending", "Cantrip", ["**Action**, touch.", "Repair one break or tear in an object."], "Cantrip"),
+        spell("Mage Armor", "1st", ["**Action**, touch, Duration 8 hours.", "A creature that wears no Armor has +3 STR Defense."], "Spell · Duration 8 hours"),
+        spell("Absorb Elements", "1st", ["**Reaction**, when an attack hits you.", "You Resist Fire, Cold, Lightning and Poison until the start of your next turn, against the triggering attack too."], "Spell · Duration 1 round"),
+        spell("Protection from Evil", "1st", ["**Action**, touch, Duration 10 minutes.", "Undead, fiends, fey and elementals have −2 on attacks against the creature, and can't Charm or Frighten it."], "Spell · Duration 10 minutes"),
+        spell("Aid", "2nd", ["**Action**, range 30 ft.", "Up to 3 creatures gain 5 temporary HP."], "Spell"),
+        spell("Arcane Lock", "2nd", ["**Action**, touch.", "A door, a window or a chest stays shut to all but you and those you name, until dispelled."], "Spell"),
+    ],
+)
+
+ILLUSIONIST = dict(
+    cover=card("Illusionist's Book", "I", "gear", "Spellbook", [
+        "Spell attack: **INT + 2**", "Spell points: **+2** (long rest)", "Max spell level: **2nd**",
+        "Casting needs an empty Hand."], sym=["INT"]),
+    color="gear", stats=dict(kind="spellbook", atk=2, sp=2, maxLevel=2),
+    cards=[
+        spell("Minor Illusion", "Cantrip", ["**Action**, range 30 ft, Duration 1 minute.", "A sound, or the image of an object that fits in a 5-ft cube. A creature that studies it with an action sees through it."], "Cantrip · Duration 1 minute"),
+        spell("Disguise Self", "1st", ["**Action**, Duration 1 hour.", "You look like someone else of about your size, clothes and gear included. A creature that touches you, or studies you with an action, sees through it."], "Spell · Duration 1 hour"),
+        spell("Silent Image", "1st", ["**Action**, range 60 ft, Duration 10 minutes.", "A silent image that fits in a 15-ft cube. Move it with an action. A creature that studies it with an action sees through it."], "Spell · Duration 10 minutes"),
+        spell("Color Spray", "1st", ["**Action**, range 15 ft.", "A burst of colors fills a 10-ft cube. Spell attack against the INT Defense of each creature in it: it is **Blinded** until the end of its next turn."], "Spell · Cube 10 · Targets INT · Blinded"),
+        spell("Mirror Image", "2nd", ["**Action**, Duration 1 minute.", "Three illusory copies of you: +3 to your STR and DEX Defense. Each time an attack misses you, a copy vanishes and the bonus drops by 1."], "Spell · Duration 1 minute"),
+        spell("Invisibility", "2nd", ["**Action**, touch, Duration 1 hour.", "A creature is **Invisible**. It ends when the creature attacks or casts a spell."], "Spell · Duration 1 hour · Invisible"),
+    ],
+)
+
+ENCHANTER = dict(
+    cover=card("Enchanter's Book", "I", "gear", "Spellbook", [
+        "Spell attack: **INT + 2**", "Spell points: **+2** (long rest)", "Max spell level: **2nd**",
+        "Casting needs an empty Hand."], sym=["INT"]),
+    color="gear", stats=dict(kind="spellbook", atk=2, sp=2, maxLevel=2),
+    cards=[
+        spell("Mind Sliver", "Cantrip", ["**Action**, range 60 ft.", "Spell attack against INT Defense: **1d6 Necrotic**, and it subtracts 1d4 from its next attack roll before the end of your next turn."], "Cantrip · Targets INT · Range 60"),
+        spell("Sleep", "1st", ["**Action**, range 60 ft.", "Spell attack against WIL Defense: **Subdue · Unconscious**. It wakes up when it takes damage, or when someone spends an action to shake it."], "Spell · Targets WIL · Subdue · Unconscious"),
+        spell("Charm Person", "1st", ["**Action**, range 30 ft.", "Spell attack against the WIL Defense of a humanoid: **Subdue · Charmed**. When it ends, the creature knows it was charmed."], "Spell · Targets WIL · Subdue · Charmed"),
+        spell("Compel", "1st", ["**Action**, range 60 ft.", "Spell attack against WIL Defense: one word it obeys on its next turn. *Drop:* it drops what it holds. *Grovel:* it falls **Prone**. *Flee:* it spends its turn moving away from you."], "Spell · Targets WIL"),
+        spell("Hideous Laughter", "2nd", ["**Action**, range 30 ft.", "Spell attack against WIL Defense: it collapses with laughter. **Subdue · Incapacitated**."], "Spell · Targets WIL · Subdue · Incapacitated"),
+        spell("Hold Person", "2nd", ["**Action**, range 60 ft.", "Spell attack against the WIL Defense of a humanoid: it is paralyzed. **Subdue · Stunned**."], "Spell · Targets WIL · Subdue · Stunned"),
+    ],
+)
+
+PACT = dict(
+    cover=card("Occultist's Pact", "I", "aspect", "Pact", [
+        "Attack: **WIL + 2**", "Resolve: **+3** (short rest)", "Gifts of a patron."], sym=["WIL"]),
+    color="aspect", stats=dict(kind="pact", atk=2, resolve=3),
+    cards=[
+        power("Eldritch Blast", "Dirge", 0, ["**Action.** Attack against WIL Defense: **1d10 Necrotic**."]),
+        power("Enfeeble", "Dirge", 1, ["**Action**, Duration 1 minute.", "Attack against WIL Defense: the target subtracts 1d6 from its damage rolls."]),
+        power("Hellish Rebuke", "Cue", 1, ["**Reaction**, after a creature within 60 ft rolls.", "−2 to an enemy's attack roll, and it takes **1d10 Fire**."]),
+        power("Hex", "Dirge", 2, ["**Action.** Attack against WIL Defense: the target is **Poisoned** for 2 turns."]),
+    ],
+)
+
+DECKS = [CONJURER, REPERTOIRE, LITANY, INSTINCT, EVOKER, ABJURER, ILLUSIONIST, ENCHANTER, PACT]
 
 GOLD = [(1, 8), (10, 8), (50, 6), (100, 4), (500, 2), (1000, 1)]  # (value, copies)
 TALLIES = 8
@@ -374,7 +532,7 @@ FRAMES = [
     ("hand", "Hand", "Swap: free interaction", ["One Weapon, Shield or Instrument.", "Empty: grapple, or hold a Spellbook to cast."], 2 * PLAYERS),
     ("jewelry", "Jewelry", "Swap: free, once per turn", ["Rings, amulets, circlets, cloaks, gloves, boots."], PLAYERS),
     ("item", "Item", "Swap: free · Spellbook: 1 action", ["A Spellbook, a Recipe, or up to 3 identical Consumables."], 2 * PLAYERS),
-    ("aspect", "Rune", "Swap: long rest", ["A Trait, Technique, Domain, Divine, Glamour or Nature."], 4 * PLAYERS),  # 3 each + 1 milestone
+    ("aspect", "Rune", "Swap: long rest", ["A Trait, Technique, Domain or WIL deck."], 4 * PLAYERS),  # 3 each + 1 milestone
     ("hand", "Third Hand", "Swap: free interaction", ["Extra Gear Slot: a spectral arm, a familiar, a living tail.", "Never lost, traded or stored."], 1),
     ("jewelry", "Second Jewel", "Swap: free, once per turn", ["Extra Gear Slot.", "Never lost, traded or stored."], 1),
     ("item", "Great Backpack", "Swap: free · Spellbook: 1 action", ["Extra Gear Slot.", "Never lost, traded or stored."], 1),
@@ -410,6 +568,8 @@ LORE = {
     "Leather": "Supple hide, oiled and stitched. It creaks a little, but it lets you run.",
     "Mail": "Riveted rings over a padded coat. Heavy on the shoulders, light on the conscience.",
     "Plate": "Full steel, fitted to you. You hear yourself coming, and so does everyone else.",
+    "Hide": "Thick pelts, cured and laced. It smells of the animal for a while, then of you.",
+    "Studded Leather": "Leather stiffened with rivets. It turns a blade and still lets you crouch.",
     # hands
     "Shield": "Oak boards, an iron rim, a dented boss. Every scar on it is a blow you never felt.",
     "Dagger": "Every traveler carries one. It cuts bread, rope and, when it must, throats.",
@@ -433,6 +593,10 @@ LORE = {
     "Greataxe": "A crescent of iron on a heavy haft. One swing, one problem fewer.",
     "Fine Bow": "Horn, sinew and years of an archer's patience. Only steady fingers can draw it.",
     "Wand": "A rod of black wood capped with copper. It hums in a thinking hand and crackles when pointed.",
+    "Whip": "A length of braided leather with a crack like a breaking branch. It keeps a foe at arm's length, and more.",
+    "Hand Crossbow": "Small enough for a sleeve, loud enough to end an argument.",
+    "Crossbow": "A heavy steel bow on a wooden stock. Slow to wind, and nothing stops the bolt.",
+    "Druid's Staff": "A living branch that never quite stopped growing. Wounds close faster in its shade.",
     # jewelry
     "Ring of Warding": "A band of cold silver. It tightens around the finger just before the blow lands.",
     "Guild Signet": "Press it into wax and doors open. Lose it, and someone comes asking why.",
@@ -441,6 +605,8 @@ LORE = {
     "Boots of the Long Stride": "Soft boots that never wear out. Every few steps, one lands farther than it should.",
     "Ring of Sparks": "Copper wire coiled around a blue stone. It bites whoever lays a hand on its wearer.",
     "Dancer's Bells": "A string of tiny bells for the ankle. Their jingle gets under an enemy's skin.",
+    "Druid's Totem": "Bone, feather and a knot of fur on a thong. The beasts you become wear it too.",
+    "Arcane Crystal": "A clear stone that holds a little light after dark. A tired mind can borrow from it.",
     # items
     "Potion of Healing": "Red and faintly warm, it tastes of iron and cherries. Shake before drinking.",
     "Coin Pouch": "A drawstring purse of good leather. Its weight is the only friend some people have.",
@@ -449,6 +615,7 @@ LORE = {
     "Restorative Salve": "Bitter herbs, river clay and a healer's patience, sealed in a tin.",
     "Pocket Sand": "The oldest trick there is. It still works.",
     "Alchemist's Fire Recipe": "Three corked flasks and the knowledge to fill them. Keep them away from the campfire.",
+    "Healer's Kit": "Linen, thread, a bone needle and a pot of salve. Enough to keep a friend breathing.",
     # Runes: a line about the power, never about a former owner (DESIGN 4)
     "Springheel": "The ground lets go of you a little sooner, and takes you back a little later.",
     "Stone Blood": "Blood gone thick and slow as stone. Poison sinks into it and goes no further.",
@@ -485,11 +652,32 @@ LORE = {
     "Luck": "Fate likes whoever carries it, and nobody knows why.",
     "Campaign": "Made for war and for the long march after it. Strike hard, carry it all home.",
     "Discipline": "March in step, hold the post, read the order before it is given.",
+    "Archery": "Wind, distance, the arc of the shot. Far is just another kind of near.",
+    "Bulwark": "Armor worn like a second skin, every plate where the blow will land.",
+    "Dueling": "One blade, one open hand, and a body that turns sideways to every thrust.",
+    "Great Weapons": "A big weapon forgives nothing, and gives nothing back but strength.",
+    "Quick Throw": "The knife leaves the belt and the hand in the same motion.",
+    "Rage": "A red haze that eats pain and spits out fury. Thinking can wait.",
+    "Cunning": "A step into shadow, and the room forgets you were there.",
+    "Unarmored Guard": "No steel, no leather: just a body that is never where the blow arrives.",
+    "Martial Arts": "Hands and feet trained until they hit like hammers.",
+    "Expertise": "What it knows well, it knows twice.",
+    "Arcane Recovery": "An hour of quiet study, and a little of the spent magic comes back.",
+    "Library": "Dust, candle wax and a thousand spines. The answer is in a book somewhere.",
+    "Court": "Bows, titles and smiles with knives behind them. It knows the steps of that dance.",
+    "Frontier": "Far from roads and roofs, where the land does the talking.",
+    "Deceit": "A borrowed name, a false smile, a hand in someone's pocket.",
+    "Asceticism": "Hunger, cold and silence, endured until they taught something.",
     # deck covers
     "Conjurer's Book": "Spells copied in a careful hand, the margins full of warnings. The ink still smells of ozone.",
     "Wanderer's Repertoire": "Songs of roadside fires and tavern corners, made for someone who never stays long.",
     "Acolyte's Litany": "Prayers worn smooth by a thousand voices. The faith comes with them.",
     "Wildheart's Instinct": "Fur, feather and claw. The body knows these shapes, and longs for them.",
+    "Evoker's Book": "Every page is scorched at the corners. Raw power, written down and barely held.",
+    "Abjurer's Book": "Wards, seals and locks, in a hand that never smudges. Nothing gets in.",
+    "Illusionist's Book": "Its pages show something else to every reader. Only the owner sees the spells.",
+    "Enchanter's Book": "Soft words for hard minds. Its margins are full of names.",
+    "Occultist's Pact": "A promise made in the dark, to something that keeps its promises too.",
 }
 POWER_LORE = {  # deck cards: their names may repeat a gear card's (Shield)
     "Fire Bolt": "The first spell every conjurer learns, and the one they burn their eyebrows with.",
@@ -516,6 +704,36 @@ POWER_LORE = {  # deck cards: their names may repeat a gear card's (Shield)
     "Wolf": "Four swift legs and a nose that reads the forest like a book.",
     "Mossbalm": "Green moss pressed into the wound. The forest remembers how to heal.",
     "Bear": "Thick fur, a heavy hide and claws like knives. Few things argue with a bear.",
+    "Ray of Frost": "A pale beam that leaves frost on the skin and lead in the legs.",
+    "Shocking Grasp": "A handshake that nobody forgets, or finishes.",
+    "Burning Hands": "Thumbs together, fingers spread, and a sheet of flame leaps out.",
+    "Thunderwave": "A clap of thunder from an open palm. Everyone close ends up on the floor.",
+    "Chromatic Orb": "A sphere that shifts color in flight, and decides on the way what it will be.",
+    "Scorching Ray": "Three lines of fire, drawn in the air like strokes of a pen.",
+    "Shatter": "A single ringing note that cracks stone, glass and bone.",
+    "Blade Ward": "A shimmer over the skin. Edges skid off it.",
+    "Mending": "A torn strap, a cracked cup, a broken link: whole again, without a seam.",
+    "Mage Armor": "A skin of force, light as silk and harder than mail.",
+    "Absorb Elements": "The fire hits, and the ward drinks it.",
+    "Protection from Evil": "A circle drawn on the air. The dead and the damned find it hard to cross.",
+    "Aid": "A surge of vigor that leaves allies taller than they were.",
+    "Arcane Lock": "A sigil on the lock. It won't open for you, whoever you are.",
+    "Minor Illusion": "A creak behind the door, a crate that isn't there.",
+    "Disguise Self": "A new face, new clothes, the same voice. Practice the voice.",
+    "Silent Image": "A whole scene painted on the air, perfect until someone pokes it.",
+    "Color Spray": "A burst of dazzling colors. When the eyes come back, the fight has moved on.",
+    "Mirror Image": "Three of you, then two, then one. Which one is real? Guess.",
+    "Invisibility": "The light bends around you. Don't sneeze.",
+    "Mind Sliver": "A cold splinter of thought, driven between the eyes.",
+    "Sleep": "A heavy warmth behind the eyes. Just for a moment.",
+    "Charm Person": "A friendly voice, a reasonable request. Why would anyone refuse?",
+    "Compel": "One word, spoken like a command from a king.",
+    "Hideous Laughter": "Everything is suddenly, hopelessly funny.",
+    "Hold Person": "Every muscle locks. Only the eyes still move.",
+    "Eldritch Blast": "A crackling beam of something that was never meant to be in this world.",
+    "Enfeeble": "A black ray that turns muscle to wet rope.",
+    "Hellish Rebuke": "Strike the occultist, and the flames of a patron answer.",
+    "Hex": "A muttered curse. Food sours, hands shake, the stomach turns.",
 }
 for _deck in DECKS:
     for _p in _deck["cards"]:
@@ -526,7 +744,7 @@ for _deck in DECKS:
 # Add new cards at the end of their type and Rank so existing IDs never change.
 TYPE_LETTER = {"Calling": "L", "Armor": "A", "Weapon": "W", "Shield": "S", "Instrument": "M", "Jewelry": "J",
                "Consumable": "P", "Recipe": "R", "Container": "C", "Spellbook": "B", "Trait": "T", "Technique": "Q",
-               "Domain": "K", "Divine": "D", "Glamour": "G", "Nature": "N"}
+               "Domain": "K", "Divine": "D", "Glamour": "G", "Nature": "N", "Pact": "H"}
 CARDS = CALLINGS + ARMOR + HANDS + JEWELRY + ITEMS + ASPECTS + [d["cover"] for d in DECKS]
 
 # ---------- mechanics of cards (SPEC 2.1): card name → list of Powers; ids are added by tools/export_sim.py ----------
@@ -542,6 +760,10 @@ CARD_FX = {
     "Traveler's Lute": [dict(use="passive", extraResolve=1, anthemReach=60, params=dict(default=30))],
     "Holy Amulet": [dict(use="passive", extraResolve=1, cueReach=90, params=dict(default=60))],
     "Dancer's Bells": [dict(use="passive", extraResolve=1, dirgeReach=90, params=dict(default=60))],
+    "Druid's Staff": [dict(use="passive", extraResolve=1, params=dict(mendBonus=2))],
+    "Druid's Totem": [dict(use="passive", extraResolve=1, params=dict(formTemp=2))],
+    "Arcane Crystal": [dict(use="passive", extraSp=1)],
+    "Healer's Kit": [dict(use="action", reach=5, target="creature", do=[dict(heal="1d4")])],
     "Ring of Warding": [dict(use="reaction", uses="2/SR", on="hitSelf", target="self", do=TWO_SHIELD_MOD)],
     "Ring of Sparks": [dict(use="reaction", uses="1/SR", on="meleeHitSelf5", target="enemy",
                             do=[dict(dmg="2d6", type="Lightning")])],

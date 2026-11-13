@@ -79,7 +79,7 @@
   const KEYS = ["STR", "DEX", "INT", "WIL", "STRd", "DEXd", "INTd", "WILd", "HP", "SPD"];
   const SIZE_N = { Tiny: 0, Small: 1, Medium: 2, Large: 3, Huge: 4, Gargantuan: 5 };
   const SPACE = { Tiny: 1, Small: 1, Medium: 1, Large: 2, Huge: 3, Gargantuan: 4 };
-  const ASPECT_TYPES = ["Trait", "Technique", "Domain", "Divine", "Glamour", "Nature"];
+  const ASPECT_TYPES = ["Trait", "Technique", "Domain", "Divine", "Glamour", "Nature", "Pact"];
   const SLOT_TYPES = { armor: ["Armor"], hand: ["Weapon", "Shield", "Instrument"], jewelry: ["Jewelry"],
     item: ["Spellbook", "Recipe", "Consumable"], aspect: ASPECT_TYPES };
   const DEFAULT_SLOTS = { hand: 2, jewelry: 1, item: 2, aspect: 3 };
@@ -596,7 +596,8 @@
     const k = { id: "k" + X.st.nextId++, name, source: o.source || null, until: o.until || null, lasting: !!o.lasting,
       subdue: !!o.subdue, rolls: 0, hurt: 0, bite: !!o.subdue, lost: 0, bonus: o.bonus || 0, decay: 0, hold: false,
       abil: o.abil || null, vs: o.vs || null,
-      flat: !!o.flat, power: o.power || null, effect: !!o.effect, card: o.card || null, endAction: o.endAction || null };
+      flat: !!o.flat, power: o.power || null, effect: !!o.effect, card: o.card || null, endAction: o.endAction || null,
+      wake: !!o.wake, endsOnAttack: !!o.endsOnAttack };
     t.conds.push(k);
     if (k.card) retally(X.F, t);
     emit(X, { t: "cond", target: t.id, actor: k.source, cond: name, lasting: k.lasting, text: `${t.name} is ${name}${k.source && k.source !== t.id ? " (" + nm(X, k.source) + ")" : ""}${k.lasting ? ", Lasting" : ""}.` });
@@ -872,10 +873,12 @@
       total: res.total, vs: t ? best(res.defs) : null, adv: info.adv, dis: info.dis, why: info.why.concat(info.parts),
       text: `${a.name} ${label}${t ? " → " + t.name : ""}: ${r.dice.length > 1 ? "[" + r.dice.join(", ") + "] keeps " : ""}${r.kept} ${signed(res.bonus)} = ${res.total}${t ? " vs " + best(res.defs) : ""}` });
     stat(X, a.id).attacks++;
+    endOnAttack(X, a);
     cuePhase(X, res, "attack");
     if (t) decide(res);
     return res;
   }
+  function endOnAttack(X, c) { for (const k of c.conds.slice()) if (k.endsOnAttack) removeCond(X, c, k, "attacked"); }
   function decide(res) {
     const nat = res.roll.kept;
     res.nat = nat; res.crit = nat === 20;
@@ -953,6 +956,9 @@
         else { res.total += delta; res.bonus += delta; }
         emit(X, { t: "note", actor: c.id, text: `${pick.mode === "def" ? res.t.name + "'s Defense" : roller.name + "'s roll"} ${signed(delta)} → ${pick.mode === "def" ? best(res.defs) : res.total}.` });
       }
+      // a Cue's other effects land on the roller (Hellish Rebuke: Fire damage)
+      const rest = (p.do || []).filter((d) => d.mod !== "roll" && !d.reroll);
+      if (rest.length) applyDo(X, c, pick.e, rest, roller, { hit: true });
     }
   }
 
@@ -1151,6 +1157,7 @@
     // a hurt source adds decay to its Subdue effects (P 8)
     for (const c of Object.values(X.st.creatures)) for (const k of c.conds) if (k.subdue && k.source === t.id) k.hurt++;
     if (src && src.side !== t.side) for (const k of t.conds.slice()) if (k.subdue && k.name === "Charmed") removeCond(X, t, k, "harmed");
+    if (n > 0) for (const k of t.conds.slice()) if (k.wake) removeCond(X, t, k, "woken");
     if (t.form) {
       const take = Math.min(t.form.hp, n);
       t.form.hp -= take; n -= take;
@@ -1633,7 +1640,11 @@
         let until = d.until ? mkUntil(X, d.until, user, t, p) : null;
         if (!until && !subdue && p.dur && p.dur !== "instant") until = durUntil(p.dur, user);
         const flat = p.atk && p.atk.flat != null;
-        addCond(X, t, d.cond, { source: user.id, until, lasting: subdue, subdue, bonus: o.bonus, abil: atkAbil(F, user, e) || "WIL", vs: p.atk ? p.atk.vs || "weapon" : null, flat, power: p.name });
+        // RULING R716: Sleep's Unconscious ends when the sleeper takes damage (params.wake); a spell's Invisible ends
+        // when the creature attacks or casts a spell (params.endsOnAttack).
+        const pp = p.params || {};
+        addCond(X, t, d.cond, { source: user.id, until, lasting: subdue, subdue, bonus: o.bonus, abil: atkAbil(F, user, e) || "WIL", vs: p.atk ? p.atk.vs || "weapon" : null, flat, power: p.name,
+          wake: !!pp.wake, endsOnAttack: !!pp.endsOnAttack });
       } else if (d.mod) {
         let until = null;
         if (d.until === "lasting") {
@@ -1813,6 +1824,7 @@
     if (p.use === "reaction") c.turn.reaction = true;
     pay(X, c, e, cost, { pool: pl.pool });
     if (deck && deck.kind === "spellbook" && p.kind === "Spell" && cost > 0) { c.spellTurn = st.turnNo; c.turn.spellCast = true; }
+    if (deck && deck.kind === "spellbook") endOnAttack(X, c);
     emit(X, { t: "power", actor: c.id, power: p.id, targets: targets.map((t) => t.id), point: pl.point, level: cost, text: `${c.name} uses ${p.name}${targets.length && pl.tg !== "self" ? " on " + targets.map((t) => t.name).join(", ") : ""}.` });
     if (p.hook) {
       const h = HOOKS[p.hook];

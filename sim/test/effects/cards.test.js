@@ -964,4 +964,40 @@ module.exports = function register(T, H) {
     ok(evs(e, "roll").some((x) => x.kind === "recharge")); eq(C(f, "boss").uses["foe-ogre-chieftain#0"], 1);
   });
 
+
+  const caster = (deck, o) => Object.assign({ body: { STR: 0, DEX: 1, INT: 3, WIL: 3, HP: 9, SPD: 30 } }, deck[0] === "B" ? { items: [{ id: deck }] } : { aspects: [deck] }, o);
+  T("[fx] Eldritch Blast: Pact Dirge, 0 Resolve, WIL + 2 against WIL Defense, 1d10 Necrotic", () => {
+    const f = fight([pc("o", [1, 5], caster("H-I-01")), foe("x", [8, 5])]);
+    pcTurn(f, "o");
+    const r = run(f, { type: "power", actor: "o", power: "H-I-01#eldritch-blast", targets: ["x"] }, [15, 7]);
+    eq(dmgs(r), [7]); ok(evs(r, "damage").some((e) => e.type === "Necrotic"));
+    eq(C(f, "o").resolve, 3 + 3);
+  });
+  T("[fx] Hellish Rebuke: Pact Cue, −2 to an enemy's attack roll, and it takes 1d10 Fire", () => {
+    const f = fight([pc("o", [1, 5], caster("H-I-01")), pc("a", [7, 5]), foe("x", [8, 5], { hands: ["W-I-05"] })]);
+    foeTurn(f, "x");
+    const r = run(f, atk("x", "W-I-05", "a"), [9, { c: 0 }, 6]);
+    ok(evs(r, "miss").length, "−2 turns the hit into a miss");
+    ok(evs(r, "damage").some((e) => e.target === "x" && e.type === "Fire" && e.n === 6));
+    eq(C(f, "o").resolve, 6 - 1);
+  });
+  T("[fx] Sleep: Subdue · Unconscious, ends when the sleeper takes damage (R716)", () => {
+    const f = fight([pc("w", [1, 5], caster("B-I-05")), pc("b", [3, 5], { hands: ["W-I-10"] }), foe("x", [8, 5])]);
+    pcTurn(f, "w");
+    run(f, { type: "power", actor: "w", power: "B-I-05#sleep", targets: ["x"] }, [15]);
+    ok(has(C(f, "x"), "Unconscious"));
+    run(f, { type: "endTurn", actor: "w" }); run(f, { type: "beginTurn", actor: "b" });
+    run(f, atk("b", "W-I-10", "x"), [15, 15, 3]);
+    ok(!has(C(f, "x"), "Unconscious"), "woken by the sling stone");
+  });
+  T("[fx] Invisibility: the creature is Invisible until it attacks (R716)", () => {
+    const f = fight([pc("w", [1, 5], caster("B-I-04")), pc("a", [2, 5], { hands: ["W-I-10"] }), foe("x", [8, 5])]);
+    pcTurn(f, "w");
+    run(f, { type: "power", actor: "w", power: "B-I-04#invisibility", targets: ["a"] });
+    ok(has(C(f, "a"), "Invisible"));
+    run(f, { type: "endTurn", actor: "w" }); run(f, { type: "beginTurn", actor: "a" });
+    const r = run(f, atk("a", "W-I-10", "x"), [3, 15, 2]);
+    eq(evs(r, "roll").find((e) => e.kind === "attack").dice.length, 2, "unseen: an advantage die");
+    ok(!has(C(f, "a"), "Invisible"), "the attack ends it");
+  });
 };

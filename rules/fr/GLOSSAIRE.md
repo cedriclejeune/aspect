@@ -91,7 +91,7 @@ Un espace qui contient un matériel ou une Rune du type correspondant : Armure, 
 _À éviter_ : case, slot, emplacement d'harmonisation. (EN : Slot)
 
 **Rune**:
-Un pouvoir en forme de signe : un Trait, une Technique, un Domaine, un Divin, un Glamour ou une Nature. La plupart des créatures en portent quelques-unes, ancrées en elles à vie. Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique.
+Un pouvoir en forme de signe : un Trait, une Technique, un Domaine ou un paquet de VOL. La plupart des créatures en portent quelques-unes, ancrées en elles à vie. Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique.
 _À éviter_ : Aspect, don, aptitude, pouvoir (comme terme général), glyphe, sceau (comme terme). (EN : Rune)
 
 **Vocation**:
@@ -236,7 +236,7 @@ Les points que coûtent vos sorts : une seule réserve, la somme de ce qu'imprim
 _À éviter_ : emplacements de sort, mana. (EN : Spell points)
 
 **Paquet de VOL**:
-Une Rune de magie de VOL : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour ou Nature) dit quels pouvoirs elle contient et ne change aucune autre règle.
+Une Rune de magie de VOL : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour, Nature ou Pacte) dit quels pouvoirs elle contient et ne change aucune autre règle.
 _À éviter_ : livre de prières, recueil de chants, sort (pour ses pouvoirs). (EN : WIL deck)
 
 **Divin**:
@@ -250,6 +250,10 @@ _À éviter_ : muse, inspiration, magie de barde, recueil de chants. (EN : Glamo
 **Nature**:
 Un type de paquet de VOL : la magie du monde sauvage. Son paquet est un **Instinct**, qui contient des Formes et des Soins.
 _À éviter_ : Souvenance, Mémoires, bestiaire, magie druidique, magie primordiale. (EN : Nature, Instinct)
+
+**Pacte**:
+Un type de paquet de VOL : la magie accordée par un protecteur. Son paquet est un **Pacte**, qui contient des malédictions et des dégâts : Complaintes et Répliques.
+_À éviter_ : magie d'occultiste, patronage, grimoire. (EN : Pact)
 
 **Ardeur**:
 Les points que coûte votre magie de VOL : une seule réserve, la somme de ce qu'impriment vos paquets de VOL + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un court repos.

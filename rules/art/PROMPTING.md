@@ -78,7 +78,7 @@ Every prompt is built as: **subject**, then **style list**, then **reference lin
   jug ears, eyes too close), wear (pockmarks, missing teeth, a scar pulling the lip), asymmetry (one ear torn off).
   For young characters, show youth through awkwardness (acne scars, a big Adam's apple, a cowlick), not "young".
   `AVOID` also lists "handsome, pretty, idealised face, model looks, smooth skin".
-- **Figures of speech are drawn literally.** "A sharp fox face" gave a fox's head, "beak-nosed" and "a beak of a nose" a
+- **Figures of speech are drawn literally.** "A sharp fox face" gave a fox's head, "beak-nosed", "a beak of a nose" and even "a hooked nose" (the Archery archer) a
   bird's beak, "scooped by a fingertip" a finger with no hand, "a long horse face" a horse's head, "a black eye" an eye drawn solid black and "squinting along an arrow" an arrow pointing into the eye. Describe the shape instead: "a long thin pointed nose".
 - **Say which end of a stuck arrow shows.** "Arrows stuck in it" gave arrows pointing out of the shield, fletching in the wood,
   and on the Templar arrows on the inner face she sees. Write "points buried in the wood, fletched ends sticking out",
@@ -94,6 +94,7 @@ Every prompt is built as: **subject**, then **style list**, then **reference lin
 - **To show an item without anyone holding it, say where it is and what it's doing:**
   "sand trickling from a torn hip pocket onto the ground" works, and "left hand empty, fingers spread" stops the hand
   from inventing something to hold.
+- **"A black robe" comes out as one solid black shape** (*Hold Person*). Write "a plain pale robe drawn in outline".
 - **Avoid "a few small solid black fills".** It caused a stray black rectangle on clothing twice.
   The wording now is "solid black only in the deepest shadows".
 
@@ -200,5 +201,8 @@ and drawings are saved in `rules/art/items/`.
 - **One-off `status: error` "input rejected as invalid":** the same prompt worked on the rerun. Retry once before rewording.
 - **Errors:** a refused job comes back with status `error` (missing from the docs), and its message is in `output`.
   The script stops on it and gives up on any job after 5 minutes.
+- **Model Studio for whole batches (2026-11-12):** when Eachlabs ran out of credit (HTTP 402, nothing billed), the 60 starter
+  expansion drawings were made with `--model qwen-ms` (Qwen Image 3.0), no pause between jobs, about 40 s each. One read
+  timed out and was simply rerun. Redos work there too (`--cards --redo X --change ... --model qwen-ms`).
 - **Dropped connections:** they happen; the script retries status checks and downloads.
   A job that dropped may still finish and bill.

@@ -21,7 +21,8 @@ NAMES = {
     "Sling": "Fronde", "Javelins": "Javelots", "Spellguard Staff": "Bâton de garde-sort",
     "Traveler's Lute": "Luth du voyageur", "Greatclub": "Massue", "Gladius": "Gladius", "Boarspear": "Lance de chasse",
     "Pilum": "Pilum", "Shortbow": "Arc court", "Greataxe": "Grande hache",
-    "Fine Bow": "Arc composite", "Wand": "Baguette",
+    "Fine Bow": "Arc composite", "Wand": "Baguette", "Hide": "Peaux", "Studded Leather": "Cuir clouté",
+    "Whip": "Fouet", "Hand Crossbow": "Arbalète de poing", "Crossbow": "Arbalète", "Druid's Staff": "Bâton druidique",
     # jewelry and items
     "Ring of Warding": "Anneau de protection", "Guild Signet": "Chevalière de guilde",
     "Runestone Bandolier": "Bandoulière runique", "Holy Amulet": "Amulette sacrée",
@@ -29,7 +30,8 @@ NAMES = {
     "Dancer's Bells": "Grelots de danseur", "Potion of Healing": "Potion de soins", "Coin Pouch": "Bourse à cordon",
     "Writ of Favor": "Lettre d'introduction", "Greater Potion of Healing": "Potion de soins supérieurs",
     "Restorative Salve": "Onguent réparateur", "Pocket Sand": "Sable de poche",
-    "Alchemist's Fire Recipe": "Recette de feu grégeois",
+    "Alchemist's Fire Recipe": "Recette de feu grégeois", "Druid's Totem": "Totem druidique",
+    "Arcane Crystal": "Cristal arcanique", "Healer's Kit": "Trousse de soins",
     # Runes
     "Springheel": "Bond", "Stone Blood": "Sang de pierre", "Iron Will": "Volonté de fer",
     "Clear Mind": "Esprit clair", "Cleave": "Enchaînement", "Steady Aim": "Visée juste",
@@ -42,6 +44,11 @@ NAMES = {
     "Sweeping Blow": "Coup balayant", "Defiance": "Acharnement", "Grit": "Ténacité",
     "Dusk Eyes": "Yeux de crépuscule", "Bedrock": "Socle", "Luck": "Chance",
     "Campaign": "Campagne", "Discipline": "Discipline",
+    "Archery": "Archerie", "Bulwark": "Rempart", "Dueling": "Duel", "Great Weapons": "Armes lourdes",
+    "Quick Throw": "Lancer vif", "Rage": "Rage", "Cunning": "Ruse", "Unarmored Guard": "Garde sans armure",
+    "Martial Arts": "Arts martiaux", "Expertise": "Expertise", "Arcane Recovery": "Recouvrement arcanique",
+    "Library": "Bibliothèque", "Court": "Cour", "Frontier": "Contrées sauvages", "Deceit": "Duperie",
+    "Asceticism": "Ascèse",
     # Wounds
     "Twisted Ankle": "Cheville tordue", "Bruised Ribs": "Côtes contusionnées", "Pulled Muscle": "Claquage",
     "Concussion": "Commotion", "Shaken": "Ébranlé", "Deep Cut": "Entaille profonde", "Black Eye": "Œil au beurre noir",
@@ -59,6 +66,20 @@ NAMES = {
     "Steady Now": "Du calme", "Dread": "Effroi", "Rousing Verse": "Vers exaltant", "Guidance": "Assistance",
     "Bless": "Bénédiction", "Bane": "Fléau", "Twist Fate": "Altération du destin", "Healing Word": "Mot de guérison",
     "Cure Wounds": "Soins", "Hawk": "Faucon", "Wolf": "Loup", "Mossbalm": "Baume de mousse", "Bear": "Ours",
+    "Evoker's Book": "Livre de l'évocateur", "Abjurer's Book": "Livre de l'abjurateur",
+    "Illusionist's Book": "Livre de l'illusionniste", "Enchanter's Book": "Livre de l'enchanteur",
+    "Occultist's Pact": "Pacte de l'occultiste",
+    "Ray of Frost": "Rayon de givre", "Shocking Grasp": "Poigne électrique", "Burning Hands": "Mains brûlantes",
+    "Thunderwave": "Vague tonnante", "Chromatic Orb": "Orbe chromatique", "Scorching Ray": "Rayon ardent",
+    "Shatter": "Fracassement", "Blade Ward": "Protection contre les lames", "Mending": "Réparation",
+    "Mage Armor": "Armure de mage", "Absorb Elements": "Absorption des éléments",
+    "Protection from Evil": "Protection contre le mal", "Aid": "Aide", "Arcane Lock": "Verrou magique",
+    "Minor Illusion": "Illusion mineure", "Disguise Self": "Déguisement", "Silent Image": "Image silencieuse",
+    "Color Spray": "Couleurs dansantes", "Mirror Image": "Image miroir", "Invisibility": "Invisibilité",
+    "Mind Sliver": "Éclat psychique", "Sleep": "Sommeil", "Charm Person": "Charme-personne", "Compel": "Injonction",
+    "Hideous Laughter": "Fou rire", "Hold Person": "Immobilisation de personne",
+    "Eldritch Blast": "Décharge occulte", "Enfeeble": "Affaiblissement", "Hellish Rebuke": "Représailles infernales",
+    "Hex": "Maléfice",
     # foes
     "Bandit": "Bandit", "Bandit Archer": "Archer bandit", "Goblin": "Gobelin", "Cultist": "Cultiste",
     "Legionary": "Légionnaire", "Bandit Captain": "Capitaine bandit", "Ogre": "Ogre", "Ogre Chieftain": "Chef ogre",
@@ -76,8 +97,11 @@ KEYWORDS = {
     "Focus": "Focaliseur", "Jewelry": "Bijou", "Consumable": "Consommable", "Container": "Contenant", "Recipe": "Recette",
     "3 flasks": "3 fioles", "Spellbook": "Livre de sorts", "Spell": "Sort", "Cantrip": "Tour de magie",
     "Trait": "Trait", "Technique": "Technique", "Domain": "Domaine", "Divine": "Divin", "Glamour": "Glamour",
-    "Nature": "Nature", "Anthem": "Hymne", "Dirge": "Complainte", "Cue": "Réplique", "Mend": "Soin", "Form": "Forme",
-    "Wound": "Blessure", "Crippling": "Invalidante", "Hand": "Main", "Item": "Objet", "Heavy": "Lourde",
+    "Nature": "Nature", "Pact": "Pacte", "Anthem": "Hymne", "Dirge": "Complainte", "Cue": "Réplique", "Mend": "Soin", "Form": "Forme",
+    "Wound": "Blessure", "Loading": "Chargement", "Targets STR": "Vise FOR", "Targets INT": "Vise INT", "Targets WIL": "Vise VOL",
+    "Subdue": "Emprise", "Unconscious": "Inconscient", "Charmed": "Charmé", "Incapacitated": "Neutralisé", "Stunned": "Étourdi",
+    "Blinded": "Aveuglé", "Invisible": "Invisible", "Duration 8 hours": "Durée 8 heures", "Duration 10 minutes": "Durée 10 minutes",
+    "Duration 1 hour": "Durée 1 heure", "Crippling": "Invalidante", "Hand": "Main", "Item": "Objet", "Heavy": "Lourde",
     "Light": "Légère", "Reach": "Allonge", "Two-Handed": "Deux mains", "Versatile (1d10)": "Polyvalente (1d10)",
     "Versatile (1d8)": "Polyvalente (1d8)", "Brutal": "Brutale", "Crushing": "Écrasante", "Flurry": "Rafale",
     "Restrained": "Entravé", "Targets DEX": "Vise AGI", "Duration 1 minute": "Durée 1 minute",
@@ -94,9 +118,9 @@ def feet(n):
 def keyword(k):
     if k in KEYWORDS:
         return KEYWORDS[k]
-    m = re.fullmatch(r"(Range|Thrown|Darkvision|Cube|Noisy) ([\d/]+)", k)
+    m = re.fullmatch(r"(Range|Thrown|Darkvision|Cube|Sphere|Noisy) ([\d/]+)", k)
     if m:
-        word = {"Range": "Portée", "Thrown": "Lancer", "Darkvision": "Vision nocturne", "Cube": "Cube",
+        word = {"Range": "Portée", "Thrown": "Lancer", "Darkvision": "Vision nocturne", "Cube": "Cube", "Sphere": "Sphère",
                 "Noisy": "Bruyante"}[m[1]]
         nums = m[2] if m[1] == "Noisy" else "/".join(feet(n) for n in m[2].split("/"))
         return f"{word} {nums}"
@@ -121,6 +145,11 @@ ACTIVITIES = {
     "tumble, balance, jump or perform": "faire des acrobaties, garder l'équilibre, sauter ou se produire",
     "intimidate, endure, lift or march": "intimider, endurer, soulever ou marcher longtemps",
     "march, navigate, stand firm or read intentions": "marcher longtemps, s'orienter, tenir bon ou deviner les intentions",
+    "recall lore, notice, search or haggle": "se souvenir de connaissances, remarquer, fouiller ou marchander",
+    "persuade, read intentions, recall lore or perform": "persuader, deviner les intentions, se souvenir de connaissances ou se produire",
+    "track, navigate, endure or notice": "pister, s'orienter, endurer ou remarquer",
+    "deceive, hide, pick pockets or perform": "tromper, se cacher, faire les poches ou se produire",
+    "endure, notice, treat wounds or read intentions": "endurer, remarquer, soigner les blessures ou deviner les intentions",
 }
 
 TEXT = {
@@ -181,6 +210,9 @@ TEXT = {
     "**Reaction (1/S.R.)**, when a creature within 5 ft hits you: it takes 2d6 Lightning.":
         "**Réaction (1/C.R.)**, quand une créature à 2 m ou moins vous touche : elle subit 2d6 Foudre.",
     "Your Dirges reach 90 ft instead of 60 ft.": "Vos Complaintes portent à 36 m au lieu de 24 m.",
+    "1 extra Resolve (short rest). Your Mends restore 2 extra HP.": "1 Ardeur supplémentaire (court repos). Vos Soins rendent 2 PV de plus.",
+    "When you shift into a Form, it gains 2 temporary HP.": "Quand vous prenez une Forme, elle gagne 2 PV temporaires.",
+    "**Action:** tend a creature within 5 ft. It regains 1d4 HP.": "**Action :** soignez une créature à 2 m ou moins. Elle récupère 1d4 PV.",
     # items
     "**Action:** drink it, or give it to a creature within 5 ft. It regains 2d4 + 2 HP.":
         "**Action :** buvez-la, ou donnez-la à une créature à 2 m ou moins. Elle récupère 2d4 + 2 PV.",
@@ -237,6 +269,23 @@ TEXT = {
     "+2 STR Defense against poison.": "+2 à la Défense de FOR contre le poison.",
     "+2 STR Defense against poison, Shoves and Grapples.": "+2 à la Défense de FOR contre le poison, Bousculer et Empoigner.",
     "**Lucky (1/S.R.):** when you roll a 1 on a d20, reroll it.": "**Veinard (1/C.R.) :** quand vous faites 1 sur un d20, relancez-le.",
+    "Long range gives your ranged weapon attacks no disadvantage.": "La longue portée ne donne pas de désavantage à vos attaques d'arme à distance.",
+    "+1 STR Defense while you wear Armor.": "+1 à la Défense de FOR tant que vous portez une Armure.",
+    "While you hold a one-handed melee weapon and your other Hand is empty: +1 STR and DEX Defense against melee attacks.":
+        "Tant que vous tenez une arme de corps à corps à une main et que votre autre Main est vide : +1 aux Défenses de FOR et d'AGI contre les attaques au corps à corps.",
+    "When a damage die of your Two-Handed weapon shows 1 or 2, reroll it once.":
+        "Quand un dé de dégâts de votre arme à Deux mains affiche 1 ou 2, relancez-le une fois.",
+    "You draw a Thrown weapon as part of the attack that throws it, and your Thrown ranges are doubled.":
+        "Vous dégainez une arme de Lancer pendant l'attaque qui la lance, et vos portées de Lancer sont doublées.",
+    "**Reaction (2/L.R.)**, when you roll initiative or a creature hits you: for 1 minute, you Resist Physical damage and can't cast spells or use WIL magic.":
+        "**Réaction (2/L.R.)**, quand vous lancez l'initiative ou qu'une créature vous touche : pendant 1 minute, vous Résistez aux dégâts Physiques et ne pouvez ni lancer de sorts ni utiliser la magie de VOL.",
+    "Once per turn, if you end your movement out of sight, you can Hide without spending an action.":
+        "Une fois par tour, si vous terminez votre déplacement hors de vue, vous pouvez vous Cacher sans dépenser d'action.",
+    "+2 STR Defense while your Armor Slot is empty.": "+2 à la Défense de FOR tant que votre Emplacement d'Armure est vide.",
+    "Your unarmed strikes deal 1d6 + STR or DEX Physical.": "Vos attaques à mains nues infligent 1d6 + FOR ou AGI Physique.",
+    "**1/S.R.**, when you fail a check one of your Domains covers: reroll it.":
+        "**1/C.R.**, quand vous ratez un test que couvre l'un de vos Domaines : relancez-le.",
+    "**1/L.R.**, during a short rest: regain 2 spell points.": "**1/L.R.**, pendant un court repos : récupérez 2 points de sort.",
     # Wounds
     "You hobble.": "Vous boitez.", "Every breath hurts.": "Chaque respiration fait mal.",
     "You can't twist away in time.": "Vous ne pivotez plus assez vite.", "The world swims a little.": "Le monde tangue un peu.",
@@ -255,7 +304,7 @@ TEXT = {
     "Max spell level: **2nd**": "Niveau de sort max : **2e**", "Casting needs an empty Hand.": "L'incantation demande une Main vide.",
     "Attack: **WIL + 2**": "Attaque : **VOL + 2**", "Resolve: **3 + WIL** (short rest)": "Ardeur : **3 + VOL** (court repos)",
     "Songs, poems and dances.": "Chants, poèmes et danses.", "Prayers.": "Prières.",
-    "Beasts your body knows.": "Des bêtes que votre corps connaît.",
+    "Beasts your body knows.": "Des bêtes que votre corps connaît.", "Gifts of a patron.": "Les dons d'un protecteur.",
     # spells and powers
     "**Action**, range 120 ft.": "**Action**, portée 48 m.",
     "Spell attack against DEX Defense: **1d10 Fire**. A flammable object it hits catches fire.":
@@ -302,6 +351,75 @@ TEXT = {
     "+2 on checks to track.": "+2 aux tests pour pister.", "**Large** · Climb 30 ft.": "**Grand** · Escalade 12 m.",
     "Hide: +2 STR Defense (included).": "Cuir épais : +2 Défense de FOR (compris).",
     "Claws: +2 to hit, 1d8 + STR Physical.": "Griffes : +2 au toucher, 1d8 + FOR Physique.",
+    # Evoker's Book
+    "Spell attack against DEX Defense: **1d8 Cold**, and its Speed drops by 10 ft until the start of your next turn.":
+        "Attaque de sort contre la Défense d'AGI : **1d8 Froid**, et sa Vitesse baisse de 4 m jusqu'au début de votre prochain tour.",
+    "Spell attack against DEX Defense: **1d8 Lightning**, and it can't take reactions until the start of its next turn.":
+        "Attaque de sort contre la Défense d'AGI : **1d8 Foudre**, et elle ne peut pas réagir jusqu'au début de son prochain tour.",
+    "**Action**, range 15 ft.": "**Action**, portée 6 m.",
+    "Flames fill a 10-ft cube. Spell attack against the DEX Defense of each creature in it: **3d6 Fire**, half on a miss.":
+        "Des flammes emplissent un cube de 4 m. Attaque de sort contre la Défense d'AGI de chaque créature à l'intérieur : **3d6 Feu**, la moitié en cas d'échec.",
+    "**Action**, range 30 ft.": "**Action**, portée 12 m.",
+    "A 10-ft cube of thunder. Spell attack against the STR Defense of each creature in it: **2d8 Lightning** and it falls **Prone**; on a miss, half damage and it stays standing.":
+        "Un cube de 4 m de tonnerre. Attaque de sort contre la Défense de FOR de chaque créature à l'intérieur : **2d8 Foudre** et elle tombe **À terre** ; en cas d'échec, la moitié des dégâts et elle reste debout.",
+    "**Action**, range 90 ft.": "**Action**, portée 36 m.",
+    "Spell attack against DEX Defense: **3d8** Fire, Cold, Lightning or Poison, your choice.":
+        "Attaque de sort contre la Défense d'AGI : **3d8** Feu, Froid, Foudre ou Poison, au choix.",
+    "Three rays at one to three creatures. One spell attack against the DEX Defense of each target: **2d6 Fire** per ray on a hit.":
+        "Trois rayons sur une à trois créatures. Une attaque de sort contre la Défense d'AGI de chaque cible : **2d6 Feu** par rayon qui touche.",
+    "A 10-ft sphere of ringing sound. Spell attack against the STR Defense of each creature in it: **3d8 Lightning**, half on a miss.":
+        "Une sphère de 4 m de son strident. Attaque de sort contre la Défense de FOR de chaque créature à l'intérieur : **3d8 Foudre**, la moitié en cas d'échec.",
+    # Abjurer's Book
+    "**Action.**": "**Action.**",
+    "You Resist Physical damage until the start of your next turn.": "Vous Résistez aux dégâts Physiques jusqu'au début de votre prochain tour.",
+    "Repair one break or tear in an object.": "Réparez une cassure ou une déchirure d'un objet.",
+    "**Action**, touch, Duration 8 hours.": "**Action**, contact, Durée 8 heures.",
+    "A creature that wears no Armor has +3 STR Defense.": "Une créature qui ne porte pas d'Armure a +3 à sa Défense de FOR.",
+    "You Resist Fire, Cold, Lightning and Poison until the start of your next turn, against the triggering attack too.":
+        "Vous Résistez au Feu, au Froid, à la Foudre et au Poison jusqu'au début de votre prochain tour, y compris contre l'attaque déclencheuse.",
+    "**Action**, touch, Duration 10 minutes.": "**Action**, contact, Durée 10 minutes.",
+    "Undead, fiends, fey and elementals have −2 on attacks against the creature, and can't Charm or Frighten it.":
+        "Les morts-vivants, fiélons, fées et élémentaires ont −2 aux attaques contre la créature, et ne peuvent ni la Charmer ni l'Effrayer.",
+    "Up to 3 creatures gain 5 temporary HP.": "Jusqu'à 3 créatures gagnent 5 PV temporaires.",
+    "A door, a window or a chest stays shut to all but you and those you name, until dispelled.":
+        "Une porte, une fenêtre ou un coffre reste fermé à tous sauf à vous et à ceux que vous nommez, jusqu'à dissipation.",
+    # Illusionist's Book
+    "**Action**, range 30 ft, Duration 1 minute.": "**Action**, portée 12 m, Durée 1 minute.",
+    "A sound, or the image of an object that fits in a 5-ft cube. A creature that studies it with an action sees through it.":
+        "Un son, ou l'image d'un objet qui tient dans un cube de 2 m. Une créature qui l'examine avec une action perce l'illusion.",
+    "**Action**, Duration 1 hour.": "**Action**, Durée 1 heure.",
+    "You look like someone else of about your size, clothes and gear included. A creature that touches you, or studies you with an action, sees through it.":
+        "Vous ressemblez à quelqu'un d'autre de votre taille environ, vêtements et équipement compris. Une créature qui vous touche, ou vous examine avec une action, perce l'illusion.",
+    "**Action**, range 60 ft, Duration 10 minutes.": "**Action**, portée 24 m, Durée 10 minutes.",
+    "A silent image that fits in a 15-ft cube. Move it with an action. A creature that studies it with an action sees through it.":
+        "Une image muette qui tient dans un cube de 6 m. Déplacez-la avec une action. Une créature qui l'examine avec une action perce l'illusion.",
+    "A burst of colors fills a 10-ft cube. Spell attack against the INT Defense of each creature in it: it is **Blinded** until the end of its next turn.":
+        "Un éclat de couleurs emplit un cube de 4 m. Attaque de sort contre la Défense d'INT de chaque créature à l'intérieur : elle est **Aveuglée** jusqu'à la fin de son prochain tour.",
+    "Three illusory copies of you: +3 to your STR and DEX Defense. Each time an attack misses you, a copy vanishes and the bonus drops by 1.":
+        "Trois copies illusoires de vous : +3 à vos Défenses de FOR et d'AGI. Chaque fois qu'une attaque vous rate, une copie disparaît et le bonus baisse de 1.",
+    "**Action**, touch, Duration 1 hour.": "**Action**, contact, Durée 1 heure.",
+    "A creature is **Invisible**. It ends when the creature attacks or casts a spell.":
+        "Une créature est **Invisible**. Le sort prend fin quand elle attaque ou lance un sort.",
+    # Enchanter's Book
+    "Spell attack against INT Defense: **1d6 Necrotic**, and it subtracts 1d4 from its next attack roll before the end of your next turn.":
+        "Attaque de sort contre la Défense d'INT : **1d6 Nécrotique**, et elle soustrait 1d4 à son prochain jet d'attaque avant la fin de votre prochain tour.",
+    "Spell attack against WIL Defense: **Subdue · Unconscious**. It wakes up when it takes damage, or when someone spends an action to shake it.":
+        "Attaque de sort contre la Défense de VOL : **Emprise · Inconscient**. Elle se réveille quand elle subit des dégâts, ou quand quelqu'un dépense une action pour la secouer.",
+    "Spell attack against the WIL Defense of a humanoid: **Subdue · Charmed**. When it ends, the creature knows it was charmed.":
+        "Attaque de sort contre la Défense de VOL d'un humanoïde : **Emprise · Charmé**. Quand l'effet prend fin, la créature sait qu'elle a été charmée.",
+    "Spell attack against WIL Defense: one word it obeys on its next turn. *Drop:* it drops what it holds. *Grovel:* it falls **Prone**. *Flee:* it spends its turn moving away from you.":
+        "Attaque de sort contre la Défense de VOL : un mot auquel elle obéit à son prochain tour. *Lâche :* elle lâche ce qu'elle tient. *À genoux :* elle tombe **À terre**. *Fuis :* elle passe son tour à s'éloigner de vous.",
+    "Spell attack against WIL Defense: it collapses with laughter. **Subdue · Incapacitated**.":
+        "Attaque de sort contre la Défense de VOL : elle s'effondre de rire. **Emprise · Neutralisé**.",
+    "Spell attack against the WIL Defense of a humanoid: it is paralyzed. **Subdue · Stunned**.":
+        "Attaque de sort contre la Défense de VOL d'un humanoïde : elle est paralysée. **Emprise · Étourdi**.",
+    # Occultist's Pact
+    "**Action.** Attack against WIL Defense: **1d10 Necrotic**.": "**Action.** Attaque contre la Défense de VOL : **1d10 Nécrotique**.",
+    "Attack against WIL Defense: the target subtracts 1d6 from its damage rolls.":
+        "Attaque contre la Défense de VOL : la cible soustrait 1d6 à ses jets de dégâts.",
+    "−2 to an enemy's attack roll, and it takes **1d10 Fire**.": "−2 au jet d'attaque d'un ennemi, et il subit **1d10 Feu**.",
+    "**Action.** Attack against WIL Defense: the target is **Poisoned** for 2 turns.":
+        "**Action.** Attaque contre la Défense de VOL : la cible est **Empoisonnée** pendant 2 tours.",
     # foes' own text
     "**Bite:** +4 to hit, 1d6 + 2 Physical.": "**Morsure :** +4 au toucher, 1d6 + 2 Physique.",
     "**Thick Hide:** +1 STR Defense (included).": "**Cuir épais :** +1 à la Défense de FOR (inclus).",
@@ -455,6 +573,66 @@ LORE = {
     "Four swift legs and a nose that reads the forest like a book.": "Quatre pattes rapides et un museau qui lit la forêt comme un livre.",
     "Green moss pressed into the wound. The forest remembers how to heal.": "De la mousse verte pressée dans la plaie. La forêt se souvient de comment guérir.",
     "Thick fur, a heavy hide and claws like knives. Few things argue with a bear.": "Une fourrure épaisse, un cuir lourd et des griffes comme des couteaux. Peu de choses discutent avec un ours.",
+    'Thick pelts, cured and laced. It smells of the animal for a while, then of you.': "D'épaisses fourrures, tannées et lacées. Elles sentent la bête un moment, puis vous.",
+    'Leather stiffened with rivets. It turns a blade and still lets you crouch.': 'Un cuir raidi de rivets. Il détourne une lame et vous laisse encore vous accroupir.',
+    "A length of braided leather with a crack like a breaking branch. It keeps a foe at arm's length, and more.": "Une longueur de cuir tressé qui claque comme une branche qui casse. Elle tient l'ennemi à bout de bras, et plus loin.",
+    'Small enough for a sleeve, loud enough to end an argument.': 'Assez petite pour une manche, assez bruyante pour clore une dispute.',
+    'A heavy steel bow on a wooden stock. Slow to wind, and nothing stops the bolt.': "Un lourd arc d'acier sur un fût de bois. Lente à armer, et rien n'arrête le carreau.",
+    'A living branch that never quite stopped growing. Wounds close faster in its shade.': "Une branche vivante qui n'a jamais tout à fait cessé de pousser. Les plaies se ferment plus vite à son ombre.",
+    'Bone, feather and a knot of fur on a thong. The beasts you become wear it too.': 'Os, plume et nœud de fourrure sur une lanière. Les bêtes que vous devenez le portent aussi.',
+    'A clear stone that holds a little light after dark. A tired mind can borrow from it.': 'Une pierre claire qui garde un peu de lumière après la nuit tombée. Un esprit las peut y puiser.',
+    'Linen, thread, a bone needle and a pot of salve. Enough to keep a friend breathing.': "Du lin, du fil, une aiguille d'os et un pot d'onguent. De quoi garder un ami en vie.",
+    'Wind, distance, the arc of the shot. Far is just another kind of near.': "Le vent, la distance, l'arc du tir. Loin n'est qu'une autre façon d'être près.",
+    'Armor worn like a second skin, every plate where the blow will land.': 'Une armure portée comme une seconde peau, chaque pièce là où le coup tombera.',
+    'One blade, one open hand, and a body that turns sideways to every thrust.': "Une lame, une main libre, et un corps qui s'efface devant chaque estoc.",
+    'A big weapon forgives nothing, and gives nothing back but strength.': 'Une grande arme ne pardonne rien, et ne rend que de la force.',
+    'The knife leaves the belt and the hand in the same motion.': "Le couteau quitte la ceinture et la main d'un seul geste.",
+    'A red haze that eats pain and spits out fury. Thinking can wait.': 'Un voile rouge qui dévore la douleur et crache la fureur. Réfléchir attendra.',
+    'A step into shadow, and the room forgets you were there.': "Un pas dans l'ombre, et la salle oublie que vous étiez là.",
+    'No steel, no leather: just a body that is never where the blow arrives.': "Ni acier ni cuir : juste un corps qui n'est jamais là où le coup arrive.",
+    'Hands and feet trained until they hit like hammers.': "Des mains et des pieds entraînés jusqu'à frapper comme des marteaux.",
+    'What it knows well, it knows twice.': "Ce qu'elle sait bien, elle le sait deux fois.",
+    'An hour of quiet study, and a little of the spent magic comes back.': "Une heure d'étude au calme, et un peu de la magie dépensée revient.",
+    'Dust, candle wax and a thousand spines. The answer is in a book somewhere.': 'Poussière, cire de bougie et mille reliures. La réponse est quelque part dans un livre.',
+    'Bows, titles and smiles with knives behind them. It knows the steps of that dance.': 'Révérences, titres et sourires avec des couteaux derrière. Elle connaît les pas de cette danse.',
+    'Far from roads and roofs, where the land does the talking.': 'Loin des routes et des toits, là où la terre fait la conversation.',
+    "A borrowed name, a false smile, a hand in someone's pocket.": "Un nom d'emprunt, un faux sourire, une main dans la poche d'un autre.",
+    'Hunger, cold and silence, endured until they taught something.': "La faim, le froid et le silence, endurés jusqu'à ce qu'ils enseignent quelque chose.",
+    'Every page is scorched at the corners. Raw power, written down and barely held.': 'Chaque page est roussie aux coins. De la puissance brute, couchée sur papier et à peine contenue.',
+    'Wards, seals and locks, in a hand that never smudges. Nothing gets in.': "Protections, sceaux et verrous, d'une main qui ne bave jamais. Rien n'entre.",
+    'Its pages show something else to every reader. Only the owner sees the spells.': 'Ses pages montrent autre chose à chaque lecteur. Seul son propriétaire y voit les sorts.',
+    'Soft words for hard minds. Its margins are full of names.': 'Des mots doux pour les esprits durs. Ses marges sont pleines de noms.',
+    'A promise made in the dark, to something that keeps its promises too.': 'Une promesse faite dans le noir, à quelque chose qui tient aussi les siennes.',
+    'A pale beam that leaves frost on the skin and lead in the legs.': 'Un rayon pâle qui laisse du givre sur la peau et du plomb dans les jambes.',
+    'A handshake that nobody forgets, or finishes.': "Une poignée de main que personne n'oublie, ni ne termine.",
+    'Thumbs together, fingers spread, and a sheet of flame leaps out.': 'Pouces joints, doigts écartés, et une nappe de flammes jaillit.',
+    'A clap of thunder from an open palm. Everyone close ends up on the floor.': "Un coup de tonnerre d'une paume ouverte. Tous ceux qui sont près finissent par terre.",
+    'A sphere that shifts color in flight, and decides on the way what it will be.': "Une sphère qui change de couleur en vol, et décide en chemin de ce qu'elle sera.",
+    'Three lines of fire, drawn in the air like strokes of a pen.': "Trois traits de feu, tracés dans l'air comme des coups de plume.",
+    'A single ringing note that cracks stone, glass and bone.': "Une seule note stridente qui fend la pierre, le verre et l'os.",
+    'A shimmer over the skin. Edges skid off it.': 'Un miroitement sur la peau. Les lames glissent dessus.',
+    'A torn strap, a cracked cup, a broken link: whole again, without a seam.': 'Une sangle déchirée, une coupe fêlée, un maillon brisé : entiers à nouveau, sans couture.',
+    'A skin of force, light as silk and harder than mail.': 'Une peau de force, légère comme la soie et plus dure que la maille.',
+    'The fire hits, and the ward drinks it.': 'Le feu frappe, et la protection le boit.',
+    'A circle drawn on the air. The dead and the damned find it hard to cross.': "Un cercle tracé dans l'air. Les morts et les damnés ont du mal à le franchir.",
+    'A surge of vigor that leaves allies taller than they were.': "Un sursaut de vigueur qui laisse les alliés plus grands qu'avant.",
+    "A sigil on the lock. It won't open for you, whoever you are.": "Un sigle sur la serrure. Elle ne s'ouvrira pas pour vous, qui que vous soyez.",
+    "A creak behind the door, a crate that isn't there.": "Un grincement derrière la porte, une caisse qui n'est pas là.",
+    'A new face, new clothes, the same voice. Practice the voice.': 'Un nouveau visage, de nouveaux habits, la même voix. Travaillez la voix.',
+    'A whole scene painted on the air, perfect until someone pokes it.': "Toute une scène peinte dans l'air, parfaite jusqu'à ce que quelqu'un la touche du doigt.",
+    'A burst of dazzling colors. When the eyes come back, the fight has moved on.': 'Un éclat de couleurs éblouissantes. Quand la vue revient, le combat a continué sans vous.',
+    'Three of you, then two, then one. Which one is real? Guess.': 'Trois de vous, puis deux, puis un. Lequel est le vrai ? Devinez.',
+    "The light bends around you. Don't sneeze.": "La lumière se courbe autour de vous. N'éternuez pas.",
+    'A cold splinter of thought, driven between the eyes.': 'Un éclat de pensée glacé, planté entre les yeux.',
+    'A heavy warmth behind the eyes. Just for a moment.': 'Une lourde chaleur derrière les yeux. Juste un instant.',
+    'A friendly voice, a reasonable request. Why would anyone refuse?': 'Une voix amicale, une demande raisonnable. Pourquoi refuser ?',
+    'One word, spoken like a command from a king.': "Un seul mot, prononcé comme l'ordre d'un roi.",
+    'Everything is suddenly, hopelessly funny.': 'Tout devient soudain, désespérément drôle.',
+    'Every muscle locks. Only the eyes still move.': 'Chaque muscle se fige. Seuls les yeux bougent encore.',
+    'A crackling beam of something that was never meant to be in this world.': "Un rayon crépitant de quelque chose qui n'aurait jamais dû être en ce monde.",
+    'A black ray that turns muscle to wet rope.': 'Un rayon noir qui change le muscle en corde mouillée.',
+    'Strike the occultist, and the flames of a patron answer.': "Frappez l'occultiste, et les flammes d'un protecteur répondent.",
+    'A muttered curse. Food sours, hands shake, the stomach turns.': "Une malédiction marmonnée. La nourriture tourne, les mains tremblent, l'estomac se soulève.",
 }
 
 # Slot frames (base_set.FRAMES): name, swap time, reminder
@@ -469,7 +647,7 @@ FRAME_TEXT = {
     "Empty: grapple, or hold a Spellbook to cast.": "Vide : empoigner, ou tenir un Livre de sorts pour lancer.",
     "Rings, amulets, circlets, cloaks, gloves, boots.": "Anneaux, amulettes, diadèmes, capes, gants, bottes.",
     "A Spellbook, a Recipe, or up to 3 identical Consumables.": "Un Livre de sorts, une Recette, ou jusqu'à 3 Consommables identiques.",
-    "A Trait, Technique, Domain, Divine, Glamour or Nature.": "Un Trait, une Technique, un Domaine, un Divin, un Glamour ou une Nature.",
+    "A Trait, Technique, Domain or WIL deck.": "Un Trait, une Technique, un Domaine ou un paquet de VOL.",
     "Extra Gear Slot: a spectral arm, a familiar, a living tail.": "Emplacement de Matériel supplémentaire : un bras spectral, un familier, une queue vivante.",
     "Never lost, traded or stored.": "Jamais perdu, échangé ni rangé.", "Extra Gear Slot.": "Emplacement de Matériel supplémentaire.",
     "Holds one Rune, or nothing.": "Contient une Rune, ou rien.",
@@ -585,6 +763,22 @@ RUNE_DE = {
     'Chance': 'de la',
     'Campagne': 'de la',
     'Discipline': 'de la',
+    'Archerie': "de l'",
+    'Rempart': 'du',
+    'Duel': 'du',
+    'Armes lourdes': 'des',
+    'Lancer vif': 'du',
+    'Rage': 'de la',
+    'Ruse': 'de la',
+    'Garde sans armure': 'de la',
+    'Arts martiaux': 'des',
+    'Expertise': "de l'",
+    'Recouvrement arcanique': 'du',
+    'Bibliothèque': 'de la',
+    'Cour': 'de la',
+    'Contrées sauvages': 'des',
+    'Duperie': 'de la',
+    'Ascèse': "de l'",
 }
 
 

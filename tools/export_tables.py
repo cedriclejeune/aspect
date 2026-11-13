@@ -6,7 +6,7 @@ the tables: change the sources and run this (tools/build_cards.py runs it too).
 
 Files:
 - cards.csv: one row per card (Callings, gear, Runes, deck covers, Wounds) with its ten strip numbers.
-- powers.csv: one row per spell or power in a deck (Spellbook, Glamour, Divine, Nature).
+- powers.csv: one row per spell or power in a deck (Spellbook, Glamour, Divine, Nature, Pact).
 - foes.csv: one row per foe card with its body, its totals and the cards it carries.
 - cards.json: the same three tables as lists of objects.
 """

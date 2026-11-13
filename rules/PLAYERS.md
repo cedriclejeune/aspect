@@ -59,7 +59,7 @@ The party advances through a **story**, one quest at a time. Play runs at three 
 
 ### 2.1 The Bearers
 
-Your character is a **Bearer**. A **Rune** is a power in the shape of a sign: a Trait, a Technique, a Domain, or Divine, Glamour or Nature magic. The sign is only its trace: drawing it again does nothing. Most creatures carry a few, anchored in them: they keep the same ones for life. A few humanoids carry a gift, a blessing or a curse depending on who you ask: a Rune never anchors in a Bearer, who can **etch** it into themself, and take it out again. When a creature dies, its Runes come loose and linger over the body for a minute, then fade. A Bearer can catch one in a **Runestone**: a bulky stone that holds one Rune until it is etched. Bearers grow by gathering two kinds of resources, each occupying their own **Slots**:
+Your character is a **Bearer**. A **Rune** is a power in the shape of a sign: a Trait, a Technique, a Domain, or WIL magic. The sign is only its trace: drawing it again does nothing. Most creatures carry a few, anchored in them: they keep the same ones for life. A few humanoids carry a gift, a blessing or a curse depending on who you ask: a Rune never anchors in a Bearer, who can **etch** it into themself, and take it out again. When a creature dies, its Runes come loose and linger over the body for a minute, then fade. A Bearer can catch one in a **Runestone**: a bulky stone that holds one Rune until it is etched. Bearers grow by gathering two kinds of resources, each occupying their own **Slots**:
 
 - **Gear:** real objects of two kinds. **Equipment** is what you wear or wield (armor, weapons, shields, Instruments, Jewelry); **items** are what you carry and use (Spellbooks, Recipes, Consumables, Containers, Runestones). Gear is equipped in **Armor, Hand, Jewelry and Item Slots**, together called **Gear Slots**.
 - **Runes:** are etched into your **Rune Slots**. The number of a Bearer's etched Runes is limited by the number of Rune Slots they have. This number grows each time the party completes a story (milestones, 4.1). A Runestone's Rune is etched while you sleep, during a long rest (3.5). Blank Runestones are precious: without one, a lingering Rune is lost (3.8).
@@ -76,7 +76,7 @@ Every creature has **four abilities**, each written as a **modifier** (typically
 | <img class="sym" src="symbols/str.svg" alt="STR" width="22"> | **Strength (STR)** | Climb, jump, swim, lift, break, grapple, endure pain, march, hold breath | <img class="sym" src="symbols/str-def.svg" alt="STR Defense" width="22"> | **Weapons** (or DEX), poison, disease, being pushed or grappled |
 | <img class="sym" src="symbols/dex.svg" alt="DEX" width="22"> | **Dexterity (DEX)** | Sneak, hide, balance, tumble, pick locks and pockets, disarm traps, escape bonds | <img class="sym" src="symbols/dex-def.svg" alt="DEX Defense" width="22"> | **Weapons** (or STR), explosions, traps, breath weapons, area effects |
 | <img class="sym" src="symbols/int.svg" alt="INT" width="22"> | **Intelligence (INT)** | Notice, search, read intentions, recall lore, track, navigate, treat wounds. **All spellcasting.** | <img class="sym" src="symbols/int-def.svg" alt="INT Defense" width="22"> | Illusions, confusion and madness |
-| <img class="sym" src="symbols/wil.svg" alt="WIL" width="22"> | **Will (WIL)** | Persuade, deceive, perform, intimidate, handle animals, stand firm. **Divine, Glamour and Nature magic.** | <img class="sym" src="symbols/wil-def.svg" alt="WIL Defense" width="22"> | Charm, fear, mind control, possession, banishment, curses, polymorph |
+| <img class="sym" src="symbols/wil.svg" alt="WIL" width="22"> | **Will (WIL)** | Persuade, deceive, perform, intimidate, handle animals, stand firm. **WIL magic (10.6).** | <img class="sym" src="symbols/wil-def.svg" alt="WIL Defense" width="22"> | Charm, fear, mind control, possession, banishment, curses, polymorph |
 
 |  | Number | What it measures |
 |---|---|---|
@@ -679,6 +679,8 @@ Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wea
 | **None** (empty Armor Slot) | — | — | — | +10 ft speed. |
 | **Leather** | I | all | +2 STR Defense, +1 DEX Defense, +2 HP | +5 ft speed. |
 | **Mail** | I | STR · DEX | +3 STR Defense, +4 HP | |
+| **Hide** | I | STR · WIL | +2 STR Defense, +4 HP | |
+| **Studded Leather** | I | DEX · INT | +2 STR Defense, +2 DEX Defense, +2 HP | |
 | **Plate** | II | STR | +4 STR Defense, +12 HP | −10 ft speed. Noisy 3. |
 | **Shield** | I | STR · WIL | +2 STR and DEX Defense | Takes one Hand Slot. |
 
@@ -781,6 +783,7 @@ A WIL deck has a **type**. **Every type follows the same rules**: the type says 
 | **Divine** | A **Litany** of prayers | Fate (rerolls, fate dice) and healing: Anthems, Dirges, Cues, Mends |
 | **Glamour** | A **Repertoire** of songs, poems and dances | Courage and fear (flat bonuses and penalties): Anthems, Dirges, Cues, Mends |
 | **Nature** | An **Instinct** of beasts | Beasts and healing: Forms (10.7), Mends |
+| **Pact** | A **Pact** with a patron | Curses and harm: Dirges, Cues |
 
 - **A fixed list:** a WIL deck lists its Rank, its Attack bonus, the Resolve it adds, then its powers. To change powers, etch a different deck. At the table, it's a deck (12.4).
 - **Resolve:** one pool for all of them: the Resolve printed on each of your WIL decks, added up, **+ your WIL** once (minimum 1), plus any extra Resolve from your Calling, Traits and gear. With none of these decks, you have none. Keep the count on your tally card (12.3). Any of your decks' powers can spend it. It returns on a **short rest** (and a long rest). If your WIL or your decks change, your total changes; Resolve already spent stays spent. A power costing **0** is used at will.
@@ -839,6 +842,7 @@ The first keyword. It sets the Slot (3.2).
 | **Divine** | Rune Slot. A Litany: a WIL deck of prayers (10.6). |
 | **Glamour** | Rune Slot. A Repertoire: a WIL deck of songs, poems and dances (10.6). |
 | **Nature** | Rune Slot. An Instinct: a WIL deck of beasts (10.6). |
+| **Pact** | Rune Slot. A Pact: a WIL deck of a patron's gifts (10.6). |
 | **Wound** | No Slot: a lasting injury (7.6). A **Crippling** Wound blocks the Gear Slot it names. |
 | **Form** | Part of an Instinct, never on its own. A beast you shift into (10.7). |
 | **Runestone** | An item, never in a Slot. Holds one Rune, or nothing. Pack (3 at most) or Party Stash (3.8). |
@@ -970,7 +974,7 @@ You only touch the totals at two moments.
 
 ### 12.4 Decks
 
-A Spellbook is a **deck**: a **cover card** (Rank, spell attack, spell points, max spell level) on top, then **one card per cantrip and spell**, each marked with the book's name. The deck moves as one card, and its spell cards never move to another deck. A WIL deck (a Litany, a Repertoire, an Instinct) is a deck too: a cover card (Rank, Attack, Resolve) and one card per power. A cover card's spell points or Resolve count in your total on the tally card (12.3); nothing is marked on the deck. While you're shifted, lay the Form's card on your Calling card, with its own tally card.
+A Spellbook is a **deck**: a **cover card** (Rank, spell attack, spell points, max spell level) on top, then **one card per cantrip and spell**, each marked with the book's name. The deck moves as one card, and its spell cards never move to another deck. A WIL deck (a Litany, a Repertoire, an Instinct, a Pact) is a deck too: a cover card (Rank, Attack, Resolve) and one card per power. A cover card's spell points or Resolve count in your total on the tally card (12.3); nothing is marked on the deck. While you're shifted, lay the Form's card on your Calling card, with its own tally card.
 
 ---
 
@@ -1060,6 +1064,7 @@ Each game term has one meaning, in both books.
 | **Noisy N** | −N on checks to sneak. |
 | **Object** | A small non-magical thing that isn't gear: a key, a letter, treasure, rope, a torch. Carried freely, with no limit. |
 | **Pack** | Your personal bag: up to 8 pieces, gear you carry but haven't equipped and at most 3 Runestones. |
+| **Pact** | A type of WIL deck: magic granted by a patron. Its deck is a **Pact**, which holds curses and harm: Dirges and Cues. |
 | **Party** | The group of Bearers played together. |
 | **Party Stash** | The group's mule, cart or wagon: gear and Runestones the party owns but nobody carries. |
 | **Piece** | One unit of gear, as the Pack, the Party Stash and loot count it. A stack of up to 3 identical Consumables is one piece. |
@@ -1076,7 +1081,7 @@ Each game term has one meaning, in both books.
 | **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
 | **Resolve** | The points your WIL magic costs: one pool, the sum your WIL decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest. |
-| **Rune** | A power in the shape of a sign: a Trait, Technique, Domain, Divine, Glamour or Nature. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone. |
+| **Rune** | A power in the shape of a sign: a Trait, Technique, Domain or WIL deck. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone. |
 | **Rune Slot** | A Slot that holds one Rune. You start with 3 and can reach 8. |
 | **Runestone** | A bulky stone that holds one Rune, or nothing (a blank Runestone). An item, but never in a Slot. |
 | **Shield** | The type of held gear that raises your Defenses; it fits a Hand Slot. |
@@ -1110,7 +1115,7 @@ Each game term has one meaning, in both books.
 | **Visual** | A keyword on a WIL magic power: it needs no voice and acts on creatures who see you, not on those who hear you (a dance, a sign). |
 | **Vulnerable (type)** | Take double damage of that type. |
 | **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of the abilities it names (*+2 to hit, 1d8 + STR or DEX Physical*). |
-| **WIL deck** | A Rune of WIL magic: a fixed list of powers, with an Attack bonus and the Resolve it adds to yours. Its type (Divine, Glamour or Nature) says which powers it holds and changes no other rule. |
+| **WIL deck** | A Rune of WIL magic: a fixed list of powers, with an Attack bonus and the Resolve it adds to yours. Its type (Divine, Glamour, Nature or Pact) says which powers it holds and changes no other rule. |
 | **Wound** | A lasting injury, drawn at random each time you fall to 0 HP. It stays until a downtime heals it. A Crippling Wound blocks a Gear Slot. |
 | **You question** | The first of the three questions asked before an attack: your position and conditions (unseen; long range, can't see the target, Prone…). One die at most. The only question asked on checks, saves and area rolls. |
 

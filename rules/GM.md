@@ -157,15 +157,15 @@ A hidden Bearer (P 5.4) can watch a group of foes before a fight: an **INT check
 - **A budget per trial, not per corpse.** Give the same 1–3 pieces of loot per character however the party gets through: a fight leaves gear on the bodies and Runes lingering over them; a deal brings a payment, a gift (6.3) or a favor (*Writ of Favor*, *Guild Signet*, P 3.4); stealth or trickery reaches the treasure the monsters guarded. Players then never lose loot for avoiding a fight.
 
 ### 4.2 Rewards
-- **Starter list** (P 13.1): offer Rank I gear and Runes for every style and every Calling, including a WIL deck and a Focus. Each player picks only cards their Calling can equip. The base set starts players on a Repertoire (Glamour) and keeps its Litany (Divine) and Instinct (Nature) as loot. Its list:
+- **Starter list** (P 13.1): offer Rank I gear and Runes for every style and every Calling, including a WIL deck and a Focus. Each player picks only cards their Calling can equip. The base set offers all its WIL decks at the start: a Repertoire (Glamour), a Litany (Divine), an Instinct (Nature) and a Pact. Its list:
 
 | Slot | Starter gear and Runes (Rank I) |
 |---|---|
-| **Armor** | *Leather*, *Mail* |
-| **Hands** | *Shield*, *Dagger*, *Shortsword*, *Handaxe*, *Finesse Blade*, *Longsword*, *Battleaxe*, *Greatsword*, *Glaive*, *Longbow*, *Sling*, *Javelins*, *Spellguard Staff*, *Traveler's Lute* |
-| **Jewelry** | *Ring of Warding*, *Guild Signet*, *Boots of the Long Stride*, *Dancer's Bells* |
-| **Items** | *Conjurer's Book*, *Potion of Healing*, *Coin Pouch*, *Writ of Favor* |
-| **Runes** | *Springheel*, *Stone Blood*, *Iron Will*, *Clear Mind*, *Cleave*, *Steady Aim*, *Shield Bash*, *Battle Hymn*, *Rallying Cry*, *Larceny*, *Minstrel*, *Navigation*, *Backstreets*, *Hunt*, *Healing*, *Tavern*, *Forge*, *Peaks*, *Wanderer's Repertoire* |
+| **Armor** | *Leather*, *Mail*, *Hide*, *Studded Leather* |
+| **Hands** | *Shield*, *Dagger*, *Shortsword*, *Handaxe*, *Finesse Blade*, *Longsword*, *Battleaxe*, *Greatsword*, *Glaive*, *Longbow*, *Sling*, *Javelins*, *Spellguard Staff*, *Traveler's Lute*, *Greatclub*, *Shortbow*, *Greataxe*, *Wand*, *Whip*, *Hand Crossbow*, *Crossbow*, *Druid's Staff* |
+| **Jewelry** | *Ring of Warding*, *Guild Signet*, *Holy Amulet*, *Boots of the Long Stride*, *Dancer's Bells*, *Druid's Totem*, *Arcane Crystal* |
+| **Items** | *Conjurer's Book*, *Evoker's Book*, *Abjurer's Book*, *Illusionist's Book*, *Enchanter's Book*, *Potion of Healing*, *Coin Pouch*, *Writ of Favor*, *Runestone Bandolier*, *Healer's Kit* |
+| **Runes** | *Springheel*, *Stone Blood*, *Iron Will*, *Clear Mind*, *Cleave*, *Steady Aim*, *Shield Bash*, *Battle Hymn*, *Rallying Cry*, *Larceny*, *Minstrel*, *Navigation*, *Backstreets*, *Hunt*, *Healing*, *Tavern*, *Forge*, *Peaks*, *Archery*, *Bulwark*, *Dueling*, *Great Weapons*, *Quick Throw*, *Rage*, *Cunning*, *Unarmored Guard*, *Martial Arts*, *Expertise*, *Arcane Recovery*, *Library*, *Court*, *Frontier*, *Deceit*, *Asceticism*, *Wanderer's Repertoire*, *Acolyte's Litany*, *Wildheart's Instinct*, *Occultist's Pact* |
 
 - **Wishlists:** each player writes **3 cards** they'd like to find on the back of their tally card (P 12.3) and updates it when they want. Glance at it when you pick drops (4.1) and rewards: grant a wish now and then, at its Rank, from a fitting monster or trial. *Provisional: the card backs aren't designed yet.*
 - **Extra Gear Slots** are Boss rewards only. Never more than one of each per character. At the table, hand the player its Slot frame (P 12.2).
@@ -435,6 +435,7 @@ Each game term has one meaning, in both books.
 | **Noisy N** | −N on checks to sneak. |
 | **Object** | A small non-magical thing that isn't gear: a key, a letter, treasure, rope, a torch. Carried freely, with no limit. |
 | **Pack** | Your personal bag: up to 8 pieces, gear you carry but haven't equipped and at most 3 Runestones. |
+| **Pact** | A type of WIL deck: magic granted by a patron. Its deck is a **Pact**, which holds curses and harm: Dirges and Cues. |
 | **Party** | The group of Bearers played together. |
 | **Party Stash** | The group's mule, cart or wagon: gear and Runestones the party owns but nobody carries. |
 | **Piece** | One unit of gear, as the Pack, the Party Stash and loot count it. A stack of up to 3 identical Consumables is one piece. |
@@ -451,7 +452,7 @@ Each game term has one meaning, in both books.
 | **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
 | **Resolve** | The points your WIL magic costs: one pool, the sum your WIL decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest. |
-| **Rune** | A power in the shape of a sign: a Trait, Technique, Domain, Divine, Glamour or Nature. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone. |
+| **Rune** | A power in the shape of a sign: a Trait, Technique, Domain or WIL deck. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone. |
 | **Rune Slot** | A Slot that holds one Rune. You start with 3 and can reach 8. |
 | **Runestone** | A bulky stone that holds one Rune, or nothing (a blank Runestone). An item, but never in a Slot. |
 | **Shield** | The type of held gear that raises your Defenses; it fits a Hand Slot. |
@@ -485,7 +486,7 @@ Each game term has one meaning, in both books.
 | **Visual** | A keyword on a WIL magic power: it needs no voice and acts on creatures who see you, not on those who hear you (a dance, a sign). |
 | **Vulnerable (type)** | Take double damage of that type. |
 | **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of the abilities it names (*+2 to hit, 1d8 + STR or DEX Physical*). |
-| **WIL deck** | A Rune of WIL magic: a fixed list of powers, with an Attack bonus and the Resolve it adds to yours. Its type (Divine, Glamour or Nature) says which powers it holds and changes no other rule. |
+| **WIL deck** | A Rune of WIL magic: a fixed list of powers, with an Attack bonus and the Resolve it adds to yours. Its type (Divine, Glamour, Nature or Pact) says which powers it holds and changes no other rule. |
 | **Wound** | A lasting injury, drawn at random each time you fall to 0 HP. It stays until a downtime heals it. A Crippling Wound blocks a Gear Slot. |
 | **You question** | The first of the three questions asked before an attack: your position and conditions (unseen; long range, can't see the target, Prone…). One die at most. The only question asked on checks, saves and area rolls. |
 

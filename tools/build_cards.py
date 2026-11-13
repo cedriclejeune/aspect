@@ -48,11 +48,11 @@ SYM_FILE = {"STR": "str", "DEX": "dex", "INT": "int", "WIL": "wil", "STRd": "str
             "WILd": "wil-def", "HP": "hp", "SPD": "spd"}
 SKETCHES = ROOT / "rules" / "symbols" / "sketch"  # stand-ins until tools/gen_symbols.py draws the ink symbol
 TYPE_SYMBOL = {t: t.lower() for t in ("Calling", "Armor", "Weapon", "Shield", "Jewelry", "Instrument", "Consumable", "Container",
-                                      "Recipe", "Spellbook", "Trait", "Technique", "Divine", "Glamour", "Nature")}
+                                      "Recipe", "Spellbook", "Trait", "Technique", "Divine", "Glamour", "Nature", "Pact")}
 TYPE_SYMBOL["Domain"] = "knack"  # the symbol file keeps the name the type had before it became Domain
 FAMILY = {"Calling": "calling", **dict.fromkeys(("Armor", "Weapon", "Shield", "Jewelry", "Instrument"), "equip"),
           **dict.fromkeys(("Consumable", "Container", "Recipe", "Spellbook", "Runestone"), "item"),
-          **dict.fromkeys(("Trait", "Technique", "Domain", "Divine", "Glamour", "Nature"), "aspect")}  # "aspect": the Rune family
+          **dict.fromkeys(("Trait", "Technique", "Domain", "Divine", "Glamour", "Nature", "Pact"), "aspect")}  # "aspect": the Rune family
 SUBTITLE = {"calling": "Calling", "equip": "Equipment", "item": "Item", "aspect": "Rune", "spell": "Spell", "power": "Power"}  # GLOSSARY: gear is equipment or items
 DESCRIPTIVE = set()  # keywords that describe without a rule: printed grey on the second keyword line (none yet)
 
