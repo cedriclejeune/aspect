@@ -686,7 +686,7 @@ Heavier armor gives more **HP** and slows you down. Armor adds mostly to **STR D
 
 ### 9.2 Weapons
 
-Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" can be a longsword, a battleaxe or a spear.
+Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" can be a battleaxe or a spear.
 
 | Weapon (gear) | Rolls with | To hit | Damage | Properties |
 |---|---|---|---|---|
@@ -694,7 +694,7 @@ Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" c
 | **Short Blade** (shortsword, sickle) | STR · DEX | +2 | 1d6 | Light, Flurry |
 | **Light Weapon** (handaxe, club, light hammer) | STR · DEX | +2 | 1d6 | Light, Thrown (20/60) |
 | **Finesse Blade** (rapier, scimitar) | DEX | +2 | 1d6 | — |
-| **Versatile Weapon** (longsword, battleaxe, spear) | STR or STR · DEX | +2 | 1d8 / 1d10 | Versatile |
+| **Versatile Weapon** (battleaxe, spear) | STR or STR · DEX | +2 | 1d8 / 1d10 | Versatile |
 | **Staff** (quarterstaff, rod) | INT · WIL | +2 | 1d6 / 1d8 | Versatile |
 | **Heavy Weapon** (greatsword, maul) | STR | +2 | 2d6 | Heavy, Two-Handed |
 | **Great Axe** (greataxe) | STR | +2 | 1d12 | Heavy, Two-Handed, Brutal |

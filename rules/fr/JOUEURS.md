@@ -686,7 +686,7 @@ Une armure plus lourde donne plus de **PV** et vous ralentit. L'armure renforce 
 
 ### 9.2 Armes
 
-Chaque ligne est une sorte d'arme de Rang I. Son nom est une simple couleur : une « Arme polyvalente » peut être une épée longue, une hache d'armes ou une lance.
+Chaque ligne est une sorte d'arme de Rang I. Son nom est une simple couleur : une « Arme polyvalente » peut être une hache d'armes ou une lance.
 
 | Arme (matériel) | Attaque avec | Au toucher | Dégâts | Propriétés |
 |---|---|---|---|---|
@@ -694,7 +694,7 @@ Chaque ligne est une sorte d'arme de Rang I. Son nom est une simple couleur : un
 | **Lame courte** (épée courte, serpe) | FOR · AGI | +2 | 1d6 | Légère, Rafale |
 | **Arme légère** (hachette, gourdin, marteau léger) | FOR · AGI | +2 | 1d6 | Légère, Lancer (6/18) |
 | **Lame fine** (rapière, cimeterre) | AGI | +2 | 1d6 | — |
-| **Arme polyvalente** (épée longue, hache d'armes, lance) | FOR ou FOR · AGI | +2 | 1d8 / 1d10 | Polyvalente |
+| **Arme polyvalente** (hache d'armes, lance) | FOR ou FOR · AGI | +2 | 1d8 / 1d10 | Polyvalente |
 | **Bâton** (bâton, sceptre) | INT · VOL | +2 | 1d6 / 1d8 | Polyvalente |
 | **Arme lourde** (épée à deux mains, maillet) | FOR | +2 | 2d6 | Lourde, Deux mains |
 | **Grande hache** (grande hache) | FOR | +2 | 1d12 | Lourde, Deux mains, Brutale |
