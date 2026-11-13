@@ -695,6 +695,7 @@ Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" c
 | **Light Weapon** (handaxe, club, light hammer) | STR · DEX | +2 | 1d6 | Light, Thrown (20/60) |
 | **Finesse Blade** (rapier, scimitar) | DEX | +2 | 1d6 | — |
 | **Versatile Weapon** (battleaxe, spear) | STR or STR · DEX | +2 | 1d8 / 1d10 | Versatile |
+| **Longsword** (longsword, bastard sword) | STR | +2 | 1d8 / 1d10 | Versatile; +1 STR Defense while you hold it |
 | **Staff** (quarterstaff, rod) | INT · WIL | +0 | 1d6 | +2 to spell and WIL deck attacks |
 | **Heavy Weapon** (greatsword, maul) | STR | +2 | 2d6 | Heavy, Two-Handed |
 | **Great Axe** (greataxe) | STR | +2 | 1d12 | Heavy, Two-Handed, Brutal |
@@ -703,8 +704,9 @@ Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" c
 | **Whip** | DEX | +2 | 1d4 | Reach |
 | **Javelins** | STR · DEX | +2 | 1d6 | Thrown (30/120) |
 | **Sling** / **Hand Crossbow** | DEX | +2 | 1d6 | Light, Range (30/120) |
-| **Bow** (short or long) | DEX | +2 | 1d8 | Range (150/600), Two-Handed |
-| **Fine Bow** (composite bow) | DEX | +2 | 1d10 | Range (150/600), Two-Handed |
+| **Bow** (longbow) | DEX | +2 | 1d8 | Range (150/600), Two-Handed |
+| **Shortbow** | DEX | +2 | 1d6 | Range (80/320), Two-Handed; an enemy within 5 ft gives no disadvantage |
+| **Fine Bow** (composite bow) | DEX | +2 | 1d10 | Loading, Range (150/600), Two-Handed |
 | **Wand** | INT | +2 | 1d8 Lightning | Range (60/120) |
 | **Crossbow** (heavy) | DEX | +2 | 1d10 | Loading, Range (100/400), Two-Handed |
 

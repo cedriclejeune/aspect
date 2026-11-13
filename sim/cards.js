@@ -2391,12 +2391,14 @@ globalThis.BEARERS_CARDS = {
    "type": "Weapon",
    "kw": [
     "Weapon",
-    "Versatile (1d12)"
+    "Versatile (1d10)"
    ],
    "text": [
-    "+2 to hit, 1d8 / 1d12 + STR Physical."
+    "+2 to hit, 1d8 / 1d10 + STR Physical."
    ],
-   "strip": {},
+   "strip": {
+    "STRd": 1
+   },
    "group": "starter",
    "sym": [
     "STR",
@@ -2407,7 +2409,7 @@ globalThis.BEARERS_CARDS = {
    "atk": {
     "hit": 2,
     "dice": "1d8",
-    "two": "1d12",
+    "two": "1d10",
     "abil": [
      "STR"
     ],
@@ -2782,8 +2784,7 @@ globalThis.BEARERS_CARDS = {
    "kind": "gear",
    "type": "Weapon",
    "kw": [
-    "Weapon",
-    "Light"
+    "Weapon"
    ],
    "text": [
     "+2 to hit, 1d6 + STR or DEX Physical. **Close Order:** +1d4 damage while an ally is engaged with the same creature."
@@ -2806,7 +2807,7 @@ globalThis.BEARERS_CARDS = {
     "brutal": false,
     "crushing": false,
     "flurry": false,
-    "light": true,
+    "light": false,
     "heavy": false,
     "reach": false,
     "twoHanded": false,
@@ -2838,7 +2839,7 @@ globalThis.BEARERS_CARDS = {
     "Two-Handed"
    ],
    "text": [
-    "+2 to hit, range 80/320 ft, 1d6 + DEX Physical."
+    "+2 to hit, range 80/320 ft, 1d6 + DEX Physical. **Close Shot:** an enemy within 5 ft doesn't give you disadvantage on your attacks with it."
    ],
    "strip": {},
    "group": "loot",
@@ -2867,7 +2868,14 @@ globalThis.BEARERS_CARDS = {
      320
     ]
    },
-   "fx": []
+   "fx": [
+    {
+     "id": "W-I-15#0",
+     "name": "Shortbow",
+     "use": "passive",
+     "closeShot": 5
+    }
+   ]
   },
   "W-I-16": {
    "id": "W-I-16",
@@ -2919,7 +2927,8 @@ globalThis.BEARERS_CARDS = {
    "kw": [
     "Weapon",
     "Range 150/600",
-    "Two-Handed"
+    "Two-Handed",
+    "Loading"
    ],
    "text": [
     "+2 to hit, range 150/600 ft, 1d10 + DEX Physical."
@@ -2944,7 +2953,7 @@ globalThis.BEARERS_CARDS = {
     "heavy": false,
     "reach": false,
     "twoHanded": true,
-    "loading": false,
+    "loading": true,
     "thrown": null,
     "range": [
      150,
@@ -4548,7 +4557,7 @@ globalThis.BEARERS_CARDS = {
     "DEX": 1,
     "INT": 1,
     "WIL": 1,
-    "STRd": 16,
+    "STRd": 17,
     "DEXd": 13,
     "INTd": 11,
     "WILd": 11,
@@ -4723,7 +4732,7 @@ globalThis.BEARERS_CARDS = {
     "DEX": 1,
     "INT": 1,
     "WIL": 0,
-    "STRd": 16,
+    "STRd": 17,
     "DEXd": 13,
     "INTd": 11,
     "WILd": 10,

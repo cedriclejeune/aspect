@@ -695,6 +695,7 @@ Chaque ligne est une sorte d'arme de Rang I. Son nom est une simple couleur : un
 | **Arme légère** (hachette, gourdin, marteau léger) | FOR · AGI | +2 | 1d6 | Légère, Lancer (6/18) |
 | **Lame fine** (rapière, cimeterre) | AGI | +2 | 1d6 | — |
 | **Arme polyvalente** (hache d'armes, lance) | FOR ou FOR · AGI | +2 | 1d8 / 1d10 | Polyvalente |
+| **Épée longue** (épée longue, épée bâtarde) | FOR | +2 | 1d8 / 1d10 | Polyvalente ; +1 à la Défense de FOR tant que vous la tenez |
 | **Bâton** (bâton, sceptre) | INT · VOL | +0 | 1d6 | +2 aux attaques de sort et de paquet de VOL |
 | **Arme lourde** (épée à deux mains, maillet) | FOR | +2 | 2d6 | Lourde, Deux mains |
 | **Grande hache** (grande hache) | FOR | +2 | 1d12 | Lourde, Deux mains, Brutale |
@@ -703,8 +704,9 @@ Chaque ligne est une sorte d'arme de Rang I. Son nom est une simple couleur : un
 | **Fouet** | AGI | +2 | 1d4 | Allonge |
 | **Javelots** | FOR · AGI | +2 | 1d6 | Lancer (9/36) |
 | **Fronde** / **Arbalète de poing** | AGI | +2 | 1d6 | Légère, Portée (9/36) |
-| **Arc** (court ou long) | AGI | +2 | 1d8 | Portée (45/180), Deux mains |
-| **Arc composite** | AGI | +2 | 1d10 | Portée (45/180), Deux mains |
+| **Arc** (arc long) | AGI | +2 | 1d8 | Portée (45/180), Deux mains |
+| **Arc court** | AGI | +2 | 1d6 | Portée (24/96), Deux mains ; un ennemi à 2 m ou moins ne donne pas de désavantage |
+| **Arc composite** | AGI | +2 | 1d10 | Chargement, Portée (45/180), Deux mains |
 | **Baguette** | INT | +2 | 1d8 Foudre | Portée (18/36) |
 | **Arbalète** (lourde) | AGI | +2 | 1d10 | Chargement, Portée (30/120), Deux mains |
 

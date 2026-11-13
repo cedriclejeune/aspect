@@ -79,7 +79,7 @@ KEYWORDS = {
     "Nature": "Nature", "Anthem": "Hymne", "Dirge": "Complainte", "Cue": "Réplique", "Mend": "Soin", "Form": "Forme",
     "Wound": "Blessure", "Crippling": "Invalidante", "Hand": "Main", "Item": "Objet", "Heavy": "Lourde",
     "Light": "Légère", "Reach": "Allonge", "Two-Handed": "Deux mains", "Versatile (1d10)": "Polyvalente (1d10)",
-    "Versatile (1d8)": "Polyvalente (1d8)", "Brutal": "Brutale", "Crushing": "Écrasante", "Flurry": "Rafale",
+    "Versatile (1d8)": "Polyvalente (1d8)", "Brutal": "Brutale", "Crushing": "Écrasante", "Flurry": "Rafale", "Loading": "Chargement",
     "Restrained": "Entravé", "Targets DEX": "Vise AGI", "Duration 1 minute": "Durée 1 minute",
     "Duration 1 round": "Durée 1 round", "Gold": "Or", "Foe": "Adversaire", "Boss": "Boss", "Leader": "Meneur",
     "Tiny": "Très petit", "Small": "Petit", "Medium": "Moyen", "Large": "Grand",
@@ -159,6 +159,8 @@ TEXT = {
     "Takes one Hand.": "Occupe une Main.",
     "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn.":
         "**Saignée :** quand vous touchez, la cible a −2 à son prochain jet d'attaque avant le début de votre prochain tour.",
+    "**Close Shot:** an enemy within 5 ft doesn't give you disadvantage on your attacks with it.":
+        "**Tir rapproché :** un ennemi à 2 m ou moins ne vous donne pas de désavantage à vos attaques avec lui.",
     "+2 to your spell attacks and WIL deck attacks.":
         "+2 à vos attaques de sort et à vos attaques de paquet de VOL.",
     "1 extra Resolve (short rest).": "1 Ardeur supplémentaire (court repos).",

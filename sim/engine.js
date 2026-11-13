@@ -761,7 +761,9 @@
     if (has(a, "Poisoned")) sit("you", -1, "Poisoned");
     if (condsNamed(a, "Frightened").some((k) => { const s = st.creatures[k.source]; return s && canSee(F, a, s); })) sit("you", -1, "Frightened");
     if (condsNamed(a, "Grappled").some((k) => k.source !== t.id)) sit("you", -1, "Grappled");
-    if (ranged && living(st).some((e) => e.side !== a.side && !incap(e) && dist(e, a) <= 5 && canSee(F, e, a))) sit("you", -1, "enemy within 5 ft");
+    // Close Shot (Shortbow): an enemy within 5 ft gives no disadvantage on attacks with this weapon
+    const closeShot = info.weapon && info.weapon.card && ((F.cards.cards[info.weapon.card] || {}).fx || []).some((p) => p.closeShot);
+    if (ranged && !closeShot && living(st).some((e) => e.side !== a.side && !incap(e) && dist(e, a) <= 5 && canSee(F, e, a))) sit("you", -1, "enemy within 5 ft");
     if (ranged && info.weapon && info.distance > (info.weapon.range || info.weapon.thrown)[0]) sit("you", -1, "long range");
     if (!src.area) {
       // RULING R208: Unconscious counts as Stunned and Prone; Petrified as Stunned.

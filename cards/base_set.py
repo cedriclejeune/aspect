@@ -85,7 +85,7 @@ def weapon_atk(dice, kw, attack, sym, dtype="Physical"):
                 twoHanded="Two-Handed" in parts, loading="Loading" in parts, thrown=pair("Thrown"), range=ranged)
 
 
-def weapon(name, abil, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter", dtype="Physical", sym=None):
+def weapon(name, abil, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter", dtype="Physical", sym=None, strip=None):
     """abil is the weapon's roll: you attack and deal damage with the higher of them (STR / DEX; INT / WIL for staves and wands).
     A basic (starter) weapon lights all four symbols so anyone can wield it; a loot weapon lights only its abil (DESIGN 4).
     A Heavy weapon lights STR alone, starter or loot (Ced, 2026-11-13). sym overrides all that (the Spellguard Staff is a
@@ -94,7 +94,7 @@ def weapon(name, abil, dice, kw, effect=None, attack="+2", rank="I", copies=1, g
     reach = next((f"{p.split()[0].lower()} {p.split()[1]} ft, " for p in kw.split(" · ") if p.startswith(("Range ", "Thrown "))), "")
     text = [f"{attack} to hit, {reach}{dice} + {' or '.join(abil)} {dtype}." + (f" {effect}" if effect else "")]
     sym = sym or (["STR"] if "Heavy" in kw.split(" · ") else ALL if group == "starter" else abil)
-    return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym,
+    return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, strip, copies=copies, group=group, sym=sym,
                 atk=weapon_atk(dice, kw, attack, abil, dtype))
 
 
@@ -104,7 +104,7 @@ HANDS = [
     weapon("Shortsword", ["STR", "DEX"], "1d6", "Light · Flurry"),
     weapon("Handaxe", ["STR", "DEX"], "1d6", "Light · Thrown 20/60"),
     weapon("Finesse Blade", ["DEX"], "1d6", "", "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn."),
-    weapon("Longsword", ["STR"], "1d8 / 1d12", "Versatile (1d12)"),
+    weapon("Longsword", ["STR"], "1d8 / 1d10", "Versatile (1d10)", strip={"STRd": "+1"}),  # Parry: +1 STR Defense while held
     weapon("Battleaxe", ["STR", "DEX"], "1d8 / 1d10", "Versatile (1d10)"),
     weapon("Greatsword", ["STR"], "2d6", "Heavy · Two-Handed"),
     weapon("Glaive", ["STR"], "1d10", "Heavy · Reach · Two-Handed"),
@@ -114,13 +114,13 @@ HANDS = [
     weapon("Spellguard Staff", ["INT", "WIL"], "1d6", "", "+2 to your spell attacks and WIL deck attacks.", attack="+0", sym=["INT", "WIL"]),
     card("Traveler's Lute", "I", "gear", "Instrument · Focus", ["1 extra Resolve (short rest).", "Your Anthems reach 60 ft instead of 30 ft."], sym=["WIL"]),
     weapon("Greatclub", ["STR"], "1d10", "Heavy · Two-Handed · Crushing", group="loot"),
-    weapon("Gladius", ["STR", "DEX"], "1d6", "Light", "**Close Order:** +1d4 damage while an ally is engaged with the same creature.", group="loot"),
+    weapon("Gladius", ["STR", "DEX"], "1d6", "", "**Close Order:** +1d4 damage while an ally is engaged with the same creature.", group="loot"),
     weapon("Boarspear", ["STR"], "1d8 / 1d10", "Versatile (1d10)", "**Brace:** your opportunity attacks with it deal +1d8 damage.", attack="+3", rank="II", group="loot"),
     weapon("Pilum", ["STR", "DEX"], "1d6", "Thrown 30/120", "**Pierce:** on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free.", attack="+3", rank="II", group="loot"),
-    weapon("Shortbow", ["DEX"], "1d6", "Range 80/320 · Two-Handed", group="loot"),
+    weapon("Shortbow", ["DEX"], "1d6", "Range 80/320 · Two-Handed", "**Close Shot:** an enemy within 5 ft doesn't give you disadvantage on your attacks with it.", group="loot"),
     weapon("Greataxe", ["STR"], "1d12", "Heavy · Two-Handed · Brutal", group="loot"),
     # identity cards (DESIGN 4, symbol parity): one symbol each, like the heavy weapons for STR
-    weapon("Fine Bow", ["DEX"], "1d10", "Range 150/600 · Two-Handed", group="loot"),
+    weapon("Fine Bow", ["DEX"], "1d10", "Range 150/600 · Two-Handed · Loading", group="loot"),
     weapon("Wand", ["INT"], "1d8", "Range 60/120", group="loot", dtype="Lightning"),
 ]
 
@@ -539,6 +539,7 @@ CARD_FX = {
     "Finesse Blade": [dict(use="trigger", on="hit", do=[dict(mod="attack", n=-2, next=True, until="startSourceTurn")])],
     "Spellguard Staff": [dict(use="passive", magicHit=2)],
     "Gladius": [dict(use="passive", hook="close_order", params=dict(dmg="1d4"))],
+    "Shortbow": [dict(use="passive", closeShot=5)],
     "Boarspear": [dict(use="trigger", on="opportunity", hook="brace", params=dict(dmg="1d8"))],
     "Pilum": [dict(use="trigger", on="hit", hook="pierce")],
     # gear
