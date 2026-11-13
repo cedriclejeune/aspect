@@ -103,7 +103,7 @@ HANDS = [
     weapon("Shortsword", ["STR", "DEX"], "1d6", "Light · Flurry"),
     weapon("Handaxe", ["STR", "DEX"], "1d6", "Light · Thrown 20/60"),
     weapon("Finesse Blade", ["DEX"], "1d6", "", "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn."),
-    weapon("Longsword", ["STR"], "1d8 / 1d10", "Versatile (1d10)"),
+    weapon("Longsword", ["STR"], "1d8 / 1d12", "Versatile (1d12)"),
     weapon("Battleaxe", ["STR", "DEX"], "1d8 / 1d10", "Versatile (1d10)"),
     weapon("Greatsword", ["STR"], "2d6", "Heavy · Two-Handed"),
     weapon("Glaive", ["STR"], "1d10", "Heavy · Reach · Two-Handed"),

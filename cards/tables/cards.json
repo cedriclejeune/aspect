@@ -499,9 +499,9 @@
    "HP": "",
    "SPD": "",
    "to_hit": "+2",
-   "damage": "1d8 / 1d10",
-   "keywords": "Versatile (1d10)",
-   "text": "+2 to hit, 1d8 / 1d10 + STR Physical.",
+   "damage": "1d8 / 1d12",
+   "keywords": "Versatile (1d12)",
+   "text": "+2 to hit, 1d8 / 1d12 + STR Physical.",
    "lore": "The knight's blade: one hand for the shield, two hands when the shield breaks."
   },
   {

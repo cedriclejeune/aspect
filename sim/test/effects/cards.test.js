@@ -37,7 +37,7 @@ module.exports = function register(T, H) {
     eq(pv(f, atk("a", "W-I-05", "x")).damage, "1d8+3 Physical", "Shield in the other Hand: no Versatile die");
     run(f, { type: "interact", actor: "a", drop: "S-I-01" });
     eq([C(f, "a").totals.STRd, C(f, "a").totals.DEXd], [13, 11]);
-    eq(pv(f, atk("a", "W-I-05", "x")).damage, "1d10+3 Physical");
+    eq(pv(f, atk("a", "W-I-05", "x")).damage, "1d12+3 Physical");
     run(f, { type: "interact", actor: "a", draw: "S-I-01" });
     eq(C(f, "a").totals.STRd, 15, "picked up again");
   });
@@ -578,7 +578,7 @@ module.exports = function register(T, H) {
   T("[fx] Duelist Riposte: reaction ½ STR/S.R., a melee weapon attack on the attacker when its melee attack misses", () => {
     const f = fight([pc("d", [5, 5], calling("L-01", { hands: ["W-I-05"] }), { react: "auto" }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
     foeTurn(f, "x");
-    const r = run(f, atk("x", "W-I-05", "d"), [2, 15, 4]); // 7 vs 12: miss; riposte 15 + 2 + 2 vs 13: hit, 1d10 + 2
+    const r = run(f, atk("x", "W-I-05", "d"), [2, 15, 4]); // 7 vs 12: miss; riposte 15 + 2 + 2 vs 13: hit, 1d12 + 2
     ok(evs(r, "reaction").some((e) => e.power === "L-01#1")); eq(dmgs(r), [6]); eq(C(f, "d").uses["L-01#1"], 0);
   });
   T("[fx] Spellblade Spell Strike: ½ STR/S.R., +INT damage on a melee weapon hit", () => {

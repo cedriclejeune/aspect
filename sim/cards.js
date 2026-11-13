@@ -2391,10 +2391,10 @@ globalThis.BEARERS_CARDS = {
    "type": "Weapon",
    "kw": [
     "Weapon",
-    "Versatile (1d10)"
+    "Versatile (1d12)"
    ],
    "text": [
-    "+2 to hit, 1d8 / 1d10 + STR Physical."
+    "+2 to hit, 1d8 / 1d12 + STR Physical."
    ],
    "strip": {},
    "group": "starter",
@@ -2407,7 +2407,7 @@ globalThis.BEARERS_CARDS = {
    "atk": {
     "hit": 2,
     "dice": "1d8",
-    "two": "1d10",
+    "two": "1d12",
     "abil": [
      "STR"
     ],
