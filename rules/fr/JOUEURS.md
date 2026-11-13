@@ -102,13 +102,13 @@ Une Vocation donne **+2 à ses deux caractéristiques** et +0 aux deux autres, u
 | **Lame-mage** | FOR · INT | 13 | 12 m | **Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. **Frappe ensorcelée (½ FOR/C.R.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts. |
 | **Infiltrateur** | AGI · INT | 10 | 14 m | **Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent l'AGI et l'INT. |
 | **Artiste** | AGI · VOL | 10 | 14 m | **Présence :** vos tests pour se produire, persuader et tromper ajoutent l'AGI et la VOL. |
-| **Sage** | INT · VOL | 9 | 14 m | **Érudit :** ½ INT points de sort supplémentaires (10.2). Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL. |
+| **Sage** | INT · VOL | 9 | 14 m | **Point faible (½ VOL/L.R.) :** quand vous lancez un sort contre une seule créature, il vise sa Défense la plus basse au lieu de celle que nomme le sort, avec +½ INT au toucher. Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL. |
 | **Bagarreur** | FOR · AGI | 14 | 12 m | **Teigneux :** +FOR au toucher pour Empoigner et Bousculer. **Dégagement :** vos attaques pour S'échapper (6.10) ajoutent 2 × AGI au lieu de FOR ou AGI. |
 | **Patriote** | FOR · VOL | 12 | 14 m | **Juste colère (½ VOL/C.R.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants. |
 | **Tacticien** | FOR · INT | 12 | 14 m | **Commandement (½ FOR/C.R.) :** action. Un allié à 12 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher. |
 | **Rôdeur** | AGI · INT | 11 | 14 m | **Proie (½ INT/C.R.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ AGI aux attaques contre elle jusqu'au début de votre prochain tour. |
 | **Filou** | AGI · VOL | 9 | 14 m | **Coup sûr :** pour vos tests pour se faufiler, crocheter les serrures, faire les poches et désamorcer les pièges, un d20 qui affiche moins de 10 compte comme un 10. Quand vous touchez une créature qui ne vous voit pas : +½ AGI ou ½ VOL d6 dégâts, la plus haute des deux. |
-| **Ermite** | INT · VOL | 11 | 12 m | **Solitude :** ½ VOL Ardeur supplémentaire (10.6). Vos tests pour cueillir et endurer ajoutent l'INT et la VOL. |
+| **Ermite** | INT · VOL | 11 | 12 m | **Présage :** à la fin d'un long repos, lancez ½ VOL d20 et mettez-les de côté. Avant qu'une créature à 4 m × INT ou moins fasse un jet d'attaque ou un test, vous pouvez remplacer son d20 par l'un d'eux, qui est dépensé. Les dés restants sont perdus à votre long repos suivant. Vos tests pour cueillir et endurer ajoutent l'INT et la VOL. |
 
 Les nombres d'un atout grandissent avec vous. Ils utilisent vos modificateurs actuels, matériel compris : *+FOR* ajoute votre FOR, *2 × FOR* le double, et *½ VOL* vaut la moitié de votre VOL, arrondie à l'inférieur, pour les utilisations, les dés et les distances (*½ VOL/C.R.* : deux utilisations avec VOL +4). Avec VOL +1 ou moins, un *½ VOL* vaut 0. Chaque atout puise dans les deux caractéristiques de sa Vocation, ou la Vocation a deux atouts, un pour chacune.
 
@@ -966,7 +966,7 @@ Les **Blessures** (7.6) sont un paquet de cartes commun, mélangé, à côté de
 
 **Points de sort et Ardeur :** écrivez le total à droite de la barre oblique imprimée. Chaque fois que vous dépensez un point, tracez un petit bâton à gauche de la barre. Ce qui vous reste est le total moins les bâtons. Un repos qui rend les points efface les bâtons (7.5). Quand le total change (10.2, 10.6), écrivez le nouveau et gardez les bâtons. Une case reste vide si vous n'avez pas de Livre de sorts, ou pas de paquet de VOL.
 
-> **Exemple : Isolde la Sage** tient le *Livre du conjurateur* (+2) avec INT +2, et son atout *Érudit* ajoute ½ INT, soit 1 : elle écrit **/ 5** dans sa case de points de sort. Elle lance *Toile d'araignée* (2 points) et *Bouclier* (1) : **||| / 5**. Il lui en reste 2 jusqu'à son prochain long repos.
+> **Exemple : Isolde la Sage** tient le *Livre du conjurateur* (+2) avec INT +2 : elle écrit **/ 4** dans sa case de points de sort. Elle lance *Toile d'araignée* (2 points) et *Bouclier* (1) : **||| / 4**. Il lui en reste 1 jusqu'à son prochain long repos.
 
 ### 12.4 Paquets
 

@@ -102,13 +102,13 @@ A Calling gives **+2 to its two abilities** and +0 to the other two, a **Hit Poi
 | **Spellblade** | STR · INT | 13 | 30 ft | **Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook. **Spell Strike (½ STR/S.R.):** when you hit with a melee weapon attack: +INT damage. |
 | **Infiltrator** | DEX · INT | 10 | 35 ft | **Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT. |
 | **Performer** | DEX · WIL | 10 | 35 ft | **Presence:** your checks to perform, persuade and deceive add both DEX and WIL. |
-| **Sage** | INT · WIL | 9 | 35 ft | **Learned:** ½ INT extra spell points (10.2). Your checks to recall lore add both INT and WIL. |
+| **Sage** | INT · WIL | 9 | 35 ft | **Weak Spot (½ WIL/L.R.):** when you cast a spell at a single creature, it targets the creature's lowest Defense instead of the one the spell names, with +½ INT to hit. Your checks to recall lore add both INT and WIL. |
 | **Brawler** | STR · DEX | 14 | 30 ft | **Scrapper:** +STR to hit with Grapples and Shoves. **Slip Free:** your Escape attacks (6.10) add 2 × DEX instead of STR or DEX. |
 | **Patriot** | STR · WIL | 12 | 35 ft | **Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage. |
 | **Tactician** | STR · INT | 12 | 35 ft | **Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit. |
 | **Ranger** | DEX · INT | 11 | 35 ft | **Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn. |
 | **Trickster** | DEX · WIL | 9 | 35 ft | **Sure Thing:** on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher. |
-| **Hermit** | INT · WIL | 11 | 30 ft | **Solitude:** ½ WIL extra Resolve (10.6). Your checks to forage and endure add both INT and WIL. |
+| **Hermit** | INT · WIL | 11 | 30 ft | **Omen:** when you finish a long rest, roll ½ WIL d20 and set them aside. Before a creature within 10 ft × INT makes an attack roll or a check, you may replace its d20 with one of them, which is spent. Dice left over are lost at your next long rest. Your checks to forage and endure add both INT and WIL. |
 
 A perk's numbers grow with you. They use your current modifiers, gear included: *+STR* adds your STR, *2 × STR* twice it, and *½ WIL* is half your WIL, rounded down, for uses, dice and distances alike (*½ WIL/S.R.*: two uses with WIL +4). With WIL +1 or less, a *½ WIL* is 0. Each perk draws on both of its Calling's abilities, or the Calling has two perks, one for each.
 
@@ -966,7 +966,7 @@ You only touch the totals at two moments.
 
 **Spell points and Resolve:** write the total on the right of the printed slash. Each time you spend a point, draw a small tally mark on the left of the slash. What you have left is the total minus the marks. A rest that brings the points back erases the marks (7.5). When the total changes (10.2, 10.6), write the new one and keep the marks. A box stays empty if you have no Spellbook, or no WIL deck.
 
-> **Example: Isolde the Sage** holds the *Conjurer's Book* (+2) with INT +2, and her *Learned* perk adds ½ INT, so 1: she writes **/ 5** in her spell point box. She casts *Web* (2 points) and *Shield* (1): **||| / 5**. She has 2 left until her next long rest.
+> **Example: Isolde the Sage** holds the *Conjurer's Book* (+2) with INT +2: she writes **/ 4** in her spell point box. She casts *Web* (2 points) and *Shield* (1): **||| / 4**. She has 1 left until her next long rest.
 
 ### 12.4 Decks
 

@@ -827,7 +827,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Learned:** ½ INT extra spell points. Your checks to recall lore add both INT and WIL."
+    "**Weak Spot (½ WIL/L.R.):** when you cast a spell at a single creature, it targets the creature's lowest Defense instead of the one the spell names, with +½ INT to hit. Your checks to recall lore add both INT and WIL."
    ],
    "strip": {
     "STR": 0,
@@ -852,7 +852,8 @@ globalThis.BEARERS_CARDS = {
      "id": "L-06#0",
      "name": "Sage",
      "use": "passive",
-     "extraSp": "½INT"
+     "uses": "½WIL/LR",
+     "weakSpot": "½INT"
     }
    ]
   },
@@ -1099,7 +1100,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Solitude:** ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL."
+    "**Omen:** when you finish a long rest, roll ½ WIL d20 and set them aside. Before a creature within 10 ft × INT makes an attack roll or a check, you may replace its d20 with one of them, which is spent. Dice left over are lost at your next long rest. Your checks to forage and endure add both INT and WIL."
    ],
    "strip": {
     "STR": 0,
@@ -1119,14 +1120,7 @@ globalThis.BEARERS_CARDS = {
     "INT",
     "WIL"
    ],
-   "fx": [
-    {
-     "id": "L-12#0",
-     "name": "Hermit",
-     "use": "passive",
-     "extraResolve": "½WIL"
-    }
-   ]
+   "fx": []
   },
   "M-I-01": {
    "id": "M-I-01",

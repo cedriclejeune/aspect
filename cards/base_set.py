@@ -46,7 +46,8 @@ CALLINGS = [
     calling("Infiltrator", ("DEX", "INT"), 10, 35, "**Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT."),
     calling("Performer", ("DEX", "WIL"), 10, 35,
             "**Presence:** your checks to perform, persuade and deceive add both DEX and WIL."),
-    calling("Sage", ("INT", "WIL"), 9, 35, "**Learned:** ½ INT extra spell points. Your checks to recall lore add both INT and WIL."),
+    calling("Sage", ("INT", "WIL"), 9, 35, 
+            "**Weak Spot (½ WIL/L.R.):** when you cast a spell at a single creature, it targets the creature's lowest Defense instead of the one the spell names, with +½ INT to hit. Your checks to recall lore add both INT and WIL."),
     # the second Calling of each pair: same +2 / +2, another perk, HP and Speed
     calling("Brawler", ("STR", "DEX"), 14, 30,
             "**Scrapper:** +STR to hit with Grapples and Shoves.",
@@ -59,7 +60,8 @@ CALLINGS = [
             "**Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn."),
     calling("Trickster", ("DEX", "WIL"), 9, 35,
             "**Sure Thing:** on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher."),
-    calling("Hermit", ("INT", "WIL"), 11, 30, "**Solitude:** ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL."),
+    calling("Hermit", ("INT", "WIL"), 11, 30, 
+            "**Omen:** when you finish a long rest, roll ½ WIL d20 and set them aside. Before a creature within 10 ft × INT makes an attack roll or a check, you may replace its d20 with one of them, which is spent. Dice left over are lost at your next long rest. Your checks to forage and endure add both INT and WIL."),
 ]
 
 
@@ -581,14 +583,14 @@ CARD_FX = {
     "Templar": [dict(use="reaction", uses="½WIL/SR", on="hitAlly5", target="ally", oath=True, oathCut="2×STR")],
     "Spellblade": [dict(use="passive", castingHand=True),
                    dict(use="trigger", uses="½STR/SR", on="meleeWeaponHit", do=[dict(dmg="INT")])],
-    "Sage": [dict(use="passive", extraSp="½INT")],
+    # Weak Spot: a Spellbook spell at one creature targets its lowest Defense (RULING R716)
+    "Sage": [dict(use="passive", uses="½WIL/LR", weakSpot="½INT")],
     "Brawler": [dict(use="passive", grabHit="STR"), dict(use="passive", escapeAbil="2×DEX")],
     "Patriot": [dict(use="trigger", uses="½WIL/SR", on="weaponHit", do=[dict(dmg="½STR d6", type="Radiant")])],
     "Tactician": [dict(use="action", uses="½STR/SR", reach=30, target="ally", need=VOICE, do=[dict(command=True, hit="INT")])],
     # Quarry's mark: −½ DEX to every Defense of the target, so you and your allies hit it more (RULING R714)
     "Ranger": [dict(use="trigger", uses="½INT/SR", on="rangedHit", do=[dict(mod="def", n="-½DEX", until="startSourceTurn")])],
     "Trickster": [dict(use="trigger", on="hitUnseen", do=[dict(dmg="½DEX|WIL d6")])],
-    "Hermit": [dict(use="passive", extraResolve="½WIL")],
     "Wolfpack": [dict(use="trigger", uses="1/SR", on="hitEngaged", do=[dict(cond="Prone")])],
     "Herbalist": [dict(use="passive", extraSp=1)],
     # an Attack action of its own: one roll against each enemy in the weapon's reach (sim/effects.js)

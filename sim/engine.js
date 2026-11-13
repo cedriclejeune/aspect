@@ -778,6 +778,19 @@
     info.tags = src.entry ? src.entry.p.tags || [] : typeof src.grab === "string" ? [src.grab] : [];
     info.defs = defsOf(F, t, vs, { cover: !!info.cover, tags: info.tags });
     info.def = best(info.defs);
+    // Weak Spot (Sage): a Spellbook spell at one creature targets its lowest Defense, with +½ INT to hit. RULING R716:
+    // used only when that Defense is lower than the one the spell names; the use is spent when the spell is cast.
+    const wsDeck = src.entry && !src.area ? deckOf(F, src.entry) : null;
+    const ws = wsDeck && wsDeck.kind === "spellbook" ? passives(F, a).find((e) => e.p.weakSpot && a.uses[e.p.id] > 0) : null;
+    if (ws) {
+      const low = ABILS.map((ab) => ({ ab, v: defense(F, t, ab, { targeted: true, cover: sg.cover && (ab === "STR" || ab === "DEX"), tags: info.tags }) }))
+        .reduce((m, x) => (x.v < m.v ? x : m));
+      if (low.v < info.def) {
+        info.defs = { [low.ab]: low.v }; info.def = low.v; info.weakSpot = ws.p.id;
+        info.why.push(`Weak Spot: vs ${low.ab} Defense`);
+        flat(scaled(a, ws.p.weakSpot), "Weak Spot");
+      }
+    }
     runHooks(F, null, a, t, "modifyAttack", { attack: info, weapon: src.w, entry: src.entry });
     // P 5.2: after cancelling, each advantage die left can go to damage instead (chosen before rolling).
     const net = info.adv - info.dis;
@@ -1862,6 +1875,10 @@
       const t = st.creatures[id];
       if (t.dead) continue;
       const info = attackInfo(F, c, t, { entry: e, toDamage: cmd.toDamage });
+      if (info.weakSpot) {
+        c.uses[info.weakSpot]--;
+        emit(X, { t: "note", actor: c.id, target: t.id, power: info.weakSpot, text: `${c.name} aims at ${t.name}'s Weak Spot: ${Object.keys(info.defs)[0]} Defense ${info.def}.` });
+      }
       const r = rollAttack(X, c, t, info, { label: p.name });
       if (r.hit) hitReactions(X, r, info.melee);
       else if (info.melee) missReactions(X, r);
