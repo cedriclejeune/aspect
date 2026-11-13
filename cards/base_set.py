@@ -111,7 +111,7 @@ HANDS = [
     weapon("Longbow", ["DEX"], "1d8", "Range 150/600 · Two-Handed"),
     weapon("Sling", ["DEX"], "1d6", "Light · Range 30/120"),
     weapon("Javelins", ["STR", "DEX"], "1d6", "Thrown 30/120"),
-    weapon("Spellguard Staff", ["INT", "WIL"], "1d6 / 1d8", "Versatile (1d8)", "While you hold it, it counts as an empty Hand for casting from a Spellbook.", sym=["INT", "WIL"]),
+    weapon("Spellguard Staff", ["INT", "WIL"], "1d6", "", "+2 to your spell attacks and WIL deck attacks.", attack="+0", sym=["INT", "WIL"]),
     card("Traveler's Lute", "I", "gear", "Instrument · Focus", ["1 extra Resolve (short rest).", "Your Anthems reach 60 ft instead of 30 ft."], sym=["WIL"]),
     weapon("Greatclub", ["STR"], "1d10", "Heavy · Two-Handed · Crushing", group="loot"),
     weapon("Gladius", ["STR", "DEX"], "1d6", "Light", "**Close Order:** +1d4 damage while an ally is engaged with the same creature.", group="loot"),
@@ -537,7 +537,7 @@ TWO_SHIELD_MOD = [dict(mod="def", n=2, defs=["targeted"], next=True)]  # +2 to t
 CARD_FX = {
     # weapon riders
     "Finesse Blade": [dict(use="trigger", on="hit", do=[dict(mod="attack", n=-2, next=True, until="startSourceTurn")])],
-    "Spellguard Staff": [dict(use="passive", castingHand=True)],
+    "Spellguard Staff": [dict(use="passive", magicHit=2)],
     "Gladius": [dict(use="passive", hook="close_order", params=dict(dmg="1d4"))],
     "Boarspear": [dict(use="trigger", on="opportunity", hook="brace", params=dict(dmg="1d8"))],
     "Pilum": [dict(use="trigger", on="hit", hook="pierce")],

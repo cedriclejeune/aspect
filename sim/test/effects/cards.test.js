@@ -409,10 +409,13 @@ module.exports = function register(T, H) {
     ok(/spell points/.test(refused(f, power(f, "w", "B-I-01#magic-missile", { targets: ["x"] }))));
   });
 
-  T("[fx] Spellguard Staff: counts as an empty Hand for casting", () => {
-    const f = fight([pc("w", [1, 5], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, hands: ["W-I-12", "S-I-01"], items: [{ id: "B-I-01" }] }), pc("v", [1, 8], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, hands: ["W-I-05", "S-I-01"], items: [{ id: "B-I-01" }] }), foe("x", [8, 5])]);
+  T("[fx] Spellguard Staff: +0 to hit, 1d6; +2 to spell attacks; no longer an empty Hand for casting", () => {
+    const body = { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 };
+    const f = fight([pc("w", [1, 5], { body, hands: ["W-I-12"], items: [{ id: "B-I-01" }] }), pc("v", [1, 8], { body, hands: ["W-I-12", "S-I-01"], items: [{ id: "B-I-01" }] }), foe("x", [2, 5])]);
     pcTurn(f, "w");
-    ok(f.preview(power(f, "w", "B-I-01#fire-bolt", { targets: ["x"] })).ok);
+    eq(pv(f, power(f, "w", "B-I-01#fire-bolt", { targets: ["x"] })).toHit, 3 + 2 + 2, "INT + book + Staff");
+    const s = pv(f, atk("w", "W-I-12", "x"));
+    eq([s.toHit, s.damage], [3, "1d6+3 Physical"]);
     end(f, "w"); go(f, "v");
     ok(/empty Hand/.test(refused(f, power(f, "v", "B-I-01#fire-bolt", { targets: ["x"] }))));
   });

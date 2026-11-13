@@ -159,8 +159,8 @@ TEXT = {
     "Takes one Hand.": "Occupe une Main.",
     "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn.":
         "**Saignée :** quand vous touchez, la cible a −2 à son prochain jet d'attaque avant le début de votre prochain tour.",
-    "While you hold it, it counts as an empty Hand for casting from a Spellbook.":
-        "Tant que vous le tenez, il compte comme une Main vide pour lancer des sorts depuis un Livre de sorts.",
+    "+2 to your spell attacks and WIL deck attacks.":
+        "+2 à vos attaques de sort et à vos attaques de paquet de VOL.",
     "1 extra Resolve (short rest).": "1 Ardeur supplémentaire (court repos).",
     "Your Anthems reach 60 ft instead of 30 ft.": "Vos Hymnes portent à 24 m au lieu de 12 m.",
     "**Crushing:** on a critical hit, the target is knocked Prone.": "**Écrasement :** sur un coup critique, la cible est mise À terre.",

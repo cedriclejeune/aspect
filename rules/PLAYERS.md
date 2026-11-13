@@ -211,8 +211,8 @@ Each sample shows the name, Rank and lit symbols (*all* when all four are), the 
 > *Rune · Technique*
 
 > **SPELLGUARD STAFF** · Rank I · INT · WIL
-> +2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.
-> *Weapon · Versatile*
+> +0 to hit, 1d6 + INT or WIL Physical. +2 to your spell attacks and WIL deck attacks.
+> *Weapon*
 
 > **STONE BLOOD** · Rank I · STR · INT
 > Bonuses: +2 HP
@@ -695,7 +695,7 @@ Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" c
 | **Light Weapon** (handaxe, club, light hammer) | STR · DEX | +2 | 1d6 | Light, Thrown (20/60) |
 | **Finesse Blade** (rapier, scimitar) | DEX | +2 | 1d6 | — |
 | **Versatile Weapon** (battleaxe, spear) | STR or STR · DEX | +2 | 1d8 / 1d10 | Versatile |
-| **Staff** (quarterstaff, rod) | INT · WIL | +2 | 1d6 / 1d8 | Versatile |
+| **Staff** (quarterstaff, rod) | INT · WIL | +0 | 1d6 | +2 to spell and WIL deck attacks |
 | **Heavy Weapon** (greatsword, maul) | STR | +2 | 2d6 | Heavy, Two-Handed |
 | **Great Axe** (greataxe) | STR | +2 | 1d12 | Heavy, Two-Handed, Brutal |
 | **Great Club** (greatclub) | STR | +2 | 1d10 | Heavy, Two-Handed, Crushing |

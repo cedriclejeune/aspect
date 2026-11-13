@@ -666,10 +666,10 @@
    "WILd": "",
    "HP": "",
    "SPD": "",
-   "to_hit": "+2",
-   "damage": "1d6 / 1d8",
-   "keywords": "Versatile (1d8)",
-   "text": "+2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.",
+   "to_hit": "+0",
+   "damage": "1d6",
+   "keywords": "",
+   "text": "+0 to hit, 1d6 + INT or WIL Physical. +2 to your spell attacks and WIL deck attacks.",
    "lore": "Glyphs run along its grain. The wood remembers the shape of a casting hand."
   },
   {

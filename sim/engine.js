@@ -728,6 +728,8 @@
       info.abil = atkAbil(F, a, src.entry);
       if (p.atk.flat != null) flat(p.atk.flat, "attack");
       else if (p.atk.abil === "deck") { flat(a.totals[deckAbil(deck)], deckAbil(deck)); flat(deck ? deck.atk || 0 : 0, "deck"); }
+      // Spellguard Staff: a held card's flat bonus to spell attacks and WIL deck attacks
+      if (deck && p.atk.flat == null) flat(passiveSum(F, a, "magicHit"), "magic");
       else { flat(a.totals[info.abil], info.abil); flat(p.atk.hit || 0, "to hit"); }
     }
     info.ranged = ranged; info.melee = melee; info.vs = vs;

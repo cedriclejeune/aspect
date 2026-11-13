@@ -211,8 +211,8 @@ Chaque exemple montre le nom, le Rang et les symboles allumés (*tous* quand les
 > *Rune · Technique*
 
 > **BÂTON DE GARDE-SORT** · Rang I · INT · VOL
-> +2 au toucher, 1d6 / 1d8 + INT ou VOL Physique. Tant que vous le tenez, il compte comme une Main vide pour lancer des sorts depuis un Livre de sorts.
-> *Arme · Polyvalente*
+> +0 au toucher, 1d6 + INT ou VOL Physique. +2 à vos attaques de sort et à vos attaques de paquet de VOL.
+> *Arme*
 
 > **SANG DE PIERRE** · Rang I · FOR · INT
 > Bonus : +2 PV
@@ -695,7 +695,7 @@ Chaque ligne est une sorte d'arme de Rang I. Son nom est une simple couleur : un
 | **Arme légère** (hachette, gourdin, marteau léger) | FOR · AGI | +2 | 1d6 | Légère, Lancer (6/18) |
 | **Lame fine** (rapière, cimeterre) | AGI | +2 | 1d6 | — |
 | **Arme polyvalente** (hache d'armes, lance) | FOR ou FOR · AGI | +2 | 1d8 / 1d10 | Polyvalente |
-| **Bâton** (bâton, sceptre) | INT · VOL | +2 | 1d6 / 1d8 | Polyvalente |
+| **Bâton** (bâton, sceptre) | INT · VOL | +0 | 1d6 | +2 aux attaques de sort et de paquet de VOL |
 | **Arme lourde** (épée à deux mains, maillet) | FOR | +2 | 2d6 | Lourde, Deux mains |
 | **Grande hache** (grande hache) | FOR | +2 | 1d12 | Lourde, Deux mains, Brutale |
 | **Massue** (massue) | FOR | +2 | 1d10 | Lourde, Deux mains, Écrasante |

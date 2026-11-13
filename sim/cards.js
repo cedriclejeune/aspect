@@ -2694,11 +2694,10 @@ globalThis.BEARERS_CARDS = {
    "kind": "gear",
    "type": "Weapon",
    "kw": [
-    "Weapon",
-    "Versatile (1d8)"
+    "Weapon"
    ],
    "text": [
-    "+2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook."
+    "+0 to hit, 1d6 + INT or WIL Physical. +2 to your spell attacks and WIL deck attacks."
    ],
    "strip": {},
    "group": "starter",
@@ -2707,9 +2706,9 @@ globalThis.BEARERS_CARDS = {
     "WIL"
    ],
    "atk": {
-    "hit": 2,
+    "hit": 0,
     "dice": "1d6",
-    "two": "1d8",
+    "two": null,
     "abil": [
      "INT",
      "WIL"
@@ -2731,7 +2730,7 @@ globalThis.BEARERS_CARDS = {
      "id": "W-I-12#0",
      "name": "Spellguard Staff",
      "use": "passive",
-     "castingHand": true
+     "magicHit": 2
     }
    ]
   },
