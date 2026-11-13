@@ -467,7 +467,7 @@ Each game term has one meaning, in both books.
 | **Subdue** | The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
-| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols. |
+| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols, except Heavy ones (STR only). |
 | **Tally card** | The one card you write on: your ten totals, HP and temporary HP, death saves, spell points, Resolve and features. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |

@@ -2485,10 +2485,7 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR",
-    "DEX",
-    "INT",
-    "WIL"
+    "STR"
    ],
    "atk": {
     "hit": 2,
@@ -2529,10 +2526,7 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR",
-    "DEX",
-    "INT",
-    "WIL"
+    "STR"
    ],
    "atk": {
     "hit": 2,

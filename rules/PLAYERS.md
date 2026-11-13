@@ -670,7 +670,7 @@ An effect with the **Subdue** keyword takes a creature out of the fight. It name
 
 ## 9. Equipment
 
-Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or DEX Physical*. It names the abilities it rolls with: always STR, DEX or both, except **staves** and **wands**, which are weaker but roll INT or WIL. **Basic weapons** (Rank I starters) light all four symbols, so anyone can wield them; a weak ability simply means a weak attack. The *Spellguard Staff* is the exception: it lights only INT and WIL. Loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
+Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or DEX Physical*. It names the abilities it rolls with: always STR, DEX or both, except **staves** and **wands**, which are weaker but roll INT or WIL. **Basic weapons** (Rank I starters) light all four symbols, so anyone can wield them; a weak ability simply means a weak attack. Two exceptions: the *Spellguard Staff* lights only INT and WIL, and **Heavy** weapons light only STR. Loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
 
 ### 9.1 Armor and Defense
 
@@ -1092,7 +1092,7 @@ Each game term has one meaning, in both books.
 | **Subdue** | The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
-| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols. |
+| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols, except Heavy ones (STR only). |
 | **Tally card** | The one card you write on: your ten totals, HP and temporary HP, death saves, spell points, Resolve and features. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |

@@ -88,11 +88,12 @@ def weapon_atk(dice, kw, attack, sym, dtype="Physical"):
 def weapon(name, abil, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter", dtype="Physical", sym=None):
     """abil is the weapon's roll: you attack and deal damage with the higher of them (STR / DEX; INT / WIL for staves and wands).
     A basic (starter) weapon lights all four symbols so anyone can wield it; a loot weapon lights only its abil (DESIGN 4).
-    sym overrides that (the Spellguard Staff is a starter that lights only INT · WIL).
+    A Heavy weapon lights STR alone, starter or loot (Ced, 2026-11-13). sym overrides all that (the Spellguard Staff is a
+    starter that lights only INT · WIL).
     The range of a Range or Thrown weapon is printed in its attack line, so the card doesn't print that keyword (DESIGN 4)."""
     reach = next((f"{p.split()[0].lower()} {p.split()[1]} ft, " for p in kw.split(" · ") if p.startswith(("Range ", "Thrown "))), "")
     text = [f"{attack} to hit, {reach}{dice} + {' or '.join(abil)} {dtype}." + (f" {effect}" if effect else "")]
-    sym = sym or (ALL if group == "starter" else abil)
+    sym = sym or (["STR"] if "Heavy" in kw.split(" · ") else ALL if group == "starter" else abil)
     return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym,
                 atk=weapon_atk(dice, kw, attack, abil, dtype))
 

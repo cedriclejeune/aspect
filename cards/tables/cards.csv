@@ -21,8 +21,8 @@ W-I-03,Handaxe,Weapon,I,starter,all,1,,,,,,,,,,,+2,1d6,Light · Thrown 20/60,"+2
 W-I-04,Finesse Blade,Weapon,I,starter,all,1,,,,,,,,,,,+2,1d6,,"+2 to hit, 1d6 + DEX Physical. Sap: when you hit, the target has −2 on its next attack roll before the start of your next turn.","A slim duelist's sword. A nick here, a cut there, and the foe's arm grows slow."
 W-I-05,Longsword,Weapon,I,starter,all,1,,,,,,,,,,,+2,1d8 / 1d12,Versatile (1d12),"+2 to hit, 1d8 / 1d12 + STR Physical.","The knight's blade: one hand for the shield, two hands when the shield breaks."
 W-I-06,Battleaxe,Weapon,I,starter,all,1,,,,,,,,,,,+2,1d8 / 1d10,Versatile (1d10),"+2 to hit, 1d8 / 1d10 + STR or DEX Physical.",A bearded head on an ash haft. It splits shields as easily as firewood.
-W-I-07,Greatsword,Weapon,I,starter,all,1,,,,,,,,,,,+2,2d6,Heavy · Two-Handed,"+2 to hit, 2d6 + STR Physical.",As tall as a child and twice as loud. You don't parry it; you get out of its way.
-W-I-08,Glaive,Weapon,I,starter,all,1,,,,,,,,,,,+2,1d10,Heavy · Reach · Two-Handed,"+2 to hit, 1d10 + STR Physical.","A blade on a long pole. It keeps the enemy at a distance, where it should be."
+W-I-07,Greatsword,Weapon,I,starter,STR,1,,,,,,,,,,,+2,2d6,Heavy · Two-Handed,"+2 to hit, 2d6 + STR Physical.",As tall as a child and twice as loud. You don't parry it; you get out of its way.
+W-I-08,Glaive,Weapon,I,starter,STR,1,,,,,,,,,,,+2,1d10,Heavy · Reach · Two-Handed,"+2 to hit, 1d10 + STR Physical.","A blade on a long pole. It keeps the enemy at a distance, where it should be."
 W-I-09,Longbow,Weapon,I,starter,all,1,,,,,,,,,,,+2,1d8,Range 150/600 · Two-Handed,"+2 to hit, range 150/600 ft, 1d8 + DEX Physical.","Yew, horn and patience. A trained archer drops a charging boar before it closes."
 W-I-10,Sling,Weapon,I,starter,all,1,,,,,,,,,,,+2,1d6,Light · Range 30/120,"+2 to hit, range 30/120 ft, 1d6 + DEX Physical.",A strip of leather and a pouch of stones. Shepherds have killed giants with less.
 W-I-11,Javelins,Weapon,I,starter,all,1,,,,,,,,,,,+2,1d6,Thrown 30/120,"+2 to hit, thrown 30/120 ft, 1d6 + STR or DEX Physical.","A bundle of light spears, made to be thrown first and asked about later."

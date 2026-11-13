@@ -469,7 +469,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Saga** | Le grand arc de la campagne, fait de quêtes. En achever une accorde un jalon. |
 | **Soin** | Un pouvoir de magie de VOL qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |
 | **Sort** | Une carte d'un Livre de sorts, jamais seule. Son niveau est son coût en points de sort. |
-| **Symboles** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles, sauf le Bâton de garde-sort (INT · VOL). |
+| **Symboles** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles, sauf le Bâton de garde-sort (INT · VOL) et les armes Lourdes (FOR seule). |
 | **Taille** | Très petit, Petit, Moyen ou Grand, imprimé sur une Forme ou une carte d'Adversaire. Les Porteurs sont de taille Moyenne. |
 | **Technique** | Un type de Rune : une botte de combat. (EN : Technique) |
 | **Test** | Un jet de d20 + modificateur de caractéristique + bonus contre un Degré de difficulté (DD). |
