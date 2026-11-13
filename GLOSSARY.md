@@ -91,7 +91,7 @@ A space that holds one piece of gear or one Rune of the matching type: Armor, Ha
 _Avoid_: socket, attunement slot
 
 **Rune**:
-A power in the shape of a sign: a Trait, Technique, Domain, Divine, Glamour or Nature. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone.
+A power in the shape of a sign: a Trait, Technique, Domain, Divine, Glamour, Nature or Occult. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone.
 _Avoid_: Aspect, feat, feature, power (as the general term), glyph, sigil (as the term)
 
 **Calling**:
@@ -236,7 +236,7 @@ The points your spells cost: one pool, the sum your Spellbooks print + INT (mini
 _Avoid_: spell slots, mana
 
 **WIL deck**:
-A Rune of WIL magic: a fixed list of powers, with an Attack bonus and the Resolve it adds to yours. Its type (Divine, Glamour or Nature) says which powers it holds and changes no other rule.
+A Rune of WIL magic: a fixed list of powers, with an Attack bonus and the Resolve it adds to yours. Its type (Divine, Glamour, Nature or Occult) says which powers it holds and changes no other rule.
 _Avoid_: prayer book, songbook, WIL book, spell (for its powers)
 
 **Divine**:
@@ -250,6 +250,10 @@ _Avoid_: Muse, Presence, Calling, songbook, bardic magic, inspiration
 **Nature**:
 A type of WIL deck: the magic of the wild. Its deck is an **Instinct**, which holds Forms and Mends.
 _Avoid_: Remembrance, Memories, Bestiary, Wilds, Calling, druidic magic, primal magic
+
+**Occult**:
+A type of WIL deck: the magic of a bargain with a patron. Its deck is a **Pact**, which holds powers of harm and curses: Dirges only.
+_Avoid_: Eldritch, warlock magic, Grimoire (in English), patron (as the term), Calling
 
 **Resolve**:
 The points your WIL magic costs: one pool, the sum your WIL decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest.

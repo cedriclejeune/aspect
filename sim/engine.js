@@ -79,7 +79,7 @@
   const KEYS = ["STR", "DEX", "INT", "WIL", "STRd", "DEXd", "INTd", "WILd", "HP", "SPD"];
   const SIZE_N = { Tiny: 0, Small: 1, Medium: 2, Large: 3, Huge: 4, Gargantuan: 5 };
   const SPACE = { Tiny: 1, Small: 1, Medium: 1, Large: 2, Huge: 3, Gargantuan: 4 };
-  const ASPECT_TYPES = ["Trait", "Technique", "Domain", "Divine", "Glamour", "Nature"];
+  const ASPECT_TYPES = ["Trait", "Technique", "Domain", "Divine", "Glamour", "Nature", "Occult"];
   const SLOT_TYPES = { armor: ["Armor"], hand: ["Weapon", "Shield", "Instrument"], jewelry: ["Jewelry"],
     item: ["Spellbook", "Recipe", "Consumable"], aspect: ASPECT_TYPES };
   const DEFAULT_SLOTS = { hand: 2, jewelry: 1, item: 2, aspect: 3 };
@@ -371,7 +371,7 @@
     const m = String(u || "").match(/(\d+)/); return m ? +m[1] : 0;
   }
   // P 10.2, 10.6, 12.3: one spell point pool (every equipped Spellbook + INT, min 1) and one Resolve pool (every
-  // Divine, Glamour and Nature deck + WIL once, min 1), plus extras; null without such a deck. Kept on your own tally
+  // Divine, Glamour, Nature and Occult deck + WIL once, min 1), plus extras; null without such a deck. Kept on your own tally
   // card, so a Form's totals never change them.
   function poolMax(F, c, ids, key, abil, extra) {
     if (!ids.length) return null;

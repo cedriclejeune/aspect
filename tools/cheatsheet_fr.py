@@ -208,7 +208,7 @@ BACK = """
 <h2>Magie en combat <small>10</small></h2>
 <ul>
 <li><strong>Livre de sorts :</strong> une Main vide pour lancer. Une seule réserve de <strong>points de sort</strong> (tous les livres + INT) paie les sorts de n'importe quel livre (coût 1/2/3/4/6/8 selon le niveau, tours de magie gratuits). Évident sauf si Discret.</li>
-<li><strong>Magie de VOL</strong> (Divin, Glamour, Nature) : mêmes règles, payée sur une seule réserve d'<strong>Ardeur</strong> (tous les paquets + VOL, revient au court repos). Toujours évidente.</li>
+<li><strong>Magie de VOL</strong> (Divin, Glamour, Nature, Occulte) : mêmes règles, payée sur une seule réserve d'<strong>Ardeur</strong> (tous les paquets + VOL, revient au court repos). Toujours évidente.</li>
 <li><strong>Formes :</strong> le matériel ne compte plus ; les PV de la Forme partent d'abord, l'excédent se reporte.</li>
 </ul>
 

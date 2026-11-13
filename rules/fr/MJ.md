@@ -442,7 +442,8 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Niveau de sort** | La puissance d'un sort et son coût en points de sort, du 1er au 6e. (EN : Spell level) |
 | **Niveau effectif** | L'estimation par le MJ de la puissance d'un personnage, de 1 à 12, utilisée pour dimensionner les combats et les DD des épreuves. Ce n'est pas une valeur du personnage. |
 | **Objet** | Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Contenants et Pierres runiques. |
-| **Paquet de VOL** | Une Rune de magie de VOL : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour ou Nature) dit quels pouvoirs elle contient et ne change aucune autre règle. |
+| **Occulte** | Un type de paquet de VOL : la magie d'un marché passé avec un patron. Son paquet est un **Grimoire**, qui contient des pouvoirs de mal et de malédiction : des Complaintes seulement. |
+| **Paquet de VOL** | Une Rune de magie de VOL : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour, Nature ou Occulte) dit quels pouvoirs elle contient et ne change aucune autre règle. |
 | **Perception aveugle N** | Perçoit tout dans un rayon de N m sans la vue. (EN : Blindsight) |
 | **Persistance** | L'état des Runes d'une créature morte pendant 1 minute, une fois détachées et avant qu'elles ne s'éteignent pour de bon. Une Rune dans cet état *persiste*. (EN : Lingering) |
 | **Pièce** | Une unité de matériel, telle que le Sac, la Réserve de la Compagnie et le butin la comptent. Une pile de jusqu'à 3 Consommables identiques compte pour une pièce. |
@@ -464,7 +465,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Réplique** | Un pouvoir de magie de VOL. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue) |
 | **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel et les Pierres runiques que la Compagnie possède mais que personne ne porte. |
 | **Résiste (type)** | Ne subit que la moitié des dégâts de ce type. |
-| **Rune** | Un pouvoir en forme de signe : un Trait, une Technique, un Domaine, un Divin, un Glamour ou une Nature. La plupart des créatures en portent quelques-unes, ancrées en elles à vie. Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique. |
+| **Rune** | Un pouvoir en forme de signe : un Trait, une Technique, un Domaine, un Divin, un Glamour, une Nature ou un Occulte. La plupart des créatures en portent quelques-unes, ancrées en elles à vie. Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique. |
 | **Sac** | Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Pierres runiques. |
 | **Saga** | Le grand arc de la campagne, fait de quêtes. En achever une accorde un jalon. |
 | **Soin** | Un pouvoir de magie de VOL qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |

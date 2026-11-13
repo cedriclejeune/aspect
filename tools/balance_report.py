@@ -4,7 +4,7 @@ Usage: python3 tools/balance_report.py [--strict]
 Reads cards/base_set.py only (no packages needed). Prints tables; with --strict, exits non-zero when a check fails.
 
 "Equippable" follows P 3.1 (the Calling has one of the card's lit symbols). "Usable" also drops cards whose effect
-needs gear or Runes the Calling can never equip: a Focus without a Divine, Glamour or Nature deck, a Shield
+needs gear or Runes the Calling can never equip: a Focus without a Divine, Glamour, Nature or Occult deck, a Shield
 Technique without a Shield, a Heavy or Reach Technique without such a weapon.
 """
 import collections
@@ -21,7 +21,7 @@ RANK_BONUS = {"I": 2, "II": 3, "III": 4, "IV": 5, "V": 6}
 TRAIT_HP = {"I": 2, "II": 4, "III": 7, "IV": 10, "V": 14}
 SLOT = {"Armor": "Armor", "Weapon": "Hand", "Shield": "Hand", "Instrument": "Hand", "Jewelry": "Jewelry",
         "Consumable": "Item", "Recipe": "Item", "Container": "Pack", "Spellbook": "Item"}
-WIL_DECKS = ("Divine", "Glamour", "Nature")
+WIL_DECKS = ("Divine", "Glamour", "Nature", "Occult")
 # GM 4.3 activity table: the ability each activity belongs to (plus the extra words used on base-set cards)
 ACTIVITY = {
     "STR": ["climb", "swim", "jump", "lift", "break", "endure", "march"],

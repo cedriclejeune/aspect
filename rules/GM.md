@@ -434,6 +434,7 @@ Each game term has one meaning, in both books.
 | **Nature** | A type of WIL deck: the magic of the wild. Its deck is an **Instinct**, which holds Forms and Mends. |
 | **Noisy N** | −N on checks to sneak. |
 | **Object** | A small non-magical thing that isn't gear: a key, a letter, treasure, rope, a torch. Carried freely, with no limit. |
+| **Occult** | A type of WIL deck: the magic of a bargain with a patron. Its deck is a **Pact**, which holds powers of harm and curses: Dirges only. |
 | **Pack** | Your personal bag: up to 8 pieces, gear you carry but haven't equipped and at most 3 Runestones. |
 | **Party** | The group of Bearers played together. |
 | **Party Stash** | The group's mule, cart or wagon: gear and Runestones the party owns but nobody carries. |
@@ -451,7 +452,7 @@ Each game term has one meaning, in both books.
 | **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
 | **Resolve** | The points your WIL magic costs: one pool, the sum your WIL decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest. |
-| **Rune** | A power in the shape of a sign: a Trait, Technique, Domain, Divine, Glamour or Nature. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone. |
+| **Rune** | A power in the shape of a sign: a Trait, Technique, Domain, Divine, Glamour, Nature or Occult. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone. |
 | **Rune Slot** | A Slot that holds one Rune. You start with 3 and can reach 8. |
 | **Runestone** | A bulky stone that holds one Rune, or nothing (a blank Runestone). An item, but never in a Slot. |
 | **Shield** | The type of held gear that raises your Defenses; it fits a Hand Slot. |
@@ -485,7 +486,7 @@ Each game term has one meaning, in both books.
 | **Visual** | A keyword on a WIL magic power: it needs no voice and acts on creatures who see you, not on those who hear you (a dance, a sign). |
 | **Vulnerable (type)** | Take double damage of that type. |
 | **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of the abilities it names (*+2 to hit, 1d8 + STR or DEX Physical*). |
-| **WIL deck** | A Rune of WIL magic: a fixed list of powers, with an Attack bonus and the Resolve it adds to yours. Its type (Divine, Glamour or Nature) says which powers it holds and changes no other rule. |
+| **WIL deck** | A Rune of WIL magic: a fixed list of powers, with an Attack bonus and the Resolve it adds to yours. Its type (Divine, Glamour, Nature or Occult) says which powers it holds and changes no other rule. |
 | **Wound** | A lasting injury, drawn at random each time you fall to 0 HP. It stays until a downtime heals it. A Crippling Wound blocks a Gear Slot. |
 | **You question** | The first of the three questions asked before an attack: your position and conditions (unseen; long range, can't see the target, Prone…). One die at most. The only question asked on checks, saves and area rolls. |
 

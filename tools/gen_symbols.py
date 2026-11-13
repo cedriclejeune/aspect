@@ -57,6 +57,7 @@ SUBJECTS = {
     "divine": "A plain chalice seen from the side, a small flame rising from the cup",
     "glamour": "A smiling theatre mask seen from the front, empty almond-shaped eye holes, ribbons hanging at both sides",
     "nature": "An animal paw print: one large rounded pad with four oval toe pads above it, all filled solid black",
+    "occult": "A single open eye inside a downward-pointing triangle, a small cross below the eye",
 }
 
 

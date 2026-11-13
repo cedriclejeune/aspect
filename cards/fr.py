@@ -59,6 +59,15 @@ NAMES = {
     "Steady Now": "Du calme", "Dread": "Effroi", "Rousing Verse": "Vers exaltant", "Guidance": "Assistance",
     "Bless": "Bénédiction", "Bane": "Fléau", "Twist Fate": "Altération du destin", "Healing Word": "Mot de guérison",
     "Cure Wounds": "Soins", "Hawk": "Faucon", "Wolf": "Loup", "Mossbalm": "Baume de mousse", "Bear": "Ours",
+    # Rank II decks
+    "Herald's Repertoire": "Répertoire du héraut", "Vicar's Litany": "Litanie du vicaire",
+    "Prowler's Instinct": "Instinct du maraudeur", "Supplicant's Pact": "Grimoire du suppliant",
+    "Heckle": "Huées", "Unbowed": "Insoumis", "Rebuttal": "Riposte verbale", "Rout": "Déroute", "Mending Air": "Air apaisant",
+    "Omen": "Présage", "Providence": "Providence", "Kneel": "À genoux", "Zeal": "Ferveur",
+    "Restoring Touch": "Toucher réparateur", "Chorus of Mercy": "Chœur de miséricorde",
+    "Spider": "Araignée", "Panther": "Panthère", "Sapblood": "Sang de sève", "Aurochs": "Aurochs",
+    "Wild Growth": "Croissance sauvage", "Hex Bolt": "Trait maudit", "Hex": "Maléfice", "Torment": "Tourment",
+    "Wither": "Flétrissure", "Eclipse": "Éclipse",
     # foes
     "Bandit": "Bandit", "Bandit Archer": "Archer bandit", "Goblin": "Gobelin", "Cultist": "Cultiste",
     "Legionary": "Légionnaire", "Bandit Captain": "Capitaine bandit", "Ogre": "Ogre", "Ogre Chieftain": "Chef ogre",
@@ -76,7 +85,7 @@ KEYWORDS = {
     "Focus": "Focaliseur", "Jewelry": "Bijou", "Consumable": "Consommable", "Container": "Contenant", "Recipe": "Recette",
     "3 flasks": "3 fioles", "Spellbook": "Livre de sorts", "Spell": "Sort", "Cantrip": "Tour de magie",
     "Trait": "Trait", "Technique": "Technique", "Domain": "Domaine", "Divine": "Divin", "Glamour": "Glamour",
-    "Nature": "Nature", "Anthem": "Hymne", "Dirge": "Complainte", "Cue": "Réplique", "Mend": "Soin", "Form": "Forme",
+    "Nature": "Nature", "Occult": "Occulte", "Anthem": "Hymne", "Dirge": "Complainte", "Cue": "Réplique", "Mend": "Soin", "Form": "Forme",
     "Wound": "Blessure", "Crippling": "Invalidante", "Hand": "Main", "Item": "Objet", "Heavy": "Lourde",
     "Light": "Légère", "Reach": "Allonge", "Two-Handed": "Deux mains", "Versatile (1d10)": "Polyvalente (1d10)",
     "Versatile (1d8)": "Polyvalente (1d8)", "Brutal": "Brutale", "Crushing": "Écrasante", "Flurry": "Rafale",
@@ -256,6 +265,10 @@ TEXT = {
     "Attack: **WIL + 2**": "Attaque : **VOL + 2**", "Resolve: **3 + WIL** (short rest)": "Ardeur : **3 + VOL** (court repos)",
     "Songs, poems and dances.": "Chants, poèmes et danses.", "Prayers.": "Prières.",
     "Beasts your body knows.": "Des bêtes que votre corps connaît.",
+    "Attack: **WIL + 3**": "Attaque : **VOL + 3**", "Resolve: **+4** (short rest)": "Ardeur : **+4** (court repos)",
+    "Proclamations, war songs and taunts.": "Proclamations, chants de guerre et provocations.",
+    "Psalms and judgments.": "Psaumes et jugements.", "Hunters of the deep woods.": "Les chasseurs des bois profonds.",
+    "Gifts of a patron who keeps count.": "Les dons d'un patron qui tient les comptes.",
     # spells and powers
     "**Action**, range 120 ft.": "**Action**, portée 48 m.",
     "Spell attack against DEX Defense: **1d10 Fire**. A flammable object it hits catches fire.":
@@ -302,6 +315,42 @@ TEXT = {
     "+2 on checks to track.": "+2 aux tests pour pister.", "**Large** · Climb 30 ft.": "**Grand** · Escalade 12 m.",
     "Hide: +2 STR Defense (included).": "Cuir épais : +2 Défense de FOR (compris).",
     "Claws: +2 to hit, 1d8 + STR Physical.": "Griffes : +2 au toucher, 1d8 + FOR Physique.",
+    # Rank II powers
+    "Attack against WIL Defense: until the end of the target's next turn, it has −3 on its next attack.":
+        "Attaque contre la Défense de VOL : jusqu'à la fin du prochain tour de la cible, elle a −3 à sa prochaine attaque.",
+    "Allies within 30 ft have +3 to WIL Defense.": "Les alliés à 12 m ou moins ont +3 à la Défense de VOL.",
+    "−3 to an enemy's attack roll or check.": "−3 au jet d'attaque ou au test d'un ennemi.",
+    "**Action.** One attack against the WIL Defense of each enemy within 30 ft: **Frightened** of you until the end of your next turn.":
+        "**Action.** Une attaque contre la Défense de VOL de chaque ennemi à 12 m ou moins : **Effrayé** par vous jusqu'à la fin de votre prochain tour.",
+    "A creature regains 3d4 + WIL HP.": "Une créature récupère 3d4 + VOL PV.",
+    "**Reaction**, after an enemy within 60 ft rolls a check.": "**Réaction**, après le test d'un ennemi à 24 m ou moins.",
+    "Subtract 1d4 from it.": "Soustrayez-y 1d4.",
+    "**Reaction**, after a creature within 60 ft rolls an attack.": "**Réaction**, après le jet d'attaque d'une créature à 24 m ou moins.",
+    "Add 1d4 to an ally's attack roll, or to the Defense an enemy's attack targets.":
+        "Ajoutez 1d4 au jet d'attaque d'un allié, ou à la Défense que vise l'attaque d'un ennemi.",
+    "Attack against WIL Defense: the target falls **Prone**.": "Attaque contre la Défense de VOL : la cible tombe **À terre**.",
+    "Up to 3 allies within 30 ft add 1d4 to their damage rolls.": "Jusqu'à 3 alliés à 12 m ou moins ajoutent 1d4 à leurs jets de dégâts.",
+    "A creature regains 3d8 + WIL HP.": "Une créature récupère 3d8 + VOL PV.",
+    "Up to 3 allies regain 2d4 + WIL HP.": "Jusqu'à 3 alliés récupèrent 2d4 + VOL PV.",
+    "**Tiny** · Climb 20 ft, on walls and ceilings.": "**Très petit** · Escalade 8 m, sur les murs et les plafonds.",
+    "Bite: +3 to hit, 1d4 + DEX Poison.": "Morsure : +3 au toucher, 1d4 + AGI Poison.",
+    "+3 on checks to sneak.": "+3 aux tests pour se faufiler.",
+    "**Medium** · Climb 30 ft.": "**Moyen** · Escalade 12 m.",
+    "Claws: +3 to hit, 1d8 + DEX Physical.": "Griffes : +3 au toucher, 1d8 + AGI Physique.",
+    "+3 on checks to jump.": "+3 aux tests pour sauter.",
+    "**Large**.": "**Grand**.", "Hide: +3 STR Defense (included).": "Cuir épais : +3 Défense de FOR (compris).",
+    "Horns: +3 to hit, 1d10 + STR Physical.": "Cornes : +3 au toucher, 1d10 + FOR Physique.",
+    "**Action**, range 30 ft.": "**Action**, portée 12 m.",
+    "Up to 3 allies regain 2d6 + WIL HP.": "Jusqu'à 3 alliés récupèrent 2d6 + VOL PV.",
+    "Attack against WIL Defense: **1d10 Necrotic**.": "Attaque contre la Défense de VOL : **1d10 Nécrotique**.",
+    "Attack against WIL Defense: the target has −3 to all its Defenses.":
+        "Attaque contre la Défense de VOL : la cible a −3 à toutes ses Défenses.",
+    "Attack against WIL Defense: **2d6 Necrotic**, and until the end of its next turn, −3 on its next attack.":
+        "Attaque contre la Défense de VOL : **2d6 Nécrotique**, et jusqu'à la fin de son prochain tour, −3 à sa prochaine attaque.",
+    "Attack against WIL Defense: **3d8 Necrotic**, half on a miss.":
+        "Attaque contre la Défense de VOL : **3d8 Nécrotique**, la moitié en cas d'échec.",
+    "Attack against WIL Defense: **2d6 Necrotic**, and the target is **Blinded** for 2 turns.":
+        "Attaque contre la Défense de VOL : **2d6 Nécrotique**, et la cible est **Aveuglée** pendant 2 tours.",
     # foes' own text
     "**Bite:** +4 to hit, 1d6 + 2 Physical.": "**Morsure :** +4 au toucher, 1d6 + 2 Physique.",
     "**Thick Hide:** +1 STR Defense (included).": "**Cuir épais :** +1 à la Défense de FOR (inclus).",
@@ -455,6 +504,47 @@ LORE = {
     "Four swift legs and a nose that reads the forest like a book.": "Quatre pattes rapides et un museau qui lit la forêt comme un livre.",
     "Green moss pressed into the wound. The forest remembers how to heal.": "De la mousse verte pressée dans la plaie. La forêt se souvient de comment guérir.",
     "Thick fur, a heavy hide and claws like knives. Few things argue with a bear.": "Une fourrure épaisse, un cuir lourd et des griffes comme des couteaux. Peu de choses discutent avec un ours.",
+    # Rank II decks
+    "Cried from the walls before the battle, and from the field after it. The enemy hears both.":
+        "Crié du haut des remparts avant la bataille, et sur le champ après. L'ennemi entend les deux.",
+    "The prayers of a parish priest who has buried too many. Gentle for the flock, heavy for the wolf.":
+        "Les prières d'un curé de paroisse qui a trop enterré. Douces pour le troupeau, lourdes pour le loup.",
+    "Shapes that hunt at dusk, and the patience to wait for it.": "Des formes qui chassent au crépuscule, et la patience de l'attendre.",
+    "Signed in ink that was never ink. The patron gives freely, and remembers everything.":
+        "Signé d'une encre qui n'a jamais été de l'encre. Le patron donne sans compter, et se souvient de tout.",
+    "Loud, rude and impossible to ignore. The swing goes wide out of pure spite.":
+        "Bruyantes, grossières, impossibles à ignorer. Le coup part de travers par pur dépit.",
+    "A herald's cry: the banner still stands, and so do you.": "Le cri du héraut : la bannière tient debout, et vous aussi.",
+    "One word, flung across the field at the worst possible moment.": "Un mot, lancé à travers le champ au pire moment possible.",
+    "The herald announces the enemy's defeat a little early. Some of them believe it.":
+        "Le héraut annonce la défaite de l'ennemi un peu tôt. Certains y croient.",
+    "A slow refrain that carries further than it should. Breathing comes easier.":
+        "Un refrain lent qui porte plus loin qu'il ne devrait. On respire mieux.",
+    "A crow on the sill, a candle that gutters. The enemy's luck turns sour.":
+        "Un corbeau sur le rebord, une bougie qui vacille. La chance de l'ennemi tourne à l'aigre.",
+    "A hand on the shoulder that nobody put there.": "Une main sur l'épaule que personne n'y a posée.",
+    "Spoken once, with the full weight of the altar behind it. Knees obey before minds do.":
+        "Prononcé une fois, avec tout le poids de l'autel derrière. Les genoux obéissent avant l'esprit.",
+    "A psalm of judgment. Every blow lands like a verdict.": "Un psaume de jugement. Chaque coup tombe comme un verdict.",
+    "Palms pressed to the wound, and a prayer older than the parish.": "Les paumes pressées sur la plaie, et une prière plus vieille que la paroisse.",
+    "A short psalm, sung once. Everyone who hears it breathes a little easier.":
+        "Un court psaume, chanté une fois. Tous ceux qui l'entendent respirent un peu mieux.",
+    "Eight legs, a patient heart, and every crack in the wall a road.": "Huit pattes, un cœur patient, et chaque fissure du mur est une route.",
+    "A black shape in the branches. The last thing the deer never saw.": "Une forme noire dans les branches. La dernière chose que le cerf n'a jamais vue.",
+    "Amber sap, warm as blood, sealing the wound like bark over a cut.":
+        "Une sève ambrée, chaude comme le sang, qui scelle la plaie comme l'écorce une entaille.",
+    "A wild bull from before the plough. It does not stop for walls.": "Un taureau sauvage d'avant la charrue. Il ne s'arrête pas devant un mur.",
+    "Green shoots burst through the ground and wrap the wounded in soft leaves.":
+        "Des pousses vertes percent le sol et enveloppent les blessés de feuilles tendres.",
+    "A crackling shard of something that should not be here. It leaves frost on the bones.":
+        "Un éclat crépitant de quelque chose qui ne devrait pas être là. Il laisse du givre sur les os.",
+    "A name whispered to the patron. From then on, everything finds a way through.":
+        "Un nom murmuré au patron. Dès lors, tout trouve un passage.",
+    "A voice inside the skull, reciting every fear in order.": "Une voix dans le crâne, qui récite chaque peur dans l'ordre.",
+    "Skin grays, lips crack, and the life drains toward a hungry dark.":
+        "La peau grisonne, les lèvres se fendent, et la vie s'écoule vers un noir affamé.",
+    "A shadow falls over the eyes. The patron watches; the victim cannot.":
+        "Une ombre tombe sur les yeux. Le patron regarde ; la victime ne le peut plus.",
 }
 
 # Slot frames (base_set.FRAMES): name, swap time, reminder
@@ -469,14 +559,14 @@ FRAME_TEXT = {
     "Empty: grapple, or hold a Spellbook to cast.": "Vide : empoigner, ou tenir un Livre de sorts pour lancer.",
     "Rings, amulets, circlets, cloaks, gloves, boots.": "Anneaux, amulettes, diadèmes, capes, gants, bottes.",
     "A Spellbook, a Recipe, or up to 3 identical Consumables.": "Un Livre de sorts, une Recette, ou jusqu'à 3 Consommables identiques.",
-    "A Trait, Technique, Domain, Divine, Glamour or Nature.": "Un Trait, une Technique, un Domaine, un Divin, un Glamour ou une Nature.",
+    "A Trait, Technique, Domain, Divine, Glamour, Nature or Occult.": "Un Trait, une Technique, un Domaine, un Divin, un Glamour, une Nature ou un Occulte.",
     "Extra Gear Slot: a spectral arm, a familiar, a living tail.": "Emplacement de Matériel supplémentaire : un bras spectral, un familier, une queue vivante.",
     "Never lost, traded or stored.": "Jamais perdu, échangé ni rangé.", "Extra Gear Slot.": "Emplacement de Matériel supplémentaire.",
     "Holds one Rune, or nothing.": "Contient une Rune, ou rien.",
     "**Capture:** 1 action · **Etch:** long rest · **Release:** free": "**Capturer :** 1 action · **Graver :** long repos · **Libérer :** gratuit",
 }
 
-DAMAGE = {"Physical": "Physique", "Lightning": "Foudre"}
+DAMAGE = {"Physical": "Physique", "Lightning": "Foudre", "Poison": "Poison"}
 
 STARTER_KEYS = {"Armor": "Armure", "Hands": "Mains", "Jewelry": "Bijou", "Items": "Objets", "Runes": "Runes"}
 

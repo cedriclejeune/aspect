@@ -234,7 +234,7 @@ WOUNDS = [
 # ---------- decks: a cover card, then one card per spell or power ----------
 # Every WIL deck has the same structure, whatever its type (P 10.6, DESIGN 3): a cover that prints Attack, Resolve
 # and one flavor line, then its powers. The type only decides which powers it holds (Litany, Repertoire: Anthem, Dirge,
-# Cue, Mend; Instinct: Form, Mend). All of them need the voice but a Form.
+# Cue, Mend; Instinct: Form, Mend; Pact: Dirge). All of them need the voice but a Form.
 # ---------- mechanics of decks (SPEC 2.1): name → Power, id/name/kind/cost are filled in by spell() / power() ----------
 VOICE = ["voice"]
 POWER_FX = {
@@ -284,6 +284,46 @@ POWER_FX = {
     "Bear": dict(use="action", target="self", form=dict(
         strip={"STR": 3, "DEX": 1, "STRd": 15, "DEXd": 11, "HP": 12, "SPD": 30}, size="Large", fly=0, climb=30,
         weapon=dict(name="Claws", hit=2, dice="1d8", abil=["STR"], type="Physical"))),
+    # Rank II decks (loot): Attack WIL + 3, Resolve +4, bonuses and penalties 3, fate die d4 (DESIGN 3)
+    "Heckle": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"),
+                   do=[dict(mod="attack", n=-3, next=True, until="endTargetTurn")]),
+    "Unbowed": dict(use="action", reach=30, target="allies", need=VOICE, dur="1 minute",
+                    do=[dict(mod="def", n=3, defs=["WIL"], until="dur")]),
+    "Rebuttal": dict(use="reaction", on="rollNear", reach=60, target="enemy", need=VOICE,
+                     do=[dict(mod="roll", n=-3)], params=dict(rollKinds=["attack", "check"])),
+    "Rout": dict(use="action", reach=30, target="enemies", need=VOICE, atk=dict(abil="deck", vs="WIL"),
+                 do=[dict(cond="Frightened", until="endSourceTurn")], tags=["fear"]),
+    "Mending Air": dict(use="action", reach=60, target="creature", need=VOICE, do=[dict(heal="3d4+WIL")]),
+    "Omen": dict(use="reaction", on="rollNear", reach=60, target="enemy", need=VOICE,
+                 do=[dict(mod="roll", dice="-1d4")], params=dict(rollKinds=["check"])),
+    "Providence": dict(use="reaction", on="rollNear", reach=60, target="ally", need=VOICE,
+                       do=[dict(mod="roll", dice="1d4")], params=dict(rollKinds=["attack"], orDefense=True)),
+    "Kneel": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"), do=[dict(cond="Prone")]),
+    "Zeal": dict(use="action", reach=30, target="allies", count=3, need=VOICE, dur="1 minute",
+                 do=[dict(mod="dmg", dice="1d4", until="dur")]),
+    "Restoring Touch": dict(use="action", reach=5, target="creature", need=VOICE, do=[dict(heal="3d8+WIL")]),
+    "Chorus of Mercy": dict(use="action", reach=60, target="allies", count=3, need=VOICE, do=[dict(heal="2d4+WIL")]),
+    "Spider": dict(use="action", target="self", form=dict(
+        strip={"STR": -2, "DEX": 4, "STRd": 8, "DEXd": 14, "HP": 10, "SPD": 20}, size="Tiny", fly=0, climb=20,
+        weapon=dict(name="Bite", hit=3, dice="1d4", abil=["DEX"], type="Poison"))),
+    "Panther": dict(use="action", target="self", form=dict(
+        strip={"STR": 2, "DEX": 4, "STRd": 12, "DEXd": 14, "HP": 20, "SPD": 50}, size="Medium", fly=0, climb=30,
+        weapon=dict(name="Claws", hit=3, dice="1d8", abil=["DEX"], type="Physical"))),
+    "Sapblood": dict(use="action", reach=5, target="creature", need=VOICE, do=[dict(heal="3d8+WIL")]),
+    "Aurochs": dict(use="action", target="self", form=dict(
+        strip={"STR": 4, "DEX": 2, "STRd": 17, "DEXd": 12, "HP": 30, "SPD": 40}, size="Large", fly=0, climb=0,
+        weapon=dict(name="Horns", hit=3, dice="1d10", abil=["STR"], type="Physical"))),
+    "Wild Growth": dict(use="action", reach=30, target="allies", count=3, need=VOICE, do=[dict(heal="2d6+WIL")]),
+    "Hex Bolt": dict(use="action", reach=120, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"),
+                     do=[dict(dmg="1d10", type="Necrotic")]),
+    "Hex": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"), dur="1 minute",
+                do=[dict(mod="def", n=-3, until="dur")]),
+    "Torment": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"),
+                    do=[dict(dmg="2d6", type="Necrotic"), dict(mod="attack", n=-3, next=True, until="endTargetTurn")]),
+    "Wither": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"), half=True,
+                   do=[dict(dmg="3d8", type="Necrotic")]),
+    "Eclipse": dict(use="action", reach=60, target="enemy", need=VOICE, atk=dict(abil="deck", vs="WIL"),
+                    do=[dict(dmg="2d6", type="Necrotic"), dict(cond="Blinded", until="targetTurns2")]),
 }
 
 
@@ -362,7 +402,63 @@ INSTINCT = dict(
     ],
 )
 
-DECKS = [CONJURER, REPERTOIRE, LITANY, INSTINCT]
+# ---------- Rank II WIL decks (loot): Attack WIL + 3, Resolve +4 (DESIGN 3) ----------
+HERALD = dict(
+    cover=card("Herald's Repertoire", "II", "aspect", "Glamour", [
+        "Attack: **WIL + 3**", "Resolve: **+4** (short rest)", "Proclamations, war songs and taunts."], group="loot", sym=["WIL"]),
+    color="aspect", stats=dict(kind="glamour", atk=3, resolve=4),
+    cards=[
+        power("Heckle", "Dirge", 0, ["**Action**, range 60 ft.", "Attack against WIL Defense: until the end of the target's next turn, it has −3 on its next attack."]),
+        power("Unbowed", "Anthem", 1, ["**Action**, Duration 1 minute.", "Allies within 30 ft have +3 to WIL Defense."]),
+        power("Rebuttal", "Cue", 1, ["**Reaction**, after a creature within 60 ft rolls.", "−3 to an enemy's attack roll or check."]),
+        power("Rout", "Dirge", 2, ["**Action.** One attack against the WIL Defense of each enemy within 30 ft: **Frightened** of you until the end of your next turn."]),
+        power("Mending Air", "Mend", 2, ["**Action**, range 60 ft.", "A creature regains 3d4 + WIL HP."]),
+    ],
+)
+
+VICAR = dict(
+    cover=card("Vicar's Litany", "II", "aspect", "Divine", [
+        "Attack: **WIL + 3**", "Resolve: **+4** (short rest)", "Psalms and judgments."], group="loot", sym=["WIL"]),
+    color="aspect", stats=dict(kind="divine", atk=3, resolve=4),
+    cards=[
+        power("Omen", "Cue", 0, ["**Reaction**, after an enemy within 60 ft rolls a check.", "Subtract 1d4 from it."]),
+        power("Providence", "Cue", 1, ["**Reaction**, after a creature within 60 ft rolls an attack.", "Add 1d4 to an ally's attack roll, or to the Defense an enemy's attack targets."]),
+        power("Kneel", "Dirge", 1, ["**Action**, range 60 ft.", "Attack against WIL Defense: the target falls **Prone**."]),
+        power("Zeal", "Anthem", 2, ["**Action**, Duration 1 minute.", "Up to 3 allies within 30 ft add 1d4 to their damage rolls."]),
+        power("Restoring Touch", "Mend", 2, ["**Action**, touch.", "A creature regains 3d8 + WIL HP."]),
+        power("Chorus of Mercy", "Mend", 3, ["**Action**, range 60 ft.", "Up to 3 allies regain 2d4 + WIL HP."]),
+    ],
+)
+
+PROWLER = dict(
+    cover=card("Prowler's Instinct", "II", "aspect", "Nature", [
+        "Attack: **WIL + 3**", "Resolve: **+4** (short rest)", "Hunters of the deep woods."], group="loot", sym=["WIL"]),
+    color="aspect", stats=dict(kind="nature", atk=3, resolve=4),
+    cards=[
+        power("Spider", "Form", 1, ["**Tiny** · Climb 20 ft, on walls and ceilings.", "Bite: +3 to hit, 1d4 + DEX Poison.", "+3 on checks to sneak."], form(-2, 4, 10, 20)),
+        power("Panther", "Form", 2, ["**Medium** · Climb 30 ft.", "Claws: +3 to hit, 1d8 + DEX Physical.", "+3 on checks to jump."], form(2, 4, 20, 50)),
+        power("Sapblood", "Mend", 2, ["**Action**, touch.", "A creature regains 3d8 + WIL HP."]),
+        power("Aurochs", "Form", 3, ["**Large**.", "Hide: +3 STR Defense (included).", "Horns: +3 to hit, 1d10 + STR Physical."], form(4, 2, 30, 40, hide=3)),
+        power("Wild Growth", "Mend", 3, ["**Action**, range 30 ft.", "Up to 3 allies regain 2d6 + WIL HP."]),
+    ],
+)
+
+# Occult: a Pact, the warlock's deck (FR Grimoire). Its own content: harm and curses, all Dirges. The one WIL deck
+# besides an Instinct's Forms that deals damage; no Anthem, Cue or Mend (DESIGN 3).
+SUPPLICANT = dict(
+    cover=card("Supplicant's Pact", "II", "aspect", "Occult", [
+        "Attack: **WIL + 3**", "Resolve: **+4** (short rest)", "Gifts of a patron who keeps count."], group="loot", sym=["WIL"]),
+    color="aspect", stats=dict(kind="occult", atk=3, resolve=4),
+    cards=[
+        power("Hex Bolt", "Dirge", 0, ["**Action**, range 120 ft.", "Attack against WIL Defense: **1d10 Necrotic**."]),
+        power("Hex", "Dirge", 1, ["**Action**, range 60 ft, Duration 1 minute.", "Attack against WIL Defense: the target has −3 to all its Defenses."]),
+        power("Torment", "Dirge", 1, ["**Action**, range 60 ft.", "Attack against WIL Defense: **2d6 Necrotic**, and until the end of its next turn, −3 on its next attack."]),
+        power("Wither", "Dirge", 2, ["**Action**, range 60 ft.", "Attack against WIL Defense: **3d8 Necrotic**, half on a miss."]),
+        power("Eclipse", "Dirge", 3, ["**Action**, range 60 ft.", "Attack against WIL Defense: **2d6 Necrotic**, and the target is **Blinded** for 2 turns."]),
+    ],
+)
+
+DECKS = [CONJURER, REPERTOIRE, LITANY, INSTINCT, HERALD, VICAR, PROWLER, SUPPLICANT]
 
 GOLD = [(1, 8), (10, 8), (50, 6), (100, 4), (500, 2), (1000, 1)]  # (value, copies)
 TALLIES = 8
@@ -374,7 +470,7 @@ FRAMES = [
     ("hand", "Hand", "Swap: free interaction", ["One Weapon, Shield or Instrument.", "Empty: grapple, or hold a Spellbook to cast."], 2 * PLAYERS),
     ("jewelry", "Jewelry", "Swap: free, once per turn", ["Rings, amulets, circlets, cloaks, gloves, boots."], PLAYERS),
     ("item", "Item", "Swap: free · Spellbook: 1 action", ["A Spellbook, a Recipe, or up to 3 identical Consumables."], 2 * PLAYERS),
-    ("aspect", "Rune", "Swap: long rest", ["A Trait, Technique, Domain, Divine, Glamour or Nature."], 4 * PLAYERS),  # 3 each + 1 milestone
+    ("aspect", "Rune", "Swap: long rest", ["A Trait, Technique, Domain, Divine, Glamour, Nature or Occult."], 4 * PLAYERS),  # 3 each + 1 milestone
     ("hand", "Third Hand", "Swap: free interaction", ["Extra Gear Slot: a spectral arm, a familiar, a living tail.", "Never lost, traded or stored."], 1),
     ("jewelry", "Second Jewel", "Swap: free, once per turn", ["Extra Gear Slot.", "Never lost, traded or stored."], 1),
     ("item", "Great Backpack", "Swap: free · Spellbook: 1 action", ["Extra Gear Slot.", "Never lost, traded or stored."], 1),
@@ -490,6 +586,10 @@ LORE = {
     "Wanderer's Repertoire": "Songs of roadside fires and tavern corners, made for someone who never stays long.",
     "Acolyte's Litany": "Prayers worn smooth by a thousand voices. The faith comes with them.",
     "Wildheart's Instinct": "Fur, feather and claw. The body knows these shapes, and longs for them.",
+    "Herald's Repertoire": "Cried from the walls before the battle, and from the field after it. The enemy hears both.",
+    "Vicar's Litany": "The prayers of a parish priest who has buried too many. Gentle for the flock, heavy for the wolf.",
+    "Prowler's Instinct": "Shapes that hunt at dusk, and the patience to wait for it.",
+    "Supplicant's Pact": "Signed in ink that was never ink. The patron gives freely, and remembers everything.",
 }
 POWER_LORE = {  # deck cards: their names may repeat a gear card's (Shield)
     "Fire Bolt": "The first spell every conjurer learns, and the one they burn their eyebrows with.",
@@ -516,6 +616,28 @@ POWER_LORE = {  # deck cards: their names may repeat a gear card's (Shield)
     "Wolf": "Four swift legs and a nose that reads the forest like a book.",
     "Mossbalm": "Green moss pressed into the wound. The forest remembers how to heal.",
     "Bear": "Thick fur, a heavy hide and claws like knives. Few things argue with a bear.",
+    # Rank II
+    "Heckle": "Loud, rude and impossible to ignore. The swing goes wide out of pure spite.",
+    "Unbowed": "A herald's cry: the banner still stands, and so do you.",
+    "Rebuttal": "One word, flung across the field at the worst possible moment.",
+    "Rout": "The herald announces the enemy's defeat a little early. Some of them believe it.",
+    "Mending Air": "A slow refrain that carries further than it should. Breathing comes easier.",
+    "Omen": "A crow on the sill, a candle that gutters. The enemy's luck turns sour.",
+    "Providence": "A hand on the shoulder that nobody put there.",
+    "Kneel": "Spoken once, with the full weight of the altar behind it. Knees obey before minds do.",
+    "Zeal": "A psalm of judgment. Every blow lands like a verdict.",
+    "Restoring Touch": "Palms pressed to the wound, and a prayer older than the parish.",
+    "Chorus of Mercy": "A short psalm, sung once. Everyone who hears it breathes a little easier.",
+    "Spider": "Eight legs, a patient heart, and every crack in the wall a road.",
+    "Panther": "A black shape in the branches. The last thing the deer never saw.",
+    "Sapblood": "Amber sap, warm as blood, sealing the wound like bark over a cut.",
+    "Aurochs": "A wild bull from before the plough. It does not stop for walls.",
+    "Wild Growth": "Green shoots burst through the ground and wrap the wounded in soft leaves.",
+    "Hex Bolt": "A crackling shard of something that should not be here. It leaves frost on the bones.",
+    "Hex": "A name whispered to the patron. From then on, everything finds a way through.",
+    "Torment": "A voice inside the skull, reciting every fear in order.",
+    "Wither": "Skin grays, lips crack, and the life drains toward a hungry dark.",
+    "Eclipse": "A shadow falls over the eyes. The patron watches; the victim cannot.",
 }
 for _deck in DECKS:
     for _p in _deck["cards"]:
@@ -526,7 +648,7 @@ for _deck in DECKS:
 # Add new cards at the end of their type and Rank so existing IDs never change.
 TYPE_LETTER = {"Calling": "L", "Armor": "A", "Weapon": "W", "Shield": "S", "Instrument": "M", "Jewelry": "J",
                "Consumable": "P", "Recipe": "R", "Container": "C", "Spellbook": "B", "Trait": "T", "Technique": "Q",
-               "Domain": "K", "Divine": "D", "Glamour": "G", "Nature": "N"}
+               "Domain": "K", "Divine": "D", "Glamour": "G", "Nature": "N", "Occult": "O"}
 CARDS = CALLINGS + ARMOR + HANDS + JEWELRY + ITEMS + ASPECTS + [d["cover"] for d in DECKS]
 
 # ---------- mechanics of cards (SPEC 2.1): card name → list of Powers; ids are added by tools/export_sim.py ----------

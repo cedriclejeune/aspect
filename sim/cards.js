@@ -160,6 +160,28 @@ globalThis.BEARERS_CARDS = {
    "fx": [],
    "deck": "D-I-01"
   },
+  "D-II-01": {
+   "id": "D-II-01",
+   "name": "Vicar's Litany",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Divine",
+   "kw": [
+    "Divine"
+   ],
+   "text": [
+    "Attack: **WIL + 3**",
+    "Resolve: **+4** (short rest)",
+    "Psalms and judgments."
+   ],
+   "strip": {},
+   "group": "loot",
+   "sym": [
+    "WIL"
+   ],
+   "fx": [],
+   "deck": "D-II-01"
+  },
   "G-I-01": {
    "id": "G-I-01",
    "name": "Wanderer's Repertoire",
@@ -181,6 +203,28 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": [],
    "deck": "G-I-01"
+  },
+  "G-II-01": {
+   "id": "G-II-01",
+   "name": "Herald's Repertoire",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Glamour",
+   "kw": [
+    "Glamour"
+   ],
+   "text": [
+    "Attack: **WIL + 3**",
+    "Resolve: **+4** (short rest)",
+    "Proclamations, war songs and taunts."
+   ],
+   "strip": {},
+   "group": "loot",
+   "sym": [
+    "WIL"
+   ],
+   "fx": [],
+   "deck": "G-II-01"
   },
   "J-I-01": {
    "id": "J-I-01",
@@ -1181,6 +1225,50 @@ globalThis.BEARERS_CARDS = {
    ],
    "fx": [],
    "deck": "N-I-01"
+  },
+  "N-II-01": {
+   "id": "N-II-01",
+   "name": "Prowler's Instinct",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Nature",
+   "kw": [
+    "Nature"
+   ],
+   "text": [
+    "Attack: **WIL + 3**",
+    "Resolve: **+4** (short rest)",
+    "Hunters of the deep woods."
+   ],
+   "strip": {},
+   "group": "loot",
+   "sym": [
+    "WIL"
+   ],
+   "fx": [],
+   "deck": "N-II-01"
+  },
+  "O-II-01": {
+   "id": "O-II-01",
+   "name": "Supplicant's Pact",
+   "rank": "II",
+   "kind": "aspect",
+   "type": "Occult",
+   "kw": [
+    "Occult"
+   ],
+   "text": [
+    "Attack: **WIL + 3**",
+    "Resolve: **+4** (short rest)",
+    "Gifts of a patron who keeps count."
+   ],
+   "strip": {},
+   "group": "loot",
+   "sym": [
+    "WIL"
+   ],
+   "fx": [],
+   "deck": "O-II-01"
   },
   "P-I-01": {
    "id": "P-I-01",
@@ -4083,6 +4171,526 @@ globalThis.BEARERS_CARDS = {
        "type": "Physical"
       }
      }
+    }
+   ]
+  },
+  "G-II-01": {
+   "cover": "G-II-01",
+   "kind": "glamour",
+   "atk": 3,
+   "resolve": 4,
+   "powers": [
+    {
+     "id": "G-II-01#heckle",
+     "name": "Heckle",
+     "kind": "Dirge",
+     "cost": 0,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "mod": "attack",
+       "n": -3,
+       "next": true,
+       "until": "endTargetTurn"
+      }
+     ]
+    },
+    {
+     "id": "G-II-01#unbowed",
+     "name": "Unbowed",
+     "kind": "Anthem",
+     "cost": 1,
+     "use": "action",
+     "reach": 30,
+     "target": "allies",
+     "need": [
+      "voice"
+     ],
+     "dur": "1 minute",
+     "do": [
+      {
+       "mod": "def",
+       "n": 3,
+       "defs": [
+        "WIL"
+       ],
+       "until": "dur"
+      }
+     ]
+    },
+    {
+     "id": "G-II-01#rebuttal",
+     "name": "Rebuttal",
+     "kind": "Cue",
+     "cost": 1,
+     "use": "reaction",
+     "on": "rollNear",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "do": [
+      {
+       "mod": "roll",
+       "n": -3
+      }
+     ],
+     "params": {
+      "rollKinds": [
+       "attack",
+       "check"
+      ]
+     }
+    },
+    {
+     "id": "G-II-01#rout",
+     "name": "Rout",
+     "kind": "Dirge",
+     "cost": 2,
+     "use": "action",
+     "reach": 30,
+     "target": "enemies",
+     "need": [
+      "voice"
+     ],
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "cond": "Frightened",
+       "until": "endSourceTurn"
+      }
+     ],
+     "tags": [
+      "fear"
+     ]
+    },
+    {
+     "id": "G-II-01#mending-air",
+     "name": "Mending Air",
+     "kind": "Mend",
+     "cost": 2,
+     "use": "action",
+     "reach": 60,
+     "target": "creature",
+     "need": [
+      "voice"
+     ],
+     "do": [
+      {
+       "heal": "3d4+WIL"
+      }
+     ]
+    }
+   ]
+  },
+  "D-II-01": {
+   "cover": "D-II-01",
+   "kind": "divine",
+   "atk": 3,
+   "resolve": 4,
+   "powers": [
+    {
+     "id": "D-II-01#omen",
+     "name": "Omen",
+     "kind": "Cue",
+     "cost": 0,
+     "use": "reaction",
+     "on": "rollNear",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "do": [
+      {
+       "mod": "roll",
+       "dice": "-1d4"
+      }
+     ],
+     "params": {
+      "rollKinds": [
+       "check"
+      ]
+     }
+    },
+    {
+     "id": "D-II-01#providence",
+     "name": "Providence",
+     "kind": "Cue",
+     "cost": 1,
+     "use": "reaction",
+     "on": "rollNear",
+     "reach": 60,
+     "target": "ally",
+     "need": [
+      "voice"
+     ],
+     "do": [
+      {
+       "mod": "roll",
+       "dice": "1d4"
+      }
+     ],
+     "params": {
+      "rollKinds": [
+       "attack"
+      ],
+      "orDefense": true
+     }
+    },
+    {
+     "id": "D-II-01#kneel",
+     "name": "Kneel",
+     "kind": "Dirge",
+     "cost": 1,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "cond": "Prone"
+      }
+     ]
+    },
+    {
+     "id": "D-II-01#zeal",
+     "name": "Zeal",
+     "kind": "Anthem",
+     "cost": 2,
+     "use": "action",
+     "reach": 30,
+     "target": "allies",
+     "count": 3,
+     "need": [
+      "voice"
+     ],
+     "dur": "1 minute",
+     "do": [
+      {
+       "mod": "dmg",
+       "dice": "1d4",
+       "until": "dur"
+      }
+     ]
+    },
+    {
+     "id": "D-II-01#restoring-touch",
+     "name": "Restoring Touch",
+     "kind": "Mend",
+     "cost": 2,
+     "use": "action",
+     "reach": 5,
+     "target": "creature",
+     "need": [
+      "voice"
+     ],
+     "do": [
+      {
+       "heal": "3d8+WIL"
+      }
+     ]
+    },
+    {
+     "id": "D-II-01#chorus-of-mercy",
+     "name": "Chorus of Mercy",
+     "kind": "Mend",
+     "cost": 3,
+     "use": "action",
+     "reach": 60,
+     "target": "allies",
+     "count": 3,
+     "need": [
+      "voice"
+     ],
+     "do": [
+      {
+       "heal": "2d4+WIL"
+      }
+     ]
+    }
+   ]
+  },
+  "N-II-01": {
+   "cover": "N-II-01",
+   "kind": "nature",
+   "atk": 3,
+   "resolve": 4,
+   "powers": [
+    {
+     "id": "N-II-01#spider",
+     "name": "Spider",
+     "kind": "Form",
+     "cost": 1,
+     "use": "action",
+     "target": "self",
+     "form": {
+      "strip": {
+       "STR": -2,
+       "DEX": 4,
+       "STRd": 8,
+       "DEXd": 14,
+       "HP": 10,
+       "SPD": 20
+      },
+      "size": "Tiny",
+      "fly": 0,
+      "climb": 20,
+      "weapon": {
+       "name": "Bite",
+       "hit": 3,
+       "dice": "1d4",
+       "abil": [
+        "DEX"
+       ],
+       "type": "Poison"
+      }
+     }
+    },
+    {
+     "id": "N-II-01#panther",
+     "name": "Panther",
+     "kind": "Form",
+     "cost": 2,
+     "use": "action",
+     "target": "self",
+     "form": {
+      "strip": {
+       "STR": 2,
+       "DEX": 4,
+       "STRd": 12,
+       "DEXd": 14,
+       "HP": 20,
+       "SPD": 50
+      },
+      "size": "Medium",
+      "fly": 0,
+      "climb": 30,
+      "weapon": {
+       "name": "Claws",
+       "hit": 3,
+       "dice": "1d8",
+       "abil": [
+        "DEX"
+       ],
+       "type": "Physical"
+      }
+     }
+    },
+    {
+     "id": "N-II-01#sapblood",
+     "name": "Sapblood",
+     "kind": "Mend",
+     "cost": 2,
+     "use": "action",
+     "reach": 5,
+     "target": "creature",
+     "need": [
+      "voice"
+     ],
+     "do": [
+      {
+       "heal": "3d8+WIL"
+      }
+     ]
+    },
+    {
+     "id": "N-II-01#aurochs",
+     "name": "Aurochs",
+     "kind": "Form",
+     "cost": 3,
+     "use": "action",
+     "target": "self",
+     "form": {
+      "strip": {
+       "STR": 4,
+       "DEX": 2,
+       "STRd": 17,
+       "DEXd": 12,
+       "HP": 30,
+       "SPD": 40
+      },
+      "size": "Large",
+      "fly": 0,
+      "climb": 0,
+      "weapon": {
+       "name": "Horns",
+       "hit": 3,
+       "dice": "1d10",
+       "abil": [
+        "STR"
+       ],
+       "type": "Physical"
+      }
+     }
+    },
+    {
+     "id": "N-II-01#wild-growth",
+     "name": "Wild Growth",
+     "kind": "Mend",
+     "cost": 3,
+     "use": "action",
+     "reach": 30,
+     "target": "allies",
+     "count": 3,
+     "need": [
+      "voice"
+     ],
+     "do": [
+      {
+       "heal": "2d6+WIL"
+      }
+     ]
+    }
+   ]
+  },
+  "O-II-01": {
+   "cover": "O-II-01",
+   "kind": "occult",
+   "atk": 3,
+   "resolve": 4,
+   "powers": [
+    {
+     "id": "O-II-01#hex-bolt",
+     "name": "Hex Bolt",
+     "kind": "Dirge",
+     "cost": 0,
+     "use": "action",
+     "reach": 120,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "dmg": "1d10",
+       "type": "Necrotic"
+      }
+     ]
+    },
+    {
+     "id": "O-II-01#hex",
+     "name": "Hex",
+     "kind": "Dirge",
+     "cost": 1,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "dur": "1 minute",
+     "do": [
+      {
+       "mod": "def",
+       "n": -3,
+       "until": "dur"
+      }
+     ]
+    },
+    {
+     "id": "O-II-01#torment",
+     "name": "Torment",
+     "kind": "Dirge",
+     "cost": 1,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "dmg": "2d6",
+       "type": "Necrotic"
+      },
+      {
+       "mod": "attack",
+       "n": -3,
+       "next": true,
+       "until": "endTargetTurn"
+      }
+     ]
+    },
+    {
+     "id": "O-II-01#wither",
+     "name": "Wither",
+     "kind": "Dirge",
+     "cost": 2,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "half": true,
+     "do": [
+      {
+       "dmg": "3d8",
+       "type": "Necrotic"
+      }
+     ]
+    },
+    {
+     "id": "O-II-01#eclipse",
+     "name": "Eclipse",
+     "kind": "Dirge",
+     "cost": 3,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "need": [
+      "voice"
+     ],
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "dmg": "2d6",
+       "type": "Necrotic"
+      },
+      {
+       "cond": "Blinded",
+       "until": "targetTurns2"
+      }
+     ]
     }
    ]
   }

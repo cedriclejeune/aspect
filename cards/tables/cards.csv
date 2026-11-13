@@ -89,6 +89,10 @@ B-I-01,Conjurer's Book,Spellbook,I,starter,INT,1,,,,,,,,,,,,,,Spell attack: INT 
 G-I-01,Wanderer's Repertoire,Glamour,I,starter,WIL,1,,,,,,,,,,,,,,"Attack: WIL + 2 Resolve: +3 (short rest) Songs, poems and dances.","Songs of roadside fires and tavern corners, made for someone who never stays long."
 D-I-01,Acolyte's Litany,Divine,I,loot,WIL,1,,,,,,,,,,,,,,Attack: WIL + 2 Resolve: +3 (short rest) Prayers.,Prayers worn smooth by a thousand voices. The faith comes with them.
 N-I-01,Wildheart's Instinct,Nature,I,loot,WIL,1,,,,,,,,,,,,,,Attack: WIL + 2 Resolve: +3 (short rest) Beasts your body knows.,"Fur, feather and claw. The body knows these shapes, and longs for them."
+G-II-01,Herald's Repertoire,Glamour,II,loot,WIL,1,,,,,,,,,,,,,,"Attack: WIL + 3 Resolve: +4 (short rest) Proclamations, war songs and taunts.","Cried from the walls before the battle, and from the field after it. The enemy hears both."
+D-II-01,Vicar's Litany,Divine,II,loot,WIL,1,,,,,,,,,,,,,,Attack: WIL + 3 Resolve: +4 (short rest) Psalms and judgments.,"The prayers of a parish priest who has buried too many. Gentle for the flock, heavy for the wolf."
+N-II-01,Prowler's Instinct,Nature,II,loot,WIL,1,,,,,,,,,,,,,,Attack: WIL + 3 Resolve: +4 (short rest) Hunters of the deep woods.,"Shapes that hunt at dusk, and the patience to wait for it."
+O-II-01,Supplicant's Pact,Occult,II,loot,WIL,1,,,,,,,,,,,,,,Attack: WIL + 3 Resolve: +4 (short rest) Gifts of a patron who keeps count.,"Signed in ink that was never ink. The patron gives freely, and remembers everything."
 ,Twisted Ankle,Wound,,wound,all,1,,,,,,,,,,-10,,,,You hobble.,
 ,Bruised Ribs,Wound,,wound,all,1,,,,,-2,,,,,,,,,Every breath hurts.,
 ,Pulled Muscle,Wound,,wound,all,1,,,,,,-2,,,,,,,,You can't twist away in time.,
