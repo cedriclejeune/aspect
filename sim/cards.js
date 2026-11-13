@@ -5132,6 +5132,1077 @@ globalThis.BEARERS_CARDS = {
     "HP": 80,
     "SPD": 30
    }
+  },
+  {
+   "name": "Stirge",
+   "body": {
+    "STR": -3,
+    "DEX": 3,
+    "INT": -1,
+    "WIL": -2,
+    "HP": 3,
+    "SPD": 40,
+    "size": "Tiny"
+   },
+   "carries": [
+    "T-I-06"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Flyer:** flies at its full Speed.",
+    "**Proboscis:** +5 to hit, 1d4 + 3 Physical, and it latches on: the target is **Grappled** by it."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-stirge#0",
+     "name": "Proboscis",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 5,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "1d4+3",
+       "type": "Physical"
+      },
+      {
+       "cond": "Grappled"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": -3,
+    "DEX": 3,
+    "INT": -1,
+    "WIL": -2,
+    "STRd": 7,
+    "DEXd": 13,
+    "INTd": 9,
+    "WILd": 8,
+    "HP": 5,
+    "SPD": 40
+   }
+  },
+  {
+   "name": "Giant Centipede",
+   "body": {
+    "STR": 1,
+    "DEX": 2,
+    "INT": -2,
+    "WIL": -4,
+    "HP": 7,
+    "SPD": 30,
+    "size": "Small"
+   },
+   "carries": [
+    "T-I-02"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Wall Crawler:** climbs walls and ceilings at full Speed.",
+    "**Bite:** +4 to hit, 1d4 + 2 Physical, and the target is **Poisoned** until the end of the centipede's next turn."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-giant-centipede#0",
+     "name": "Bite",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 4,
+      "vs": "weapon"
+     },
+     "tags": [
+      "poison"
+     ],
+     "do": [
+      {
+       "dmg": "1d4+2",
+       "type": "Physical"
+      },
+      {
+       "cond": "Poisoned",
+       "until": "endSourceTurn"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 1,
+    "DEX": 2,
+    "INT": -2,
+    "WIL": -4,
+    "STRd": 11,
+    "DEXd": 12,
+    "INTd": 8,
+    "WILd": 6,
+    "HP": 9,
+    "SPD": 30
+   }
+  },
+  {
+   "name": "Boar",
+   "body": {
+    "STR": 1,
+    "DEX": 0,
+    "INT": -1,
+    "WIL": -3,
+    "HP": 9,
+    "SPD": 40,
+    "size": "Medium"
+   },
+   "carries": [
+    "T-II-07"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {},
+   "alert": true,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Tusks:** +3 to hit, 1d6 + 1 Physical.",
+    "**Charge:** when it hits right after a Move straight at the target, the target falls **Prone**.",
+    "**Keen Nose:** alert (passive Awareness +5)."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-boar#0",
+     "name": "Tusks",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 3,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "1d6+1",
+       "type": "Physical"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 1,
+    "DEX": 0,
+    "INT": -1,
+    "WIL": -3,
+    "STRd": 11,
+    "DEXd": 10,
+    "INTd": 9,
+    "WILd": 7,
+    "HP": 13,
+    "SPD": 40
+   }
+  },
+  {
+   "name": "Flying Sword",
+   "body": {
+    "STR": 2,
+    "DEX": 2,
+    "INT": -3,
+    "WIL": -5,
+    "HP": 14,
+    "SPD": 50,
+    "size": "Small"
+   },
+   "carries": [
+    "W-I-05"
+   ],
+   "bonus": {
+    "STRd": 5
+   },
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Construct:** resists Poison and Necrotic. Never checks Morale.",
+    "**Flyer:** flies at its full Speed.",
+    "**Steel Body:** +5 STR Defense (included)."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-flying-sword#0",
+     "name": "Construct",
+     "use": "passive",
+     "resist": [
+      "Poison",
+      "Necrotic"
+     ],
+     "fearless": true
+    }
+   ],
+   "totals": {
+    "STR": 2,
+    "DEX": 2,
+    "INT": -3,
+    "WIL": -5,
+    "STRd": 17,
+    "DEXd": 12,
+    "INTd": 7,
+    "WILd": 5,
+    "HP": 14,
+    "SPD": 50
+   }
+  },
+  {
+   "name": "Goblin Boss",
+   "body": {
+    "STR": 0,
+    "DEX": 2,
+    "INT": 0,
+    "WIL": 0,
+    "HP": 17,
+    "SPD": 30,
+    "size": "Small"
+   },
+   "carries": [
+    "W-I-02",
+    "S-I-01",
+    "A-I-02",
+    "Q-I-05"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "leader": true,
+   "own": [
+    "**Nimble (2/S.R.):** reaction. Move up to half its Speed without provoking opportunity attacks.",
+    "**Meat Shield:** when an attack hits it, it may pull an adjacent goblin in the way: the goblin is hit instead."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-goblin-boss#0",
+     "name": "Nimble",
+     "use": "reaction",
+     "uses": "2/SR",
+     "target": "self",
+     "do": [
+      {
+       "move": "safe",
+       "ft": "half"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 0,
+    "DEX": 2,
+    "INT": 0,
+    "WIL": 0,
+    "STRd": 15,
+    "DEXd": 14,
+    "INTd": 10,
+    "WILd": 10,
+    "HP": 21,
+    "SPD": 30
+   }
+  },
+  {
+   "name": "Gnoll",
+   "body": {
+    "STR": 2,
+    "DEX": 1,
+    "INT": 0,
+    "WIL": -2,
+    "HP": 25,
+    "SPD": 30,
+    "size": "Medium"
+   },
+   "carries": [
+    "W-I-15",
+    "A-I-01",
+    "Q-I-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Rend:** +4 to hit, 1d6 + 2 Physical."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-gnoll#0",
+     "name": "Rend",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 4,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "1d6+2",
+       "type": "Physical"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 2,
+    "DEX": 1,
+    "INT": 0,
+    "WIL": -2,
+    "STRd": 14,
+    "DEXd": 12,
+    "INTd": 10,
+    "WILd": 8,
+    "HP": 27,
+    "SPD": 35
+   }
+  },
+  {
+   "name": "Shadow",
+   "body": {
+    "STR": 1,
+    "DEX": 2,
+    "INT": 0,
+    "WIL": -1,
+    "HP": 12,
+    "SPD": 40,
+    "size": "Medium"
+   },
+   "carries": [
+    "T-II-03"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 120
+   },
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Undead:** resists Poison and Necrotic, vulnerable to Radiant. Never checks Morale.",
+    "**Incorporeal:** resists Physical. Moves through creatures and objects.",
+    "**Draining Touch:** +4 to hit, 2d6 + 2 Necrotic. The target's damage rolls lose 1d4 for 2 turns."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-shadow#0",
+     "name": "Undead",
+     "use": "passive",
+     "resist": [
+      "Poison",
+      "Necrotic"
+     ],
+     "vuln": [
+      "Radiant"
+     ],
+     "fearless": true
+    },
+    {
+     "id": "foe-shadow#1",
+     "name": "Incorporeal",
+     "use": "passive",
+     "resist": [
+      "Physical"
+     ]
+    },
+    {
+     "id": "foe-shadow#2",
+     "name": "Draining Touch",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 4,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "2d6+2",
+       "type": "Necrotic"
+      },
+      {
+       "mod": "dmg",
+       "dice": "-1d4",
+       "until": "targetTurns2"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 1,
+    "DEX": 2,
+    "INT": 0,
+    "WIL": -1,
+    "STRd": 11,
+    "DEXd": 12,
+    "INTd": 10,
+    "WILd": 9,
+    "HP": 16,
+    "SPD": 40
+   }
+  },
+  {
+   "name": "Dire Wolf",
+   "body": {
+    "STR": 3,
+    "DEX": 2,
+    "INT": 1,
+    "WIL": -2,
+    "HP": 18,
+    "SPD": 50,
+    "size": "Large"
+   },
+   "carries": [
+    "T-II-08"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": true,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Bite:** +5 to hit, 1d10 + 3 Physical.",
+    "**Keen Nose:** alert (passive Awareness +5)."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-dire-wolf#0",
+     "name": "Bite",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 5,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "1d10+3",
+       "type": "Physical"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 3,
+    "DEX": 2,
+    "INT": 1,
+    "WIL": -2,
+    "STRd": 13,
+    "DEXd": 12,
+    "INTd": 11,
+    "WILd": 8,
+    "HP": 22,
+    "SPD": 50
+   }
+  },
+  {
+   "name": "Ghoul",
+   "body": {
+    "STR": 1,
+    "DEX": 2,
+    "INT": 0,
+    "WIL": -2,
+    "HP": 20,
+    "SPD": 30,
+    "size": "Medium"
+   },
+   "carries": [
+    "T-I-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Undead:** resists Poison and Necrotic, vulnerable to Radiant. Never checks Morale.",
+    "**Claws:** +4 to hit, 2d4 + 2 Physical.",
+    "**Paralyzing Touch (Recharge 5–6):** action. Attack (+3) against the STR Defense of a creature within 5 ft: **Subdue · Stunned** (paralyzed)."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-ghoul#0",
+     "name": "Undead",
+     "use": "passive",
+     "resist": [
+      "Poison",
+      "Necrotic"
+     ],
+     "vuln": [
+      "Radiant"
+     ],
+     "fearless": true
+    },
+    {
+     "id": "foe-ghoul#1",
+     "name": "Claws",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 4,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "2d4+2",
+       "type": "Physical"
+      }
+     ]
+    },
+    {
+     "id": "foe-ghoul#2",
+     "name": "Paralyzing Touch",
+     "use": "action",
+     "recharge": 5,
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 3,
+      "vs": "STR"
+     },
+     "do": [
+      {
+       "cond": "Stunned"
+      }
+     ],
+     "subdue": true,
+     "lasting": true
+    }
+   ],
+   "totals": {
+    "STR": 1,
+    "DEX": 2,
+    "INT": 0,
+    "WIL": -2,
+    "STRd": 11,
+    "DEXd": 12,
+    "INTd": 10,
+    "WILd": 8,
+    "HP": 22,
+    "SPD": 30
+   }
+  },
+  {
+   "name": "Bugbear",
+   "body": {
+    "STR": 2,
+    "DEX": 2,
+    "INT": 0,
+    "WIL": -1,
+    "HP": 31,
+    "SPD": 30,
+    "size": "Medium"
+   },
+   "carries": [
+    "W-I-06",
+    "W-I-11",
+    "A-I-01",
+    "K-I-04"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Grab:** +4 to hit, 2d6 + 2 Physical, and the target is **Grappled** by it.",
+    "**Abduct:** it moves at full Speed while dragging a creature it grapples."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-bugbear#0",
+     "name": "Grab",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 4,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "2d6+2",
+       "type": "Physical"
+      },
+      {
+       "cond": "Grappled"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 2,
+    "DEX": 2,
+    "INT": 0,
+    "WIL": -1,
+    "STRd": 14,
+    "DEXd": 13,
+    "INTd": 10,
+    "WILd": 9,
+    "HP": 33,
+    "SPD": 35
+   }
+  },
+  {
+   "name": "Animated Armor",
+   "body": {
+    "STR": 2,
+    "DEX": 0,
+    "INT": -4,
+    "WIL": -5,
+    "HP": 21,
+    "SPD": 35,
+    "size": "Medium"
+   },
+   "carries": [
+    "A-II-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Construct:** resists Poison and Necrotic. Never checks Morale.",
+    "**Slam:** +4 to hit, 1d6 + 2 Physical.",
+    "**False Appearance:** while it stays still, it looks like an empty suit of armor."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-animated-armor#0",
+     "name": "Construct",
+     "use": "passive",
+     "resist": [
+      "Poison",
+      "Necrotic"
+     ],
+     "fearless": true
+    },
+    {
+     "id": "foe-animated-armor#1",
+     "name": "Slam",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 4,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "1d6+2",
+       "type": "Physical"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 2,
+    "DEX": 0,
+    "INT": -4,
+    "WIL": -5,
+    "STRd": 16,
+    "DEXd": 10,
+    "INTd": 6,
+    "WILd": 5,
+    "HP": 33,
+    "SPD": 25
+   }
+  },
+  {
+   "name": "Harpy",
+   "body": {
+    "STR": 1,
+    "DEX": 1,
+    "INT": 0,
+    "WIL": 1,
+    "HP": 38,
+    "SPD": 40,
+    "size": "Medium"
+   },
+   "carries": [
+    "K-I-02"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Flyer:** flies at its full Speed.",
+    "**Claws:** +3 to hit, 2d4 + 1 Physical.",
+    "**Luring Song (Recharge 5–6):** action. Attack (+3) against the WIL Defense of each enemy within 60 ft who can hear it: **Subdue · Charmed**."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-harpy#0",
+     "name": "Claws",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 3,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "2d4+1",
+       "type": "Physical"
+      }
+     ]
+    },
+    {
+     "id": "foe-harpy#1",
+     "name": "Luring Song",
+     "use": "action",
+     "recharge": 5,
+     "reach": 60,
+     "target": "enemies",
+     "atk": {
+      "flat": 3,
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "cond": "Charmed"
+      }
+     ],
+     "subdue": true,
+     "lasting": true,
+     "tags": [
+      "mind control"
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 1,
+    "DEX": 1,
+    "INT": 0,
+    "WIL": 1,
+    "STRd": 11,
+    "DEXd": 11,
+    "INTd": 10,
+    "WILd": 11,
+    "HP": 38,
+    "SPD": 40
+   }
+  },
+  {
+   "name": "Brown Bear",
+   "body": {
+    "STR": 2,
+    "DEX": 1,
+    "INT": 1,
+    "WIL": -2,
+    "HP": 18,
+    "SPD": 35,
+    "size": "Large"
+   },
+   "carries": [
+    "T-II-02"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": true,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Bite:** +5 to hit, 1d8 + 3 Physical.",
+    "**Claw:** +5 to hit, 1d4 + 3 Physical, and the target falls **Prone**.",
+    "**Keen Nose:** alert (passive Awareness +5)."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-brown-bear#0",
+     "name": "Bite",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 5,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "1d8+3",
+       "type": "Physical"
+      }
+     ]
+    },
+    {
+     "id": "foe-brown-bear#1",
+     "name": "Claw",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 5,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "1d4+3",
+       "type": "Physical"
+      },
+      {
+       "cond": "Prone"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 3,
+    "DEX": 1,
+    "INT": 1,
+    "WIL": -2,
+    "STRd": 13,
+    "DEXd": 11,
+    "INTd": 11,
+    "WILd": 8,
+    "HP": 22,
+    "SPD": 40
+   }
+  },
+  {
+   "name": "Gelatinous Cube",
+   "body": {
+    "STR": 5,
+    "DEX": -4,
+    "INT": -2,
+    "WIL": -5,
+    "HP": 63,
+    "SPD": 15,
+    "size": "Large"
+   },
+   "carries": [
+    "P-I-01",
+    "C-I-01"
+   ],
+   "bonus": {
+    "STRd": -5
+   },
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {},
+   "alert": false,
+   "boss": false,
+   "leader": false,
+   "own": [
+    "**Ooze:** resists Poison. Never checks Morale. **Transparent:** easy to miss until it moves.",
+    "**Soft Body:** −5 STR Defense (included).",
+    "**Pseudopod:** +4 to hit, 3d6 Poison.",
+    "**Engulf (Recharge 5–6):** action. Attack (+4) against the DEX Defense of a creature within 5 ft: 3d6 Poison, and it is **Restrained** inside the cube for 2 turns."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-gelatinous-cube#0",
+     "name": "Ooze",
+     "use": "passive",
+     "resist": [
+      "Poison"
+     ],
+     "fearless": true
+    },
+    {
+     "id": "foe-gelatinous-cube#1",
+     "name": "Pseudopod",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 4,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "3d6",
+       "type": "Poison"
+      }
+     ]
+    },
+    {
+     "id": "foe-gelatinous-cube#2",
+     "name": "Engulf",
+     "use": "action",
+     "recharge": 5,
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 4,
+      "vs": "DEX"
+     },
+     "do": [
+      {
+       "dmg": "3d6",
+       "type": "Poison"
+      },
+      {
+       "cond": "Restrained",
+       "until": "targetTurns2"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 5,
+    "DEX": -4,
+    "INT": -2,
+    "WIL": -5,
+    "STRd": 10,
+    "DEXd": 6,
+    "INTd": 8,
+    "WILd": 5,
+    "HP": 63,
+    "SPD": 15
+   }
+  },
+  {
+   "name": "Owlbear",
+   "body": {
+    "STR": 4,
+    "DEX": 1,
+    "INT": 1,
+    "WIL": -2,
+    "HP": 51,
+    "SPD": 40,
+    "size": "Large"
+   },
+   "carries": [
+    "T-II-04",
+    "T-II-01"
+   ],
+   "bonus": {},
+   "extraDice": 0,
+   "recharge": {},
+   "powers": [],
+   "senses": {
+    "darkvision": 60
+   },
+   "alert": true,
+   "boss": true,
+   "leader": false,
+   "own": [
+    "**Beak:** +7 to hit, 1d10 + 5 Physical.",
+    "**Claws:** +7 to hit, 2d8 + 5 Physical.",
+    "**Keen Eyes:** alert (passive Awareness +5)."
+   ],
+   "ownFx": [
+    {
+     "id": "foe-owlbear#0",
+     "name": "Beak",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 7,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "1d10+5",
+       "type": "Physical"
+      }
+     ]
+    },
+    {
+     "id": "foe-owlbear#1",
+     "name": "Claws",
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "flat": 7,
+      "vs": "weapon"
+     },
+     "do": [
+      {
+       "dmg": "2d8+5",
+       "type": "Physical"
+      }
+     ]
+    }
+   ],
+   "totals": {
+    "STR": 5,
+    "DEX": 1,
+    "INT": 1,
+    "WIL": -2,
+    "STRd": 15,
+    "DEXd": 11,
+    "INTd": 11,
+    "WILd": 8,
+    "HP": 59,
+    "SPD": 40
+   }
   }
  ],
  "frames": [

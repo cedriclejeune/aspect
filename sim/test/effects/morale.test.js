@@ -15,7 +15,7 @@ module.exports = function register(T, H) {
 
   T("[morale] the Bandit Captain and the Ogre Chieftain are Leaders; fromFoe copies the flag", () => {
     const foes = CARDS().foes.filter((f) => f.leader).map((f) => f.name);
-    eq(foes, ["Bandit Captain", "Ogre Chieftain"]);
+    eq(foes, ["Bandit Captain", "Ogre Chieftain", "Goblin Boss"]);
     ok(Eng.fromFoe(CARDS().foes.find((f) => f.name === "Bandit Captain"), CARDS()).leader);
     ok(!Eng.fromFoe(CARDS().foes.find((f) => f.name === "Bandit"), CARDS()).leader);
   });
