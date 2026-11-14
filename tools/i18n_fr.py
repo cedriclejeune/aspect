@@ -23,7 +23,7 @@ def signed_feet(v):
 
 ILLUSTRATIONS = {
     # figure labels
-    "Trial": "Épreuve", "Gather": "Ramasser", "Rest &amp; Rebuild": "Repos et reconstruction",
+    "Trial": "Épreuve", "Gather": "Butin", "Rest &amp; Rebuild": "Repos et\nremaniement",
     "DUELIST": "DUELLISTE", "Calling: STR · DEX": "Vocation : FOR · AGI", "HP · Speed · perk": "PV · Vitesse · atout",
     "Armor": "Armure", "Hands": "Mains", "Jewelry": "Bijou", "Items": "Objets", "Runes": "Runes",
     "Leather": "Cuir", "Finesse Blade": "Lame fine", "Dagger": "Dague", "Ring of Warding": "Anneau de protection",
@@ -95,7 +95,7 @@ FIGURE_KEYS = {
     "10.5 Areas of Effect": "10.5 Zones d'effet",
 }
 CAPTIONS = {
-    "Story, Quests & Trials": "Enchaînez les épreuves directement après le ramassage ; reposez-vous (pointillés) quand la Compagnie en a besoin. Quelques épreuves font une quête ; quelques quêtes font une saga.",
+    "Story, Quests & Trials": "Enchaînez les épreuves dès le butin empoché ; reposez-vous (pointillés) quand la Compagnie en a besoin. Quelques épreuves font une quête ; quelques quêtes font une saga.",
     "calling": "Une carte de Vocation : ses propres valeurs dans la bande. Vos totaux vont sur la carte de Décompte (12.3).",
     "card": "Où se trouve chaque élément d'une carte.",
     "rank": "Le Rang I est un petit avantage ; le Rang V brise les règles.",

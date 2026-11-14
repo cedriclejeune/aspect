@@ -183,7 +183,7 @@ Un nouvel Emplacement de Rune pour chaque personnage, accordé quand la Compagni
 _À éviter_ : montée de niveau, PX. (EN : Milestone)
 
 **Boucle de jeu**:
-Le cycle répété du jeu : affronter une épreuve, ramasser le butin, se reposer et se reconstruire au besoin.
+Le cycle répété du jeu : affronter une épreuve, empocher le butin, se reposer et remanier ses cartes au besoin.
 _À éviter_ : boucle principale. (EN : Play loop)
 
 **Test**:
