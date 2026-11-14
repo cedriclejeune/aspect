@@ -24,7 +24,7 @@
 
 ## 1. Introduction
 
-**Porteurs** est un jeu de narration coopératif qui met l'accent sur la personnalisation des personnages et des mécaniques rapides. Un joueur est le **Maître du jeu (MJ)** : il décrit le monde, fait agir les monstres et arbitre les règles. Chacun des autres joue un personnage appelé **Porteur** ; ensemble, ils forment une **Compagnie**. Les personnages **n'ont pas de niveau** : un Porteur se définit par une **Vocation** qu'il garde à vie et par son matériel et ses Runes, et il progresse en en trouvant de meilleurs.
+**Porteurs** est un jeu de narration coopératif qui met l'accent sur la personnalisation des personnages et des mécaniques de jeux rapides. Un joueur est le **Maître du jeu (MJ)** : il décrit le monde et les obstacles, fait agir les monstres et arbitre les règles. Chacun des autres joue un personnage appelé **Porteur** ; ensemble, ils forment une **Compagnie**. Les personnages **n'ont pas de niveau** : un Porteur se définit par une **Vocation** qu'il garde à vie et par son équipement et ses Runes.
 
 ### Le rythme du jeu
 
