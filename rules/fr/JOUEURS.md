@@ -42,7 +42,7 @@ La Compagnie avance dans une **saga**, une quête à la fois. Le jeu se déroule
 
 - **Saga :** le grand arc de la campagne, fait de plusieurs quêtes. Ce peut être une révolte contre un tyran, la recherche d'un artefact perdu ou la vengeance d'un mentor trahi.
 - **Quête :** un objectif que la Compagnie se donne : nettoyer la mine, escorter l'émissaire, retrouver la relique volée. Entre ses épreuves, vous explorez : vous voyagez, fouillez et parlementez à travers le monde (5.5, 5.6), et le MJ décrit ce que vous trouvez. Une quête dure quelques épreuves. L'achever peut rapporter une **récompense de quête** : une amélioration de la Réserve de la Compagnie, une faveur, un matériel rare ou une Rune rare.
-- **Épreuve :** un problème à l'issue nette : un combat, une négociation, un cambriolage, un danger, une poursuite. Chacune rapporte, quelle que soit son issue : équipez le nouveau matériel et les nouvelles Runes (3.5) ou gardez-les. Enchaînez les épreuves, et reposez-vous et reconstruisez-vous quand la Compagnie en a besoin (7.5).
+- **Épreuve :** un problème à l'issue nette : un combat, une négociation, un cambriolage, un danger, une poursuite. Chacune rapporte, quelle que soit son issue : équipez le nouveau matériel et les nouvelles Runes (3.5) ou gardez-les. Enchaînez les épreuves ; quand la Compagnie en a besoin, reposez-vous et remaniez vos cartes (7.5).
 
 ### Règles d'or
 
@@ -1009,7 +1009,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Bijou** | Le type de matériel porté qui va dans l'Emplacement de Bijou : anneaux, amulettes, diadèmes, capes, gants, bottes. |
 | **Blessure** | Une lésion durable, tirée au hasard chaque fois que vous tombez à 0 PV. Elle reste jusqu'à ce qu'une convalescence la guérisse. Une Blessure invalidante bloque un Emplacement de Matériel. |
 | **Boss** | Un monstre puissant doté de pouvoirs spéciaux, dont un demi-tour pendant le camp des personnages. |
-| **Boucle de jeu** | Le cycle répété du jeu : affronter une épreuve, ramasser le butin, se reposer et se reconstruire au besoin. |
+| **Boucle de jeu** | Le cycle répété du jeu : affronter une épreuve, empocher le butin, se reposer et remanier ses cartes au besoin. |
 | **Bouclier** | Le type de matériel tenu qui augmente vos Défenses ; il va dans un Emplacement de Main. |
 | **Bourse** | Un Contenant qui contient votre or, jusqu'à un maximum fixé par son Rang. |
 | **Brutale** | Un mot-clé d'arme : sur un coup critique, lancez ses dés de dégâts trois fois au lieu de deux. |

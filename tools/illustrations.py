@@ -59,6 +59,10 @@ def _text(x, y, s, size=14, style=BODY, fill=INK, anchor="middle", weight=None, 
     s = tr(s)
     extra = f";font-weight:{weight}" if weight else ""
     extra += ";font-style:italic" if italic else ""
+    if "\n" in s:  # a translation too long for one line: stack its lines, centred on y
+        lines = s.split("\n")
+        y -= size * 1.15 * (len(lines) - 1) / 2
+        s = "".join(f'<tspan x="{x}" dy="{0 if i == 0 else size * 1.15:.1f}">{t}</tspan>' for i, t in enumerate(lines))
     return f'<text x="{x}" y="{y}" text-anchor="{anchor}" style="{style}{extra}" font-size="{size}" fill="{fill}">{s}</text>'
 
 
