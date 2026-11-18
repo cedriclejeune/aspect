@@ -56,14 +56,14 @@ _À éviter_ : armure légère, intermédiaire, lourde. (EN : Leather, Mail, Pla
 
 **Pièce**:
 Une unité de matériel, telle que le Sac, la Réserve de la Compagnie et le butin la comptent. Une pile de jusqu'à 3 Consommables identiques compte pour une pièce.
-_À éviter_ : pièce (pour les pouvoirs de magie de Volonté, ou les sources de construction des Traits). Ne pas confondre avec les pièces d'or (po). (EN : Piece)
+_À éviter_ : pièce (pour les pouvoirs, ou les sources de construction des Traits). Ne pas confondre avec les pièces d'or (po). (EN : Piece)
 
 **Instrument**:
 Un équipement tenu dans une Main qui n'est ni une arme ni un bouclier : un luth, un tambour, un cor.
 _À éviter_ : outil. (EN : Instrument)
 
 **Focaliseur**:
-Un mot-clé d'équipement qui renforce votre magie de Volonté : un Instrument, une amulette sacrée, un bâton de druide.
+Un mot-clé d'équipement qui renforce votre Pouvoir : un Instrument, une amulette sacrée, un bâton de druide.
 _À éviter_ : focaliseur arcanique, symbole sacré, catalyseur. (EN : Focus)
 
 **Contenant**:
@@ -91,7 +91,7 @@ Un espace qui contient un matériel ou une Rune du type correspondant : Armure, 
 _À éviter_ : case, slot, emplacement d'harmonisation. (EN : Slot)
 
 **Rune**:
-Un pouvoir en forme de signe : un Trait, une Technique, un Domaine ou un paquet de Volonté. Les créatures magiques en portent presque toujours quelques-unes, ancrées en elles à vie ; chez les autres, c'est l'exception (un vétéran, un maître). Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique.
+Une force en forme de signe : un Trait, une Technique, un Domaine ou une Rune de Pouvoirs. Les créatures magiques en portent presque toujours quelques-unes, ancrées en elles à vie ; chez les autres, c'est l'exception (un vétéran, un maître). Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique.
 _À éviter_ : Aspect, don, aptitude, pouvoir (comme terme général), glyphe, sceau (comme terme). (EN : Rune)
 
 **Vocation**:
@@ -132,7 +132,7 @@ Ce qu'une carte fait d'elle-même, en permanence : sans action, réaction ni uti
 _À éviter_ : atout (pour une Vocation), passif, trait (en minuscule). (EN : Effect)
 
 **Abilité**:
-Ce qu'une carte vous permet d'utiliser : elle demande une action ou une réaction, ou dépense une utilisation (*Riposte (½ FOR/C.R.)*). Les pouvoirs de magie de Volonté gardent leur nom de pouvoirs.
+Ce qu'une carte vous permet d'utiliser : elle demande une action ou une réaction, ou dépense une utilisation (*Riposte (½ FOR/C.R.)*). Les cartes d'une Rune de Pouvoirs sont des pouvoirs, pas des abilités.
 _À éviter_ : atout (pour une Vocation), actif, aptitude, capacité, don. (EN : Power)
 
 **Utilisations**:
@@ -207,7 +207,7 @@ Un jet de d20 + modificateur de caractéristique + bonus contre un Degré de dif
 _À éviter_ : test de compétence, jet de caractéristique. (EN : Check)
 
 **Jet d'attaque**:
-Un jet de d20 + modificateurs contre une Défense, fait par celui qui blesse ou entrave : armes, sorts, magie de Volonté, pièges, poisons.
+Un jet de d20 + modificateurs contre une Défense, fait par celui qui blesse ou entrave : armes, sorts, pouvoirs, pièges, poisons.
 _À éviter_ : jet de sauvegarde, sauvegarde. (EN : Attack roll)
 
 **Avantage aux dégâts**:
@@ -244,35 +244,39 @@ _À éviter_ : affaiblissement. (EN : Decay)
 Une durée fixe pendant laquelle un sort, une abilité ou un pouvoir agit, imprimée dessus. (EN : Duration)
 
 **Livre de sorts**:
-Un objet contenant une liste fixe de sorts. Ses points de sort s'ajoutent à votre réserve unique. C'est la magie d'Intelligence : elle utilise l'INT.
+Un objet contenant une liste fixe de sorts. Votre meilleur livre équipé donne ses points de sort à votre réserve unique. C'est la magie d'Intelligence : elle utilise l'INT.
 _À éviter_ : grimoire, liste de sorts. (EN : Spellbook)
 
 **Points de sort**:
-Les points que coûtent vos sorts : une seule réserve, la somme de ce qu'impriment vos Livres de sorts + INT (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un long repos.
+Les points que coûtent vos sorts : une seule réserve, ce qu'imprime votre meilleur Livre de sorts + INT (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un long repos.
 _À éviter_ : emplacements de sort, mana. (EN : Spell points)
 
-**Paquet de Volonté**:
-Une Rune de magie de Volonté : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour, Nature ou Pacte) dit quels pouvoirs elle contient et ne change aucune autre règle.
-_À éviter_ : livre de prières, recueil de chants, sort (pour ses pouvoirs). (EN : WIL deck)
+**Pouvoir**:
+La magie qu'on porte en soi ; elle utilise la VOL. Ses cartes sont des **pouvoirs** (Hymnes, Complaintes, Répliques, Soins, Formes), portés par une Rune de Pouvoirs et payés en Ardeur. En minuscule, *pouvoir* désigne toujours une de ces cartes.
+_À éviter_ : magie de Volonté, pouvoir (au sens large, pour une abilité ou une Rune). (EN : WIL magic, power)
+
+**Rune de Pouvoirs**:
+Une Rune qui porte le Pouvoir : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour, Nature ou Pacte) dit quels pouvoirs elle contient et ne change aucune autre règle.
+_À éviter_ : paquet de Volonté, livre de prières, recueil de chants, sort (pour ses pouvoirs). (EN : WIL deck)
 
 **Divin**:
-Un type de paquet de Volonté : la magie de la prière. Son paquet est une **Litanie**, qui contient des pouvoirs de destin et de guérison : Hymnes, Complaintes, Répliques et Soins.
+Un type de Rune de Pouvoirs : la magie de la prière. Sa Rune est une **Litanie**, qui contient des pouvoirs de destin et de guérison : Hymnes, Complaintes, Répliques et Soins.
 _À éviter_ : livre saint, magie de clerc, foi (comme terme). (EN : Divine)
 
 **Glamour**:
-Un type de paquet de Volonté : la magie de la représentation et du commandement. Son paquet est un **Répertoire**, qui contient des pouvoirs de courage et de peur : Hymnes, Complaintes, Répliques et Soins.
+Un type de Rune de Pouvoirs : la magie de la représentation et du commandement. Sa Rune est un **Répertoire**, qui contient des pouvoirs de courage et de peur : Hymnes, Complaintes, Répliques et Soins.
 _À éviter_ : muse, inspiration, magie de barde, recueil de chants. (EN : Glamour)
 
 **Nature**:
-Un type de paquet de Volonté : la magie du monde sauvage. Son paquet est un **Instinct**, qui contient des Formes et des Soins.
+Un type de Rune de Pouvoirs : la magie du monde sauvage. Sa Rune est un **Instinct**, qui contient des Formes et des Soins.
 _À éviter_ : Souvenance, Mémoires, bestiaire, magie druidique, magie primordiale. (EN : Nature, Instinct)
 
 **Pacte**:
-Un type de paquet de Volonté : la magie accordée par un protecteur. Son paquet est un **Pacte**, qui contient des malédictions et des dégâts : Complaintes et Répliques.
+Un type de Rune de Pouvoirs : la magie accordée par un protecteur. Sa Rune est un **Pacte**, qui contient des malédictions et des dégâts : Complaintes et Répliques.
 _À éviter_ : magie d'occultiste, patronage, grimoire. (EN : Pact)
 
 **Ardeur**:
-Les points que coûte votre magie de Volonté : une seule réserve, la somme de ce qu'impriment vos paquets de Volonté + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un court repos.
+Les points que coûtent vos pouvoirs : une seule réserve, ce qu'imprime votre meilleure Rune de Pouvoirs + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un court repos.
 _À éviter_ : résolution, points de volonté, mana. (EN : Resolve)
 
 **Forme**:
@@ -377,19 +381,19 @@ _À éviter_ : AoE, gabarit.
 Personne ne vous remarque en train de le lancer. (EN : Subtle)
 
 **Hymne**:
-Un pouvoir de magie de Volonté. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem)
+Un pouvoir. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem)
 
 **Complainte**:
-Un pouvoir de magie de Volonté. Action : une attaque contre la Défense de VOL. (EN : Dirge)
+Un pouvoir. Action : une attaque contre la Défense de VOL. (EN : Dirge)
 
 **Réplique**:
-Un pouvoir de magie de Volonté. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue)
+Un pouvoir. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue)
 
 **Soin**:
-Un pouvoir de magie de Volonté qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend)
+Un pouvoir qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend)
 
 **Visuel**:
-Un mot-clé d'un pouvoir de magie de Volonté : il ne demande pas de voix et agit sur les créatures qui vous voient, pas sur celles qui vous entendent (une danse, un signe).
+Un mot-clé de pouvoir : il ne demande pas de voix et agit sur les créatures qui vous voient, pas sur celles qui vous entendent (une danse, un signe).
 _À éviter_ : somatique, gestuel, à vue. (EN : Visual)
 
 **Relance**:
@@ -438,7 +442,7 @@ _À éviter_ : se recueillir, entretenir. (EN : Tend)
 ### Monstres
 
 **Boss**:
-Un monstre puissant doté de pouvoirs spéciaux, dont un demi-tour pendant le camp des personnages.
+Un monstre puissant doté d'abilités spéciales, dont un demi-tour pendant le camp des personnages.
 _À éviter_ : monstre légendaire, élite.
 
 **Meneur**:
@@ -458,7 +462,7 @@ Le danger d'un monstre, utilisé avec sa valeur en PX pour dimensionner les comb
 _À éviter_ : défi (pour autre chose). (EN : Challenge Rating)
 
 **Carte d'Adversaire**:
-La carte du MJ pour une sorte de monstre : son corps, ses totaux et ses pouvoirs. Les cartes nommées en italique dessus peuvent être lâchées ; le texte droit, jamais.
+La carte du MJ pour une sorte de monstre : son corps, ses totaux et ses abilités. Les cartes nommées en italique dessus peuvent être lâchées ; le texte droit, jamais.
 _À éviter_ : carte d'ennemi, carte de monstre, profil, bloc de stats. (EN : Foe card)
 
 **Recharge 5–6**:

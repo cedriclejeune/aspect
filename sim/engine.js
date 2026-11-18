@@ -375,7 +375,8 @@
   // card, so a Form's totals never change them.
   function poolMax(F, c, ids, key, abil, extra) {
     if (!ids.length) return null;
-    return Math.max(1, ids.reduce((n, id) => n + (F.cards.decks[id][key] || 0), 0) + (c.own[abil] || 0)) + extra;
+    // P 9.2, 9.5: only the best book (or WIL deck) adds its points; the others add only their spells or powers.
+    return Math.max(1, Math.max(...ids.map((id) => F.cards.decks[id][key] || 0)) + (c.own[abil] || 0)) + extra;
   }
   function refreshPools(F, c) {
     const P = c.pools;
@@ -589,6 +590,8 @@
   function addCond(X, t, name, o) {
     o = o || {};
     if (t.dead) return null;
+    // Heroism: a creature that can't be Frightened ignores it.
+    if (name === "Frightened" && t.mods.some((m) => m.kind === "noFear")) { emit(X, { t: "note", target: t.id, text: `${t.name} can't be Frightened.` }); return null; }
     // RULING R207: a condition doesn't stack with itself: the same condition from the same source replaces
     // the old one; from another source both are kept (their effect still counts once).
     const old = t.conds.find((k) => k.name === name && k.source === (o.source || null));
@@ -1947,6 +1950,8 @@
       const regen = passiveMax(F, c, "regen");
       if (regen && c.hp > 0 && !c.noRegen) heal(X, c, regen, null);
       c.noRegen = false;
+      // Heroism: temporary HP at the start of each of its turns (they don't stack: the higher count holds).
+      for (const m of c.mods) if (m.kind === "tempTurn" && m.n > c.temp && c.hp > 0) { c.temp = m.n; emit(X, { t: "temp", target: c.id, n: m.n, text: `${c.name} has ${m.n} temporary HP (${m.power}).` }); }
     }
     // Subdue on c (P 8): first bite, then the source repeats the attack with decay; a Boss's half turns too.
     for (const k of c.conds.slice()) {

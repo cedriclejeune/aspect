@@ -895,7 +895,8 @@ module.exports = function register(T, H) {
     run(f, power(f, "d", "N-I-01#hawk"));
     const d = C(f, "d");
     const move = () => f.legal("d").find((t) => t.type === "move").left;
-    eq([d.size, d.totals.STR, d.totals.DEX, d.totals.STRd, d.totals.DEXd, d.form.hp, move(), d.resolve], ["Tiny", -2, 3, 8, 13, 4, 60, 8]);
+    // Resolve: the best WIL deck (3) + WIL 3 = 6, the Litany adds only its powers (P 9.5); Hawk costs 1.
+    eq([d.size, d.totals.STR, d.totals.DEX, d.totals.STRd, d.totals.DEXd, d.form.hp, move(), d.resolve], ["Tiny", -2, 3, 8, 13, 4, 60, 5]);
     eq(d.turn.acts, 1);
     end(f, "d"); skip(f, "x"); go(f, "d");
     run(f, { type: "move", actor: "d", path: [[2, 5], [3, 5], [4, 5], [5, 5], [6, 5], [7, 5], [8, 5], [9, 5], [10, 5], [11, 5]] });
@@ -989,6 +990,23 @@ module.exports = function register(T, H) {
     run(f, { type: "endTurn", actor: "w" }); run(f, { type: "beginTurn", actor: "b" });
     run(f, atk("b", "W-I-10", "x"), [15, 15, 3]);
     ok(!has(C(f, "x"), "Unconscious"), "woken by the sling stone");
+  });
+  T("[fx] Two Spellbooks: the pool is the best book + INT; the second adds only its spells (P 9.2)", () => {
+    const f = fight([pc("w", [1, 5], caster("B-I-01", { items: [{ id: "B-I-01" }, { id: "B-I-05" }] })), foe("x", [8, 5])]);
+    eq(C(f, "w").sp, 2 + 3);
+    pcTurn(f, "w");
+    run(f, { type: "power", actor: "w", power: "B-I-05#sleep", targets: ["x"] }, [15]);
+    eq(C(f, "w").sp, 5 - 2, "Sleep is 2nd level");
+  });
+  T("[fx] Heroism: 2 temporary HP at the start of each of the creature's turns, can't be Frightened", () => {
+    const f = fight([pc("w", [1, 5], caster("B-I-05")), pc("a", [2, 5]), foe("x", [8, 5])]);
+    pcTurn(f, "w");
+    run(f, { type: "power", actor: "w", power: "B-I-05#heroism", targets: ["a"] });
+    eq(C(f, "w").sp, 5 - 1);
+    run(f, { type: "adjust", actor: "a", cond: "Frightened" });
+    ok(!has(C(f, "a"), "Frightened"), "can't be Frightened");
+    run(f, { type: "endTurn", actor: "w" }); run(f, { type: "beginTurn", actor: "a" });
+    eq(C(f, "a").temp, 2);
   });
   T("[fx] Invisibility: the creature is Invisible until it attacks (R716)", () => {
     const f = fight([pc("w", [1, 5], caster("B-I-04")), pc("a", [2, 5], { hands: ["W-I-10"] }), foe("x", [8, 5])]);

@@ -61,8 +61,8 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
 {
   "cover": "B-I-01", "kind": "spellbook" | "glamour" | "divine" | "nature" | "pact",
   "atk": 2,                            // Spell attack / Attack bonus
-  "sp": 2, "maxLevel": 2,              // spellbook: spell points it adds (pool = all books + INT, min 1)
-  "resolve": 3,                        // WIL decks: printed Resolve (pool = all WIL decks + WIL once, min 1)
+  "sp": 2, "maxLevel": 2,              // spellbook: spell points it adds (pool = the best book + INT, min 1)
+  "resolve": 3,                        // WIL decks: printed Resolve (pool = the best WIL deck + WIL, min 1)
   "powers": [Power]                    // one per spell / power card, in deck order
 }
 ```
@@ -139,6 +139,8 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
 { "mod": "attack" | "def" | "roll" | "dmg", "n": -2, "dice": "-1d4", "defs": ["STR","DEX"],
   "next": true,                              // only the next roll
   "until": Until }
+{ "mod": "tempTurn", "n": 2, "until": Until }  // temporary HP at the start of each of its turns (Heroism)
+{ "mod": "noFear", "until": Until }          // can't be Frightened (Heroism)
 { "reroll": true }
 { "move": "teleport" | "safe", "ft": 30 | "half" }   // safe = no opportunity attacks
 { "dash": true }

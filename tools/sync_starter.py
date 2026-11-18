@@ -31,7 +31,7 @@ WORDS = {
     "fr": dict(
         book=ROOT / "rules" / "fr" / "JOUEURS.md",
         intro="Toutes les cartes de Rang I parmi lesquelles vous choisissez à la création (13.1). *Toutes* : "
-              "les quatre affinités sont allumées. Un paquet (Livre de sorts, paquet de Volonté) liste ses sorts ou ses pouvoirs.",
+              "les quatre affinités sont allumées. Un paquet (Livre de sorts, Rune de Pouvoirs) liste ses sorts ou ses pouvoirs.",
         head="| Carte | Affinités | Mots-clés | Bonus | Effets et abilités |",
         slots={"Armor": "Armure", "Hands": "Mains", "Jewelry": "Bijou", "Items": "Objets", "Runes": "Runes"},
         all="toutes", abil={"STR": "FOR", "DEX": "AGI", "INT": "INT", "WIL": "VOL"},

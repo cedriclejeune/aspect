@@ -507,7 +507,7 @@ A book takes an **Item Slot**, and casting from it needs **one empty Hand** (a T
 |---|---|---|---|---|---|---|
 | **Cost** | 1 | 2 | 3 | 4 | 6 | 8 |
 
-- **One pool:** the spell points of every Spellbook you have equipped **+ your INT** (minimum 1), plus any from your Calling, Traits and gear. With no Spellbook, you have none. They return on a long rest.
+- **One pool:** the spell points of your **best** equipped Spellbook (the one that prints the most) **+ your INT** (minimum 1), plus any from your Calling, Traits and gear. Your other books add only their spells. With no Spellbook, you have none. They return on a long rest.
 - If your INT or books change, so does your total; points already spent stay spent. A book comes off only if those points still fit in the new total.
 - **Cantrips** cost nothing. **Upcast:** pay a higher level's cost, up to the book's max, to cast a spell at that level.
 
@@ -552,7 +552,7 @@ A **WIL deck** is a **Rune**: captured and etched like any Rune (4.4), held in a
 | **Pact** | A **Pact** with a patron | Curses and harm: Dirges, Cues |
 
 - **A fixed list:** a deck prints its Rank, its **Attack** bonus, the **Resolve** it adds, then its powers. To change powers, etch another deck.
-- **Resolve:** one pool, the Resolve of each of your WIL decks **+ your WIL** once (minimum 1), plus any from your Calling, Traits and gear. With no deck, you have none. Any deck's powers spend it; it returns on a short or long rest. If your WIL or decks change, so does your total; Resolve already spent stays spent. A power costing **0** is used at will.
+- **Resolve:** one pool, the Resolve of your **best** WIL deck (the one that prints the most) **+ your WIL** (minimum 1), plus any from your Calling, Traits and gear. Your other decks add only their powers. With no deck, you have none. Any deck's powers spend it; it returns on a short or long rest. If your WIL or decks change, so does your total; Resolve already spent stays spent. A power costing **0** is used at will.
 - **Attack:** d20 + WIL + the deck's Attack bonus.
 - **Be heard:** a power needs your voice (not while Incapacitated, underwater or shifted), and an Anthem, Dirge or Cue acts only on creatures who hear you. A **Visual** power needs no voice and acts on creatures who see you. Shifting needs neither. No power needs a Hand, and all are obvious.
 - **Fate dice:** a d4 at Rank I–II, d6 at III, d8 at IV–V, added to or taken from a roll.
@@ -831,7 +831,7 @@ Every Rank I card you can start with (13.1). *All*: the four affinities are lit.
 | **Evoker's Book** | INT | Spellbook | — | Spell attack: **INT + 2** · Spell points: **+2** (long rest) · Max spell level: **2nd** · Casting needs an empty Hand. **Spells:** cantrips: *Ray of Frost*, *Shocking Grasp*; 1st level: *Burning Hands*, *Thunderwave*, *Chromatic Orb*; 2nd level: *Scorching Ray*, *Shatter*. |
 | **Abjurer's Book** | INT | Spellbook | — | Spell attack: **INT + 2** · Spell points: **+2** (long rest) · Max spell level: **2nd** · Casting needs an empty Hand. **Spells:** cantrips: *Blade Ward*, *Mending*; 1st level: *Mage Armor*, *Absorb Elements*, *Protection from Evil*; 2nd level: *Aid*, *Arcane Lock*. |
 | **Illusionist's Book** | INT | Spellbook | — | Spell attack: **INT + 2** · Spell points: **+2** (long rest) · Max spell level: **2nd** · Casting needs an empty Hand. **Spells:** cantrips: *Minor Illusion*; 1st level: *Disguise Self*, *Silent Image*, *Color Spray*; 2nd level: *Mirror Image*, *Invisibility*. |
-| **Enchanter's Book** | INT | Spellbook | — | Spell attack: **INT + 2** · Spell points: **+2** (long rest) · Max spell level: **2nd** · Casting needs an empty Hand. **Spells:** cantrips: *Mind Sliver*; 1st level: *Sleep*, *Charm Person*, *Compel*; 2nd level: *Hideous Laughter*, *Hold Person*. |
+| **Enchanter's Book** | INT | Spellbook | — | Spell attack: **INT + 2** · Spell points: **+2** (long rest) · Max spell level: **2nd** · Casting needs an empty Hand. **Spells:** cantrips: *Mind Sliver*; 1st level: *Heroism*, *Compel*; 2nd level: *Sleep*, *Charm Person*, *Hideous Laughter*, *Hold Person*. |
 | **Potion of Healing** | all | Consumable | — | **Action:** drink it, or give it to a creature within 5 ft. It regains 2d4 + 2 HP. |
 | **Coin Pouch** | all | Container | — | Holds up to **100 gp**. |
 | **Writ of Favor** | all | Consumable | — | A sealed letter from a noble house, a guild or a temple. Show it to one of its members: they grant one reasonable request (shelter, an audience, safe passage, a loan up to 100 gp). |
@@ -977,7 +977,7 @@ Each game term has one meaning, in both books.
 | **Release** | Wiping a Runestone blank. Its Rune is gone for good. |
 | **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
-| **Resolve** | The points your WIL magic costs: one pool, the sum your WIL decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest. |
+| **Resolve** | The points your WIL magic costs: one pool, what your best WIL deck prints + WIL (minimum 1), kept on your tally card. It returns on a short rest. |
 | **Rune** | A power in the shape of a sign: a Trait, Technique, Domain or WIL deck. Magical creatures nearly always carry a few, anchored in them for life; in others they are the exception (a veteran, a master). A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone. |
 | **Rune Slot** | A Slot that holds one Rune. You start with 3 and can reach 8. |
 | **Runestone** | A bulky stone that holds one Rune, or nothing (a blank Runestone). An item, but never in a Slot. |
@@ -988,8 +988,8 @@ Each game term has one meaning, in both books.
 | **Slot frame** | The table component for one Slot: a holder with two corner slits that a card tucks into. A framed card is equipped. A Runestone is a Runestone frame. |
 | **Spell** | One card of a Spellbook, never on its own. Its level is its cost in spell points. |
 | **Spell level** | A spell's power and its cost in spell points, from 1st to 6th. |
-| **Spell points** | The points your spells cost: one pool, the sum your Spellbooks print + INT (minimum 1), kept on your tally card. It returns on a long rest. |
-| **Spellbook** | An item holding a fixed list of spells. Its spell points add to your one pool. This is INT magic: it uses INT. |
+| **Spell points** | The points your spells cost: one pool, what your best Spellbook prints + INT (minimum 1), kept on your tally card. It returns on a long rest. |
+| **Spellbook** | An item holding a fixed list of spells. Your best equipped book adds its spell points to your one pool. This is INT magic: it uses INT. |
 | **Story** | The campaign's big arc, made of quests. Completing one grants a milestone. |
 | **Subdue** | The keyword of a spell or power that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |

@@ -61,7 +61,7 @@ La Compagnie avance dans une **saga**, une quête à la fois. Le jeu se déroule
 
 Votre personnage est un **Porteur** : l'un des rares humanoïdes qui peuvent **graver** des Runes en eux, puis les en retirer. Un don, une bénédiction ou une malédiction, selon à qui l'on demande.
 
-Une **Rune** est un pouvoir en forme de signe. Le signe n'est que sa trace : le redessiner ne donne rien. Les créatures magiques en portent presque toujours quelques-unes, ancrées en elles : elles gardent les mêmes toute leur vie. Chez les autres, c'est l'exception : un vétéran, un maître, un élu. Chez un Porteur, une Rune ne s'ancre jamais ; c'est ce qui lui permet d'en changer, et elle cherche toujours à partir : pendant que le corps guérit dans le sommeil, une Rune peut glisser et se taire. Quand une créature meurt, ses Runes se détachent et persistent au-dessus du corps pendant une minute, puis s'éteignent. Un Porteur peut en recueillir une dans une **Pierre runique** : une pierre qui contient une Rune jusqu'à ce qu'elle soit gravée. Vide, c'est une **Pierre vierge**.
+Une **Rune** est une force en forme de signe. Le signe n'est que sa trace : le redessiner ne donne rien. Les créatures magiques en portent presque toujours quelques-unes, ancrées en elles : elles gardent les mêmes toute leur vie. Chez les autres, c'est l'exception : un vétéran, un maître, un élu. Chez un Porteur, une Rune ne s'ancre jamais ; c'est ce qui lui permet d'en changer, et elle cherche toujours à partir : pendant que le corps guérit dans le sommeil, une Rune peut glisser et se taire. Quand une créature meurt, ses Runes se détachent et persistent au-dessus du corps pendant une minute, puis s'éteignent. Un Porteur peut en recueillir une dans une **Pierre runique** : une pierre qui contient une Rune jusqu'à ce qu'elle soit gravée. Vide, c'est une **Pierre vierge**.
 
 À la table, tout ce qu'est un Porteur tient sur des **cartes**, de trois sortes :
 
@@ -80,7 +80,7 @@ Toute créature a **quatre caractéristiques**, chacune notée sous forme de **m
 | <img class="sym" src="../symbols/str.svg" alt="FOR" width="22"> | **Force (FOR)** | Grimper, sauter, nager, soulever, briser, empoigner, endurer la douleur, marcher longtemps, retenir son souffle | <img class="sym" src="../symbols/str-def.svg" alt="Défense de FOR" width="22"> | **Les armes** (ou AGI), le poison, la maladie, être poussé ou empoigné |
 | <img class="sym" src="../symbols/dex.svg" alt="AGI" width="22"> | **Agilité (AGI)** | Se faufiler, se cacher, garder l'équilibre, faire des acrobaties, crocheter les serrures, faire les poches, désamorcer les pièges, se libérer de liens | <img class="sym" src="../symbols/dex-def.svg" alt="Défense d'AGI" width="22"> | **Les armes** (ou FOR), les explosions, les pièges, les souffles, les effets de zone |
 | <img class="sym" src="../symbols/int.svg" alt="INT" width="22"> | **Intelligence (INT)** | Remarquer, fouiller, deviner les intentions, se souvenir de connaissances, pister, s'orienter, soigner les blessures. **Magie d'Intelligence :** les sorts appris dans les livres (chapitre 9). | <img class="sym" src="../symbols/int-def.svg" alt="Défense d'INT" width="22"> | Les illusions, la confusion et la folie |
-| <img class="sym" src="../symbols/wil.svg" alt="VOL" width="22"> | **Volonté (VOL)** | Persuader, tromper, se produire, intimider, dresser les animaux, tenir bon. **Magie de Volonté :** celle qu'on porte en soi (chapitre 9). | <img class="sym" src="../symbols/wil-def.svg" alt="Défense de VOL" width="22"> | Le charme, la peur, le contrôle mental, la possession, le bannissement, les malédictions, la métamorphose |
+| <img class="sym" src="../symbols/wil.svg" alt="VOL" width="22"> | **Volonté (VOL)** | Persuader, tromper, se produire, intimider, dresser les animaux, tenir bon. **Pouvoir :** la magie qu'on porte en soi (chapitre 9). | <img class="sym" src="../symbols/wil-def.svg" alt="Défense de VOL" width="22"> | Le charme, la peur, le contrôle mental, la possession, le bannissement, les malédictions, la métamorphose |
 
 |  | Nombre | Ce qu'il mesure |
 |---|---|---|
@@ -259,7 +259,7 @@ Chaque Emplacement a son **temps d'échange**. Un échange déplace un matériel
 
 ## 5. Équipement
 
-Les armures, les boucliers, les armes, les Instruments et les Bijoux sont de l'**équipement**. Une arme imprime son bonus **au toucher**, ajouté à ses jets d'attaque, et ses dégâts (*+2 au toucher, 1d8 + FOR ou AGI Physique*) : elle attaque avec la FOR, l'AGI ou les deux, sauf les **bâtons** et les **baguettes**, plus faibles, qui utilisent l'INT ou la VOL. Les **armes de base** (matériel de départ de Rang I) allument les quatre affinités, sauf le *Bâton de garde-sort* (INT · VOL) ; les armes de butin n'allument que les caractéristiques avec lesquelles elles attaquent. Un **Instrument** (un luth, un tambour, un cor) occupe une Main et sert la magie de Volonté (9.5).
+Les armures, les boucliers, les armes, les Instruments et les Bijoux sont de l'**équipement**. Une arme imprime son bonus **au toucher**, ajouté à ses jets d'attaque, et ses dégâts (*+2 au toucher, 1d8 + FOR ou AGI Physique*) : elle attaque avec la FOR, l'AGI ou les deux, sauf les **bâtons** et les **baguettes**, plus faibles, qui utilisent l'INT ou la VOL. Les **armes de base** (matériel de départ de Rang I) allument les quatre affinités, sauf le *Bâton de garde-sort* (INT · VOL) ; les armes de butin n'allument que les caractéristiques avec lesquelles elles attaquent. Un **Instrument** (un luth, un tambour, un cor) occupe une Main et sert le Pouvoir (9.5).
 
 ### 5.1 Armure et Défense
 
@@ -493,7 +493,7 @@ Un sort, une abilité ou un pouvoir doté du mot-clé **Emprise** met une créat
 ## 9. Magie
 
 - **La magie d'Intelligence** s'apprend : des sorts écrits dans des **Livres de sorts** (du matériel), payés en **points de sort**, qui reviennent lors d'un long repos (9.1–9.4).
-- **La magie de Volonté** vient de vous : une Rune appelée **paquet de Volonté**, payée en **Ardeur**, qui revient lors d'un court repos (9.5).
+- **Le Pouvoir** vient de vous : des **pouvoirs** portés par une Rune, la **Rune de Pouvoirs**, payés en **Ardeur**, qui revient lors d'un court repos (9.5).
 
 ### 9.1 Livres de sorts
 
@@ -507,7 +507,7 @@ Un livre occupe un **Emplacement d'Objet**, et lancer un sort depuis lui demande
 |---|---|---|---|---|---|---|
 | **Coût** | 1 | 2 | 3 | 4 | 6 | 8 |
 
-- **Une seule réserve :** les points de sort de chaque Livre de sorts équipé **+ votre INT** (minimum 1), plus ceux de votre Vocation, de vos Traits et de votre matériel. Sans Livre de sorts, vous n'en avez aucun. Ils reviennent lors d'un long repos.
+- **Une seule réserve :** les points de sort de votre **meilleur** Livre de sorts équipé (celui qui en imprime le plus) **+ votre INT** (minimum 1), plus ceux de votre Vocation, de vos Traits et de votre matériel. Vos autres livres n'ajoutent que leurs sorts. Sans Livre de sorts, vous n'en avez aucun. Ils reviennent lors d'un long repos.
 - Si votre INT ou vos livres changent, votre total change ; les points déjà dépensés restent dépensés. Un livre ne se retire que si ces points tiennent dans le nouveau total.
 - Les **tours de magie** ne coûtent rien. **Surpuissance :** payez le coût d'un niveau supérieur, jusqu'au max du livre, pour lancer un sort à ce niveau.
 
@@ -532,9 +532,9 @@ Un livre occupe un **Emplacement d'Objet**, et lancer un sort depuis lui demande
 
 Un abri total bloque une zone.
 
-### 9.5 Magie de Volonté
+### 9.5 Le Pouvoir
 
-Un **paquet de Volonté** est une **Rune** : capturée et gravée comme n'importe quelle Rune (4.4), tenue dans un Emplacement de Rune, changée seulement lors d'un long repos. Les règles des sorts (9.1–9.4) ne s'y appliquent pas. Son **type** dit d'où vient son pouvoir et quels pouvoirs il contient ; tous les types suivent les mêmes règles.
+Une **Rune de Pouvoirs** est une **Rune** : capturée et gravée comme n'importe quelle Rune (4.4), tenue dans un Emplacement de Rune, changée seulement lors d'un long repos. Les règles des sorts (9.1–9.4) ne s'y appliquent pas. Son **type** dit d'où vient sa force et quels pouvoirs elle contient ; tous les types suivent les mêmes règles.
 
 | Pouvoir | Quand | Ce qu'il fait |
 |---|---|---|
@@ -544,20 +544,20 @@ Un **paquet de Volonté** est une **Rune** : capturée et gravée comme n'import
 | **Soin** | Comme imprimé | Rend des PV à une créature à portée, même si elle ne vous entend pas. Pas de jet. |
 | **Forme** | Action | Vous muez en bête (9.6). |
 
-| Type | Son paquet | Ce qu'il contient |
+| Type | Sa Rune | Ce qu'elle contient |
 |---|---|---|
 | **Divin** | Une **Litanie** de prières | Le destin (relances, dés du destin) et la guérison : Hymnes, Complaintes, Répliques, Soins |
 | **Glamour** | Un **Répertoire** de chants, de poèmes et de danses | Le courage et la peur (bonus et malus fixes) : Hymnes, Complaintes, Répliques, Soins |
 | **Nature** | Un **Instinct** de bêtes | Les bêtes et la guérison : Formes (9.6), Soins |
 | **Pacte** | Un **Pacte** avec un protecteur | Les malédictions et les dégâts : Complaintes, Répliques |
 
-- **Une liste fixe :** un paquet imprime son Rang, son bonus d'**Attaque**, l'**Ardeur** qu'il ajoute, puis ses pouvoirs. Pour changer de pouvoirs, gravez un autre paquet.
-- **Ardeur :** une seule réserve, l'Ardeur de chacun de vos paquets de Volonté **+ votre VOL** une fois (minimum 1), plus celle de votre Vocation, de vos Traits et de votre matériel. Sans paquet, vous n'en avez aucune. Les pouvoirs de n'importe quel paquet la dépensent ; elle revient lors d'un court ou d'un long repos. Si votre VOL ou vos paquets changent, votre total change ; l'Ardeur déjà dépensée reste dépensée. Un pouvoir qui coûte **0** s'utilise à volonté.
-- **Attaque :** d20 + VOL + le bonus d'Attaque du paquet.
+- **Une liste fixe :** une Rune de Pouvoirs imprime son Rang, son bonus d'**Attaque**, l'**Ardeur** qu'elle ajoute, puis ses pouvoirs. Pour changer de pouvoirs, gravez-en une autre.
+- **Ardeur :** une seule réserve, l'Ardeur de votre **meilleure** Rune de Pouvoirs (celle qui en imprime le plus) **+ votre VOL** (minimum 1), plus celle de votre Vocation, de vos Traits et de votre matériel. Vos autres Runes de Pouvoirs n'ajoutent que leurs pouvoirs. Sans Rune de Pouvoirs, vous n'en avez aucune. Les pouvoirs de n'importe laquelle la dépensent ; elle revient lors d'un court ou d'un long repos. Si votre VOL ou vos Runes de Pouvoirs changent, votre total change ; l'Ardeur déjà dépensée reste dépensée. Un pouvoir qui coûte **0** s'utilise à volonté.
+- **Attaque :** d20 + VOL + le bonus d'Attaque de la Rune de Pouvoirs.
 - **Se faire entendre :** un pouvoir a besoin de votre voix (pas quand vous êtes Neutralisé, sous l'eau ou en Forme), et un Hymne, une Complainte ou une Réplique n'agit que sur les créatures qui vous entendent. Un pouvoir **Visuel** ne demande pas de voix et agit sur les créatures qui vous voient. Muer ne demande ni l'un ni l'autre. Aucun pouvoir n'a besoin d'une Main, et tous sont évidents.
 - **Dés du destin :** un d4 aux Rangs I–II, d6 au III, d8 aux IV–V, ajouté à un jet ou retranché.
 - **Pouvoirs isolés :** certaines Runes portent un seul pouvoir, avec des utilisations au lieu d'Ardeur (*Cri de ralliement*).
-- Un **Focaliseur** (un Instrument, une amulette sacrée, un bâton de druide) renforce votre magie de Volonté comme il l'imprime.
+- Un **Focaliseur** (un Instrument, une amulette sacrée, un bâton de druide) renforce votre Pouvoir comme il l'imprime.
 
 ### 9.6 Formes
 
@@ -566,7 +566,7 @@ Une **Forme** est une bête d'un Instinct, imprimée comme une Vocation pour le 
 - **Muer (action) :** payez son Ardeur et remplissez une **carte de Décompte vierge** avec les nombres de la Forme, l'**INT et la VOL de votre Vocation** et vos **Runes** (12.3). Votre matériel se fond dans la Forme et ne compte plus jusqu'à votre retour. Muer en une autre Forme coûte son Ardeur et une carte de Décompte vierge.
 - **Deux corps :** les dégâts s'imputent d'abord aux PV de la Forme ; vos propres PV (PV temporaires compris) attendent sur votre propre carte de Décompte.
 - **Les armes naturelles** attaquent avec la FOR ou l'AGI de la Forme, comme imprimé, comme des armes. Sous l'eau, elles comptent comme des attaques à mains nues.
-- **Ni Mains, ni voix :** votre seul pouvoir de Volonté est une autre Forme. Les Emprises que vous maintenez continuent.
+- **Ni Mains, ni voix :** votre seul pouvoir est une autre Forme. Les Emprises que vous maintenez continuent.
 - **Revenir** (gratuit, à votre tour). Une Forme prend aussi fin au bout d'**1 heure**, ou à **0 PV** : vous revenez, et les dégâts excédentaires se reportent sur vous.
 - Les Formes vont de **Très petit à Grand** ; seuls les Instincts de Rang V en contiennent de plus grandes.
 
@@ -616,10 +616,10 @@ Le premier mot-clé. Il fixe l'Emplacement (4.2).
 | **Trait** | Emplacement de Rune. Un changement durable du corps ou de l'esprit. |
 | **Technique** | Emplacement de Rune. Une botte de combat. |
 | **Domaine** | Emplacement de Rune. Un bonus aux tests des activités d'un domaine. |
-| **Divin** | Emplacement de Rune. Une Litanie : un paquet de Volonté de prières (9.5). |
-| **Glamour** | Emplacement de Rune. Un Répertoire : un paquet de Volonté de chants, de poèmes et de danses (9.5). |
-| **Nature** | Emplacement de Rune. Un Instinct : un paquet de Volonté de bêtes (9.5). |
-| **Pacte** | Emplacement de Rune. Un Pacte : un paquet de Volonté des dons d'un protecteur (9.5). |
+| **Divin** | Emplacement de Rune. Une Litanie : une Rune de Pouvoirs de prières (9.5). |
+| **Glamour** | Emplacement de Rune. Un Répertoire : une Rune de Pouvoirs de chants, de poèmes et de danses (9.5). |
+| **Nature** | Emplacement de Rune. Un Instinct : une Rune de Pouvoirs de bêtes (9.5). |
+| **Pacte** | Emplacement de Rune. Un Pacte : une Rune de Pouvoirs des dons d'un protecteur (9.5). |
 | **Blessure** | Aucun Emplacement : une lésion durable (7.6). Une Blessure **invalidante** bloque l'Emplacement de Matériel qu'elle nomme. |
 | **Forme** | Partie d'un Instinct, jamais seule. Une bête en laquelle vous muez (9.6). |
 | **Pierre runique** | Un objet, jamais dans un Emplacement. Contient une Rune, ou rien. Sac (3 au plus) ou Réserve de la Compagnie (4.4). |
@@ -631,8 +631,8 @@ Le premier mot-clé. Il fixe l'Emplacement (4.2).
 |---|---|
 | **Action** | L'utiliser prend l'une de vos deux actions. |
 | **Réaction** | L'utiliser prend votre réaction : quand le déclencheur de son texte survient, ou à votre tour s'il n'en a pas. |
-| **N/C.R.** | Court repos. Inscrit sur un pouvoir, ce n'est pas un mot-clé : ce pouvoir a N utilisations. Toutes reviennent lors d'un court ou long repos. |
-| **N/L.R.** | Long repos. Inscrit sur un pouvoir, ce n'est pas un mot-clé : ce pouvoir a N utilisations. Toutes reviennent lors d'un long repos. |
+| **N/C.R.** | Court repos. Inscrit sur une abilité ou un pouvoir, ce n'est pas un mot-clé : N utilisations, qui reviennent toutes lors d'un court ou long repos. |
+| **N/L.R.** | Long repos. Inscrit sur une abilité ou un pouvoir, ce n'est pas un mot-clé : N utilisations, qui reviennent toutes lors d'un long repos. |
 
 ### 11.3 Armes et armures
 
@@ -661,12 +661,12 @@ Le premier mot-clé. Il fixe l'Emplacement (4.2).
 | **Emprise** | Met une créature hors de combat ; nomme l'état infligé (Étourdi, Charmé, banni…). La cible perd son prochain tour, puis la source répète l'attaque à chaque tour, avec usure (chapitre 8). |
 | **Durée T** | Dure T (*1 minute*, *1 heure*), puis prend fin. Vous pouvez y mettre fin plus tôt, sans action. **Pendant N tours** sur une cible : jusqu'à la fin de son Ne tour à partir de maintenant (les demi-tours d'un Boss comptent). |
 | **Discret** | Personne ne vous remarque en train de le lancer. |
-| **Focaliseur** | Renforce votre magie de Volonté comme imprimé (9.5). Sur des Bijoux, des Instruments ou des armes. |
-| **Hymne** | Magie de Volonté (9.5). Action : un bonus pour les alliés qui vous entendent, pendant une Durée. |
-| **Complainte** | Magie de Volonté (9.5). Action : une attaque contre la Défense de VOL. |
-| **Réplique** | Magie de Volonté (9.5). Réaction : modifie un jet après qu'il a été fait, avant son résultat. |
-| **Visuel** | Sur un pouvoir de magie de Volonté (9.5) : il ne demande pas de voix et agit sur les créatures qui vous voient, pas sur celles qui vous entendent. |
-| **Soin** | Magie de Volonté (9.5). Rend des PV à une créature à portée, même si elle ne peut pas vous entendre. |
+| **Focaliseur** | Renforce votre Pouvoir comme imprimé (9.5). Sur des Bijoux, des Instruments ou des armes. |
+| **Hymne** | Un pouvoir (9.5). Action : un bonus pour les alliés qui vous entendent, pendant une Durée. |
+| **Complainte** | Un pouvoir (9.5). Action : une attaque contre la Défense de VOL. |
+| **Réplique** | Un pouvoir (9.5). Réaction : modifie un jet après qu'il a été fait, avant son résultat. |
+| **Visuel** | Sur un pouvoir (9.5) : il ne demande pas de voix et agit sur les créatures qui vous voient, pas sur celles qui vous entendent. |
+| **Soin** | Un pouvoir (9.5). Rend des PV à une créature à portée, même si elle ne peut pas vous entendre. |
 | **Relance** | Le jet est refait (tous ses d20) et le nouveau résultat compte. Un jet ne peut être relancé qu'une fois. |
 | **Résiste (type)** | Ne subit que la moitié des dégâts de ce type. |
 | **Vulnérable (type)** | Subit le double des dégâts de ce type. |
@@ -738,7 +738,7 @@ Votre **carte de Décompte** est votre fiche : une carte double largeur sur laqu
 
 ### 12.4 Paquets
 
-Un Livre de sorts ou un paquet de Volonté est un **paquet** : une **carte de couverture** (Rang, bonus d'attaque, points de sort ou Ardeur, niveau de sort max) et **une carte par sort ou par pouvoir**, chacune marquée du nom du paquet. Il se déplace comme une seule carte.
+Un Livre de sorts ou une Rune de Pouvoirs est un **paquet** : une **carte de couverture** (Rang, bonus d'attaque, points de sort ou Ardeur, niveau de sort max) et **une carte par sort ou par pouvoir**, chacune marquée du nom du paquet. Il se déplace comme une seule carte.
 
 ---
 
@@ -747,7 +747,7 @@ Un Livre de sorts ou un paquet de Volonté est un **paquet** : une **carte de co
 ### 13.1 Création d'un personnage
 
 1. **Choisissez une Vocation** (13.2).
-2. **Choisissez votre matériel et vos Runes** dans la liste de départ (13.3, tous de Rang I), parmi les cartes que votre Vocation peut équiper : **1 Armure**, jusqu'à **2** cartes pour vos **Mains**, **1 Bijou** et **3 Runes** (un paquet de Volonté compte parmi elles). Un lanceur de sorts choisit aussi un **Livre de sorts**.
+2. **Choisissez votre matériel et vos Runes** dans la liste de départ (13.3, tous de Rang I), parmi les cartes que votre Vocation peut équiper : **1 Armure**, jusqu'à **2** cartes pour vos **Mains**, **1 Bijou** et **3 Runes** (une Rune de Pouvoirs compte parmi elles). Un lanceur de sorts choisit aussi un **Livre de sorts**.
 3. **Prenez** une *Potion de soins* dans un Emplacement d'Objet et, dans votre Sac, **3 Pierres vierges** et une *Bourse à cordon* contenant **50 po**. La Réserve de la Compagnie commence avec **2 Pierres vierges par personnage**.
 4. **Additionnez** vos dix totaux sur une carte de Décompte (12.3), avec vos PV, vos points de sort (9.2) et votre Ardeur (9.5). Calculez vos bonus d'attaque et votre Vigilance passive (3.3).
 5. **Remplissez votre carte de Porteur** (2.5), avec au moins un lien.
@@ -773,7 +773,7 @@ Un Livre de sorts ou un paquet de Volonté est un **paquet** : une **carte de co
 ### 13.3 Liste de départ
 
 <!-- starter:start -->
-Toutes les cartes de Rang I parmi lesquelles vous choisissez à la création (13.1). *Toutes* : les quatre affinités sont allumées. Un paquet (Livre de sorts, paquet de Volonté) liste ses sorts ou ses pouvoirs.
+Toutes les cartes de Rang I parmi lesquelles vous choisissez à la création (13.1). *Toutes* : les quatre affinités sont allumées. Un paquet (Livre de sorts, Rune de Pouvoirs) liste ses sorts ou ses pouvoirs.
 
 #### Armure
 
@@ -831,7 +831,7 @@ Toutes les cartes de Rang I parmi lesquelles vous choisissez à la création (13
 | **Livre de l'évocateur** | INT | Livre de sorts | — | Attaque de sort : **INT + 2** · Points de sort : **+2** (long repos) · Niveau de sort max : **2e** · L'incantation demande une Main vide. **Sorts :** tours de magie : *Rayon de givre*, *Poigne électrique* ; 1er niveau : *Mains brûlantes*, *Vague tonnante*, *Orbe chromatique* ; 2e niveau : *Rayon ardent*, *Fracassement*. |
 | **Livre de l'abjurateur** | INT | Livre de sorts | — | Attaque de sort : **INT + 2** · Points de sort : **+2** (long repos) · Niveau de sort max : **2e** · L'incantation demande une Main vide. **Sorts :** tours de magie : *Protection contre les lames*, *Réparation* ; 1er niveau : *Armure de mage*, *Absorption des éléments*, *Protection contre le mal* ; 2e niveau : *Aide*, *Verrou magique*. |
 | **Livre de l'illusionniste** | INT | Livre de sorts | — | Attaque de sort : **INT + 2** · Points de sort : **+2** (long repos) · Niveau de sort max : **2e** · L'incantation demande une Main vide. **Sorts :** tours de magie : *Illusion mineure* ; 1er niveau : *Déguisement*, *Image silencieuse*, *Couleurs dansantes* ; 2e niveau : *Image miroir*, *Invisibilité*. |
-| **Livre de l'enchanteur** | INT | Livre de sorts | — | Attaque de sort : **INT + 2** · Points de sort : **+2** (long repos) · Niveau de sort max : **2e** · L'incantation demande une Main vide. **Sorts :** tours de magie : *Éclat psychique* ; 1er niveau : *Sommeil*, *Charme-personne*, *Injonction* ; 2e niveau : *Fou rire*, *Immobilisation de personne*. |
+| **Livre de l'enchanteur** | INT | Livre de sorts | — | Attaque de sort : **INT + 2** · Points de sort : **+2** (long repos) · Niveau de sort max : **2e** · L'incantation demande une Main vide. **Sorts :** tours de magie : *Éclat psychique* ; 1er niveau : *Héroïsme*, *Injonction* ; 2e niveau : *Sommeil*, *Charme-personne*, *Fou rire*, *Immobilisation de personne*. |
 | **Potion de soins** | toutes | Consommable | — | **Action :** buvez-la, ou donnez-la à une créature à 2 m ou moins. Elle récupère 2d4 + 2 PV. |
 | **Bourse à cordon** | toutes | Contenant | — | Contient jusqu'à **100 po**. |
 | **Lettre d'introduction** | toutes | Consommable | — | Une lettre scellée d'une maison noble, d'une guilde ou d'un temple. Montrez-la à l'un de ses membres : il accède à une demande raisonnable (un abri, une audience, un sauf-conduit, un prêt jusqu'à 100 po). |
@@ -891,19 +891,19 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 
 | Terme | Sens |
 |---|---|
-| **Abilité** | Ce qu'une carte vous permet d'utiliser : elle demande une action ou une réaction, ou dépense une utilisation (*Riposte (½ FOR/C.R.)*). Les pouvoirs de magie de Volonté gardent leur nom de pouvoirs. |
+| **Abilité** | Ce qu'une carte vous permet d'utiliser : elle demande une action ou une réaction, ou dépense une utilisation (*Riposte (½ FOR/C.R.)*). Les cartes d'une Rune de Pouvoirs sont des pouvoirs, pas des abilités. |
 | **Action** | L'utiliser prend l'une de vos deux actions. |
 | **Affinités** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation partage au moins une de ses affinités allumées. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre affinités, sauf le Bâton de garde-sort (INT · VOL). |
 | **Allonge** | Un mot-clé d'arme : votre allonge est de 4 m au lieu de 2 m. |
 | **Aquatique** | Un mot-clé d'arme : elle fonctionne sous l'eau, là où les autres armes et sorts ne fonctionnent pas. |
-| **Ardeur** | Les points que coûte votre magie de Volonté : une seule réserve, la somme de ce qu'impriment vos paquets de Volonté + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un court repos. |
+| **Ardeur** | Les points que coûtent vos pouvoirs : une seule réserve, ce qu'imprime votre meilleure Rune de Pouvoirs + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un court repos. |
 | **Arme** | Le type de matériel tenu avec lequel on attaque ; il va dans un Emplacement de Main. Elle imprime son bonus au toucher et ses dégâts, en ajoutant la plus haute des caractéristiques qu'elle nomme (*+2 au toucher, 1d8 + FOR ou AGI Physique*). |
 | **Armure** | Le type de matériel porté sur le corps ; il va dans l'Emplacement d'Armure. Il faut 10 minutes pour l'enfiler ou l'ôter. Jamais dans le Sac. |
 | **Avantage aux dégâts** | Reporter sur les dégâts d'une attaque un dé d'avantage restant après compensation, choisi avant de lancer : relancez tous les dégâts une fois de plus par dé et gardez le total le plus haut. Le désavantage reste toujours sur l'attaque. |
 | **Babiole** | Une petite chose non magique qui n'est pas du matériel : une clé, une lettre, un trésor, une corde, une torche. Transportée librement, sans limite. |
 | **Bijou** | Le type de matériel porté qui va dans l'Emplacement de Bijou : anneaux, amulettes, diadèmes, capes, gants, bottes. |
 | **Blessure** | Une lésion durable, tirée au hasard chaque fois que vous tombez à 0 PV. Elle reste jusqu'à ce qu'une convalescence la guérisse. Une Blessure invalidante bloque un Emplacement de Matériel. |
-| **Boss** | Un monstre puissant doté de pouvoirs spéciaux, dont un demi-tour pendant le camp des personnages. |
+| **Boss** | Un monstre puissant doté d'abilités spéciales, dont un demi-tour pendant le camp des personnages. |
 | **Boucle de jeu** | Le cycle répété du jeu : affronter une épreuve, empocher le butin, se reposer et remanier ses cartes au besoin. |
 | **Bouclier** | Le type de matériel tenu qui augmente vos Défenses ; il va dans un Emplacement de Main. |
 | **Bourse** | Un Contenant qui contient votre or, jusqu'à un maximum fixé par son Rang. |
@@ -914,13 +914,13 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Capturer** | Fixer une Rune qui persiste dans une Pierre vierge. |
 | **Caractéristique** | L'une des quatre mesures de toute créature : Force (FOR), Agilité (AGI), Intelligence (INT) et Volonté (VOL), chacune notée sous forme de modificateur. |
 | **Carte** | L'élément physique d'une Vocation, d'un matériel, d'une Rune, d'un sort, d'une Blessure, d'un adversaire ou d'une somme d'or. |
-| **Carte d'Adversaire** | La carte du MJ pour une sorte de monstre : son corps, ses totaux et ses pouvoirs. Les cartes nommées en italique dessus peuvent être lâchées ; le texte droit, jamais. |
+| **Carte d'Adversaire** | La carte du MJ pour une sorte de monstre : son corps, ses totaux et ses abilités. Les cartes nommées en italique dessus peuvent être lâchées ; le texte droit, jamais. |
 | **Carte de Décompte** | La carte sur laquelle vous écrivez au crayon : vos dix totaux, vos PV et PV temporaires, vos jets contre la mort, vos points de sort, votre Ardeur et vos habiletés. |
 | **Carte de Porteur** | La carte double largeur que vous remplissez à l'encre à la création du personnage : portrait, nom, âge, peuple et apparence au recto ; personnalité, ambition, peur, liens, passé et notes au verso. Elle dure autant que le Porteur. |
 | **Chargement** | Un mot-clé d'arme : un tir par action ou réaction, même avec des attaques supplémentaires. |
 | **Code de carte** | Le code dans le coin inférieur droit d'une carte : lettre de type, Rang s'il en a un, et numéro (W-II-02, L-04). |
 | **Compagnie** | Le groupe de Porteurs joués ensemble. |
-| **Complainte** | Un pouvoir de magie de Volonté. Action : une attaque contre la Défense de VOL. (EN : Dirge) |
+| **Complainte** | Un pouvoir. Action : une attaque contre la Défense de VOL. (EN : Dirge) |
 | **Consommable** | Un objet qui disparaît une fois utilisé. Jusqu'à 3 Consommables identiques partagent un Emplacement d'Objet. |
 | **Contenant** | Un objet qui ne s'équipe jamais : il fonctionne depuis votre Sac et y occupe 1 pièce. Une Bourse contient de l'or, une *Bandoulière runique* plus de Pierres runiques. |
 | **Convalescence** | 3 jours de repos en lieu sûr : fait tout ce que fait un long repos, et guérit toutes vos Blessures. |
@@ -929,7 +929,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Déplacement** | Une action : se déplacer jusqu'à votre Vitesse, en coupant avant et après votre autre action si vous le souhaitez. |
 | **Deux mains** | Occupe deux Emplacements de Main. |
 | **Discret** | Personne ne vous remarque en train de le lancer. (EN : Subtle) |
-| **Divin** | Un type de paquet de Volonté : la magie de la prière. Son paquet est une **Litanie**, qui contient des pouvoirs de destin et de guérison : Hymnes, Complaintes, Répliques et Soins. |
+| **Divin** | Un type de Rune de Pouvoirs : la magie de la prière. Sa Rune est une **Litanie**, qui contient des pouvoirs de destin et de guérison : Hymnes, Complaintes, Répliques et Soins. |
 | **Domaine** | Un type de Rune : un bonus aux tests des activités d'un domaine. |
 | **Don** | La copie d'une Rune qu'une créature vivante autre qu'un Porteur donne de son plein gré, fixée dans une Pierre vierge. La créature garde la sienne. Seule une Rune ancrée se copie : un Porteur ne copie donc jamais. |
 | **Dormante** | Une Rune gravée qui s'est tue : sa carte repose face cachée et ne fait rien, mais garde son Emplacement. Une Rune peut devenir dormante quand un repos vous soigne (1 sur 8 après un court repos, 1 sur 4 après un long). |
@@ -945,18 +945,18 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Équipement** | Le matériel que vous portez ou maniez : armures, armes, boucliers, Instruments et Bijoux. |
 | **Escalade N** | Une vitesse d'escalade : grimper ne coûte pas de déplacement supplémentaire. |
 | **Facteur de puissance (FP)** | Le danger d'un monstre, utilisé avec sa valeur en PX pour dimensionner les combats. |
-| **Focaliseur** | Un mot-clé d'équipement qui renforce votre magie de Volonté : un Instrument, une amulette sacrée, un bâton de druide. |
+| **Focaliseur** | Un mot-clé d'équipement qui renforce votre Pouvoir : un Instrument, une amulette sacrée, un bâton de druide. |
 | **Forme** | Un corps de bête dans un Instinct (Nature), imprimé comme une Vocation : FOR, AGI, PV, Vitesse et Taille. Tant que vous avez mué en elle, elle remplace votre corps ; votre esprit et vos Runes demeurent. |
-| **Glamour** | Un type de paquet de Volonté : la magie de la représentation et du commandement. Son paquet est un **Répertoire**, qui contient des pouvoirs de courage et de peur : Hymnes, Complaintes, Répliques et Soins. |
+| **Glamour** | Un type de Rune de Pouvoirs : la magie de la représentation et du commandement. Sa Rune est un **Répertoire**, qui contient des pouvoirs de courage et de peur : Hymnes, Complaintes, Répliques et Soins. |
 | **Graver** | Faire passer la Rune d'une Pierre runique dans un Emplacement de Rune, pendant un long repos. |
-| **Hymne** | Un pouvoir de magie de Volonté. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem) |
+| **Hymne** | Un pouvoir. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem) |
 | **Instrument** | Un équipement tenu dans une Main qui n'est ni une arme ni un bouclier : un luth, un tambour, un cor. |
 | **Jalon** | Un nouvel Emplacement de Rune pour chaque personnage, accordé quand la Compagnie achève une saga. |
-| **Jet d'attaque** | Un jet de d20 + modificateurs contre une Défense, fait par celui qui blesse ou entrave : armes, sorts, magie de Volonté, pièges, poisons. |
+| **Jet d'attaque** | Un jet de d20 + modificateurs contre une Défense, fait par celui qui blesse ou entrave : armes, sorts, pouvoirs, pièges, poisons. |
 | **Lancer N/M** | Un mot-clé d'arme : elle peut être lancée comme attaque à distance, avec le modificateur de son usage au corps à corps. Au-delà de N m : désavantage. Au-delà de M m : impossible (*Lancer 8/24*). |
 | **Légère** | Un mot-clé d'arme : permet le combat à deux armes. |
 | **Libérer** | Effacer une Pierre runique. Sa Rune est perdue pour de bon. |
-| **Livre de sorts** | Un objet contenant une liste fixe de sorts. Ses points de sort s'ajoutent à votre réserve unique. C'est la magie d'Intelligence : elle utilise l'INT. |
+| **Livre de sorts** | Un objet contenant une liste fixe de sorts. Votre meilleur livre équipé donne ses points de sort à votre réserve unique. C'est la magie d'Intelligence : elle utilise l'INT. |
 | **Lourde** | Un mot-clé d'arme : une grande arme. En butin, elle n'allume que l'affinité de FOR : seule une Vocation qui a la FOR peut l'équiper. |
 | **Maître du jeu (MJ)** | Le joueur qui décrit le monde, fait agir les monstres et arbitre les règles. |
 | **Matériel** | Tout objet réel qu'un Porteur peut équiper ou ranger : l'équipement et les objets. Toute créature peut utiliser du matériel ; un Porteur, seulement les cartes dont sa Vocation partage une affinité. |
@@ -966,20 +966,20 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Mot-clé** | Un mot au sens unique et fixe que le matériel et les Runes affichent, le type en premier. |
 | **Muer** | Prendre une Forme de votre Instinct ; revenir, c'est retrouver votre propre corps. Être métamorphosé n'est jamais muer. |
 | **Nage N** | Une vitesse de nage : nager ne coûte pas de déplacement supplémentaire, et vitesse normale sous l'eau. |
-| **Nature** | Un type de paquet de Volonté : la magie du monde sauvage. Son paquet est un **Instinct**, qui contient des Formes et des Soins. |
+| **Nature** | Un type de Rune de Pouvoirs : la magie du monde sauvage. Sa Rune est un **Instinct**, qui contient des Formes et des Soins. |
 | **Niveau de sort** | La puissance d'un sort et son coût en points de sort, du 1er au 6e. (EN : Spell level) |
 | **Niveau effectif** | L'estimation par le MJ de la puissance d'un personnage, de 1 à 12, utilisée pour dimensionner les combats et les DD des épreuves. Ce n'est pas une valeur du personnage. |
 | **Objet** | Le matériel que vous transportez et utilisez : Livres de sorts, Recettes, Consommables, Contenants et Pierres runiques. |
-| **Pacte** | Un type de paquet de Volonté : la magie accordée par un protecteur. Son paquet est un **Pacte**, qui contient des malédictions et des dégâts : Complaintes et Répliques. |
-| **Paquet de Volonté** | Une Rune de magie de Volonté : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour, Nature ou Pacte) dit quels pouvoirs elle contient et ne change aucune autre règle. |
+| **Pacte** | Un type de Rune de Pouvoirs : la magie accordée par un protecteur. Sa Rune est un **Pacte**, qui contient des malédictions et des dégâts : Complaintes et Répliques. |
 | **Perception aveugle N** | Perçoit tout dans un rayon de N m sans la vue. (EN : Blindsight) |
 | **Persistance** | L'état des Runes d'une créature morte pendant 1 minute, une fois détachées et avant qu'elles ne s'éteignent pour de bon. Une Rune dans cet état *persiste*. (EN : Lingering) |
 | **Pièce** | Une unité de matériel, telle que le Sac, la Réserve de la Compagnie et le butin la comptent. Une pile de jusqu'à 3 Consommables identiques compte pour une pièce. |
 | **Pierre runique** | Une pierre encombrante qui contient une Rune, ou rien (une Pierre vierge). C'est un objet, mais jamais dans un Emplacement. |
-| **Points de sort** | Les points que coûtent vos sorts : une seule réserve, la somme de ce qu'impriment vos Livres de sorts + INT (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un long repos. |
+| **Points de sort** | Les points que coûtent vos sorts : une seule réserve, ce qu'imprime votre meilleur Livre de sorts + INT (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un long repos. |
 | **Polyvalente** | Un mot-clé d'arme : utilise le plus gros dé de dégâts quand elle est tenue à deux mains. |
 | **Portée N/M** | Une attaque à distance. Au-delà de N : désavantage. Au-delà de M : impossible. Un nombre seul est la portée maximale d'un sort. |
 | **Porteur** | Un humanoïde capable de graver des Runes en lui, puis de les en retirer. Chaque personnage joueur en est un. |
+| **Pouvoir** | La magie qu'on porte en soi ; elle utilise la VOL. Ses cartes sont des **pouvoirs** (Hymnes, Complaintes, Répliques, Soins, Formes), portés par une Rune de Pouvoirs et payés en Ardeur. En minuscule, *pouvoir* désigne toujours une de ces cartes. |
 | **Question Cible** | La deuxième des trois questions posées avant une attaque : les états de la cible (À terre, Entravé, Étourdi). Un dé d'avantage au plus, quel que soit leur nombre. |
 | **Question Foule** | La troisième des trois questions posées avant une attaque : le Surnombre. Un dé d'avantage si votre camp a plus de créatures engagées autour de la cible, un dé de désavantage si c'est le sien. |
 | **Question Vous** | La première des trois questions posées avant une attaque : votre position et vos états (non vu ; longue portée, cible invisible pour vous, À terre…). Un dé au plus. La seule question posée pour les tests, les sauvegardes et les jets de zone. |
@@ -990,14 +990,15 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Recette** | Un objet : une pile qui se reconstitue à chaque long repos. Les exemplaires inutilisés disparaissent quand elle se reconstitue. |
 | **Recharge 5–6** | Un pouvoir de monstre qui revient sur un 5 ou un 6 au d6 à la fin du tour du monstre. |
 | **Relance** | Le jet est refait (tous ses d20) et le nouveau résultat compte. Un jet ne peut être relancé qu'une fois. (EN : Reroll) |
-| **Réplique** | Un pouvoir de magie de Volonté. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue) |
+| **Réplique** | Un pouvoir. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue) |
 | **Réserve de la Compagnie** | La mule, la charrette ou le chariot du groupe : le matériel et les Pierres runiques que la Compagnie possède mais que personne ne porte. |
 | **Résiste (type)** | Ne subit que la moitié des dégâts de ce type. |
 | **Réveiller** | Lors d'un long repos, libérer une Pierre runique qui contient une Rune de Rang égal ou supérieur, pour qu'une Rune dormante fonctionne de nouveau. |
-| **Rune** | Un pouvoir en forme de signe : un Trait, une Technique, un Domaine ou un paquet de Volonté. Les créatures magiques en portent presque toujours quelques-unes, ancrées en elles à vie ; chez les autres, c'est l'exception (un vétéran, un maître). Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique. |
+| **Rune** | Une force en forme de signe : un Trait, une Technique, un Domaine ou une Rune de Pouvoirs. Les créatures magiques en portent presque toujours quelques-unes, ancrées en elles à vie ; chez les autres, c'est l'exception (un vétéran, un maître). Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique. |
+| **Rune de Pouvoirs** | Une Rune qui porte le Pouvoir : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour, Nature ou Pacte) dit quels pouvoirs elle contient et ne change aucune autre règle. |
 | **Sac** | Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Pierres runiques. |
 | **Saga** | Le grand arc de la campagne, fait de quêtes. En achever une accorde un jalon. |
-| **Soin** | Un pouvoir de magie de Volonté qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |
+| **Soin** | Un pouvoir qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend) |
 | **Sort** | Une carte d'un Livre de sorts, jamais seule. Son niveau est son coût en points de sort. |
 | **Taille** | Très petit, Petit, Moyen ou Grand, imprimé sur une Forme ou une carte d'Adversaire. Les Porteurs sont de taille Moyenne. |
 | **Technique** | Un type de Rune : une botte de combat. (EN : Technique) |
@@ -1012,7 +1013,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 | **Vise X** | L'attaque se fait contre la Défense de X de la cible (FOR, AGI, INT ou VOL). |
 | **Vision lucide N** | Comme Vision nocturne, et voit les créatures invisibles et à travers les illusions et les changements de forme. (EN : Truesight) |
 | **Vision nocturne N** | Traite l'Obscurité comme de la Lumière dans un rayon de N m. |
-| **Visuel** | Un mot-clé d'un pouvoir de magie de Volonté : il ne demande pas de voix et agit sur les créatures qui vous voient, pas sur celles qui vous entendent (une danse, un signe). |
+| **Visuel** | Un mot-clé de pouvoir : il ne demande pas de voix et agit sur les créatures qui vous voient, pas sur celles qui vous entendent (une danse, un signe). |
 | **Vocation** | La paire de caractéristiques que le passé d'un Porteur a forgée, gardée à vie : +2 dans les deux, des PV, une Vitesse, et ses propres effets et abilités. Elle décide quel matériel et quelles Runes vous pouvez équiper. Ce n'est ni une Rune ni du matériel. Deux par paire : Duelliste et Bagarreur (FOR · AGI), Templier et Patriote (FOR · VOL), Lame-mage et Tacticien (FOR · INT), Infiltrateur et Rôdeur (AGI · INT), Artiste et Filou (AGI · VOL), Sage et Ermite (INT · VOL). |
 | **Vol N** | Une vitesse de vol : vous vous déplacez dans les airs. Si vous êtes mis À terre ou Neutralisé en vol, vous tombez. |
 | **Vulnérable (type)** | Subit le double des dégâts de ce type. |

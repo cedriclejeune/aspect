@@ -244,11 +244,11 @@ _Avoid_: weakening
 A set length of time a spell or power lasts, printed on it.
 
 **Spellbook**:
-An item holding a fixed list of spells. Its spell points add to your one pool. This is INT magic: it uses INT.
+An item holding a fixed list of spells. Your best equipped book adds its spell points to your one pool. This is INT magic: it uses INT.
 _Avoid_: grimoire, spell list
 
 **Spell points**:
-The points your spells cost: one pool, the sum your Spellbooks print + INT (minimum 1), kept on your tally card. It returns on a long rest.
+The points your spells cost: one pool, what your best Spellbook prints + INT (minimum 1), kept on your tally card. It returns on a long rest.
 _Avoid_: spell slots, mana
 
 **WIL deck**:
@@ -272,7 +272,7 @@ A type of WIL deck: magic granted by a patron. Its deck is a **Pact**, which hol
 _Avoid_: warlock magic, Patronage, Grimoire
 
 **Resolve**:
-The points your WIL magic costs: one pool, the sum your WIL decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest.
+The points your WIL magic costs: one pool, what your best WIL deck prints + WIL (minimum 1), kept on your tally card. It returns on a short rest.
 _Avoid_: Presence points, Wild points, will points, mana
 
 **Form**:

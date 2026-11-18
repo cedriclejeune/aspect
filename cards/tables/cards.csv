@@ -14,7 +14,7 @@ L-12,Hermit,Calling,,starter,INT WIL,1,+0,+0,+2,+2,10,10,12,12,11,30,,,,Solitude
 A-I-01,Leather,Armor,I,starter,all,2,,,,,+2,+1,,,+2,+5,,,,,"Supple hide, oiled and stitched. It creaks a little, but it lets you run."
 A-I-02,Mail,Armor,I,starter,STR DEX,2,,,,,+3,,,,+4,,,,,,"Riveted rings over a padded coat. Heavy on the shoulders, light on the conscience."
 A-II-01,Plate,Armor,II,loot,STR,1,,,,,+4,,,,+12,-10,,,Noisy 3,,"Full steel, fitted to you. You hear yourself coming, and so does everyone else."
-A-I-03,Hide,Armor,I,starter,STR WIL,1,,,,,+2,,,,+4,,,,,,"Thick pelts, cured and laced. It smells of the animal for a while, then of you."
+A-I-03,Hide,Armor,I,starter,STR WIL,1,,,,,+2,,,,+4,+5,,,,,"Thick pelts, cured and laced. It smells of the animal for a while, then of you."
 A-I-04,Studded Leather,Armor,I,starter,DEX INT,1,,,,,+2,+2,,,+2,,,,,,Leather stiffened with rivets. It turns a blade and still lets you crouch.
 S-I-01,Shield,Shield,I,starter,STR WIL,2,,,,,+2,+2,,,,,,,,Takes one Hand.,"Oak boards, an iron rim, a dented boss. Every scar on it is a blow you never felt."
 W-I-01,Dagger,Weapon,I,starter,all,1,,,,,,,,,,,+2,1d4,Light · Thrown 20/60 · Flurry,"+2 to hit, thrown 20/60 ft, 1d4 + DEX Physical.","Every traveler carries one. It cuts bread, rope and, when it must, throats."

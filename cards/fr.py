@@ -76,7 +76,7 @@ NAMES = {
     "Protection from Evil": "Protection contre le mal", "Aid": "Aide", "Arcane Lock": "Verrou magique",
     "Minor Illusion": "Illusion mineure", "Disguise Self": "Déguisement", "Silent Image": "Image silencieuse",
     "Color Spray": "Couleurs dansantes", "Mirror Image": "Image miroir", "Invisibility": "Invisibilité",
-    "Mind Sliver": "Éclat psychique", "Sleep": "Sommeil", "Charm Person": "Charme-personne", "Compel": "Injonction",
+    "Mind Sliver": "Éclat psychique", "Heroism": "Héroïsme", "Sleep": "Sommeil", "Charm Person": "Charme-personne", "Compel": "Injonction",
     "Hideous Laughter": "Fou rire", "Hold Person": "Immobilisation de personne",
     "Eldritch Blast": "Décharge occulte", "Enfeeble": "Affaiblissement", "Hellish Rebuke": "Représailles infernales",
     "Hex": "Maléfice",
@@ -403,6 +403,9 @@ TEXT = {
     # Enchanter's Book
     "Spell attack against INT Defense: **1d6 Necrotic**, and it subtracts 1d4 from its next attack roll before the end of your next turn.":
         "Attaque de sort contre la Défense d'INT : **1d6 Nécrotique**, et elle soustrait 1d4 à son prochain jet d'attaque avant la fin de votre prochain tour.",
+    "**Action**, touch, Duration 1 minute.": "**Action**, contact, Durée 1 minute.",
+    "A creature can't be **Frightened**, and gains 2 temporary HP at the start of each of its turns.":
+        "Une créature ne peut pas être **Effrayée**, et gagne 2 PV temporaires au début de chacun de ses tours.",
     "Spell attack against WIL Defense: **Subdue · Unconscious**. It wakes up when it takes damage, or when someone spends an action to shake it.":
         "Attaque de sort contre la Défense de VOL : **Emprise · Inconscient**. Elle se réveille quand elle subit des dégâts, ou quand quelqu'un dépense une action pour la secouer.",
     "Spell attack against the WIL Defense of a humanoid: **Subdue · Charmed**. When it ends, the creature knows it was charmed.":
@@ -624,6 +627,7 @@ LORE = {
     'Three of you, then two, then one. Which one is real? Guess.': 'Trois de vous, puis deux, puis un. Lequel est le vrai ? Devinez.',
     "The light bends around you. Don't sneeze.": "La lumière se courbe autour de vous. N'éternuez pas.",
     'A cold splinter of thought, driven between the eyes.': 'Un éclat de pensée glacé, planté entre les yeux.',
+    'Courage, poured in like warm wine.': 'Du courage, versé comme un vin chaud.',
     'A heavy warmth behind the eyes. Just for a moment.': 'Une lourde chaleur derrière les yeux. Juste un instant.',
     'A friendly voice, a reasonable request. Why would anyone refuse?': 'Une voix amicale, une demande raisonnable. Pourquoi refuser ?',
     'One word, spoken like a command from a king.': "Un seul mot, prononcé comme l'ordre d'un roi.",

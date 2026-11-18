@@ -5289,10 +5289,52 @@ globalThis.BEARERS_CARDS = {
      ]
     },
     {
+     "id": "B-I-05#heroism",
+     "name": "Heroism",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 5,
+     "target": "creature",
+     "dur": "1 minute",
+     "do": [
+      {
+       "mod": "tempTurn",
+       "n": 2,
+       "until": "dur"
+      },
+      {
+       "mod": "noFear",
+       "until": "dur"
+      }
+     ]
+    },
+    {
+     "id": "B-I-05#compel",
+     "name": "Compel",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "cond": "Prone"
+      }
+     ],
+     "tags": [
+      "mind control"
+     ]
+    },
+    {
      "id": "B-I-05#sleep",
      "name": "Sleep",
      "kind": "Spell",
-     "cost": 1,
+     "cost": 2,
      "use": "action",
      "reach": 60,
      "target": "enemy",
@@ -5317,7 +5359,7 @@ globalThis.BEARERS_CARDS = {
      "id": "B-I-05#charm-person",
      "name": "Charm Person",
      "kind": "Spell",
-     "cost": 1,
+     "cost": 2,
      "use": "action",
      "reach": 30,
      "target": "enemy",
@@ -5329,27 +5371,6 @@ globalThis.BEARERS_CARDS = {
      "do": [
       {
        "cond": "Charmed"
-      }
-     ],
-     "tags": [
-      "mind control"
-     ]
-    },
-    {
-     "id": "B-I-05#compel",
-     "name": "Compel",
-     "kind": "Spell",
-     "cost": 1,
-     "use": "action",
-     "reach": 60,
-     "target": "enemy",
-     "atk": {
-      "abil": "deck",
-      "vs": "WIL"
-     },
-     "do": [
-      {
-       "cond": "Prone"
       }
      ],
      "tags": [
