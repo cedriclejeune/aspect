@@ -747,7 +747,7 @@ A Spellbook or a WIL deck is a **deck**: a **cover card** (Rank, attack bonus, s
 ### 13.1 Creating a Character
 
 1. **Choose a Calling** (13.2).
-2. **Choose your gear and Runes** from the GM's starter list (all Rank I), among the cards your Calling can equip: **1 Armor**, up to **2** cards for your **Hands**, **1 Jewelry** and **3 Runes** (a WIL deck is one of them). A caster also picks a **Spellbook**.
+2. **Choose your gear and Runes** from the starter list (13.3, all Rank I), among the cards your Calling can equip: **1 Armor**, up to **2** cards for your **Hands**, **1 Jewelry** and **3 Runes** (a WIL deck is one of them). A caster also picks a **Spellbook**.
 3. **Take** a *Potion of Healing* in an Item Slot and, in your Pack, **3 blank Runestones** and a *Coin Pouch* holding **50 gp**. The Party Stash starts with **2 blank Runestones per character**.
 4. **Add up** your ten totals on a tally card (12.3), with your HP, spell points (9.2) and Resolve (9.5). Work out your attack bonuses and passive Awareness (3.3).
 5. **Fill in your Bearer card** (2.5), with at least one bond.
@@ -768,6 +768,119 @@ A Spellbook or a WIL deck is a **deck**: a **cover card** (Rank, attack bonus, s
 | **Ranger** | DEX · INT | 11 | 35 ft | **Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn. |
 | **Trickster** | DEX · WIL | 9 | 35 ft | **Sure Thing:** on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher. |
 | **Hermit** | INT · WIL | 11 | 30 ft | **Solitude:** ½ WIL extra Resolve (9.5). Your checks to forage and endure add both INT and WIL. |
+
+
+### 13.3 The Starter List
+
+<!-- starter:start -->
+Every Rank I card you can start with (13.1). *All*: the four affinities are lit. A deck card (Spellbook, WIL deck) lists the spells or powers it holds.
+
+#### Armor
+
+| Card | Affinities | Keywords | Bonuses | Effects and powers |
+|---|---|---|---|---|
+| **Leather** | all | Armor | +2 STR Defense, +1 DEX Defense, +2 HP, +5 ft Speed | — |
+| **Mail** | STR · DEX | Armor | +3 STR Defense, +4 HP | — |
+| **Hide** | STR · WIL | Armor | +2 STR Defense, +4 HP | — |
+| **Studded Leather** | DEX · INT | Armor | +2 STR Defense, +2 DEX Defense, +2 HP | — |
+
+#### Hands
+
+| Card | Affinities | Keywords | Bonuses | Effects and powers |
+|---|---|---|---|---|
+| **Battleaxe** | all | Weapon · Versatile | — | +2 to hit, 1d8 / 1d10 + STR or DEX Physical. |
+| **Crossbow** | all | Weapon · Loading · Two-Handed | — | +2 to hit, range 100/400 ft, 1d10 + DEX Physical. |
+| **Dagger** | all | Weapon · Light · Flurry | — | +2 to hit, thrown 20/60 ft, 1d4 + DEX Physical. |
+| **Druid's Staff** | WIL | Weapon · Versatile · Focus | — | +2 to hit, 1d6 / 1d8 + INT or WIL Physical. 1 extra Resolve (short rest). Your Mends restore 2 extra HP. |
+| **Finesse Blade** | all | Weapon | — | +2 to hit, 1d6 + DEX Physical. **Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn. |
+| **Glaive** | all | Weapon · Heavy · Reach · Two-Handed | — | +2 to hit, 1d10 + STR Physical. |
+| **Greataxe** | STR | Weapon · Heavy · Two-Handed · Brutal | — | +2 to hit, 1d12 + STR Physical. |
+| **Greatclub** | STR | Weapon · Heavy · Two-Handed · Crushing | — | +2 to hit, 1d10 + STR Physical. |
+| **Greatsword** | all | Weapon · Heavy · Two-Handed | — | +2 to hit, 2d6 + STR Physical. |
+| **Hand Crossbow** | all | Weapon · Light | — | +2 to hit, range 30/120 ft, 1d6 + DEX Physical. |
+| **Handaxe** | all | Weapon · Light | — | +2 to hit, thrown 20/60 ft, 1d6 + STR or DEX Physical. |
+| **Javelins** | all | Weapon | — | +2 to hit, thrown 30/120 ft, 1d6 + STR or DEX Physical. |
+| **Longbow** | all | Weapon · Two-Handed | — | +2 to hit, range 150/600 ft, 1d8 + DEX Physical. |
+| **Longsword** | all | Weapon · Versatile | — | +2 to hit, 1d8 / 1d10 + STR Physical. |
+| **Shortbow** | DEX | Weapon · Two-Handed | — | +2 to hit, range 80/320 ft, 1d6 + DEX Physical. |
+| **Shortsword** | all | Weapon · Light · Flurry | — | +2 to hit, 1d6 + STR or DEX Physical. |
+| **Sling** | all | Weapon · Light | — | +2 to hit, range 30/120 ft, 1d6 + DEX Physical. |
+| **Spellguard Staff** | INT · WIL | Weapon · Versatile | — | +2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook. |
+| **Wand** | INT | Weapon | — | +2 to hit, range 60/120 ft, 1d8 + INT Lightning. |
+| **Whip** | all | Weapon · Reach | — | +2 to hit, 1d4 + DEX Physical. |
+| **Shield** | STR · WIL | Shield | +2 STR Defense, +2 DEX Defense | Takes one Hand. |
+| **Traveler's Lute** | WIL | Instrument · Focus | — | 1 extra Resolve (short rest). Your Anthems reach 60 ft instead of 30 ft. |
+
+#### Jewelry
+
+| Card | Affinities | Keywords | Bonuses | Effects and powers |
+|---|---|---|---|---|
+| **Ring of Warding** | all | Jewelry | — | **Reaction (2/S.R.)**, when an attack hits you: +2 to the targeted Defense against that attack, possibly turning it into a miss. |
+| **Guild Signet** | all | Jewelry | — | **Action (1/L.R.)**, in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night. |
+| **Holy Amulet** | WIL | Jewelry · Focus | — | 1 extra Resolve (short rest). Your Cues reach 90 ft instead of 60 ft. |
+| **Boots of the Long Stride** | all | Jewelry | — | **Reaction (1/S.R.):** Move. |
+| **Dancer's Bells** | WIL | Jewelry · Focus | — | 1 extra Resolve (short rest). Your Dirges reach 90 ft instead of 60 ft. |
+| **Druid's Totem** | WIL | Jewelry · Focus | — | 1 extra Resolve (short rest). When you shift into a Form, it gains 2 temporary HP. |
+| **Arcane Crystal** | INT | Jewelry | — | 1 extra spell point (long rest). |
+
+#### Items
+
+| Card | Affinities | Keywords | Bonuses | Effects and powers |
+|---|---|---|---|---|
+| **Conjurer's Book** | INT | Spellbook | — | Spell attack: **INT + 2** · Spell points: **+2** (long rest) · Max spell level: **2nd** · Casting needs an empty Hand. **Spells:** cantrips: *Fire Bolt*, *Mage Hand*; 1st level: *Magic Missile*, *Shield*, *Grease*; 2nd level: *Misty Step*, *Web*. |
+| **Evoker's Book** | INT | Spellbook | — | Spell attack: **INT + 2** · Spell points: **+2** (long rest) · Max spell level: **2nd** · Casting needs an empty Hand. **Spells:** cantrips: *Ray of Frost*, *Shocking Grasp*; 1st level: *Burning Hands*, *Thunderwave*, *Chromatic Orb*; 2nd level: *Scorching Ray*, *Shatter*. |
+| **Abjurer's Book** | INT | Spellbook | — | Spell attack: **INT + 2** · Spell points: **+2** (long rest) · Max spell level: **2nd** · Casting needs an empty Hand. **Spells:** cantrips: *Blade Ward*, *Mending*; 1st level: *Mage Armor*, *Absorb Elements*, *Protection from Evil*; 2nd level: *Aid*, *Arcane Lock*. |
+| **Illusionist's Book** | INT | Spellbook | — | Spell attack: **INT + 2** · Spell points: **+2** (long rest) · Max spell level: **2nd** · Casting needs an empty Hand. **Spells:** cantrips: *Minor Illusion*; 1st level: *Disguise Self*, *Silent Image*, *Color Spray*; 2nd level: *Mirror Image*, *Invisibility*. |
+| **Enchanter's Book** | INT | Spellbook | — | Spell attack: **INT + 2** · Spell points: **+2** (long rest) · Max spell level: **2nd** · Casting needs an empty Hand. **Spells:** cantrips: *Mind Sliver*; 1st level: *Sleep*, *Charm Person*, *Compel*; 2nd level: *Hideous Laughter*, *Hold Person*. |
+| **Potion of Healing** | all | Consumable | — | **Action:** drink it, or give it to a creature within 5 ft. It regains 2d4 + 2 HP. |
+| **Coin Pouch** | all | Container | — | Holds up to **100 gp**. |
+| **Writ of Favor** | all | Consumable | — | A sealed letter from a noble house, a guild or a temple. Show it to one of its members: they grant one reasonable request (shelter, an audience, safe passage, a loan up to 100 gp). |
+| **Runestone Bandolier** | all | Container | — | While it's in your Pack, your Pack holds up to 5 Runestones instead of 3. |
+| **Healer's Kit** | all | Consumable | — | **Action:** tend a creature within 5 ft. It regains 1d4 HP. |
+
+#### Runes
+
+| Card | Affinities | Keywords | Bonuses | Effects and powers |
+|---|---|---|---|---|
+| **Arcane Recovery** | INT | Trait | +2 HP | **1/L.R.**, during a short rest: regain 2 spell points. |
+| **Clear Mind** | INT · WIL | Trait | +2 HP | +2 INT Defense against illusions and confusion. |
+| **Expertise** | DEX · WIL | Trait | +2 HP | **1/S.R.**, when you fail a check one of your Domains covers: reroll it. |
+| **Iron Will** | INT · WIL | Trait | +2 HP | +2 WIL Defense against fear and mind control. |
+| **Springheel** | STR · DEX | Trait | +2 HP | Your jump distances are doubled, and you never need a running start. |
+| **Stone Blood** | STR · INT | Trait | +2 HP | +2 STR Defense against poison and disease. |
+| **Unarmored Guard** | DEX · WIL | Trait | +2 HP | +2 STR Defense while your Armor Slot is empty. |
+| **Archery** | DEX · INT | Technique | — | Long range gives your ranged weapon attacks no disadvantage. |
+| **Battle Hymn** | DEX · WIL | Technique | — | **2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 to STR and DEX Defense until the start of your next turn. |
+| **Bulwark** | STR · WIL | Technique | — | +1 STR Defense while you wear Armor. |
+| **Cleave** | STR · DEX | Technique | — | **1/S.R.**, when your melee attack drops a creature to 0 HP: make one melee attack against another creature within your reach. |
+| **Cunning** | DEX · INT | Technique | — | Once per turn, if you end your movement out of sight, you can Hide without spending an action. |
+| **Dueling** | STR · DEX | Technique | — | While you hold a one-handed melee weapon and your other Hand is empty: +1 STR and DEX Defense against melee attacks. |
+| **Great Weapons** | STR · INT | Technique | — | When a damage die of your Two-Handed weapon shows 1 or 2, reroll it once. |
+| **Martial Arts** | STR · DEX | Technique | — | Your unarmed strikes deal 1d6 + STR or DEX Physical. |
+| **Quick Throw** | DEX · WIL | Technique | — | You draw a Thrown weapon as part of the attack that throws it, and your Thrown ranges are doubled. |
+| **Rage** | STR · WIL | Technique | — | **Reaction (2/L.R.)**, when you roll initiative or a creature hits you: for 1 minute, you Resist Physical damage and can't cast spells or use WIL magic. |
+| **Rallying Cry** | STR · WIL | Technique · Anthem | — | *Rally* as a loose Anthem. **Action (1/S.R.):** Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks. |
+| **Shield Bash** | STR · WIL | Technique | — | **Reaction (1/S.R.)**, when you take the Attack action while holding a Shield: Shove a creature within 5 ft. |
+| **Steady Aim** | DEX · INT | Technique | — | **Reaction (2/S.R.):** your next ranged attack this turn has +2 to hit. |
+| **Asceticism** | STR · DEX | Domain | — | +2 on checks to endure, notice, treat wounds or read intentions. |
+| **Backstreets** | DEX · WIL | Domain | — | +2 on checks to pick pockets, sneak, read intentions or gather rumors. |
+| **Court** | STR · INT | Domain | — | +2 on checks to persuade, read intentions, recall lore or perform. |
+| **Deceit** | DEX · WIL | Domain | — | +2 on checks to deceive, hide, pick pockets or perform. |
+| **Forge** | STR · INT | Domain | — | +2 on checks to lift, break, haggle or recall lore. |
+| **Frontier** | STR · DEX | Domain | — | +2 on checks to track, navigate, endure or notice. |
+| **Healing** | INT · WIL | Domain | — | +2 on checks to treat wounds, recall lore, read intentions or persuade. |
+| **Hunt** | DEX · INT | Domain | — | +2 on checks to track, notice, sneak or handle animals. |
+| **Larceny** | DEX · INT | Domain | — | +2 on checks to sneak, climb or pick locks. |
+| **Library** | DEX · INT | Domain | — | +2 on checks to recall lore, notice, search or haggle. |
+| **Minstrel** | INT · WIL | Domain | — | +2 on checks to persuade, haggle, gather rumors or perform. |
+| **Navigation** | STR · INT | Domain | — | +2 on checks to swim, climb, navigate or gather rumors. |
+| **Peaks** | DEX · INT | Domain | — | +2 on checks to climb, endure, navigate or balance. |
+| **Tavern** | INT · WIL | Domain | — | +2 on checks to read intentions, gather rumors, intimidate or lift. |
+| **Acolyte's Litany** | WIL | Divine | — | Attack: **WIL + 2** · Resolve: **+3** (short rest) · Prayers. **Powers:** *Guidance* (Cue), *Bless* (Anthem), *Bane* (Dirge), *Twist Fate* (Cue), *Healing Word* (Mend), *Cure Wounds* (Mend). |
+| **Occultist's Pact** | WIL | Pact | — | Attack: **WIL + 2** · Resolve: **+3** (short rest) · Gifts of a patron. **Powers:** *Eldritch Blast* (Dirge), *Enfeeble* (Dirge), *Hellish Rebuke* (Cue), *Hex* (Dirge). |
+| **Wanderer's Repertoire** | WIL | Glamour | — | Attack: **WIL + 2** · Resolve: **+3** (short rest) · Songs, poems and dances. **Powers:** *Jeer* (Dirge), *Rally* (Anthem), *Hold the Line* (Anthem), *Cutting Words* (Cue), *Steady Now* (Cue), *Dread* (Dirge), *Rousing Verse* (Mend). |
+| **Wildheart's Instinct** | WIL | Nature | — | Attack: **WIL + 2** · Resolve: **+3** (short rest) · Beasts your body knows. **Powers:** *Hawk* (Form), *Wolf* (Form), *Mossbalm* (Mend), *Bear* (Form). |
+<!-- starter:end -->
 
 ---
 ## 14. Glossary

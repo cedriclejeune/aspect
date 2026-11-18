@@ -18,6 +18,7 @@ import markdown
 sys.path.insert(0, str(Path(__file__).parent))
 import illustrations as ill  # noqa: E402
 import sync_glossary  # noqa: E402
+import sync_starter  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 BUILD = ROOT / "build"
@@ -256,6 +257,8 @@ def main():
         use_french()
     for name in sync_glossary.sync(lang=lang):
         print(f"Synced the glossary into {name}")
+    for name in sync_starter.sync(lang=lang):
+        print(f"Synced the starter list into {name}")
     BUILD.mkdir(exist_ok=True)
     write_symbols()
     for src, out, subtitle, header, figures in BOOKS:

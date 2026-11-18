@@ -747,7 +747,7 @@ Un Livre de sorts ou un paquet de Volonté est un **paquet** : une **carte de co
 ### 13.1 Création d'un personnage
 
 1. **Choisissez une Vocation** (13.2).
-2. **Choisissez votre matériel et vos Runes** dans la liste de départ du MJ (tous de Rang I), parmi les cartes que votre Vocation peut équiper : **1 Armure**, jusqu'à **2** cartes pour vos **Mains**, **1 Bijou** et **3 Runes** (un paquet de Volonté compte parmi elles). Un lanceur de sorts choisit aussi un **Livre de sorts**.
+2. **Choisissez votre matériel et vos Runes** dans la liste de départ (13.3, tous de Rang I), parmi les cartes que votre Vocation peut équiper : **1 Armure**, jusqu'à **2** cartes pour vos **Mains**, **1 Bijou** et **3 Runes** (un paquet de Volonté compte parmi elles). Un lanceur de sorts choisit aussi un **Livre de sorts**.
 3. **Prenez** une *Potion de soins* dans un Emplacement d'Objet et, dans votre Sac, **3 Pierres vierges** et une *Bourse à cordon* contenant **50 po**. La Réserve de la Compagnie commence avec **2 Pierres vierges par personnage**.
 4. **Additionnez** vos dix totaux sur une carte de Décompte (12.3), avec vos PV, vos points de sort (9.2) et votre Ardeur (9.5). Calculez vos bonus d'attaque et votre Vigilance passive (3.3).
 5. **Remplissez votre carte de Porteur** (2.5), avec au moins un lien.
@@ -768,6 +768,119 @@ Un Livre de sorts ou un paquet de Volonté est un **paquet** : une **carte de co
 | **Rôdeur** | AGI · INT | 11 | 14 m | **Proie (½ INT/C.R.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ AGI aux attaques contre elle jusqu'au début de votre prochain tour. |
 | **Filou** | AGI · VOL | 9 | 14 m | **Coup sûr :** pour vos tests pour se faufiler, crocheter les serrures, faire les poches et désamorcer les pièges, un d20 qui affiche moins de 10 compte comme un 10. Quand vous touchez une créature qui ne vous voit pas : +½ AGI ou ½ VOL d6 dégâts, la plus haute des deux. |
 | **Ermite** | INT · VOL | 11 | 12 m | **Solitude :** ½ VOL Ardeur supplémentaire (9.5). Vos tests pour cueillir et endurer ajoutent l'INT et la VOL. |
+
+
+### 13.3 Liste de départ
+
+<!-- starter:start -->
+Toutes les cartes de Rang I parmi lesquelles vous choisissez à la création (13.1). *Toutes* : les quatre affinités sont allumées. Un paquet (Livre de sorts, paquet de Volonté) liste ses sorts ou ses pouvoirs.
+
+#### Armure
+
+| Carte | Affinités | Mots-clés | Bonus | Effets et abilités |
+|---|---|---|---|---|
+| **Cuir** | toutes | Armure | +2 Défense de FOR, +1 Défense d'AGI, +2 PV, +2 m de Vitesse | — |
+| **Mailles** | FOR · AGI | Armure | +3 Défense de FOR, +4 PV | — |
+| **Peaux** | FOR · VOL | Armure | +2 Défense de FOR, +4 PV | — |
+| **Cuir clouté** | AGI · INT | Armure | +2 Défense de FOR, +2 Défense d'AGI, +2 PV | — |
+
+#### Mains
+
+| Carte | Affinités | Mots-clés | Bonus | Effets et abilités |
+|---|---|---|---|---|
+| **Arbalète** | toutes | Arme · Chargement · Deux mains | — | +2 au toucher, portée 40/160 m, 1d10 + AGI Physique. |
+| **Arbalète de poing** | toutes | Arme · Légère | — | +2 au toucher, portée 12/48 m, 1d6 + AGI Physique. |
+| **Arc court** | AGI | Arme · Deux mains | — | +2 au toucher, portée 32/128 m, 1d6 + AGI Physique. |
+| **Arc long** | toutes | Arme · Deux mains | — | +2 au toucher, portée 60/240 m, 1d8 + AGI Physique. |
+| **Baguette** | INT | Arme | — | +2 au toucher, portée 24/48 m, 1d8 + INT Foudre. |
+| **Bâton de garde-sort** | INT · VOL | Arme · Polyvalente | — | +2 au toucher, 1d6 / 1d8 + INT ou VOL Physique. Tant que vous le tenez, il compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. |
+| **Bâton druidique** | VOL | Arme · Polyvalente · Focaliseur | — | +2 au toucher, 1d6 / 1d8 + INT ou VOL Physique. 1 Ardeur supplémentaire (court repos). Vos Soins rendent 2 PV de plus. |
+| **Dague** | toutes | Arme · Légère · Rafale | — | +2 au toucher, lancer 8/24 m, 1d4 + AGI Physique. |
+| **Épée à deux mains** | toutes | Arme · Lourde · Deux mains | — | +2 au toucher, 2d6 + FOR Physique. |
+| **Épée courte** | toutes | Arme · Légère · Rafale | — | +2 au toucher, 1d6 + FOR ou AGI Physique. |
+| **Épée longue** | toutes | Arme · Polyvalente | — | +2 au toucher, 1d8 / 1d10 + FOR Physique. |
+| **Fouet** | toutes | Arme · Allonge | — | +2 au toucher, 1d4 + AGI Physique. |
+| **Fronde** | toutes | Arme · Légère | — | +2 au toucher, portée 12/48 m, 1d6 + AGI Physique. |
+| **Glaive sur lance** | toutes | Arme · Lourde · Allonge · Deux mains | — | +2 au toucher, 1d10 + FOR Physique. |
+| **Grande hache** | FOR | Arme · Lourde · Deux mains · Brutale | — | +2 au toucher, 1d12 + FOR Physique. |
+| **Hache d'armes** | toutes | Arme · Polyvalente | — | +2 au toucher, 1d8 / 1d10 + FOR ou AGI Physique. |
+| **Hachette** | toutes | Arme · Légère | — | +2 au toucher, lancer 8/24 m, 1d6 + FOR ou AGI Physique. |
+| **Javelots** | toutes | Arme | — | +2 au toucher, lancer 12/48 m, 1d6 + FOR ou AGI Physique. |
+| **Lame fine** | toutes | Arme | — | +2 au toucher, 1d6 + AGI Physique. **Saignée :** quand vous touchez, la cible a −2 à son prochain jet d'attaque avant le début de votre prochain tour. |
+| **Massue** | FOR | Arme · Lourde · Deux mains · Écrasante | — | +2 au toucher, 1d10 + FOR Physique. |
+| **Bouclier** | FOR · VOL | Bouclier | +2 Défense de FOR, +2 Défense d'AGI | Occupe une Main. |
+| **Luth du voyageur** | VOL | Instrument · Focaliseur | — | 1 Ardeur supplémentaire (court repos). Vos Hymnes portent à 24 m au lieu de 12 m. |
+
+#### Bijou
+
+| Carte | Affinités | Mots-clés | Bonus | Effets et abilités |
+|---|---|---|---|---|
+| **Anneau de protection** | toutes | Bijou | — | **Réaction (2/C.R.)**, quand une attaque vous touche : +2 à la Défense visée contre cette attaque, ce qui peut la transformer en échec. |
+| **Chevalière de guilde** | toutes | Bijou | — | **Action (1/L.R.)**, dans une localité où la guilde opère : un contact vous trouve dans l'heure. Il vous révèle un fait que la guilde connaîtrait, ou vous cache pour une nuit. |
+| **Amulette sacrée** | VOL | Bijou · Focaliseur | — | 1 Ardeur supplémentaire (court repos). Vos Répliques portent à 36 m au lieu de 24 m. |
+| **Bottes de grande foulée** | toutes | Bijou | — | **Réaction (1/C.R.) :** Déplacement. |
+| **Grelots de danseur** | VOL | Bijou · Focaliseur | — | 1 Ardeur supplémentaire (court repos). Vos Complaintes portent à 36 m au lieu de 24 m. |
+| **Totem druidique** | VOL | Bijou · Focaliseur | — | 1 Ardeur supplémentaire (court repos). Quand vous prenez une Forme, elle gagne 2 PV temporaires. |
+| **Cristal arcanique** | INT | Bijou | — | 1 point de sort supplémentaire (long repos). |
+
+#### Objets
+
+| Carte | Affinités | Mots-clés | Bonus | Effets et abilités |
+|---|---|---|---|---|
+| **Livre du conjurateur** | INT | Livre de sorts | — | Attaque de sort : **INT + 2** · Points de sort : **+2** (long repos) · Niveau de sort max : **2e** · L'incantation demande une Main vide. **Sorts :** tours de magie : *Trait de feu*, *Main de mage* ; 1er niveau : *Projectile magique*, *Bouclier*, *Graisse* ; 2e niveau : *Foulée brumeuse*, *Toile d'araignée*. |
+| **Livre de l'évocateur** | INT | Livre de sorts | — | Attaque de sort : **INT + 2** · Points de sort : **+2** (long repos) · Niveau de sort max : **2e** · L'incantation demande une Main vide. **Sorts :** tours de magie : *Rayon de givre*, *Poigne électrique* ; 1er niveau : *Mains brûlantes*, *Vague tonnante*, *Orbe chromatique* ; 2e niveau : *Rayon ardent*, *Fracassement*. |
+| **Livre de l'abjurateur** | INT | Livre de sorts | — | Attaque de sort : **INT + 2** · Points de sort : **+2** (long repos) · Niveau de sort max : **2e** · L'incantation demande une Main vide. **Sorts :** tours de magie : *Protection contre les lames*, *Réparation* ; 1er niveau : *Armure de mage*, *Absorption des éléments*, *Protection contre le mal* ; 2e niveau : *Aide*, *Verrou magique*. |
+| **Livre de l'illusionniste** | INT | Livre de sorts | — | Attaque de sort : **INT + 2** · Points de sort : **+2** (long repos) · Niveau de sort max : **2e** · L'incantation demande une Main vide. **Sorts :** tours de magie : *Illusion mineure* ; 1er niveau : *Déguisement*, *Image silencieuse*, *Couleurs dansantes* ; 2e niveau : *Image miroir*, *Invisibilité*. |
+| **Livre de l'enchanteur** | INT | Livre de sorts | — | Attaque de sort : **INT + 2** · Points de sort : **+2** (long repos) · Niveau de sort max : **2e** · L'incantation demande une Main vide. **Sorts :** tours de magie : *Éclat psychique* ; 1er niveau : *Sommeil*, *Charme-personne*, *Injonction* ; 2e niveau : *Fou rire*, *Immobilisation de personne*. |
+| **Potion de soins** | toutes | Consommable | — | **Action :** buvez-la, ou donnez-la à une créature à 2 m ou moins. Elle récupère 2d4 + 2 PV. |
+| **Bourse à cordon** | toutes | Contenant | — | Contient jusqu'à **100 po**. |
+| **Lettre d'introduction** | toutes | Consommable | — | Une lettre scellée d'une maison noble, d'une guilde ou d'un temple. Montrez-la à l'un de ses membres : il accède à une demande raisonnable (un abri, une audience, un sauf-conduit, un prêt jusqu'à 100 po). |
+| **Bandoulière runique** | toutes | Contenant | — | Tant qu'elle est dans votre Sac, il contient jusqu'à 5 Pierres runiques au lieu de 3. |
+| **Trousse de soins** | toutes | Consommable | — | **Action :** soignez une créature à 2 m ou moins. Elle récupère 1d4 PV. |
+
+#### Runes
+
+| Carte | Affinités | Mots-clés | Bonus | Effets et abilités |
+|---|---|---|---|---|
+| **Bond** | FOR · AGI | Trait | +2 PV | Vos distances de saut sont doublées, et vous n'avez jamais besoin d'élan. |
+| **Esprit clair** | INT · VOL | Trait | +2 PV | +2 à la Défense d'INT contre les illusions et la confusion. |
+| **Expertise** | AGI · VOL | Trait | +2 PV | **1/C.R.**, quand vous ratez un test que couvre l'un de vos Domaines : relancez-le. |
+| **Garde sans armure** | AGI · VOL | Trait | +2 PV | +2 à la Défense de FOR tant que votre Emplacement d'Armure est vide. |
+| **Recouvrement arcanique** | INT | Trait | +2 PV | **1/L.R.**, pendant un court repos : récupérez 2 points de sort. |
+| **Sang de pierre** | FOR · INT | Trait | +2 PV | +2 à la Défense de FOR contre le poison et la maladie. |
+| **Volonté de fer** | INT · VOL | Trait | +2 PV | +2 à la Défense de VOL contre la peur et le contrôle mental. |
+| **Archerie** | AGI · INT | Technique | — | La longue portée ne donne pas de désavantage à vos attaques d'arme à distance. |
+| **Armes lourdes** | FOR · INT | Technique | — | Quand un dé de dégâts de votre arme à Deux mains affiche 1 ou 2, relancez-le une fois. |
+| **Arts martiaux** | FOR · AGI | Technique | — | Vos attaques à mains nues infligent 1d6 + FOR ou AGI Physique. |
+| **Coup de bouclier** | FOR · VOL | Technique | — | **Réaction (1/C.R.)**, quand vous effectuez l'action Attaque en tenant un Bouclier : Bousculez une créature à 2 m ou moins. |
+| **Cri de ralliement** | FOR · VOL | Technique · Hymne | — | *Ralliement* comme Hymne isolé. **Action (1/C.R.) :** Durée 1 minute. Jusqu'à 3 alliés à 12 m ou moins ont +2 aux attaques. |
+| **Duel** | FOR · AGI | Technique | — | Tant que vous tenez une arme de corps à corps à une main et que votre autre Main est vide : +1 aux Défenses de FOR et d'AGI contre les attaques au corps à corps. |
+| **Enchaînement** | FOR · AGI | Technique | — | **1/C.R.**, quand votre attaque au corps à corps fait tomber une créature à 0 PV : faites une attaque au corps à corps contre une autre créature à votre allonge. |
+| **Hymne de bataille** | AGI · VOL | Technique | — | **2/C.R.**, quand vous touchez avec une attaque d'arme : jusqu'à 3 alliés à 12 m ou moins qui peuvent vous entendre ont +2 aux Défenses de FOR et d'AGI jusqu'au début de votre prochain tour. |
+| **Lancer vif** | AGI · VOL | Technique | — | Vous dégainez une arme de Lancer pendant l'attaque qui la lance, et vos portées de Lancer sont doublées. |
+| **Rage** | FOR · VOL | Technique | — | **Réaction (2/L.R.)**, quand vous lancez l'initiative ou qu'une créature vous touche : pendant 1 minute, vous Résistez aux dégâts Physiques et ne pouvez ni lancer de sorts ni utiliser la magie de VOL. |
+| **Rempart** | FOR · VOL | Technique | — | +1 à la Défense de FOR tant que vous portez une Armure. |
+| **Ruse** | AGI · INT | Technique | — | Une fois par tour, si vous terminez votre déplacement hors de vue, vous pouvez vous Cacher sans dépenser d'action. |
+| **Visée juste** | AGI · INT | Technique | — | **Réaction (2/C.R.) :** votre prochaine attaque à distance de ce tour a +2 au toucher. |
+| **Ascèse** | FOR · AGI | Domaine | — | +2 aux tests pour endurer, remarquer, soigner les blessures ou deviner les intentions. |
+| **Bibliothèque** | AGI · INT | Domaine | — | +2 aux tests pour se souvenir de connaissances, remarquer, fouiller ou marchander. |
+| **Cimes** | AGI · INT | Domaine | — | +2 aux tests pour grimper, endurer, s'orienter ou garder l'équilibre. |
+| **Contrées sauvages** | FOR · AGI | Domaine | — | +2 aux tests pour pister, s'orienter, endurer ou remarquer. |
+| **Cour** | FOR · INT | Domaine | — | +2 aux tests pour persuader, deviner les intentions, se souvenir de connaissances ou se produire. |
+| **Duperie** | AGI · VOL | Domaine | — | +2 aux tests pour tromper, se cacher, faire les poches ou se produire. |
+| **Forge** | FOR · INT | Domaine | — | +2 aux tests pour soulever, briser, marchander ou se souvenir de connaissances. |
+| **Guérison** | INT · VOL | Domaine | — | +2 aux tests pour soigner les blessures, se souvenir de connaissances, deviner les intentions ou persuader. |
+| **Larcin** | AGI · INT | Domaine | — | +2 aux tests pour se faufiler, grimper ou crocheter les serrures. |
+| **Ménestrel** | INT · VOL | Domaine | — | +2 aux tests pour persuader, marchander, recueillir des rumeurs ou se produire. |
+| **Navigation** | FOR · INT | Domaine | — | +2 aux tests pour nager, grimper, s'orienter ou recueillir des rumeurs. |
+| **Ruelles** | AGI · VOL | Domaine | — | +2 aux tests pour faire les poches, se faufiler, deviner les intentions ou recueillir des rumeurs. |
+| **Taverne** | INT · VOL | Domaine | — | +2 aux tests pour deviner les intentions, recueillir des rumeurs, intimider ou soulever. |
+| **Traque** | AGI · INT | Domaine | — | +2 aux tests pour pister, remarquer, se faufiler ou dresser les animaux. |
+| **Instinct du cœur sauvage** | VOL | Nature | — | Attaque : **VOL + 2** · Ardeur : **+3** (court repos) · Des bêtes que votre corps connaît. **Pouvoirs :** *Faucon* (Forme), *Loup* (Forme), *Baume de mousse* (Soin), *Ours* (Forme). |
+| **Litanie de l'acolyte** | VOL | Divin | — | Attaque : **VOL + 2** · Ardeur : **+3** (court repos) · Prières. **Pouvoirs :** *Assistance* (Réplique), *Bénédiction* (Hymne), *Fléau* (Complainte), *Altération du destin* (Réplique), *Mot de guérison* (Soin), *Soins* (Soin). |
+| **Pacte de l'occultiste** | VOL | Pacte | — | Attaque : **VOL + 2** · Ardeur : **+3** (court repos) · Les dons d'un protecteur. **Pouvoirs :** *Décharge occulte* (Complainte), *Affaiblissement* (Complainte), *Représailles infernales* (Réplique), *Maléfice* (Complainte). |
+| **Répertoire du vagabond** | VOL | Glamour | — | Attaque : **VOL + 2** · Ardeur : **+3** (court repos) · Chants, poèmes et danses. **Pouvoirs :** *Raillerie* (Complainte), *Ralliement* (Hymne), *Tenez la ligne* (Hymne), *Réplique cinglante* (Réplique), *Du calme* (Réplique), *Effroi* (Complainte), *Vers exaltant* (Soin). |
+<!-- starter:end -->
 
 ---
 
