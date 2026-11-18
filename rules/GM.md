@@ -27,8 +27,17 @@
 | Very hard | 25 |
 | Nearly impossible | 30 |
 
+- **Roll only when** failure is interesting and success is possible.
+- **Fail forward:** a failure still moves the story, at a cost (time, noise, damage, a complication). No retry unless the situation changes.
+
 ### 1.2 Travel
-Split a journey into **legs**. Each leg, the party makes one **group INT check** (P 5.1). Success means a smooth leg; failure brings an event (getting lost, an encounter, bad weather, a Wound). Travel pace is in P 5.6.
+Split a journey into **legs**. Each leg, the party makes one **group INT check** (P 3.1). Success means a smooth leg; failure brings an event (getting lost, an encounter, bad weather, a Wound). The party picks a pace:
+
+| Pace | Per hour | Per day | Effect |
+|---|---|---|---|
+| Fast | 4 miles | 30 miles | −5 passive Awareness |
+| Normal | 3 miles | 24 miles | — |
+| Slow | 2 miles | 18 miles | The party can sneak |
 
 ### 1.3 Hazards
 - **Falling:** **1d6 Physical damage per 10 ft** fallen (max 20d6). The creature lands Prone unless it takes no damage.
@@ -36,7 +45,7 @@ Split a journey into **legs**. Each leg, the party makes one **group INT check**
 - **Underwater:**
   - **Half speed**, unless the creature has a swim speed.
   - **No spells and no weapons:** only **unarmed** attacks (Grapple and Shove included). Monsters' natural attacks (bites, claws, tails) count as unarmed. **Aquatic** weapons, Runes and spells work.
-  - **No WIL magic** (P 10.6): nobody can hear you. Shifting into a Form and **Visual** powers still work.
+  - **No WIL magic** (P 9.5): nobody can hear you. Shifting into a Form and **Visual** powers still work.
   - **No Fire damage:** Fire damage is reduced to 0.
 - **Extreme heat or cold, starvation, thirst:** a STR check (DC 10–15) each hour or day, as you see fit; on a failure, the creature takes a **Wound** (P 7.6).
 
@@ -72,7 +81,7 @@ The play loop (P 1) exists to move the party through the story. Build it from th
 - **Downtime between quests.** Wounds (P 7.6) heal only in a downtime: 3 days in a safe place. Put towns, temples and safe camps between quests, and let the party choose when to go back. A deep dungeon far from help makes every fall to 0 HP count. A downtime is also a good moment for news, rivals and the next leads.
 
 ### 1.7 Rulings
-- **Polymorph on a shifted Bearer** (P 10.7): the polymorph replaces the Form. When the polymorph ends, the Bearer reverts to their own body; the Form is lost.
+- **Polymorph on a shifted Bearer** (P 9.6): the polymorph replaces the Form. When the polymorph ends, the Bearer reverts to their own body; the Form is lost.
 
 ---
 
@@ -85,8 +94,8 @@ You run each kind of monster from its **foe card**: its body, its totals and eve
 - **Its body is plain text:** its own modifiers, HP, Speed and size, before its cards. The strip shows the totals, cards included. A monster's Armor and Traits add their HP like a Bearer's.
 - **Plain text is the monster's own:** anatomy and innate powers (a dragon's breath, an ooze's acid body, giant strength). It never drops. It may change how the monster's italic cards perform (an ogre swings a *Greatclub* harder than a Bearer); the card that drops is always the normal one.
 - **Totals are final.** A foe card's totals already include everything: an unarmored foe doesn't add the empty Armor Slot's +10 Speed.
-- **Same rules as Bearers.** A monster has no Calling: it uses any card, whatever its symbols. It has two actions and a reaction. It attacks with its modifier + the weapon's to-hit bonus, and swaps gear like a Bearer. Its uses (S.R. and L.R.) come back at the start of each fight.
-- **Keywords** along the bottom, type first: *Foe* (or *Foe · Boss*), then *Leader*, size and senses (*Foe · Boss · Leader · Large · Darkvision 60*). A **Leader** leads its group: when it falls, and when half the group is down, the rest check Morale (P 6.11). Challenge Rating (CR) and XP value (5) aren't printed: judge them yourself while foe difficulty is reworked.
+- **Same rules as Bearers.** A monster has no Calling: it uses any card, whatever its affinities. It has two actions and a reaction. It attacks with its modifier + the weapon's to-hit bonus, and swaps gear like a Bearer. Its uses (S.R. and L.R.) come back at the start of each fight.
+- **Keywords** along the bottom, type first: *Foe* (or *Foe · Boss*), then *Leader*, size and senses (*Foe · Boss · Leader · Large · Darkvision 60*). A **Leader** leads its group: when it falls, and when half the group is down, the rest check Morale (2.4). Challenge Rating (CR) and XP value (5) aren't printed: judge them yourself while foe difficulty is reworked.
 - **Passive Awareness:** 10 + INT, **+5 for alert creatures** (guards, scouts, predators, most beasts).
 - **Effect bonus:** a plain-text effect that attacks (a breath, a poison, a grapple) uses this bonus by CR:
 
@@ -125,10 +134,10 @@ You run each kind of monster from its **foe card**: its body, its totals and eve
   - Six Rank I Runes make quick humanoids (Traits *Grit*, *Dusk Eyes*, *Bedrock*, *Luck*; Domains *Campaign*, *Discipline*): a body, one of them, a weapon and an armor on a blank foe card. Species is description only: any humanoid can carry any of them. They drop like any Rune.
 - **How strong a foe is** (how many cards, which Ranks) is still judged by its CR and your call (5).
 - **Keep Defenses in step with the party.** A fair foe's main Defense is about the party's usual attack bonus + 10: the Bearers hit about half the time, and a good position decides the fight. From Rank III, give a foe no Defense below 10 + its Rank bonus, so a weak spot isn't a sure hit.
-- **Advantage on damage.** Foes may move advantage dice to damage like Bearers (P 5.2). Do it only when the foe would hit on a 5 or better anyway.
+- **Advantage on damage.** Foes may move advantage dice to damage like Bearers (P 6.6). Do it only when the foe would hit on a 5 or better anyway.
 
 ### 2.3 Spying on Foes
-A hidden Bearer (P 5.4) can watch a group of foes before a fight: an **INT check** against the INT Defense of one of them.
+A hidden Bearer (P 3.5) can watch a group of foes before a fight: an **INT check** against the INT Defense of one of them.
 - **On a success,** read them one line of its foe card, or its strip. If the check beats the Defense by 5 or more, show them the whole card.
 - **One try** per spy and group of foes. Identical foes share a card, so what the spy learns covers them all.
 - **Spotted:** if the spy's hiding fails, choose one or both:
@@ -136,25 +145,29 @@ A hidden Bearer (P 5.4) can watch a group of foes before a fight: an **INT check
   - the spy is spotted alone, and the fight starts with them cut off from the party.
 - A party that spies unseen can set up an **ambush** (P 6.1).
 
+### 2.4 Morale
+When a group's **Leader** falls, and when half the group (rounded up) is down, the group makes **one WIL check (DC 10)** with its best remaining WIL, each once per fight. On a failure, it flees or surrenders. A **Boss** never checks.
+
 ## 3. Bosses
 - A **Boss** has the **Boss** tag on its foe card. It takes a **half turn** once per round, during the characters' side: **one action**, between any two characters' turns, whenever you choose.
 - **Subdue** (P 8) catches a Boss for its next turn or half turn, and repeats come on both, so it decays twice as fast: a Boss loses about one round to it.
 - **Its body and signature powers are plain text:** they never drop. Its gear and Runes are italic, so give it cards you're willing to hand over: usually **at most one Rank above** the party's best gear and Runes.
-- Some Bosses grant an **extra Gear Slot** (P 3.3) when defeated.
+- Some Bosses grant an **extra Gear Slot** (P 10.2) when defeated.
 
 ---
 
 ## 4. Loot & Rewards
 
 ### 4.1 Drops
-- **Each trial the party overcomes rewards 1–3 pieces of loot per character** (gear or Runes). In a fight, they come from the **italic cards** on the defeated monsters' foe cards (2.1), your choice or random: six legionaries don't mean six pila. Other trials give them as their outcome: a payment, a gift, a favor, a hidden stash. Bosses add their best gear and Runes and may grant an extra Gear Slot. A monster's Runes linger for 1 minute after it dies (P 3.8): the party keeps only what it has blank Runestones and actions for. A foe taken alive keeps its Runes: it can give a copy of one (6.3).
-- **A drop is the very card** named on the foe card: pull a copy from the loot pool by its ID and hand it over. The foe card stays with you, ready for the next fight. Mix the symbols on the cards you give monsters, so every Calling in the party finds something it can equip.
+- **Each trial the party overcomes rewards 1–3 pieces of loot per character** (gear or Runes). In a fight, they come from the **italic cards** on the defeated monsters' foe cards (2.1), your choice or random: six legionaries don't mean six pila. Other trials give them as their outcome: a payment, a gift, a favor, a hidden stash. Bosses add their best gear and Runes and may grant an extra Gear Slot. A monster's Runes linger for 1 minute after it dies (P 4.4): the party keeps only what it has blank Runestones and actions for. A foe taken alive keeps its Runes: it can give a copy of one (6.3). A foe card lists what such a foe may carry, not what each one does: a magical creature nearly always carries Runes, an ordinary guard or bandit sometimes, and mostly gear.
+- **A drop is the very card** named on the foe card: pull a copy from the loot pool by its ID and hand it over. The foe card stays with you, ready for the next fight. Mix the affinities on the cards you give monsters, so every Calling in the party finds something it can equip.
 - **Spread Armor and Traits across the party.** They carry most of the HP a Bearer gains, so one player far ahead in them unbalances encounters.
 - **Most drops are ordinary:** a goblin's sling, a bandit's crossbow, a guard's mail. They're rarely worth equipping, but they fill the Party Stash with options for future builds.
+- **Rank I Runes are common loot.** Bearers who heal at every rest see Runes go Dormant (P 7.5) and wake them by releasing captured ones: keep humble Runes dropping, so a captured Rune is a choice between etching it and burning it. A Dormant Rank IV or V Rune is hard to wake on purpose: its bearer should Tend often.
 - **Rank V** gear and Runes drop only from Bosses, and rarely.
 - **Remedies are rare:** cards that heal a Wound (*Restorative Salve*) are a quest reward or a Boss drop, never a shop item. Downtime is the normal cure.
 - **Share Runes between styles.** At every Rank, give fighting Techniques, Traits for casters, and WIL decks (or Traits and Focus gear that boost them) about equal shares. Every build then grows at the same pace from its Rune Slots.
-- **A budget per trial, not per corpse.** Give the same 1–3 pieces of loot per character however the party gets through: a fight leaves gear on the bodies and Runes lingering over them; a deal brings a payment, a gift (6.3) or a favor (*Writ of Favor*, *Guild Signet*, P 3.4); stealth or trickery reaches the treasure the monsters guarded. Players then never lose loot for avoiding a fight.
+- **A budget per trial, not per corpse.** Give the same 1–3 pieces of loot per character however the party gets through: a fight leaves gear on the bodies and Runes lingering over them; a deal brings a payment, a gift (6.3) or a favor (*Writ of Favor*, *Guild Signet*); stealth or trickery reaches the treasure the monsters guarded. Players then never lose loot for avoiding a fight.
 
 ### 4.2 Rewards
 - **Starter list** (P 13.1): offer Rank I gear and Runes for every style and every Calling, including a WIL deck and a Focus. Each player picks only cards their Calling can equip. The base set offers all its WIL decks at the start: a Repertoire (Glamour), a Litany (Divine), an Instinct (Nature) and a Pact. Its list:
@@ -169,9 +182,9 @@ A hidden Bearer (P 5.4) can watch a group of foes before a fight: an **INT check
 
 - **Wishlists:** each player writes **3 cards** they'd like to find on the back of their tally card (P 12.3) and updates it when they want. Glance at it when you pick drops (4.1) and rewards: grant a wish now and then, at its Rank, from a fitting monster or trial. *Provisional: the card backs aren't designed yet.*
 - **Extra Gear Slots** are Boss rewards only. Never more than one of each per character. At the table, hand the player its Slot frame (P 12.2).
-- **Blank Runestones** count as one piece of the loot budget when they drop. Give one when the party keeps losing Runes it wanted. A *Runestone Bandolier* (Container, P 3.8) is a good early reward.
+- **Blank Runestones** count as one piece of the loot budget when they drop. Give one when the party keeps losing Runes it wanted. A *Runestone Bandolier* (Container, P 4.4) is a good early reward.
 - **Party Stash upgrades** (Pack Mule, Cart, Wagon) are quest rewards (1.6) or Boss rewards. Give the next one when the party starts leaving good loot behind.
-- **Milestones** (P 4.1): grant one to everyone at the **end of each story** (1.6), and hand each player a new Rune frame (P 12.2). A full campaign is about **five stories** (3 → 8 Runes). Everyone advances together. *Provisional until the balance pass.*
+- **Milestones** (P 10.1): grant one to everyone at the **end of each story** (1.6), and hand each player a new Rune frame (P 12.2). A full campaign is about **five stories** (3 → 8 Runes). Everyone advances together. *Provisional until the balance pass.*
 
 ### 4.3 Building Traits and Domains
 Use this to size the Traits and Domains you hand out as loot.
@@ -187,17 +200,17 @@ Traits and Domains are built from four sources:
 - **Mix the builds:** a Rune's activities come from **at least two abilities** (one exception: *Minstrel*, the pure WIL social Domain).
 - **Rank I has no bonus or perk:** up to 4 activities (a Domain), or one narrow edge of the same weight (*Iron Will*, *Springheel*, Darkvision 60 ft: *Dusk Eyes*). Bonuses and perks start at Rank II.
 - **Every Trait also prints HP**, free of budget: +2 at Rank I, +4 at II, +7 at III, +10 at IV, +14 at V. Domains print none.
-- **Symbols:** give it two (rarely one, or all four for a Trait any body could have), from the abilities its activities and perks serve (P 3.1).
+- **Affinities:** give it two (rarely one, or all four for a Trait any body could have), from the abilities its activities and perks serve (P 4.1).
 
 | Rank (budget) | I (1) | II (2) | III (3) | IV (4) | V (5) |
 |---|---|---|---|---|---|
 | **STR perk:** HP maximum | +3 | +5 | +8 | +12 | +15 |
 | **DEX perk:** Speed | +5 ft | +5 ft | +10 ft | +10 ft | +15 ft |
 | **INT perk:** spell points | +1 | +1 | +2 | +2 | +3 |
-| **WIL perk:** extra Resolve (P 10.6) | +1 | +1 | +2 | +2 | +3 |
+| **WIL perk:** extra Resolve (P 9.5) | +1 | +1 | +2 | +2 | +3 |
 | **Activity bonus** | +2 | +3 | +4 | +5 | +6 |
 
-Perk spell points add to the Bearer's spell point total, and perk Resolve to their Resolve total, both kept on the tally card (P 10.2, 10.6, 12.3). Each counts only while the Bearer has a Spellbook, or a WIL deck.
+Perk spell points add to the Bearer's spell point total, and perk Resolve to their Resolve total, both kept on the tally card (P 9.2, 9.5, 12.3). Each counts only while the Bearer has a Spellbook, or a WIL deck.
 
 **Strong perks:**
 - **Doubled perk:** twice a perk from the table.
@@ -321,11 +334,11 @@ Multiply by the number of characters, then spend the budget on monsters' XP valu
 ---
 
 ## 6. Bearers in the World
-The Player Rules fix only the basics (P 2.1): powers are Runes, Bearers etch them, are born to a Calling, gear is gear, and a Bearer's body and personality never change (a Form changes the shape only for a while). Everything below is a suggestion: take what fits your world.
+The Player Rules fix only the basics (P 2.1): powers are Runes, Bearers etch them, carry a Calling from their past, gear is gear, and a Bearer's body and personality never change (a Form changes the shape only for a while). Everything below is a suggestion: take what fits your world.
 
 ### 6.1 Runes in the World
 The Player Rules don't say where Runes come from. Pick an origin, or leave it a mystery. Three suggestions:
-- **The world's own script:** Runes are the signs the world was written in, and every creature is born with a few lines of it.
+- **The world's own script:** Runes are the signs the world was written in, and magical creatures are born with a few lines of it.
 - **Carved by masters long ago:** a lost people shaped each power into a sign, and the signs outlived them.
 - **Born of the world,** like ore or weather: Runes grow where life is hard, and nobody made them.
 
@@ -356,8 +369,8 @@ Other hooks:
 ### 6.3 Bearers at the Table
 - **Origin.** Ask each player whether their character sees the gift as a blessing or a curse, and how it came: at birth, through a ritual, a pact, or by surviving a catastrophe. Use the answers as story hooks.
 - **Echoes.** Rank I to III Runes are mute tools. A Rank IV or V Rune has a temperament, which may show as an echo: an urge, a mood, a pull toward what it does best. At Rank V it may want things. The character's personality doesn't change: they feel the echo and react as themselves. Describe an echo when such a Rune settles.
-- **Anchoring.** In most creatures a Rune is anchored (P 2.1): it stays for life, and it can be copied as a gift. In a Bearer it never anchors: it comes out again, it can't be copied, and it leaves nothing behind (a Bearer who takes out *Forge* no longer knows the forge). Death frees a Rune from its anchor, so a captured Rune can't be copied either. Drawing a Rune's sign does nothing: the sign is only its trace.
-- **Gifts.** A living creature that isn't a Bearer can give one of its Runes, if it is willing: a master passes on a technique, a noble grants a favor, a fey seals a pact, a beaten foe buys its life. A **copy** sets into the Bearer's blank Runestone, and the giver keeps its own (P 3.8). Only an anchored Rune can be copied: a Bearer never copies, and their Rune changes hands in its Runestone. A gift needs no capture action and doesn't fade. Use gifts to reward encounters solved by talk, stealth or trickery (4.1).
+- **Anchoring.** In any creature that isn't a Bearer, a Rune is anchored (P 2.1): it stays for life, and it can be copied as a gift. In a Bearer it never anchors: it comes out again, it can't be copied, and it leaves nothing behind (a Bearer who takes out *Forge* no longer knows the forge). Death frees a Rune from its anchor, so a captured Rune can't be copied either. Drawing a Rune's sign does nothing: the sign is only its trace.
+- **Gifts.** A living creature that isn't a Bearer can give one of its Runes, if it is willing: a master passes on a technique, a noble grants a favor, a fey seals a pact, a beaten foe buys its life. A **copy** sets into the Bearer's blank Runestone, and the giver keeps its own (P 4.4). Only an anchored Rune can be copied: a Bearer never copies, and their Rune changes hands in its Runestone. A gift needs no capture action and doesn't fade. Use gifts to reward encounters solved by talk, stealth or trickery (4.1).
 - **A monster's own powers** (plain text on its foe card, 2.1) are part of its body or its nature, not Runes: they don't linger when it dies, so no Runestone can catch them.
 
 ---
@@ -372,16 +385,18 @@ Each game term has one meaning, in both books.
 | **Ability** | One of four measures every creature has: Strength (STR), Dexterity (DEX), Intelligence (INT) and Will (WIL), each written as a modifier. |
 | **Action** | Using it takes one of your two actions. |
 | **Advantage on damage** | Moving an advantage die left after cancelling from an attack to its damage, chosen before rolling: roll the whole damage once more per die and keep the highest total. Disadvantage always stays on the attack. |
+| **Affinities** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling shares at least one of its lit affinities. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four affinities. |
 | **Anthem** | A WIL magic power. Action: a buff for allies who hear you, for a Duration. |
 | **Aquatic** | A weapon keyword: works underwater, where other weapons and spells don't. |
 | **Area** | Cone, Cube, Cylinder, Emanation, Line or Sphere N: an area of that shape and size. Roll once against every creature in it. Half damage on a miss. |
 | **Armor** | The type of gear worn on the body; it fits the Armor Slot. Takes 10 minutes to don or doff. Never in the Pack. |
 | **Attack roll** | A roll of d20 + modifiers against a Defense, made by whoever harms or hinders: weapons, spells, WIL magic, traps, poisons. |
 | **Bearer** | A humanoid who can etch Runes into themself and take them out again. Every player character is one. |
+| **Bearer card** | The double-width card you fill in ink at character creation: portrait, name, age, folk and look on the front; personality, ambition, fear, bonds, background and notes on the back. It lasts as long as the Bearer. |
 | **Blindsight N** | Perceive everything within N ft without sight. |
 | **Boss** | A strong monster with special powers, including a half turn during the characters' side. |
 | **Brutal** | A weapon keyword: on a critical hit, roll its damage dice three times instead of twice. |
-| **Calling** | The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Runes you can equip. It is neither a Rune nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Patriot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
+| **Calling** | The pair of abilities a Bearer's past has shaped, kept for life: +2 in both, HP, Speed and its own effects and powers. It decides which gear and Runes you can equip. It is neither a Rune nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Patriot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
 | **Cantrip** | A spell that costs nothing. Cast at will. |
 | **Capture** | Setting a lingering Rune into a blank Runestone. |
 | **Card** | The physical component for a Calling, a piece of gear, a Rune, a spell, a Wound, a foe or an amount of gold. |
@@ -400,9 +415,11 @@ Each game term has one meaning, in both books.
 | **Dirge** | A WIL magic power. Action: an attack against WIL Defense. |
 | **Divine** | A type of WIL deck: the magic of prayer. Its deck is a **Litany**, which holds fate and healing powers: Anthems, Dirges, Cues and Mends. |
 | **Domain** | A Rune type: a bonus on checks for the activities of one domain. |
+| **Dormant** | An etched Rune fallen still: its card lies face down and does nothing, but keeps its Slot. A Rune can go Dormant when a rest heals you (1 in 8 after a short rest, 1 in 4 after a long one). |
 | **Downtime** | 3 days of rest in a safe place: does everything a long rest does, and heals all your Wounds. |
 | **Drop** | Gear or a Rune that a trial yields as loot; to drop is to yield it. |
-| **Duration** | A set length of time an effect lasts, printed on it. |
+| **Duration** | A set length of time a spell or power lasts, printed on it. |
+| **Effect** | What a card does on its own, at all times: no action, reaction or use (*Battle Caster*, a bonus to some checks). Every other part of a card's text is a power. |
 | **Effective level** | The GM's estimate of a character's power, from 1 to 12, used to size fights and trial DCs. Not a character stat. |
 | **Equipment** | Gear you wear or wield: armor, weapons, shields, Instruments and Jewelry. |
 | **Etch** | Moving a Runestone's Rune into a Rune Slot, during a long rest. |
@@ -413,11 +430,11 @@ Each game term has one meaning, in both books.
 | **Foe card** | The GM's card for one kind of monster: its body, totals and powers. Cards named in italics on it can drop; plain text never does. |
 | **Form** | One beast body in an Instinct (Nature), printed like a Calling: STR, DEX, HP, Speed and Size. While you are shifted into it, it replaces your body; your mind and Runes stay. |
 | **Game Master (GM)** | The player who describes the world, runs monsters and adjudicates rules. |
-| **Gear** | Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards its Calling's symbols allow. |
+| **Gear** | Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards whose affinities its Calling shares. |
 | **Gear Slot** | An Armor, Hand, Jewelry or Item Slot. |
 | **Gift** | A copy of a Rune that a living creature other than a Bearer gives willingly, set into a blank Runestone. The giver keeps its own. Only an anchored Rune can be copied, so a Bearer never copies. |
 | **Glamour** | A type of WIL deck: the magic of performance and command. Its deck is a **Repertoire**, which holds powers of courage and fear: Anthems, Dirges, Cues and Mends. |
-| **Heavy** | A weapon keyword: a big weapon. As loot it lights only the STR symbol, so only a Calling with STR can equip it. |
+| **Heavy** | A weapon keyword: a big weapon. As loot it lights only the STR affinity, so only a Calling with STR can equip it. |
 | **Instrument** | Equipment held in a Hand that is neither a weapon nor a shield: a lute, a drum, a horn. |
 | **Item** | Gear you carry and use: Spellbooks, Recipes, Consumables, Containers and Runestones. |
 | **Jewelry** | The type of worn gear that fits the Jewelry Slot: rings, amulets, circlets, cloaks, gloves, boots. |
@@ -440,6 +457,7 @@ Each game term has one meaning, in both books.
 | **Party Stash** | The group's mule, cart or wagon: gear and Runestones the party owns but nobody carries. |
 | **Piece** | One unit of gear, as the Pack, the Party Stash and loot count it. A stack of up to 3 identical Consumables is one piece. |
 | **Play loop** | The repeating cycle of play: face a trial, gather the loot, rest and rebuild when needed. |
+| **Power** | What a card lets you use: it takes an action or a reaction, or spends a use (*Riposte (½ STR/S.R.)*). WIL magic powers are powers too. |
 | **Purse** | A Container that holds your gold, up to a maximum set by its Rank. |
 | **Quest** | A goal the party takes on, a few trials long. |
 | **Range N/M** | A ranged attack. Beyond N: disadvantage. Beyond M: impossible. A single number is a spell's maximum range. |
@@ -452,7 +470,7 @@ Each game term has one meaning, in both books.
 | **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
 | **Resolve** | The points your WIL magic costs: one pool, the sum your WIL decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest. |
-| **Rune** | A power in the shape of a sign: a Trait, Technique, Domain or WIL deck. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone. |
+| **Rune** | A power in the shape of a sign: a Trait, Technique, Domain or WIL deck. Magical creatures nearly always carry a few, anchored in them for life; in others they are the exception (a veteran, a master). A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone. |
 | **Rune Slot** | A Slot that holds one Rune. You start with 3 and can reach 8. |
 | **Runestone** | A bulky stone that holds one Rune, or nothing (a blank Runestone). An item, but never in a Slot. |
 | **Shield** | The type of held gear that raises your Defenses; it fits a Hand Slot. |
@@ -463,16 +481,16 @@ Each game term has one meaning, in both books.
 | **Spell** | One card of a Spellbook, never on its own. Its level is its cost in spell points. |
 | **Spell level** | A spell's power and its cost in spell points, from 1st to 6th. |
 | **Spell points** | The points your spells cost: one pool, the sum your Spellbooks print + INT (minimum 1), kept on your tally card. It returns on a long rest. |
-| **Spellbook** | An item holding a fixed list of spells. Its spell points add to your one pool. All spellcasting uses INT. |
+| **Spellbook** | An item holding a fixed list of spells. Its spell points add to your one pool. This is INT magic: it uses INT. |
 | **Story** | The campaign's big arc, made of quests. Completing one grants a milestone. |
-| **Subdue** | The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
+| **Subdue** | The keyword of a spell or power that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
-| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols. |
-| **Tally card** | The one card you write on: your ten totals, HP and temporary HP, death saves, spell points, Resolve and features. |
+| **Tally card** | The card you write on in pencil: your ten totals, HP and temporary HP, death saves, spell points, Resolve and features. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |
 | **Technique** | A Rune type: a fighting move. |
+| **Tend** | At a short or long rest, keeping your Runes instead of healing: you regain no HP, so no Rune can go Dormant. Everything else the rest gives still returns. |
 | **Thrown N/M** | A weapon keyword: it can be thrown as a ranged attack, using the modifier of its melee use. Beyond N ft: disadvantage. Beyond M ft: impossible (*Thrown 20/60*). |
 | **Totals** | Your ten running numbers: four ability modifiers, four Defenses, HP maximum and Speed. |
 | **Trait** | A Rune type: a lasting change to your body or mind. |
@@ -485,6 +503,7 @@ Each game term has one meaning, in both books.
 | **Versatile** | A weapon keyword: uses the bigger damage die when held in two hands. |
 | **Visual** | A keyword on a WIL magic power: it needs no voice and acts on creatures who see you, not on those who hear you (a dance, a sign). |
 | **Vulnerable (type)** | Take double damage of that type. |
+| **Wake** | At a long rest, releasing a Runestone that holds a Rune of equal or higher Rank, so that a Dormant Rune works again. |
 | **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of the abilities it names (*+2 to hit, 1d8 + STR or DEX Physical*). |
 | **WIL deck** | A Rune of WIL magic: a fixed list of powers, with an Attack bonus and the Resolve it adds to yours. Its type (Divine, Glamour, Nature or Pact) says which powers it holds and changes no other rule. |
 | **Wound** | A lasting injury, drawn at random each time you fall to 0 HP. It stays until a downtime heals it. A Crippling Wound blocks a Gear Slot. |

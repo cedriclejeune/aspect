@@ -248,7 +248,7 @@ module.exports = function register(T, H) {
     ok(/no uses/.test(refused(f, power(f, "a", "J-I-04#0"))));
   });
 
-  T("[fx] Holy Amulet: Cues reach 90 ft; 1 extra Resolve added to the Litany's pool (P 10.6)", () => {
+  T("[fx] Holy Amulet: Cues reach 90 ft; 1 extra Resolve added to the Litany's pool (P 9.5)", () => {
     const mk = (jewelry) => fight([pc("p", [1, 5], { body: { STR: 0, DEX: 1, INT: 0, WIL: 3, HP: 10, SPD: 30 }, jewelry, aspects: ["D-I-01"] }), pc("a", [18, 5], { hands: ["W-I-05"] }), foe("x", [19, 5])]);
     const f = mk(["J-I-03"]);
     eq(C(f, "p").resolve, 7, "3 + WIL 3 + 1");
@@ -391,7 +391,7 @@ module.exports = function register(T, H) {
     ok(!has(C(g, "a"), "Prone")); eq(C(g, "w1").uses["T-II-08#0"], 1);
   });
 
-  T("[fx] Hedge Witch: 1 extra spell point added to the Spellbook's pool (P 10.2)", () => {
+  T("[fx] Hedge Witch: 1 extra spell point added to the Spellbook's pool (P 9.2)", () => {
     const f = fight([pc("w", [1, 5], { body: { STR: 0, DEX: 1, INT: 2, WIL: 0, HP: 9, SPD: 30 }, items: [{ id: "B-I-01" }], aspects: ["T-II-06"] }), foe("x", [8, 5]), foe("y", [8, 9])]);
     eq(C(f, "w").sp, 5);
     pcTurn(f, "w");
@@ -502,7 +502,7 @@ module.exports = function register(T, H) {
     eq(r2.prompts.filter((p) => p.kind === "reaction").length, 0, "no Shield, no Shield Wall");
   });
 
-  // ---------- Callings (P 2.4, 3.1) ----------
+  // ---------- Callings (P 2.4, 4.1) ----------
   const calling = (id, o) => Object.assign({ calling: id, body: null }, o);
   T("[fx] Callings: symbols gate equipping; +2 / +2 and the Calling's HP and Speed", () => {
     const t = Eng.totals(B(calling("L-02", { hands: ["W-I-05", "S-I-01"], armor: "A-I-02" })), CARDS());

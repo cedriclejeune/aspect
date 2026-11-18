@@ -1,7 +1,7 @@
 """Build the two-sided combat cheat sheet.
 
 Front: every action, reaction and free thing you can do on a turn.
-Back: a summary of the combat rules (Chapters 5-8 and 10 of rules/PLAYERS.md).
+Back: a summary of the combat rules (Chapters 3, 6-8 and 9 of rules/PLAYERS.md).
 
 Usage: .venv/bin/python tools/build_cheatsheet.py [--lang fr]
 Output: rules/Bearers-Combat-Cheat-Sheet.pdf (and build/cheatsheet.html for inspection)
@@ -99,7 +99,7 @@ FRONT = """
 <tr><td>Other</td><td>Anything else you describe. The GM rules.</td></tr>
 </table>
 
-<div class="box"><b>Grapple &amp; Shove <small>6.10</small></b>
+<div class="box"><b>Grapple &amp; Shove <small>6.9</small></b>
 Replaces one attack. Target within reach, at most <strong>one size larger</strong>. Make an <strong>unarmed attack (STR + 2)</strong> vs its higher of STR and DEX Defense.
 <ul>
 <li><strong>Grapple</strong> (free hand): target is <strong>Grappled</strong>. Drag it along: each foot costs 1 extra unless it's 2+ sizes smaller.</li>
@@ -111,7 +111,7 @@ Replaces one attack. Target within reach, at most <strong>one size larger</stron
 <table>
 <tr><th>Reaction</th><th>Trigger → Effect</th></tr>
 <tr><td>Opportunity<br>attack</td><td>A creature you can <strong>see</strong> leaves your reach <strong>by moving</strong> → one melee attack against it. Being pushed, teleporting or Disengaging don't provoke. <small>6.5</small></td></tr>
-<tr><td>Off-hand<br>attack</td><td>You attack with a <strong>Light</strong> weapon → one attack with a <em>different</em> Light weapon in your other hand. No ability modifier to damage (unless negative). Both in Hand Slots. <small>6.9</small></td></tr>
+<tr><td>Off-hand<br>attack</td><td>You attack with a <strong>Light</strong> weapon → one attack with a <em>different</em> Light weapon in your other hand. No ability modifier to damage (unless negative). Both in Hand Slots. <small>6.8</small></td></tr>
 <tr><td>Readied<br>action</td><td>The trigger you named with Ready happens → take the readied action or move.</td></tr>
 <tr><td>Spell</td><td>A spell with a reaction casting time (e.g. <em>Shield</em> from <em>Conjurer's Book</em>). Needs an empty Hand.</td></tr>
 <tr><td>Cue</td><td>WIL magic: change a roll by a creature within 60 ft who hears you, <strong>after the roll</strong>, before the GM says if it succeeds.</td></tr>
@@ -191,7 +191,7 @@ BACK = """
 <li><strong>Area:</strong> roll once vs each target's Defense, only the You question. Miss = half damage.</li>
 </ul>
 
-<h2>The Three Questions <small>5.2</small></h2>
+<h2>The Three Questions <small>6.6</small></h2>
 <p>Ask before each attack. Each gives <strong>one die at most</strong>; reasons both ways cancel inside a question.</p>
 <table>
 <tr><th>Question</th><th>Advantage</th><th>Disadvantage</th></tr>
@@ -217,7 +217,7 @@ BACK = """
 <li><strong>Surrounded:</strong> 3+ enemies engaged with you → no Disengage.</li>
 </ul>
 
-<h2>Cover <small>6.8</small></h2>
+<h2>Cover <small>6.7</small></h2>
 <ul>
 <li><strong>Cover:</strong> +2 to STR and DEX Defense.</li>
 <li><strong>Full cover:</strong> can't be targeted; blocks sight and areas; lets you hide and approach unseen.</li>
@@ -269,14 +269,14 @@ BACK = """
 </table>
 <p><strong>3 successes:</strong> stable (1 HP after 1d4 hours). <strong>3 failures:</strong> dead. <strong>Any healing</strong> wakes you and resets the count. <strong>First Aid</strong> (DC 10 INT, action) stabilizes.</p>
 
-<h2>Magic in Combat <small>10</small></h2>
+<h2>Magic in Combat <small>9</small></h2>
 <ul>
 <li><strong>Spellbook:</strong> an empty Hand to cast. One pool of <strong>spell points</strong> (all books + INT) pays any book's spells (cost 1/2/3/4/6/8 by level, cantrips free). Obvious unless Subtle.</li>
 <li><strong>WIL magic</strong> (Divine, Glamour, Nature, Pact): same rules, paid from one pool of <strong>Resolve</strong> (all decks + WIL, back on a short rest). Always obvious.</li>
 <li><strong>Forms:</strong> gear stops counting; Form HP goes first, extra damage carries over.</li>
 </ul>
 
-<div class="box gold"><b>Morale <small>6.11</small></b>
+<div class="box gold"><b>Morale <small>GM 2.4</small></b>
 When a foe group's <strong>Leader</strong> falls, and when half the group is down: one <strong>WIL check (DC 10)</strong> with its best WIL. Fail: the group flees or surrenders. Bosses never check.</div>
 
 <h2>After the Fight <small>7.5</small></h2>
@@ -284,6 +284,7 @@ When a foe group's <strong>Leader</strong> falls, and when half the group is dow
 <li><strong>Short rest</strong> (1 h, 2 per long rest): regain half missing HP; S.R. uses and Resolve return; don or doff Armor.</li>
 <li><strong>Long rest</strong> (8 h): all HP, uses, Resolve and spell points; swap Runes.</li>
 <li><strong>Downtime</strong> (3 days somewhere safe): as a long rest, and heals all your Wounds.</li>
+<li><strong>Tend</strong> at any rest: no HP back, no roll. Healed by a rest? Roll <strong>1d8</strong> (short) or <strong>1d4</strong> (long): on a 1, one Rune of your choice goes <strong>Dormant</strong> (face down). <strong>Wake</strong> it at a long rest: release a Runestone of equal or higher Rank.</li>
 </ul>
 </div>
 <footer>Golden rules: the rule of fun · no one left out · specific beats general · round down · everything stacks · the GM decides.</footer>

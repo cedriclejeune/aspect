@@ -75,7 +75,7 @@ T("fromFoe matches the printed foe totals", () => {
 });
 
 // ---------- engagement ----------
-T("Outnumbered: more on your side gives one advantage die (Crowd), also to an archer (P 5.2, P 6.5)", () => {
+T("Outnumbered: more on your side gives one advantage die (Crowd), also to an archer (P 6.6, P 6.5)", () => {
   // o3 stands beside o1 and counts; o2 fights a elsewhere and doesn't (only the target's surroundings count)
   const f = fight([pc("a", [4, 5], { hands: ["W-I-05"] }), pc("b", [6, 5]), pc("c", [5, 4]), pc("arch", [5, 11], { calling: "C-I-02", hands: ["W-I-09"] }), orc("o1", [5, 5]), orc("o2", [3, 5]), orc("o3", [5, 6])]);
   const G = Eng.geometry, st = f.state;
@@ -88,7 +88,7 @@ T("Outnumbered: more on your side gives one advantage die (Crowd), also to an ar
   const pv = f.preview({ type: "attack", actor: "a", weapon: "W-I-05", target: "o1" });
   ok(pv.ok, pv.error); eq([pv.info.dice, pv.info.adv, pv.info.outnumbered.us, pv.info.outnumbered.them], [2, 1, 3, 1], "3 vs 1: still one die");
 });
-T("No cap on dice (P 5.2): unseen, a Prone target and a crowd are 3 advantage, rolled as 4d20", () => {
+T("No cap on dice (P 6.6): unseen, a Prone target and a crowd are 3 advantage, rolled as 4d20", () => {
   const f = fight([pc("a", [4, 5], { hands: ["W-I-05"] }), pc("b", [6, 5]), pc("c", [5, 4]), orc("o1", [5, 5])]);
   start(f);
   run(f, { type: "adjust", actor: "o1", cond: "Prone" });
@@ -99,7 +99,7 @@ T("No cap on dice (P 5.2): unseen, a Prone target and a crowd are 3 advantage, r
   const r = run(f, { type: "attack", actor: "a", weapon: "W-I-05", target: "o1" }, [2, 3, 18, 1, 5]);
   eq(evs(r, "roll")[0].dice.length, 4);
 });
-T("Damage advantage (P 5.2): advantage dice moved to damage roll the whole damage again, keep the highest", () => {
+T("Damage advantage (P 6.6): advantage dice moved to damage roll the whole damage again, keep the highest", () => {
   const f = fight([pc("a", [4, 5], { hands: ["W-I-05"] }), pc("b", [6, 5]), pc("c", [5, 4]), orc("o1", [5, 5])]);
   start(f);
   run(f, { type: "adjust", actor: "o1", cond: "Prone" });
@@ -452,7 +452,7 @@ T("Temporary HP absorbs first; foes die at 0", () => {
 });
 
 // ---------- lasting / subdue ----------
-T("Web: one attack roll, Restrained for 2 of the target's turns, no maintain roll (P 10.4, 11.4)", () => {
+T("Web: one attack roll, Restrained for 2 of the target's turns, no maintain roll (P 9.3, 11.4)", () => {
   const f = fight([pc("w", [1, 5], { calling: "C-I-03", items: [{ id: "B-I-01", n: 1 }] }), orc("o1", [6, 5])]);
   start(f);
   run(f, { type: "beginTurn", actor: "w" });

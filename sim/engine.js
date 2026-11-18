@@ -29,10 +29,10 @@
  * Commands: SPEC 4.2, plus these extras: act "revert" (leave a Form, free) and act "prone" (drop prone, free);
  *   move `safe: true` spends movement granted by a `move: "safe"` effect (no opportunity attacks);
  *   act "endCond" + `cond: "<condition id>"` (an action that ends a condition with `endAction`, Pierce: pull the pilum free);
- *   interact `drop: "<card id>"` (free); (spell points and Resolve are one pool each, on the tally card, P 10.2, 10.6);
+ *   interact `drop: "<card id>"` (free); (spell points and Resolve are one pool each, on the tally card, P 9.2, 9.5);
  *   power/shove `mode: "push"|"prone"` for shove effects; adjust `temp`, `wound` (a Wound card id).
  *
- * Morale (P 6.11, RULING R800): checked after every command. A foe that flees gets `dead` + `fled` (it leaves the
+ * Morale (GM 2.4, RULING R800): checked after every command. A foe that flees gets `dead` + `fled` (it leaves the
  *   map with its gear; the UI hides it) and a `flee` event; state.morale = { group, leader, half } holds the triggers
  *   already fired. Summary rows gain `fled`.
  *
@@ -187,7 +187,7 @@
     if (build.body) return { strip: bodyStrip(build.body), size: build.body.size || "Medium" };
     return null;
   }
-  // P 3.1: a card is equipped only if the Calling has at least one of its symbols; an unmatched card adds nothing
+  // P 4.1: a card is equipped only if the Calling has at least one of its symbols; an unmatched card adds nothing
   // to the totals. A body (foes, raw test bodies) and a card without symbols are never gated.
   function matchesCalling(card, base) {
     const own = base && base.card && base.card.sym;
@@ -218,7 +218,7 @@
     t.errors = errors;
     return t;
   }
-  // Fresh tally card for a Form (P 10.7, 12.3): Form STR, DEX, HP, Speed, Size + Calling INT and WIL + Aspects.
+  // Fresh tally card for a Form (P 9.6, 12.3): Form STR, DEX, HP, Speed, Size + Calling INT and WIL + Aspects.
   function formTotals(build, cards, form) {
     const base = coreStrip(build, cards);
     const t = blank();
@@ -264,7 +264,7 @@
     }
     build.carried.forEach((id) => { const c = get(id); if (c && !SLOT_TYPES.hand.includes(typeOf(c))) out.push(`${c.name}: only Hand gear can be carried for a quick swap`); if (!c) out.push(`Unknown card ${id}`); });
     const seen = {};
-    for (const id of equippedIds(build)) { if (seen[id]) out.push(`${(get(id) || { name: id }).name}: two copies can't be equipped (P 3.6)`); seen[id] = 1; }
+    for (const id of equippedIds(build)) { if (seen[id]) out.push(`${(get(id) || { name: id }).name}: two copies can't be equipped (P 4.6)`); seen[id] = 1; }
     return out;
   }
   // RULING R202: fromFoe puts Armor, Jewelry, Items and Aspects in their Slots; a Shield always goes in a Hand,
@@ -370,7 +370,7 @@
     if (h) return Math.max(0, scaled(c, h[1]));
     const m = String(u || "").match(/(\d+)/); return m ? +m[1] : 0;
   }
-  // P 10.2, 10.6, 12.3: one spell point pool (every equipped Spellbook + INT, min 1) and one Resolve pool (every
+  // P 9.2, 9.5, 12.3: one spell point pool (every equipped Spellbook + INT, min 1) and one Resolve pool (every
   // Divine, Glamour and Nature deck + WIL once, min 1), plus extras; null without such a deck. Kept on your own tally
   // card, so a Form's totals never change them.
   function poolMax(F, c, ids, key, abil, extra) {
@@ -623,7 +623,7 @@
   }
   function addMod(X, t, m) {
     const mod = Object.assign({ kind: "attack", n: 0, dice: null, next: false, until: null, source: null, power: null }, m);
-    // RULING R500: the same power doesn't stack with itself (P 3.6): a new use replaces the old one, refreshing it.
+    // RULING R500: the same power doesn't stack with itself (P 4.6): a new use replaces the old one, refreshing it.
     if (mod.power && !(mod.until && mod.until.lasting)) t.mods = t.mods.filter((o) => !(o.power === mod.power && o.kind === mod.kind && !(o.until && o.until.lasting)));
     t.mods.push(mod);
     const what = mod.kind === "def" ? `${(mod.defs || ["all"]).join("/")} Defense` : mod.kind;
@@ -639,7 +639,7 @@
     let v = t.totals[ab + "d"];
     for (const m of t.mods) if (m.kind === "def" && (!m.defs || m.defs.includes(ab) || (m.defs.includes("targeted") && o.targeted))) v += m.n || 0;
     if (t.turn.dodging && !incap(t) && speedOf(t) > 0) v += 3;
-    if (o.cover && (ab === "STR" || ab === "DEX")) v += 2;  // cover: STR and DEX Defense only (P 6.8)
+    if (o.cover && (ab === "STR" || ab === "DEX")) v += 2;  // cover: STR and DEX Defense only (P 6.7)
     if (o.tags && o.tags.length) for (const e of passives(F, t)) if (e.p.defVs && e.p.defVs[ab] && (e.p.tags || []).some((g) => o.tags.includes(g))) v += e.p.defVs[ab];
     return v;
   }
@@ -743,14 +743,14 @@
       if (m.dice) { info.diceMods.push(m.dice); info.parts.push(`${/^[-−]/.test(m.dice) ? "−" + m.dice.slice(1) : "+" + m.dice} ${m.power || m.kind}`); }
       if (m.next) info.nextMods.push(m);
     }
-    // situations (P 5.2): each source once. An area roll skips the target's situations (P 6.6).
+    // situations (P 6.6): each source once. An area roll skips the target's situations (P 6.6).
     if (zone) {
       info.cover = 0; info.ranged = false; info.melee = false; info.vs = vs; info.tags = src.entry.p.tags || [];
       info.defs = defsOf(F, t, vs, { tags: info.tags }); info.def = best(info.defs);
       info.dice = 1; info.keep = null;
       return info;
     }
-    // P 5.2 three questions: You, Target, Crowd each give one die at most; a question's + and − sources cancel.
+    // P 6.6 three questions: You, Target, Crowd each give one die at most; a question's + and − sources cancel.
     const q = { you: [], target: [], crowd: [] };
     const sit = (k, n, why) => q[k].push({ n, why });
     if (!src.area && !canSee(F, a, t)) sit("you", -1, "can't see the target");
@@ -780,7 +780,7 @@
     info.defs = defsOf(F, t, vs, { cover: !!info.cover, tags: info.tags });
     info.def = best(info.defs);
     runHooks(F, null, a, t, "modifyAttack", { attack: info, weapon: src.w, entry: src.entry });
-    // P 5.2: after cancelling, each advantage die left can go to damage instead (chosen before rolling).
+    // P 6.6: after cancelling, each advantage die left can go to damage instead (chosen before rolling).
     const net = info.adv - info.dis;
     info.toDamage = net > 0 ? Math.max(0, Math.min(net, src.toDamage || 0)) : 0;
     if (info.toDamage) info.why.push(`${info.toDamage}d20 moved to damage`);
@@ -890,7 +890,7 @@
 
   // RULING R226: Cues fire on attack rolls only (the sim makes no ability checks); "auto" uses a flat Cue only when
   // it flips the outcome and never uses Reroll; a Cue on "ally" never targets the user's own roll.
-  // Cues (rollNear): after the roll, before the hit is announced (P 10.6).
+  // Cues (rollNear): after the roll, before the hit is announced (P 9.5).
   function cuePhase(X, res, kind) {
     const F = X.F, st = X.st, roller = res.a, used = {};
     for (;;) {
@@ -1111,7 +1111,7 @@
   function needsOk(F, c, e, why) {
     const p = e.p, deck = deckOf(F, e);
     const needs = (p.need || []).slice();
-    // P 10.6: every WIL power needs your voice, whatever its deck's type; only a Form doesn't.
+    // P 9.5: every WIL power needs your voice, whatever its deck's type; only a Form doesn't.
     // A Visual power (need: ["sight"]) needs no voice; whether its targets see you is the GM's call.
     const wil = ["Anthem", "Dirge", "Cue", "Mend"].includes(p.kind);
     if (wil && c.form) return why ? `${p.name}: not while shifted` : false;
@@ -1248,7 +1248,7 @@
   function heal(X, t, n, src) {
     if (t.dead || n <= 0) return 0;
     let got;
-    // RULING R214: healing a shifted creature restores the Form's HP pool (its own HP waits, P 10.7).
+    // RULING R214: healing a shifted creature restores the Form's HP pool (its own HP waits, P 9.6).
     if (t.form) { got = Math.min(n, t.form.maxHp - t.form.hp); t.form.hp += got; }
     else {
       got = Math.min(n, t.maxHp - t.hp);
@@ -1344,7 +1344,7 @@
     if (!safe) budget += base * Math.max(0, c.turn.acts - (cmd.stand ? 1 : 0));
     if (path.length && base === 0) fail(`${c.name}'s speed is 0`);
     // RULING R228: a grappler drags its grappled creatures into the square it leaves; +5 ft per square unless
-    // they are two sizes smaller (P 6.10).
+    // they are two sizes smaller (P 6.9).
     const drag = grappledBy(st, c);
     const dragging = drag.some((g) => (SIZE_N[c.size] || 2) - (SIZE_N[g.size] || 2) < 2);
     // RULING R229: Frightened: no step may bring the creature closer to a fear source it can see.
@@ -1526,7 +1526,7 @@
   // RULING R233: a Versatile weapon uses its bigger die whenever the wielder's other Hand Slot is empty.
   function otherHandEmpty(F, a, w) { return !a.form && w.card && handsUsed(F, a) < a.build.slots.hand; }
   // o: { shared: {} rolls of the parts with a `key`, reused across targets (area weapon attack); half: true on a miss;
-  //      best: advantage dice moved to damage (P 5.2: roll the whole damage once more per die, keep the highest total) }
+  //      best: advantage dice moved to damage (P 6.6: roll the whole damage once more per die, keep the highest total) }
   function dealParts(X, a, t, dmg, melee, o) {
     o = o || {};
     let pick = null;
@@ -1618,7 +1618,7 @@
         const shared = o.rolled && o.rolled[i];
         if (shared != null) n = shared;
         else {
-          // P 5.2: advantage dice moved to damage roll it again, keeping the highest total.
+          // P 6.6: advantage dice moved to damage roll it again, keeping the highest total.
           n = -Infinity;
           for (let b = 0; b <= (o.best || 0); b++) {
             let m = 0;
@@ -1716,7 +1716,7 @@
       const r = Math.round(p.area.size / 5);
       for (let y = pt[1] - r; y <= pt[1] + r; y++) for (let x = pt[0] - r; x <= pt[0] + r; x++) if (inBounds(st, x, y)) out.push([x, y]);
     }
-    // full cover from the point blocks the area (P 10.5)
+    // full cover from the point blocks the area (P 9.4)
     return out.filter((c) => !isWall(st, c[0], c[1]) && (c[0] === pt[0] && c[1] === pt[1] || sightCells(st, [pt], [c], { [key(pt[0], pt[1])]: 1, [key(c[0], c[1])]: 1 }).los));
   }
   function inCells(c, cells) { const ks = cells.map((p) => key(p[0], p[1])); return cellsOf(c).some((p) => ks.includes(key(p[0], p[1]))); }
@@ -1737,7 +1737,7 @@
       const lvl = cmd.level != null ? cmd.level : cost;
       if (lvl < cost) fail(`${p.name} is level ${cost}`);
       if (lvl > (deck.maxLevel || 6)) fail(`Max spell level ${deck.maxLevel}`);
-      // P 10.2: 5th level costs 6 spell points, 6th costs 8.
+      // P 9.2: 5th level costs 6 spell points, 6th costs 8.
       cost = SPELL_COST[lvl] != null ? SPELL_COST[lvl] : lvl;
     }
     const pc = canPay(F, c, e, cost, { pool: cmd.pool });
@@ -2042,7 +2042,7 @@
       if (t.turn.dodging && (incap(t) || speedOf(t) === 0)) t.turn.dodging = false;
     }
   }
-  // ---------- morale (P 6.11) ----------
+  // ---------- morale (GM 2.4) ----------
   // RULING R800: the group is the foe side as it stood at `start`; its Leader is a foe whose build sets `leader`
   // (foe card keyword Leader). When a Leader drops to 0 HP, and once when half (rounded up) of the group is down
   // or fled, the group rolls once: d20 + the best WIL among its remaining conscious non-Boss foes vs 10; on a
@@ -2068,7 +2068,7 @@
       const left = group.filter((c) => conscious(c) && !c.boss && !passives(X.F, c).some((e) => e.p.fearless));
       emit(X, { t: "morale", why, actors: left.map((c) => c.id), text: `Morale: ${why}.` });
       if (!left.length) continue;
-      // P 6.11: one WIL check for the group, with the best WIL among its remaining members.
+      // GM 2.4: one WIL check for the group, with the best WIL among its remaining members.
       const best_ = left.reduce((b, c) => ((c.totals.WIL || 0) > (b.totals.WIL || 0) ? c : b));
       const r = die(X, 20, "morale");
       const wil = best_.totals.WIL || 0, total = r + wil, held = total >= MORALE_DC;
@@ -2101,7 +2101,7 @@
     if (incap(c)) fail(`${c.name} is Incapacitated`);
     if (cmd.offhand) {
       if (c.turn.reaction) fail("Reaction already used");
-      if (!c.turn.lightWeapon) fail("Two-weapon fighting: attack with a Light weapon first (P 6.9)");
+      if (!c.turn.lightWeapon) fail("Two-weapon fighting: attack with a Light weapon first (P 6.8)");
       return "offhand";
     }
     if (c.turn.attacksLeft > 0) return "attack";

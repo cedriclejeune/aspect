@@ -35,7 +35,7 @@ _À éviter_ : stats, valeurs dérivées. (EN : Totals)
 ### Matériel, Runes et Emplacements
 
 **Matériel**:
-Tout objet réel qu'un Porteur peut équiper ou ranger : l'équipement et les objets. Toute créature peut utiliser du matériel ; un Porteur, seulement les cartes que les symboles de sa Vocation permettent.
+Tout objet réel qu'un Porteur peut équiper ou ranger : l'équipement et les objets. Toute créature peut utiliser du matériel ; un Porteur, seulement les cartes dont sa Vocation partage une affinité.
 _À éviter_ : carte (hors chapitre À la table), butin (comme synonyme). (EN : Gear)
 
 **Équipement**:
@@ -56,14 +56,14 @@ _À éviter_ : armure légère, intermédiaire, lourde. (EN : Leather, Mail, Pla
 
 **Pièce**:
 Une unité de matériel, telle que le Sac, la Réserve de la Compagnie et le butin la comptent. Une pile de jusqu'à 3 Consommables identiques compte pour une pièce.
-_À éviter_ : pièce (pour les pouvoirs de magie de VOL, ou les sources de construction des Traits). Ne pas confondre avec les pièces d'or (po). (EN : Piece)
+_À éviter_ : pièce (pour les pouvoirs de magie de Volonté, ou les sources de construction des Traits). Ne pas confondre avec les pièces d'or (po). (EN : Piece)
 
 **Instrument**:
 Un équipement tenu dans une Main qui n'est ni une arme ni un bouclier : un luth, un tambour, un cor.
 _À éviter_ : outil. (EN : Instrument)
 
 **Focaliseur**:
-Un mot-clé d'équipement qui renforce votre magie de VOL : un Instrument, une amulette sacrée, un bâton de druide.
+Un mot-clé d'équipement qui renforce votre magie de Volonté : un Instrument, une amulette sacrée, un bâton de druide.
 _À éviter_ : focaliseur arcanique, symbole sacré, catalyseur. (EN : Focus)
 
 **Contenant**:
@@ -91,16 +91,16 @@ Un espace qui contient un matériel ou une Rune du type correspondant : Armure, 
 _À éviter_ : case, slot, emplacement d'harmonisation. (EN : Slot)
 
 **Rune**:
-Un pouvoir en forme de signe : un Trait, une Technique, un Domaine ou un paquet de VOL. La plupart des créatures en portent quelques-unes, ancrées en elles à vie. Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique.
+Un pouvoir en forme de signe : un Trait, une Technique, un Domaine ou un paquet de Volonté. Les créatures magiques en portent presque toujours quelques-unes, ancrées en elles à vie ; chez les autres, c'est l'exception (un vétéran, un maître). Une Rune ne s'ancre jamais dans un Porteur : lui seul peut en graver une et l'en retirer. Hors d'une créature, elle repose dans une Pierre runique.
 _À éviter_ : Aspect, don, aptitude, pouvoir (comme terme général), glyphe, sceau (comme terme). (EN : Rune)
 
 **Vocation**:
-La paire de caractéristiques avec laquelle un Porteur est né, gardée à vie : +2 dans les deux, des PV, une Vitesse et un atout. Elle décide quel matériel et quelles Runes vous pouvez équiper. Ce n'est ni une Rune ni du matériel. Deux par paire : Duelliste et Bagarreur (FOR · AGI), Templier et Patriote (FOR · VOL), Lame-mage et Tacticien (FOR · INT), Infiltrateur et Rôdeur (AGI · INT), Artiste et Filou (AGI · VOL), Sage et Ermite (INT · VOL).
+La paire de caractéristiques que le passé d'un Porteur a forgée, gardée à vie : +2 dans les deux, des PV, une Vitesse, et ses propres effets et abilités. Elle décide quel matériel et quelles Runes vous pouvez équiper. Ce n'est ni une Rune ni du matériel. Deux par paire : Duelliste et Bagarreur (FOR · AGI), Templier et Patriote (FOR · VOL), Lame-mage et Tacticien (FOR · INT), Infiltrateur et Rôdeur (AGI · INT), Artiste et Filou (AGI · VOL), Sage et Ermite (INT · VOL).
 _À éviter_ : Noyau, historique, archétype, classe, race, profil (pour les joueurs). (EN : Calling)
 
-**Symboles**:
-Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation possède au moins un de ses symboles allumés. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre symboles, sauf le Bâton de garde-sort (INT · VOL).
-_À éviter_ : prérequis, condition, Req. (EN : Symbols)
+**Affinités**:
+Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation partage au moins une de ses affinités allumées. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre affinités, sauf le Bâton de garde-sort (INT · VOL).
+_À éviter_ : prérequis, condition, Req., symboles (comme terme), harmonisation. (EN : Affinities)
 
 **Emplacement de Matériel**:
 Un Emplacement d'Armure, de Main, de Bijou ou d'Objet.
@@ -127,8 +127,16 @@ Un type de Rune : une botte de combat. (EN : Technique)
 Un type de Rune : un bonus aux tests des activités d'un domaine.
 _À éviter_ : Savoir-faire, compétence, maîtrise, talent, historique. (EN : Domain)
 
+**Effet**:
+Ce qu'une carte fait d'elle-même, en permanence : sans action, réaction ni utilisation (*Incantateur de guerre*, un bonus à certains tests). Le reste du texte d'une carte est une abilité.
+_À éviter_ : atout (pour une Vocation), passif, trait (en minuscule). (EN : Effect)
+
+**Abilité**:
+Ce qu'une carte vous permet d'utiliser : elle demande une action ou une réaction, ou dépense une utilisation (*Riposte (½ FOR/C.R.)*). Les pouvoirs de magie de Volonté gardent leur nom de pouvoirs.
+_À éviter_ : atout (pour une Vocation), actif, aptitude, capacité, don. (EN : Power)
+
 **Utilisations**:
-Un nombre limité d'activations d'un pouvoir, inscrit dessus (*2/C.R.*, *1/L.R.*), qui reviennent lors d'un court ou long repos.
+Un nombre limité d'activations d'une abilité ou d'un pouvoir, inscrit dessus (*2/C.R.*, *1/L.R.*), qui reviennent lors d'un court ou long repos.
 _À éviter_ : charges, par jour. (EN : Uses, S.R./L.R.)
 
 ### Pierres runiques et rangement
@@ -155,6 +163,14 @@ _À éviter_ : Absorber, équiper (pour les Runes), apprendre, s'harmoniser, ins
 **Libérer**:
 Effacer une Pierre runique. Sa Rune est perdue pour de bon.
 _À éviter_ : détruire, défausser. (EN : Release)
+
+**Dormante**:
+Une Rune gravée qui s'est tue : sa carte repose face cachée et ne fait rien, mais garde son Emplacement. Une Rune peut devenir dormante quand un repos vous soigne (1 sur 8 après un court repos, 1 sur 4 après un long).
+_À éviter_ : brisée, éteinte, inactive, désactivée. (EN : Dormant)
+
+**Réveiller**:
+Lors d'un long repos, libérer une Pierre runique qui contient une Rune de Rang égal ou supérieur, pour qu'une Rune dormante fonctionne de nouveau.
+_À éviter_ : réparer, raviver, recharger. (EN : Wake)
 
 **Sac**:
 Votre sac personnel : jusqu'à 8 pièces, du matériel que vous transportez sans l'avoir équipé et au plus 3 Pierres runiques.
@@ -191,7 +207,7 @@ Un jet de d20 + modificateur de caractéristique + bonus contre un Degré de dif
 _À éviter_ : test de compétence, jet de caractéristique. (EN : Check)
 
 **Jet d'attaque**:
-Un jet de d20 + modificateurs contre une Défense, fait par celui qui blesse ou entrave : armes, sorts, magie de VOL, pièges, poisons.
+Un jet de d20 + modificateurs contre une Défense, fait par celui qui blesse ou entrave : armes, sorts, magie de Volonté, pièges, poisons.
 _À éviter_ : jet de sauvegarde, sauvegarde. (EN : Attack roll)
 
 **Avantage aux dégâts**:
@@ -217,7 +233,7 @@ _À éviter_ : Utiliser un objet. (EN : Use)
 ### Effets
 
 **Emprise**:
-Le mot-clé d'un effet qui met une créature hors de combat. Il nomme l'état infligé (Étourdi, Charmé, banni…). La cible perd son prochain tour, puis la source répète l'attaque à chacun de ses tours, avec usure, jusqu'à ce qu'une répétition échoue.
+Le mot-clé d'un sort, d'une abilité ou d'un pouvoir qui met une créature hors de combat. Il nomme l'état infligé (Étourdi, Charmé, banni…). La cible perd son prochain tour, puis la source répète l'attaque à chacun de ses tours, avec usure, jusqu'à ce qu'une répétition échoue.
 _À éviter_ : Neutraliser (réservé à l'état Neutralisé), maintien, sauvegarde qui termine, concentration, contrôle. (EN : Subdue)
 
 **Usure**:
@@ -225,38 +241,38 @@ Les dés de désavantage qu'accumule l'attaque répétée d'une Emprise : un par
 _À éviter_ : affaiblissement. (EN : Decay)
 
 **Durée**:
-Une durée fixe pendant laquelle un effet agit, imprimée dessus. (EN : Duration)
+Une durée fixe pendant laquelle un sort, une abilité ou un pouvoir agit, imprimée dessus. (EN : Duration)
 
 **Livre de sorts**:
-Un objet contenant une liste fixe de sorts. Ses points de sort s'ajoutent à votre réserve unique. Toute incantation utilise l'INT.
+Un objet contenant une liste fixe de sorts. Ses points de sort s'ajoutent à votre réserve unique. C'est la magie d'Intelligence : elle utilise l'INT.
 _À éviter_ : grimoire, liste de sorts. (EN : Spellbook)
 
 **Points de sort**:
 Les points que coûtent vos sorts : une seule réserve, la somme de ce qu'impriment vos Livres de sorts + INT (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un long repos.
 _À éviter_ : emplacements de sort, mana. (EN : Spell points)
 
-**Paquet de VOL**:
-Une Rune de magie de VOL : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour, Nature ou Pacte) dit quels pouvoirs elle contient et ne change aucune autre règle.
+**Paquet de Volonté**:
+Une Rune de magie de Volonté : une liste fixe de pouvoirs, avec un bonus d'Attaque et l'Ardeur qu'elle ajoute à la vôtre. Son type (Divin, Glamour, Nature ou Pacte) dit quels pouvoirs elle contient et ne change aucune autre règle.
 _À éviter_ : livre de prières, recueil de chants, sort (pour ses pouvoirs). (EN : WIL deck)
 
 **Divin**:
-Un type de paquet de VOL : la magie de la prière. Son paquet est une **Litanie**, qui contient des pouvoirs de destin et de guérison : Hymnes, Complaintes, Répliques et Soins.
+Un type de paquet de Volonté : la magie de la prière. Son paquet est une **Litanie**, qui contient des pouvoirs de destin et de guérison : Hymnes, Complaintes, Répliques et Soins.
 _À éviter_ : livre saint, magie de clerc, foi (comme terme). (EN : Divine)
 
 **Glamour**:
-Un type de paquet de VOL : la magie de la représentation et du commandement. Son paquet est un **Répertoire**, qui contient des pouvoirs de courage et de peur : Hymnes, Complaintes, Répliques et Soins.
+Un type de paquet de Volonté : la magie de la représentation et du commandement. Son paquet est un **Répertoire**, qui contient des pouvoirs de courage et de peur : Hymnes, Complaintes, Répliques et Soins.
 _À éviter_ : muse, inspiration, magie de barde, recueil de chants. (EN : Glamour)
 
 **Nature**:
-Un type de paquet de VOL : la magie du monde sauvage. Son paquet est un **Instinct**, qui contient des Formes et des Soins.
+Un type de paquet de Volonté : la magie du monde sauvage. Son paquet est un **Instinct**, qui contient des Formes et des Soins.
 _À éviter_ : Souvenance, Mémoires, bestiaire, magie druidique, magie primordiale. (EN : Nature, Instinct)
 
 **Pacte**:
-Un type de paquet de VOL : la magie accordée par un protecteur. Son paquet est un **Pacte**, qui contient des malédictions et des dégâts : Complaintes et Répliques.
+Un type de paquet de Volonté : la magie accordée par un protecteur. Son paquet est un **Pacte**, qui contient des malédictions et des dégâts : Complaintes et Répliques.
 _À éviter_ : magie d'occultiste, patronage, grimoire. (EN : Pact)
 
 **Ardeur**:
-Les points que coûte votre magie de VOL : une seule réserve, la somme de ce qu'impriment vos paquets de VOL + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un court repos.
+Les points que coûte votre magie de Volonté : une seule réserve, la somme de ce qu'impriment vos paquets de Volonté + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un court repos.
 _À éviter_ : résolution, points de volonté, mana. (EN : Resolve)
 
 **Forme**:
@@ -324,7 +340,7 @@ Un mot-clé d'arme : une attaque qui touche en dépassant la Défense visée de 
 Un mot-clé d'arme : +2 à chaque attaque après la première que vous faites avec elle pendant votre tour.
 
 **Lourde**:
-Un mot-clé d'arme : une grande arme. En butin, elle n'allume que le symbole de FOR : seule une Vocation qui a la FOR peut l'équiper.
+Un mot-clé d'arme : une grande arme. En butin, elle n'allume que l'affinité de FOR : seule une Vocation qui a la FOR peut l'équiper.
 
 **Légère**:
 Un mot-clé d'arme : permet le combat à deux armes.
@@ -361,19 +377,19 @@ _À éviter_ : AoE, gabarit.
 Personne ne vous remarque en train de le lancer. (EN : Subtle)
 
 **Hymne**:
-Un pouvoir de magie de VOL. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem)
+Un pouvoir de magie de Volonté. Action : un bonus pour les alliés qui vous entendent, pendant une Durée. (EN : Anthem)
 
 **Complainte**:
-Un pouvoir de magie de VOL. Action : une attaque contre la Défense de VOL. (EN : Dirge)
+Un pouvoir de magie de Volonté. Action : une attaque contre la Défense de VOL. (EN : Dirge)
 
 **Réplique**:
-Un pouvoir de magie de VOL. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue)
+Un pouvoir de magie de Volonté. Réaction : modifie un jet après qu'il a été fait, avant son résultat. (EN : Cue)
 
 **Soin**:
-Un pouvoir de magie de VOL qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend)
+Un pouvoir de magie de Volonté qui rend des PV à une créature à portée, même si elle ne peut pas vous entendre. (EN : Mend)
 
 **Visuel**:
-Un mot-clé d'un pouvoir de magie de VOL : il ne demande pas de voix et agit sur les créatures qui vous voient, pas sur celles qui vous entendent (une danse, un signe).
+Un mot-clé d'un pouvoir de magie de Volonté : il ne demande pas de voix et agit sur les créatures qui vous voient, pas sur celles qui vous entendent (une danse, un signe).
 _À éviter_ : somatique, gestuel, à vue. (EN : Visual)
 
 **Relance**:
@@ -415,6 +431,10 @@ _À éviter_ : épuisement, cicatrice, fatigue. (EN : Wound, Crippling)
 3 jours de repos en lieu sûr : fait tout ce que fait un long repos, et guérit toutes vos Blessures.
 _À éviter_ : long repos (pour ceci), relâche, temps mort. (EN : Downtime)
 
+**Méditer**:
+Lors d'un court ou d'un long repos, garder vos Runes au lieu de vous soigner : vous ne récupérez aucun PV, donc aucune Rune ne peut devenir dormante. Tout le reste que donne le repos revient quand même.
+_À éviter_ : se recueillir, entretenir. (EN : Tend)
+
 ### Monstres
 
 **Boss**:
@@ -454,6 +474,10 @@ _À éviter_ : carte (dans le texte des règles hors chapitre À la table).
 Le code dans le coin inférieur droit d'une carte : lettre de type, Rang s'il en a un, et numéro (W-II-02, L-04).
 _À éviter_ : numéro de carte, numéro de série. (EN : Card ID)
 
+**Carte de Porteur**:
+La carte double largeur que vous remplissez à l'encre à la création du personnage : portrait, nom, âge, peuple et apparence au recto ; personnalité, ambition, peur, liens, passé et notes au verso. Elle dure autant que le Porteur.
+_À éviter_ : feuille de personnage, carte d'identité. (EN : Bearer card)
+
 **Carte de Décompte**:
-La seule carte sur laquelle vous écrivez : vos dix totaux, vos PV et PV temporaires, vos jets contre la mort, vos points de sort, votre Ardeur et vos habiletés.
+La carte sur laquelle vous écrivez au crayon : vos dix totaux, vos PV et PV temporaires, vos jets contre la mort, vos points de sort, votre Ardeur et vos habiletés.
 _À éviter_ : feuille de personnage (comme terme). (EN : Tally card)

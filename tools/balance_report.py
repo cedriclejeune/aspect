@@ -3,7 +3,7 @@
 Usage: python3 tools/balance_report.py [--strict]
 Reads cards/base_set.py only (no packages needed). Prints tables; with --strict, exits non-zero when a check fails.
 
-"Equippable" follows P 3.1 (the Calling has one of the card's lit symbols). "Usable" also drops cards whose effect
+"Equippable" follows P 4.1 (the Calling has one of the card's lit symbols). "Usable" also drops cards whose effect
 needs gear or Runes the Calling can never equip: a Focus without a Divine, Glamour or Nature deck, a Shield
 Technique without a Shield, a Heavy or Reach Technique without such a weapon.
 """
@@ -79,7 +79,7 @@ def table(head, rows):
 
 
 def callings_report():
-    print("## Cards each Calling can equip (P 3.1) and use\n")
+    print("## Cards each Calling can equip (P 4.1) and use\n")
     rows, totals = [], []
     for pair in PAIRS:
         names = " / ".join(c["name"] for c in CALLINGS if tuple(c["sym"]) == pair)
@@ -139,7 +139,7 @@ def weapons_report(defense=13, mod=2):
                          " ".join(k for k in ("light", "heavy", "reach", "twoHanded", "loading", "brutal", "crushing", "flurry") if a.get(k))
                          + (" thrown" if a["thrown"] else "") + (" ranged" if a["range"] else "")
                          + (" two-handed grip" if dice == a["two"] else "")])
-    table(["Weapon", "Rank", "Symbols", "Hit", "Dice", "EV", "EV later (Flurry)", "Properties"], rows)
+    table(["Weapon", "Rank", "Affinities", "Hit", "Dice", "EV", "EV later (Flurry)", "Properties"], rows)
 
 
 def checks():

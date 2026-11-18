@@ -6,14 +6,14 @@
 ## Contents
 1. [Introduction](#1-introduction)
 2. [Characters](#2-characters)
-3. [Gear, Runes & Slots](#3-gear-runes--slots)
-4. [Progression](#4-progression)
-5. [Playing the Game](#5-playing-the-game)
+3. [Playing the Game](#3-playing-the-game)
+4. [Gear, Runes & Slots](#4-gear-runes--slots)
+5. [Equipment](#5-equipment)
 6. [Combat](#6-combat)
 7. [Damage, Health & Rest](#7-damage-health--rest)
 8. [Conditions](#8-conditions)
-9. [Equipment](#9-equipment)
-10. [Magic](#10-magic)
+9. [Magic](#9-magic)
+10. [Progression](#10-progression)
 11. [Keywords](#11-keywords)
 12. [At the Table](#12-at-the-table)
 13. [Building a Character](#13-building-a-character)
@@ -24,7 +24,7 @@
 
 ## 1. Introduction
 
-**Bearers** is a cooperative storytelling game with an emphasis on character customization and fast-paced mechanics. One player is the **Game Master (GM)**, who describes the world, runs monsters and adjudicates rules. Everyone else plays one character called a **Bearer**; together they form a **Party**. Characters have **no level**: a Bearer is defined by a **Calling** they keep for life and by their gear and Runes, and grows by finding better ones.
+**Bearers** is a cooperative storytelling game with an emphasis on character customization and fast-paced mechanics. One player is the **Game Master (GM)**, who describes the world, runs monsters and adjudicates rules. Everyone else plays one character called a **Bearer**; together they form a **Party**. Characters have **no level**: a Bearer is defined by a **Calling**, what they have lived, kept for life; by their **gear**, what they carry; and by their **Runes**, powers etched into them, which they can change.
 
 ### The Rhythm of Play
 
@@ -32,25 +32,25 @@ Like many tabletop roleplaying games, play is a conversation that repeats three 
 
 1. **The GM describes** the scene: where you are, what you see, who is there.
 2. **The players say what their characters do.** One player speaks for the group, or each player speaks in turn.
-3. **The GM narrates the result.** When the outcome is uncertain, the GM asks for a roll (5.1) first, called a **check**.
+3. **The GM narrates the result.** When the outcome is uncertain, the GM first asks for a die roll, called a **check** (3.1).
 
-In combat the conversation follows turns (6.1); otherwise it flows freely.
+In combat, everyone acts on their **turn** (Chapter 6); otherwise the conversation flows freely.
 
 ### Story, Quests & Trials
 
 The party advances through a **story**, one quest at a time. Play runs at three scales, each inside the next:
 
 - **Story:** the campaign's big arc, made of several quests. It can be a revolt against a tyrant, finding a lost artifact or avenging a betrayed mentor.
-- **Quest:** a goal the party takes on: clear the mine, escort the envoy, find the stolen relic. Between its trials, you explore: travel, search and talk your way through the world (5.5, 5.6), and the GM describes what you find. A quest is a few trials long. Completing it may earn a **quest reward**: a Party Stash upgrade, a favor, rare gear or a rare Rune.
-- **Trial:** one problem with a clear outcome: a fight, a negotiation, a heist, a hazard, a chase. Each one pays out, however it ends: equip the new gear and Runes (3.5) or keep them. Chain trials, and rest and rebuild when the party needs it (7.5).
+- **Quest:** a goal the party takes on: clear the mine, escort the envoy, find the stolen relic. A quest is a few trials long; between them, you explore: travel, search and talk your way through the world, and the GM describes what you find.
+- **Trial:** one problem with a clear outcome: a fight, a negotiation, a heist, a hazard, a chase. Each one pays out loot, however it ends: gear and Runes. Chain trials, and rest when the party needs it.
 
 ### Golden Rules
 
 - **The rule of fun.** The game exists for everyone at the table to have a good time. When a rule gets in the way of that, the table can bend it.
 - **No one left out.** Every player gets the spotlight. Share scenes, make room for quieter players and give every character something to do.
-- **Specific beats general.** Gear, a Rune or a spell that contradicts a rule wins.
+- **Specific beats general.** The text of gear or a Rune that contradicts a rule wins.
 - **Round down** unless told otherwise.
-- **Everything stacks:** every bonus and penalty adds up, and so do advantage and disadvantage (one die per question, 5.2). A rule that says otherwise names its exception, such as a condition or a power that doesn't stack with itself (3.6, Chapter 8).
+- **Everything stacks:** every bonus and penalty adds up. A rule that says otherwise names its exception.
 - **The GM decides** when a rule doesn't cover a situation, and keeps the game moving.
 
 ---
@@ -59,13 +59,17 @@ The party advances through a **story**, one quest at a time. Play runs at three 
 
 ### 2.1 The Bearers
 
-Your character is a **Bearer**. A **Rune** is a power in the shape of a sign: a Trait, a Technique, a Domain, or WIL magic. The sign is only its trace: drawing it again does nothing. Most creatures carry a few, anchored in them: they keep the same ones for life. A few humanoids carry a gift, a blessing or a curse depending on who you ask: a Rune never anchors in a Bearer, who can **etch** it into themself, and take it out again. When a creature dies, its Runes come loose and linger over the body for a minute, then fade. A Bearer can catch one in a **Runestone**: a bulky stone that holds one Rune until it is etched. Bearers grow by gathering two kinds of resources, each occupying their own **Slots**:
+Your character is a **Bearer**: one of the rare humanoids who can **etch** Runes into themselves, and take them out again. A gift, a blessing or a curse, depending on who you ask.
 
-- **Gear:** real objects of two kinds. **Equipment** is what you wear or wield (armor, weapons, shields, Instruments, Jewelry); **items** are what you carry and use (Spellbooks, Recipes, Consumables, Containers, Runestones). Gear is equipped in **Armor, Hand, Jewelry and Item Slots**, together called **Gear Slots**.
-- **Runes:** are etched into your **Rune Slots**. The number of a Bearer's etched Runes is limited by the number of Rune Slots they have. This number grows each time the party completes a story (milestones, 4.1). A Runestone's Rune is etched while you sleep, during a long rest (3.5). Blank Runestones are precious: without one, a lingering Rune is lost (3.8).
-- **The Calling** is who you are: the two abilities you were born to, your base Hit Points and Speed, and a perk. It is neither a Rune nor gear, takes no Slot, and stays with you for life. Every piece of gear and every Rune shows which Callings can equip it (3.1).
+A **Rune** is a power in the shape of a sign. The sign is only its trace: drawing it again does nothing. Magical creatures nearly always carry a few, anchored in them: they keep the same ones for life. In others they are the exception: a veteran, a master, a chosen one. In a Bearer a Rune never anchors, which is what lets them change it, and it always pulls to leave: while the body heals in sleep, a Rune can slip and fall still. When a creature dies, its Runes come loose and linger over the body for a minute, then fade. A Bearer can catch one in a **Runestone**: a stone that holds one Rune until it is etched. Empty, it is a **blank Runestone**.
 
-Your body and personality stay the same, whatever Runes you have etched. Only a Form (10.7) changes your shape, for a while. A Rune you take out takes its power with it: nothing of it stays in you.
+At the table, everything a Bearer is sits on **cards**, of three kinds:
+
+- **Gear:** real objects. **Equipment** is what you wear or wield (armor, weapons, shields, instruments, jewelry); **items** are what you carry and use (spellbooks, potions, Runestones).
+- **Runes**, etched into you.
+- **The Calling:** what you have lived. It is neither a Rune nor gear, and you keep it for life (2.4).
+
+Gear and Runes are equipped in **Slots**, in limited number (Chapter 4): changing cards changes what your Bearer can do. Every Bearer is **Medium** and of any folk they choose: folk is only descriptive (2.5).
 
 ### 2.2 Abilities
 
@@ -75,70 +79,116 @@ Every creature has **four abilities**, each written as a **modifier** (typically
 |---|---|---|---|---|
 | <img class="sym" src="symbols/str.svg" alt="STR" width="22"> | **Strength (STR)** | Climb, jump, swim, lift, break, grapple, endure pain, march, hold breath | <img class="sym" src="symbols/str-def.svg" alt="STR Defense" width="22"> | **Weapons** (or DEX), poison, disease, being pushed or grappled |
 | <img class="sym" src="symbols/dex.svg" alt="DEX" width="22"> | **Dexterity (DEX)** | Sneak, hide, balance, tumble, pick locks and pockets, disarm traps, escape bonds | <img class="sym" src="symbols/dex-def.svg" alt="DEX Defense" width="22"> | **Weapons** (or STR), explosions, traps, breath weapons, area effects |
-| <img class="sym" src="symbols/int.svg" alt="INT" width="22"> | **Intelligence (INT)** | Notice, search, read intentions, recall lore, track, navigate, treat wounds. **All spellcasting.** | <img class="sym" src="symbols/int-def.svg" alt="INT Defense" width="22"> | Illusions, confusion and madness |
-| <img class="sym" src="symbols/wil.svg" alt="WIL" width="22"> | **Will (WIL)** | Persuade, deceive, perform, intimidate, handle animals, stand firm. **WIL magic (10.6).** | <img class="sym" src="symbols/wil-def.svg" alt="WIL Defense" width="22"> | Charm, fear, mind control, possession, banishment, curses, polymorph |
+| <img class="sym" src="symbols/int.svg" alt="INT" width="22"> | **Intelligence (INT)** | Notice, search, read intentions, recall lore, track, navigate, treat wounds. **INT magic:** spells learned from books (Chapter 9). | <img class="sym" src="symbols/int-def.svg" alt="INT Defense" width="22"> | Illusions, confusion and madness |
+| <img class="sym" src="symbols/wil.svg" alt="WIL" width="22"> | **Will (WIL)** | Persuade, deceive, perform, intimidate, handle animals, stand firm. **WIL magic:** the magic you carry within (Chapter 9). | <img class="sym" src="symbols/wil-def.svg" alt="WIL Defense" width="22"> | Charm, fear, mind control, possession, banishment, curses, polymorph |
 
 |  | Number | What it measures |
 |---|---|---|
 | <img class="sym" src="symbols/hp.svg" alt="HP" width="22"> | **Hit Points (HP)** | How much harm you can take. Damage lowers your current HP; at 0 you fall (7.1, 7.4). |
-| <img class="sym" src="symbols/spd.svg" alt="Speed" width="22"> | **Speed** | How far one Move action takes you, in feet (6.3, 6.4). |
+| <img class="sym" src="symbols/spd.svg" alt="Speed" width="22"> | **Speed** | How far one move takes you, in feet (6.4). |
 
 ### 2.3 Defenses
 
-- **Defense** = 10 + ability modifier + bonuses (armor, a shield, other gear and Runes). Every creature has four: **STR, DEX, INT and WIL Defense**. Attacks roll against them (5.1).
+- **Defense** = 10 + ability modifier + bonuses (armor, a shield, other gear and Runes). Every creature has four: **STR, DEX, INT and WIL Defense**. Attacks and effects roll against them (3.1).
   - **Weapon attacks**, melee or ranged, target the defender's **higher** of STR and DEX Defense.
-  - **Other effects** name the Defense they target. *A cannon shot targets DEX Defense only: plate doesn't help.*
+  - **Other effects** name the Defense they target. *A cannon shot targets DEX Defense only: a shield doesn't help.*
+
+Your four modifiers, four Defenses, HP maximum and Speed are your ten **totals**. You keep them on your **tally card**, your sheet (12.3).
 
 ### 2.4 The Calling
 
-Your **Calling** is the pair of abilities you were born to. It sets your base numbers and decides which gear and Runes answer to you. It is neither a Rune nor gear and takes no Slot. You choose it when you create your character and keep it for life; only a rare Rank V Rune changes it.
+Your **Calling** is what your character has lived. It sets your base numbers and decides which gear and Runes you can equip. It is neither a Rune nor gear and takes no Slot. You choose it when you create your character and keep it for life.
 
-A Calling gives **+2 to its two abilities** and +0 to the other two, a **Hit Point** maximum, a **Speed** and a **perk**. Each pair of abilities has two Callings: same abilities, another perk. Every Bearer is **Medium**; only Rank V gear and Runes change that.
+Every Calling is defined by two abilities (among STR, DEX, INT and WIL): your **affinities**. Every piece of gear and every Rune shows its own: you can equip only those that share at least one with your Calling (4.1).
 
-| Calling | Abilities | HP | Speed | Perk |
-|---|---|---|---|---|
-| **Duelist** | STR · DEX | 12 | 35 ft | **Footwork:** once per turn, after you hit with a melee attack, move 5 ft × ½ DEX. This movement doesn't provoke opportunity attacks. **Riposte (½ STR/S.R.):** reaction, when a melee attack misses you: make one melee weapon attack against the attacker. |
-| **Templar** | STR · WIL | 14 | 30 ft | **Oath (½ WIL/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead, reduced by 2 × STR. |
-| **Spellblade** | STR · INT | 13 | 30 ft | **Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook. **Spell Strike (½ STR/S.R.):** when you hit with a melee weapon attack: +INT damage. |
-| **Infiltrator** | DEX · INT | 10 | 35 ft | **Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT. |
-| **Performer** | DEX · WIL | 10 | 35 ft | **Presence:** your checks to perform, persuade and deceive add both DEX and WIL. |
-| **Sage** | INT · WIL | 9 | 35 ft | **Learned:** ½ INT extra spell points (10.2). Your checks to recall lore add both INT and WIL. |
-| **Brawler** | STR · DEX | 14 | 30 ft | **Scrapper:** +STR to hit with Grapples and Shoves. **Slip Free:** your Escape attacks (6.10) add 2 × DEX instead of STR or DEX. |
-| **Patriot** | STR · WIL | 12 | 35 ft | **Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage. |
-| **Tactician** | STR · INT | 12 | 35 ft | **Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit. |
-| **Ranger** | DEX · INT | 11 | 35 ft | **Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn. |
-| **Trickster** | DEX · WIL | 9 | 35 ft | **Sure Thing:** on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher. |
-| **Hermit** | INT · WIL | 11 | 30 ft | **Solitude:** ½ WIL extra Resolve (10.6). Your checks to forage and endure add both INT and WIL. |
-
-A perk's numbers grow with you. They use your current modifiers, gear included: *+STR* adds your STR, *2 × STR* twice it, and *½ WIL* is half your WIL, rounded down, for uses, dice and distances alike (*½ WIL/S.R.*: two uses with WIL +4). With WIL +1 or less, a *½ WIL* is 0. Each perk draws on both of its Calling's abilities, or the Calling has two perks, one for each.
-
-Your other numbers grow through your cards: **Armor** and **Traits** print most of the HP you gain, and gear and Runes raise your modifiers and Defenses.
-
-At the table, your Calling is a **Calling card**, and you write your ten totals on a **tally card** (12.3).
+Your Calling card sets your base bonuses to the four abilities and their Defenses, your starting Hit Points and your Speed. It also has its own **effects**, always on, and **powers**, which you use, like any card (4.1).
 
 <!-- figure: calling -->
 
-## 3. Gear, Runes & Slots
+### 2.5 Who You Are
 
-### 3.1 Gear and Runes
+Beyond its numbers, your Bearer is a person. You write who they are on your **Bearer card**, a double-width card filled in ink on both faces. It lasts as long as your Bearer. The front holds a box for a portrait, then your **name**, **age**, **folk** and **look**. The back holds your **personality**, **ambition** and **fear**, your **bonds** (one per line: a name, then what ties you), your **background** and your **notes**. Nothing on it is a number. The GM reads it to build scenes around you, and the other players read it to know who stands beside them.
+
+<!-- figure: bearer -->
+
+---
+
+## 3. Playing the Game
+
+### 3.1 Dice, Checks and Attacks
+
+**Dice:** d4, d6, d8, d10, d12, d20 and d100 (two d10s, tens and ones; 00 and 0 read 100). *3d6* means roll three d6 and add them.
+
+**Check:** when the outcome is uncertain, the GM picks the ability (2.2) and a **Difficulty Class (DC)**, from 5 (very easy) to 30 (nearly impossible); 15 is medium. Roll **d20 + the modifier + every bonus that applies**. Equal or higher succeeds.
+
+**Attack roll:** anything that harms or hinders a creature (a sword, a spell, a trap, a poison) is an attack roll, made by its source: d20 + modifiers against one of the target's **Defenses** (2.3). Equal or higher hits. On an attack roll, a **natural 20** always succeeds and a **natural 1** always fails.
+
+**Outside combat:**
+
+- **Group checks:** everyone rolls; if at least half succeed, the group does.
+- **Help:** an ally who could plausibly assist gives **+3**.
+- **Contests:** both roll; higher wins; a tie keeps the status quo.
+
+**Advantage:** roll extra d20s, keep the **highest**. **Disadvantage:** keep the **lowest**. Only **situations** grant them: your position (unseen, too far) and **conditions**, such as Blinded or Prone (Chapter 8). Gear and Runes give flat bonuses, or create a situation (*your hit knocks the target Prone*).
+
+- Each disadvantage cancels one advantage. Roll **1 + what's left** in d20s.
+- Natural 20 and 1 are read on the kept die.
+- Everything else, such as Help, is a flat modifier.
+- **Checks:** one die at most, from your position and conditions. **Attacks:** up to three dice (6.6).
+
+**Average of the kept d20**
+
+| d20s kept | 4 low | 3 low | 2 low | 1 | 2 high | 3 high | 4 high |
+|---|---|---|---|---|---|---|---|
+| **Average** | 4.5 | 5.5 | 7.2 | 10.5 | 13.8 | 15.5 | 16.5 |
+
+### 3.2 Time: Turns and Rests
+
+- **Turn:** in combat, each creature acts on its turn: **two actions**, one **free object interaction** (draw a weapon, open a door) and, once per **round** (one trip around the table, about 6 seconds), a **reaction** (Chapter 6). Outside combat, time runs in minutes and hours.
+- **Rest:** a **short rest** takes 1 hour, a **long rest** a night, a **downtime** 3 days in a safe place. They restore HP and what you've spent (7.5).
+
+### 3.3 Passive Awareness
+
+**Passive Awareness = 10 + INT + bonuses to noticing**, +5 per advantage die left and −5 per disadvantage die (±10 at most). The GM uses it for what you notice without trying; roll an INT check only to search actively.
+
+### 3.4 Light & Vision
+
+- **Bright:** you see normally (daylight, torchlight, moonlight, light fog).
+- **Dark:** you can't see into it. What's there is hidden from you, and you're Blinded regarding it.
+
+Some senses pierce the Dark (11.5).
+
+### 3.5 Hiding
+
+Out of sight of a creature (behind an obstacle that hides you completely, or in Dark), make a **DEX check**. Below 15, or below the passive Awareness of a creature that could notice you, you fail. Otherwise you have the **Invisible** condition against them until you make a loud noise, cast a spell, are found (an INT check that beats your result) or attack (only the first attack of an action is hidden).
+
+### 3.6 Movement Outside Combat
+
+- **Jumping:** long jump **10 + 2 × STR** ft, high jump **3 + STR** ft; halve both without a 10-ft run-up.
+- **Climbing and swimming:** each foot costs 1 extra unless you have that speed. Hard surfaces or rough water call for a STR check.
+
+---
+
+## 4. Gear, Runes & Slots
+
+### 4.1 Gear and Runes
 
 <!-- figure: rank -->
 
-Every piece of gear and every Rune (a **card** at the table, 12.1) has:
+Every piece of gear and every Rune is a **card** (12.1) with:
 
-- **A name** (*Warden's Plate*).
-- **A Rank** from I to V: its power, carved in a stone at the top right, one branch per Rank: three on the right, then on the left (*II*: two branches).
-- **Symbols:** the four ability symbols, in the top corner. The abilities it uses are lit; the others are greyed out (*STR*). You can equip it only if **your Calling has at least one of its lit symbols**. Jewelry, Consumables, Recipes, Containers and Runestones have all four lit: anyone can use them. A **Focus** (10.6) lights only WIL: it strengthens WIL magic.
+- **A name** and **a Rank** from I to V: its strength.
+- **Affinities:** the four ability symbols in the top corner, 1 to 4 of them lit. You can equip a card only if it shares **at least one lit affinity with your Calling**. A card that no longer does (a Rank V Rune changed your Calling) stops working until you swap it out.
 - **Bonuses** to modifiers, Defenses, HP maximum or Speed (*+4 STR Defense, −10 Speed*).
-- **An effect**, if any (*Reaction (1/S.R.), when an attack hits you: reduce its damage by 5*). A power with limited uses shows them on itself: **S.R.** means they come back on a short rest (or a long rest), **L.R.** only on a long rest.
-- **Keywords:** the **type** first (it sets the Slot, 3.2), then properties (*Armor · Noisy 3*). A Rune prints *Rune of* in small above its name and its type below (*Rune of* **Larceny**, *Domain*); its keywords read *Rune*, then its type (*Rune · Trait*). See Chapter 11.
-- A card whose symbols your Calling no longer matches (a Rank V Rune changed it) **stops working** until you swap it out.
+- **Effects:** what the card does on its own, at all times.
+- **Powers:** what you use with an action, a reaction or a **use**. Uses are printed on the power: **S.R.** they return on a short or long rest, **L.R.** only on a long rest.
+- **Keywords:** the **type** first, which sets the Slot, then properties (*Armor · Noisy 3*, *Rune · Trait*). See Chapter 11.
+
+**Numbers that grow:** *+STR* adds your current STR, gear included; *2 × STR* doubles it; *½ WIL* is half of it, rounded down (0 at WIL +1 or less).
 
 <!-- figure: card -->
 
-### 3.2 Your Slots
-
-Every character has the same body. Only the number of Rune Slots grows much.
+### 4.2 Your Slots
 
 | Slot | You start with | Holds |
 |---|---|---|
@@ -146,176 +196,21 @@ Every character has the same body. Only the number of Rune Slots grows much.
 | **Hand** | 2 | One *Weapon*, *Shield* or *Instrument* each. A Two-Handed weapon takes two Hands. |
 | **Jewelry** | 1 | One *Jewelry* (rings, amulets, circlets, cloaks, gloves, boots) |
 | **Item** | 2 | One *Spellbook* or *Recipe*, or a stack of up to **3 identical** *Consumables* (potions, scrolls, bombs, oils) |
-| **Rune** | 3 | One *Trait*, *Technique*, *Domain*, *Divine*, *Glamour* or *Nature* |
+| **Rune** | 3 | One *Trait*, *Technique*, *Domain*, *Divine*, *Glamour*, *Nature* or *Pact* |
 
-- A Slot can stay empty.
-- Gear or a Rune fits only the Slot its type keyword names (11.1).
-- **Consumables** are gone once used. **Recipes** are the stronger version: a Recipe is a stack that **refills at each long rest**. Unused items from a Recipe vanish when it refills; until then you can hand them to allies.
-- **Extra Rune Slots** come from milestones (4.1). **Extra Hand, Jewelry and Item Slots** come only from Bosses (3.3).
-- At the table, each Slot is a **Slot frame**, and the card it holds is tucked into it (12.2).
+- A card fits only the Slot its type names (11.1). A Slot can stay empty.
+- **Consumables** are gone once used. A **Recipe** is a stack that refills at each long rest; unused items from it vanish then, and you can hand them out until then.
+- You gain more Slots as you progress (Chapter 10).
 
-### 3.3 Extra Gear Slots
+### 4.3 Pack, Party Stash, Objects & Gold
 
-Defeating a Boss may grant one character an **extra Gear Slot** for good. The party chooses who.
-
-| Extra Slot | Effect |
-|---|---|
-| **Third Hand** | +1 Hand Slot (a spectral arm, a familiar, a living tail) |
-| **Second Jewel** | +1 Jewelry Slot |
-| **Great Backpack** | +1 Item Slot |
-
-- You can have **one of each**, at most. There is never a second Armor Slot.
-- An extra Slot **can't be lost, traded or stored**.
-
-### 3.4 Samples
-
-Each sample shows the name, Rank and lit symbols (*all* when all four are), the bonuses (if any), the effect, then the keywords in italics.
-
-> **CONJURER'S BOOK** · Rank I · INT
-> Spell attack: INT + 2 · Spell points: +2 · Max spell level: 2nd
-> Spells: *Fire Bolt, Mage Hand* (cantrips) · *Magic Missile, Shield, Grease* (1st) · *Misty Step, Web* (2nd)
-> *Spellbook*
-
-> **PLATE** · Rank II · STR
-> Bonuses: +4 STR Defense · +12 HP · −10 Speed
-> *Armor · Noisy 3*
-
-> **FINESSE BLADE** · Rank I · DEX · WIL
-> +2 to hit, 1d6 + DEX or WIL Physical. **Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn.
-> *Weapon*
-
-> **RING OF WARDING** · Rank I · all
-> **Reaction (2/S.R.)**, when an attack hits you: +2 to the targeted Defense against that attack, possibly turning it into a miss.
-> *Jewelry*
-
-> **ALCHEMIST'S FIRE RECIPE** · Rank II · all
-> **Reaction:** throw a flask up to 30 ft. Make one attack (DEX or INT + 3) against the DEX Defense of each creature within 5 ft of the impact: 2d6 Fire on a hit, half on a miss.
-> *Recipe · 3 flasks*
-
-> **SPRINGHEEL** · Rank I · STR · DEX
-> Bonuses: +2 HP
-> Your jump distances are doubled, and you never need a running start.
-> *Rune · Trait*
-
-> **TWIN STRIKE** · Rank II · STR · DEX
-> Once per turn, when you take the Attack action, make one extra attack.
-> *Rune · Technique*
-
-> **SECOND WIND** · Rank II · STR · WIL
-> Bonuses: +4 HP
-> **Action (1/S.R.):** regain 1d10 + 3 HP.
-> *Rune · Trait*
-
-> **BATTLE HYMN** · Rank I · DEX · WIL
-> **2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 on their next attack before the end of your next turn.
-> *Rune · Technique*
-
-> **SPELLGUARD STAFF** · Rank I · INT · WIL
-> +2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.
-> *Weapon · Versatile*
-
-> **STONE BLOOD** · Rank I · STR · INT
-> Bonuses: +2 HP
-> +2 STR Defense against poison and disease.
-> *Rune · Trait*
-
-> **IRON WILL** · Rank I · INT · WIL
-> Bonuses: +2 HP
-> +2 WIL Defense against fear and mind control.
-> *Rune · Trait*
-
-> **LARCENY** · Rank I · DEX · INT
-> +2 on checks to sneak, climb or pick locks.
-> *Rune · Domain*
-
-> **WRIT OF FAVOR** · Rank I · all
-> A sealed letter from a noble house, a guild or a temple. Show it to one of its members: they grant one reasonable request (shelter, an audience, safe passage, a loan up to 100 gp).
-> *Consumable*
-
-> **GUILD SIGNET** · Rank I · all
-> **Action (1/L.R.)**, in a settlement where the guild operates: a contact finds you within 1 hour. They share one fact the guild would know, or hide you for a night.
-> *Jewelry*
-
-> **MINSTREL** · Rank I · INT · WIL
-> +2 on checks to persuade, haggle, gather rumors or perform.
-> *Rune · Domain*
-
-> **WANDERER'S REPERTOIRE** · Rank I · WIL
-> Attack: WIL + 2 · Resolve: +3 (short rest)
-> Powers: *Jeer* (0) · *Rally*, *Hold the Line*, *Cutting Words*, *Steady Now* (1) · *Dread*, *Rousing Verse* (2)
-> - *Jeer* (Dirge, 0): until the end of the target's next turn, it has −2 on its next attack.
-> - *Rally* (Anthem, 1): Duration 1 minute. Up to 3 allies within 30 ft have +2 on attacks.
-> - *Hold the Line* (Anthem, 1): Duration 1 minute. Allies within 30 ft have +2 to STR and DEX Defense.
-> - *Cutting Words* (Cue, 1): −2 to an enemy's attack roll or check.
-> - *Steady Now* (Cue, 1): +2 to an ally's roll, or to the Defense an attack targets.
-> - *Dread* (Dirge, 2): the target is Frightened of you for 2 turns.
-> - *Rousing Verse* (Mend, 2): action, 60 ft. A creature regains 2d4 + WIL HP.
-> *Rune · Glamour*
-
-> **ACOLYTE'S LITANY** · Rank I · WIL
-> Attack: WIL + 2 · Resolve: +3 (short rest)
-> Powers: *Guidance* (0) · *Bless*, *Bane*, *Twist Fate* (1) · *Healing Word*, *Cure Wounds* (2)
-> - *Guidance* (Cue, 0): add 1d4 to an ally's check.
-> - *Bless* (Anthem, 1): Duration 1 minute. Up to 3 allies within 30 ft add 1d4 to their attack rolls.
-> - *Bane* (Dirge, 1): Duration 1 minute. The target subtracts 1d4 from its attack rolls.
-> - *Twist Fate* (Cue, 1): Reroll. Make an ally or an enemy reroll an attack roll or a check.
-> - *Healing Word* (Mend, 2): action, 60 ft. A creature regains 2d4 + WIL HP.
-> - *Cure Wounds* (Mend, 2): action, touch. A creature regains 2d8 + WIL HP.
-> *Rune · Divine*
-
-> **WILDHEART'S INSTINCT** · Rank I · WIL
-> Attack: WIL + 2 · Resolve: +3 (short rest)
-> Powers: *Hawk* (1) · *Wolf*, *Mossbalm* (2) · *Bear* (3)
-> - *Hawk* (Form, 1): STR −2 · DEX +3 · 4 HP · Speed 10 ft, Fly 60 ft · Tiny. Talons: +2 to hit, 1d4 + DEX Physical. +2 on checks to notice.
-> - *Wolf* (Form, 2): STR +1 · DEX +3 · 8 HP · Speed 40 ft · Medium. Bite: +2 to hit, 1d6 + DEX Physical. +2 on checks to track.
-> - *Mossbalm* (Mend, 2): action, touch. A creature regains 2d8 + WIL HP.
-> - *Bear* (Form, 3): STR +3 · DEX +1 · 12 HP · Speed 30 ft, Climb 30 ft · Large. Hide: +2 STR Defense. Claws: +2 to hit, 1d8 + STR Physical.
-> *Rune · Nature*
-
-> **TRAVELER'S LUTE** · Rank I · WIL
-> 1 extra Resolve (short rest). Your Anthems reach 60 ft instead of 30 ft.
-> *Instrument · Focus*
-
-> **RALLYING CRY** · Rank I · STR · WIL
-> *Rally* as a loose Anthem. **Action (1/S.R.):** Duration 1 minute, up to 3 allies within 30 ft have +2 on attacks.
-> *Rune · Technique · Anthem*
-
-### 3.5 Equipping and Swapping
-
-Each Slot has its own swap time. A swap moves one piece of gear between a Slot and your Pack, the Party Stash or the ground. A Rune moves between its Slot and a Runestone (3.8).
-
-| Slot | Swap time | In combat |
-|---|---|---|
-| **Hand** | Your free object interaction (6.2) | Yes. Dropping a weapon or shield is always free. |
-| **Jewelry** | Free, once per turn | Yes |
-| **Item: Consumable, Recipe** | Your free object interaction | Yes. Using it costs what it says (drinking a potion: an action). |
-| **Item: Spellbook** | 1 action | Yes |
-| **Armor** | 10 minutes to don or doff | No |
-| **Rune** | Long rest | No |
-
-- **Pack in combat:** taking gear (a Runestone included) out of your Pack (or putting it away) costs **both your actions**, **plus** the Slot's swap time. The Party Stash can't be reached in combat.
-- **Out of combat**, the Pack and the Party Stash cost nothing to reach (the Party Stash only where it is, 3.7). The Slot's swap time still applies.
-- **Expended gear and Runes are locked:** anything with uses spent can be swapped out **only at a long rest**. Spellbooks and WIL decks have no uses: one can come off whenever its swap time allows, as long as the points you've spent still fit in your new total (10.2, 10.6).
-- Gear and Runes keep their state in the Pack, the Party Stash and Runestones: new loot is fully charged.
-
-### 3.6 Stacking Rules
-
-- You can't equip **two copies** of the same gear or Rune. Identical Consumables in one stack are fine.
-- **Every bonus stacks.** A weapon's to-hit bonus, a Domain's bonus and a Jewelry's bonus all add to the same roll.
-- **A power doesn't stack with itself.** Using a power on a creature that is already under it replaces the old one and starts its Duration again. Different powers stack (*Bless* and *Rally*).
-
-### 3.7 Pack, Party Stash, Objects & Gold
-
-- **Pack:** up to **8 pieces**, on your back: gear you haven't equipped (weapons, jewels, Spellbooks, Consumables), **Containers** and **at most 3 Runestones** (3.8). A **Container** (a Purse, a *Runestone Bandolier*) is never equipped: it works from your Pack and takes 1 of its pieces. **No Armor** (too big). Reachable in combat at a cost (3.5). At the table, a pile of cards beside you (12.2).
-- **Party Stash:** up to **5 pieces per character** (gear and Runestones), shared by the group. It's a mule, a cart or a wagon: it stays **where the party leaves it** (outside the dungeon, at the inn) and can't be reached in combat. The GM may threaten it (thieves, ambush, a river crossing). At the table, a shared pile of cards (12.2).
-- **Party Stash upgrades** come only as rewards (quest rewards, Bosses), never from gold. Each replaces the previous one, in pieces per character: *Pack Mule* 8, *Cart* 12, *Wagon* 20.
-- **Counting:** each piece of gear counts as 1, Runestones (blank or full) and Containers included. A stack of up to 3 identical Consumables counts as 1 (as in an Item Slot).
-- **Full Pack or Party Stash:** you can't keep more. Leave the extra piece, give it to an ally, or sell it.
-- **Objects:** small non-magical things that aren't gear (treasure, keys, letters, quest objects) are carried freely, with no limit. Ordinary supplies (rope, torches, rations, ammunition, clothes, tools) are **assumed**: you have them when you need them.
-- **Money:** gold pieces (gp). Gold buys consumables, services, blank Runestones, Purses and, from some merchants, gear and Runes. A Rune is sold without a Runestone: bring a blank one to hold it (3.8).
-- **Purse:** gold is kept in a **Purse**, a Container that holds up to a set amount by Rank: I *Coin Pouch* **100 gp**, II *Merchant's Purse* **500**, III *Banker's Satchel* **2,000**, IV *Guildmaster's Coffer* **10,000**, V *Bottomless Purse* **no limit**. The Purse counts as 1 piece; the gold inside doesn't. Each bag of coins outside a Purse counts as 1 piece. At the table, a Purse is a card, and its gold is **gold cards** tucked under it (12.2).
-- **Where it sits:** an Item Slot, your Pack or the Party Stash. The closer to you, the better watched and protected; the GM decides what a thief or a disaster can reach. Gold is lost, stolen and given away like any gear.
-- **Paying:** the Purse must be nearby: yours, an ally's, or the Party Stash when the party is with it.
+- **Pack:** up to **8 pieces** you carry unequipped, Armor excepted, with **at most 3 Runestones** (a *Runestone Bandolier* raises this to 5). Every piece of gear counts as 1, Runestones and Containers included; a stack of up to 3 identical Consumables counts as 1.
+- **Container:** an item never equipped (a Purse, a *Runestone Bandolier*). It works from your Pack, where it takes 1 piece.
+- **Party Stash:** up to **5 pieces per character**, shared: a mule, a cart or a wagon. It stays where the party leaves it, out of reach in combat, and the GM may threaten it. Upgrades come only as rewards, never from gold. Each replaces the last, in pieces per character: *Pack Mule* 8, *Cart* 12, *Wagon* 20.
+- **Full:** leave the extra piece, give it away or sell it.
+- **Objects:** small non-magical things (treasure, keys, letters) are carried freely. Ordinary supplies (rope, torches, rations, ammunition, tools) are assumed.
+- **Gold** (gp) buys consumables, services, blank Runestones, Purses and, from some merchants, gear and Runes. A Rune is sold without a Runestone: bring a blank one.
+- **Purse:** a Container that holds gold up to its Rank: I *Coin Pouch* **100 gp**, II *Merchant's Purse* **500**, III *Banker's Satchel* **2,000**, IV *Guildmaster's Coffer* **10,000**, V *Bottomless Purse* **no limit**. The gold inside takes no pieces; a bag of coins outside a Purse is 1 piece. To pay, a Purse must be nearby: yours, an ally's, or the Stash's when you're with it. Gold is lost and stolen like any gear: the closer you keep it, the safer.
 
 | Common purchases | Cost |
 |---|---|
@@ -327,133 +222,84 @@ Each Slot has its own swap time. A swap moves one piece of gear between a Slot a
 | Blank Runestone | 250 gp |
 | Purse, Rank I / II / III / IV / V | 10 / 50 / 200 / 1,000 / 5,000 gp |
 
-### 3.8 Runestones
+### 4.4 Runestones
 
-A **Runestone** is an item that holds **one Rune**, or nothing. It never sits in a Slot: it stays in your Pack or the Party Stash. At the table, a Runestone is a **Runestone frame**, with the Rune's card tucked into it (12.2).
+A **Runestone** holds **one Rune**, or nothing. It never sits in a Slot: it stays in your Pack or the Party Stash.
 
-- **Start:** each character has **3 blank Runestones**; the Party Stash starts with **2 blank Runestones per character**.
-- **Bulky:** you carry **at most 3 Runestones** in your Pack. A Container raises this (*Runestone Bandolier*). The rest wait in the Party Stash.
-- **Lingering:** when a creature dies, each of its Runes comes loose and lingers over the body for **1 minute**, then fades for good.
-- **Capture (1 action):** within 5 ft of the body, set one lingering Rune into a blank Runestone you carry. The Pack cost (3.5) doesn't apply. You can capture a Rune your Calling can't equip: trade it, sell it or keep it for an ally.
-- **Gift:** a living creature that isn't a Bearer can give you one of its Runes, if it is willing (a master, a patron, a foe who surrenders). A copy sets into a blank Runestone you hold out, with no action, and the creature keeps its own. Only an anchored Rune can be copied (2.1): a Bearer never copies, and their Rune changes hands in its Runestone.
-- **Etch (long rest):** move a Runestone's Rune into a Rune Slot. The Runestone is now blank.
-- **Swap:** the Rune you take out goes into the Runestone the new one came from; no other Runestone needed. To take a Rune out **without** replacing it, you need a blank Runestone, or the Rune is released.
+- **Lingering:** when a creature dies, its Runes linger over the body for **1 minute**, then fade for good.
+- **Capture (1 action):** within 5 ft of the body, set a lingering Rune into a blank Runestone you carry, wherever it is stowed. You can capture a Rune your Calling can't equip.
+- **Gift:** a willing creature that isn't a Bearer can set a copy of one of its Runes into a blank Runestone you hold out (no action), and keeps its own. A Bearer's Rune changes hands only in its Runestone (2.1).
+- **Etch (long rest):** move a Runestone's Rune into a Rune Slot; the Rune it replaces goes into that Runestone. To take a Rune out without replacing it, you need a blank Runestone, or the Rune is released.
 - **Release (free, any time):** wipe a Runestone blank. Its Rune is gone for good.
-- **Trade:** a Runestone is handed over whole, like any gear: give it, sell it, leave it in the Stash.
-- **More Runestones:** buy them (250 gp), or find them as loot and quest rewards. Party Stash upgrades (3.7) give more room for them.
+- A Runestone is traded whole, like any gear. Buy blank ones (250 gp) or find them as loot.
 
-> **RUNESTONE BANDOLIER** · Rank I
-> Your Pack holds up to 5 Runestones instead of 3, within its usual 8 pieces.
-> *Container*
+### 4.5 Equipping and Swapping
 
----
+Each Slot has its **swap time**. A swap moves gear between a Slot and your Pack, the Party Stash or the ground, or a Rune between its Slot and a Runestone (4.4).
 
-## 4. Progression
-
-You grow stronger mostly through **better gear and Runes**, and a little through **more Slots**. Your Calling stays the same.
-
-### 4.1 Milestones
-
-A milestone grants **one new Rune Slot** (up to 8). Every character gains one when the party **completes a story** (Chapter 1).
-
-### 4.2 Other Ways to Grow
-
-- **Harder trials pay more:** tougher enemies, guarded treasure and high-stakes deals carry better gear and Runes. Talking, sneaking or tricking your way through pays too: a reward, a favor, a gift.
-- **Extra Gear Slots:** granted by Bosses (3.3).
-
-### 4.3 The Endgame
-
-**Rank IV** gear and Runes start to bend the rules. **Rank V** ones break them: rare Boss treasures that change how the game plays for you or your party. A few even **change your Calling** for good when etched, and are used up. Hunting them is the endgame.
-
----
-
-## 5. Playing the Game
-
-### 5.1 Dice, Checks and Attacks
-
-**Dice:** d4, d6, d8, d10, d12, d20, d100. "3d6" means roll three d6 and add them.
-
-**Reading a d100:** roll two d10s, one marked as tens (often numbered 00–90) and one as ones. Read them together: tens 30 + ones 7 = 37, tens 00 + ones 1 = 1. **Exception:** tens 00 + ones 0 = 100.
-
-The **ability check** is the heart of the game: whenever you try something and the outcome is uncertain, you make one.
-
-1. **Say what you do** and how. The GM decides whether it needs a roll (see Outside combat, below).
-2. **The GM picks the ability** that fits the action (2.2) and sets a **Difficulty Class (DC)**: from 5 (very easy) to 30 (nearly impossible); 15 is medium.
-3. **Roll d20 + the ability modifier + every bonus** from your gear and Runes that applies to this action.
-4. **Equal to or higher than the DC succeeds.** A failure still moves the story, at a cost.
-
-**Attack rolls:** the **attacker always rolls.** Anything that harms or hinders a creature (a sword, an arrow, a spell, a trap, a breath weapon, a poison) is an **attack roll**: d20 + modifiers against one of the target's **Defenses** (2.3). **Equal or higher hits.**
-
-**Natural 20 / natural 1:** on **attack rolls** (Subdue repeats included, Chapter 8), a natural 20 always succeeds and a natural 1 always fails.
-
-**Outside combat:**
-
-- **Roll only when** failure is interesting and success is possible. Otherwise just say what happens.
-- **Fail forward:** a failed check still moves the story, at a cost: time, noise, damage, a lost resource, a complication. **You can't retry the same task** unless the situation changes.
-- **Group checks:** when the whole party attempts something together (sneaking, climbing, searching), everyone rolls. **If at least half succeed, the group succeeds.**
-- **Help:** a character who could plausibly assist gives one ally **+3** on the check.
-- **Contests:** when two creatures oppose each other, both roll; higher wins; a tie keeps the status quo.
-
-### 5.2 Advantage & Disadvantage
-
-With **advantage**, you roll extra d20s and keep the **highest**. With **disadvantage**, you roll extra d20s and keep the **lowest**. Only **situations** grant them: **location** (long range), **position** (unseen, an enemy within 5 ft of your bow) and **conditions** (Blinded, Prone, Restrained…). Gear and Runes give flat bonuses and penalties instead, or change a situation (*your hit knocks the target Prone*).
-
-**Three questions.** Before an attack, ask them in order. Each gives **one die at most**, however many reasons it has. If a question has reasons both ways, they cancel inside it.
-
-| Question | Advantage | Disadvantage |
-|---|---|---|
-| **You:** your position and conditions | You're unseen | Long range, you can't see the target, an enemy within 5 ft of your bow, you're Prone, Restrained, Poisoned… |
-| **Target:** its conditions | It's Prone, Restrained or Stunned | — |
-| **Crowd:** Outnumbered (6.5) | Your side has more | Its side has more |
-
-On other rolls (checks, saves), only **You** applies.
-
-- **Each disadvantage cancels one advantage.** Roll **1 + what's left** in d20s: keep the **highest** if advantage is left, the **lowest** if disadvantage is left.
-- **Advantage on damage.** Before you roll, you may move any advantage die left after cancelling from the attack to its **damage**. For each die moved, roll the whole damage once more (crit dice included) and keep the **highest total**. Disadvantage always stays on the attack. Worth it when you'd hit on a 5 or better anyway.
-- *Example: you're unseen (You), your target is Prone and Restrained (Target), and three of you surround it against one (Crowd): 3 advantage → roll 4d20, keep the highest. Prone and Restrained are one question. Against a target you'd hit on a 3, move two dice to damage: roll 2d20 to hit, and three damage rolls, keep the best.*
-- **Natural 20 / natural 1** are read on the kept die.
-- **Everything else gives a flat modifier**, such as Help and Dodge (+3 / −3). Flat modifiers stack like other bonuses (3.6) and are independent of dice.
-
-| d20s kept | 4 low | 3 low | 2 low | 1 | 2 high | 3 high | 4 high |
-|---|---|---|---|---|---|---|---|
-| **Average** | 4.5 | 5.5 | 7.2 | 10.5 | 13.8 | 15.5 | 16.5 |
-
-### 5.3 Passive Awareness
-
-The GM uses **passive Awareness = 10 + INT + bonuses to noticing** to decide what you notice without trying. Each advantage die left adds +5, each disadvantage die −5 (±10 at most, 5.2); flat modifiers add normally. You roll an **INT check** only when **actively searching**.
-
-### 5.4 Hiding
-
-- To hide, you must be **out of sight** of the creatures you're hiding from (behind full cover or in Dark), then make a **DEX check** to sneak.
-- **Fail** if the result is below 15 or below the passive Awareness of a creature that could notice you.
-- On success, you have the **Invisible** condition against those creatures. It ends when you make a loud noise, cast a spell, or someone finds you (an INT check that beats your result), and right after your first attack: if an action gives you several attacks, only the first is made while hidden.
-
-### 5.5 Light & Vision
-
-There are two light levels:
-
-| Light | Effect |
+| Slot | Swap time |
 |---|---|
-| **Bright** | You see normally (daylight, torchlight, dim moonlight, fog that doesn't block sight). |
-| **Dark** | You can't see into it. Creatures and objects in Dark are hidden from you, and you are Blinded regarding anything there. |
+| **Hand** | Your free object interaction (6.2). Dropping is always free. |
+| **Jewelry** | Free, once per turn |
+| **Item: Consumable, Recipe** | Your free object interaction |
+| **Item: Spellbook** | 1 action |
+| **Armor** | 10 minutes |
+| **Rune** | Long rest |
 
-**Special senses:**
+- **Pack in combat:** taking gear (a Runestone included) out of your Pack or putting it away costs **both your actions**, plus the swap time (capturing a Rune excepted). The Party Stash can't be reached in combat. Out of combat, both cost nothing to reach.
+- **Spent means locked:** gear or a Rune with uses spent comes off only at a long rest.
+- Stored cards keep their state; new loot is fully charged.
 
-- **Darkvision (range):** you treat Dark as Bright within that range.
-- **Blindsight (range):** you perceive everything within range without sight.
-- **Truesight (range):** as Darkvision, plus you see invisible creatures and through illusions and shapechanges.
+### 4.6 Stacking Rules
 
-### 5.6 Movement Outside Combat
+- You can't equip **two copies** of the same card. Identical Consumables in one stack are fine.
+- **Nothing stacks with itself:** using a power or a spell on a creature already under it replaces it and restarts its duration. Different ones stack.
 
-- **Jumping:** long jump = **10 + 2 × STR** feet; high jump = **3 + STR** feet. Halve both without a 10-ft running start.
-- **Climbing and swimming:** each foot costs 1 extra foot of movement unless you have a climb or swim speed. Hard surfaces or rough water call for a STR check.
-- **Travel pace:**
+---
 
-| Pace | Per hour | Per day | Effect |
-|---|---|---|---|
-| Fast | 4 miles | 30 miles | −5 passive Awareness |
-| Normal | 3 miles | 24 miles | — |
-| Slow | 2 miles | 18 miles | You can sneak |
+## 5. Equipment
+
+Armor, shields, weapons, Instruments and Jewelry are **equipment**. A weapon prints its **to-hit** bonus, added to its attack rolls, and its damage (*+2 to hit, 1d8 + STR or DEX Physical*): it rolls with STR, DEX or both, except **staves** and **wands**, weaker, which roll INT or WIL. **Basic weapons** (Rank I starters) light all four affinities, except the *Spellguard Staff* (INT · WIL); loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand and serves WIL magic (9.5).
+
+### 5.1 Armor and Defense
+
+| Armor (gear) | Rank | Affinities | Bonus | Notes |
+|---|---|---|---|---|
+| **None** (empty Armor Slot) | — | — | — | +10 ft speed. |
+| **Leather** | I | all | +2 STR Defense, +1 DEX Defense, +2 HP | +5 ft speed. |
+| **Mail** | I | STR · DEX | +3 STR Defense, +4 HP | |
+| **Hide** | I | STR · WIL | +2 STR Defense, +4 HP | |
+| **Studded Leather** | I | DEX · INT | +2 STR Defense, +2 DEX Defense, +2 HP | |
+| **Plate** | II | STR | +4 STR Defense, +12 HP | −10 ft speed. Noisy 3. |
+| **Shield** | I | STR · WIL | +2 STR and DEX Defense | Takes one Hand Slot. |
+
+Heavier armor gives more HP and less Speed, and raises mostly STR Defense.
+
+### 5.2 Weapons
+
+Each row is a kind of Rank I weapon; its name is flavour (a Versatile Weapon can be a longsword or a spear).
+
+| Weapon (gear) | Rolls with | To hit | Damage | Properties |
+|---|---|---|---|---|
+| **Dagger** (dagger, knife) | DEX | +2 | 1d4 | Light, Thrown (20/60), Flurry |
+| **Short Blade** (shortsword, sickle) | STR · DEX | +2 | 1d6 | Light, Flurry |
+| **Light Weapon** (handaxe, club, light hammer) | STR · DEX | +2 | 1d6 | Light, Thrown (20/60) |
+| **Finesse Blade** (rapier, scimitar) | DEX | +2 | 1d6 | — |
+| **Versatile Weapon** (longsword, battleaxe, spear) | STR or STR · DEX | +2 | 1d8 / 1d10 | Versatile |
+| **Staff** (quarterstaff, rod) | INT · WIL | +2 | 1d6 / 1d8 | Versatile |
+| **Heavy Weapon** (greatsword, maul) | STR | +2 | 2d6 | Heavy, Two-Handed |
+| **Great Axe** (greataxe) | STR | +2 | 1d12 | Heavy, Two-Handed, Brutal |
+| **Great Club** (greatclub) | STR | +2 | 1d10 | Heavy, Two-Handed, Crushing |
+| **Polearm** (glaive, halberd, pike) | STR | +2 | 1d10 | Heavy, Reach, Two-Handed |
+| **Whip** | DEX | +2 | 1d4 | Reach |
+| **Javelins** | STR · DEX | +2 | 1d6 | Thrown (30/120) |
+| **Sling** / **Hand Crossbow** | DEX | +2 | 1d6 | Light, Range (30/120) |
+| **Bow** (short or long) | DEX | +2 | 1d8 | Range (150/600), Two-Handed |
+| **Fine Bow** (composite bow) | DEX | +2 | 1d10 | Range (150/600), Two-Handed |
+| **Wand** | INT | +2 | 1d8 Lightning | Range (60/120) |
+| **Crossbow** (heavy) | DEX | +2 | 1d10 | Loading, Range (100/400), Two-Handed |
+
+Weapon damage is **Physical** (7.2) unless the weapon says otherwise. Higher-Rank weapons are named cards (*Damascus Sword*, *Katana*) with a bigger to-hit bonus and often an effect. Properties: Chapter 11.
 
 ---
 
@@ -461,45 +307,38 @@ There are two light levels:
 
 ### 6.1 Order of Combat
 
-1. **Surprise:** the GM decides whether anyone is caught unaware. A side that sneaks up unnoticed (5.4) **surprises** the other and goes first, without rolling.
-2. **Side initiative:** if no one is surprised, each side rolls **one d20 + the best DEX among its members**. Re-roll ties. The higher side **goes first**.
-3. **Rounds:** the first side takes all its turns, then the second side. Then a new round starts. A round is about 6 seconds. **Bosses** also take a half turn during the characters' side: one action.
-4. **Within a side**, creatures act **in any order** they agree on, one full turn at a time.
+1. **Surprise:** a side that closes in unnoticed (3.5) surprises the other and goes first.
+2. **Initiative:** otherwise, each side rolls **d20 + its best DEX**; reroll ties. The higher side goes first.
+3. **Rounds** (about 6 seconds): the first side takes all its turns, in any order its members agree on, then the other side. A **Boss**, a major foe, also takes a half turn (one action) during the characters' side.
 
-**First-mover rule:** in the **first round only**, each creature on the side that goes first gets **one action** on its turn instead of two. It keeps its reaction.
-
-**Ambush:** if the other side is **surprised**, the side that goes first ignores the first-mover rule and takes full turns.
+**First mover:** in round 1, each creature on the first side has **one action** instead of two (it keeps its reaction), unless the other side is surprised.
 
 ### 6.2 Your Turn
 
-On your turn you take **two actions** (table below), in any order. You can take the same action twice: Move twice, or Attack twice. You can also:
+**Two actions** (6.3), in any order, the same one twice if you like. Also one **free object interaction** (draw a weapon, open a door) and a few words.
 
-- Make **one free object interaction** (draw a weapon, open a door, pick up an item).
-- Speak briefly.
-
-**Reaction:** one per round. Use it on anyone's turn when its trigger occurs, or on your own turn if it has no trigger (*Reaction: throw a flask*). You regain it at the start of your turn.
+**Reaction:** one per round, on anyone's turn when its trigger occurs, or on your own turn if it has none. It returns at the start of your turn.
 
 ### 6.3 Actions
 
 | Action | Effect |
 |---|---|
-| **Move** | Move up to your speed. You can split it before and after your other action. |
-| **Attack** | Make one weapon or unarmed attack (more with Runes like *Twin Strike*). An attack can be replaced by a Grapple or a Shove. |
-| **Cast** | Cast a spell with a casting time of one action, or use a power of your gear or Runes that takes an action. |
-| **Disengage** | Your movement doesn't provoke opportunity attacks this turn. Impossible while you're surrounded (6.5). |
-| **Dodge** | Until your next turn, you have +3 to all your Defenses. Lost if you're Incapacitated or your speed is 0. |
-| **Help** | Give an ally +3 on its next check for a task, or on its next attack against a creature within 5 ft of you, before your next turn. |
-| **Hide** | Make a DEX check to hide (5.4). |
-| **Use** | Use an object, or gear that takes an action (drinking or giving a potion). |
-| **Other** | **Ready** (choose a trigger and an action or move; when it happens, use your reaction to do it), **Search** (INT check), **Recall** (INT check), **First Aid** (INT check DC 10 to stabilize a dying creature), **Escape** a grapple, or anything else you describe. |
+| **Move** | Move up to your Speed, split around your other action if you like. |
+| **Attack** | One weapon or unarmed attack (more with Runes like *Twin Strike*). You can grapple or shove instead (6.9). |
+| **Cast** | Cast a spell, or use a power, that takes an action. |
+| **Disengage** | This turn, you move away from your enemies without their striking you as you go (opportunity attack, 6.5). |
+| **Dodge** | +3 to all your Defenses until your next turn. Lost if you're Incapacitated or your Speed is 0. |
+| **Help** | Before your next turn, an ally has +3 on its next check, or on its next attack against a creature within 5 ft of you. |
+| **Hide** | A DEX check (3.5). |
+| **Use** | Use an object or gear (drink or give a potion). |
+| **Other** | **Ready** (name a trigger and an action or move; do it with your reaction when the trigger happens), **Search** or **Recall** (INT check), **First Aid** (INT DC 10: stabilize a dying creature, 7.4), **Escape** a grapple (6.9), or anything else you describe. |
 
 ### 6.4 Movement in Combat
 
-- Combat uses a grid of **5-ft squares**. Each square costs 5 ft, diagonals included.
-- **Difficult terrain** (rubble, undergrowth, a creature's space): each foot costs 1 extra foot.
-- **Prone:** dropping prone is free. Standing up takes an action. Crawling costs 1 extra foot per foot.
-- **Other creatures:** you can move through an ally's space (difficult terrain), or an enemy's space only if it's two sizes larger or smaller than you. You can't end your turn in another creature's space.
-- **Size and space:**
+- A grid of **5-ft squares**; diagonals cost 5 ft too.
+- **Difficult terrain** (rubble, undergrowth, a creature's space): each foot costs 1 extra.
+- **Prone:** dropping is free, standing up takes an action, crawling costs 1 extra foot per foot.
+- You can move through an ally's space, or an enemy's if it's two sizes larger or smaller, but not end your turn there.
 
 | Size | Space |
 |---|---|
@@ -511,63 +350,52 @@ On your turn you take **two actions** (table below), in any order. You can take 
 
 ### 6.5 Engagement & Opportunity Attacks
 
-**Engaged:** a creature is engaged with an enemy when it's **within 5 ft** of it, **neither of them is Incapacitated**, and it's **no more than one size larger or smaller** than it. An Incapacitated creature isn't engaged with anyone, and no one is engaged with it. Creatures two or more sizes apart slip past or step over each other (6.4) and don't engage each other.
+**Engaged:** within 5 ft of an enemy, no more than one size apart, and neither of you Incapacitated.
 
-**Outnumbered:** any attack against a creature (melee, ranged or spell) looks only around the target:
-- **Your side:** every creature on your side engaged with the target, you included if you are.
-- **Its side:** the target, if anyone on your side is engaged with it, and every one of its allies within 5 ft of it.
+**Outnumbered:** for any attack, count only around the target:
 
-An Incapacitated creature counts for neither side. If your side has more, your attack has **one advantage die**; if its side has more, **one disadvantage die**; a tie gives nothing. It's the **Crowd** question (5.2): one die, however big the difference. Everyone attacking the same target rolls the same Outnumbered dice, in melee or from afar. This works the same for monsters and characters. *Example: three fighters surround an orc: 3 against 1, so each of them and an archer behind them attack with 1 advantage (2d20, keep the highest). Two more orcs step up beside the first one: 3 against 3, and the die is gone. Orcs fighting elsewhere don't count.*
+- **Your side:** your side's creatures engaged with the target.
+- **Its side:** the target, if anyone on your side is engaged with it, and its allies within 5 ft of it.
 
-**Surrounded:** while **3 or more** enemies are engaged with you, you're surrounded and can't Disengage (6.3).
+More on your side: one advantage die. More on its side: one disadvantage die. Incapacitated creatures don't count. Everyone attacking that target, in melee or from afar, rolls the same die.
 
-**Opportunity attack:** when a creature you can see **leaves your reach** by moving, you can use your **reaction** to make one melee attack against it. Being pushed, teleported, or Disengaging doesn't provoke.
+**Surrounded:** with **3 or more** enemies engaged with you, you can't Disengage.
+
+**Opportunity attack:** when a creature you can see leaves your **reach** (5 ft, more with some weapons) by moving, your reaction can make one melee attack against it. Being pushed, teleporting or Disengaging doesn't provoke.
 
 ### 6.6 Making an Attack
 
-1. **Choose a target** within range.
-2. **Roll:** d20 + ability modifier + the weapon's **to-hit** bonus + other bonuses.
-  - Weapon: the ability it names; when it names two (*STR or WIL*), use your higher one.
-  - Spell attack: INT + the book's Spell attack bonus.
-3. **Hit** if the total ≥ the target's Defense: the higher of STR and DEX Defense for weapons, the named Defense for other effects. **Natural 20: always hits and is a critical hit. Natural 1: always misses.**
-4. **Damage:** weapon die + the same ability modifier you used to attack.
+Roll **d20 + ability modifier + to-hit bonus + other bonuses** against the target's Defense (2.3). A weapon uses the ability it names, your higher one if it names two; a spell uses INT (9.3). **Damage:** the weapon's die + the same modifier.
 
-**Critical hit:** roll all of the attack's damage dice twice, then add modifiers once.
+**Three questions** decide advantage (3.1), each worth **one die at most**. Reasons both ways within one question cancel.
 
-**Area effects:** roll **once** and compare the result to each target's Defense. Only the **You** question applies to an area roll (5.2): no Target or Crowd dice. An advantage die moved to damage rolls the one damage roll again; the higher total applies to every target. On a miss, a damaging area effect deals **half damage** unless it says otherwise.
+| Question | Advantage | Disadvantage |
+|---|---|---|
+| **You:** your position and conditions | You're unseen | Long range, you can't see the target, an enemy within 5 ft of your bow, you're Prone, Restrained, Poisoned… |
+| **Target:** its conditions | It's Prone, Restrained or Stunned | — |
+| **Crowd:** Outnumbered (6.5) | Your side has more | Its side has more |
 
-**Unseen:** attacking a target you can't see gives you disadvantage. Attacking while unseen gives you advantage.
+- **Advantage on damage:** before rolling, you may move advantage dice left to the damage. Each rolls the whole damage once more (crit dice included); keep the highest total. Disadvantage always stays on the attack.
+- **Critical hit:** a natural 20 rolls all the damage dice twice; add modifiers once.
+- **Areas:** an effect that covers an area rolls once against each target's Defense, asking only the You question. An advantage die moved to damage rerolls the one damage roll for everyone. A miss deals half damage unless the effect says otherwise.
+- **Ranged:** a ranged weapon prints a normal / long range. Beyond normal range, or with an enemy who can see you within 5 ft: disadvantage. Beyond long range: impossible.
+- **Unarmed strike:** +2 to hit, 1 + STR Physical. **Improvised weapon:** +0 to hit, 1d4 + STR Physical.
 
-**Unarmed strike:** +2 to hit, 1 + STR Physical. No weapon needed.
+### 6.7 Cover
 
-**Improvised weapon:** +0 to hit, 1d4 + STR Physical.
+Behind an obstacle, a target has **+2 to STR and DEX Defense**; INT and WIL Defense don't change. Completely behind one (**full cover**), it can't be targeted directly and can hide (3.5).
 
-### 6.7 Ranged Attacks
+### 6.8 Two-Weapon Fighting
 
-- Weapons have a **normal / long range**. Beyond normal range: disadvantage. Beyond long range: impossible.
-- Making a ranged attack while an enemy that can see you is **within 5 ft** of you: disadvantage.
+When you attack with a **Light** weapon, your **reaction** can make one attack with a different Light weapon in your other Hand. Don't add your ability modifier to its damage, unless it's negative.
 
-### 6.8 Cover
+### 6.9 Grapple and Shove
 
-A target behind an obstacle has **cover**: **+2 to its STR and DEX Defense.** Its INT and WIL Defense don't change: a wall doesn't stop an illusion or a curse. A target completely behind an obstacle has **full cover** and can't be targeted directly.
+Replace one attack with an unarmed attack (STR + 2) against the higher of STR and DEX Defense of a creature within reach, **no more than one size larger**:
 
-**Full cover** also blocks sight: behind a wall, a hedge or a building, you can hide (5.4) and move unseen. A side that closes in unseen surprises the other (6.1).
-
-### 6.9 Two-Weapon Fighting
-
-When you attack with a **Light** weapon, you can use your **reaction** to make **one attack with a different Light weapon** in your other hand. Don't add your ability modifier to that attack's damage (unless it's negative). Both weapons must be in your Hand Slots.
-
-### 6.10 Grapple and Shove
-
-Replace one attack with an unarmed **Grapple** or **Shove** against a creature within reach that is **no more than one size larger** than you. Make an unarmed attack (STR + 2) against the target's higher of STR and DEX Defense.
-
-- **Grapple** (you need a free hand): on a hit, the target is **Grappled** by you. You can move it with you, but each foot costs 1 extra foot unless it's two or more sizes smaller than you.
-- **Shove:** on a hit, push the target 5 ft away or knock it **Prone**.
-- **Escape:** a Grappled creature can use its action to make an unarmed attack (STR or DEX + 2) against the grappler's higher of STR and DEX Defense. On a hit, it's free.
-
-### 6.11 Morale
-
-A foe with the **Leader** keyword leads its group. When a Leader falls, and again when half of its group (rounded up) is down (dead, fled or out of the fight), the group makes **one WIL check (DC 10)** with the best WIL among its remaining members. On a failure, the whole group flees or surrenders, as the GM judges. Each happens once per fight. A **Boss** never checks.
+- **Grapple** (you need a free hand): the target is **Grappled**. You can drag it; each foot costs 1 extra unless it's two sizes smaller.
+- **Shove:** push it 5 ft or knock it **Prone**.
+- **Escape:** as an action, the Grappled creature makes an unarmed attack (STR or DEX + 2) against the grappler's higher of STR and DEX Defense. On a hit, it's free.
 
 ---
 
@@ -575,7 +403,7 @@ A foe with the **Leader** keyword leads its group. When a Leader falls, and agai
 
 ### 7.1 Hit Points
 
-Your **HP maximum** comes from your Calling, plus the HP your Armor, Traits and other cards print. Damage lowers your current HP. Healing raises it, up to your maximum.
+**HP maximum** = your Calling's HP + the HP your cards print. Damage lowers your current HP; healing raises it, up to the maximum.
 
 ### 7.2 Damage Types
 
@@ -589,29 +417,21 @@ Your **HP maximum** comes from your Calling, plus the HP your Armor, Traits and 
 | **Necrotic** | Life drain, rot, psychic harm, mind blasts |
 | **Radiant** | Holy light, searing energy, pure magical force |
 
-**Resistance:** take half damage of that type. **Vulnerability:** double. Apply other modifiers first, then resistance, then vulnerability. Two sources of resistance to the same type count as one.
+**Resistance** halves the damage of a type, **vulnerability** doubles it: apply them after other modifiers, resistance first. Two resistances to one type count as one.
 
 ### 7.3 Temporary HP
 
-- A buffer: damage removes temporary HP first.
-- They don't stack: if you gain more, keep the higher amount.
-- They aren't healing and can't bring you up from 0 HP.
-- They last until you finish a long rest unless an effect says otherwise.
+Damage removes temporary HP first. If you gain more, keep the higher amount. They aren't healing, can't lift you from 0 HP, and last until your next long rest unless the effect says otherwise.
 
 ### 7.4 Falling to 0 HP
 
-- **Instant death:** if damage brings you to 0 HP and the **remaining damage ≥ your HP maximum**, you die.
-- Otherwise you fall **Unconscious** and start making death saves.
-- **Each time you fall to 0 HP, you take a Wound** (7.6).
+If damage brings you to 0 HP and **what remains ≥ your HP maximum**, you die. Otherwise you fall **Unconscious**, take a **Wound**, a lasting injury (7.6), and make death saves.
 
-**Death saves:** at the start of each of your turns at 0 HP, roll a d20 (no modifiers).
+**Death saves:** at the start of each of your turns, roll a d20. **10+** is a success, **9 or less** a failure. A **natural 20** gives you 1 HP; a **natural 1** counts as two failures.
 
-- **10+:** one success. **9 or less:** one failure.
-- **Natural 20:** you regain 1 HP. **Natural 1:** two failures.
-- **3 successes:** you're **stable** (unconscious, no more saves; you regain 1 HP after 1d4 hours).
-- **3 failures:** you die.
-- **Taking damage** at 0 HP is one failure (two on a critical hit). If the damage ≥ your HP maximum, you die.
-- **Any healing** brings you back to consciousness and resets your successes and failures. **First Aid** (6.3) stabilizes you.
+- **3 successes:** you're **stable** (no more saves; 1 HP after 1d4 hours). **3 failures:** you die.
+- **Damage** at 0 HP is one failure (two on a critical hit). Damage ≥ your HP maximum kills you.
+- **Any healing** wakes you and clears your saves. **First Aid** (6.3) stabilizes you.
 
 ### 7.5 Resting
 
@@ -621,20 +441,22 @@ Your **HP maximum** comes from your Calling, plus the HP your Armor, Traits and 
 | **Limit** | 2 per long rest | 1 per 24 hours | None |
 | **HP** | Regain **half your missing HP** (rounded up) | Regain **all** HP | Regain **all** HP |
 | **Uses** | "Short rest" uses and Resolve recharge | **All** uses, Resolve and spell points recharge | As a long rest |
-| **Other** | Don or doff Armor | Swap Runes | Everything a long rest does, and **heal all your Wounds** (7.6) |
+| **Other** | Don or doff Armor | Swap Runes | As a long rest, and **heal all your Wounds** (7.6) |
 
-A long rest is interrupted by 1 hour of fighting, walking or other strenuous activity. An interrupted rest gives no benefit. You need at least 1 HP to benefit from a long rest. A downtime is broken by any adventure: a fight, a journey, a dungeon.
+An hour of fighting, walking or other strain interrupts a long rest, which then gives nothing. A long rest needs at least 1 HP. Any adventure breaks a downtime. Resolve and spell points pay for magic (Chapter 9).
+
+- **Tend:** at a short or long rest, you can **Tend** your Runes instead of healing: you regain no HP; uses, Resolve and spell points still return.
+- **Heal and roll:** if a rest gives you HP, roll **1d8** after a short rest or **1d4** after a long rest. On a **1**, one of your etched Runes goes **Dormant**, your choice. A downtime, and healing outside a rest, never roll.
+- **Dormant Rune:** turn its card face down. It does nothing (no effect, power, bonus, HP or Resolve) but keeps its Slot. You can still etch it out into a Runestone, where it stays Dormant.
+- **Wake (long rest):** release a Runestone that holds a Rune of equal or higher Rank. One of your Dormant Runes wakes.
 
 ### 7.6 Wounds
 
-A **Wound** is a lasting injury. You take one each time you fall to 0 HP, and some hazards cause them too. Draw it at random from the party's Wounds.
+Each time you fall to 0 HP, and from some hazards, draw a **Wound** at random from the party's deck (12.3).
 
-- **Penalty Wounds** print a penalty (*−10 Speed*, *−2 on melee attacks*). It counts like any bonus until the Wound heals.
-- **Crippling Wounds** each block one **Gear Slot** of the kind they name (Hand, Jewelry or Item). Its gear goes to your Pack (to the ground if the Pack is full), and the Slot holds nothing until the Wound heals. If every Slot of that kind is already blocked, put the Wound back and draw another.
-- **Wounds stack, with no maximum.** Each one stays until it heals. Too many, and you're no longer much use to the party: watch your HP.
-- **Healing:** a **downtime** (7.5) heals all your Wounds. Rests, Mends and potions don't. A few rare treasures heal one.
-
-At the table, Wounds are a deck of cards (12.3).
+- A **penalty Wound** prints a penalty (*−10 Speed*), which counts like any bonus.
+- A **Crippling Wound** blocks one Gear Slot of the kind it names; its gear goes to your Pack, or the ground. If every Slot of that kind is already blocked, draw another.
+- Wounds stack, with no maximum. A **downtime** heals them all, and a few rare treasures heal one; rests, magic and potions don't.
 
 ---
 
@@ -658,108 +480,46 @@ Conditions don't stack with themselves. Each lasts until its source ends it or i
 
 ### Subdue
 
-An effect with the **Subdue** keyword takes a creature out of the fight. It names the state it inflicts: **Incapacitated, Stunned, Unconscious, Charmed, banished, polymorphed or Petrified** (*Subdue · Stunned*). Every other effect lasts as long as it says (a Duration, a number of turns, while in its area) after one attack roll.
+A spell or power with the **Subdue** keyword takes a creature out of the fight. It names its state: **Incapacitated, Stunned, Unconscious, Charmed, banished, polymorphed or Petrified** (*Subdue · Stunned*). Any other spell or power lasts what it prints, after one attack roll.
 
 - **First bite:** on a hit, the target loses its **next turn** (a Boss: its next turn or half turn, whichever comes first).
-- **Repeat:** at the start of each of the target's later turns (and a Boss's half turns), the source repeats the attack, without spending an action: the same bonus against the same Defense, with only **decay** dice (no You, Target or Crowd questions). On a hit, the target loses that turn too; on a miss, it breaks free.
-- **Decay:** the first repeat rolls one d20. Each repeat that hits adds **one disadvantage die** to the next ones, and so does each time the source takes damage (2d20, then 3d20 keep the lowest, and so on). Keep a die beside the target to show the decay.
-- **Hold on:** on its turn, the source can spend **both its actions** to hold on: the next repeat that hits adds no decay.
-- **Ends** on a missed repeat, when the source is Incapacitated or dies, or when the source chooses. A **Charmed** target also breaks free at once if the source or its allies harm it. A **banished** target is gone and can't be hit.
+- **Repeat:** at the start of each of the target's later turns (and a Boss's half turns), the source repeats the attack for free: same bonus, same Defense, with only **decay** dice (no You, Target or Crowd). A hit costs the target that turn too; a miss frees it.
+- **Decay:** the first repeat rolls one d20. Each repeat that hits, and each time the source takes damage, adds **one disadvantage die** to the next ones. Keep a die beside the target to count it.
+- **Hold on:** the source can spend **both its actions** on its turn so that its next hit adds no decay.
+- **Ends** on a missed repeat, when the source is Incapacitated or dies, or when it chooses. A **Charmed** target also breaks free if the source or its allies harm it. A **banished** target is gone and can't be hit.
 
 ---
 
-## 9. Equipment
+## 9. Magic
 
-Armor, shields, weapons, Instruments and Jewelry are **equipment**: gear you wear or wield. A weapon prints its **to-hit** bonus and its damage: *+2 to hit, 1d8 + STR or DEX Physical*. It names the abilities it rolls with: always STR, DEX or both, except **staves** and **wands**, which are weaker but roll INT or WIL. **Basic weapons** (Rank I starters) light all four symbols, so anyone can wield them; a weak ability simply means a weak attack. The *Spellguard Staff* is the exception: it lights only INT and WIL. Loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand Slot and is usually a **Focus** (10.6).
+- **INT magic** is learned: spells written in **Spellbooks** (gear), paid with **spell points**, which return on a long rest (9.1–9.4).
+- **WIL magic** comes from within: a Rune called a **WIL deck**, paid with **Resolve**, which returns on a short rest (9.5).
 
-### 9.1 Armor and Defense
+### 9.1 Spellbooks
 
-| Armor (gear) | Rank | Symbols | Bonus | Notes |
-|---|---|---|---|---|
-| **None** (empty Armor Slot) | — | — | — | +10 ft speed. |
-| **Leather** | I | all | +2 STR Defense, +1 DEX Defense, +2 HP | +5 ft speed. |
-| **Mail** | I | STR · DEX | +3 STR Defense, +4 HP | |
-| **Hide** | I | STR · WIL | +2 STR Defense, +4 HP | |
-| **Studded Leather** | I | DEX · INT | +2 STR Defense, +2 DEX Defense, +2 HP | |
-| **Plate** | II | STR | +4 STR Defense, +12 HP | −10 ft speed. Noisy 3. |
-| **Shield** | I | STR · WIL | +2 STR and DEX Defense | Takes one Hand Slot. |
+A **Spellbook** prints its Rank, its **Spell attack** bonus, its **spell points**, its **max spell level** (the highest you can cast or upcast to with it), then its **cantrips** (cast at will) and its **spells**: a fixed list that never moves to another book. To change spells, equip another book.
 
-Heavier armor gives more **HP** and slows you down. Armor adds mostly to **STR Defense**. Weapons target your higher of STR and DEX Defense (2.3), so armor protects you when STR Defense is your best.
+A book takes an **Item Slot**, and casting from it needs **one empty Hand** (a Two-Handed weapon fills both). You may equip several books; your spell points pay for any of them.
 
-### 9.2 Weapons
-
-Each row is a kind of Rank I weapon. Its name is flavour: a "Versatile Weapon" can be a longsword, a battleaxe or a spear.
-
-| Weapon (gear) | Rolls with | To hit | Damage | Properties |
-|---|---|---|---|---|
-| **Dagger** (dagger, knife) | DEX | +2 | 1d4 | Light, Thrown (20/60), Flurry |
-| **Short Blade** (shortsword, sickle) | STR · DEX | +2 | 1d6 | Light, Flurry |
-| **Light Weapon** (handaxe, club, light hammer) | STR · DEX | +2 | 1d6 | Light, Thrown (20/60) |
-| **Finesse Blade** (rapier, scimitar) | DEX | +2 | 1d6 | — |
-| **Versatile Weapon** (longsword, battleaxe, spear) | STR or STR · DEX | +2 | 1d8 / 1d10 | Versatile |
-| **Staff** (quarterstaff, rod) | INT · WIL | +2 | 1d6 / 1d8 | Versatile |
-| **Heavy Weapon** (greatsword, maul) | STR | +2 | 2d6 | Heavy, Two-Handed |
-| **Great Axe** (greataxe) | STR | +2 | 1d12 | Heavy, Two-Handed, Brutal |
-| **Great Club** (greatclub) | STR | +2 | 1d10 | Heavy, Two-Handed, Crushing |
-| **Polearm** (glaive, halberd, pike) | STR | +2 | 1d10 | Heavy, Reach, Two-Handed |
-| **Whip** | DEX | +2 | 1d4 | Reach |
-| **Javelins** | STR · DEX | +2 | 1d6 | Thrown (30/120) |
-| **Sling** / **Hand Crossbow** | DEX | +2 | 1d6 | Light, Range (30/120) |
-| **Bow** (short or long) | DEX | +2 | 1d8 | Range (150/600), Two-Handed |
-| **Fine Bow** (composite bow) | DEX | +2 | 1d10 | Range (150/600), Two-Handed |
-| **Wand** | INT | +2 | 1d8 Lightning | Range (60/120) |
-| **Crossbow** (heavy) | DEX | +2 | 1d10 | Loading, Range (100/400), Two-Handed |
-
-A weapon attacks with the abilities it names: your higher one when it names two. Damage adds the same modifier. Higher-Rank weapons are cards with their own name (*Damascus Sword*, *Katana*), a bigger to-hit bonus and often a special effect. All weapon damage is **Physical** unless the weapon says otherwise.
-
-**Properties** are keywords (Chapter 11): Aquatic, Brutal, Crushing, Flurry, Heavy, Light, Loading, Range, Reach, Thrown, Two-Handed, Versatile.
-
----
-
-## 10. Magic
-
-### 10.1 Spellbooks
-
-Spells come from **Spellbooks**, a kind of gear. All spellcasting uses **INT**. Each book lists:
-
-- **Spell attack:** the bonus added to INT for its spell attacks.
-- **Cantrips:** cast at will.
-- **Spells:** a **fixed list**. To change spells, equip a different book.
-- **Spell points:** what the book adds to your spell points (10.2).
-- **Max spell level:** the highest level you can cast (or upcast to) with this book.
-
-**A book holds its spells:** it lists its Rank, spell attack, spell points and max spell level, then its cantrips and spells. It is **one piece of gear** wherever it goes (Item Slot, Pack, Party Stash), and its spells never move to another book. At the table, a book is a **deck**: a cover card and one card per spell (12.4).
-
-A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must be empty** (it holds the book). A Two-Handed weapon fills both Hands. You may equip several books, one per Item Slot: your spell points pay for the spells of any of them.
-
-### 10.2 Spell Points
+### 9.2 Spell Points
 
 | Spell level | 1st | 2nd | 3rd | 4th | 5th | 6th |
 |---|---|---|---|---|---|---|
 | **Cost** | 1 | 2 | 3 | 4 | 6 | 8 |
 
-- **One pool:** your **spell points** = the spell points of every Spellbook you have equipped **+ your INT** (minimum 1), plus any extra spell points from your Calling, Traits and gear. With no Spellbook equipped, you have none. Keep the count on your tally card (12.3).
-- **Long rest:** spent spell points come back on a long rest.
-- **Changes:** if your INT or your books change, your total changes; points already spent stay spent. You can take a book off only if what you've spent still fits in the new total.
-- **Cantrips** cost nothing.
-- **Upcasting:** pay the cost of a higher level (up to the book's max) to cast a spell at that level. Each book's max spell level applies to its own spells.
-- Spells range from **1st to 6th level**.
+- **One pool:** the spell points of every Spellbook you have equipped **+ your INT** (minimum 1), plus any from your Calling, Traits and gear. With no Spellbook, you have none. They return on a long rest.
+- If your INT or books change, so does your total; points already spent stay spent. A book comes off only if those points still fit in the new total.
+- **Cantrips** cost nothing. **Upcast:** pay a higher level's cost, up to the book's max, to cast a spell at that level.
 
-### 10.3 Casting a Spell
+### 9.3 Casting a Spell
 
-- **Casting time:** usually one action (Cast action). Some spells use a reaction.
-- **What you need:** the book and an empty Hand (10.1).
-- **Obvious or Subtle:** casting a spell is **obvious** (light, sound, a visible gesture) to anyone who can see or hear you, unless the spell is marked **Subtle**. Nobody notices a Subtle spell being cast.
-- **Spell attack:** d20 + INT + the book's Spell attack bonus. **Every spell that affects a creature is a spell attack** against the Defense the spell names. Area spells roll once (6.6).
-- **Range and targets:** you need a clear path to the target, and the target must be within range. You can target yourself only if the spell says "you" or "a creature" within range.
-- **Duration:** instantaneous, timed, or until dispelled.
+- **Casting time:** usually one action (Cast); some spells use a reaction.
+- **Spell attack:** d20 + INT + the book's Spell attack bonus, against the Defense the spell names. Every spell that affects a creature is a spell attack; an area rolls once (6.6).
+- **Range:** you need a clear path to a target within range. You can target yourself only if the spell says "you" or "a creature".
+- **Obvious:** anyone who can see or hear you notices the casting, unless the spell is **Subtle**.
+- **Duration:** a spell that takes a creature out of the fight has **Subdue** (Chapter 8). Any other lasts what it prints (a Duration, a number of turns, while in its area), unless it's dispelled or you end it (no action).
 
-### 10.4 How Long Spells Last
-
-- **A spell that takes a creature out of the fight** (a paralysis, a charm, a banishment) has the **Subdue** keyword: you repeat its attack each turn (Chapter 8).
-- **Any other spell** (a web, a wall, a blessing, a light) lasts what it prints: a Duration, a number of turns, or while a creature stays in its area. It lasts that long unless it is dispelled or you end it (no action needed).
-
-### 10.5 Areas of Effect
+### 9.4 Areas of Effect
 
 | Shape | Description |
 |---|---|
@@ -770,46 +530,63 @@ A book takes an **Item Slot**, and to cast from it **one of your Hand Slots must
 | **Line** | Straight line of the stated length and width. |
 | **Sphere** | Extends from a point to the stated radius. |
 
-Full cover blocks an area's effect.
+Full cover blocks an area.
 
-### 10.6 WIL Magic
+### 9.5 WIL Magic
 
-Magic that draws on **WIL** needs no book: it is a **Rune**, called a **WIL deck**. You capture and etch it like any Rune (3.8), it takes a **Rune Slot**, and it changes only at a long rest. It isn't spellcasting: spell rules (10.1–10.5) don't apply to it.
+A **WIL deck** is a **Rune**: captured and etched like any Rune (4.4), held in a Rune Slot, changed only at a long rest. Spell rules (9.1–9.4) don't apply to it. Its **type** says where its power comes from and which powers it holds; every type follows the same rules.
 
-A WIL deck has a **type**. **Every type follows the same rules**: the type says where the power comes from, and which powers its deck holds.
+| Power | When | What it does |
+|---|---|---|
+| **Anthem** | Action | Buffs allies who hear you, for a **Duration**. No roll. |
+| **Dirge** | Action | An attack against **WIL Defense**. A **Subdue** Dirge repeats (Chapter 8). |
+| **Cue** | Reaction | Changes a roll by a creature within 60 ft who hears you, **after the roll** and before its result. No roll. |
+| **Mend** | As printed | Restores HP to a creature in range, even one who can't hear you. No roll. |
+| **Form** | Action | You shift into a beast (9.6). |
 
 | Type | Its deck | What it holds |
 |---|---|---|
 | **Divine** | A **Litany** of prayers | Fate (rerolls, fate dice) and healing: Anthems, Dirges, Cues, Mends |
 | **Glamour** | A **Repertoire** of songs, poems and dances | Courage and fear (flat bonuses and penalties): Anthems, Dirges, Cues, Mends |
-| **Nature** | An **Instinct** of beasts | Beasts and healing: Forms (10.7), Mends |
+| **Nature** | An **Instinct** of beasts | Beasts and healing: Forms (9.6), Mends |
 | **Pact** | A **Pact** with a patron | Curses and harm: Dirges, Cues |
 
-- **A fixed list:** a WIL deck lists its Rank, its Attack bonus, the Resolve it adds, then its powers. To change powers, etch a different deck. At the table, it's a deck (12.4).
-- **Resolve:** one pool for all of them: the Resolve printed on each of your WIL decks, added up, **+ your WIL** once (minimum 1), plus any extra Resolve from your Calling, Traits and gear. With none of these decks, you have none. Keep the count on your tally card (12.3). Any of your decks' powers can spend it. It returns on a **short rest** (and a long rest). If your WIL or your decks change, your total changes; Resolve already spent stays spent. A power costing **0** is used at will.
-- **Attack:** d20 + WIL + the printed **Attack** bonus.
-- **Be heard:** a power needs your voice: you must be able to speak (not while Incapacitated, underwater or shifted), and the creatures an Anthem, a Dirge or a Cue acts on must hear you. A power prints its own condition when it differs: a **Visual** power (a dance, a sign) needs no voice and acts on creatures who **see** you instead. Shifting into a Form needs neither. No power needs a Hand, and all are **obvious**.
+- **A fixed list:** a deck prints its Rank, its **Attack** bonus, the **Resolve** it adds, then its powers. To change powers, etch another deck.
+- **Resolve:** one pool, the Resolve of each of your WIL decks **+ your WIL** once (minimum 1), plus any from your Calling, Traits and gear. With no deck, you have none. Any deck's powers spend it; it returns on a short or long rest. If your WIL or decks change, so does your total; Resolve already spent stays spent. A power costing **0** is used at will.
+- **Attack:** d20 + WIL + the deck's Attack bonus.
+- **Be heard:** a power needs your voice (not while Incapacitated, underwater or shifted), and an Anthem, Dirge or Cue acts only on creatures who hear you. A **Visual** power needs no voice and acts on creatures who see you. Shifting needs neither. No power needs a Hand, and all are obvious.
 - **Fate dice:** a d4 at Rank I–II, d6 at III, d8 at IV–V, added to or taken from a roll.
 - **Loose powers:** some Runes carry a single power, with uses instead of Resolve (*Rallying Cry*).
-- **Focus:** gear with the **Focus** keyword (an Instrument, a holy amulet, a druid's staff) strengthens your WIL magic as it says.
+- **Focus** gear (an Instrument, a holy amulet, a druid's staff) strengthens your WIL magic as printed.
 
-| Power | When | What it does |
-|---|---|---|
-| **Anthem** | Action | Buffs allies who can hear you, for a **Duration**. No roll. |
-| **Dirge** | Action | An attack against **WIL Defense**. It lasts what it prints; a **Subdue** Dirge repeats its attack each turn (Chapter 8). |
-| **Cue** | Reaction | Changes a roll made by a creature within 60 ft who can hear you, **after the roll** and before the GM says if it succeeds. No roll. |
-| **Mend** | As printed | Restores HP. The target needs only to be in range, not to hear you: Mend reaches Unconscious allies. No roll. |
-| **Form** | Action | You shift into a beast (10.7). |
+### 9.6 Forms
 
-### 10.7 Forms
-An Instinct holds **Forms**: beasts your body knows how to become. A Form is printed like a Calling, for the body only: **STR, DEX, HP, Speed and Size**, then its movement, senses and natural weapons. Some print a natural Defense bonus (a hide, a shell). Shifting changes your shape for a while; you keep your mind and personality.
-- **Shift (action):** pay the Form's cost in Resolve and take a **fresh tally card** (12.3). Fill it with the Form's STR, DEX, HP, Speed and Size, your **Calling's INT and WIL**, and your **Runes**. Nothing else counts. Shifting from one Form into another costs the new Form's Resolve and a fresh tally card.
-- **Your gear merges into the Form:** none of it counts while you're shifted (Armor, Hands, Jewelry, Items, Focus). It comes back in its Slots when you revert, in the same state.
-- **Two bodies:** the Form's HP is its own pool. Damage comes off it first; your own HP (and any temporary HP you had) waits on your own tally card.
-- **Natural weapons:** attack with the Form's STR or DEX, as printed, + its to-hit bonus, against the higher of STR and DEX Defense, like a weapon. Underwater they count as unarmed.
-- **No Hands, no voice:** you can't speak, so the only WIL power you can use is another Form (10.6). Subdue effects you hold continue.
-- **Revert** (free, on your turn) to your own body and tally card. A Form also ends after **1 hour**, or when **its HP reaches 0**: you revert, and damage beyond it carries over to you. Nothing else ends it.
-- Forms are **Tiny to Large**. Only Rank V Instincts hold bigger ones.
+A **Form** is a beast in an Instinct, printed like a Calling for the body only: **STR, DEX, HP, Speed and Size**, then its movement, senses, natural weapons and any natural Defense bonus. You keep your mind.
+
+- **Shift (action):** pay its Resolve and fill a **fresh tally card** with the Form's numbers, your **Calling's INT and WIL** and your **Runes** (12.3). Your gear merges into the Form and counts for nothing until you revert. Shifting into another Form costs its Resolve and a fresh tally card.
+- **Two bodies:** damage comes off the Form's HP first; your own HP (temporary HP included) waits on your own tally card.
+- **Natural weapons** attack with the Form's STR or DEX, as printed, like weapons. Underwater they count as unarmed.
+- **No Hands, no voice:** your only WIL power is another Form. Subdues you hold go on.
+- **Revert** (free, on your turn). A Form also ends after **1 hour**, or at **0 HP**: you revert, and leftover damage carries over to you.
+- Forms are **Tiny to Large**; only Rank V Instincts hold bigger ones.
+
+---
+
+## 10. Progression
+
+You grow through **better gear and Runes**, and a little through **more Slots**; your Calling stays. Harder trials pay more, and so does talking, sneaking or tricking your way through. Completing a quest may earn a **quest reward**: a Party Stash upgrade, a favor, a rare card.
+
+### 10.1 Milestones
+
+When the party **completes a story**, every character gains **one Rune Slot** (up to 8).
+
+### 10.2 Extra Gear Slots
+
+Defeating a Boss may grant one character, chosen by the party, a permanent extra Slot: **Third Hand** (+1 Hand: a spectral arm, a familiar, a tail), **Second Jewel** (+1 Jewelry) or **Great Backpack** (+1 Item). One of each at most, and never a second Armor Slot. An extra Slot can't be lost, traded or stored.
+
+### 10.3 The Endgame
+
+**Rank IV** cards bend the rules. **Rank V** cards, rare Boss treasures, break them; a few change your Calling for good when etched, and are used up.
 
 ---
 
@@ -821,17 +598,17 @@ A card never prints the same thing twice. A weapon's range is in its attack line
 
 ### 11.1 Types
 
-The first keyword. It sets the Slot (3.2).
+The first keyword. It sets the Slot (4.2).
 
 | Keyword | Meaning |
 |---|---|
-| **Calling** | No Slot. You always have exactly one, for life: its two abilities at +2, HP, Speed and a perk (2.4). |
+| **Calling** | No Slot. You always have exactly one, for life: its two abilities at +2, HP, Speed, and its own effects and powers (2.4). |
 | **Armor** | Armor Slot. Takes 10 minutes to don or doff. Never in the Pack. |
 | **Weapon** | Hand Slot. Attack: d20 + the higher of the abilities it names + its printed to-hit bonus, against the higher of STR and DEX Defense. |
 | **Shield** | Hand Slot. |
 | **Instrument** | Hand Slot. Held gear that is neither a weapon nor a shield: a lute, a drum, a horn. |
 | **Jewelry** | Jewelry Slot. Rings, amulets, circlets, cloaks, gloves, boots. |
-| **Spellbook** | Item Slot. Holds a fixed list of spells (10.1). Casting needs an empty Hand. |
+| **Spellbook** | Item Slot. Holds a fixed list of spells (9.1). Casting needs an empty Hand. |
 | **Spell** | Part of a Spellbook, never on its own. Its **level** (1st–6th) is its cost in spell points. |
 | **Cantrip** | A spell that costs nothing. Cast at will. |
 | **Consumable** | Item Slot, a stack of up to 3 identical Consumables. Gone once used. |
@@ -839,14 +616,14 @@ The first keyword. It sets the Slot (3.2).
 | **Trait** | Rune Slot. A lasting change to your body or mind. |
 | **Technique** | Rune Slot. A fighting move. |
 | **Domain** | Rune Slot. A bonus on checks for the activities of one domain. |
-| **Divine** | Rune Slot. A Litany: a WIL deck of prayers (10.6). |
-| **Glamour** | Rune Slot. A Repertoire: a WIL deck of songs, poems and dances (10.6). |
-| **Nature** | Rune Slot. An Instinct: a WIL deck of beasts (10.6). |
-| **Pact** | Rune Slot. A Pact: a WIL deck of a patron's gifts (10.6). |
+| **Divine** | Rune Slot. A Litany: a WIL deck of prayers (9.5). |
+| **Glamour** | Rune Slot. A Repertoire: a WIL deck of songs, poems and dances (9.5). |
+| **Nature** | Rune Slot. An Instinct: a WIL deck of beasts (9.5). |
+| **Pact** | Rune Slot. A Pact: a WIL deck of a patron's gifts (9.5). |
 | **Wound** | No Slot: a lasting injury (7.6). A **Crippling** Wound blocks the Gear Slot it names. |
-| **Form** | Part of an Instinct, never on its own. A beast you shift into (10.7). |
-| **Runestone** | An item, never in a Slot. Holds one Rune, or nothing. Pack (3 at most) or Party Stash (3.8). |
-| **Container** | An item, never in a Slot: it works from your Pack (a Purse also from the Party Stash). A Purse holds gold up to a maximum set by its Rank (3.7). |
+| **Form** | Part of an Instinct, never on its own. A beast you shift into (9.6). |
+| **Runestone** | An item, never in a Slot. Holds one Rune, or nothing. Pack (3 at most) or Party Stash (4.4). |
+| **Container** | An item, never in a Slot: it works from your Pack (a Purse also from the Party Stash). A Purse holds gold up to a maximum set by its Rank (4.3). |
 
 ### 11.2 Use and Timing
 
@@ -865,8 +642,8 @@ The first keyword. It sets the Slot (3.2).
 | **Brutal** | On a critical hit, roll its damage dice three times instead of twice. |
 | **Crushing** | A hit that beats the targeted Defense by 5 or more knocks the target Prone. |
 | **Flurry** | +2 on each attack after the first you make with it on your turn. |
-| **Heavy** | A big weapon. As loot it lights only the STR symbol: only a Calling with STR can equip it. |
-| **Light** | Allows two-weapon fighting (6.9). |
+| **Heavy** | A big weapon. As loot it lights only the STR affinity: only a Calling with STR can equip it. |
+| **Light** | Allows two-weapon fighting (6.8). |
 | **Loading** | One shot per action or reaction, even with extra attacks. |
 | **Noisy N** | −N on checks to sneak. |
 | **Range N/M** | A ranged attack. Beyond N: disadvantage. Beyond M: impossible. A single number is a spell's maximum range. |
@@ -880,16 +657,16 @@ The first keyword. It sets the Slot (3.2).
 | Keyword | Meaning |
 |---|---|
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |
-| **Cone, Cube, Cylinder, Emanation, Line, Sphere N** | An area of that shape and size (10.5). Roll once against every creature in it. Half damage on a miss. |
+| **Cone, Cube, Cylinder, Emanation, Line, Sphere N** | An area of that shape and size (9.4). Roll once against every creature in it. Half damage on a miss. |
 | **Subdue** | Takes a creature out of the fight; it names the state it inflicts (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack each turn, with decay (Chapter 8). |
 | **Duration T** | Lasts T (*1 minute*, *1 hour*), then ends. You can end it early, no action needed. **For N turns** on a target: until the end of its Nth turn from now (a Boss's half turns count). |
 | **Subtle** | Nobody notices you casting it. |
-| **Focus** | Strengthens your WIL magic as printed (10.6). On Jewelry, Instruments or weapons. |
-| **Anthem** | WIL magic (10.6). Action: a buff for allies who hear you, for a Duration. |
-| **Dirge** | WIL magic (10.6). Action: an attack against WIL Defense. |
-| **Cue** | WIL magic (10.6). Reaction: changes a roll after it's made, before its result. |
-| **Visual** | On a WIL magic power (10.6): it needs no voice and acts on creatures who see you, not on those who hear you. |
-| **Mend** | WIL magic (10.6). Restores HP to a creature in range, even one who can't hear you. |
+| **Focus** | Strengthens your WIL magic as printed (9.5). On Jewelry, Instruments or weapons. |
+| **Anthem** | WIL magic (9.5). Action: a buff for allies who hear you, for a Duration. |
+| **Dirge** | WIL magic (9.5). Action: an attack against WIL Defense. |
+| **Cue** | WIL magic (9.5). Reaction: changes a roll after it's made, before its result. |
+| **Visual** | On a WIL magic power (9.5): it needs no voice and acts on creatures who see you, not on those who hear you. |
+| **Mend** | WIL magic (9.5). Restores HP to a creature in range, even one who can't hear you. |
 | **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
 | **Vulnerable (type)** | Take double damage of that type. |
@@ -913,68 +690,55 @@ Defined in full in the Game Master's Guide.
 | Keyword | Meaning |
 |---|---|
 | **Boss** | Takes a half turn during the characters' side. |
-| **Leader** | Leads its group: when it falls, the rest check Morale (6.11). |
+| **Leader** | Leads its group: when it falls, the rest may flee or surrender. |
 | **Recharge 5–6** | Comes back on a 5 or 6 on a d6 at the end of the monster's turn. |
+
+---
 
 ## 12. At the Table
 
-At the table, everything a Bearer owns is a **card** laid out in front of its player: one card for the Calling, one per piece of gear, Rune, spell and amount of gold, and one **Slot frame** per Slot and Runestone. The rules never need the cards; they keep play fast. **No card is ever written on**, except one: your **tally card** (12.3).
+Everything a Bearer owns is a **card** laid out in front of its player, and each Slot and Runestone is a **frame**. No card is ever written on, except your **tally card** (12.3) and your **Bearer card** (2.5).
 
 ### 12.1 Reading a Card
 
-Every card has these parts (see the card in 3.1):
-
-- **Name, symbols and Rank** across the top (*Warden's Plate*, STR, Rank II). The symbols are the four abilities, the ones it uses lit (3.1).
-- **Bonus strip** down the right side: one row for each of the ten numbers (3.1). The four ability modifiers (STR, DEX, INT, WIL), the four Defenses (the same symbols inside a shield), HP maximum and Speed. Most cards leave it empty. A card that raises an ability modifier also shows the same number in the matching Defense row (+1 STR and +1 STR Defense), so each row adds up on its own.
-- **Effect** in the center, if it has one.
+- **Name, affinities and Rank** across the top. The card's affinities are lit, the others greyed out. The Rank is a stone at the top right, one branch per Rank. A Rune prints *Rune of* above its name and its type below.
+- **Bonus strip** down the right side: one row for each of your ten numbers (four modifiers, four Defenses, HP maximum, Speed). A card that raises a modifier shows the same number in the matching Defense row, so each row adds up on its own.
+- **Effects and powers** in the center.
 - **Keywords** along the bottom, type first.
-- **ID** in the bottom-right corner (*W-II-02*): its type, Rank and number, to find it in the box.
+- **ID** in the bottom-right corner (*W-II-02*): type, Rank and number.
 
-### 12.2 Slot Frames and Your Layout
+### 12.2 Frames and Your Layout
 
-Each of your Slots is a **Slot frame**: a holder a little larger than a card, with two slits at opposite corners. Its top band shows the Slot's symbol, name and swap time (3.5). Its center, hidden under the card, shows what the Slot does when it's empty.
+A **Slot frame** is a holder a little larger than a card, with two corner slits. Its top band shows the Slot's symbol, name and swap time; its center, what the Slot does when empty.
 
 <!-- figure: frame -->
 
-- **Framed means equipped.** Tuck a card's top-right and bottom-left corners under a frame's slits to equip it; untuck it to take it off. Every framed card is in play. Every loose card is in your Pack, the Party Stash or on the ground.
-- **Your frames are your Slots.** You start with 9: Armor, 2 Hands, Jewelry, 2 Items and 3 Runes. The GM hands you a new Rune frame at each milestone (4.1), and an extra Gear Slot frame when a Boss grants one (3.3). Frames never go into your Pack.
-- **Lay out** your frames so every effect and keyword reads: Armor, Hands, Jewelry, Items, Runes. Your Calling card and tally card sit beside them, unframed.
-- **One card per frame.** A Two-Handed weapon sits in one Hand frame; turn your other Hand frame face down. A stack of Consumables shares one Item frame. A deck (12.4) puts only its cover card in the frame, and its other cards wait beside it.
-- **Between sessions,** keep each frame with its card: your build stays as you left it.
-- **Pack:** a pile of loose cards beside you. **Party Stash:** a shared pile in the middle of the table, or with the GM when the party leaves it behind.
-- **Runestones:** a Runestone is a **Runestone frame**. Tuck the Rune's card into it the same way. A blank Runestone is the frame alone. Etching (3.8) moves the card from its Runestone frame into a Rune frame.
-- **Spent uses:** mark them with tokens on the card, or fill in their circles on your tally card. Spent spell points and Resolve go on your tally card (12.3). A **Subdue** keeps a die beside its target to show the decay (Chapter 8).
-- **Gold:** gold cards come in **1, 10, 50, 100, 500 and 1,000 gp**. Tuck them under the Purse card that holds them, up to its maximum. A loose gold card is one bag of coins (1 piece). Pay by handing gold cards to the GM, who makes change from the bank.
+- **Framed means equipped.** Tuck a card's corners under the slits to equip it. Every loose card is in your Pack (a pile beside you), the Party Stash (a shared pile) or on the ground.
+- You start with 9 frames: Armor, 2 Hands, Jewelry, 2 Items and 3 Runes. The GM hands you a new one with each Slot you gain. Your Calling, tally and Bearer cards sit beside them, unframed.
+- **One card per frame.** A Two-Handed weapon sits in one Hand frame; turn the other face down. A stack of Consumables shares one frame. A deck (12.4) frames only its cover card.
+- **Runestones:** a Runestone is a **Runestone frame**, blank when empty. Etching moves the card from it into a Rune frame.
+- **Dormant Runes** lie face down in their frame (7.5).
+- **Spent uses:** tokens on the card, or circles filled in on your tally card.
+- **Gold:** gold cards of **1, 10, 50, 100, 500 and 1,000 gp**, tucked under the Purse that holds them. A loose gold card is a bag of coins. The GM makes change from the bank.
 
 ### 12.3 Keeping Your Totals
 
-Your **tally card** is your **sheet**, a double-width card, and the only card you write on: use a pencil or a dry-erase sleeve, and start a fresh one when it's worn. Its strip lines up with every bonus strip and holds your ten **totals**: the sum of your Calling and all your other cards. Beside it, it holds your **HP** (temporary HP in the box's grey corner), your **death saves** (7.4), your **spell points** (10.2), your **Resolve** (10.6) and ten lines to list your **features**: the effects you want to keep in mind, with their uses (*Grit (1/S.R.)*) and a circle per use, filled in when you spend it.
+Your **tally card** is your sheet: a double-width card you write on in pencil. Its strip lines up with every bonus strip and holds your ten **totals**. Beside it: your **HP** (temporary HP in the grey corner), **death saves**, **spell points**, **Resolve**, and ten lines for the **features** you want to keep in mind, with a circle per use.
 
 <!-- figure: tally -->
 
-You only touch the totals at two moments.
-
-**When you swap**, subtract the old card's strip from the total, then add the new card's. An empty Armor Slot adds +10 Speed.
-
-> **Example: Bram the Templar swaps armor.** He takes off *Mail* (+3 STR Defense, +4 HP) and puts on *Plate* (+4 STR Defense, +12 HP, −10 Speed). STR Defense: 17 − 3 + 4 = 18. HP maximum: 22 − 4 + 12 = 30. Speed: 30 − 10 = 20.
-
-**Adding up from scratch** (a new character, or a new tally card): put your tally card down first, then your Calling on top of it, one strip to the left. Lay each card that has something in its strip on top of the previous one, one strip to the left, at the same height, so every strip stays visible and the rows line up. Cards with an empty strip stay out. Each row now reads like a written sum, left to right, ending on the tally card, where you write the result. Framed cards stack the same way, frames and all: each card's strip sits on its frame's right edge. An empty Armor frame shows its +10 Speed in the same place.
+- **When you swap,** subtract the old card's strip from your totals and add the new one's. An empty Armor Slot adds +10 Speed.
+- **From scratch:** lay your Calling on the tally card, one strip to the left, then each card with something in its strip on the previous one, one strip further left. Each row reads as a sum, ending on the tally card. Framed cards stack the same way, frames and all.
 
 <!-- figure: totals -->
 
-**Wounds** (7.6) are a shared deck of cards, shuffled, beside the table. Lay a penalty Wound in your stack like any card with a strip; tuck a Crippling Wound into the Slot frame it blocks, over nothing. When a Wound heals, it goes back into the deck.
-
-**When you shift** into a Form (10.7), fill a fresh tally card: the Form's strip, your Calling's INT and WIL, then your Runes (gear doesn't count). Put the Form's HP in its HP box. Your spell points and Resolve stay on your own tally card, and the Form's card leaves those boxes empty. When you revert, go back to your own tally card.
-
-**HP:** when your current HP changes, cross out the old number and write the new one.
-
-**Spell points and Resolve:** write the total on the right of the printed slash. Each time you spend a point, draw a small tally mark on the left of the slash. What you have left is the total minus the marks. A rest that brings the points back erases the marks (7.5). When the total changes (10.2, 10.6), write the new one and keep the marks. A box stays empty if you have no Spellbook, or no WIL deck.
-
-> **Example: Isolde the Sage** holds the *Conjurer's Book* (+2) with INT +2, and her *Learned* perk adds ½ INT, so 1: she writes **/ 5** in her spell point box. She casts *Web* (2 points) and *Shield* (1): **||| / 5**. She has 2 left until her next long rest.
+- **Spell points and Resolve:** write the total right of the slash, and one mark left of it per point spent (*||| / 5*: 2 left). A rest erases the marks. When the total changes, keep the marks.
+- **Wounds:** a shared, shuffled deck. A penalty Wound joins your stack like any card with a strip; a Crippling Wound is tucked into the frame it blocks. Healed, it returns to the deck.
+- **Forms:** a shifted Bearer fills a fresh tally card (9.6), with the Form's HP in its HP box; spell points and Resolve stay on their own card. Lay the Form's card on your Calling.
 
 ### 12.4 Decks
 
-A Spellbook is a **deck**: a **cover card** (Rank, spell attack, spell points, max spell level) on top, then **one card per cantrip and spell**, each marked with the book's name. The deck moves as one card, and its spell cards never move to another deck. A WIL deck (a Litany, a Repertoire, an Instinct, a Pact) is a deck too: a cover card (Rank, Attack, Resolve) and one card per power. A cover card's spell points or Resolve count in your total on the tally card (12.3); nothing is marked on the deck. While you're shifted, lay the Form's card on your Calling card, with its own tally card.
+A Spellbook or a WIL deck is a **deck**: a **cover card** (Rank, attack bonus, spell points or Resolve, max spell level) and **one card per spell or power**, each marked with the deck's name. It moves as one card.
 
 ---
 
@@ -982,15 +746,30 @@ A Spellbook is a **deck**: a **cover card** (Rank, spell attack, spell points, m
 
 ### 13.1 Creating a Character
 
-1. **Choose a Calling** (2.4).
-2. **Choose your gear and Runes** from the GM's starter list (all Rank I), among the cards your Calling can equip (3.1): **1 Armor**, up to **2** for your **Hands** (weapons or a shield), **1 Jewelry** and **3 Runes**. A caster also picks a **Spellbook** (it takes an Item Slot and needs an empty Hand Slot to cast). A WIL deck is one of your 3 Runes.
-3. **Fill your Item Slots**: one *Potion of Healing* (in the free Item Slot).
-4. **Take 3 blank Runestones** and a *Coin Pouch* (Container, Rank I) holding **50 gp** (all in your Pack). The party's Stash starts with **2 blank Runestones per character** (3.8).
-5. **Calculate** your ten totals (four modifiers, four Defenses, HP maximum, Speed) by adding the bonuses of your gear and Runes to your Calling's, and write them on a tally card with your current HP (12.3). With a Spellbook, write your spell points (10.2); with a WIL deck, your Resolve (10.6). Then work out your weapon and spell attack bonuses and passive Awareness (5.3).
-6. **Describe** who you are: name, look and a bond.
+1. **Choose a Calling** (13.2).
+2. **Choose your gear and Runes** from the GM's starter list (all Rank I), among the cards your Calling can equip: **1 Armor**, up to **2** cards for your **Hands**, **1 Jewelry** and **3 Runes** (a WIL deck is one of them). A caster also picks a **Spellbook**.
+3. **Take** a *Potion of Healing* in an Item Slot and, in your Pack, **3 blank Runestones** and a *Coin Pouch* holding **50 gp**. The Party Stash starts with **2 blank Runestones per character**.
+4. **Add up** your ten totals on a tally card (12.3), with your HP, spell points (9.2) and Resolve (9.5). Work out your attack bonuses and passive Awareness (3.3).
+5. **Fill in your Bearer card** (2.5), with at least one bond.
+
+### 13.2 The Callings
+
+| Calling | Abilities | HP | Speed | Effects and powers |
+|---|---|---|---|---|
+| **Duelist** | STR · DEX | 12 | 35 ft | **Footwork:** once per turn, after you hit with a melee attack, move 5 ft × ½ DEX. This movement doesn't provoke opportunity attacks. **Riposte (½ STR/S.R.):** reaction, when a melee attack misses you: make one melee weapon attack against the attacker. |
+| **Templar** | STR · WIL | 14 | 30 ft | **Oath (½ WIL/S.R.):** reaction, when an attack hits an ally within 5 ft: you take its damage instead, reduced by 2 × STR. |
+| **Spellblade** | STR · INT | 13 | 30 ft | **Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook. **Spell Strike (½ STR/S.R.):** when you hit with a melee weapon attack: +INT damage. |
+| **Infiltrator** | DEX · INT | 10 | 35 ft | **Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT. |
+| **Performer** | DEX · WIL | 10 | 35 ft | **Presence:** your checks to perform, persuade and deceive add both DEX and WIL. |
+| **Sage** | INT · WIL | 9 | 35 ft | **Learned:** ½ INT extra spell points (9.2). Your checks to recall lore add both INT and WIL. |
+| **Brawler** | STR · DEX | 14 | 30 ft | **Scrapper:** +STR to hit with Grapples and Shoves. **Slip Free:** your Escape attacks (6.9) add 2 × DEX instead of STR or DEX. |
+| **Patriot** | STR · WIL | 12 | 35 ft | **Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage. |
+| **Tactician** | STR · INT | 12 | 35 ft | **Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit. |
+| **Ranger** | DEX · INT | 11 | 35 ft | **Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn. |
+| **Trickster** | DEX · WIL | 9 | 35 ft | **Sure Thing:** on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher. |
+| **Hermit** | INT · WIL | 11 | 30 ft | **Solitude:** ½ WIL extra Resolve (9.5). Your checks to forage and endure add both INT and WIL. |
 
 ---
-
 ## 14. Glossary
 <!-- glossary:start -->
 
@@ -1001,16 +780,18 @@ Each game term has one meaning, in both books.
 | **Ability** | One of four measures every creature has: Strength (STR), Dexterity (DEX), Intelligence (INT) and Will (WIL), each written as a modifier. |
 | **Action** | Using it takes one of your two actions. |
 | **Advantage on damage** | Moving an advantage die left after cancelling from an attack to its damage, chosen before rolling: roll the whole damage once more per die and keep the highest total. Disadvantage always stays on the attack. |
+| **Affinities** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling shares at least one of its lit affinities. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four affinities. |
 | **Anthem** | A WIL magic power. Action: a buff for allies who hear you, for a Duration. |
 | **Aquatic** | A weapon keyword: works underwater, where other weapons and spells don't. |
 | **Area** | Cone, Cube, Cylinder, Emanation, Line or Sphere N: an area of that shape and size. Roll once against every creature in it. Half damage on a miss. |
 | **Armor** | The type of gear worn on the body; it fits the Armor Slot. Takes 10 minutes to don or doff. Never in the Pack. |
 | **Attack roll** | A roll of d20 + modifiers against a Defense, made by whoever harms or hinders: weapons, spells, WIL magic, traps, poisons. |
 | **Bearer** | A humanoid who can etch Runes into themself and take them out again. Every player character is one. |
+| **Bearer card** | The double-width card you fill in ink at character creation: portrait, name, age, folk and look on the front; personality, ambition, fear, bonds, background and notes on the back. It lasts as long as the Bearer. |
 | **Blindsight N** | Perceive everything within N ft without sight. |
 | **Boss** | A strong monster with special powers, including a half turn during the characters' side. |
 | **Brutal** | A weapon keyword: on a critical hit, roll its damage dice three times instead of twice. |
-| **Calling** | The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Runes you can equip. It is neither a Rune nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Patriot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
+| **Calling** | The pair of abilities a Bearer's past has shaped, kept for life: +2 in both, HP, Speed and its own effects and powers. It decides which gear and Runes you can equip. It is neither a Rune nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Patriot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL). |
 | **Cantrip** | A spell that costs nothing. Cast at will. |
 | **Capture** | Setting a lingering Rune into a blank Runestone. |
 | **Card** | The physical component for a Calling, a piece of gear, a Rune, a spell, a Wound, a foe or an amount of gold. |
@@ -1029,9 +810,11 @@ Each game term has one meaning, in both books.
 | **Dirge** | A WIL magic power. Action: an attack against WIL Defense. |
 | **Divine** | A type of WIL deck: the magic of prayer. Its deck is a **Litany**, which holds fate and healing powers: Anthems, Dirges, Cues and Mends. |
 | **Domain** | A Rune type: a bonus on checks for the activities of one domain. |
+| **Dormant** | An etched Rune fallen still: its card lies face down and does nothing, but keeps its Slot. A Rune can go Dormant when a rest heals you (1 in 8 after a short rest, 1 in 4 after a long one). |
 | **Downtime** | 3 days of rest in a safe place: does everything a long rest does, and heals all your Wounds. |
 | **Drop** | Gear or a Rune that a trial yields as loot; to drop is to yield it. |
-| **Duration** | A set length of time an effect lasts, printed on it. |
+| **Duration** | A set length of time a spell or power lasts, printed on it. |
+| **Effect** | What a card does on its own, at all times: no action, reaction or use (*Battle Caster*, a bonus to some checks). Every other part of a card's text is a power. |
 | **Effective level** | The GM's estimate of a character's power, from 1 to 12, used to size fights and trial DCs. Not a character stat. |
 | **Equipment** | Gear you wear or wield: armor, weapons, shields, Instruments and Jewelry. |
 | **Etch** | Moving a Runestone's Rune into a Rune Slot, during a long rest. |
@@ -1042,11 +825,11 @@ Each game term has one meaning, in both books.
 | **Foe card** | The GM's card for one kind of monster: its body, totals and powers. Cards named in italics on it can drop; plain text never does. |
 | **Form** | One beast body in an Instinct (Nature), printed like a Calling: STR, DEX, HP, Speed and Size. While you are shifted into it, it replaces your body; your mind and Runes stay. |
 | **Game Master (GM)** | The player who describes the world, runs monsters and adjudicates rules. |
-| **Gear** | Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards its Calling's symbols allow. |
+| **Gear** | Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards whose affinities its Calling shares. |
 | **Gear Slot** | An Armor, Hand, Jewelry or Item Slot. |
 | **Gift** | A copy of a Rune that a living creature other than a Bearer gives willingly, set into a blank Runestone. The giver keeps its own. Only an anchored Rune can be copied, so a Bearer never copies. |
 | **Glamour** | A type of WIL deck: the magic of performance and command. Its deck is a **Repertoire**, which holds powers of courage and fear: Anthems, Dirges, Cues and Mends. |
-| **Heavy** | A weapon keyword: a big weapon. As loot it lights only the STR symbol, so only a Calling with STR can equip it. |
+| **Heavy** | A weapon keyword: a big weapon. As loot it lights only the STR affinity, so only a Calling with STR can equip it. |
 | **Instrument** | Equipment held in a Hand that is neither a weapon nor a shield: a lute, a drum, a horn. |
 | **Item** | Gear you carry and use: Spellbooks, Recipes, Consumables, Containers and Runestones. |
 | **Jewelry** | The type of worn gear that fits the Jewelry Slot: rings, amulets, circlets, cloaks, gloves, boots. |
@@ -1069,6 +852,7 @@ Each game term has one meaning, in both books.
 | **Party Stash** | The group's mule, cart or wagon: gear and Runestones the party owns but nobody carries. |
 | **Piece** | One unit of gear, as the Pack, the Party Stash and loot count it. A stack of up to 3 identical Consumables is one piece. |
 | **Play loop** | The repeating cycle of play: face a trial, gather the loot, rest and rebuild when needed. |
+| **Power** | What a card lets you use: it takes an action or a reaction, or spends a use (*Riposte (½ STR/S.R.)*). WIL magic powers are powers too. |
 | **Purse** | A Container that holds your gold, up to a maximum set by its Rank. |
 | **Quest** | A goal the party takes on, a few trials long. |
 | **Range N/M** | A ranged attack. Beyond N: disadvantage. Beyond M: impossible. A single number is a spell's maximum range. |
@@ -1081,7 +865,7 @@ Each game term has one meaning, in both books.
 | **Reroll** | The roll is made again (all its d20s) and the new result counts. A roll can be rerolled only once. |
 | **Resist (type)** | Take half damage of that type. |
 | **Resolve** | The points your WIL magic costs: one pool, the sum your WIL decks print + WIL (minimum 1), kept on your tally card. It returns on a short rest. |
-| **Rune** | A power in the shape of a sign: a Trait, Technique, Domain or WIL deck. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone. |
+| **Rune** | A power in the shape of a sign: a Trait, Technique, Domain or WIL deck. Magical creatures nearly always carry a few, anchored in them for life; in others they are the exception (a veteran, a master). A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone. |
 | **Rune Slot** | A Slot that holds one Rune. You start with 3 and can reach 8. |
 | **Runestone** | A bulky stone that holds one Rune, or nothing (a blank Runestone). An item, but never in a Slot. |
 | **Shield** | The type of held gear that raises your Defenses; it fits a Hand Slot. |
@@ -1092,16 +876,16 @@ Each game term has one meaning, in both books.
 | **Spell** | One card of a Spellbook, never on its own. Its level is its cost in spell points. |
 | **Spell level** | A spell's power and its cost in spell points, from 1st to 6th. |
 | **Spell points** | The points your spells cost: one pool, the sum your Spellbooks print + INT (minimum 1), kept on your tally card. It returns on a long rest. |
-| **Spellbook** | An item holding a fixed list of spells. Its spell points add to your one pool. All spellcasting uses INT. |
+| **Spellbook** | An item holding a fixed list of spells. Its spell points add to your one pool. This is INT magic: it uses INT. |
 | **Story** | The campaign's big arc, made of quests. Completing one grants a milestone. |
-| **Subdue** | The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
+| **Subdue** | The keyword of a spell or power that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses. |
 | **Subtle** | Nobody notices you casting it. |
 | **Swim N** | A swim speed: swimming costs no extra movement, and full speed underwater. |
-| **Symbols** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols. |
-| **Tally card** | The one card you write on: your ten totals, HP and temporary HP, death saves, spell points, Resolve and features. |
+| **Tally card** | The card you write on in pencil: your ten totals, HP and temporary HP, death saves, spell points, Resolve and features. |
 | **Target question** | The second of the three questions asked before an attack: the target's conditions (Prone, Restrained, Stunned). One advantage die at most, however many apply. |
 | **Targets X** | The attack is against the target's X Defense (STR, DEX, INT or WIL). |
 | **Technique** | A Rune type: a fighting move. |
+| **Tend** | At a short or long rest, keeping your Runes instead of healing: you regain no HP, so no Rune can go Dormant. Everything else the rest gives still returns. |
 | **Thrown N/M** | A weapon keyword: it can be thrown as a ranged attack, using the modifier of its melee use. Beyond N ft: disadvantage. Beyond M ft: impossible (*Thrown 20/60*). |
 | **Totals** | Your ten running numbers: four ability modifiers, four Defenses, HP maximum and Speed. |
 | **Trait** | A Rune type: a lasting change to your body or mind. |
@@ -1114,6 +898,7 @@ Each game term has one meaning, in both books.
 | **Versatile** | A weapon keyword: uses the bigger damage die when held in two hands. |
 | **Visual** | A keyword on a WIL magic power: it needs no voice and acts on creatures who see you, not on those who hear you (a dance, a sign). |
 | **Vulnerable (type)** | Take double damage of that type. |
+| **Wake** | At a long rest, releasing a Runestone that holds a Rune of equal or higher Rank, so that a Dormant Rune works again. |
 | **Weapon** | The type of held gear you attack with; it fits a Hand Slot. It prints its to-hit bonus and damage, adding the higher of the abilities it names (*+2 to hit, 1d8 + STR or DEX Physical*). |
 | **WIL deck** | A Rune of WIL magic: a fixed list of powers, with an Attack bonus and the Resolve it adds to yours. Its type (Divine, Glamour, Nature or Pact) says which powers it holds and changes no other rule. |
 | **Wound** | A lasting injury, drawn at random each time you fall to 0 HP. It stays until a downtime heals it. A Crippling Wound blocks a Gear Slot. |

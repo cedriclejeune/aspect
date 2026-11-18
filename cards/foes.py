@@ -9,7 +9,7 @@ bonus adds plain-text numbers to the strip; extra_dice adds damage dice to every
 ({weapon card name: n}). recharge={card name: 5} turns a carried card's limited uses into Recharge 5–6 for this foe.
 powers picks which powers of a carried deck the foe uses (the whole deck drops).
 alert and own_fx are the sim's mechanics for own: alert = Keen Nose, own_fx = Powers (SPEC 2.1) for plain-text attacks and powers.
-leader=True marks a foe that leads its group (keyword Leader, Morale P 6.11).
+leader=True marks a foe that leads its group (keyword Leader, Morale GM 2.4).
 The keywords at the bottom are built from the type (Foe, Boss), Leader, the size and senses.
 """
 

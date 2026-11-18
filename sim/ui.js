@@ -943,7 +943,7 @@
   function resourceText(c, src) {
     const base = A.base && A.base.creatures[c.id];
     const parts = [];
-    // One pool each (P 10.2, 10.6): show the one this deck spends, as on the tally card.
+    // One pool each (P 9.2, 9.5): show the one this deck spends, as on the tally card.
     const d = CARDS.decks[src];
     if (d && d.kind === "spellbook" && c.sp != null) parts.push(`spell points ${c.sp}/${c.pools ? c.pools.spMax : base ? base.sp : "?"}`);
     if (d && d.kind !== "spellbook" && c.resolve != null) parts.push(`Resolve ${c.resolve}/${c.pools ? c.pools.resolveMax : base ? base.resolve : "?"}`);
@@ -982,7 +982,7 @@
         const max = (deck && deck.maxLevel) || pw.cost;
         if (max > pw.cost) extra = h("label.field", "Level", select(a.level, Array.from({ length: max - pw.cost + 1 }, (_, i) => [pw.cost + i, pw.cost + i]), (v) => { a.level = +v; refreshPreview(); render(); }));
       }
-      // P 5.2: advantage dice left after cancelling can go to damage
+      // P 6.6: advantage dice left after cancelling can go to damage
       const net = pv && pv.info ? (pv.info.adv || 0) - (pv.info.dis || 0) : 0;
       if (net > 0 && (a.tpl.type === "attack" || pv.info.toHit != null)) extra = [extra, h("label.field", "Dice on damage", select(a.toDamage || 0, Array.from({ length: net + 1 }, (_, i) => [i, i]), (v) => { a.toDamage = +v; refreshPreview(); render(); }))];
       if (a.targets.length) extra = [extra, h("div.targets", "Targets: ", a.targets.map((t) => cr(t).name).join(", "))];
@@ -1166,7 +1166,7 @@
         const t = A.fight.legal("pc3").find((x) => x.type === "power" && /grease|web/.test(x.power));
         if (t) { arm(t); onCell(10, 5); }
       }
-      if (name === "summary" || name === "fled") { // four foes fall: Morale (P 6.11) may make others flee
+      if (name === "summary" || name === "fled") { // four foes fall: Morale (GM 2.4) may make others flee
         for (const id of ["foe2", "foe3", "foe4", "foe5"]) send({ type: "adjust", actor: id, hp: 0 });
         send({ type: "adjust", actor: "foe1", hp: 1 });
         for (const pc of ["pc2", "pc3", "pc4", "pc1"]) {

@@ -26,18 +26,19 @@ BUILD = ROOT / "build"
 # or wherever the Markdown has a <!-- figure: key --> line.
 FIGURES = {
     "Story, Quests & Trials": (ill.play_loop, "Chain trials straight from Gather; rest (dotted) when the party needs it. A few trials make a quest; a few quests make a story.", "wide"),
-    "calling": (ill.calling_card, "A Calling card: its own values in the strip. Your totals go on the tally card (12.3).", "full"),
+    "calling": (ill.calling_card, "A Calling card: its own values in the strip. Your totals go on the tally card (12.3).", "mid"),
     "card": (ill.card_elements, "Where each element sits on a card.", "wide"),
     "rank": (ill.rank_ladder, "Rank I is a small edge; Rank V breaks the rules.", "side"),
-    "3.2 Your Slots": (ill.character_anatomy, "A starting Duelist: Calling, Armor, two Hands, Jewelry, two Items and three Runes.", "wide"),
-    "tally": (ill.tally_card, "The tally card, the one card you write on.", "full"),
+    "4.2 Your Slots": (ill.character_anatomy, "A starting Duelist: Calling, Armor, two Hands, Jewelry, two Items and three Runes.", "wide"),
+    "tally": (ill.tally_card, "The tally card, the one you write on in pencil.", "full"),
+    "bearer": (ill.bearer_card, "The Bearer card: who you are on the front, what drives you on the back.", "full"),
     "frame": (ill.frame_figure, "An empty Armor frame, and a Hand frame holding a weapon by two corner slits.", "wide"),
     "totals": (ill.keeping_totals, "Bram's cards in play beside his tally card (top), and stacked on it to add up (bottom).", "full"),
     "6.1 Order of Combat": (ill.initiative_timeline, "Side initiative: the winners open with half a turn, then sides alternate full turns.", "full"),
     "6.5 Engagement": (ill.combat_grid, "Reach, opportunity attacks and cover on the grid.", "wide"),
     "7.4 Falling to 0 HP": (ill.death_saves, "The death save track.", "wide"),
-    "9.1 Armor": (ill.armor_tiers, "Leather, Mail, Plate and the shield, with their Defense bonuses.", "wide"),
-    "10.5 Areas of Effect": (ill.areas_of_effect, "Areas of effect. The black dot marks the point of origin.", "wide"),
+    "5.1 Armor": (ill.armor_tiers, "Leather, Mail, Plate and the shield, with their Defense bonuses.", "wide"),
+    "9.4 Areas of Effect": (ill.areas_of_effect, "Areas of effect. The black dot marks the point of origin.", "wide"),
 }
 
 CSS = """

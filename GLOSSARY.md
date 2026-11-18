@@ -35,7 +35,7 @@ _Avoid_: stats, derived stats
 ### Gear, Runes & Slots
 
 **Gear**:
-Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards its Calling's symbols allow.
+Every real object a Bearer can equip or store: equipment and items. Any creature can use gear; a Bearer only the cards whose affinities its Calling shares.
 _Avoid_: card (outside At the Table), loot (as a synonym)
 
 **Equipment**:
@@ -91,16 +91,16 @@ A space that holds one piece of gear or one Rune of the matching type: Armor, Ha
 _Avoid_: socket, attunement slot
 
 **Rune**:
-A power in the shape of a sign: a Trait, Technique, Domain or WIL deck. Most creatures carry a few, anchored in them for life. A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone.
+A power in the shape of a sign: a Trait, Technique, Domain or WIL deck. Magical creatures nearly always carry a few, anchored in them for life; in others they are the exception (a veteran, a master). A Rune never anchors in a Bearer: only a Bearer can etch one and take it out again. Outside a creature, it sits in a Runestone.
 _Avoid_: Aspect, feat, feature, power (as the general term), glyph, sigil (as the term)
 
 **Calling**:
-The pair of abilities a Bearer is born to, kept for life: +2 in both, HP, Speed and a perk. It decides which gear and Runes you can equip. It is neither a Rune nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Patriot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL).
+The pair of abilities a Bearer's past has shaped, kept for life: +2 in both, HP, Speed and its own effects and powers. It decides which gear and Runes you can equip. It is neither a Rune nor gear. Two per pair: Duelist and Brawler (STR · DEX), Templar and Patriot (STR · WIL), Spellblade and Tactician (STR · INT), Infiltrator and Ranger (DEX · INT), Performer and Trickster (DEX · WIL), Sage and Hermit (INT · WIL).
 _Avoid_: Core, background, archetype, class, race, stat block (for players)
 
-**Symbols**:
-The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling has at least one of its lit symbols. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four symbols.
-_Avoid_: requirement, prerequisite, Req
+**Affinities**:
+The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling shares at least one of its lit affinities. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four affinities.
+_Avoid_: requirement, prerequisite, Req, symbols (as the term), attunement
 
 **Gear Slot**:
 An Armor, Hand, Jewelry or Item Slot.
@@ -126,6 +126,14 @@ A Rune type: a fighting move.
 **Domain**:
 A Rune type: a bonus on checks for the activities of one domain.
 _Avoid_: Knack, skill, proficiency, talent, background
+
+**Effect**:
+What a card does on its own, at all times: no action, reaction or use (*Battle Caster*, a bonus to some checks). Every other part of a card's text is a power.
+_Avoid_: perk (for a Calling), passive, feature
+
+**Power**:
+What a card lets you use: it takes an action or a reaction, or spends a use (*Riposte (½ STR/S.R.)*). WIL magic powers are powers too.
+_Avoid_: perk (for a Calling), active, ability (Ability is STR, DEX, INT or WIL), feat
 
 **Uses**:
 A limited number of activations of one power, written on it (*2/S.R.*, *1/L.R.*), that come back on a short or long rest.
@@ -155,6 +163,14 @@ _Avoid_: Absorb, equip (for Runes), learn, attune, engrave
 **Release**:
 Wiping a Runestone blank. Its Rune is gone for good.
 _Avoid_: destroy, discard
+
+**Dormant**:
+An etched Rune fallen still: its card lies face down and does nothing, but keeps its Slot. A Rune can go Dormant when a rest heals you (1 in 8 after a short rest, 1 in 4 after a long one).
+_Avoid_: broken, faded, inactive, disabled
+
+**Wake**:
+At a long rest, releasing a Runestone that holds a Rune of equal or higher Rank, so that a Dormant Rune works again.
+_Avoid_: repair, rekindle, recharge
 
 **Pack**:
 Your personal bag: up to 8 pieces, gear you carry but haven't equipped and at most 3 Runestones.
@@ -217,7 +233,7 @@ _Avoid_: Use Item, Use Object
 ### Effects
 
 **Subdue**:
-The keyword of an effect that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses.
+The keyword of a spell or power that takes a creature out of the fight. It names its state (Stunned, Charmed, banished…). The target loses its next turn, then the source repeats the attack at each of its turns, with decay, until a repeat misses.
 _Avoid_: Hold (as a keyword), Lasting, maintain roll, save-ends, concentration, disable, takedown, crowd control
 
 **Decay**:
@@ -225,10 +241,10 @@ The disadvantage dice a Subdue's repeat attack gathers: one for each repeat that
 _Avoid_: weakening
 
 **Duration**:
-A set length of time an effect lasts, printed on it.
+A set length of time a spell or power lasts, printed on it.
 
 **Spellbook**:
-An item holding a fixed list of spells. Its spell points add to your one pool. All spellcasting uses INT.
+An item holding a fixed list of spells. Its spell points add to your one pool. This is INT magic: it uses INT.
 _Avoid_: grimoire, spell list
 
 **Spell points**:
@@ -324,7 +340,7 @@ A weapon keyword: a hit that beats the targeted Defense by 5 or more knocks the 
 A weapon keyword: +2 on each attack after the first you make with it on your turn.
 
 **Heavy**:
-A weapon keyword: a big weapon. As loot it lights only the STR symbol, so only a Calling with STR can equip it.
+A weapon keyword: a big weapon. As loot it lights only the STR affinity, so only a Calling with STR can equip it.
 
 **Light**:
 A weapon keyword: allows two-weapon fighting.
@@ -415,6 +431,10 @@ _Avoid_: injury, exhaustion, scar, fatigue
 3 days of rest in a safe place: does everything a long rest does, and heals all your Wounds.
 _Avoid_: long rest (for this), recovery
 
+**Tend**:
+At a short or long rest, keeping your Runes instead of healing: you regain no HP, so no Rune can go Dormant. Everything else the rest gives still returns.
+_Avoid_: meditate (as a term), attune, maintain
+
 ### Monsters
 
 **Boss**:
@@ -453,6 +473,10 @@ _Avoid_: card (in rules text outside At the Table)
 The code in a card's bottom-right corner: type letter, Rank if it has one, and number (W-II-02, L-04).
 _Avoid_: card number, serial
 
+**Bearer card**:
+The double-width card you fill in ink at character creation: portrait, name, age, folk and look on the front; personality, ambition, fear, bonds, background and notes on the back. It lasts as long as the Bearer.
+_Avoid_: character sheet, identity card
+
 **Tally card**:
-The one card you write on: your ten totals, HP and temporary HP, death saves, spell points, Resolve and features.
+The card you write on in pencil: your ten totals, HP and temporary HP, death saves, spell points, Resolve and features.
 _Avoid_: character sheet (as the term)

@@ -46,7 +46,7 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
   "strip": { "STR": 1, "STRd": 1, "SPD": 5 },   // integers. Calling: absolute values; other cards: bonuses. Keys STR DEX INT WIL STRd DEXd INTd WILd HP SPD
   "group": "starter" | "loot",
   "size": "Medium",                    // Callings only
-  "sym": ["STR", "WIL"],               // gear, Aspects, Callings: its lit symbols (P 3.1); a Calling with one of them can equip it
+  "sym": ["STR", "WIL"],               // gear, Aspects, Callings: its lit symbols (P 4.1); a Calling with one of them can equip it
   "noisy": 3,                          // if any
   "uses": 3,                           // Recipe flasks, if any
   "atk": WeaponAtk,                    // Weapons only
@@ -74,7 +74,7 @@ if (typeof module !== "undefined") module.exports = globalThis.BEARERS_CARDS;
   "carries": ["W-I-13", "..."],        // card IDs it equips (Slots inferred from type)
   "bonus": { "HP": 33 }, "extraDice": 1,
   "powers": ["Bane", "Twist Fate"],    // deck powers it uses ([] = all)
-  "senses": { "darkvision": 60 }, "alert": false, "boss": false, "leader": false,   // leader: keyword Leader (Morale, P 6.11)
+  "senses": { "darkvision": 60 }, "alert": false, "boss": false, "leader": false,   // leader: keyword Leader (Morale, GM 2.4)
   "own": ["plain text"], "ownFx": [Power],   // plain-text powers as mechanics
   "totals": { "STR": 4, "...": 0 }     // as printed on the foe card (for cross-checking)
 }
@@ -184,7 +184,7 @@ UMD: `globalThis.BearersEngine = {...}` and `module.exports` under Node.
 ```js
 const Eng = BearersEngine;
 Eng.totals(build, cards)        // → { STR, DEX, INT, WIL, STRd, DEXd, INTd, WILd, HP, SPD, size, errors: [] }  (tally card, P 12.3; empty Armor Slot +10 SPD)
-Eng.validate(build, cards)      // → [string]  Slot limits, types per Slot, symbols against the Calling (P 3.1), no duplicate copies (P 3.6)
+Eng.validate(build, cards)      // → [string]  Slot limits, types per Slot, symbols against the Calling (P 4.1), no duplicate copies (P 4.6)
 Eng.fromFoe(foe, cards)         // → Build
 const f = Eng.createFight(scenario, cards)   // → Fight
 f.state                         // plain JSON, serializable; the UI reads it, never writes it
@@ -213,7 +213,7 @@ Eng.replay(exported, cards)     // → Fight
     "mods": [ { "kind": "attack", "n": 2, "dice": null, "next": true, "until": "...", "source": "pc3", "power": "..." } ],
     "turn": { "moved": 0, "speed": 30, "action": false, "bonus": false, "reaction": false, "interact": false, "spellCast": false, "disengaged": false, "dodging": false, "firstMover": false },
     "hands": [...], "carried": [...], "items": [...],
-    "uses": { "<power id>": 1 }, "sp": 5, "resolve": 6,   // one pool each (P 10.2, 10.6), null without such a deck
+    "uses": { "<power id>": 1 }, "sp": 5, "resolve": 6,   // one pool each (P 9.2, 9.5), null without such a deck
     "pools": { "books": ["<deck id>"], "wil": ["<deck id>"], "spMax": 5, "resolveMax": 6, "spentSp": 0, "spentResolve": 0, "extraSp": 0, "extraResolve": 0 },
     "react": "ask"
   } },
@@ -226,9 +226,9 @@ Eng.replay(exported, cards)     // → Fight
 | `start` | — | a surprised side: the other goes first with full turns (Ambush), no roll; otherwise side initiative: d20 + the side's best DEX, re-roll ties (P 6.1) |
 | `beginTurn` | `actor` | pick who acts next on the active side; `half: true` for a Boss half turn on the other side (GM 3) |
 | `move` | `actor, path: [[x,y],...]` | cost, difficult terrain, Prone crawl, stand up (`stand: true`), provoked OAs (P 6.4–6.5) |
-| `attack` | `actor, weapon: "<card id>" \| "unarmed" \| "improvised" \| "natural", target, thrown: bool, toDamage: n` | P 6.6–6.9; two-weapon bonus attack: `offhand: true`; `toDamage`: advantage dice moved to damage (P 5.2, also on `power`) |
+| `attack` | `actor, weapon: "<card id>" \| "unarmed" \| "improvised" \| "natural", target, thrown: bool, toDamage: n` | P 6.6–6.8; two-weapon bonus attack: `offhand: true`; `toDamage`: advantage dice moved to damage (P 6.6, also on `power`) |
 | `act` | `actor, action: "disengage" \| "dodge" \| "help" \| "holdOn", target?` | P 6.3, 8 (holdOn: both actions, the next repeat of each Subdue you hold adds no decay) |
-| `shove` / `grapple` / `escape` | `actor, target, mode: "push" \| "prone"` | P 6.10 |
+| `shove` / `grapple` / `escape` | `actor, target, mode: "push" \| "prone"` | P 6.9 |
 | `power` | `actor, power: "<power id>", targets: [id], point: [x,y], level` | spells, deck powers, card powers |
 | `interact` | `actor, draw: "<card id>", stow: "<card id>"` | free object interaction: swap a carried weapon in hand, pick up a thrown one |
 | `note` | `actor, text` | free-text "Other" action, logged |
@@ -267,4 +267,4 @@ CSV export: one row per creature with those columns.
 - `act` action `endCond` (field `cond`): spend the action a condition names to end it (Pilum: pull it free). Conditions may carry `card` and `endAction`.
 - Foe `extraDice`: a number (extra damage dice on every weapon, as before) or `{ "<weapon card id>": n }` (only those weapons; natural and Form weapons get none). Ogre: `{ "W-I-11": 1 }` (Javelins). `fromFoe` copies it into `Build.extraDice`, which takes the same two shapes.
 - Foe `recharge: { "<power id>": 5 }`: for this creature the card power loses its `uses` and becomes Recharge 5–6 (ready at the start of the fight, rolled for at the start of its turns). Ogre: `{ "Q-II-02#0": 5 }` (Sweeping Blow). `fromFoe` copies it into `Build.recharge`. In `cards/foes.py` it is `recharge={card name: 5}`; the export maps it to every limited-use power of that card. Recharge is rolled at the end of the creature's full turn (GM 2.1).
-- Foe `leader: true` (keyword Leader): `fromFoe` copies it into `Build.leader`. Morale (P 6.11, R800) runs after each command, one roll per group with its best WIL; a foe that flees gets `dead: true, fled: true` in its state (it takes its gear) and a `flee` event; `state.morale = { group: [foe ids at start], leader, half }` records the triggers already fired.
+- Foe `leader: true` (keyword Leader): `fromFoe` copies it into `Build.leader`. Morale (GM 2.4, R800) runs after each command, one roll per group with its best WIL; a foe that flees gets `dead: true, fled: true` in its state (it takes its gear) and a `flee` event; `state.morale = { group: [foe ids at start], leader, half }` records the triggers already fired.

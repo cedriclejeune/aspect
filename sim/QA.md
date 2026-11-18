@@ -23,7 +23,7 @@ None of these checks fired in normal play (0 exceptions, 0 refusals of policy co
 
 | # | Sev | Repro | Expected (rule) | Actual |
 |---|---|---|---|---|
-| B1 | High | `t_spot3.js`: Cleric casts Bless, Mage casts Grease, then both die (`adjust dead`). Play 12 more rounds. | Bless, Grease and any "until"/Duration end after their time (P 10.4 "set duration"; Bless 1 minute = 10 rounds). | At round 14 the Fighter still has Bless (`rounds: 10` left) and the Grease zone still exists. Durations count the **source's** turn starts (R206, R236, Help R237), and a dead source has no more turns, so they never end. This also hits Bellow's "until the end of its next turn" and `endSourceTurn` mods. |
+| B1 | High | `t_spot3.js`: Cleric casts Bless, Mage casts Grease, then both die (`adjust dead`). Play 12 more rounds. | Bless, Grease and any "until"/Duration end after their time (P 9.3 "set duration"; Bless 1 minute = 10 rounds). | At round 14 the Fighter still has Bless (`rounds: 10` left) and the Grease zone still exists. Durations count the **source's** turn starts (R206, R236, Help R237), and a dead source has no more turns, so they never end. This also hits Bellow's "until the end of its next turn" and `endSourceTurn` mods. |
 | B2 | High | Same script: after the Mage dies, the Fighter moves into the Grease: `move path [[3,5],[4,4],[5,4],[6,4]]`. | The zone attacks with the source's bonus (R243) or has ended. | `preview` says ok, but `do` refuses the move: `"Not a living creature"`. `attackInfo` fails on a dead attacker inside `triggerZone`, so a dead caster's zone blocks movement into its squares. |
 | B3 | High | `t_spot3.js`: the Ogre Chieftain's Bellow hits Weakwill (half turn, round 1). The Chieftain dies. Play 5 rounds. | Frightened ends at the end of the Chieftain's next turn (Bellow text), or when its source is gone (P 8 "until its source ends it or its duration expires"). | At round 7 Weakwill is still Frightened, and `move` toward the corpse is refused ("can't move closer to Boss"). `canSee` doesn't check whether the target is dead, so the corpse also counts as "in sight" for the Frightened disadvantage. Same root cause as B1, plus `sweep` only clears Lasting and Grappled conditions. |
 | B4 | High | Harness `4 vs Ogre Chieftain`, seed 1, round 2: Isolde casts Web on the Chieftain's square (allies adjacent). Round 3: Isolde walks into her own Web. | Web: "on a hit, it is **Restrained** (Lasting)". P 8: a lasting effect "holds a creature until it breaks free (a web…)". | Under R238, Bram, Wren, Aldo and later Isolde herself are Restrained with `until` = 600 turn starts (1 hour). They get no maintain roll and have no escape action, while the enemies in the same Web can break free. See ruling R238 below. |
@@ -50,9 +50,9 @@ None of these checks fired in normal play (0 exceptions, 0 refusals of policy co
 | # | Verdict | Note |
 |---|---|---|
 | R100 | Fills a real gap (reasonable) | No Dirge range is printed; 60 ft matches Cues. |
-| R101 | Matches the rules | P 10.6: Divine and Glamour need the voice; a Mend target needn't hear; "Nature needs no voice". The Glamour dance (sight instead of hearing) isn't modeled. |
+| R101 | Matches the rules | P 9.5: Divine and Glamour need the voice; a Mend target needn't hear; "Nature needs no voice". The Glamour dance (sight instead of hearing) isn't modeled. |
 | R102 | Fills a real gap (reasonable) | Matches the card texts (Guidance: "after an ally … rolls a check"). |
-| R103 | Matches the rules | Consistent with P 10.7 natural weapons ("higher of STR and DEX Defense, like a weapon"). |
+| R103 | Matches the rules | Consistent with P 9.6 natural weapons ("higher of STR and DEX Defense, like a weapon"). |
 | R104 | Matches the rules | Card: "+2 to the targeted Defense against that attack". |
 | R105 | Matches the rules | Card: "it takes 2d6 Lightning". But see B11: the trigger is narrower than the card. |
 | R106 | Matches the rules (stale text) | The ruling says `until endSourceTurn`, but the data correctly uses `endThisTurn` ("this turn"). Update the R106 line. |
@@ -62,18 +62,18 @@ None of these checks fired in normal play (0 exceptions, 0 refusals of policy co
 | R110 | Fills a real gap (reasonable) | — |
 | R201 | Contradicts the rules | P 12.3: "An empty Armor Slot adds +10 Speed"; GM 2.1: foes follow the "same rules as Bearers". It matches the printed foe totals (Ogre 35 ft, Wolf 40 ft), so either the foe cards or the rule is wrong. Designer call. |
 | R202 | Fills a real gap (reasonable) | Matches the Legionary note "throws its Pilum, then draws its Gladius". |
-| R203 | Matches the rules | P 3.1: "You can equip it only if your Calling has at least one of its lit symbols." (was the Requirement rule before Callings) |
-| R204 | Fills a real gap (reasonable) | P 6.8 says nothing on how to draw lines or on creatures as cover. |
+| R203 | Matches the rules | P 4.1: "You can equip it only if your Calling shares at least one of its lit affinities." (was the Requirement rule before Callings) |
+| R204 | Fills a real gap (reasonable) | P 6.7 says nothing on how to draw lines or on creatures as cover. |
 | R205 | Fills a real gap (reasonable) | — |
 | R206 | Fills a real gap, but with a hole | Counting the source's turn starts never ends a Duration once the source dies (B1, B3). |
 | R207 | Matches the rules | P 8: "Conditions don't stack with themselves". |
-| R208 | Matches the rules | P 8 (Unconscious = Stunned and Prone) and P 5.2 (each source adds one die). |
+| R208 | Matches the rules | P 8 (Unconscious = Stunned and Prone) and P 6.6 (each source adds one die). |
 | R209 | Matches the rules | Steady Now: "or to the Defense an attack targets". |
 | R210 | Matches the rules (SPEC 4.2) | — |
-| R211 | Retired: the rules now define one pool each (P 10.2, 10.6) | — |
-| R212 | Matches the rules | P 3.2: "Consumables are gone once used"; Recipes refill. |
+| R211 | Retired: the rules now define one pool each (P 9.2, 9.5) | — |
+| R212 | Matches the rules | P 4.2: "Consumables are gone once used"; Recipes refill. |
 | R213 | Matches the rules | GM 2.1: "At 0 HP, they usually die. You may let important ones fall unconscious." |
-| R214 | Fills a real gap (reasonable) | P 10.7 doesn't say how healing works while shifted. |
+| R214 | Fills a real gap (reasonable) | P 9.6 doesn't say how healing works while shifted. |
 | R215 | Fills a real gap (reasonable) | — |
 | R216 | Fills a real gap (reasonable) | — |
 | R217 | Fills a real gap (reasonable) | "Allies" in Bless and Battle Hymn plausibly excludes the user. |
@@ -83,11 +83,11 @@ None of these checks fired in normal play (0 exceptions, 0 refusals of policy co
 | R221 | Contradicts the rules | P 8: "d20 + its ability modifier, with **no Rank, gear or Aspect bonus**"; DESIGN 5: "maintain rolls use the bare modifier". R221 uses the tally-card total, which includes gear and Aspect bonuses to the modifier. Base-set starters aren't affected yet (none raises WIL or INT). |
 | R222 | Fills a real gap (reasonable) | — |
 | R223 | Matches the rules (literal) | P 6.5 counts "its side" only when it is engaged, and an Incapacitated creature isn't engaged. Design question: a lone Stunned target then gives +1 Outnumbered die on top of Stunned. |
-| R224 | Matches the rules | P 6.7 (enemy within 5 ft); P 11.3 ("a single number is a spell's maximum range"). |
+| R224 | Matches the rules | P 6.6 (enemy within 5 ft); P 11.3 ("a single number is a spell's maximum range"). |
 | R225 | Fills a real gap (reasonable) | Bellow's "each enemy within 30 ft" read as an area roll; Magic Missile: "One spell attack against … each target". |
-| R226 | Fills a real gap (reasonable) | P 10.6 lets Cues change any roll (maintain rolls and death saves too). The sim covers attack rolls only; worth noting in the UI. |
+| R226 | Fills a real gap (reasonable) | P 9.5 lets Cues change any roll (maintain rolls and death saves too). The sim covers attack rolls only; worth noting in the UI. |
 | R227 | Matches the rules (GM 3, P 8) | It doesn't cover the reaction reset, Dodge loss and extra Recharge roll on half turns (B5). |
-| R228 | Matches the rules | P 6.10. |
+| R228 | Matches the rules | P 6.9. |
 | R229 | Fills a real gap (reasonable) | P 8 can be read either way on whether "while in sight" also limits the movement ban. Needs a dead-source check (B3). |
 | R230 | Fills a real gap (reasonable) | — |
 | R231 | Fills a real gap (reasonable) | — |
@@ -97,20 +97,20 @@ None of these checks fired in normal play (0 exceptions, 0 refusals of policy co
 | R235 | Fills a real gap (reasonable) | A body isn't "a creature's space" (P 6.4). |
 | R236 | Matches the rules | Bellow: "until the end of its next turn". |
 | R237 | Matches the rules | P 6.3 Help. |
-| R238 | Contradicts the rules | Web prints "**Restrained** (Lasting)" for each creature in it, and P 8 says "A lasting effect holds a creature until it breaks free (a web…)". P 10.4's "spell on enemies" split leaves an ally stuck for the full 1 hour with no roll (B4). Suggestion: a lasting effect on an ally is still Lasting (maintain rolls), or the ally can end it as a willing target. |
+| R238 | Contradicts the rules | Web prints "**Restrained** (Lasting)" for each creature in it, and P 8 says "A lasting effect holds a creature until it breaks free (a web…)". P 9.3's "spell on enemies" split leaves an ally stuck for the full 1 hour with no roll (B4). Suggestion: a lasting effect on an ally is still Lasting (maintain rolls), or the ally can end it as a willing target. |
 | R239 | Fills a real gap (reasonable) | P 8: Petrified = resistance to all damage. |
 | R240 | Fills a real gap (reasonable) | — |
 | R241 | Matches the rules | P 6.4: "Standing up costs half your speed". |
-| R242 | Fills a real gap (reasonable) | P 3.5: Hand swap = free object interaction. |
+| R242 | Fills a real gap (reasonable) | P 4.5: Hand swap = free object interaction. |
 | R243 | Fills a real gap, but broken | When the source is **dead** (not just down), entering the zone is refused (B2). |
 
 **Spot-check of rules without a ruling** (engine.js):
 - P 6.6 attack procedure: matches (ability, to-hit, higher of STR/DEX Defense, natural 20/1 on the kept die, crit doubles all damage dice, off-hand without a positive modifier).
-- P 5.2 advantage: matches (one die per source, net count, Outnumbered as n dice, area rolls skip target situations; see B16).
+- P 6.6 advantage: matches (one die per source, net count, Outnumbered as n dice, area rolls skip target situations; see B16).
 - P 6.5 Outnumbered and Disengage: match in every preview checked during the fights. Opportunity attacks fire on leaving reach, not on pushes or Disengage.
 - P 7.4 death saves: match (10+, natural 20 → 1 HP, natural 1 → two failures, damage at 0 HP = 1 failure or 2 on a crit, massive damage, healing resets).
 - P 8 Lasting and Subdue: match (`t_spot2.js`): first bite skips the maintain roll; weakening adds 1, then 2 disadvantage dice; a hit adds 1; the hurt source counts; a Boss's first bite lands on whichever comes first, turn or half turn.
-- P 10.7 Forms: match (fresh tally card, gear merged, separate HP pool, Bless and Mend blocked).
+- P 9.6 Forms: match (fresh tally card, gear merged, separate HP pool, Bless and Mend blocked).
 - GM 3 Boss half turn: movement or one action, no bonus action; same Recharge power not twice in a round. See B5 and B12.
 - P 6.1 first mover: matches (move then attack refused in round 1, bonus action kept, the second side gets full turns, ambush when the other side is surprised).
 
@@ -126,7 +126,7 @@ None of these checks fired in normal play (0 exceptions, 0 refusals of policy co
 | U4 | prompt | The actor header reads "Bandit 1First mover: move or action": the pill touches the name. |
 | U5 | area | The preview table mixes a lowercase key ("range 60") with capitalized ones, and the range has no "ft". |
 | U6 | prompt / summary | The Cue prompt shows the roll but not the target's Defense, so the single player can't judge whether the Cue matters (the engine has the number). |
-| U7 | builder | Bearers get the foe-only "Conjurer's Book: powers used (all)" checkboxes. Unchecking them would let a Bearer drop spells from a fixed book (P 10.1). |
+| U7 | builder | Bearers get the foe-only "Conjurer's Book: powers used (all)" checkboxes. Unchecking them would let a Bearer drop spells from a fixed book (P 9.1). |
 | U8 | fight / attack | "Disengage (free)" shows even with no enemy engaged. It is noise in the action bar. |
 
 ## 4. Balance data

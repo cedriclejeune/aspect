@@ -35,7 +35,7 @@ FRONT = """
 <tr><td>Autre</td><td>Tout ce que vous décrivez d'autre. Le MJ tranche.</td></tr>
 </table>
 
-<div class="box"><b>Empoigner et Bousculer <small>6.10</small></b>
+<div class="box"><b>Empoigner et Bousculer <small>6.9</small></b>
 Remplace une attaque. Cible à votre allonge, au plus <strong>une taille de plus</strong>. Faites une <strong>attaque à mains nues (FOR + 2)</strong> contre sa plus haute Défense de FOR ou d'AGI.
 <ul>
 <li><strong>Empoigner</strong> (main libre) : la cible est <strong>Agrippée</strong>. Vous pouvez la traîner : chaque mètre coûte 1 m de plus sauf si elle a 2 tailles de moins ou plus.</li>
@@ -47,10 +47,10 @@ Remplace une attaque. Cible à votre allonge, au plus <strong>une taille de plus
 <table>
 <tr><th>Réaction</th><th>Déclencheur → Effet</th></tr>
 <tr><td>Attaque<br>d'opportunité</td><td>Une créature que vous <strong>voyez</strong> quitte votre allonge <strong>en se déplaçant</strong> → une attaque au corps à corps contre elle. Être poussé, se téléporter ou se Désengager ne provoque pas. <small>6.5</small></td></tr>
-<tr><td>Attaque de<br>l'autre main</td><td>Vous attaquez avec une arme <strong>Légère</strong> → une attaque avec une <em>autre</em> arme Légère dans l'autre main. Pas de modificateur de caractéristique aux dégâts (sauf s'il est négatif). Les deux dans des Emplacements de Main. <small>6.9</small></td></tr>
+<tr><td>Attaque de<br>l'autre main</td><td>Vous attaquez avec une arme <strong>Légère</strong> → une attaque avec une <em>autre</em> arme Légère dans l'autre main. Pas de modificateur de caractéristique aux dégâts (sauf s'il est négatif). Les deux dans des Emplacements de Main. <small>6.8</small></td></tr>
 <tr><td>Action<br>préparée</td><td>Le déclencheur nommé avec Se tenir prêt survient → effectuez l'action ou le déplacement préparé.</td></tr>
 <tr><td>Sort</td><td>Un sort au temps d'incantation d'une réaction (p. ex. <em>Bouclier</em> du <em>Livre du conjurateur</em>). Demande une Main vide.</td></tr>
-<tr><td>Réplique</td><td>Magie de VOL : modifiez le jet d'une créature à 24 m ou moins qui vous entend, <strong>après le jet</strong>, avant que le MJ dise s'il réussit.</td></tr>
+<tr><td>Réplique</td><td>Magie de Volonté : modifiez le jet d'une créature à 24 m ou moins qui vous entend, <strong>après le jet</strong>, avant que le MJ dise s'il réussit.</td></tr>
 <tr><td>Matériel et Runes</td><td>Tout pouvoir marqué <strong>Réaction</strong>. Avec déclencheur : <em>Anneau de protection</em> (une attaque vous touche → +2 à cette Défense). Sans, à votre tour : <em>Feu grégeois</em> (lancer une fiole).</td></tr>
 </table>
 
@@ -88,7 +88,7 @@ Remplace une attaque. Cible à votre allonge, au plus <strong>une taille de plus
 <li><strong>Agrippé / Entravé / Étourdi :</strong> Vitesse 0.</li>
 <li>Arme à <strong>Chargement</strong> : un tir par action ou réaction.</li>
 <li><strong>Livre de sorts :</strong> une Main vide pour lancer.</li>
-<li><strong>Magie de VOL :</strong> demande votre voix (sauf un pouvoir <strong>Visuel</strong>, ou pour muer en une Forme). Pas si Neutralisé, sous l'eau ou en Forme.</li>
+<li><strong>Magie de Volonté :</strong> demande votre voix (sauf un pouvoir <strong>Visuel</strong>, ou pour muer en une Forme). Pas si Neutralisé, sous l'eau ou en Forme.</li>
 <li><strong>Sous Emprise :</strong> vous perdez votre tour jusqu'à ce qu'une répétition rate.</li>
 </ul></div>
 </div>
@@ -117,7 +117,7 @@ BACK = """
 <tr><th>Jet</th><th>Formule</th></tr>
 <tr><td>Arme</td><td>d20 + la caractéristique qu'elle nomme (la plus haute des deux : FOR / AGI, bâton ou baguette INT / VOL) + au toucher</td></tr>
 <tr><td>Sort</td><td>d20 + INT + attaque de sort du livre</td></tr>
-<tr><td>Magie de VOL</td><td>d20 + VOL + Attaque imprimée</td></tr>
+<tr><td>Magie de Volonté</td><td>d20 + VOL + Attaque imprimée</td></tr>
 <tr><td>Mains nues</td><td>+2 au toucher · 1 + FOR Physique</td></tr>
 <tr><td>Improvisée</td><td>+0 au toucher · 1d4 + FOR Physique</td></tr>
 </table>
@@ -127,7 +127,7 @@ BACK = """
 <li><strong>Zone :</strong> un seul jet contre la Défense de chaque cible, seule la question Vous. Échec = moitié des dégâts.</li>
 </ul>
 
-<h2>Les trois questions <small>5.2</small></h2>
+<h2>Les trois questions <small>6.6</small></h2>
 <p>À poser avant chaque attaque. Chacune donne <strong>un dé au plus</strong> ; les raisons contraires s'annulent au sein d'une question.</p>
 <table>
 <tr><th>Question</th><th>Avantage</th><th>Désavantage</th></tr>
@@ -153,7 +153,7 @@ BACK = """
 <li><strong>Encerclé :</strong> 3+ ennemis engagés avec vous → pas de Désengagement.</li>
 </ul>
 
-<h2>Abri <small>6.8</small></h2>
+<h2>Abri <small>6.7</small></h2>
 <ul>
 <li><strong>Abri :</strong> +2 aux Défenses de FOR et d'AGI.</li>
 <li><strong>Abri total :</strong> ne peut être visé ; bloque la vue et les zones ; permet de se cacher et d'approcher sans être vu.</li>
@@ -205,14 +205,14 @@ BACK = """
 </table>
 <p><strong>3 réussites :</strong> stabilisé (1 PV après 1d4 heures). <strong>3 échecs :</strong> mort. <strong>Tout soin</strong> vous réveille et remet le compte à zéro. Les <strong>Premiers soins</strong> (INT DD 10, action) stabilisent.</p>
 
-<h2>Magie en combat <small>10</small></h2>
+<h2>Magie en combat <small>9</small></h2>
 <ul>
 <li><strong>Livre de sorts :</strong> une Main vide pour lancer. Une seule réserve de <strong>points de sort</strong> (tous les livres + INT) paie les sorts de n'importe quel livre (coût 1/2/3/4/6/8 selon le niveau, tours de magie gratuits). Évident sauf si Discret.</li>
-<li><strong>Magie de VOL</strong> (Divin, Glamour, Nature, Pacte) : mêmes règles, payée sur une seule réserve d'<strong>Ardeur</strong> (tous les paquets + VOL, revient au court repos). Toujours évidente.</li>
+<li><strong>Magie de Volonté</strong> (Divin, Glamour, Nature, Pacte) : mêmes règles, payée sur une seule réserve d'<strong>Ardeur</strong> (tous les paquets + VOL, revient au court repos). Toujours évidente.</li>
 <li><strong>Formes :</strong> le matériel ne compte plus ; les PV de la Forme partent d'abord, l'excédent se reporte.</li>
 </ul>
 
-<div class="box gold"><b>Moral <small>6.11</small></b>
+<div class="box gold"><b>Moral <small>MJ 2.4</small></b>
 Quand le <strong>Meneur</strong> d'un groupe d'Adversaires tombe, et quand la moitié du groupe est hors de combat : un <strong>test de VOL (DD 10)</strong> avec sa meilleure VOL. Échec : le groupe fuit ou se rend. Les Boss n'en font jamais.</div>
 
 <h2>Après le combat <small>7.5</small></h2>
@@ -220,6 +220,7 @@ Quand le <strong>Meneur</strong> d'un groupe d'Adversaires tombe, et quand la mo
 <li><strong>Court repos</strong> (1 h, 2 par long repos) : récupérez la moitié des PV manquants ; les utilisations C.R. et l'Ardeur reviennent ; enfiler ou ôter une Armure.</li>
 <li><strong>Long repos</strong> (8 h) : tous les PV, utilisations, Ardeur et points de sort ; échanger des Runes.</li>
 <li><strong>Convalescence</strong> (3 jours en lieu sûr) : comme un long repos, et guérit toutes les Blessures.</li>
+<li><strong>Méditer</strong> à tout repos : aucun PV, aucun jet. Soigné par un repos ? Lancez <strong>1d8</strong> (court) ou <strong>1d4</strong> (long) : sur un 1, une Rune de votre choix devient <strong>dormante</strong> (face cachée). <strong>Réveillez</strong>-la lors d'un long repos : libérez une Pierre runique de Rang égal ou supérieur.</li>
 </ul>
 </div>
 <footer>Règles d'or : la règle du plaisir · personne n'est laissé de côté · le particulier l'emporte sur le général · arrondir à l'inférieur · tout se cumule · le MJ tranche.</footer>

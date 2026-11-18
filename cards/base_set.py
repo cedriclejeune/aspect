@@ -10,13 +10,13 @@ PLAYERS = 4
 
 
 def card(name, rank, kind, kw, text=(), strip=None, copies=1, group="starter", sym=None, **extra):
-    """sym: the abilities whose symbols it prints (P 3.1); a Calling with one of them can equip it. None = all four."""
+    """sym: the abilities whose symbols it prints (P 4.1); a Calling with one of them can equip it. None = all four."""
     return dict(name=name, rank=rank, kind=kind, kw=kw, text=list(text), strip=strip or {},
                 copies=copies, group=group, sym=list(sym or ["STR", "DEX", "INT", "WIL"]), **extra)
 
 
 ABILS = ["STR", "DEX", "INT", "WIL"]
-ALL = ABILS  # all four symbols lit: anyone can equip it (P 3.1)
+ALL = ABILS  # all four symbols lit: anyone can equip it (P 4.1)
 
 
 def body(mods, hp, spd):
@@ -259,7 +259,7 @@ WOUNDS = [
 
 
 # ---------- decks: a cover card, then one card per spell or power ----------
-# Every WIL deck has the same structure, whatever its type (P 10.6, DESIGN 3): a cover that prints Attack, Resolve
+# Every WIL deck has the same structure, whatever its type (P 9.5, DESIGN 3): a cover that prints Attack, Resolve
 # and one flavor line, then its powers. The type only decides which powers it holds (Litany, Repertoire: Anthem, Dirge,
 # Cue, Mend; Instinct: Form, Mend; Pact: Dirge, Cue). All of them need the voice but a Form.
 # ---------- mechanics of decks (SPEC 2.1): name → Power, id/name/kind/cost are filled in by spell() / power() ----------
@@ -429,7 +429,7 @@ LITANY = dict(
 )
 
 def form(s, d, hp, spd, hide=0):
-    """A Form's strip (P 10.7): its own STR, DEX, HP and Speed, printed like a Calling."""
+    """A Form's strip (P 9.6): its own STR, DEX, HP and Speed, printed like a Calling."""
     return {"STR": f"{s:+d}".replace("-", "−"), "DEX": f"{d:+d}".replace("-", "−"),
             "STRd": str(10 + s + hide), "DEXd": str(10 + d), "HP": str(hp), "SPD": str(spd)}
 

@@ -404,7 +404,7 @@ def stat_symbol(key, shield=False):
 def character_anatomy():
     body = [gem(95, 200, 58, CRIMSON, "DUELIST", 13),
             _text(95, 290, "Calling: STR · DEX", 13, BODY, MUTED, italic=True),
-            _text(95, 308, "HP · Speed · perk", 13, BODY, MUTED, italic=True)]
+            _text(95, 308, "HP · Speed · effects, powers", 13, BODY, MUTED, italic=True)]
     groups = [  # (title, x0, y, [(name, icon or None)])
         ("Armor", 230, 85, [("Leather", icon_shield)]),
         ("Hands", 370, 85, [("Finesse Blade", icon_sword), ("Dagger", icon_sword)]),
@@ -455,6 +455,7 @@ INK_SYMBOLS = Path(__file__).resolve().parent.parent / "rules" / "symbols" / "in
 LEDGER_ROWS = ["str", "dex", "int", "wil", "str-def", "dex-def", "int-def", "wil-def", "hp", "spd"]
 LEDGER_TYPES = {"Trait": "trait", "Technique": "technique", "Domain": "knack", "Domaine": "knack"}  # Rune types with a symbol (kw is already translated)
 ALL4 = ["STR", "DEX", "INT", "WIL"]
+CALLING_SIGIL = Path(__file__).resolve().parent.parent / "rules" / "symbols" / "sketch" / "calling.svg"
 PT = .3528  # mm per point
 
 
@@ -482,25 +483,39 @@ def _line(x1, y1, x2, y2, sw, col="#000"):
     return f'<line x1="{x1:.2f}" y1="{y1:.2f}" x2="{x2:.2f}" y2="{y2:.2f}" stroke="{col}" stroke-width="{sw:.2f}"/>'
 
 
-def ledger_card(x, y, w, h, name, vals=None, kw="", rank=None, lit=None, own=None, art=None, text=(), tid="", size=9.4):
+def ledger_card(x, y, w, h, name, vals=None, kw="", rank=None, lit=None, own=None, art=None, text=(), tid="", size=9.4,
+                sub="", sigil=None):
     """A card in the Ledger look, w × h px at (x, y): name, symbols (lit) and Rank in the title band (no Rank: symbols
     flush right), the bonus strip (vals: {row: "+3"}; own: all ten values, a Calling's), an art icon over effect lines
     (**bold**; size in pt on the printed card), the keyword line (kw=None: none) with a Rune's type symbol, the ID.
-    A wider card (the tally card, 126 mm) keeps the 12.6 mm strip on its right edge."""
+    A wider card (the tally card, 126 mm) keeps the 12.6 mm strip on its right edge.
+    sub: a family line under the name on a black band, white type and symbols (a Calling); sigil: a type symbol file
+    drawn alone on the keyword line."""
     u = h / 88  # px per mm
     th, kh, sw = h * .13, h * .1, 12.6 * u
     sx, row, my = x + w - sw, (h - th - kh) / 10, y + (th - .7 * u) / 2
     vals = own or vals or {}
-    name, kw = tr(name), tr(kw)
-    out = [f'<rect x="{x}" y="{y}" width="{w}" height="{h:.2f}" rx="{3 * u:.2f}" fill="#fff" stroke="#000" stroke-width="{.35 * u:.2f}"/>',
-           _line(x, y + th - .35 * u, x + w, y + th - .35 * u, .7 * u)]
+    name, kw, sub = tr(name), tr(kw), tr(sub)
+    ink = "#fff" if sub else "#000"
+    out = [f'<rect x="{x}" y="{y}" width="{w}" height="{h:.2f}" rx="{3 * u:.2f}" fill="#fff" stroke="#000" stroke-width="{.35 * u:.2f}"/>']
+    if sub:  # black band, rounded at the top only
+        out.append(f'<path d="M{x} {y + th:.2f}V{y + 3 * u:.2f}A{3 * u:.2f} {3 * u:.2f} 0 0 1 {x + 3 * u:.2f} {y}H{x + w - 3 * u:.2f}'
+                   f'A{3 * u:.2f} {3 * u:.2f} 0 0 1 {x + w} {y + 3 * u:.2f}V{y + th:.2f}Z" fill="#000"/>')
+    else:
+        out.append(_line(x, y + th - .35 * u, x + w, y + th - .35 * u, .7 * u))
     pt = 9.2 if len(name) <= 14 else 8 if len(name) <= 18 else 7
     if lit:
         pt = min(pt, 8.4 if len(name) <= 12 else 7.4 if len(name) <= 16 else 6.6)
     fs = pt * PT * u
-    out.append(_text(f"{x + 2.4 * u:.2f}", f"{my + fs * .36:.2f}", name.upper(), round(fs, 2), HEAD + ";letter-spacing:.04em", "#000", anchor="start"))
+    ny = my - 1.6 * u if sub else my
+    out.append(_text(f"{x + 2.4 * u:.2f}", f"{ny + fs * .36:.2f}", name.upper(), round(fs, 2), HEAD + ";letter-spacing:.04em", ink, anchor="start"))
+    if sub:
+        out.append(_text(f"{x + 2.4 * u:.2f}", f"{ny + fs * .36 + 3.6 * u:.2f}", sub, round(6.4 * PT * u, 2), BODY, ink, anchor="start", italic=True))
     if lit:
-        out.append(sym4(x + w - (10 if rank else 2) * u - 7.6 * u, my - 3.8 * u, 3.8 * u, lit))
+        g = sym4(x + w - (10 if rank else 2) * u - 7.6 * u, my - 3.8 * u, 3.8 * u, lit)
+        if sub:  # white symbols on the black band, the unlit ones at half strength
+            g = '<g style="filter:invert(1)">' + g.replace('opacity="0.18"', 'opacity="0.5"') + '</g>'
+        out.append(g)
     if rank:
         k = 7.6 * u / 21  # the printed card's 7.6 mm wide stone
         out.append(f'<g transform="translate({x + w - 5.4 * u - 10.5 * k:.2f},{my - 14 * k:.2f}) scale({k:.4f})">'
@@ -523,8 +538,12 @@ def ledger_card(x, y, w, h, name, vals=None, kw="", rank=None, lit=None, own=Non
     if art:
         out.append(_bw(art(cx, top + ah / 2, ah)))
     for k, line in enumerate(text):
-        out.append(_text(f"{cx:.2f}", f"{top + ah + gap + fs * (1.2 * k + .9):.2f}", _md_tspans(line), round(fs, 2), BODY, "#000"))
-    if kw is not None:
+        out.append(_text(f"{cx:.2f}", f"{top + ah + gap + fs * (1.2 * k + .9):.2f}", _md_tspans(tr(line)), round(fs, 2), BODY, "#000"))
+    if sigil:
+        out.append(_line(x, y + h - kh, x + w, y + h - kh, .3 * u))
+        s = 4.4 * u
+        out.append(f'<image href="{sigil.as_uri()}" x="{x + 2.4 * u:.2f}" y="{y + h - kh / 2 - s / 2:.2f}" width="{s:.2f}" height="{s:.2f}"/>')
+    elif kw is not None:
         out.append(_line(x, y + h - kh, x + w, y + h - kh, .3 * u))
         tx, ks = x + 2.4 * u, 7.6 * PT * u
         sym = LEDGER_TYPES.get(kw.split(" · ")[0])
@@ -546,7 +565,7 @@ def calling_card():
     th, kh = h * .13, h * .1
     top, row, my = y + th, (h - th - kh) / 10, y + (th - .7 * u) / 2
     own = dict(enumerate(["+2", "+2", "+0", "+0", "12", "12", "10", "10", "12", "14" if LANG == "fr" else "35"]))
-    body = [ledger_card(x, y, w, h, "Duelist", kw="Calling", lit=["STR", "DEX"], own=own,
+    body = [ledger_card(x, y, w, h, "Duelist", sub="Calling", lit=["STR", "DEX"], own=own, sigil=CALLING_SIGIL,
                         text=["**Footwork:** after a", "melee hit, 5 ft × ½ DEX"], tid="STARTER · L-01")]
     # brackets beside the card group the own values: modifiers, Defenses, HP and Speed
     bx = x + w + 12
@@ -555,14 +574,14 @@ def calling_card():
         body.append(f'<path d="M{bx - 5} {y0:.1f}H{bx}V{y1:.1f}H{bx - 5}" fill="none" stroke="{INK}" stroke-width="1.2"/>')
     R = x + w + 40
     mid = y + (th + h - kh) / 2
-    body += [_callout(x + w - 1.5 * u, my, R, y + 30, "Symbols", "its two abilities"),
+    body += [_callout(x + w - 1.5 * u, my, R, y + 30, "Affinities", "its two abilities"),
              _callout(bx, top + row * 2, R, top + row * 2, "Own values", "+2 in its two abilities"),
              _callout(bx, top + row * 6, R, top + row * 6, "", "four Defenses (10 + modifier)"),
              _callout(bx, top + row * 9, R, top + row * 9, "", "HP, Speed"),
-             _callout(x + 1.2 * u, y + h - kh / 2, x - 34, y + h - kh / 2, "Keyword", "Calling", side=-1),
-             _callout(x + 1.2 * u, my, x - 34, my, "Name", side=-1),
-             _callout(x + 8 * u, mid, x - 34, mid, "Perk", side=-1)]
-    return _svg(710, round(h + 30), "".join(body), "A Calling card: its own values beside the symbols, its two ability symbols lit, and its perk")
+             _callout(x + 1.2 * u, y + h - kh / 2, x - 34, y + h - kh / 2, "Type", "its symbol", side=-1),
+             _callout(x + 1.2 * u, my, x - 34, my, "Name", "and family", side=-1),
+             _callout(x + 8 * u, mid, x - 34, mid, "Effects", "and powers", side=-1)]
+    return _svg(710, round(h + 30), "".join(body), "A Calling card: its own values beside the symbols, its two ability symbols lit, and its effects and powers")
 
 
 def card_elements():
@@ -589,7 +608,7 @@ def card_elements():
         kx += width(t + " · ")
     right = [  # (point x, point y, label y, label, sub)
         (x + w - 1.6 * u, my, y + 26, "Rank", "I to V"),
-        (x + w - 13.8 * u, y + 9.9 * u, y + 64, "Symbols", "who can equip it"),
+        (x + w - 13.8 * u, y + 9.9 * u, y + 64, "Affinities", "who can equip it"),
         (x + w, top + row * 2, top + row * 2.3, "Bonus strip", "abilities"),
         (x + w, top + row * 6, top + row * 6, "", "Defenses (in a shield)"),
         (x + w, top + row * 8.5, top + row * 8.5, "", "HP, Speed"),
@@ -727,6 +746,66 @@ def tally_card():
              f'<circle cx="{px:.1f}" cy="{py:.1f}" r="3" fill="{CRIMSON}"/>',
              _text(px, y + h + 34, "Features", 16, HEAD, INK), _text(px, y + h + 51, "a circle per use, filled when spent", 13, BODY, MUTED, italic=True)]
     return _svg(round(R + 200), round(h + 80), "".join(body), "The tally card: ten totals lined up with the bonus strip; HP with temporary HP, death saves, spell points, Resolve and features")
+
+
+BEARER_FRONT = (("NAME", 1), ("AGE|FOLK", 1), ("LOOK", 7))  # P 2.5: who you are, beside a 35 mm portrait
+BEARER_BACK = ((("PERSONALITY", 3), ("AMBITION", 3), ("FEAR", 3)), (("BONDS", 3), ("BACKGROUND", 3), ("NOTES", 3)))
+
+
+def bearer_small(x, y, w, h, back=False):
+    """The Bearer card, double width (126 × 88 mm), two-sided and written on in ink (P 2.5). Front: a portrait box,
+    then name, age and folk, look. Back: personality, ambition and fear; bonds (name — bond), background and notes.
+    Plain labels, ruled lines, the tally card's Ledger look."""
+    u = h / 88
+    th = h * .13
+    faint, pale = "#555", "#bbb"
+    out = [f'<rect x="{x}" y="{y}" width="{w}" height="{h:.2f}" rx="{3 * u:.2f}" fill="#fff" stroke="#000" stroke-width="{.35 * u:.2f}"/>',
+           _line(x, y + th - .35 * u, x + w, y + th - .35 * u, .7 * u)]
+    fs = 9.2 * PT * u
+    out.append(_text(f"{x + 2.4 * u:.2f}", f"{y + (th - .7 * u) / 2 + fs * .36:.2f}", tr("Bearer").upper(), round(fs, 2),
+                     HEAD + ";letter-spacing:.04em", "#000", anchor="start"))
+    top, bottom = y + th + 2.2 * u, y + h - 5.5 * u
+    step = (bottom - top) / (9 + 3 * .7)  # the tallest column: 9 lines under 3 labels
+    lab = step * .4
+
+    def column(fields, cx, cw):
+        cy = top
+        for name, n in fields:
+            cy += step * .7
+            parts = name.split("|")
+            for k, part in enumerate(parts):  # "AGE|FOLK": two fields on one line, age the narrow one
+                px = cx + (cw * .3 if k else 0)
+                out.append(_text(f"{px:.2f}", f"{cy - step * .12:.2f}", part, round(lab, 2), HEAD, faint, anchor="start"))
+            for k in range(n):
+                cy += step
+                if len(parts) > 1:
+                    out.extend([_line(cx, cy, cx + cw * .25, cy, .6, pale), _line(cx + cw * .3, cy, cx + cw, cy, .6, pale)])
+                else:
+                    out.append(_line(cx, cy, cx + cw, cy, .6, pale))
+                    if name == "BONDS":  # name — bond
+                        out.append(_text(f"{cx + cw * .36:.2f}", f"{cy - step * .25:.2f}", "—", round(lab * 1.4, 2), BODY, faint))
+
+    m, g = 3.4 * u, 4.6 * u
+    if back:
+        cw = (w - 2 * m - g) / 2
+        column(BEARER_BACK[0], x + m, cw)
+        column(BEARER_BACK[1], x + m + cw + g, cw)
+    else:
+        pw = 35 * u
+        out.append(f'<rect x="{x + m:.2f}" y="{top:.2f}" width="{pw:.2f}" height="{bottom - top + 2.5 * u:.2f}" rx="{1.5 * u:.2f}" '
+                   f'fill="none" stroke="{faint}" stroke-width=".7"/>')
+        column(BEARER_FRONT, x + m + pw + g, w - 2 * m - pw - g)
+    return "".join(out)
+
+
+def bearer_card():
+    """The Bearer card, both faces: who you are on the front, what drives you on the back."""
+    h, gap = 300, 30
+    u = h / 88
+    w = 126 * u
+    body = [bearer_small(0, 24, w, h), bearer_small(w + gap, 24, w, h, back=True),
+            _text(w / 2, 16, "Front", 15, HEAD, INK), _text(w * 1.5 + gap, 16, "Back", 15, HEAD, INK)]
+    return _svg(round(2 * w + gap + 2), h + 26, "".join(body), "The Bearer card: portrait, name, age, folk and look on the front; personality, ambition, fear, bonds, background and notes on the back")
 
 
 BRAM_CALLING = {0: "+2", 1: "+0", 2: "+0", 3: "+2", 4: "12", 5: "10", 6: "10", 7: "12", 8: "14", 9: "30"}  # Templar
@@ -899,7 +978,7 @@ def frame_figure():
         body.append(f'<line x1="{P[0]:.1f}" y1="{P[1]:.1f}" x2="{Q[0]:.1f}" y2="{Q[1]:.1f}" stroke="{CRIMSON}" stroke-width="2.2"/>')
     R = hx + W + 30
     body += [_callout(hx + 200 * s, y + 40 * s, R, y + 14, "Slot", "symbol and name"),
-             _callout(hx + 600 * s, y + 40 * s, R, y + 58, "Swap time", "3.5"),
+             _callout(hx + 600 * s, y + 40 * s, R, y + 58, "Swap time", "4.5"),
              _callout(hx + (x1 - 8) * s, y + (y0 + 85) * s, R, y + 112, "Slit", "the card's corner tucks under it"),
              _callout(hx + (x1 - 20) * s, y + (y0 + 400) * s, R, y + 190, "Bonus strip", "on the frame's edge"),
              _callout(hx + (x0 + 105) * s, y + (y1 + 12) * s, R, y + (y1 + 12) * s, "Slit", "opposite corner"),
@@ -940,7 +1019,7 @@ def initiative_timeline():
         # Side A bar
         if j == 0:
             body.append(f'<rect x="{bx}" y="60" width="{colw - 10}" height="36" rx="6" fill="{SHADE}" stroke="{INK}" stroke-width="1.8" stroke-dasharray="5 4"/>')
-            body.append(_text(bx + (colw - 10) / 2, 84, "Move OR Action", 15, BODY, INK, weight=600))
+            body.append(_text(bx + (colw - 10) / 2, 84, "One action", 15, BODY, INK, weight=600))
         else:
             body.append(f'<rect x="{bx}" y="60" width="{colw - 10}" height="36" rx="6" fill="{GOLD}" stroke="{INK}" stroke-width="1.8"/>')
             body.append(_text(bx + (colw - 10) / 2, 84, "Full turns", 15, BODY, PARCH, weight=600))
@@ -951,7 +1030,7 @@ def initiative_timeline():
         body.append(f'<circle cx="{bx + colw + (colw - 10) / 2}" cy="130" r="12" fill="#4b2a6b" stroke="{INK}" stroke-width="1.5"/>')
         body.append(_text(bx + colw + (colw - 10) / 2, 135, "B", 13, HEAD, PARCH))
     body.append(f'<circle cx="160" cy="205" r="10" fill="#4b2a6b" stroke="{INK}" stroke-width="1.5"/>')
-    body.append(_text(178, 211, "A Boss on Side A also takes a half turn (one action) during Side B, the characters' side.", 18, BODY, INK, anchor="start"))
+    body.append(_text(178, 211, "A Boss also takes a half turn (one action) during the characters' side.", 18, BODY, INK, anchor="start"))
     body.append(_text(178, 238, "Within a side, creatures act in any order they agree on.", 18, BODY, MUTED, anchor="start", italic=True))
     body.append(_text(178, 265, "Ambush: if the other side is surprised, Side A takes full turns in round 1.", 18, BODY, MUTED, anchor="start", italic=True))
     return _svg(1050, 280, "".join(body), "Side initiative timeline")

@@ -4,14 +4,14 @@ Usage: .venv/bin/python tools/build_cards.py [--lang fr]
 --lang fr: the French base set (cards/fr.py) in rules/fr/Porteurs-Set-de-base.pdf and rules/fr/Porteurs-Set-de-base-Lecture.pdf.
 Output: rules/Bearers-Base-Set.pdf to print and rules/Bearers-Base-Set-Reading.pdf to read on screen
 (and build/base-set.html, build/base-set-reading.html for inspection)
-Cards are 63 × 88 mm, 9 per Letter page; foe and tally cards 126 × 88 mm and two-sided, 4 per landscape page (a foe's back: its drawing and name, turned a quarter); Slot frames are 67 × 98 mm, 8 per landscape page.
+Cards are 63 × 88 mm, 9 per Letter page; Bearer, tally and foe cards 126 × 88 mm and two-sided, 4 per landscape page (a foe's back: its drawing and name, turned a quarter); Slot frames are 67 × 98 mm, 8 per landscape page.
 A card with a drawing is two-sided: gear and gold from rules/art/items/, Callings, Runes, deck cards and Wounds from
 rules/art/cards/ (a Form named after a foe, and the Runes in FOE_DRAWING, use the foe's drawing). The drawing goes in place of the
 text on the front, the text on the back, on facing pages printed two-sided (each back page mirrors its front page's
 columns). The reading PDF shows those cards once, double width: drawing and text side by side.
 Card geometry matches the tally card (P 12.3): title band 13 %, keywords 10 %, bonus strip 20 % wide.
 Cards are black and white ("Ledger"): stat symbols are ink PNGs from rules/symbols/ink/ (made by tools/ink_symbols.py),
-the four ability symbols sit in the top corner (the ones a card doesn't print greyed out, P 3.1), and a foe's drawing is
+the four ability symbols sit in the top corner (the ones a card doesn't print greyed out, P 4.1), and a foe's drawing is
 rules/art/<name>.png when there is one. The look by family (DESIGN 4): every card type has its symbol at the bottom left and
 faint behind the text, and the family in grey under the name (Calling, Equipment, Item, Rune · its type, Spell, Power); a Calling
 has a black band, Equipment a double rule under it, an Item a hatched band, a Rune its symbol before its name, and a deck
@@ -289,7 +289,7 @@ FIT_LORE = """<script>document.fonts.ready.then(() => {
 
 
 def rank_mark(rank):
-    """The Rank carved as a branch rune in a stone (one branch per Rank, P 3.1)."""
+    """The Rank carved as a branch rune in a stone (one branch per Rank, P 4.1)."""
     return (f'<span class="rank"><svg viewBox="0 0 21 28" role="img" aria-label="Rank {rank}">{ill.rank_rune(rank, "#000", "#fff")}</svg></span>'
             if rank else "")
 
@@ -306,7 +306,7 @@ def strip(values, own=False):
 
 
 def sym4(sym):
-    """The four ability symbols in a 2 × 2 grid, those the card doesn't print greyed out (P 3.1)."""
+    """The four ability symbols in a 2 × 2 grid, those the card doesn't print greyed out (P 4.1)."""
     return '<span class="sym4">' + "".join(
         f'<span class="{"" if a in sym else "off"}">{symbol(SYM_FILE[a], a if a in sym else "")}</span>'
         for a in ("STR", "DEX", "INT", "WIL")) + "</span>"
@@ -559,6 +559,10 @@ def tally_card():
     return f'<div class="card tally">{ill._svg(600, 419, ill.tally_small(0, 0, 600, 419, {}, ledger=True), "Tally card")}</div>'
 
 
+def bearer_card(back=False):
+    return f'<div class="card tally">{ill._svg(600, 419, ill.bearer_small(0, 0, 600, 419, back), "Bearer card")}</div>'
+
+
 def sheets(cards, cls="", per=9):
     return "".join(f'<section class="sheet {cls}">{"".join(cards[i:i + per])}</section>' for i in range(0, len(cards), per))
 
@@ -619,6 +623,11 @@ def build_tallies():
     return [(tally_card(), tally_card())] * bs.TALLIES
 
 
+def build_bearers():
+    """Double-width Bearer cards, one per player (P 2.5): who on the front, what drives them on the back."""
+    return [(bearer_card(), bearer_card(back=True))] * bs.PLAYERS
+
+
 def duplex_wide(pairs):
     """Two-sided double-width cards as a front page and a back page, 4 a landscape sheet. Flipped on the short edge,
     each row's two cards swap sides."""
@@ -643,18 +652,18 @@ def intro(n_cards, n_frames, n_duplex, wide):
     frames = ", ".join(f"{n} {name}" for _, name, _, _, n in bs.FRAMES)
     return f"""<section class="intro"><h1>BEARERS</h1><p style="font-family:Cinzel,serif;letter-spacing:.2em">Base Set · {bs.PLAYERS} players</p>
 <h2>Printing</h2>
-<ul><li>Print at <b>100 %</b> (no fit-to-page) on cardstock. Pages 2–{n_duplex + 1} are two-sided cards: print them double-sided, flipping on the long edge. Pages {wide[0]}–{wide[1]} (landscape: tally and foe cards) are two-sided too, flipping on the short edge. Print the rest single-sided.</li>
-<li> Cards are 63 × 88 mm; foe and tally cards are double width (126 × 88 mm) and two-sided, 4 to a landscape page; Slot frames are 67 × 98 mm.</li>
+<ul><li>Print at <b>100 %</b> (no fit-to-page) on cardstock. Pages 2–{n_duplex + 1} are two-sided cards: print them double-sided, flipping on the long edge. Pages {wide[0]}–{wide[1]} (landscape: Bearer, tally and foe cards) are two-sided too, flipping on the short edge. Print the rest single-sided.</li>
+<li> Cards are 63 × 88 mm; Bearer, tally and foe cards are double width (126 × 88 mm) and two-sided, 4 to a landscape page; Slot frames are 67 × 98 mm.</li>
 <li>Cut out each card and frame. On each frame, cut the two <b style="color:{ill.CRIMSON}">red slits</b> with a craft knife.</li>
 <li>Tuck a card's top-right and bottom-left corners under the slits to equip it (Player Rules 12.2).</li></ul>
 <h2>Contents</h2>
-<p>{n_cards} cards: {len(bs.CALLINGS)} Callings, the starter list below, a pool of Rank I–II loot (marked LOOT at the bottom left), four decks, gold, {bs.TALLIES} tally cards and the {len(bs.WOUNDS)}-card Wound deck (marked WOUND: shuffle it and keep it beside the table, Player Rules 7.6).</p>
+<p>{n_cards} cards: {len(bs.CALLINGS)} Callings, the starter list below, a pool of Rank I–II loot (marked LOOT at the bottom left), four decks, gold, {bs.PLAYERS} Bearer cards, {bs.TALLIES} tally cards and the {len(bs.WOUNDS)}-card Wound deck (marked WOUND: shuffle it and keep it beside the table, Player Rules 7.6).</p>
 <p>For the GM: {len(foes.FOES)} foe cards and {foes.BLANKS} blank ones (marked FOE: keep them apart from the loot pool).</p>
 <p>Each card shows its ID at the bottom right (<i>W-II-02</i>: type, Rank, number). Foe cards list the IDs of the cards they drop; every card a foe drops has one extra copy, so the loot pool still holds it after players take their starting gear.</p>
 <p>{n_frames} frames: {frames}.</p>
 <h2>Starter list</h2><table>{rows}</table>
 <h2>Each player takes</h2>
-<p>A Calling, then gear and Runes from the starter list that it can equip (Player Rules 13.2), 9 Slot frames (Armor, 2 Hand, Jewelry, 2 Item, 3 Rune), 3 Runestone frames, a Potion of Healing, a Coin Pouch with 50 gp and a tally card. The Party Stash starts with 2 Runestone frames per player. Keep the milestone Rune frames and the extra Gear Slot frames for the GM to hand out.</p>
+<p>A Calling, then gear and Runes from the starter list that it can equip (Player Rules 13.1), 9 Slot frames (Armor, 2 Hand, Jewelry, 2 Item, 3 Rune), 3 Runestone frames, a Potion of Healing, a Coin Pouch with 50 gp, a Bearer card and a tally card. The Party Stash starts with 2 Runestone frames per player. Keep the milestone Rune frames and the extra Gear Slot frames for the GM to hand out.</p>
 </section>"""
 
 
@@ -685,18 +694,18 @@ def intro_fr(n_cards, n_frames, n_duplex, wide):
     frames = ", ".join(f"{n} {name}" for _, name, _, _, n in bs.FRAMES)
     return f"""<section class="intro"><h1>PORTEURS</h1><p style="font-family:Cinzel,serif;letter-spacing:.2em">Set de base · {bs.PLAYERS} joueurs</p>
 <h2>Impression</h2>
-<ul><li>Imprimez à <b>100 %</b> (sans ajustement à la page) sur du papier cartonné. Les pages 2 à {n_duplex + 1} sont des cartes recto verso : imprimez-les en recto verso, retournement sur le bord long. Les pages {wide[0]} à {wide[1]} (en paysage : cartes de Décompte et d'Adversaire) sont aussi recto verso, retournement sur le bord court. Imprimez le reste en recto seul.</li>
-<li>Les cartes mesurent 63 × 88 mm ; les cartes d'Adversaire et de Décompte sont double largeur (126 × 88 mm) et recto verso, 4 par page paysage ; les cadres d'Emplacement mesurent 67 × 98 mm.</li>
+<ul><li>Imprimez à <b>100 %</b> (sans ajustement à la page) sur du papier cartonné. Les pages 2 à {n_duplex + 1} sont des cartes recto verso : imprimez-les en recto verso, retournement sur le bord long. Les pages {wide[0]} à {wide[1]} (en paysage : cartes de Porteur, de Décompte et d'Adversaire) sont aussi recto verso, retournement sur le bord court. Imprimez le reste en recto seul.</li>
+<li>Les cartes mesurent 63 × 88 mm ; les cartes de Porteur, de Décompte et d'Adversaire sont double largeur (126 × 88 mm) et recto verso, 4 par page paysage ; les cadres d'Emplacement mesurent 67 × 98 mm.</li>
 <li>Découpez chaque carte et chaque cadre. Sur chaque cadre, incisez les deux <b style="color:{ill.CRIMSON}">fentes rouges</b> au cutter.</li>
 <li>Glissez les coins supérieur droit et inférieur gauche d'une carte sous les fentes pour l'équiper (Règles du joueur 12.2).</li></ul>
 <h2>Contenu</h2>
-<p>{n_cards} cartes : {len(bs.CALLINGS)} Vocations, la liste de départ ci-dessous, une réserve de butin de Rang I–II (marquée BUTIN en bas à gauche), quatre paquets, de l'or, {bs.TALLIES} cartes de Décompte et le paquet de {len(bs.WOUNDS)} Blessures (marqué BLESSURE : mélangez-le et gardez-le à côté de la table, Règles du joueur 7.6).</p>
+<p>{n_cards} cartes : {len(bs.CALLINGS)} Vocations, la liste de départ ci-dessous, une réserve de butin de Rang I–II (marquée BUTIN en bas à gauche), quatre paquets, de l'or, {bs.PLAYERS} cartes de Porteur, {bs.TALLIES} cartes de Décompte et le paquet de {len(bs.WOUNDS)} Blessures (marqué BLESSURE : mélangez-le et gardez-le à côté de la table, Règles du joueur 7.6).</p>
 <p>Pour le MJ : {len(foes.FOES)} cartes d'Adversaire et {foes.BLANKS} vierges (marquées ADVERSAIRE : gardez-les à l'écart de la réserve de butin).</p>
 <p>Chaque carte indique son code en bas à droite (<i>W-II-02</i> : type, Rang, numéro). Les cartes d'Adversaire listent les codes des cartes qu'elles lâchent ; chaque carte lâchée par un Adversaire a un exemplaire supplémentaire, pour que la réserve de butin la contienne encore après que les joueurs ont pris leur matériel de départ.</p>
 <p>{n_frames} cadres : {frames}.</p>
 <h2>Liste de départ</h2><table>{rows}</table>
 <h2>Chaque joueur prend</h2>
-<p>Une Vocation, puis du matériel et des Runes de la liste de départ qu'elle peut équiper (Règles du joueur 13.1), 9 cadres d'Emplacement (Armure, 2 Mains, Bijou, 2 Objets, 3 Runes), 3 cadres de Pierre runique, une Potion de soins, une Bourse à cordon avec 50 po et une carte de Décompte. La Réserve de la Compagnie commence avec 2 cadres de Pierre runique par joueur. Gardez les cadres de Rune de jalon et les cadres d'Emplacement de Matériel supplémentaire pour que le MJ les distribue.</p>
+<p>Une Vocation, puis du matériel et des Runes de la liste de départ qu'elle peut équiper (Règles du joueur 13.1), 9 cadres d'Emplacement (Armure, 2 Mains, Bijou, 2 Objets, 3 Runes), 3 cadres de Pierre runique, une Potion de soins, une Bourse à cordon avec 50 po, une carte de Porteur et une carte de Décompte. La Réserve de la Compagnie commence avec 2 cadres de Pierre runique par joueur. Gardez les cadres de Rune de jalon et les cadres d'Emplacement de Matériel supplémentaire pour que le MJ les distribue.</p>
 </section>"""
 
 
@@ -707,18 +716,19 @@ def main():
         use_french()
     suffix = "-fr" if french else ""
     title = "Porteurs · Set de base" if french else "Bearers · Base Set"
-    (cards, pairs), frames, foe_cards, tallies = build_cards(), build_frames(), build_foes(), build_tallies()
+    (cards, pairs), frames, foe_cards, tallies = build_cards(), build_frames(), build_foes(), build_bearers() + build_tallies()
     n_duplex = 2 * -(-len(pairs) // 9)
     first = n_duplex + 2 + -(-len(cards) // 9)  # the landscape two-sided pages follow the single cards
     wide = (first, first - 1 + 2 * -(-len(tallies) // 4) + 2 * -(-len(foe_cards) // 4))
+    n_own = len(tallies)  # Bearer and tally cards
     render(f"base-set{suffix}.html", title,
-           intro(len(cards) + len(pairs) + bs.TALLIES, len(frames), n_duplex, wide) + duplex(pairs) + sheets(cards)
+           intro(len(cards) + len(pairs) + n_own, len(frames), n_duplex, wide) + duplex(pairs) + sheets(cards)
            + duplex_wide(tallies) + duplex_wide(foe_cards) + sheets(frames, "frames", 8), OUT)
-    print(f"Wrote {OUT.relative_to(ROOT)}: {len(cards) + len(pairs) + bs.TALLIES} cards ({len(pairs) + bs.TALLIES} two-sided), "
+    print(f"Wrote {OUT.relative_to(ROOT)}: {len(cards) + len(pairs) + n_own} cards ({len(pairs) + n_own} two-sided), "
           f"{len(foe_cards)} foe cards, {len(frames)} frames")
     _, wide = build_cards(reading=True)
     render(f"base-set-reading{suffix}.html", title + (" (lecture)" if french else " (reading)"),
-           sheets(wide, "foes", 3) + sheets(cards) + sheets([tally_card()] + [f for f, _ in foe_cards], "wide4", 4), READING)
+           sheets(wide, "foes", 3) + sheets(cards) + sheets([bearer_card(), bearer_card(back=True), tally_card()] + [f for f, _ in foe_cards], "wide4", 4), READING)
     print(f"Wrote {READING.relative_to(ROOT)}: {len(wide)} double-width two-sided cards, then the rest")
     if french:  # the simulator reads the English cards only
         return
