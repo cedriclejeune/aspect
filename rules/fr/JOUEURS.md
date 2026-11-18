@@ -24,7 +24,7 @@
 
 ## 1. Introduction
 
-**Porteurs** est un jeu de narration coopératif qui met l'accent sur la personnalisation des personnages et des mécaniques de jeu rapides. Un joueur est le **Maître du jeu (MJ)** : il décrit le monde et les obstacles, fait agir les monstres et arbitre les règles. Chacun des autres joue un personnage appelé **Porteur** ; ensemble, ils forment une **Compagnie**. Les personnages **n'ont pas de niveau** : un Porteur se définit par sa **Vocation**, ce qu'il a vécu, qu'il garde à vie ; par son **matériel**, ce qu'il porte ; et par ses **Runes**, des pouvoirs gravés en lui, qu'il peut changer.
+**Porteurs** est un jeu de narration coopératif qui met l'accent sur la personnalisation des personnages et des mécaniques de jeu rapides. Un joueur est le **Maître du jeu (MJ)** : il décrit le monde et les obstacles, fait agir les monstres et arbitre les règles. Chacun des autres joue un personnage appelé **Porteur** ; ensemble, ils forment une **Compagnie**. Les personnages **n'ont pas de niveau** : un Porteur se définit par sa **Vocation**, ce qu'il a vécu, qu'il garde à vie ; par son **matériel**, ce qu'il porte ; et par ses **Runes**, des pouvoirs gravés en lui, qu'il peut changer. Les Porteurs se reconnaissent entre eux à vue.
 
 ### Le rythme du jeu
 
@@ -268,12 +268,12 @@ Les armures, les boucliers, les armes, les Instruments et les Bijoux sont de l'*
 | **Aucune** (Emplacement d'Armure vide) | — | — | — | +4 m de Vitesse. |
 | **Cuir** | I | tous | +2 Défense de FOR, +1 Défense d'AGI, +2 PV | +2 m de Vitesse. |
 | **Mailles** | I | FOR · AGI | +3 Défense de FOR, +4 PV |  |
-| **Peaux** | I | FOR · VOL | +2 Défense de FOR, +4 PV |  |
+| **Peaux** | I | FOR · VOL | +2 Défense de FOR, +4 PV | +2 m de Vitesse. |
 | **Cuir clouté** | I | AGI · INT | +2 Défense de FOR, +2 Défense d'AGI, +2 PV |  |
 | **Plates** | II | FOR | +4 Défense de FOR, +12 PV | −4 m de Vitesse. Bruyante 3. |
 | **Bouclier** | I | FOR · VOL | +2 Défenses de FOR et d'AGI | Occupe un Emplacement de Main. |
 
-Une armure plus lourde donne plus de PV et moins de Vitesse, et renforce surtout la Défense de FOR.
+Une armure plus lourde donne plus de PV et moins de Vitesse, et renforce surtout la Défense de FOR. Les Mailles protègent mieux ; les Peaux laissent courir plus vite.
 
 ### 5.2 Armes
 
@@ -781,7 +781,7 @@ Toutes les cartes de Rang I parmi lesquelles vous choisissez à la création (13
 |---|---|---|---|---|
 | **Cuir** | toutes | Armure | +2 Défense de FOR, +1 Défense d'AGI, +2 PV, +2 m de Vitesse | — |
 | **Mailles** | FOR · AGI | Armure | +3 Défense de FOR, +4 PV | — |
-| **Peaux** | FOR · VOL | Armure | +2 Défense de FOR, +4 PV | — |
+| **Peaux** | FOR · VOL | Armure | +2 Défense de FOR, +4 PV, +2 m de Vitesse | — |
 | **Cuir clouté** | AGI · INT | Armure | +2 Défense de FOR, +2 Défense d'AGI, +2 PV | — |
 
 #### Mains

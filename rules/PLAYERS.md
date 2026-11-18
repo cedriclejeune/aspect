@@ -24,7 +24,7 @@
 
 ## 1. Introduction
 
-**Bearers** is a cooperative storytelling game with an emphasis on character customization and fast-paced mechanics. One player is the **Game Master (GM)**, who describes the world, runs monsters and adjudicates rules. Everyone else plays one character called a **Bearer**; together they form a **Party**. Characters have **no level**: a Bearer is defined by a **Calling**, what they have lived, kept for life; by their **gear**, what they carry; and by their **Runes**, powers etched into them, which they can change.
+**Bearers** is a cooperative storytelling game with an emphasis on character customization and fast-paced mechanics. One player is the **Game Master (GM)**, who describes the world, runs monsters and adjudicates rules. Everyone else plays one character called a **Bearer**; together they form a **Party**. Characters have **no level**: a Bearer is defined by a **Calling**, what they have lived, kept for life; by their **gear**, what they carry; and by their **Runes**, powers etched into them, which they can change. Bearers recognize one another on sight.
 
 ### The Rhythm of Play
 
@@ -268,12 +268,12 @@ Armor, shields, weapons, Instruments and Jewelry are **equipment**. A weapon pri
 | **None** (empty Armor Slot) | — | — | — | +10 ft speed. |
 | **Leather** | I | all | +2 STR Defense, +1 DEX Defense, +2 HP | +5 ft speed. |
 | **Mail** | I | STR · DEX | +3 STR Defense, +4 HP | |
-| **Hide** | I | STR · WIL | +2 STR Defense, +4 HP | |
+| **Hide** | I | STR · WIL | +2 STR Defense, +4 HP | +5 ft speed. |
 | **Studded Leather** | I | DEX · INT | +2 STR Defense, +2 DEX Defense, +2 HP | |
 | **Plate** | II | STR | +4 STR Defense, +12 HP | −10 ft speed. Noisy 3. |
 | **Shield** | I | STR · WIL | +2 STR and DEX Defense | Takes one Hand Slot. |
 
-Heavier armor gives more HP and less Speed, and raises mostly STR Defense.
+Heavier armor gives more HP and less Speed, and raises mostly STR Defense. Mail guards better; Hide lets you move faster.
 
 ### 5.2 Weapons
 
@@ -781,7 +781,7 @@ Every Rank I card you can start with (13.1). *All*: the four affinities are lit.
 |---|---|---|---|---|
 | **Leather** | all | Armor | +2 STR Defense, +1 DEX Defense, +2 HP, +5 ft Speed | — |
 | **Mail** | STR · DEX | Armor | +3 STR Defense, +4 HP | — |
-| **Hide** | STR · WIL | Armor | +2 STR Defense, +4 HP | — |
+| **Hide** | STR · WIL | Armor | +2 STR Defense, +4 HP, +5 ft Speed | — |
 | **Studded Leather** | DEX · INT | Armor | +2 STR Defense, +2 DEX Defense, +2 HP | — |
 
 #### Hands

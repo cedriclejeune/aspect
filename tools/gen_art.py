@@ -18,8 +18,8 @@ Output: rules/art/<name>.png (what tools/build_cards.py picks up), or <name>-1.p
 saved in rules/symbols/qwen/ with their links in its sources.json; the replaced drawings go to rules/symbols/qwen/old/.
 Keys come from the environment or the git-ignored .env at the repo root: EACHLABS_API_KEY for Eachlabs, DASHSCOPE_API_KEY
 for Model Studio (and MODELSTUDIO_URL to use another workspace than MS_API).
---model picks the image model (qwen: Qwen Image 3.0 Pro, $0.075; qwen-ms: Qwen Image 3.0 on Model Studio, which the account
-         cannot use yet (AccessDenied.Unpurchased); qwen-turbo: Qwen Image 2.1 Turbo, $0.016; qwen-pro21: Qwen Image 2.1 Pro, $0.04;
+--model picks the image model (qwen: Qwen Image 3.0 Pro, $0.075; qwen-ms: Qwen Image 3.0 on Model Studio, working since
+         2026-11-17 and preferred over Eachlabs; qwen-turbo: Qwen Image 2.1 Turbo, $0.016; qwen-pro21: Qwen Image 2.1 Pro, $0.04;
          seedream: Seedream v5 Lite, $0.035; flux3: Flux 3, $0.041; luma: Luma Uni-1, $0.042; nano: Nano Banana 2).
 Every drawing copies the ink style of REF, a Chris Riddell sketch sheet (many small figures, so no one subject gets copied);
 --ref replaces it with other images (URLs; local files are sent inline, which the API may refuse), --no-ref drops it.

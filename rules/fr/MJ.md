@@ -334,7 +334,7 @@ Multipliez par le nombre de personnages, puis dépensez le budget en valeurs de 
 ---
 
 ## 6. Les Porteurs dans le monde
-Les Règles du joueur ne fixent que l'essentiel (J 2.1) : les pouvoirs sont des Runes, les Porteurs les gravent, tiennent leur Vocation de leur passé, le matériel est du matériel, et le corps et la personnalité d'un Porteur ne changent jamais (une Forme ne change la silhouette que pour un temps). Tout ce qui suit est une suggestion : prenez ce qui convient à votre monde.
+Les Règles du joueur ne fixent que l'essentiel (J 2.1) : les pouvoirs sont des Runes, les Porteurs les gravent, tiennent leur Vocation de leur passé, le matériel est du matériel, les Porteurs se reconnaissent entre eux à vue, et le corps et la personnalité d'un Porteur ne changent jamais (une Forme ne change la silhouette que pour un temps). Tout ce qui suit est une suggestion : prenez ce qui convient à votre monde.
 
 ### 6.1 Les Runes dans le monde
 Les Règles du joueur ne disent pas d'où viennent les Runes. Choisissez une origine, ou laissez-la mystérieuse. Trois suggestions :
@@ -350,7 +350,7 @@ Décidez ensuite qui voit les Runes et qui peut manipuler les Pierres runiques :
 | **Pour les autres** | Une Pierre runique est une pierre terne et lourde. Un Porteur qui en tend une au-dessus d'un adversaire tombé a l'air étrange. | Une Rune qui persiste est une lueur au-dessus du corps ; une Pierre runique pleine brille : une curiosité qui vaut de l'argent. |
 | **Vol** | Seul un autre Porteur peut voler dans le Sac ou la Réserve de la Compagnie. | N'importe qui le peut : voleurs, bandits, aubergiste cupide. |
 | **Commerce** | Un marché secret entre Porteurs. | Un marché ouvert : marchands, collectionneurs, guildes, lois. |
-| **Société** | Les Porteurs peuvent facilement cacher leur don ; les non-Porteurs peuvent douter de l'existence des Runes. | Le don est difficile à cacher, et les gens savent ce que cherchent les Porteurs. |
+| **Société** | Les Porteurs peuvent facilement cacher leur don, sauf entre eux ; les non-Porteurs peuvent douter de l'existence des Runes. | Le don est difficile à cacher, et les gens savent ce que cherchent les Porteurs. |
 
 Vous pouvez les combiner ligne par ligne : tout le monde voit les Pierres runiques mais seuls les Porteurs peuvent les utiliser, ou les Runes gravées ne se voient qu'entre Porteurs.
 

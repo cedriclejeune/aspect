@@ -10,3 +10,7 @@ SRD_CC_v5.2.1.pdf
 # Replaced foe drawings, kept locally by tools/gen_art.py
 rules/art/old/
 rules/symbols/qwen/old/
+# Campaign map, kept locally
+carte.png
+carte-annotee.png
+carte.nort

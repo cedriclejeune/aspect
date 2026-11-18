@@ -60,7 +60,8 @@ globalThis.BEARERS_CARDS = {
    "text": [],
    "strip": {
     "STRd": 2,
-    "HP": 4
+    "HP": 4,
+    "SPD": 5
    },
    "group": "starter",
    "sym": [

@@ -68,7 +68,7 @@ ARMOR = [
     card("Leather", "I", "gear", "Armor", [], {"STRd": "+2", "DEXd": "+1", "HP": "+2", "SPD": "+5"}, copies=2),
     card("Mail", "I", "gear", "Armor", [], {"STRd": "+3", "HP": "+4"}, copies=2, sym=["STR", "DEX"]),
     card("Plate", "II", "gear", "Armor · Noisy 3", [], {"STRd": "+4", "HP": "+12", "SPD": "−10"}, group="loot", sym=["STR"]),
-    card("Hide", "I", "gear", "Armor", [], {"STRd": "+2", "HP": "+4"}, sym=["STR", "WIL"]),
+    card("Hide", "I", "gear", "Armor", [], {"STRd": "+2", "HP": "+4", "SPD": "+5"}, sym=["STR", "WIL"]),
     card("Studded Leather", "I", "gear", "Armor", [], {"STRd": "+2", "DEXd": "+2", "HP": "+2"}, sym=["DEX", "INT"]),
 ]
 

@@ -334,7 +334,7 @@ Multiply by the number of characters, then spend the budget on monsters' XP valu
 ---
 
 ## 6. Bearers in the World
-The Player Rules fix only the basics (P 2.1): powers are Runes, Bearers etch them, carry a Calling from their past, gear is gear, and a Bearer's body and personality never change (a Form changes the shape only for a while). Everything below is a suggestion: take what fits your world.
+The Player Rules fix only the basics (P 2.1): powers are Runes, Bearers etch them, carry a Calling from their past, gear is gear, Bearers recognize one another on sight, and a Bearer's body and personality never change (a Form changes the shape only for a while). Everything below is a suggestion: take what fits your world.
 
 ### 6.1 Runes in the World
 The Player Rules don't say where Runes come from. Pick an origin, or leave it a mystery. Three suggestions:
@@ -350,7 +350,7 @@ Then decide who sees Runes and who can handle Runestones: it changes what NPCs k
 | **To others** | A Runestone is a dull, heavy stone. A Bearer holding one over a fallen foe looks strange. | A lingering Rune is a glow over the body; a full Runestone shines: a curiosity worth money. |
 | **Theft** | Only another Bearer can steal from the Pack or the Party Stash. | Anyone can: thieves, bandits, a greedy innkeeper. |
 | **Trade** | A secret market between Bearers. | An open market: merchants, collectors, guilds, laws. |
-| **Society** | Bearers can hide the gift easily; non-Bearers may doubt Runes exist. | The gift is hard to hide, and people know what Bearers look for. |
+| **Society** | Bearers can hide the gift easily, except from each other; non-Bearers may doubt Runes exist. | The gift is hard to hide, and people know what Bearers look for. |
 
 You can mix them row by row: everyone sees Runestones but only Bearers can use them, or etched Runes show only to other Bearers.
 
