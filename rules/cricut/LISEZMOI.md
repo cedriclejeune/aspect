@@ -4,10 +4,10 @@ Fichiers de coupe pour `rules/fr/Porteurs-Set-de-base.pdf` (et l'édition anglai
 
 | Fichier | Pages du PDF | Coupe |
 |---|---|---|
-| `cartes.svg` | 2, 4, 6 … 46 | 9 cartes 63 × 88 mm (coupées à 65 × 90 mm), coins arrondis |
+| `cartes.svg` | 2, 4, 6 … 46 | 9 cartes (coupées à 65 × 90 mm), coins arrondis |
 | `cartes-2.svg` | 48 | les 8 dernières cartes |
-| `larges.svg` | 50, 52 … 64 | 4 cartes larges 126 × 88 mm (cartes de Décompte, Adversaires) — page couchée, posée debout |
-| `cadres.svg` | 66 à 72 | 8 cadres d’Emplacement 67 × 98 mm et leurs 2 fentes — page couchée, posée debout |
+| `larges.svg` | 50, 52 … 64 | 4 cartes larges (cartes de Décompte, Adversaires) — page couchée, posée debout |
+| `cadres.svg` | 66 à 72 | 8 cadres d’Emplacement (coupés à 67 × 98 mm) et leurs 2 fentes — page couchée, posée debout |
 | `cadres-2.svg` | 73 | les 7 derniers cadres — page couchée, posée debout |
 
 On coupe le **recto** de chaque feuille recto verso ; les pages de verso n'ont pas de fichier.
@@ -32,4 +32,4 @@ Les fichiers actuels sont corrigés pour la Cricut de Cédric. Feuille dans le c
 
 Pour recalibrer (autre imprimante, autre façon de poser la feuille) : imprimer `calibrage-impression.pdf` à 100 %, couper `calibrage.svg` dessus de la même façon que les cartes, et lire le chiffre où chaque fente croise sa règle **dx** ou **dy**. Ce chiffre est la correction à ajouter aux valeurs ci-dessus. Les trois paires de règles (haut gauche, milieu, bas droite) doivent donner la même lecture ; sinon, l'impression n'est pas à 100 % ou la feuille est de travers.
 
-Les cartes sont coupées 1 mm en dehors de leur bordure noire : un petit écart ne mord pas dans la bordure. Les cadres sont coupés sur leur bord.
+Les cartes et les cadres s'impriment à **95 %** de leur taille (cartes 60 × 84 mm, larges 120 × 84 mm, cadres 64 × 93 mm), centrés là où la coupe passe. La coupe, elle, reste à la taille d'origine : 1 mm en dehors d'une carte de 63 × 88 mm (126 × 88 mm pour les larges), sur le bord d'un cadre de 67 × 98 mm. Il reste ainsi environ 2,6 mm de marge blanche autour de chaque carte et 1,7 mm autour de chaque cadre : un petit écart de la Cricut ne mord pas dans la bordure. Les fentes des cadres suivent la réduction. Le facteur est `PRINT_SCALE`, dans `tools/build_cards.py` et `tools/cut_svg.py`.

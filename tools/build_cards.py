@@ -5,6 +5,7 @@ Usage: .venv/bin/python tools/build_cards.py [--lang fr]
 Output: rules/Bearers-Base-Set.pdf to print and rules/Bearers-Base-Set-Reading.pdf to read on screen
 (and build/base-set.html, build/base-set-reading.html for inspection)
 Cards are 63 × 88 mm, 9 per Letter page; Bearer, tally and foe cards 126 × 88 mm and two-sided, 4 per landscape page (a foe's back: its drawing and name, turned a quarter); Slot frames are 67 × 98 mm, 8 per landscape page.
+Each card and frame is laid out at that size, then printed at PRINT_SCALE (95 %), centred in its place: the cut, at the full size, leaves a margin all round.
 A card with a drawing is two-sided: gear and gold from rules/art/items/, Callings, Runes, deck cards and Wounds from
 rules/art/cards/ (a Form named after a foe, and the Runes in FOE_DRAWING, use the foe's drawing). The drawing goes in place of the
 text on the front, the text on the back, on facing pages printed two-sided (each back page mirrors its front page's
@@ -36,6 +37,7 @@ from build_pdf import FONTS  # noqa: E402
 from PIL import Image  # noqa: E402
 
 BUILD = ROOT / "build"
+PRINT_SCALE = .95  # cards and frames print this much smaller, centred where the Cricut cut files (tools/cut_svg.py) cut them
 OUT = ROOT / "rules" / "Bearers-Base-Set.pdf"
 READING = ROOT / "rules" / "Bearers-Base-Set-Reading.pdf"
 SYMBOLS = ROOT / "rules" / "symbols" / "ink"
@@ -86,6 +88,7 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
 .sheet.wide4 {{ page: frames; width: 279.4mm; height: 215.9mm; grid-template-columns: repeat(2, 126mm); }}
 .sheet.frames {{ page: frames; width: 279.4mm; height: 215.9mm; grid-template-columns: repeat(4, 67mm); grid-auto-rows: 98mm; gap: 0; }}
 .sheet.frames svg {{ width: 67mm; height: 98mm; display: block; }}
+.sheet > .card:not(.gap), .sheet.frames > svg {{ transform: scale({PRINT_SCALE}); }}  /* centred in the unchanged cut, for a margin all round */
 .intro {{ width: 215.9mm; height: 279.4mm; box-sizing: border-box; padding: 22mm 24mm; break-after: page; background: {ill.PARCH}; }}
 .intro h1 {{ font-family: Cinzel, serif; color: {ill.CRIMSON}; font-size: 30pt; margin: 0; letter-spacing: .08em; }}
 .intro h2 {{ font-family: Cinzel, serif; color: {ill.CRIMSON}; font-size: 13pt; margin: 14pt 0 4pt; border-bottom: 1.5px solid {ill.GOLD}; }}
@@ -660,7 +663,7 @@ def intro(n_cards, n_frames, n_duplex, wide):
     return f"""<section class="intro"><h1>BEARERS</h1><p style="font-family:Cinzel,serif;letter-spacing:.2em">Base Set · {bs.PLAYERS} players</p>
 <h2>Printing</h2>
 <ul><li>Print at <b>100 %</b> (no fit-to-page) on cardstock. Pages 2–{n_duplex + 1} are two-sided cards: print them double-sided, flipping on the long edge. Pages {wide[0]}–{wide[1]} (landscape: Bearer, tally and foe cards) are two-sided too, flipping on the short edge. Print the rest single-sided.</li>
-<li> Cards are 63 × 88 mm; Bearer, tally and foe cards are double width (126 × 88 mm) and two-sided, 4 to a landscape page; Slot frames are 67 × 98 mm.</li>
+<li>Cards print at 60 × 84 mm, each centred in a 63 × 88 mm space; Bearer, tally and foe cards are double width (120 × 84 mm) and two-sided, 4 to a landscape page; Slot frames print at 64 × 93 mm.</li>
 <li>Cut out each card and frame. On each frame, cut the two <b style="color:{ill.CRIMSON}">red slits</b> with a craft knife.</li>
 <li>Tuck a card's top-right and bottom-left corners under the slits to equip it (Player Rules 12.2).</li></ul>
 <h2>Contents</h2>
@@ -702,7 +705,7 @@ def intro_fr(n_cards, n_frames, n_duplex, wide):
     return f"""<section class="intro"><h1>PORTEURS</h1><p style="font-family:Cinzel,serif;letter-spacing:.2em">Set de base · {bs.PLAYERS} joueurs</p>
 <h2>Impression</h2>
 <ul><li>Imprimez à <b>100 %</b> (sans ajustement à la page) sur du papier cartonné. Les pages 2 à {n_duplex + 1} sont des cartes recto verso : imprimez-les en recto verso, retournement sur le bord long. Les pages {wide[0]} à {wide[1]} (en paysage : cartes de Porteur, de Décompte et d'Adversaire) sont aussi recto verso, retournement sur le bord court. Imprimez le reste en recto seul.</li>
-<li>Les cartes mesurent 63 × 88 mm ; les cartes de Porteur, de Décompte et d'Adversaire sont double largeur (126 × 88 mm) et recto verso, 4 par page paysage ; les cadres d'Emplacement mesurent 67 × 98 mm.</li>
+<li>Les cartes s'impriment en 60 × 84 mm, chacune centrée dans un espace de 63 × 88 mm ; les cartes de Porteur, de Décompte et d'Adversaire sont double largeur (120 × 84 mm) et recto verso, 4 par page paysage ; les cadres d'Emplacement s'impriment en 64 × 93 mm.</li>
 <li>Découpez chaque carte et chaque cadre. Sur chaque cadre, incisez les deux <b style="color:{ill.CRIMSON}">fentes rouges</b> au cutter.</li>
 <li>Glissez les coins supérieur droit et inférieur gauche d'une carte sous les fentes pour l'équiper (Règles du joueur 12.2).</li></ul>
 <h2>Contenu</h2>
