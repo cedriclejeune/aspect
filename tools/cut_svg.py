@@ -4,7 +4,7 @@ Usage: .venv/bin/python tools/cut_svg.py [--lang fr] [--dx MM] [--dy MM]
 Reads build/base-set[-fr].html (run tools/build_cards.py first) and lays out the cut lines as the sheets' CSS does:
 cards (63 × 88 mm, 3 mm corners) and foe and tally cards (126 × 88 mm) centred on the page, 2 mm apart; Slot frames
 67 × 98 mm edge to edge (each shared edge cut once), with their two corner slits. Cards are cut 1 mm outside their
-border, frames on their edge.
+full-size border, frames on their full-size edge; both print at 95 % (PRINT_SCALE), so the cut leaves a margin round each.
 Two-sided pages are cut from the front, so the back pages get no file.
 Each file is a single path (one layer in Design Space, nothing to Attach), with a 0.5 mm square at two opposite page
 corners, so Design Space keeps the cuts where they are on the page.
@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "rules" / "cricut"
 PORTRAIT, LANDSCAPE = (215.9, 279.4), (279.4, 215.9)
 MARGIN = 1  # cards are cut this far outside their border, so a slightly off cut never bites into it
+PRINT_SCALE = .95  # tools/build_cards.py: cards and frames print 95 % of their size, centred where they are cut
 SLITS = (((550, 68), (667, 185)), ((13, 855), (130, 972)))  # tools/illustrations.py frame_body, in 0.1 mm
 
 
@@ -97,9 +98,10 @@ def frame_cuts(cells):
         for a, b in (((x, y), (x + 67, y)), ((x, y + 98), (x + 67, y + 98)), ((x, y), (x, y + 98)), ((x + 67, y), (x + 67, y + 98))):
             edges[tuple(round(v, 3) for v in a + b)] = None
     out += [line(*e) for e in edges]
+    k = lambda v, size: size / 2 + (v / 10 - size / 2) * PRINT_SCALE  # the frame prints scaled about its centre
     for x, y in cells:
         for (ax, ay), (bx, by) in SLITS:
-            out.append(line(x + ax / 10, y + ay / 10, x + bx / 10, y + by / 10))
+            out.append(line(x + k(ax, 67), y + k(ay, 98), x + k(bx, 67), y + k(by, 98)))
     return out
 
 
