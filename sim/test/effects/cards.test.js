@@ -1027,6 +1027,41 @@ module.exports = function register(T, H) {
     run(f, { type: "endTurn", actor: "w" }); run(f, { type: "beginTurn", actor: "a" });
     eq(C(f, "a").temp, 2);
   });
+  T("[fx] Raise Dead: a corpse within 10 ft rises as a Skeleton on the caster's side; it dies at 0 HP (R603)", () => {
+    const f = fight([pc("w", [1, 5], caster("B-I-06")), foe("x", [3, 5]), foe("y", [20, 5])]);
+    pcTurn(f, "w");
+    refused(f, power(f, "w", "B-I-06#raise-dead", { targets: ["x"] }), "corpse");
+    run(f, { type: "adjust", actor: "x", hp: 0 }, [15]);
+    ok(C(f, "x").dead, "the foe is a corpse");
+    run(f, power(f, "w", "B-I-06#raise-dead", { targets: ["x"] }));
+    eq(C(f, "w").sp, 5 - 1, "1st level");
+    const s = Object.values(f.state.creatures).find((c) => c.summoner === "w");
+    ok(s && s.side === "pc" && s.build.foe === "Skeleton", "a Skeleton on the caster's side");
+    eq(s.pos, [3, 5], "in the corpse's space");
+    ok(C(f, "x").raised, "the corpse rose");
+    run(f, { type: "endTurn", actor: "w" });
+    eq(f.state.side, "pc", "the side's turn goes on: the Skeleton still has to act");
+    run(f, { type: "adjust", actor: s.id, hp: 0 });
+    ok(C(f, s.id).dead, "dies instead of falling Unconscious");
+  });
+  T("[fx] Toll the Dead: 1d12 against a creature missing HP; Vampiric Touch heals half; Chill Touch stops healing", () => {
+    const f = fight([pc("w", [1, 5], caster("B-I-06")), foe("x", [5, 5]), foe("y", [20, 5])]);
+    pcTurn(f, "w");
+    run(f, { type: "adjust", actor: "x", hp: 13 });
+    const r = run(f, power(f, "w", "B-I-06#toll-the-dead", { targets: ["x"] }), [15, 12]);
+    eq(dmgs(r), [12], "1d12 when hurt");
+    const g = fight([pc("w", [1, 5], caster("B-I-06")), foe("x", [2, 5], { body: { STR: 3, DEX: 1, INT: 0, WIL: 0, HP: 40, SPD: 30 } })]);
+    pcTurn(g, "w");
+    run(g, { type: "adjust", actor: "w", hp: 1 });
+    const v = run(g, power(g, "w", "B-I-06#vampiric-touch", { targets: ["x"] }), [15, 4, 4, 4]);
+    eq(dmgs(v), [12]);
+    eq(C(g, "w").hp, 1 + 6, "regains half the damage");
+    eq(C(g, "w").sp, 5 - 2, "2nd level");
+    const h = fight([pc("w", [1, 5], caster("B-I-06")), foe("x", [5, 5])]);
+    pcTurn(h, "w");
+    run(h, power(h, "w", "B-I-06#chill-touch", { targets: ["x"] }), [15, 3]);
+    ok(C(h, "x").mods.some((m) => m.kind === "noHeal"), "can't regain HP");
+  });
   T("[fx] Invisibility: the creature is Invisible until it attacks (R716)", () => {
     const f = fight([pc("w", [1, 5], caster("B-I-04")), pc("a", [2, 5], { hands: ["W-I-10"] }), foe("x", [8, 5])]);
     pcTurn(f, "w");

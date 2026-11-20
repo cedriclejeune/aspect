@@ -141,6 +141,9 @@ Every key is optional except `use`. Engine code (B) handles the generic keys; an
   "until": Until }
 { "mod": "tempTurn", "n": 2, "until": Until }  // temporary HP at the start of each of its turns (Heroism)
 { "mod": "noFear", "until": Until }          // can't be Frightened (Heroism)
+{ "mod": "noHeal", "until": Until }          // can't regain HP (Chill Touch)
+{ "dmg": "1d8", "hurt": "1d12", "type": "Necrotic" }  // other dice if the target is missing HP (Toll the Dead)
+{ "dmg": "3d6", "type": "Necrotic", "drain": true }  // the user regains half the damage dealt (Vampiric Touch)
 { "reroll": true }
 { "move": "teleport" | "safe", "ft": 30 | "half" }   // safe = no opportunity attacks
 { "dash": true }
@@ -248,7 +251,7 @@ Eng.replay(exported, cards)     // → Fight
 `{ "t": type, "round", "actor", "target", "text": "human-readable log line", ...data }`. Types: `round`, `turn`, `initiative`, `move`, `roll` (`dice: [..], kept, bonus, total, vs, adv, dis, why: [...]`), `hit`, `miss`, `crit`, `damage` (`n, type, resisted`), `heal`, `temp`, `cond`, `condEnd`, `maintain`, `down`, `death`, `deathSave`, `stable`, `power`, `reaction`, `resource` (`what, n`), `shift`, `revert`, `note`, `adjust`, `over`, `morale` (`why`, `actors`: who checks; each check is a `roll` with `kind: "morale"`), `flee`.
 
 ## 5. Effects plug-in (`sim/effects.js`, phase 2)
-`BearersEngine.registerHook(name, { onUse?, onTrigger?, modifyAttack?, modifyDamage?, passive? })`. B defines the hook points and the context object (`ctx.fight, ctx.actor, ctx.power, ctx.attack, ctx.roll(dice), ctx.emit(event), ctx.ask(prompt)`) and documents them at the top of `engine.js`. Unknown hooks log `"<card>: not automated"` and offer a manual note.
+`BearersEngine.registerHook(name, { onUse?, onTrigger?, modifyAttack?, modifyDamage?, passive?, plan? })`. A hook may bring a creature into the fight with `ctx.summon(foe, pos)` (Raise Dead: a foe card on the caster's side, `summoner` set, dies at 0 HP). B defines the hook points and the context object (`ctx.fight, ctx.actor, ctx.power, ctx.attack, ctx.roll(dice), ctx.emit(event), ctx.ask(prompt)`) and documents them at the top of `engine.js`. Unknown hooks log `"<card>: not automated"` and offer a manual note.
 
 ## 6. Summary
 ```jsonc

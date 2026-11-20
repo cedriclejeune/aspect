@@ -8,6 +8,9 @@
  *                           (a "Pierced" condition; the engine offers the action to end it)
  *   sweep        Sweeping Blow  action power: the Attack action as one roll against each enemy within the reach of a
  *                           held melee weapon with one of params.props (Heavy, Reach); half damage on a miss
+ *   raise        Raise Dead action spell: the corpse (cmd.targets[0]) of a Small or Medium creature within reach
+ *                           rises as params.foe on the caster's side; casting it again makes the caster's previous one
+ *                           collapse. A corpse rises once.
  */
 (function (root, factory) {
   const Eng = root.BearersEngine || (typeof require === "function" ? require("./engine.js") : null);
@@ -94,5 +97,30 @@
     },
   });
 
-  return { hooks: ["close_order", "brace", "pierce", "sweep"] };
+  // Raise Dead. RULING R603: a corpse is a dead (not fled) creature; the raised creature takes the corpse's space,
+  // keeps nothing it carried (it rises with the foe card's own gear), and a corpse already raised can't rise again.
+  // The caster keeps one at a time: the previous one collapses (dies) when the new one rises.
+  const SMALL = ["Tiny", "Small", "Medium"];
+  Eng.registerHook("raise", {
+    plan(ctx) {
+      const id = ctx.cmd && ctx.cmd.targets && ctx.cmd.targets[0];
+      const t = id && ctx.creature(id);
+      if (!t || !t.dead || t.fled) return "Pick a corpse";
+      if (t.raised) return `${t.name}'s corpse has already risen`;
+      if (!SMALL.includes(t.size)) return `${t.name} is too big`;
+      const reach = ctx.power.reach || 10;
+      if (ctx.distance(ctx.actor, t) > reach) return `${t.name} is out of range (${reach} ft)`;
+      const foe = ctx.cards.foes.find((f) => f.name === (params(ctx).foe || "Skeleton"));
+      if (!foe) return `No ${params(ctx).foe} foe card`;
+      return { targets: [t], info: { summon: foe.name } };
+    },
+    onUse(ctx) {
+      const t = ctx.targets[0], a = ctx.actor, foe = params(ctx).foe || "Skeleton";
+      for (const o of ctx.creatures()) if (o.summoner === a.id && o.summonedBy === ctx.power.id && !o.dead) ctx.kill(o, "collapses");
+      t.raised = true;
+      ctx.summon(foe, t.pos.slice(), { name: `${foe} (${a.name})`, power: ctx.power.id });
+    },
+  });
+
+  return { hooks: ["close_order", "brace", "pierce", "sweep", "raise"] };
 });

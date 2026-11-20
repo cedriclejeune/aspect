@@ -64,7 +64,9 @@
  *           dealDamage(t, n, type, opts), heal(t, n), addCond(t, name, opts), removeCond(t, name),
  *           addMod(t, mod), apply(effects, target), distance(a, b), engaged(a, b), creature(id), creatures(),
  *           weapon(id) → weapon spec of a held weapon, weaponReach(w), sees(a, b) → clear line, attackInfo(t, src) (pure),
- *           areaWeaponAttack(w, targets, { label, attackAction }) one weapon roll against each target, half on a miss }
+ *           areaWeaponAttack(w, targets, { label, attackAction }) one weapon roll against each target, half on a miss,
+ *           summon(foe, pos, { name, power }) → a new creature from that foe card on the actor's side (dies at 0 HP),
+ *           kill(t, why), fits(c, pos) → the space is free for c }
  *   Creatures in ctx are live state objects; change them only through the helpers.
  */
 (function (root, factory) {
@@ -849,6 +851,9 @@
     ctx.areaWeaponAttack = (w, targets, o) => areaWeaponAttack(need(), ctx.actor, w, targets, o);
     ctx.creature = (id) => F.state.creatures[id];
     ctx.creatures = () => Object.values(F.state.creatures);
+    ctx.summon = (foe, pos, o) => summon(need(), ctx.actor, foe, pos, o);
+    ctx.kill = (t, why) => die_(need(), t, why);
+    ctx.fits = (c, pos) => fits(F.state, c, pos, c.id);
     return ctx;
   }
   // Calls handler `fn` of the passive hooks of attacker a (its used weapon's only) and of target t.
@@ -1208,7 +1213,7 @@
       stat(X, t.id).downs++;
       // RULING R213: foes die at 0 HP unless their build sets `important: true` (GM 2.1 "you may let important
       // ones fall unconscious"); they then follow the Bearer rules.
-      if (t.side === "foe" && !t.build.important) die_(X, t, "falls", o.source);
+      if ((t.side === "foe" && !t.build.important) || t.summoner) die_(X, t, "falls", o.source);
       else if (over >= t.maxHp) die_(X, t, "instant death", o.source);
       else {
         t.down = true; t.death = { ok: 0, fail: 0 }; t.stable = false;
@@ -1265,8 +1270,21 @@
     if (t.hands.length && !t.form) { for (const id of t.hands) X.st.ground.push({ card: id, pos: t.pos.slice(), owner: t.id }); t.hands = []; }
     sweep(X);
   }
+  // A creature a power brings into the fight (Raise Dead): built from a foe card, on its summoner's side, with
+  // `summoner` set. It has no death saves (dies at 0 HP), and it acts on its side's turn like any member (P 6.1).
+  function summon(X, src, foe, pos, o) {
+    const st = X.st, id = "s" + st.nextId++;
+    const c = initCreature(X.F, { id, side: src.side, name: (o && o.name) || foe, pos, foe, react: src.react });
+    c.summoner = src.id; c.summonedBy = (o && o.power) || null;
+    st.creatures[id] = c;
+    st.stats[id] = { name: c.name, side: c.side, dmgDealt: 0, dmgTaken: 0, healed: 0, attacks: 0, hits: 0, crits: 0,
+      kills: 0, downs: 0, roundsAlive: 0, spent: { sp: 0, resolve: 0, uses: 0, consumables: 0 }, endHp: c.hp };
+    emit(X, { t: "summon", actor: src.id, target: id, text: `${c.name} rises at ${src.name}'s command.` });
+    return c;
+  }
   function heal(X, t, n, src) {
     if (t.dead || n <= 0) return 0;
+    if (t.mods.some((m) => m.kind === "noHeal")) { emit(X, { t: "note", target: t.id, text: `${t.name} can't regain HP.` }); return 0; }
     let got;
     // RULING R214: healing a shifted creature restores the Form's HP pool (its own HP waits, P 9.6).
     if (t.form) { got = Math.min(n, t.form.maxHp - t.form.hp); t.form.hp += got; }
@@ -1642,13 +1660,17 @@
           n = -Infinity;
           for (let b = 0; b <= (o.best || 0); b++) {
             let m = 0;
-            for (let k = 0; k < (o.darts || 1); k++) m += rollDice(X, d.dmg, { crit: o.crit, mods: user.totals, why: "damage" }).total;
+            // hurt (Toll the Dead): other dice against a creature already missing HP.
+            const dice = d.hurt && t.hp < t.maxHp ? d.hurt : d.dmg;
+            for (let k = 0; k < (o.darts || 1); k++) m += rollDice(X, dice, { crit: o.crit, mods: user.totals, why: "damage" }).total;
             n = Math.max(n, m);
           }
           if (o.rolled) o.rolled[i] = n;
         }
         if (!o.hit) n = Math.floor(n / 2);
-        applyDamage(X, t, n, d.type || "Physical", { source: user.id, crit: o.crit });
+        const dealt = applyDamage(X, t, n, d.type || "Physical", { source: user.id, crit: o.crit });
+        // drain (Vampiric Touch): the user regains half the damage dealt.
+        if (d.drain && dealt > 0) heal(X, user, Math.floor(dealt / 2), user);
         if (d.type === "Fire") burnZones(X, cellsOf(t));
       } else if (d.heal) heal(X, t, Math.max(0, rollDice(X, d.heal, { mods: user.totals, why: "healing" }).total), user);
       else if (d.temp) { const n = rollDice(X, d.temp, { mods: user.totals }).total; if (n > t.temp) { t.temp = n; emit(X, { t: "temp", target: t.id, n, text: `${t.name} has ${n} temporary HP.` }); } }
@@ -2383,7 +2405,7 @@
       bits.push(`HP ${c.hp}`);
       // 0 HP by hand follows the usual rules: a foe dies (R213), anyone else falls Unconscious (P 7.4)
       if (c.hp === 0 && was > 0 && !c.dead) {
-        if (c.side === "foe" && !c.build.important) die_(X, c, "adjusted to 0 HP");
+        if ((c.side === "foe" && !c.build.important) || c.summoner) die_(X, c, "adjusted to 0 HP");
         else { c.down = true; c.death = { ok: 0, fail: 0 }; c.stable = false; addCond(X, c, "Unconscious", { source: null }); addCond(X, c, "Prone", { source: null }); if (c.build.calling) drawWound(X, c); }
       }
     }

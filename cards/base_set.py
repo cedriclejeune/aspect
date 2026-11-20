@@ -346,6 +346,19 @@ POWER_FX = {
     "Mirror Image": dict(use="action", target="self", dur="1 minute", do=[dict(mod="def", n=3, defs=["STR", "DEX"], until="dur")]),
     "Invisibility": dict(use="action", reach=5, target="creature", dur="1 hour", do=[dict(cond="Invisible", until="dur")],
                          params=dict(endsOnAttack=True)),
+    # Necromancer's Book
+    "Chill Touch": dict(use="action", reach=120, target="enemy", atk=dict(abil="deck", vs="DEX"),
+                        do=[dict(dmg="1d8", type="Necrotic"), dict(mod="noHeal", until="startSourceTurn")]),
+    "Toll the Dead": dict(use="action", reach=60, target="enemy", atk=dict(abil="deck", vs="WIL"),
+                          do=[dict(dmg="1d8", hurt="1d12", type="Necrotic")]),
+    "Raise Dead": dict(use="action", reach=10, hook="raise", dur="1 hour", params=dict(foe="Skeleton")),
+    "False Life": dict(use="action", target="self", do=[dict(temp="1d4+4")]),
+    "Ray of Sickness": dict(use="action", reach=60, target="enemy", atk=dict(abil="deck", vs="STR"),
+                            do=[dict(dmg="2d8", type="Poison"), dict(cond="Poisoned", until="endTargetTurn")]),
+    "Vampiric Touch": dict(use="action", reach=5, target="enemy", atk=dict(abil="deck", vs="DEX"),
+                           do=[dict(dmg="3d6", type="Necrotic", drain=True)]),
+    "Blindness": dict(use="action", reach=30, target="enemy", atk=dict(abil="deck", vs="WIL"),
+                      do=[dict(cond="Blinded", until="targetTurns2")]),
     # Enchanter's Book
     "Mind Sliver": dict(use="action", reach=60, target="enemy", atk=dict(abil="deck", vs="INT"),
                         do=[dict(dmg="1d6", type="Necrotic"), dict(mod="attack", dice="-1d4", next=True, until="endSourceTurn")]),
@@ -538,6 +551,22 @@ ILLUSIONIST = dict(
     ],
 )
 
+NECROMANCER = dict(
+    cover=card("Necromancer's Book", "I", "gear", "Spellbook", [
+        "Spell attack: **INT + 2**", "Spell points: **+2** (long rest)", "Max spell level: **2nd**",
+        "Casting needs an empty Hand."], sym=["INT"]),
+    color="gear", stats=dict(kind="spellbook", atk=2, sp=2, maxLevel=2),
+    cards=[
+        spell("Chill Touch", "Cantrip", ["**Action**, range 120 ft.", "Spell attack against DEX Defense: **1d8 Necrotic**, and it can't regain HP until the start of your next turn."], "Cantrip · Targets DEX · Range 120"),
+        spell("Toll the Dead", "Cantrip", ["**Action**, range 60 ft.", "Spell attack against WIL Defense: **1d8 Necrotic**, or **1d12 Necrotic** if it is missing any HP."], "Cantrip · Targets WIL · Range 60"),
+        spell("Raise Dead", "1st", ["**Action**, range 10 ft, Duration 1 hour.", "The corpse of a Small or Medium creature rises as a **Skeleton** (its foe card) on your side. It acts right after you: you choose its moves and actions. It dies instead of falling **Unconscious**. A corpse rises once; cast again and your previous Skeleton collapses."], "Spell · Duration 1 hour"),
+        spell("False Life", "1st", ["**Action.**", "You gain 1d4 + 4 temporary HP."], "Spell"),
+        spell("Ray of Sickness", "1st", ["**Action**, range 60 ft.", "Spell attack against STR Defense: **2d8 Poison**, and it is **Poisoned** until the end of its next turn."], "Spell · Targets STR · Range 60"),
+        spell("Vampiric Touch", "2nd", ["**Action**, touch.", "Spell attack against DEX Defense: **3d6 Necrotic**, and you regain HP equal to half the damage dealt."], "Spell · Targets DEX"),
+        spell("Blindness", "2nd", ["**Action**, range 30 ft.", "Spell attack against WIL Defense: it is **Blinded** for 2 turns."], "Spell · Targets WIL"),
+    ],
+)
+
 ENCHANTER = dict(
     cover=card("Enchanter's Book", "I", "gear", "Spellbook", [
         "Spell attack: **INT + 2**", "Spell points: **+2** (long rest)", "Max spell level: **2nd**",
@@ -621,7 +650,7 @@ SUPPLICANT = dict(
     ],
 )
 
-DECKS = [CONJURER, REPERTOIRE, LITANY, INSTINCT, EVOKER, ABJURER, ILLUSIONIST, ENCHANTER, PACT, HERALD, VICAR, PROWLER, SUPPLICANT]
+DECKS = [CONJURER, REPERTOIRE, LITANY, INSTINCT, EVOKER, ABJURER, ILLUSIONIST, ENCHANTER, NECROMANCER, PACT, HERALD, VICAR, PROWLER, SUPPLICANT]
 
 GOLD = [(1, 8), (10, 8), (50, 6), (100, 4), (500, 2), (1000, 1)]  # (value, copies)
 TALLIES = 8
@@ -778,6 +807,7 @@ LORE = {
     "Abjurer's Book": "Wards, seals and locks, in a hand that never smudges. Nothing gets in.",
     "Illusionist's Book": "Its pages show something else to every reader. Only the owner sees the spells.",
     "Enchanter's Book": "Soft words for hard minds. Its margins are full of names.",
+    "Necromancer's Book": "Bound in grey hide, cold to the touch. The dead read it too, in their way.",
     "Occultist's Pact": "A promise made in the dark, to something that keeps its promises too.",
     "Herald's Repertoire": "Cried from the walls before the battle, and from the field after it. The enemy hears both.",
     "Vicar's Litany": "The prayers of a parish priest who has buried too many. Gentle for the flock, heavy for the wolf.",
@@ -831,6 +861,13 @@ POWER_LORE = {  # deck cards: their names may repeat a gear card's (Shield)
     "Invisibility": "The light bends around you. Don't sneeze.",
     "Mind Sliver": "A cold splinter of thought, driven between the eyes.",
     "Heroism": "Courage, poured in like warm wine.",
+    "Chill Touch": "A ghostly hand, and the warmth goes out of the wound.",
+    "Toll the Dead": "One bell, heard only by the one it rings for.",
+    "Raise Dead": "Old bones remember how to stand.",
+    "False Life": "Borrowed breath, cold in the chest.",
+    "Ray of Sickness": "A green beam, and a stomach that turns.",
+    "Vampiric Touch": "What it loses, you keep.",
+    "Blindness": "A whisper, and the world goes dark.",
     "Sleep": "A heavy warmth behind the eyes. Just for a moment.",
     "Charm Person": "A friendly voice, a reasonable request. Why would anyone refuse?",
     "Compel": "One word, spoken like a command from a king.",

@@ -78,6 +78,9 @@ NAMES = {
     "Color Spray": "Couleurs dansantes", "Mirror Image": "Image miroir", "Invisibility": "Invisibilité",
     "Mind Sliver": "Éclat psychique", "Heroism": "Héroïsme", "Sleep": "Sommeil", "Charm Person": "Charme-personne", "Compel": "Injonction",
     "Hideous Laughter": "Fou rire", "Hold Person": "Immobilisation de personne",
+    "Necromancer's Book": "Livre du nécromancien", "Chill Touch": "Contact glacial", "Toll the Dead": "Glas",
+    "Raise Dead": "Relever les morts", "False Life": "Simulacre de vie", "Ray of Sickness": "Rayon empoisonné",
+    "Vampiric Touch": "Caresse du vampire", "Blindness": "Cécité",
     "Eldritch Blast": "Décharge occulte", "Enfeeble": "Affaiblissement", "Hellish Rebuke": "Représailles infernales",
     "Hex": "Maléfice",
     # foes
@@ -432,6 +435,21 @@ TEXT = {
     "**Action**, touch, Duration 1 hour.": "**Action**, contact, Durée 1 heure.",
     "A creature is **Invisible**. It ends when the creature attacks or casts a spell.":
         "Une créature est **Invisible**. Le sort prend fin quand elle attaque ou lance un sort.",
+    # Necromancer's Book
+    "Spell attack against DEX Defense: **1d8 Necrotic**, and it can't regain HP until the start of your next turn.":
+        "Attaque de sort contre la Défense d'AGI : **1d8 Nécrotique**, et elle ne peut pas regagner de PV avant le début de votre prochain tour.",
+    "Spell attack against WIL Defense: **1d8 Necrotic**, or **1d12 Necrotic** if it is missing any HP.":
+        "Attaque de sort contre la Défense de VOL : **1d8 Nécrotique**, ou **1d12 Nécrotique** s'il lui manque des PV.",
+    "**Action**, range 10 ft, Duration 1 hour.": "**Action**, portée 4 m, Durée 1 heure.",
+    "The corpse of a Small or Medium creature rises as a **Skeleton** (its foe card) on your side. It acts right after you: you choose its moves and actions. It dies instead of falling **Unconscious**. A corpse rises once; cast again and your previous Skeleton collapses.":
+        "Le cadavre d'une créature Petite ou Moyenne se relève en **Squelette** (sa carte d'adversaire) dans votre camp. Il agit juste après vous : vous choisissez ses déplacements et ses actions. Il meurt au lieu de tomber **Inconscient**. Un cadavre ne se relève qu'une fois ; lancez le sort à nouveau et votre Squelette précédent s'effondre.",
+    "You gain 1d4 + 4 temporary HP.": "Vous gagnez 1d4 + 4 PV temporaires.",
+    "Spell attack against STR Defense: **2d8 Poison**, and it is **Poisoned** until the end of its next turn.":
+        "Attaque de sort contre la Défense de FOR : **2d8 Poison**, et elle est **Empoisonnée** jusqu'à la fin de son prochain tour.",
+    "Spell attack against DEX Defense: **3d6 Necrotic**, and you regain HP equal to half the damage dealt.":
+        "Attaque de sort contre la Défense d'AGI : **3d6 Nécrotique**, et vous regagnez autant de PV que la moitié des dégâts infligés.",
+    "Spell attack against WIL Defense: it is **Blinded** for 2 turns.":
+        "Attaque de sort contre la Défense de VOL : elle est **Aveuglée** pendant 2 tours.",
     # Enchanter's Book
     "Spell attack against INT Defense: **1d6 Necrotic**, and it subtracts 1d4 from its next attack roll before the end of your next turn.":
         "Attaque de sort contre la Défense d'INT : **1d6 Nécrotique**, et elle soustrait 1d4 à son prochain jet d'attaque avant la fin de votre prochain tour.",
@@ -744,6 +762,14 @@ LORE = {
     "The light bends around you. Don't sneeze.": "La lumière se courbe autour de vous. N'éternuez pas.",
     'A cold splinter of thought, driven between the eyes.': 'Un éclat de pensée glacé, planté entre les yeux.',
     'Courage, poured in like warm wine.': 'Du courage, versé comme un vin chaud.',
+    "Bound in grey hide, cold to the touch. The dead read it too, in their way.": "Relié de peau grise, froid au toucher. Les morts le lisent aussi, à leur manière.",
+    "A ghostly hand, and the warmth goes out of the wound.": "Une main de spectre, et la chaleur quitte la plaie.",
+    "One bell, heard only by the one it rings for.": "Une cloche, que seul entend celui pour qui elle sonne.",
+    "Old bones remember how to stand.": "Les vieux os se souviennent comment tenir debout.",
+    "Borrowed breath, cold in the chest.": "Un souffle d'emprunt, froid dans la poitrine.",
+    "A green beam, and a stomach that turns.": "Un rayon vert, et l'estomac qui se retourne.",
+    "What it loses, you keep.": "Ce qu'elle perd, vous le gardez.",
+    "A whisper, and the world goes dark.": "Un murmure, et le monde s'éteint.",
     'A heavy warmth behind the eyes. Just for a moment.': 'Une lourde chaleur derrière les yeux. Juste un instant.',
     'A friendly voice, a reasonable request. Why would anyone refuse?': 'Une voix amicale, une demande raisonnable. Pourquoi refuser ?',
     'One word, spoken like a command from a king.': "Un seul mot, prononcé comme l'ordre d'un roi.",

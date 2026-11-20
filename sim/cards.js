@@ -230,6 +230,29 @@ globalThis.BEARERS_CARDS = {
    "fx": [],
    "deck": "B-I-05"
   },
+  "B-I-06": {
+   "id": "B-I-06",
+   "name": "Necromancer's Book",
+   "rank": "I",
+   "kind": "gear",
+   "type": "Spellbook",
+   "kw": [
+    "Spellbook"
+   ],
+   "text": [
+    "Spell attack: **INT + 2**",
+    "Spell points: **+2** (long rest)",
+    "Max spell level: **2nd**",
+    "Casting needs an empty Hand."
+   ],
+   "strip": {},
+   "group": "starter",
+   "sym": [
+    "INT"
+   ],
+   "fx": [],
+   "deck": "B-I-06"
+  },
   "C-I-01": {
    "id": "C-I-01",
    "name": "Coin Pouch",
@@ -5507,6 +5530,146 @@ globalThis.BEARERS_CARDS = {
     }
    ]
   },
+  "B-I-06": {
+   "cover": "B-I-06",
+   "kind": "spellbook",
+   "atk": 2,
+   "sp": 2,
+   "maxLevel": 2,
+   "powers": [
+    {
+     "id": "B-I-06#chill-touch",
+     "name": "Chill Touch",
+     "kind": "Cantrip",
+     "cost": 0,
+     "use": "action",
+     "reach": 120,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "DEX"
+     },
+     "do": [
+      {
+       "dmg": "1d8",
+       "type": "Necrotic"
+      },
+      {
+       "mod": "noHeal",
+       "until": "startSourceTurn"
+      }
+     ]
+    },
+    {
+     "id": "B-I-06#toll-the-dead",
+     "name": "Toll the Dead",
+     "kind": "Cantrip",
+     "cost": 0,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "dmg": "1d8",
+       "hurt": "1d12",
+       "type": "Necrotic"
+      }
+     ]
+    },
+    {
+     "id": "B-I-06#raise-dead",
+     "name": "Raise Dead",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 10,
+     "hook": "raise",
+     "dur": "1 hour",
+     "params": {
+      "foe": "Skeleton"
+     }
+    },
+    {
+     "id": "B-I-06#false-life",
+     "name": "False Life",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "target": "self",
+     "do": [
+      {
+       "temp": "1d4+4"
+      }
+     ]
+    },
+    {
+     "id": "B-I-06#ray-of-sickness",
+     "name": "Ray of Sickness",
+     "kind": "Spell",
+     "cost": 1,
+     "use": "action",
+     "reach": 60,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "STR"
+     },
+     "do": [
+      {
+       "dmg": "2d8",
+       "type": "Poison"
+      },
+      {
+       "cond": "Poisoned",
+       "until": "endTargetTurn"
+      }
+     ]
+    },
+    {
+     "id": "B-I-06#vampiric-touch",
+     "name": "Vampiric Touch",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "action",
+     "reach": 5,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "DEX"
+     },
+     "do": [
+      {
+       "dmg": "3d6",
+       "type": "Necrotic",
+       "drain": true
+      }
+     ]
+    },
+    {
+     "id": "B-I-06#blindness",
+     "name": "Blindness",
+     "kind": "Spell",
+     "cost": 2,
+     "use": "action",
+     "reach": 30,
+     "target": "enemy",
+     "atk": {
+      "abil": "deck",
+      "vs": "WIL"
+     },
+     "do": [
+      {
+       "cond": "Blinded",
+       "until": "targetTurns2"
+      }
+     ]
+    }
+   ]
+  },
   "H-I-01": {
    "cover": "H-I-01",
    "kind": "pact",
@@ -8323,6 +8486,7 @@ globalThis.BEARERS_CARDS = {
    "B-I-03",
    "B-I-04",
    "B-I-05",
+   "B-I-06",
    "P-I-01",
    "C-I-01",
    "P-I-02",
