@@ -285,6 +285,13 @@ FIT_LORE = """<script>document.fonts.ready.then(() => {
     for (let pt = 7.4; over() && pt > 6.4; ) { pt = +(pt - .2).toFixed(1); l.style.fontSize = pt + 'pt'; }
     if (over()) l.remove();
   });
+  document.querySelectorAll('.intro').forEach(s => {  // the intro stays on its one page (the French text runs longer)
+    const parts = [...s.querySelectorAll('p, li, td, h2')].map(e => [e, parseFloat(getComputedStyle(e).fontSize)]);
+    for (let k = 1; s.scrollHeight > s.clientHeight + 1 && k > .75; ) {
+      k = +(k - .02).toFixed(2);
+      parts.forEach(([e, px]) => { e.style.fontSize = px * k + 'px'; });
+    }
+  });
 });</script>"""
 
 
