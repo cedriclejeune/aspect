@@ -43,7 +43,7 @@ def _arg(name, default):
 
 # The two-sided card pages' backs move this far (mm, as seen on the back: + right, + down) to make up for a printer whose
 # duplex unit prints the back off its front. Measured with rules/fr/calibrage-recto-verso.pdf; --back-dx, --back-dy override.
-BACK_SHIFT = (_arg("--back-dx", -2.0), _arg("--back-dy", 0.0))  # the Xerox: backs 2 mm too far right
+BACK_SHIFT = (_arg("--back-dx", -1.5), _arg("--back-dy", 0.25))  # the Xerox, measured with the calibration sheet
 PRINT_SCALE = .95  # cards and frames print this much smaller, centred where the Cricut cut files (tools/cut_svg.py) cut them
 OUT = ROOT / "rules" / "Bearers-Base-Set.pdf"
 READING = ROOT / "rules" / "Bearers-Base-Set-Reading.pdf"
