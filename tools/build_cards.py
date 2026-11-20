@@ -37,6 +37,13 @@ from build_pdf import FONTS  # noqa: E402
 from PIL import Image  # noqa: E402
 
 BUILD = ROOT / "build"
+def _arg(name, default):
+    return float(sys.argv[sys.argv.index(name) + 1]) if name in sys.argv else default
+
+
+# The two-sided card pages' backs move this far (mm, as seen on the back: + right, + down) to make up for a printer whose
+# duplex unit prints the back off its front. Measured with rules/fr/calibrage-recto-verso.pdf; --back-dx, --back-dy override.
+BACK_SHIFT = (_arg("--back-dx", -2.0), _arg("--back-dy", 0.0))  # the Xerox: backs 2 mm too far right
 PRINT_SCALE = .95  # cards and frames print this much smaller, centred where the Cricut cut files (tools/cut_svg.py) cut them
 OUT = ROOT / "rules" / "Bearers-Base-Set.pdf"
 READING = ROOT / "rules" / "Bearers-Base-Set-Reading.pdf"
@@ -89,6 +96,7 @@ body {{ margin: 0; font-family: 'EB Garamond', Georgia, serif; color: {ill.INK};
 .sheet.frames {{ page: frames; width: 279.4mm; height: 215.9mm; grid-template-columns: repeat(4, 67mm); grid-auto-rows: 98mm; gap: 0; }}
 .sheet.frames svg {{ width: 67mm; height: 98mm; display: block; }}
 .sheet > .card:not(.gap), .sheet.frames > svg {{ transform: scale({PRINT_SCALE}); }}  /* centred in the unchanged cut, for a margin all round */
+.sheet.back > * {{ translate: {BACK_SHIFT[0]}mm {BACK_SHIFT[1]}mm; }}
 .intro {{ width: 215.9mm; height: 279.4mm; box-sizing: border-box; padding: 22mm 24mm; break-after: page; background: {ill.PARCH}; }}
 .intro h1 {{ font-family: Cinzel, serif; color: {ill.CRIMSON}; font-size: 30pt; margin: 0; letter-spacing: .08em; }}
 .intro h2 {{ font-family: Cinzel, serif; color: {ill.CRIMSON}; font-size: 13pt; margin: 14pt 0 4pt; border-bottom: 1.5px solid {ill.GOLD}; }}
@@ -585,7 +593,7 @@ def duplex(pairs):
     for i in range(0, len(pairs), 9):
         chunk = pairs[i:i + 9] + [(gap, gap)] * (9 - len(pairs[i:i + 9]))
         backs = [b for r in range(0, 9, 3) for _, b in reversed(chunk[r:r + 3])]
-        out.append(sheets([f for f, _ in chunk]) + sheets(backs))
+        out.append(sheets([f for f, _ in chunk]) + sheets(backs, "back"))
     return "".join(out)
 
 

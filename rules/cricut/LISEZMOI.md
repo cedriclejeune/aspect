@@ -33,3 +33,13 @@ Les fichiers actuels sont corrigés pour la Cricut de Cédric. Feuille dans le c
 Pour recalibrer (autre imprimante, autre façon de poser la feuille) : imprimer `calibrage-impression.pdf` à 100 %, couper `calibrage.svg` dessus de la même façon que les cartes, et lire le chiffre où chaque fente croise sa règle **dx** ou **dy**. Ce chiffre est la correction à ajouter aux valeurs ci-dessus. Les trois paires de règles (haut gauche, milieu, bas droite) doivent donner la même lecture ; sinon, l'impression n'est pas à 100 % ou la feuille est de travers.
 
 Les cartes et les cadres s'impriment à **95 %** de leur taille (cartes 60 × 84 mm, larges 120 × 84 mm, cadres 64 × 93 mm), centrés là où la coupe passe. La coupe, elle, reste à la taille d'origine : 1 mm en dehors d'une carte de 63 × 88 mm (126 × 88 mm pour les larges), sur le bord d'un cadre de 67 × 98 mm. Il reste ainsi environ 2,6 mm de marge blanche autour de chaque carte et 1,7 mm autour de chaque cadre : un petit écart de la Cricut ne mord pas dans la bordure. Les fentes des cadres suivent la réduction. Le facteur est `PRINT_SCALE`, dans `tools/build_cards.py` et `tools/cut_svg.py`.
+
+## Recto verso
+
+L'imprimante décale le verso par rapport au recto. Les versos des pages de cartes (pages 2 à 67) sont donc décalés de **2 mm vers la gauche** (vus côté verso) pour compenser : c'est le réglage `BACK_SHIFT` de `tools/build_cards.py`. Les pages en paysage (retournement sur le bord court) ne sont pas décalées.
+
+Pour remesurer (autre imprimante) : imprimer `rules/fr/calibrage-recto-verso.pdf` en recto verso, bord long, avec les mêmes réglages que les cartes. Tenir la feuille devant une lumière, verso vers soi, et lire où chaque croix croise ses règles **dx** et **dy** : ces chiffres sont le décalage à donner.
+
+```
+.venv/bin/python tools/build_cards.py --lang fr --back-dx DX --back-dy DY
+```
