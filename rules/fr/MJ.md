@@ -385,7 +385,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 |---|---|
 | **Abilité** | Ce qu'une carte vous permet d'utiliser : elle demande une action ou une réaction, ou dépense une utilisation (*Riposte (½ FOR/C.R.)*). Les cartes d'une Rune de Pouvoirs sont des pouvoirs, pas des abilités. |
 | **Action** | L'utiliser prend l'une de vos deux actions. |
-| **Affinités** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation partage au moins une de ses affinités allumées. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre affinités, sauf le Bâton de garde-sort (INT · VOL). |
+| **Affinités** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation partage au moins une de ses affinités allumées. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre affinités, sauf le Bâton de garde-sort (INT · VOL) et les armes Lourdes (FOR seule). |
 | **Allonge** | Un mot-clé d'arme : votre allonge est de 4 m au lieu de 2 m. |
 | **Aquatique** | Un mot-clé d'arme : elle fonctionne sous l'eau, là où les autres armes et sorts ne fonctionnent pas. |
 | **Ardeur** | Les points que coûtent vos pouvoirs : une seule réserve, ce qu'imprime votre meilleure Rune de Pouvoirs + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un court repos. |

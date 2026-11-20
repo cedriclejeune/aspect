@@ -99,7 +99,7 @@ La paire de caractéristiques que le passé d'un Porteur a forgée, gardée à v
 _À éviter_ : Noyau, historique, archétype, classe, race, profil (pour les joueurs). (EN : Calling)
 
 **Affinités**:
-Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation partage au moins une de ses affinités allumées. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre affinités, sauf le Bâton de garde-sort (INT · VOL).
+Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation partage au moins une de ses affinités allumées. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre affinités, sauf le Bâton de garde-sort (INT · VOL) et les armes Lourdes (FOR seule).
 _À éviter_ : prérequis, condition, Req., symboles (comme terme), harmonisation. (EN : Affinities)
 
 **Emplacement de Matériel**:

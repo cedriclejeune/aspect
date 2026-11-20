@@ -8,11 +8,11 @@ Legionary,Medium,,,3,1,0,0,10,30,3,1,0,0,18,13,10,10,14,30,Pilum (W-II-02); Glad
 Bandit Captain,Medium,Leader,,2,3,0,1,28,30,2,3,0,1,14,14,10,11,30,35,Finesse Blade (W-I-04); Dagger (W-I-01); Twin Strike (Q-II-01); Leather (A-I-01); Coin Pouch (C-I-01),
 Ogre,Large,,Darkvision 60,4,0,0,0,35,35,4,0,0,0,14,10,10,10,95,35,Greatclub (W-I-13); Javelins (W-I-11); Sweeping Blow (Q-II-02),Giant Strength: +60 HP. Its Javelins roll one extra damage die (included). Its Sweeping Blow recharges on a 5–6 instead of 1/S.R.
 Ogre Chieftain,Large,Boss Leader,Darkvision 60,5,0,0,1,54,40,5,0,0,1,19,10,10,11,70,30,Greatclub (W-I-13); Cleave (Q-I-01); Second Wind (T-II-01); Sweeping Blow (Q-II-02); Plate (A-II-01),Warlord: its Sweeping Blow recharges on a 5–6 instead of 1/S.R. Bellow (Recharge 5–6): reaction. Attack (+5) against the WIL Defense of each enemy within 30 ft: Frightened of the chieftain until the end of its next turn.
-Guard,Medium,,,1,1,1,1,6,30,1,1,1,1,16,13,11,11,12,30,Longsword (W-I-05); Shield (S-I-01); Javelins (W-I-11); Mail (A-I-02); Grit (T-I-05),
+Guard,Medium,,,1,1,1,1,6,30,1,1,1,1,17,13,11,11,12,30,Longsword (W-I-05); Shield (S-I-01); Javelins (W-I-11); Mail (A-I-02); Grit (T-I-05),
 Scout,Medium,,Darkvision 60,0,2,1,0,6,35,0,2,1,0,12,13,11,10,10,40,Longbow (W-I-09); Shortsword (W-I-02); Hunt (K-I-05); Leather (A-I-01); Dusk Eyes (T-I-06),Keen Eyes: alert (passive Awareness +5).
 Mage,Medium,,,0,1,3,0,7,30,0,1,3,0,10,11,13,10,9,30,Conjurer's Book (B-I-01); Dagger (W-I-01); Clear Mind (T-I-04),
 Orc,Medium,,Darkvision 60,3,0,0,0,8,30,3,0,0,0,15,11,10,10,14,35,Greataxe (W-I-16); Javelins (W-I-11); Defiance (T-II-07); Leather (A-I-01); Campaign (K-I-10),
-Hobgoblin,Medium,,Darkvision 60,1,1,1,0,8,30,1,1,1,0,16,13,11,10,12,30,Longsword (W-I-05); Shield (S-I-01); Longbow (W-I-09); Mail (A-I-02); Battle Hymn (Q-I-04); Discipline (K-I-11),
+Hobgoblin,Medium,,Darkvision 60,1,1,1,0,8,30,1,1,1,0,17,13,11,10,12,30,Longsword (W-I-05); Shield (S-I-01); Longbow (W-I-09); Mail (A-I-02); Battle Hymn (Q-I-04); Discipline (K-I-11),
 Skeleton,Medium,,Darkvision 60,0,2,-2,-2,8,30,0,2,-2,-2,12,13,8,8,10,35,Shortsword (W-I-02); Shortbow (W-I-15); Leather (A-I-01),"Undead: resists Poison and Necrotic, vulnerable to Radiant. Never checks Morale."
 Zombie,Medium,,Darkvision 60,1,-2,-4,-2,16,20,1,-2,-4,-2,11,8,6,8,20,20,Defiance (T-II-07),"Undead: resists Poison and Necrotic, vulnerable to Radiant. Never checks Morale. Slam: +3 to hit, 1d8 + 1 Physical."
 Kobold,Small,,Darkvision 60,-2,2,-1,-1,1,30,-2,2,-1,-1,8,12,9,9,5,30,Dagger (W-I-01); Sling (W-I-10); Wolfpack (T-II-08),

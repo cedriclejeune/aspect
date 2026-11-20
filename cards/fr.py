@@ -107,7 +107,7 @@ KEYWORDS = {
     "Blinded": "Aveuglé", "Invisible": "Invisible", "Duration 8 hours": "Durée 8 heures", "Duration 10 minutes": "Durée 10 minutes",
     "Duration 1 hour": "Durée 1 heure", "Crippling": "Invalidante", "Hand": "Main", "Item": "Objet", "Heavy": "Lourde",
     "Light": "Légère", "Reach": "Allonge", "Two-Handed": "Deux mains", "Versatile (1d10)": "Polyvalente (1d10)",
-    "Versatile (1d8)": "Polyvalente (1d8)", "Brutal": "Brutale", "Crushing": "Écrasante", "Flurry": "Rafale",
+    "Versatile (1d8)": "Polyvalente (1d8)", "Brutal": "Brutale", "Crushing": "Écrasante", "Flurry": "Rafale", "Loading": "Chargement",
     "Restrained": "Entravé", "Targets DEX": "Vise AGI", "Duration 1 minute": "Durée 1 minute",
     "Duration 1 round": "Durée 1 round", "Gold": "Or", "Foe": "Adversaire", "Boss": "Boss", "Leader": "Meneur",
     "Tiny": "Très petit", "Small": "Petit", "Medium": "Moyen", "Large": "Grand",
@@ -172,8 +172,8 @@ TEXT = {
         "**Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent l'AGI et l'INT.",
     "**Presence:** your checks to perform, persuade and deceive add both DEX and WIL.":
         "**Présence :** vos tests pour se produire, persuader et tromper ajoutent l'AGI et la VOL.",
-    "**Learned:** ½ INT extra spell points. Your checks to recall lore add both INT and WIL.":
-        "**Érudit :** ½ INT points de sort supplémentaires. Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL.",
+    "**Weak Spot (½ WIL/L.R.):** when you cast a spell at a single creature, it targets the creature's lowest Defense instead of the one the spell names, with +½ INT to hit. Your checks to recall lore add both INT and WIL.":
+        "**Point faible (½ VOL/L.R.) :** quand vous lancez un sort contre une seule créature, il vise sa Défense la plus basse au lieu de celle que nomme le sort, avec +½ INT au toucher. Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL.",
     "**Scrapper:** +STR to hit with Grapples and Shoves.":
         "**Teigneux :** +FOR au toucher pour Empoigner et Bousculer.",
     "**Slip Free:** your Escape attacks add 2 × DEX instead of STR or DEX.":
@@ -186,14 +186,16 @@ TEXT = {
         "**Proie (½ INT/C.R.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ AGI aux attaques contre elle jusqu'au début de votre prochain tour.",
     "**Sure Thing:** on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher.":
         "**Coup sûr :** pour vos tests pour se faufiler, crocheter les serrures, faire les poches et désamorcer les pièges, un d20 qui affiche moins de 10 compte comme un 10. Quand vous touchez une créature qui ne vous voit pas : +½ AGI ou ½ VOL d6 dégâts, la plus haute des deux.",
-    "**Solitude:** ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL.":
-        "**Solitude :** ½ VOL Ardeur supplémentaire. Vos tests pour cueillir et endurer ajoutent l'INT et la VOL.",
+    "**Omen:** when you finish a long rest, roll ½ WIL d20 and set them aside. Before a creature within 10 ft × INT makes an attack roll or a check, you may replace its d20 with one of them, which is spent. Dice left over are lost at your next long rest. Your checks to forage and endure add both INT and WIL.":
+        "**Présage :** à la fin d'un long repos, lancez ½ VOL d20 et mettez-les de côté. Avant qu'une créature à 4 m × INT ou moins fasse un jet d'attaque ou un test, vous pouvez remplacer son d20 par l'un d'eux, qui est dépensé. Les dés restants sont perdus à votre long repos suivant. Vos tests pour cueillir et endurer ajoutent l'INT et la VOL.",
     # hands
     "Takes one Hand.": "Occupe une Main.",
     "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn.":
         "**Saignée :** quand vous touchez, la cible a −2 à son prochain jet d'attaque avant le début de votre prochain tour.",
-    "While you hold it, it counts as an empty Hand for casting from a Spellbook.":
-        "Tant que vous le tenez, il compte comme une Main vide pour lancer des sorts depuis un Livre de sorts.",
+    "**Close Shot:** an enemy within 5 ft doesn't give you disadvantage on your attacks with it.":
+        "**Tir rapproché :** un ennemi à 2 m ou moins ne vous donne pas de désavantage à vos attaques avec lui.",
+    "+2 to your spell attacks and WIL deck attacks.":
+        "+2 à vos attaques de sort et de pouvoir.",
     "1 extra Resolve (short rest).": "1 Ardeur supplémentaire (court repos).",
     "Your Anthems reach 60 ft instead of 30 ft.": "Vos Hymnes portent à 24 m au lieu de 12 m.",
     "**Crushing:** on a critical hit, the target is knocked Prone.": "**Écrasement :** sur un coup critique, la cible est mise À terre.",

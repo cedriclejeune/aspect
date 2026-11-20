@@ -259,7 +259,7 @@ Chaque Emplacement a son **temps d'échange**. Un échange déplace un matériel
 
 ## 5. Équipement
 
-Les armures, les boucliers, les armes, les Instruments et les Bijoux sont de l'**équipement**. Une arme imprime son bonus **au toucher**, ajouté à ses jets d'attaque, et ses dégâts (*+2 au toucher, 1d8 + FOR ou AGI Physique*) : elle attaque avec la FOR, l'AGI ou les deux, sauf les **bâtons** et les **baguettes**, plus faibles, qui utilisent l'INT ou la VOL. Les **armes de base** (matériel de départ de Rang I) allument les quatre affinités, sauf le *Bâton de garde-sort* (INT · VOL) ; les armes de butin n'allument que les caractéristiques avec lesquelles elles attaquent. Un **Instrument** (un luth, un tambour, un cor) occupe une Main et sert le Pouvoir (9.5).
+Les armures, les boucliers, les armes, les Instruments et les Bijoux sont de l'**équipement**. Une arme imprime son bonus **au toucher**, ajouté à ses jets d'attaque, et ses dégâts (*+2 au toucher, 1d8 + FOR ou AGI Physique*) : elle attaque avec la FOR, l'AGI ou les deux, sauf les **bâtons** et les **baguettes**, plus faibles, qui utilisent l'INT ou la VOL. Les **armes de base** (matériel de départ de Rang I) allument les quatre affinités, sauf le *Bâton de garde-sort* (INT · VOL) et les armes **Lourdes** (FOR seule) ; les armes de butin n'allument que les caractéristiques avec lesquelles elles attaquent. Un **Instrument** (un luth, un tambour, un cor) occupe une Main et sert le Pouvoir (9.5).
 
 ### 5.1 Armure et Défense
 
@@ -277,7 +277,7 @@ Une armure plus lourde donne plus de PV et moins de Vitesse, et renforce surtout
 
 ### 5.2 Armes
 
-Chaque ligne est une sorte d'arme de Rang I ; son nom est une simple couleur (une Arme polyvalente peut être une épée longue ou une lance).
+Chaque ligne est une sorte d'arme de Rang I ; son nom est une simple couleur (une Arme polyvalente peut être une hache d'armes ou une lance).
 
 | Arme (matériel) | Attaque avec | Au toucher | Dégâts | Propriétés |
 |---|---|---|---|---|
@@ -285,8 +285,9 @@ Chaque ligne est une sorte d'arme de Rang I ; son nom est une simple couleur (un
 | **Lame courte** (épée courte, serpe) | FOR · AGI | +2 | 1d6 | Légère, Rafale |
 | **Arme légère** (hachette, gourdin, marteau léger) | FOR · AGI | +2 | 1d6 | Légère, Lancer (6/18) |
 | **Lame fine** (rapière, cimeterre) | AGI | +2 | 1d6 | — |
-| **Arme polyvalente** (épée longue, hache d'armes, lance) | FOR ou FOR · AGI | +2 | 1d8 / 1d10 | Polyvalente |
-| **Bâton** (bâton, sceptre) | INT · VOL | +2 | 1d6 / 1d8 | Polyvalente |
+| **Arme polyvalente** (hache d'armes, lance) | FOR ou FOR · AGI | +2 | 1d8 / 1d10 | Polyvalente |
+| **Épée longue** (épée longue, épée bâtarde) | FOR | +2 | 1d8 / 1d10 | Polyvalente ; +1 à la Défense de FOR tant que vous la tenez |
+| **Bâton** (bâton, sceptre) | INT · VOL | +0 | 1d6 | +2 aux attaques de sort et de pouvoir |
 | **Arme lourde** (épée à deux mains, maillet) | FOR | +2 | 2d6 | Lourde, Deux mains |
 | **Grande hache** (grande hache) | FOR | +2 | 1d12 | Lourde, Deux mains, Brutale |
 | **Massue** (massue) | FOR | +2 | 1d10 | Lourde, Deux mains, Écrasante |
@@ -294,8 +295,9 @@ Chaque ligne est une sorte d'arme de Rang I ; son nom est une simple couleur (un
 | **Fouet** | AGI | +2 | 1d4 | Allonge |
 | **Javelots** | FOR · AGI | +2 | 1d6 | Lancer (9/36) |
 | **Fronde** / **Arbalète de poing** | AGI | +2 | 1d6 | Légère, Portée (9/36) |
-| **Arc** (court ou long) | AGI | +2 | 1d8 | Portée (45/180), Deux mains |
-| **Arc composite** | AGI | +2 | 1d10 | Portée (45/180), Deux mains |
+| **Arc** (arc long) | AGI | +2 | 1d8 | Portée (45/180), Deux mains |
+| **Arc court** | AGI | +2 | 1d6 | Portée (24/96), Deux mains ; un ennemi à 2 m ou moins ne donne pas de désavantage |
+| **Arc composite** | AGI | +2 | 1d10 | Chargement, Portée (45/180), Deux mains |
 | **Baguette** | INT | +2 | 1d8 Foudre | Portée (18/36) |
 | **Arbalète** (lourde) | AGI | +2 | 1d10 | Chargement, Portée (30/120), Deux mains |
 
@@ -761,13 +763,13 @@ Un Livre de sorts ou une Rune de Pouvoirs est un **paquet** : une **carte de cou
 | **Lame-mage** | FOR · INT | 13 | 12 m | **Incantateur de guerre :** une arme que vous tenez compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. **Frappe ensorcelée (½ FOR/C.R.) :** quand vous touchez avec une attaque d'arme au corps à corps : +INT dégâts. |
 | **Infiltrateur** | AGI · INT | 10 | 14 m | **Inaperçu :** vos tests pour se faufiler, crocheter les serrures et repérer les pièges ajoutent l'AGI et l'INT. |
 | **Artiste** | AGI · VOL | 10 | 14 m | **Présence :** vos tests pour se produire, persuader et tromper ajoutent l'AGI et la VOL. |
-| **Sage** | INT · VOL | 9 | 14 m | **Érudit :** ½ INT points de sort supplémentaires (9.2). Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL. |
+| **Sage** | INT · VOL | 9 | 14 m | **Point faible (½ VOL/L.R.) :** quand vous lancez un sort contre une seule créature, il vise sa Défense la plus basse au lieu de celle que nomme le sort, avec +½ INT au toucher. Vos tests pour se souvenir de connaissances ajoutent l'INT et la VOL. |
 | **Bagarreur** | FOR · AGI | 14 | 12 m | **Teigneux :** +FOR au toucher pour Empoigner et Bousculer. **Dégagement :** vos attaques pour S'échapper (6.9) ajoutent 2 × AGI au lieu de FOR ou AGI. |
 | **Patriote** | FOR · VOL | 12 | 14 m | **Juste colère (½ VOL/C.R.) :** quand vous touchez avec une attaque d'arme : +½ FOR d6 dégâts Radiants. |
 | **Tacticien** | FOR · INT | 12 | 14 m | **Commandement (½ FOR/C.R.) :** action. Un allié à 12 m ou moins qui peut vous entendre effectue aussitôt l'action Attaque, avec +INT au toucher. |
 | **Rôdeur** | AGI · INT | 11 | 14 m | **Proie (½ INT/C.R.) :** quand vous touchez une créature avec une attaque à distance, elle est marquée : vous et vos alliés avez +½ AGI aux attaques contre elle jusqu'au début de votre prochain tour. |
 | **Filou** | AGI · VOL | 9 | 14 m | **Coup sûr :** pour vos tests pour se faufiler, crocheter les serrures, faire les poches et désamorcer les pièges, un d20 qui affiche moins de 10 compte comme un 10. Quand vous touchez une créature qui ne vous voit pas : +½ AGI ou ½ VOL d6 dégâts, la plus haute des deux. |
-| **Ermite** | INT · VOL | 11 | 12 m | **Solitude :** ½ VOL Ardeur supplémentaire (9.5). Vos tests pour cueillir et endurer ajoutent l'INT et la VOL. |
+| **Ermite** | INT · VOL | 11 | 12 m | **Présage :** à la fin d'un long repos, lancez ½ VOL d20 et mettez-les de côté. Avant qu'une créature à 4 m × INT ou moins fasse un jet d'attaque ou un test, vous pouvez remplacer son d20 par l'un d'eux, qui est dépensé. Les dés restants sont perdus à votre long repos suivant. Vos tests pour cueillir et endurer ajoutent l'INT et la VOL. |
 
 
 ### 13.3 Liste de départ
@@ -893,7 +895,7 @@ Chaque terme de jeu a un seul sens, dans les deux livres.
 |---|---|
 | **Abilité** | Ce qu'une carte vous permet d'utiliser : elle demande une action ou une réaction, ou dépense une utilisation (*Riposte (½ FOR/C.R.)*). Les cartes d'une Rune de Pouvoirs sont des pouvoirs, pas des abilités. |
 | **Action** | L'utiliser prend l'une de vos deux actions. |
-| **Affinités** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation partage au moins une de ses affinités allumées. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre affinités, sauf le Bâton de garde-sort (INT · VOL). |
+| **Affinités** | Les quatre symboles de caractéristique dans le coin supérieur d'une carte ; ceux qu'elle utilise sont allumés. Vous ne pouvez équiper une carte que si votre Vocation partage au moins une de ses affinités allumées. Une arme attaque avec les caractéristiques qu'elle nomme (FOR ou AGI ; INT ou VOL pour un bâton ou une baguette) ; les armes de base allument les quatre affinités, sauf le Bâton de garde-sort (INT · VOL) et les armes Lourdes (FOR seule). |
 | **Allonge** | Un mot-clé d'arme : votre allonge est de 4 m au lieu de 2 m. |
 | **Aquatique** | Un mot-clé d'arme : elle fonctionne sous l'eau, là où les autres armes et sorts ne fonctionnent pas. |
 | **Ardeur** | Les points que coûtent vos pouvoirs : une seule réserve, ce qu'imprime votre meilleure Rune de Pouvoirs + VOL (minimum 1), notée sur votre carte de Décompte. Elle revient lors d'un court repos. |

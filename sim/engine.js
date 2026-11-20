@@ -732,6 +732,8 @@
       info.abil = atkAbil(F, a, src.entry);
       if (p.atk.flat != null) flat(p.atk.flat, "attack");
       else if (p.atk.abil === "deck") { flat(a.totals[deckAbil(deck)], deckAbil(deck)); flat(deck ? deck.atk || 0 : 0, "deck"); }
+      // Spellguard Staff: a held card's flat bonus to spell attacks and WIL deck attacks
+      if (deck && p.atk.flat == null) flat(passiveSum(F, a, "magicHit"), "magic");
       else { flat(a.totals[info.abil], info.abil); flat(p.atk.hit || 0, "to hit"); }
     }
     info.ranged = ranged; info.melee = melee; info.vs = vs;
@@ -763,7 +765,9 @@
     if (has(a, "Poisoned")) sit("you", -1, "Poisoned");
     if (condsNamed(a, "Frightened").some((k) => { const s = st.creatures[k.source]; return s && canSee(F, a, s); })) sit("you", -1, "Frightened");
     if (condsNamed(a, "Grappled").some((k) => k.source !== t.id)) sit("you", -1, "Grappled");
-    if (ranged && living(st).some((e) => e.side !== a.side && !incap(e) && dist(e, a) <= 5 && canSee(F, e, a))) sit("you", -1, "enemy within 5 ft");
+    // Close Shot (Shortbow): an enemy within 5 ft gives no disadvantage on attacks with this weapon
+    const closeShot = info.weapon && info.weapon.card && ((F.cards.cards[info.weapon.card] || {}).fx || []).some((p) => p.closeShot);
+    if (ranged && !closeShot && living(st).some((e) => e.side !== a.side && !incap(e) && dist(e, a) <= 5 && canSee(F, e, a))) sit("you", -1, "enemy within 5 ft");
     if (ranged && info.weapon && info.distance > (info.weapon.range || info.weapon.thrown)[0]) sit("you", -1, "long range");
     if (!src.area) {
       // RULING R208: Unconscious counts as Stunned and Prone; Petrified as Stunned.
@@ -782,6 +786,19 @@
     info.tags = src.entry ? src.entry.p.tags || [] : typeof src.grab === "string" ? [src.grab] : [];
     info.defs = defsOf(F, t, vs, { cover: !!info.cover, tags: info.tags });
     info.def = best(info.defs);
+    // Weak Spot (Sage): a Spellbook spell at one creature targets its lowest Defense, with +½ INT to hit. RULING R718:
+    // used only when that Defense is lower than the one the spell names; the use is spent when the spell is cast.
+    const wsDeck = src.entry && !src.area ? deckOf(F, src.entry) : null;
+    const ws = wsDeck && wsDeck.kind === "spellbook" ? passives(F, a).find((e) => e.p.weakSpot && a.uses[e.p.id] > 0) : null;
+    if (ws) {
+      const low = ABILS.map((ab) => ({ ab, v: defense(F, t, ab, { targeted: true, cover: sg.cover && (ab === "STR" || ab === "DEX"), tags: info.tags }) }))
+        .reduce((m, x) => (x.v < m.v ? x : m));
+      if (low.v < info.def) {
+        info.defs = { [low.ab]: low.v }; info.def = low.v; info.weakSpot = ws.p.id;
+        info.why.push(`Weak Spot: vs ${low.ab} Defense`);
+        flat(scaled(a, ws.p.weakSpot), "Weak Spot");
+      }
+    }
     runHooks(F, null, a, t, "modifyAttack", { attack: info, weapon: src.w, entry: src.entry });
     // P 6.6: after cancelling, each advantage die left can go to damage instead (chosen before rolling).
     const net = info.adv - info.dis;
@@ -1877,6 +1894,10 @@
       const t = st.creatures[id];
       if (t.dead) continue;
       const info = attackInfo(F, c, t, { entry: e, toDamage: cmd.toDamage });
+      if (info.weakSpot) {
+        c.uses[info.weakSpot]--;
+        emit(X, { t: "note", actor: c.id, target: t.id, power: info.weakSpot, text: `${c.name} aims at ${t.name}'s Weak Spot: ${Object.keys(info.defs)[0]} Defense ${info.def}.` });
+      }
       const r = rollAttack(X, c, t, info, { label: p.name });
       if (r.hit) hitReactions(X, r, info.melee);
       else if (info.melee) missReactions(X, r);

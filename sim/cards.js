@@ -1142,7 +1142,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Learned:** ½ INT extra spell points. Your checks to recall lore add both INT and WIL."
+    "**Weak Spot (½ WIL/L.R.):** when you cast a spell at a single creature, it targets the creature's lowest Defense instead of the one the spell names, with +½ INT to hit. Your checks to recall lore add both INT and WIL."
    ],
    "strip": {
     "STR": 0,
@@ -1167,7 +1167,8 @@ globalThis.BEARERS_CARDS = {
      "id": "L-06#0",
      "name": "Sage",
      "use": "passive",
-     "extraSp": "½INT"
+     "uses": "½WIL/LR",
+     "weakSpot": "½INT"
     }
    ]
   },
@@ -1414,7 +1415,7 @@ globalThis.BEARERS_CARDS = {
     "Calling"
    ],
    "text": [
-    "**Solitude:** ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL."
+    "**Omen:** when you finish a long rest, roll ½ WIL d20 and set them aside. Before a creature within 10 ft × INT makes an attack roll or a check, you may replace its d20 with one of them, which is spent. Dice left over are lost at your next long rest. Your checks to forage and endure add both INT and WIL."
    ],
    "strip": {
     "STR": 0,
@@ -1434,14 +1435,7 @@ globalThis.BEARERS_CARDS = {
     "INT",
     "WIL"
    ],
-   "fx": [
-    {
-     "id": "L-12#0",
-     "name": "Hermit",
-     "use": "passive",
-     "extraResolve": "½WIL"
-    }
-   ]
+   "fx": []
   },
   "M-I-01": {
    "id": "M-I-01",
@@ -2977,7 +2971,9 @@ globalThis.BEARERS_CARDS = {
    "text": [
     "+2 to hit, 1d8 / 1d10 + STR Physical."
    ],
-   "strip": {},
+   "strip": {
+    "STRd": 1
+   },
    "group": "starter",
    "sym": [
     "STR",
@@ -3066,10 +3062,7 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR",
-    "DEX",
-    "INT",
-    "WIL"
+    "STR"
    ],
    "atk": {
     "hit": 2,
@@ -3110,10 +3103,7 @@ globalThis.BEARERS_CARDS = {
    "strip": {},
    "group": "starter",
    "sym": [
-    "STR",
-    "DEX",
-    "INT",
-    "WIL"
+    "STR"
    ],
    "atk": {
     "hit": 2,
@@ -3281,11 +3271,10 @@ globalThis.BEARERS_CARDS = {
    "kind": "gear",
    "type": "Weapon",
    "kw": [
-    "Weapon",
-    "Versatile (1d8)"
+    "Weapon"
    ],
    "text": [
-    "+2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook."
+    "+0 to hit, 1d6 + INT or WIL Physical. +2 to your spell attacks and WIL deck attacks."
    ],
    "strip": {},
    "group": "starter",
@@ -3294,9 +3283,9 @@ globalThis.BEARERS_CARDS = {
     "WIL"
    ],
    "atk": {
-    "hit": 2,
+    "hit": 0,
     "dice": "1d6",
-    "two": "1d8",
+    "two": null,
     "abil": [
      "INT",
      "WIL"
@@ -3318,7 +3307,7 @@ globalThis.BEARERS_CARDS = {
      "id": "W-I-12#0",
      "name": "Spellguard Staff",
      "use": "passive",
-     "castingHand": true
+     "magicHit": 2
     }
    ]
   },
@@ -3370,8 +3359,7 @@ globalThis.BEARERS_CARDS = {
    "kind": "gear",
    "type": "Weapon",
    "kw": [
-    "Weapon",
-    "Light"
+    "Weapon"
    ],
    "text": [
     "+2 to hit, 1d6 + STR or DEX Physical. **Close Order:** +1d4 damage while an ally is engaged with the same creature."
@@ -3394,7 +3382,7 @@ globalThis.BEARERS_CARDS = {
     "brutal": false,
     "crushing": false,
     "flurry": false,
-    "light": true,
+    "light": false,
     "heavy": false,
     "reach": false,
     "twoHanded": false,
@@ -3426,7 +3414,7 @@ globalThis.BEARERS_CARDS = {
     "Two-Handed"
    ],
    "text": [
-    "+2 to hit, range 80/320 ft, 1d6 + DEX Physical."
+    "+2 to hit, range 80/320 ft, 1d6 + DEX Physical. **Close Shot:** an enemy within 5 ft doesn't give you disadvantage on your attacks with it."
    ],
    "strip": {},
    "group": "starter",
@@ -3455,7 +3443,14 @@ globalThis.BEARERS_CARDS = {
      320
     ]
    },
-   "fx": []
+   "fx": [
+    {
+     "id": "W-I-15#0",
+     "name": "Shortbow",
+     "use": "passive",
+     "closeShot": 5
+    }
+   ]
   },
   "W-I-16": {
    "id": "W-I-16",
@@ -3507,7 +3502,8 @@ globalThis.BEARERS_CARDS = {
    "kw": [
     "Weapon",
     "Range 150/600",
-    "Two-Handed"
+    "Two-Handed",
+    "Loading"
    ],
    "text": [
     "+2 to hit, range 150/600 ft, 1d10 + DEX Physical."
@@ -3532,7 +3528,7 @@ globalThis.BEARERS_CARDS = {
     "heavy": false,
     "reach": false,
     "twoHanded": true,
-    "loading": false,
+    "loading": true,
     "thrown": null,
     "range": [
      150,
@@ -6002,7 +5998,7 @@ globalThis.BEARERS_CARDS = {
     "DEX": 1,
     "INT": 1,
     "WIL": 1,
-    "STRd": 16,
+    "STRd": 17,
     "DEXd": 13,
     "INTd": 11,
     "WILd": 11,
@@ -6177,7 +6173,7 @@ globalThis.BEARERS_CARDS = {
     "DEX": 1,
     "INT": 1,
     "WIL": 0,
-    "STRd": 16,
+    "STRd": 17,
     "DEXd": 13,
     "INTd": 11,
     "WILd": 10,

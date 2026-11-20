@@ -386,7 +386,7 @@ Each game term has one meaning, in both books.
 | **Ability** | One of four measures every creature has: Strength (STR), Dexterity (DEX), Intelligence (INT) and Will (WIL), each written as a modifier. |
 | **Action** | Using it takes one of your two actions. |
 | **Advantage on damage** | Moving an advantage die left after cancelling from an attack to its damage, chosen before rolling: roll the whole damage once more per die and keep the highest total. Disadvantage always stays on the attack. |
-| **Affinities** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling shares at least one of its lit affinities. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four affinities. |
+| **Affinities** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling shares at least one of its lit affinities. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four affinities, except Heavy ones (STR only). |
 | **Anthem** | A WIL magic power. Action: a buff for allies who hear you, for a Duration. |
 | **Aquatic** | A weapon keyword: works underwater, where other weapons and spells don't. |
 | **Area** | Cone, Cube, Cylinder, Emanation, Line or Sphere N: an area of that shape and size. Roll once against every creature in it. Half damage on a miss. |

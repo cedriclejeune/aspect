@@ -409,10 +409,13 @@ module.exports = function register(T, H) {
     ok(/spell points/.test(refused(f, power(f, "w", "B-I-01#magic-missile", { targets: ["x"] }))));
   });
 
-  T("[fx] Spellguard Staff: counts as an empty Hand for casting", () => {
-    const f = fight([pc("w", [1, 5], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, hands: ["W-I-12", "S-I-01"], items: [{ id: "B-I-01" }] }), pc("v", [1, 8], { body: { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 }, hands: ["W-I-05", "S-I-01"], items: [{ id: "B-I-01" }] }), foe("x", [8, 5])]);
+  T("[fx] Spellguard Staff: +0 to hit, 1d6; +2 to spell attacks; no longer an empty Hand for casting", () => {
+    const body = { STR: 0, DEX: 1, INT: 3, WIL: 0, HP: 9, SPD: 30 };
+    const f = fight([pc("w", [1, 5], { body, hands: ["W-I-12"], items: [{ id: "B-I-01" }] }), pc("v", [1, 8], { body, hands: ["W-I-12", "S-I-01"], items: [{ id: "B-I-01" }] }), foe("x", [2, 5])]);
     pcTurn(f, "w");
-    ok(f.preview(power(f, "w", "B-I-01#fire-bolt", { targets: ["x"] })).ok);
+    eq(pv(f, power(f, "w", "B-I-01#fire-bolt", { targets: ["x"] })).toHit, 3 + 2 + 2, "INT + book + Staff");
+    const s = pv(f, atk("w", "W-I-12", "x"));
+    eq([s.toHit, s.damage], [3, "1d6+3 Physical"]);
     end(f, "w"); go(f, "v");
     ok(/empty Hand/.test(refused(f, power(f, "v", "B-I-01#fire-bolt", { targets: ["x"] }))));
   });
@@ -525,23 +528,39 @@ module.exports = function register(T, H) {
     run(f, atk("x", "W-I-05", "a"), [15, 15, 6]); // 6 + 3 = 9
     eq([C(f, "a").hp, C(f, "t").hp, C(f, "t").uses["L-02#0"]], [14, 14 - (9 - 4), 0]);
   });
-  T("[fx] Spellblade Battle Caster casts with both Hands full; Sage Learned: ½ INT spell points", () => {
+  T("[fx] Spellblade Battle Caster casts with both Hands full; the Sage's spell points have no extra", () => {
     const hands = { hands: ["W-I-05", "S-I-01"], items: [{ id: "B-I-01" }] };
     const f = fight([pc("s", [1, 5], calling("L-03", hands)), pc("g", [1, 7], calling("L-06", { items: [{ id: "B-I-01" }] })), foe("x", [9, 5])]);
     pcTurn(f, "s");
     ok(f.legal("s").some((m) => m.power && m.power.startsWith("B-I-01")), "Spellblade casts holding a Longsword and a Shield");
-    eq([C(f, "s").sp, C(f, "g").sp], [4, 5]);
+    eq([C(f, "s").sp, C(f, "g").sp], [4, 4]);
     const g = fight([pc("s", [1, 5], hands), foe("x", [9, 5])]);
     pcTurn(g, "s");
     ok(!g.legal("s").some((m) => m.power && m.power.startsWith("B-I-01")), "a body with both Hands full can't cast");
   });
 
-  T("[fx] Brawler Scrapper: +STR to hit with Shoves; Hermit Solitude: ½ WIL Resolve", () => {
-    const f = fight([pc("b", [5, 5], calling("L-07")), pc("h", [1, 1], calling("L-12", { aspects: ["G-I-01"] })), foe("x", [6, 5])]);
+  T("[fx] Sage Weak Spot: ½ WIL/L.R., a spell at one creature targets its lowest Defense with +½ INT", () => {
+    const f = fight([pc("g", [1, 5], calling("L-06", { items: [{ id: "B-I-01" }] })), foe("x", [9, 5])]);
+    pcTurn(f, "g");
+    const x = C(f, "x").totals, low = Math.min(x.STRd, x.DEXd, x.INTd, x.WILd);
+    ok(low < x.DEXd, "the foe's lowest Defense isn't DEX");
+    const bolt = power(f, "g", "B-I-01#fire-bolt", { targets: ["x"] });
+    const i = pv(f, bolt);
+    eq([i.defense, i.toHit], [low, 2 + 2 + 1], "INT + book + ½ INT");
+    eq(C(f, "g").uses["L-06#0"], 1, "½ WIL uses; the preview spends none");
+    const r = run(f, bolt, [10, 5]);
+    eq(C(f, "g").uses["L-06#0"], 0);
+    eq(evs(r, "roll").find((e) => e.kind === "attack").vs, low);
+    eq(pv(f, power(f, "g", "B-I-01#fire-bolt", { targets: ["x"] })).defense, x.DEXd, "no use left: the spell's own Defense");
+    const g = fight([pc("h", [1, 5], calling("L-12", { aspects: ["G-I-01"] })), foe("x", [9, 5])]);
+    eq(C(g, "h").resolve, 3 + 2, "Hermit: no extra Resolve");
+  });
+
+  T("[fx] Brawler Scrapper: +STR to hit with Shoves", () => {
+    const f = fight([pc("b", [5, 5], calling("L-07")), foe("x", [6, 5])]);
     pcTurn(f, "b");
     const r = f.preview({ type: "shove", actor: "b", target: "x", mode: "push" });
     eq(r.info.toHit, 2 + 2 + 2, "STR + 2 + Scrapper");
-    eq(C(f, "h").resolve, 3 + 2 + 1);
   });
   T("[fx] Patriot Righteous Fury: ½ WIL/S.R., +½ STR d6 Radiant on a weapon hit", () => {
     const f = fight([pc("z", [5, 5], calling("L-08", { hands: ["W-I-05"] }), { react: "auto" }), foe("x", [6, 5])]);

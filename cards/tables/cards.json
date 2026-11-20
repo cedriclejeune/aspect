@@ -141,7 +141,7 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Learned: ½ INT extra spell points. Your checks to recall lore add both INT and WIL.",
+   "text": "Weak Spot (½ WIL/L.R.): when you cast a spell at a single creature, it targets the creature's lowest Defense instead of the one the spell names, with +½ INT to hit. Your checks to recall lore add both INT and WIL.",
    "lore": "A mind that kept every page it ever read, and a voice that makes the pages speak."
   },
   {
@@ -285,7 +285,7 @@
    "to_hit": "",
    "damage": "",
    "keywords": "",
-   "text": "Solitude: ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL.",
+   "text": "Omen: when you finish a long rest, roll ½ WIL d20 and set them aside. Before a creature within 10 ft × INT makes an attack roll or a check, you may replace its d20 with one of them, which is spent. Dice left over are lost at your next long rest. Your checks to forage and endure add both INT and WIL.",
    "lore": "Years in a cave or a forest, talking to stones and stars. Something out there answered."
   },
   {
@@ -540,7 +540,7 @@
    "DEX": "",
    "INT": "",
    "WIL": "",
-   "STRd": "",
+   "STRd": "+1",
    "DEXd": "",
    "INTd": "",
    "WILd": "",
@@ -582,7 +582,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "all",
+   "symbols": "STR",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -606,7 +606,7 @@
    "type": "Weapon",
    "rank": "I",
    "group": "starter",
-   "symbols": "all",
+   "symbols": "STR",
    "copies": 1,
    "STR": "",
    "DEX": "",
@@ -714,10 +714,10 @@
    "WILd": "",
    "HP": "",
    "SPD": "",
-   "to_hit": "+2",
-   "damage": "1d6 / 1d8",
-   "keywords": "Versatile (1d8)",
-   "text": "+2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook.",
+   "to_hit": "+0",
+   "damage": "1d6",
+   "keywords": "",
+   "text": "+0 to hit, 1d6 + INT or WIL Physical. +2 to your spell attacks and WIL deck attacks.",
    "lore": "Glyphs run along its grain. The wood remembers the shape of a casting hand."
   },
   {
@@ -788,7 +788,7 @@
    "SPD": "",
    "to_hit": "+2",
    "damage": "1d6",
-   "keywords": "Light",
+   "keywords": "",
    "text": "+2 to hit, 1d6 + STR or DEX Physical. Close Order: +1d4 damage while an ally is engaged with the same creature.",
    "lore": "A soldier's sword, short and wide, made for fighting shoulder to shoulder."
   },
@@ -861,7 +861,7 @@
    "to_hit": "+2",
    "damage": "1d6",
    "keywords": "Range 80/320 · Two-Handed",
-   "text": "+2 to hit, range 80/320 ft, 1d6 + DEX Physical.",
+   "text": "+2 to hit, range 80/320 ft, 1d6 + DEX Physical. Close Shot: an enemy within 5 ft doesn't give you disadvantage on your attacks with it.",
    "lore": "Light enough to shoot from the saddle or from the treetops."
   },
   {
@@ -908,7 +908,7 @@
    "SPD": "",
    "to_hit": "+2",
    "damage": "1d10",
-   "keywords": "Range 150/600 · Two-Handed",
+   "keywords": "Range 150/600 · Two-Handed · Loading",
    "text": "+2 to hit, range 150/600 ft, 1d10 + DEX Physical.",
    "lore": "Horn, sinew and years of an archer's patience. Only steady fingers can draw it."
   },
@@ -4640,7 +4640,7 @@
    "DEX": 1,
    "INT": 1,
    "WIL": 1,
-   "STRd": 16,
+   "STRd": 17,
    "DEXd": 13,
    "INTd": 11,
    "WILd": 11,
@@ -4736,7 +4736,7 @@
    "DEX": 1,
    "INT": 1,
    "WIL": 0,
-   "STRd": 16,
+   "STRd": 17,
    "DEXd": 13,
    "INTd": 11,
    "WILd": 10,

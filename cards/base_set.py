@@ -46,7 +46,8 @@ CALLINGS = [
     calling("Infiltrator", ("DEX", "INT"), 10, 35, "**Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT."),
     calling("Performer", ("DEX", "WIL"), 10, 35,
             "**Presence:** your checks to perform, persuade and deceive add both DEX and WIL."),
-    calling("Sage", ("INT", "WIL"), 9, 35, "**Learned:** ½ INT extra spell points. Your checks to recall lore add both INT and WIL."),
+    calling("Sage", ("INT", "WIL"), 9, 35, 
+            "**Weak Spot (½ WIL/L.R.):** when you cast a spell at a single creature, it targets the creature's lowest Defense instead of the one the spell names, with +½ INT to hit. Your checks to recall lore add both INT and WIL."),
     # the second Calling of each pair: same +2 / +2, another perk, HP and Speed
     calling("Brawler", ("STR", "DEX"), 14, 30,
             "**Scrapper:** +STR to hit with Grapples and Shoves.",
@@ -59,7 +60,8 @@ CALLINGS = [
             "**Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn."),
     calling("Trickster", ("DEX", "WIL"), 9, 35,
             "**Sure Thing:** on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher."),
-    calling("Hermit", ("INT", "WIL"), 11, 30, "**Solitude:** ½ WIL extra Resolve. Your checks to forage and endure add both INT and WIL."),
+    calling("Hermit", ("INT", "WIL"), 11, 30, 
+            "**Omen:** when you finish a long rest, roll ½ WIL d20 and set them aside. Before a creature within 10 ft × INT makes an attack roll or a check, you may replace its d20 with one of them, which is spent. Dice left over are lost at your next long rest. Your checks to forage and endure add both INT and WIL."),
 ]
 
 
@@ -85,15 +87,16 @@ def weapon_atk(dice, kw, attack, sym, dtype="Physical"):
                 twoHanded="Two-Handed" in parts, loading="Loading" in parts, thrown=pair("Thrown"), range=ranged)
 
 
-def weapon(name, abil, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter", dtype="Physical", sym=None):
+def weapon(name, abil, dice, kw, effect=None, attack="+2", rank="I", copies=1, group="starter", dtype="Physical", sym=None, strip=None):
     """abil is the weapon's roll: you attack and deal damage with the higher of them (STR / DEX; INT / WIL for staves and wands).
     A basic (starter) weapon lights all four symbols so anyone can wield it; a loot weapon lights only its abil (DESIGN 4).
-    sym overrides that (the Spellguard Staff is a starter that lights only INT · WIL).
+    A Heavy weapon lights STR alone, starter or loot (Ced, 2026-11-13). sym overrides all that (the Spellguard Staff is a
+    starter that lights only INT · WIL).
     The range of a Range or Thrown weapon is printed in its attack line, so the card doesn't print that keyword (DESIGN 4)."""
     reach = next((f"{p.split()[0].lower()} {p.split()[1]} ft, " for p in kw.split(" · ") if p.startswith(("Range ", "Thrown "))), "")
     text = [f"{attack} to hit, {reach}{dice} + {' or '.join(abil)} {dtype}." + (f" {effect}" if effect else "")]
-    sym = sym or (ALL if group == "starter" else abil)
-    return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, copies=copies, group=group, sym=sym,
+    sym = sym or (["STR"] if "Heavy" in kw.split(" · ") else ALL if group == "starter" else abil)
+    return card(name, rank, "gear", "Weapon" + (f" · {kw}" if kw else ""), text, strip, copies=copies, group=group, sym=sym,
                 atk=weapon_atk(dice, kw, attack, abil, dtype))
 
 
@@ -103,23 +106,23 @@ HANDS = [
     weapon("Shortsword", ["STR", "DEX"], "1d6", "Light · Flurry"),
     weapon("Handaxe", ["STR", "DEX"], "1d6", "Light · Thrown 20/60"),
     weapon("Finesse Blade", ["DEX"], "1d6", "", "**Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn."),
-    weapon("Longsword", ["STR"], "1d8 / 1d10", "Versatile (1d10)"),
+    weapon("Longsword", ["STR"], "1d8 / 1d10", "Versatile (1d10)", strip={"STRd": "+1"}),  # Parry: +1 STR Defense while held
     weapon("Battleaxe", ["STR", "DEX"], "1d8 / 1d10", "Versatile (1d10)"),
     weapon("Greatsword", ["STR"], "2d6", "Heavy · Two-Handed"),
     weapon("Glaive", ["STR"], "1d10", "Heavy · Reach · Two-Handed"),
     weapon("Longbow", ["DEX"], "1d8", "Range 150/600 · Two-Handed"),
     weapon("Sling", ["DEX"], "1d6", "Light · Range 30/120"),
     weapon("Javelins", ["STR", "DEX"], "1d6", "Thrown 30/120"),
-    weapon("Spellguard Staff", ["INT", "WIL"], "1d6 / 1d8", "Versatile (1d8)", "While you hold it, it counts as an empty Hand for casting from a Spellbook.", sym=["INT", "WIL"]),
+    weapon("Spellguard Staff", ["INT", "WIL"], "1d6", "", "+2 to your spell attacks and WIL deck attacks.", attack="+0", sym=["INT", "WIL"]),
     card("Traveler's Lute", "I", "gear", "Instrument · Focus", ["1 extra Resolve (short rest).", "Your Anthems reach 60 ft instead of 30 ft."], sym=["WIL"]),
     weapon("Greatclub", ["STR"], "1d10", "Heavy · Two-Handed · Crushing", sym=["STR"]),
-    weapon("Gladius", ["STR", "DEX"], "1d6", "Light", "**Close Order:** +1d4 damage while an ally is engaged with the same creature.", group="loot"),
+    weapon("Gladius", ["STR", "DEX"], "1d6", "", "**Close Order:** +1d4 damage while an ally is engaged with the same creature.", group="loot"),
     weapon("Boarspear", ["STR"], "1d8 / 1d10", "Versatile (1d10)", "**Brace:** your opportunity attacks with it deal +1d8 damage.", attack="+3", rank="II", group="loot"),
     weapon("Pilum", ["STR", "DEX"], "1d6", "Thrown 30/120", "**Pierce:** on a hit, a Shield the target holds gives no bonus until it spends an action to pull the pilum free.", attack="+3", rank="II", group="loot"),
-    weapon("Shortbow", ["DEX"], "1d6", "Range 80/320 · Two-Handed", sym=["DEX"]),
+    weapon("Shortbow", ["DEX"], "1d6", "Range 80/320 · Two-Handed", "**Close Shot:** an enemy within 5 ft doesn't give you disadvantage on your attacks with it.", sym=["DEX"]),
     weapon("Greataxe", ["STR"], "1d12", "Heavy · Two-Handed · Brutal", sym=["STR"]),
     # identity cards (DESIGN 4, symbol parity): one symbol each, like the heavy weapons for STR
-    weapon("Fine Bow", ["DEX"], "1d10", "Range 150/600 · Two-Handed", group="loot"),
+    weapon("Fine Bow", ["DEX"], "1d10", "Range 150/600 · Two-Handed · Loading", group="loot"),
     weapon("Wand", ["INT"], "1d8", "Range 60/120", dtype="Lightning", sym=["INT"]),
     weapon("Whip", ["DEX"], "1d4", "Reach"),
     weapon("Hand Crossbow", ["DEX"], "1d6", "Light · Range 30/120"),
@@ -756,8 +759,9 @@ TWO_SHIELD_MOD = [dict(mod="def", n=2, defs=["targeted"], next=True)]  # +2 to t
 CARD_FX = {
     # weapon riders
     "Finesse Blade": [dict(use="trigger", on="hit", do=[dict(mod="attack", n=-2, next=True, until="startSourceTurn")])],
-    "Spellguard Staff": [dict(use="passive", castingHand=True)],
+    "Spellguard Staff": [dict(use="passive", magicHit=2)],
     "Gladius": [dict(use="passive", hook="close_order", params=dict(dmg="1d4"))],
+    "Shortbow": [dict(use="passive", closeShot=5)],
     "Boarspear": [dict(use="trigger", on="opportunity", hook="brace", params=dict(dmg="1d8"))],
     "Pilum": [dict(use="trigger", on="hit", hook="pierce")],
     # gear
@@ -807,14 +811,14 @@ CARD_FX = {
     "Templar": [dict(use="reaction", uses="½WIL/SR", on="hitAlly5", target="ally", oath=True, oathCut="2×STR")],
     "Spellblade": [dict(use="passive", castingHand=True),
                    dict(use="trigger", uses="½STR/SR", on="meleeWeaponHit", do=[dict(dmg="INT")])],
-    "Sage": [dict(use="passive", extraSp="½INT")],
+    # Weak Spot: a Spellbook spell at one creature targets its lowest Defense (RULING R718)
+    "Sage": [dict(use="passive", uses="½WIL/LR", weakSpot="½INT")],
     "Brawler": [dict(use="passive", grabHit="STR"), dict(use="passive", escapeAbil="2×DEX")],
     "Patriot": [dict(use="trigger", uses="½WIL/SR", on="weaponHit", do=[dict(dmg="½STR d6", type="Radiant")])],
     "Tactician": [dict(use="action", uses="½STR/SR", reach=30, target="ally", need=VOICE, do=[dict(command=True, hit="INT")])],
     # Quarry's mark: −½ DEX to every Defense of the target, so you and your allies hit it more (RULING R714)
     "Ranger": [dict(use="trigger", uses="½INT/SR", on="rangedHit", do=[dict(mod="def", n="-½DEX", until="startSourceTurn")])],
     "Trickster": [dict(use="trigger", on="hitUnseen", do=[dict(dmg="½DEX|WIL d6")])],
-    "Hermit": [dict(use="passive", extraResolve="½WIL")],
     "Wolfpack": [dict(use="trigger", uses="1/SR", on="hitEngaged", do=[dict(cond="Prone")])],
     "Herbalist": [dict(use="passive", extraSp=1)],
     # an Attack action of its own: one roll against each enemy in the weapon's reach (sim/effects.js)

@@ -259,7 +259,7 @@ Each Slot has its **swap time**. A swap moves gear between a Slot and your Pack,
 
 ## 5. Equipment
 
-Armor, shields, weapons, Instruments and Jewelry are **equipment**. A weapon prints its **to-hit** bonus, added to its attack rolls, and its damage (*+2 to hit, 1d8 + STR or DEX Physical*): it rolls with STR, DEX or both, except **staves** and **wands**, weaker, which roll INT or WIL. **Basic weapons** (Rank I starters) light all four affinities, except the *Spellguard Staff* (INT · WIL); loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand and serves WIL magic (9.5).
+Armor, shields, weapons, Instruments and Jewelry are **equipment**. A weapon prints its **to-hit** bonus, added to its attack rolls, and its damage (*+2 to hit, 1d8 + STR or DEX Physical*): it rolls with STR, DEX or both, except **staves** and **wands**, weaker, which roll INT or WIL. **Basic weapons** (Rank I starters) light all four affinities, except the *Spellguard Staff* (INT · WIL) and **Heavy** weapons (STR only); loot weapons light only the abilities they roll with. An **Instrument** (a lute, a drum, a horn) takes a Hand and serves WIL magic (9.5).
 
 ### 5.1 Armor and Defense
 
@@ -277,7 +277,7 @@ Heavier armor gives more HP and less Speed, and raises mostly STR Defense. Mail 
 
 ### 5.2 Weapons
 
-Each row is a kind of Rank I weapon; its name is flavour (a Versatile Weapon can be a longsword or a spear).
+Each row is a kind of Rank I weapon; its name is flavour (a Versatile Weapon can be a battleaxe or a spear).
 
 | Weapon (gear) | Rolls with | To hit | Damage | Properties |
 |---|---|---|---|---|
@@ -285,8 +285,9 @@ Each row is a kind of Rank I weapon; its name is flavour (a Versatile Weapon can
 | **Short Blade** (shortsword, sickle) | STR · DEX | +2 | 1d6 | Light, Flurry |
 | **Light Weapon** (handaxe, club, light hammer) | STR · DEX | +2 | 1d6 | Light, Thrown (20/60) |
 | **Finesse Blade** (rapier, scimitar) | DEX | +2 | 1d6 | — |
-| **Versatile Weapon** (longsword, battleaxe, spear) | STR or STR · DEX | +2 | 1d8 / 1d10 | Versatile |
-| **Staff** (quarterstaff, rod) | INT · WIL | +2 | 1d6 / 1d8 | Versatile |
+| **Versatile Weapon** (battleaxe, spear) | STR or STR · DEX | +2 | 1d8 / 1d10 | Versatile |
+| **Longsword** (longsword, bastard sword) | STR | +2 | 1d8 / 1d10 | Versatile; +1 STR Defense while you hold it |
+| **Staff** (quarterstaff, rod) | INT · WIL | +0 | 1d6 | +2 to spell and WIL deck attacks |
 | **Heavy Weapon** (greatsword, maul) | STR | +2 | 2d6 | Heavy, Two-Handed |
 | **Great Axe** (greataxe) | STR | +2 | 1d12 | Heavy, Two-Handed, Brutal |
 | **Great Club** (greatclub) | STR | +2 | 1d10 | Heavy, Two-Handed, Crushing |
@@ -294,8 +295,9 @@ Each row is a kind of Rank I weapon; its name is flavour (a Versatile Weapon can
 | **Whip** | DEX | +2 | 1d4 | Reach |
 | **Javelins** | STR · DEX | +2 | 1d6 | Thrown (30/120) |
 | **Sling** / **Hand Crossbow** | DEX | +2 | 1d6 | Light, Range (30/120) |
-| **Bow** (short or long) | DEX | +2 | 1d8 | Range (150/600), Two-Handed |
-| **Fine Bow** (composite bow) | DEX | +2 | 1d10 | Range (150/600), Two-Handed |
+| **Bow** (longbow) | DEX | +2 | 1d8 | Range (150/600), Two-Handed |
+| **Shortbow** | DEX | +2 | 1d6 | Range (80/320), Two-Handed; an enemy within 5 ft gives no disadvantage |
+| **Fine Bow** (composite bow) | DEX | +2 | 1d10 | Loading, Range (150/600), Two-Handed |
 | **Wand** | INT | +2 | 1d8 Lightning | Range (60/120) |
 | **Crossbow** (heavy) | DEX | +2 | 1d10 | Loading, Range (100/400), Two-Handed |
 
@@ -761,13 +763,13 @@ A Spellbook or a WIL deck is a **deck**: a **cover card** (Rank, attack bonus, s
 | **Spellblade** | STR · INT | 13 | 30 ft | **Battle Caster:** a weapon you hold counts as an empty Hand for casting from a Spellbook. **Spell Strike (½ STR/S.R.):** when you hit with a melee weapon attack: +INT damage. |
 | **Infiltrator** | DEX · INT | 10 | 35 ft | **Unseen:** your checks to sneak, pick locks and spot traps add both DEX and INT. |
 | **Performer** | DEX · WIL | 10 | 35 ft | **Presence:** your checks to perform, persuade and deceive add both DEX and WIL. |
-| **Sage** | INT · WIL | 9 | 35 ft | **Learned:** ½ INT extra spell points (9.2). Your checks to recall lore add both INT and WIL. |
+| **Sage** | INT · WIL | 9 | 35 ft | **Weak Spot (½ WIL/L.R.):** when you cast a spell at a single creature, it targets the creature's lowest Defense instead of the one the spell names, with +½ INT to hit. Your checks to recall lore add both INT and WIL. |
 | **Brawler** | STR · DEX | 14 | 30 ft | **Scrapper:** +STR to hit with Grapples and Shoves. **Slip Free:** your Escape attacks (6.9) add 2 × DEX instead of STR or DEX. |
 | **Patriot** | STR · WIL | 12 | 35 ft | **Righteous Fury (½ WIL/S.R.):** when you hit with a weapon attack: +½ STR d6 Radiant damage. |
 | **Tactician** | STR · INT | 12 | 35 ft | **Command (½ STR/S.R.):** action. An ally within 30 ft who can hear you takes the Attack action at once, with +INT to hit. |
 | **Ranger** | DEX · INT | 11 | 35 ft | **Quarry (½ INT/S.R.):** when you hit a creature with a ranged attack, it's marked: you and your allies have +½ DEX on attacks against it until the start of your next turn. |
 | **Trickster** | DEX · WIL | 9 | 35 ft | **Sure Thing:** on your checks to sneak, pick locks, pick pockets and disarm traps, a d20 that shows less than 10 counts as a 10. When you hit a creature that can't see you: +½ DEX or ½ WIL d6 damage, whichever is higher. |
-| **Hermit** | INT · WIL | 11 | 30 ft | **Solitude:** ½ WIL extra Resolve (9.5). Your checks to forage and endure add both INT and WIL. |
+| **Hermit** | INT · WIL | 11 | 30 ft | **Omen:** when you finish a long rest, roll ½ WIL d20 and set them aside. Before a creature within 10 ft × INT makes an attack roll or a check, you may replace its d20 with one of them, which is spent. Dice left over are lost at your next long rest. Your checks to forage and endure add both INT and WIL. |
 
 
 ### 13.3 The Starter List
@@ -893,7 +895,7 @@ Each game term has one meaning, in both books.
 | **Ability** | One of four measures every creature has: Strength (STR), Dexterity (DEX), Intelligence (INT) and Will (WIL), each written as a modifier. |
 | **Action** | Using it takes one of your two actions. |
 | **Advantage on damage** | Moving an advantage die left after cancelling from an attack to its damage, chosen before rolling: roll the whole damage once more per die and keep the highest total. Disadvantage always stays on the attack. |
-| **Affinities** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling shares at least one of its lit affinities. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four affinities. |
+| **Affinities** | The four ability symbols in a card's top corner; the ones it uses are lit. You can equip a card only if your Calling shares at least one of its lit affinities. A weapon attacks with the abilities it names (STR or DEX; INT or WIL for a staff or a wand); basic weapons light all four affinities, except Heavy ones (STR only). |
 | **Anthem** | A WIL magic power. Action: a buff for allies who hear you, for a Duration. |
 | **Aquatic** | A weapon keyword: works underwater, where other weapons and spells don't. |
 | **Area** | Cone, Cube, Cylinder, Emanation, Line or Sphere N: an area of that shape and size. Roll once against every creature in it. Half damage on a miss. |
