@@ -792,18 +792,18 @@ Toutes les cartes de Rang I parmi lesquelles vous choisissez à la création (13
 |---|---|---|---|---|
 | **Arbalète** | toutes | Arme · Chargement · Deux mains | — | +2 au toucher, portée 40/160 m, 1d10 + AGI Physique. |
 | **Arbalète de poing** | toutes | Arme · Légère | — | +2 au toucher, portée 12/48 m, 1d6 + AGI Physique. |
-| **Arc court** | AGI | Arme · Deux mains | — | +2 au toucher, portée 32/128 m, 1d6 + AGI Physique. |
+| **Arc court** | AGI | Arme · Deux mains | — | +2 au toucher, portée 32/128 m, 1d6 + AGI Physique. **Tir rapproché :** un ennemi à 2 m ou moins ne vous donne pas de désavantage à vos attaques avec lui. |
 | **Arc long** | toutes | Arme · Deux mains | — | +2 au toucher, portée 60/240 m, 1d8 + AGI Physique. |
 | **Baguette** | INT | Arme | — | +2 au toucher, portée 24/48 m, 1d8 + INT Foudre. |
-| **Bâton de garde-sort** | INT · VOL | Arme · Polyvalente | — | +2 au toucher, 1d6 / 1d8 + INT ou VOL Physique. Tant que vous le tenez, il compte comme une Main vide pour lancer des sorts depuis un Livre de sorts. |
+| **Bâton de garde-sort** | INT · VOL | Arme | — | +0 au toucher, 1d6 + INT ou VOL Physique. +2 à vos attaques de sort et de pouvoir. |
 | **Bâton druidique** | VOL | Arme · Polyvalente · Focaliseur | — | +2 au toucher, 1d6 / 1d8 + INT ou VOL Physique. 1 Ardeur supplémentaire (court repos). Vos Soins rendent 2 PV de plus. |
 | **Dague** | toutes | Arme · Légère · Rafale | — | +2 au toucher, lancer 8/24 m, 1d4 + AGI Physique. |
-| **Épée à deux mains** | toutes | Arme · Lourde · Deux mains | — | +2 au toucher, 2d6 + FOR Physique. |
+| **Épée à deux mains** | FOR | Arme · Lourde · Deux mains | — | +2 au toucher, 2d6 + FOR Physique. |
 | **Épée courte** | toutes | Arme · Légère · Rafale | — | +2 au toucher, 1d6 + FOR ou AGI Physique. |
-| **Épée longue** | toutes | Arme · Polyvalente | — | +2 au toucher, 1d8 / 1d10 + FOR Physique. |
+| **Épée longue** | toutes | Arme · Polyvalente | +1 Défense de FOR | +2 au toucher, 1d8 / 1d10 + FOR Physique. |
 | **Fouet** | toutes | Arme · Allonge | — | +2 au toucher, 1d4 + AGI Physique. |
 | **Fronde** | toutes | Arme · Légère | — | +2 au toucher, portée 12/48 m, 1d6 + AGI Physique. |
-| **Glaive sur lance** | toutes | Arme · Lourde · Allonge · Deux mains | — | +2 au toucher, 1d10 + FOR Physique. |
+| **Glaive sur lance** | FOR | Arme · Lourde · Allonge · Deux mains | — | +2 au toucher, 1d10 + FOR Physique. |
 | **Grande hache** | FOR | Arme · Lourde · Deux mains · Brutale | — | +2 au toucher, 1d12 + FOR Physique. |
 | **Hache d'armes** | toutes | Arme · Polyvalente | — | +2 au toucher, 1d8 / 1d10 + FOR ou AGI Physique. |
 | **Hachette** | toutes | Arme · Légère | — | +2 au toucher, lancer 8/24 m, 1d6 + FOR ou AGI Physique. |

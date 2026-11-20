@@ -795,19 +795,19 @@ Every Rank I card you can start with (13.1). *All*: the four affinities are lit.
 | **Dagger** | all | Weapon · Light · Flurry | — | +2 to hit, thrown 20/60 ft, 1d4 + DEX Physical. |
 | **Druid's Staff** | WIL | Weapon · Versatile · Focus | — | +2 to hit, 1d6 / 1d8 + INT or WIL Physical. 1 extra Resolve (short rest). Your Mends restore 2 extra HP. |
 | **Finesse Blade** | all | Weapon | — | +2 to hit, 1d6 + DEX Physical. **Sap:** when you hit, the target has −2 on its next attack roll before the start of your next turn. |
-| **Glaive** | all | Weapon · Heavy · Reach · Two-Handed | — | +2 to hit, 1d10 + STR Physical. |
+| **Glaive** | STR | Weapon · Heavy · Reach · Two-Handed | — | +2 to hit, 1d10 + STR Physical. |
 | **Greataxe** | STR | Weapon · Heavy · Two-Handed · Brutal | — | +2 to hit, 1d12 + STR Physical. |
 | **Greatclub** | STR | Weapon · Heavy · Two-Handed · Crushing | — | +2 to hit, 1d10 + STR Physical. |
-| **Greatsword** | all | Weapon · Heavy · Two-Handed | — | +2 to hit, 2d6 + STR Physical. |
+| **Greatsword** | STR | Weapon · Heavy · Two-Handed | — | +2 to hit, 2d6 + STR Physical. |
 | **Hand Crossbow** | all | Weapon · Light | — | +2 to hit, range 30/120 ft, 1d6 + DEX Physical. |
 | **Handaxe** | all | Weapon · Light | — | +2 to hit, thrown 20/60 ft, 1d6 + STR or DEX Physical. |
 | **Javelins** | all | Weapon | — | +2 to hit, thrown 30/120 ft, 1d6 + STR or DEX Physical. |
 | **Longbow** | all | Weapon · Two-Handed | — | +2 to hit, range 150/600 ft, 1d8 + DEX Physical. |
-| **Longsword** | all | Weapon · Versatile | — | +2 to hit, 1d8 / 1d10 + STR Physical. |
-| **Shortbow** | DEX | Weapon · Two-Handed | — | +2 to hit, range 80/320 ft, 1d6 + DEX Physical. |
+| **Longsword** | all | Weapon · Versatile | +1 STR Defense | +2 to hit, 1d8 / 1d10 + STR Physical. |
+| **Shortbow** | DEX | Weapon · Two-Handed | — | +2 to hit, range 80/320 ft, 1d6 + DEX Physical. **Close Shot:** an enemy within 5 ft doesn't give you disadvantage on your attacks with it. |
 | **Shortsword** | all | Weapon · Light · Flurry | — | +2 to hit, 1d6 + STR or DEX Physical. |
 | **Sling** | all | Weapon · Light | — | +2 to hit, range 30/120 ft, 1d6 + DEX Physical. |
-| **Spellguard Staff** | INT · WIL | Weapon · Versatile | — | +2 to hit, 1d6 / 1d8 + INT or WIL Physical. While you hold it, it counts as an empty Hand for casting from a Spellbook. |
+| **Spellguard Staff** | INT · WIL | Weapon | — | +0 to hit, 1d6 + INT or WIL Physical. +2 to your spell attacks and WIL deck attacks. |
 | **Wand** | INT | Weapon | — | +2 to hit, range 60/120 ft, 1d8 + INT Lightning. |
 | **Whip** | all | Weapon · Reach | — | +2 to hit, 1d4 + DEX Physical. |
 | **Shield** | STR · WIL | Shield | +2 STR Defense, +2 DEX Defense | Takes one Hand. |

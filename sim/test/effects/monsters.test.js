@@ -129,7 +129,7 @@ module.exports = function register(T, H) {
       eq([c.resist, c.fearless], [["Poison", "Necrotic"], true], n);
     }
     const f = fight([pc("a", [5, 5]), tmpl("s", "Flying Sword", [6, 5])]);
-    eq(C(f, "s").totals.STRd, 17);
+    eq(C(f, "s").totals.STRd, 18, "Longsword: +1 STR Defense");
     ok(C(f, "s").hands.includes("W-I-05") || JSON.stringify(C(f, "s").build || {}).includes("W-I-05"));
   });
 

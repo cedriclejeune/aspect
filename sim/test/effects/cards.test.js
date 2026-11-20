@@ -32,14 +32,14 @@ module.exports = function register(T, H) {
     const p = t({ armor: "A-II-01", aspects: ["T-II-04"] }); eq([p.STRd, p.SPD], [13 + 4 + 1, 20], "Plate: Req STR +2 met by Brute STR 3");
     const w = t({ aspects: ["T-II-02", "T-II-05"] }); eq([w.STR, w.STRd, w.SPD, w.DEX, w.DEXd], [4, 14, 45, 2, 12]);
     const f = fight([pc("a", [5, 5], { hands: ["W-I-05", "S-I-01"] }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
-    eq([C(f, "a").totals.STRd, C(f, "a").totals.DEXd], [15, 13]);
+    eq([C(f, "a").totals.STRd, C(f, "a").totals.DEXd], [16, 13], "Longsword: +1 STR Defense while held");
     pcTurn(f, "a");
     eq(pv(f, atk("a", "W-I-05", "x")).damage, "1d8+3 Physical", "Shield in the other Hand: no Versatile die");
     run(f, { type: "interact", actor: "a", drop: "S-I-01" });
-    eq([C(f, "a").totals.STRd, C(f, "a").totals.DEXd], [13, 11]);
+    eq([C(f, "a").totals.STRd, C(f, "a").totals.DEXd], [14, 11]);
     eq(pv(f, atk("a", "W-I-05", "x")).damage, "1d10+3 Physical");
     run(f, { type: "interact", actor: "a", draw: "S-I-01" });
-    eq(C(f, "a").totals.STRd, 15, "picked up again");
+    eq(C(f, "a").totals.STRd, 16, "picked up again");
   });
 
   // ---------- weapon riders ----------
@@ -47,7 +47,7 @@ module.exports = function register(T, H) {
     const f = fight([pc("a", [5, 5], { body: { STR: 0, DEX: 3, INT: 1, WIL: 0, HP: 11, SPD: 35 }, hands: ["W-I-04"] }), foe("x", [6, 5], { hands: ["W-I-05"] })]);
     pcTurn(f, "a");
     eq(pv(f, atk("a", "W-I-04", "x")).toHit, 5, "DEX 3 (Finesse) + 2");
-    const r = run(f, atk("a", "W-I-04", "x"), [8, 4]); // 13 vs 13
+    const r = run(f, atk("a", "W-I-04", "x"), [9, 4]); // 14 vs 14 (its Longsword: +1 STR Defense)
     eq(dmgs(r), [7], "1d6 + DEX");
     end(f, "a");
     go(f, "x");
@@ -179,17 +179,17 @@ module.exports = function register(T, H) {
   T("[fx] Pilum Pierce: the target's Shield gives no bonus until it spends an action to pull the pilum free", () => {
     const f = fight([pc("a", [1, 5], { hands: ["W-II-02"] }), foe("x", [6, 5], { hands: ["W-I-05", "S-I-01"] }), foe("y", [6, 8])]);
     pcTurn(f, "a");
-    eq(pv(f, atk("a", "W-II-02", "x", { thrown: true })).defense, 15, "Shield +2");
-    const r = run(f, atk("a", "W-II-02", "x", { thrown: true }), [10, 3]); // 16 vs 15
+    eq(pv(f, atk("a", "W-II-02", "x", { thrown: true })).defense, 16, "Shield +2, Longsword +1");
+    const r = run(f, atk("a", "W-II-02", "x", { thrown: true }), [10, 3]); // 16 vs 16
     eq(dmgs(r), [6]);
-    ok(has(C(f, "x"), "Pierced")); eq([C(f, "x").totals.STRd, C(f, "x").totals.DEXd], [13, 11]);
+    ok(has(C(f, "x"), "Pierced")); eq([C(f, "x").totals.STRd, C(f, "x").totals.DEXd], [14, 11]);
     end(f, "a");
     go(f, "x");
     const t = tpl(f, "x", (t) => t.type === "act" && t.action === "endCond");
     ok(t, "legal offers pulling the pilum free"); ok(/pilum/i.test(t.label));
     const cmd = Object.assign({}, t); delete cmd.label;
     run(f, cmd);
-    ok(!has(C(f, "x"), "Pierced")); eq(C(f, "x").totals.STRd, 15); eq(C(f, "x").turn.acts, 1, "costs an action");
+    ok(!has(C(f, "x"), "Pierced")); eq(C(f, "x").totals.STRd, 16); eq(C(f, "x").turn.acts, 1, "costs an action");
     // no Shield in hand: nothing to pierce
     const g = fight([pc("a", [1, 5], { hands: ["W-II-02"] }), foe("y", [6, 5])]);
     pcTurn(g, "a");
@@ -476,7 +476,7 @@ module.exports = function register(T, H) {
     eq(C(f, "a").uses["Q-I-04#0"], 1);
     end(f, "a"); for (const id of ["b", "c", "d", "e", "far", "deaf"]) skip(f, id);
     go(f, "x");
-    eq([pv(f, atk("x", "W-I-05", "c")).defense, pv(f, atk("x", "W-I-05", "a")).defense], [15, 13]);
+    eq([pv(f, atk("x", "W-I-05", "c")).defense, pv(f, atk("x", "W-I-05", "a")).defense], [15, 14]);
     end(f, "x"); go(f, "a");
     ok(!C(f, "c").mods.length, "gone at the start of a's next turn");
   });
@@ -509,7 +509,7 @@ module.exports = function register(T, H) {
   const calling = (id, o) => Object.assign({ calling: id, body: null }, o);
   T("[fx] Callings: symbols gate equipping; +2 / +2 and the Calling's HP and Speed", () => {
     const t = Eng.totals(B(calling("L-02", { hands: ["W-I-05", "S-I-01"], armor: "A-I-02" })), CARDS());
-    eq([t.STR, t.WIL, t.DEX, t.STRd, t.DEXd, t.HP, t.SPD, t.errors], [2, 2, 0, 17, 12, 18, 30, []]);
+    eq([t.STR, t.WIL, t.DEX, t.STRd, t.DEXd, t.HP, t.SPD, t.errors], [2, 2, 0, 18, 12, 18, 30, []]);
     eq(Eng.validate(B(calling("L-02", { hands: ["W-I-09"] })), CARDS()), [], "a basic weapon lights all four: a Templar can wield a Longbow");
     ok(Eng.validate(B(calling("L-02", { hands: ["W-I-15"] })), CARDS()).some((v) => /symbols/.test(v)), "Templar can't wield a Shortbow (loot, DEX)");
     eq(Eng.totals(B(calling("L-02", { hands: ["W-I-15"] })), CARDS()).errors.length, 1);
@@ -945,7 +945,7 @@ module.exports = function register(T, H) {
     const i = pv(f, atk("d", "natural", "x"));
     eq([i.toHit, i.damage], [5, "1d8+3 Physical"]);
     run(f, { type: "act", actor: "d", action: "revert" });
-    eq([C(f, "d").size, C(f, "d").totals.STRd, C(f, "d").form], ["Medium", 12, null]);
+    eq([C(f, "d").size, C(f, "d").totals.STRd, C(f, "d").form], ["Medium", 13, null]);
     end(f, "d"); skip(f, "x"); go(f, "d");
     run(f, power(f, "d", "N-I-01#wolf"));
     ok(f.preview(power(f, "d", "N-I-01#hawk")).ok, "Form to Form with the second action");
