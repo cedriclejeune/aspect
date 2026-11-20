@@ -41,7 +41,7 @@ def _arg(name, default):
     return float(sys.argv[sys.argv.index(name) + 1]) if name in sys.argv else default
 
 
-# The two-sided card pages' backs move this far (mm, as seen on the back: + right, + down) to make up for a printer whose
+# The two-sided pages' backs (cards and the landscape wide cards alike) move this far (mm, as seen on the back: + right, + down) to make up for a printer whose
 # duplex unit prints the back off its front. Measured with rules/fr/calibrage-recto-verso.pdf; --back-dx, --back-dy override.
 BACK_SHIFT = (_arg("--back-dx", -2.0), _arg("--back-dy", 0.25))  # the Xerox, measured with the calibration sheet
 PRINT_SCALE = .95  # cards and frames print this much smaller, centred where the Cricut cut files (tools/cut_svg.py) cut them
@@ -654,7 +654,7 @@ def duplex_wide(pairs):
     for i in range(0, len(pairs), 4):
         chunk = pairs[i:i + 4] + [(gap, gap)] * (4 - len(pairs[i:i + 4]))
         backs = [chunk[k][1] for k in (1, 0, 3, 2)]
-        out.append(sheets([f for f, _ in chunk], "wide4", 4) + sheets(backs, "wide4", 4))
+        out.append(sheets([f for f, _ in chunk], "wide4", 4) + sheets(backs, "wide4 back", 4))
     return "".join(out)
 
 

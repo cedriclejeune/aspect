@@ -36,7 +36,7 @@ Les cartes et les cadres s'impriment à **95 %** de leur taille (cartes 60 × 84
 
 ## Recto verso
 
-L'imprimante décale le verso par rapport au recto. Les versos des pages de cartes (pages 2 à 67) sont donc décalés de **2 mm vers la gauche et 0,25 mm vers le bas** (vus côté verso) pour compenser : c'est le réglage `BACK_SHIFT` de `tools/build_cards.py`. Les pages en paysage (retournement sur le bord court) ne sont pas décalées.
+L'imprimante décale le verso par rapport au recto. Les versos des pages recto verso (cartes, pages 2 à 67, et cartes larges en paysage) sont donc décalés de **2 mm vers la gauche et 0,25 mm vers le bas** (vus côté verso) pour compenser : c'est le réglage `BACK_SHIFT` de `tools/build_cards.py`.
 
 Pour remesurer (autre imprimante) : imprimer `rules/fr/calibrage-recto-verso.pdf` en recto verso, bord long, avec les mêmes réglages que les cartes. Tenir la feuille devant une lumière, verso vers soi, et lire où chaque croix croise ses règles **dx** et **dy** : ces chiffres sont le décalage à donner.
 
