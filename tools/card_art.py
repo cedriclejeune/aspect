@@ -653,11 +653,102 @@ def troll():
             + P("M30 20 Q24 4 36 10 M70 20 Q76 4 64 10", sw=2.4))
 
 
+# beginner monsters
+def stirge():
+    wing = "#6a4a5a"
+    return (P("M46 46 Q20 16 4 30 Q18 40 40 54 Z", wing) + P("M54 46 Q80 16 96 30 Q82 40 60 54 Z", wing)
+            + C(50, 56, 14, "#8a5a5a") + eyes(52, 6, GOLD, 2.4) + P("M50 64 L50 94", sw=2.6, extra=f' stroke="{CRIMSON}"')
+            + P("M40 68 L30 84 M60 68 L70 84", sw=1.6))
+
+
+def giant_centipede():
+    segs = "".join(C(x, 54 + 10 * ((i % 2) * 2 - 1) * .4, 8, "#9a5a2a") for i, x in enumerate(range(12, 78, 11)))
+    legs = "".join(P(f"M{x} 50 L{x - 4} 34 M{x} 58 L{x - 4} 74", sw=1.4) for x in range(12, 78, 11))
+    return legs + segs + C(80, 52, 9, "#7a4a1a") + C(83, 49, 1.8, GOLD, 0) + P("M87 56 L94 62 M87 48 L94 42", sw=1.6)
+
+
+def boar():
+    return (P("M12 62 Q14 32 46 30 Q76 28 88 50 Q92 70 70 74 L24 74 Q12 72 12 62 Z", "#6a4a32")
+            + P("M30 30 L36 18 L42 30 M44 30 L50 16 L56 30", sw=1.6, extra=f' fill="{DARK}"') + C(84, 56, 7, "#c08a8a")
+            + C(66, 46, 2.6, INK, 0) + P("M80 64 Q90 70 92 58", sw=2.4, extra=f' fill="{PARCH}"'))
+
+
+def flying_sword():
+    return (rot(longsword(), 35, 1) + P("M14 80 Q24 70 30 78 M70 22 Q80 12 88 20", sw=1.4, extra=f' stroke="{GOLD}"')
+            + star(80, 76, 5, 4, .4, GOLD) + star(22, 24, 4, 4, .4, GOLD))
+
+
+def goblin_boss():
+    return goblin() + P("M32 26 L32 12 L41 20 L50 8 L59 20 L68 12 L68 26 Z", GOLD) + C(50, 20, 2.6, CRIMSON, 1)
+
+
+def gnoll():
+    fur = "#b08a4a"
+    return (P("M28 30 L22 8 L40 24 Z", fur) + P("M72 30 L78 8 L60 24 Z", fur) + C(50, 46, 24, fur)
+            + P("M40 54 Q50 96 60 54 Z", fur) + C(50, 84, 5, INK, 0) + eyes(42, 10, CRIMSON, 3)
+            + P("M30 36 L44 30 L40 44 M70 36 L56 30 L60 44", sw=1.4, extra=f' fill="{DARK}"') + P("M44 70 L56 70", sw=1.6))
+
+
+def shadow():
+    return (P("M50 8 Q84 14 80 52 Q78 80 92 94 L66 86 L50 96 L34 86 L8 94 Q22 80 20 52 Q16 14 50 8 Z", "#2a2630")
+            + eyes(40, 10, PARCH, 3.4) + P("M38 58 Q50 52 62 58", sw=1.6, extra=f' stroke="{PARCH}"'))
+
+
+def dire_wolf():
+    return f'<g transform="translate(50 50) scale(1.12) translate(-50 -50)">{wolf()}</g>' + P("M18 18 L30 26 M82 18 L70 26", sw=2.6)
+
+
+def ghoul():
+    return (P("M28 28 Q30 8 50 8 Q70 8 72 28 Q78 60 64 80 Q50 90 36 80 Q22 60 28 28 Z", "#9aa08a") + eyes(36, 9, GOLD, 3.4)
+            + P("M34 60 L40 70 L44 62 L50 72 L56 62 L60 70 L66 60", sw=1.6, extra=f' fill="{PARCH}"')
+            + P("M14 90 L22 72 M22 92 L28 74 M78 92 L72 74 M86 90 L78 72", sw=2.2))
+
+
+def bugbear():
+    fur = "#8a5a3a"
+    return (C(50, 52, 30, fur) + C(26, 28, 9, fur) + C(74, 28, 9, fur) + C(50, 64, 12, "#b07a5a")
+            + eyes(44, 12, GOLD, 3.2) + C(50, 60, 3.4, INK, 0) + P("M40 72 Q50 78 60 72", sw=2)
+            + P("M12 84 L28 66 M88 84 L72 66", sw=3, extra=f' stroke="{DARK}"'))
+
+
+def animated_armor():
+    return plate() + P("M38 22 L46 26 M62 22 L54 26", sw=2.4, extra=f' stroke="{GOLD}"') + C(42, 26, 2, GOLD, 0) + C(58, 26, 2, GOLD, 0)
+
+
+def harpy():
+    wing = "#7a6a5a"
+    return (P("M44 46 Q12 20 2 50 Q20 52 36 68 Z", wing) + P("M56 46 Q88 20 98 50 Q80 52 64 68 Z", wing)
+            + P("M30 20 Q50 4 70 20 Q72 40 64 44 L36 44 Q28 40 30 20 Z", DARK) + C(50, 34, 13, SKIN) + eyes(32, 5, CRIMSON, 2)
+            + P("M44 40 Q50 46 56 40", sw=1.4) + P("M40 48 Q50 86 60 48 Z", wing) + P("M42 84 L38 96 M58 84 L62 96", sw=2))
+
+
+def brown_bear():
+    fur = "#7a4f2e"
+    return (C(28, 26, 10, fur) + C(72, 26, 10, fur) + C(50, 52, 30, fur) + P("M36 62 Q50 50 64 62 Q64 80 50 82 Q36 80 36 62 Z", "#b08a6a")
+            + C(50, 62, 4, INK, 0) + eyes(44, 12, INK, 3) + P("M44 74 Q50 78 56 74", sw=1.6))
+
+
+def gelatinous_cube():
+    return (R(14, 14, 72, 72, "#9ad0b0", 6) + f'<g opacity=".6" transform="translate(30 22) scale(.42)">{skull()}</g>'
+            + f'<g transform="translate(26 54) scale(.3)">{dagger()}</g>' + C(70, 70, 5, GOLD) + C(64, 74, 4, GOLD)
+            + P("M14 30 Q30 22 50 30 Q70 38 86 30", sw=1.2, extra=f' stroke="{PARCH}"'))
+
+
+def owlbear():
+    fur = "#6a4a2a"
+    return (P("M22 30 L28 8 L40 24 Z", fur) + P("M78 30 L72 8 L60 24 Z", fur) + C(50, 54, 34, fur)
+            + C(38, 44, 11, PARCH) + C(62, 44, 11, PARCH) + C(38, 44, 4, INK, 0) + C(62, 44, 4, INK, 0)
+            + P("M44 54 L56 54 L50 72 Z", GOLD) + P("M22 74 Q30 64 36 74 Q42 64 48 76", sw=1.4) + P("M52 76 Q58 64 64 74 Q70 64 78 74", sw=1.4))
+
+
 FOE_ART = {
     "Bandit": bandit, "Bandit Archer": archer, "Goblin": goblin, "Wolf": wolf, "Cultist": cultist, "Legionary": legionary,
     "Bandit Captain": bandit_captain, "Ogre": ogre, "Ogre Chieftain": ogre_chieftain,
     "Guard": guard, "Scout": scout, "Mage": mage, "Orc": orc, "Hobgoblin": hobgoblin, "Skeleton": skeleton, "Zombie": zombie,
     "Kobold": kobold, "Giant Rat": giant_rat, "Giant Spider": giant_spider, "Troll": troll,
+    "Stirge": stirge, "Giant Centipede": giant_centipede, "Boar": boar, "Flying Sword": flying_sword, "Goblin Boss": goblin_boss,
+    "Gnoll": gnoll, "Shadow": shadow, "Dire Wolf": dire_wolf, "Ghoul": ghoul, "Bugbear": bugbear, "Animated Armor": animated_armor,
+    "Harpy": harpy, "Brown Bear": brown_bear, "Gelatinous Cube": gelatinous_cube, "Owlbear": owlbear,
 }
 
 

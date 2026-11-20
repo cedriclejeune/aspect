@@ -93,6 +93,43 @@ SUBJECTS = {
              "stringy hair, rubbery warty skin, moss and fungus growing on its back; a fresh sword wound on its chest "
              "knitting closed with threads of flesh. Side view, stooped, knuckles dragging, long claws, head thrust "
              "forward, mouth open on jagged teeth",
+    "Stirge": "a stirge, a cat-sized cross between a bat and a mosquito: leathery batwings, four thin clawed legs, "
+              "a long needle-like proboscis dripping blood, bristly reddish fur, beady eyes. Three-quarter view, "
+              "hovering, legs reaching forward",
+    "Giant Centipede": "a giant centipede as long as a man, glossy segmented rust-brown armour, dozens of legs, "
+                       "curved venomous pincers. Side view, front third raised off the ground in an S-curve, "
+                       "pincers open",
+    "Boar": "a scarred, bristly wild boar, ridge of black bristles along the spine, curved yellow tusks, small mean "
+            "eyes, mud caked on its legs. Side view, head low, mid-charge, dust kicked up behind",
+    "Flying Sword": "a plain longsword floating in the air by itself, point down, no one holding it, faint shimmer "
+                    "along the blade, the whole sword in clear view, worn leather grip, a nick in the edge",
+    "Goblin Boss": "a goblin boss, a little bigger than the others, smug sneer, a crude crown of bent nails, mismatched "
+                   "mail shirt, round dented shield on its left arm, shortsword raised in its right hand, pointing "
+                   "forward to command. Front view",
+    "Gnoll": "a gnoll, a lanky hyena-headed humanoid, spotted mangy fur, a ragged mane, crooked yellow fangs, bone "
+             "trinkets on a leather harness. Three-quarter view, hunched, clawed hands spread, a shortbow on its back",
+    "Shadow": "a shadow, a human silhouette of living darkness, ragged edges dissolving into smoke, two pale points "
+              "for eyes, long fingers reaching forward. Front view, floating just above the ground",
+    "Dire Wolf": "a huge dire wolf the size of a horse, thick grey-black fur, heavy jaws, scarred muzzle, pale eyes. "
+                 "Side view, head low, lips peeled back over long fangs, braced to lunge",
+    "Ghoul": "a ghoul, a gaunt hairless humanoid with grey stretched skin, long black tongue, sharp jagged teeth, "
+             "long cracked claws, ragged burial cloth. Three-quarter view, crouched on all fours, one clawed hand "
+             "raised",
+    "Bugbear": "a bugbear, a tall hairy goblinoid with long arms, bear-like snout, small round ears, coarse brown "
+               "fur, hide armour. Three-quarter view, sneaking forward, one long arm reaching out to grab, a battleaxe "
+               "in the other hand, javelins on its back",
+    "Animated Armor": "an empty suit of plate armour walking on its own, dented and dull, a dark void visible "
+                      "through the visor slit and at the neck gaps, no one inside. Front view, stiff stride, gauntlets "
+                      "clenched into fists",
+    "Harpy": "a harpy, a gaunt woman's torso and head with wild matted hair, filthy feathered wings for arms, "
+             "vulture legs with hooked talons, mouth open singing. Front view, perched on a rock, wings half spread",
+    "Brown Bear": "a big brown bear, shaggy fur, heavy shoulder hump, long claws. Three-quarter view, standing up on "
+                  "its hind legs, forepaws raised, mouth open roaring",
+    "Gelatinous Cube": "a gelatinous cube filling a stone corridor, a near-transparent quivering block of slime, "
+                       "a skull, a few bones, a dagger, a potion flask and gold coins suspended inside it. Three-quarter "
+                       "view",
+    "Owlbear": "an owlbear, a huge bear's body covered in brown feathers and fur, an owl's head with a hooked beak and "
+               "round staring eyes, long claws. Front view, rearing up, wings of feathers puffed out, beak open",
 }
 
 # Gear: one object alone on the card back, whole and in clear view. Nothing buried, stuck in the ground, piled, coiled,

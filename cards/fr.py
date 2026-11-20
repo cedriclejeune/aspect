@@ -86,6 +86,10 @@ NAMES = {
     "Guard": "Garde", "Scout": "Éclaireur", "Mage": "Mage", "Orc": "Orque", "Hobgoblin": "Hobgobelin",
     "Skeleton": "Squelette", "Zombie": "Zombie", "Kobold": "Kobold", "Giant Rat": "Rat géant",
     "Giant Spider": "Araignée géante", "Troll": "Troll",
+    "Stirge": "Stirge", "Giant Centipede": "Mille-pattes géant", "Boar": "Sanglier", "Flying Sword": "Épée volante",
+    "Goblin Boss": "Chef gobelin", "Gnoll": "Gnoll", "Shadow": "Ombre", "Dire Wolf": "Loup sanguinaire", "Ghoul": "Goule",
+    "Bugbear": "Gobelours", "Animated Armor": "Armure animée", "Harpy": "Harpie", "Brown Bear": "Ours brun",
+    "Gelatinous Cube": "Cube gélatineux", "Owlbear": "Ours-hibou",
 }
 
 LEVELS = {"Cantrip": "Tour de magie", "1st": "1er", "2nd": "2e", "Anthem": "Hymne", "Dirge": "Complainte",
@@ -448,6 +452,52 @@ TEXT = {
     "**Claws:** +6 to hit, 2d6 + 4 Physical.": "**Griffes :** +6 au toucher, 2d6 + 4 Physique.",
     "**Regeneration:** regains 10 HP at the start of its turn, unless it took Fire or Poison damage since its last turn.":
         "**Régénération :** récupère 10 PV au début de son tour, sauf s'il a subi des dégâts de Feu ou de Poison depuis son dernier tour.",
+    # beginner monsters' own text
+    "**Construct:** resists Poison and Necrotic. Never checks Morale.":
+        "**Créature artificielle :** résiste au Poison et au Nécrotique. Ne teste jamais son Moral.",
+    "**Flyer:** flies at its full Speed.": "**Volant :** vole à pleine Vitesse.",
+    "**Proboscis:** +5 to hit, 1d4 + 3 Physical, and it latches on: the target is **Grappled** by it.":
+        "**Trompe :** +5 au toucher, 1d4 + 3 Physique, et elle s'accroche : la cible est **Agrippée** par elle.",
+    "**Wall Crawler:** climbs walls and ceilings at full Speed.":
+        "**Grimpeur :** grimpe aux murs et aux plafonds à pleine Vitesse.",
+    "**Bite:** +4 to hit, 1d4 + 2 Physical, and the target is **Poisoned** until the end of the centipede's next turn.":
+        "**Morsure :** +4 au toucher, 1d4 + 2 Physique, et la cible est **Empoisonnée** jusqu'à la fin du prochain tour du mille-pattes.",
+    "**Tusks:** +3 to hit, 1d6 + 1 Physical.": "**Défenses :** +3 au toucher, 1d6 + 1 Physique.",
+    "**Charge:** when it hits right after a Move straight at the target, the target falls **Prone**.":
+        "**Charge :** s'il touche juste après un Déplacement en ligne droite vers la cible, celle-ci tombe **À terre**.",
+    "**Steel Body:** +5 STR Defense (included).": "**Corps d'acier :** +5 à la Défense de FOR (inclus).",
+    "**Meat Shield:** when an attack hits it, it may pull an adjacent goblin in the way: the goblin is hit instead.":
+        "**Bouclier de chair :** quand une attaque le touche, il peut tirer devant lui un gobelin adjacent : c'est le gobelin qui est touché.",
+    "**Rend:** +4 to hit, 1d6 + 2 Physical.": "**Lacération :** +4 au toucher, 1d6 + 2 Physique.",
+    "**Incorporeal:** resists Physical. Moves through creatures and objects.":
+        "**Intangible :** résiste au Physique. Traverse les créatures et les objets.",
+    "**Draining Touch:** +4 to hit, 2d6 + 2 Necrotic. The target's damage rolls lose 1d4 for 2 turns.":
+        "**Contact affaiblissant :** +4 au toucher, 2d6 + 2 Nécrotique. Les jets de dégâts de la cible perdent 1d4 pendant 2 tours.",
+    "**Bite:** +5 to hit, 1d10 + 3 Physical.": "**Morsure :** +5 au toucher, 1d10 + 3 Physique.",
+    "**Claws:** +4 to hit, 2d4 + 2 Physical.": "**Griffes :** +4 au toucher, 2d4 + 2 Physique.",
+    "**Paralyzing Touch (Recharge 5–6):** action. Attack (+3) against the STR Defense of a creature within 5 ft: **Subdue · Stunned** (paralyzed).":
+        "**Contact paralysant (Recharge 5–6) :** action. Attaque (+3) contre la Défense de FOR d'une créature à 2 m ou moins : **Emprise · Étourdi** (paralysé).",
+    "**Grab:** +4 to hit, 2d6 + 2 Physical, and the target is **Grappled** by it.":
+        "**Empoignade :** +4 au toucher, 2d6 + 2 Physique, et la cible est **Agrippée** par lui.",
+    "**Abduct:** it moves at full Speed while dragging a creature it grapples.":
+        "**Rapt :** il se déplace à pleine Vitesse en traînant une créature qu'il agrippe.",
+    "**Slam:** +4 to hit, 1d6 + 2 Physical.": "**Coup :** +4 au toucher, 1d6 + 2 Physique.",
+    "**False Appearance:** while it stays still, it looks like an empty suit of armor.":
+        "**Faux-semblant :** tant qu'elle reste immobile, elle ressemble à une armure vide.",
+    "**Claws:** +3 to hit, 2d4 + 1 Physical.": "**Griffes :** +3 au toucher, 2d4 + 1 Physique.",
+    "**Luring Song (Recharge 5–6):** action. Attack (+3) against the WIL Defense of each enemy within 60 ft who can hear it: **Subdue · Charmed**.":
+        "**Chant envoûtant (Recharge 5–6) :** action. Attaque (+3) contre la Défense de VOL de chaque ennemi à 24 m ou moins qui peut l'entendre : **Emprise · Charmé**.",
+    "**Bite:** +5 to hit, 1d8 + 3 Physical.": "**Morsure :** +5 au toucher, 1d8 + 3 Physique.",
+    "**Claw:** +5 to hit, 1d4 + 3 Physical, and the target falls **Prone**.":
+        "**Griffe :** +5 au toucher, 1d4 + 3 Physique, et la cible tombe **À terre**.",
+    "**Ooze:** resists Poison. Never checks Morale. **Transparent:** easy to miss until it moves.":
+        "**Vase :** résiste au Poison. Ne teste jamais son Moral. **Transparent :** passe facilement inaperçu tant qu'il ne bouge pas.",
+    "**Soft Body:** −5 STR Defense (included).": "**Corps mou :** −5 à la Défense de FOR (inclus).",
+    "**Pseudopod:** +4 to hit, 3d6 Poison.": "**Pseudopode :** +4 au toucher, 3d6 Poison.",
+    "**Engulf (Recharge 5–6):** action. Attack (+4) against the DEX Defense of a creature within 5 ft: 3d6 Poison, and it is **Restrained** inside the cube for 2 turns.":
+        "**Engloutissement (Recharge 5–6) :** action. Attaque (+4) contre la Défense d'AGI d'une créature à 2 m ou moins : 3d6 Poison, et elle est **Entravée** dans le cube pendant 2 tours.",
+    "**Beak:** +7 to hit, 1d10 + 5 Physical.": "**Bec :** +7 au toucher, 1d10 + 5 Physique.",
+    "**Claws:** +7 to hit, 2d8 + 5 Physical.": "**Griffes :** +7 au toucher, 2d8 + 5 Physique.",
 }
 
 LORE = {
