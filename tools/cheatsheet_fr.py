@@ -109,6 +109,7 @@ BACK = """
 <li>Les <strong>Boss</strong> jouent aussi un <strong>demi-tour</strong> (une action) pendant le camp des personnages.</li>
 <li>Au sein d'un camp, agissez dans l'ordre convenu, un tour complet à la fois.</li>
 <li><strong>Règle du premier à agir :</strong> au round 1 seulement, le premier camp a une action chacun. <strong>Embuscade</strong> (autre camp surpris) : tours complets.</li>
+<li><strong>Pas de retour en arrière :</strong> dès qu'un dé est lancé, ce qui précède est acquis. Coordonnez-vous en camp avant d'agir.</li>
 </ul>
 
 <h2>Faire une attaque <small>6.6</small></h2>

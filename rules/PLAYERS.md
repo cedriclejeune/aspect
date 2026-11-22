@@ -315,6 +315,8 @@ Weapon damage is **Physical** (7.2) unless the weapon says otherwise. Higher-Ran
 
 **First mover:** in round 1, each creature on the first side has **one action** instead of two (it keeps its reaction), unless the other side is surprised.
 
+**No take-backs:** in combat, once a die is rolled, what came before it stands: no one undoes an action, a move or a choice to play it differently. Each action changes the fight for everyone, so agree on your plan as a side before you start acting.
+
 ### 6.2 Your Turn
 
 **Two actions** (6.3), in any order, the same one twice if you like. Also one **free object interaction** (draw a weapon, open a door) and a few words.
@@ -854,7 +856,7 @@ Every Rank I card you can start with (13.1). *All*: the four affinities are lit.
 | **Unarmored Guard** | DEX · WIL | Trait | +2 HP | +2 STR Defense while your Armor Slot is empty. |
 | **Archery** | DEX · INT | Technique | — | Long range gives your ranged weapon attacks no disadvantage. |
 | **Battle Hymn** | DEX · WIL | Technique | — | **2/S.R.**, when you hit with a weapon attack: up to 3 allies within 30 ft who can hear you have +2 to STR and DEX Defense until the start of your next turn. |
-| **Bulwark** | STR · WIL | Technique | — | +1 STR Defense while you wear Armor. |
+| **Bulwark** | STR · WIL | Technique | +1* STR Defense | +1 STR Defense while you wear Armor. |
 | **Cleave** | STR · DEX | Technique | — | **1/S.R.**, when your melee attack drops a creature to 0 HP: make one melee attack against another creature within your reach. |
 | **Cunning** | DEX · INT | Technique | — | Once per turn, if you end your movement out of sight, you can Hide without spending an action. |
 | **Dueling** | STR · DEX | Technique | — | While you hold a one-handed melee weapon and your other Hand is empty: +1 STR and DEX Defense against melee attacks. |

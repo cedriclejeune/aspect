@@ -173,6 +173,7 @@ BACK = """
 <li><strong>Bosses</strong> also take a <strong>half turn</strong> (one action) during the characters' side.</li>
 <li>Within a side, act in any agreed order, one full turn at a time.</li>
 <li><strong>First-mover rule:</strong> round 1 only, the first side gets one action each. <strong>Ambush</strong> (other side surprised): full turns.</li>
+<li><strong>No take-backs:</strong> once a die is rolled, what came before stands. Plan as a side before acting.</li>
 </ul>
 
 <h2>Making an Attack <small>6.6</small></h2>

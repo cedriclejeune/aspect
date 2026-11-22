@@ -315,6 +315,8 @@ Les dégâts d'arme sont **Physiques** (7.2) sauf si l'arme dit le contraire. Le
 
 **Premier à agir :** au round 1, chaque créature du premier camp n'a qu'**une action** au lieu de deux (elle garde sa réaction), sauf si l'autre camp est surpris.
 
+**Pas de retour en arrière :** en combat, dès qu'un dé est lancé, ce qui l'a précédé est acquis : personne ne défait une action, un déplacement ou un choix pour le jouer autrement. Chaque action change le combat pour tout le monde, alors coordonnez-vous en camp avant de commencer à agir.
+
 ### 6.2 Votre tour
 
 **Deux actions** (6.3), dans n'importe quel ordre, deux fois la même si vous voulez. Aussi une **interaction gratuite avec un objet** (dégainer une arme, ouvrir une porte) et quelques mots.
@@ -862,7 +864,7 @@ Toutes les cartes de Rang I parmi lesquelles vous choisissez à la création (13
 | **Hymne de bataille** | AGI · VOL | Technique | — | **2/C.R.**, quand vous touchez avec une attaque d'arme : jusqu'à 3 alliés à 12 m ou moins qui peuvent vous entendre ont +2 aux Défenses de FOR et d'AGI jusqu'au début de votre prochain tour. |
 | **Lancer vif** | AGI · VOL | Technique | — | Vous dégainez une arme de Lancer pendant l'attaque qui la lance, et vos portées de Lancer sont doublées. |
 | **Rage** | FOR · VOL | Technique | — | **Réaction (2/L.R.)**, quand vous lancez l'initiative ou qu'une créature vous touche : pendant 1 minute, vous Résistez aux dégâts Physiques et ne pouvez ni lancer de sorts ni utiliser la magie de VOL. |
-| **Rempart** | FOR · VOL | Technique | — | +1 à la Défense de FOR tant que vous portez une Armure. |
+| **Rempart** | FOR · VOL | Technique | +1* Défense de FOR | +1 à la Défense de FOR tant que vous portez une Armure. |
 | **Ruse** | AGI · INT | Technique | — | Une fois par tour, si vous terminez votre déplacement hors de vue, vous pouvez vous Cacher sans dépenser d'action. |
 | **Visée juste** | AGI · INT | Technique | — | **Réaction (2/C.R.) :** votre prochaine attaque à distance de ce tour a +2 au toucher. |
 | **Ascèse** | FOR · AGI | Domaine | — | +2 aux tests pour endurer, remarquer, soigner les blessures ou deviner les intentions. |
