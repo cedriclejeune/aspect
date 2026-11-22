@@ -200,7 +200,7 @@ ASPECTS = [
     domain("Discipline", "march, navigate, stand firm or read intentions", group="loot", sym=["INT", "WIL"]),
     # starter expansion (2026-11-12): fighting styles, signature Runes and Domains (DESIGN 4)
     card("Archery", "I", "aspect", "Technique", ["Long range gives your ranged weapon attacks no disadvantage."], sym=["DEX", "INT"]),
-    card("Bulwark", "I", "aspect", "Technique", ["+1 STR Defense while you wear Armor."], sym=["STR", "WIL"]),
+    card("Bulwark", "I", "aspect", "Technique", ["+1 STR Defense while you wear Armor."], {"STRd": "+1*"}, sym=["STR", "WIL"]),  # *: only while you wear Armor
     card("Dueling", "I", "aspect", "Technique", ["While you hold a one-handed melee weapon and your other Hand is empty: +1 STR and DEX Defense against melee attacks."], sym=["STR", "DEX"]),
     card("Great Weapons", "I", "aspect", "Technique", ["When a damage die of your Two-Handed weapon shows 1 or 2, reroll it once."], sym=["STR", "INT"]),
     card("Quick Throw", "I", "aspect", "Technique", ["You draw a Thrown weapon as part of the attack that throws it, and your Thrown ranges are doubled."], sym=["DEX", "WIL"]),

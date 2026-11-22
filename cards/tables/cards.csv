@@ -95,7 +95,7 @@ T-I-08,Luck,Trait,I,loot,DEX WIL,1,,,,,,,,,+2,,,,,"Lucky (1/S.R.): when you roll
 K-I-10,Campaign,Domain,I,loot,STR WIL,1,,,,,,,,,,,,,,"+2 on checks to intimidate, endure, lift or march.","Made for war and for the long march after it. Strike hard, carry it all home."
 K-I-11,Discipline,Domain,I,loot,INT WIL,1,,,,,,,,,,,,,,"+2 on checks to march, navigate, stand firm or read intentions.","March in step, hold the post, read the order before it is given."
 Q-I-07,Archery,Technique,I,starter,DEX INT,1,,,,,,,,,,,,,,Long range gives your ranged weapon attacks no disadvantage.,"Wind, distance, the arc of the shot. Far is just another kind of near."
-Q-I-08,Bulwark,Technique,I,starter,STR WIL,1,,,,,,,,,,,,,,+1 STR Defense while you wear Armor.,"Armor worn like a second skin, every plate where the blow will land."
+Q-I-08,Bulwark,Technique,I,starter,STR WIL,1,,,,,+1*,,,,,,,,,+1 STR Defense while you wear Armor.,"Armor worn like a second skin, every plate where the blow will land."
 Q-I-09,Dueling,Technique,I,starter,STR DEX,1,,,,,,,,,,,,,,While you hold a one-handed melee weapon and your other Hand is empty: +1 STR and DEX Defense against melee attacks.,"One blade, one open hand, and a body that turns sideways to every thrust."
 Q-I-10,Great Weapons,Technique,I,starter,STR INT,1,,,,,,,,,,,,,,"When a damage die of your Two-Handed weapon shows 1 or 2, reroll it once.","A big weapon forgives nothing, and gives nothing back but strength."
 Q-I-11,Quick Throw,Technique,I,starter,DEX WIL,1,,,,,,,,,,,,,,"You draw a Thrown weapon as part of the attack that throws it, and your Thrown ranges are doubled.",The knife leaves the belt and the hand in the same motion.

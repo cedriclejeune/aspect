@@ -39,7 +39,7 @@ def export_card(c):
     kw = c["kw"].split(" · ")
     noisy = re.search(r"Noisy (\d+)", c["kw"])
     out = {"id": c["id"], "name": c["name"], "rank": c["rank"], "kind": c["kind"], "type": kw[0], "kw": kw,
-           "text": c["text"], "strip": {k: num(v) for k, v in c["strip"].items()}, "group": c["group"]}
+           "text": c["text"], "strip": {k: num(v) for k, v in c["strip"].items() if not str(v).endswith("*")}, "group": c["group"]}
     if kw[0] == "Calling":
         out["size"] = "Medium"
     if c["kind"] in ("gear", "aspect", "calling"):

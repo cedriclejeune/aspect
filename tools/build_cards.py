@@ -430,7 +430,7 @@ def total(values):
     out = {}
     for strip_ in values:
         for k, v in strip_.items():
-            out[k] = out.get(k, 0) + int(str(v).replace("−", "-"))
+            out[k] = out.get(k, 0) + int(str(v).replace("−", "-").rstrip("*"))  # "+1*": a conditional bonus, counted
     return out
 
 
