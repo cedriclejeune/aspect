@@ -752,10 +752,11 @@ BEARER_FRONT = (("NAME", 1), ("AGE|FOLK", 1), ("LOOK", 7))  # P 2.5: who you are
 BEARER_BACK = ((("PERSONALITY", 3), ("AMBITION", 3), ("FEAR", 3)), (("BONDS", 3), ("BACKGROUND", 3), ("NOTES", 3)))
 
 
-def bearer_small(x, y, w, h, back=False):
+def bearer_small(x, y, w, h, back=False, portrait=None):
     """The Bearer card, double width (126 × 88 mm), two-sided and written on in ink (P 2.5). Front: a portrait box,
     then name, age and folk, look. Back: personality, ambition and fear; bonds (name — bond), background and notes.
-    Plain labels, ruled lines, the tally card's Ledger look."""
+    Plain labels, ruled lines, the tally card's Ledger look. portrait: an image URI drawn in the box (a campaign's
+    Bearers, tools/build_cards.py --bearers), else the box is left empty to draw in."""
     u = h / 88
     th = h * .13
     faint, pale = "#555", "#bbb"
@@ -792,7 +793,12 @@ def bearer_small(x, y, w, h, back=False):
         column(BEARER_BACK[1], x + m + cw + g, cw)
     else:
         pw = 35 * u
-        out.append(f'<rect x="{x + m:.2f}" y="{top:.2f}" width="{pw:.2f}" height="{bottom - top + 2.5 * u:.2f}" rx="{1.5 * u:.2f}" '
+        ph = bottom - top + 2.5 * u
+        if portrait:
+            pad = 1.2 * u
+            out.append(f'<image href="{portrait}" x="{x + m + pad:.2f}" y="{top + pad:.2f}" width="{pw - 2 * pad:.2f}" '
+                       f'height="{ph - 2 * pad:.2f}" preserveAspectRatio="xMidYMid meet"/>')
+        out.append(f'<rect x="{x + m:.2f}" y="{top:.2f}" width="{pw:.2f}" height="{ph:.2f}" rx="{1.5 * u:.2f}" '
                    f'fill="none" stroke="{faint}" stroke-width=".7"/>')
         column(BEARER_FRONT, x + m + pw + g, w - 2 * m - pw - g)
     return "".join(out)

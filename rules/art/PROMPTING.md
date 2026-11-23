@@ -98,6 +98,24 @@ Every prompt is built as: **subject**, then **style list**, then **reference lin
 - **Avoid "a few small solid black fills".** It caused a stray black rectangle on clothing twice.
   The wording now is "solid black only in the deepest shadows".
 
+## Characters (the players' Bearers)
+
+The campaign's Bearers are drawn from their 3D-printed minis (Eldritch Foundry STL exports in `Campagnes/<campaign>/Models/`),
+so the Bearer card portrait matches the mini on the table.
+
+- **Render first:** `tools/render_minis.py` turns each mini's `*_char_mm.stl` (the figure without its base) into a grey-clay
+  picture, `rules/art/characters/<name>-supplied.png` (front) and `<name>-three-quarter.png`. Flat clay with a dark outline
+  where surfaces overlap reads best as a figure to copy. If a mini's "front" shows its side, set `TURN` in the script.
+- **Two references, two jobs:** image 1 is the render (copy the figure: build, face, clothes, gear, pose), image 2 the sketch
+  sheet (copy only the ink). `CHARACTER_REF` says so outright, like `REF_STYLE` does for one reference.
+- **Not grotesque:** `CHARACTER_STYLE` is `STYLE` without "grotesque caricature, oversized hands and feet". The players'
+  Bearers keep the ink and the grime, not the foes' caricature.
+- **Say what the render shows:** the render has no colour or texture, so the subject names what matters (Far Reacher wears a
+  whole wolf pelt as a hood; he is not wolf-headed) and adds the grime the clay can't show.
+- **Model Studio** (`--model qwen-ms`) takes the local render inline. Eachlabs needs web links and may refuse it.
+- **Print:** `tools/build_cards.py --bearers C1` puts each drawing in its Bearer card's portrait box (the grey render until the
+  drawing exists), trimmed to the figure.
+
 ## Symbols (stat icons)
 
 A first round of 13 proposals is in `rules/symbols/qwen/`, with contact sheets.

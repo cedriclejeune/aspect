@@ -642,3 +642,18 @@ SYMBOLS = {  # card symbols, drawn with gen_art.py --symbols (SYMBOL_STYLE) into
     "technique": "two straight swords crossed in an X, points up, simple crossguards and round pommels at the bottom",
     "knack": "an old iron key, diagonal, ring bow at the top left, bit with two teeth at the bottom right",
 }
+
+
+CHARACTERS = {  # the campaign's Bearers, drawn with gen_art.py --characters into rules/art/characters/ from a grey render of
+    # each one's 3D-printed mini (tools/render_minis.py makes <name>-supplied.png, sent as image 1); the subject names what
+    # the render shows so the drawing keeps it, then adds the grime. Keyed by the mini's folder in Campagnes/<campaign>/Models/.
+    "Far Reacher": "a lean, bearded warrior wearing the whole pelt of a wolf as a hooded cloak, the snarling wolf head over "
+                   "his brow, a long cape flaring behind. Low lunging stance: right hand thrusts a short sword down and "
+                   "forward, left arm raises a round studded shield. Scuffed boots, mud on the cape",
+    "Hilda": "a stocky dwarf woman with a broad grinning face, braids and a pointed fur cap, fur-trimmed tunic, wrapped "
+             "boots. Kneeling on one knee, both hands gripping a long-handled axe held upright beside her, a huge "
+             "iron-banded barrel strapped on her back, dents and drips of ale on it",
+    "Kramus": "a tall, broad dwarf, bald, heavy brow, a long forked beard in braids, a long robe with a wide sash and a "
+              "scale-mail apron, sandals. Standing straight, right hand holding a tall halberd upright, blade above his "
+              "head, a pack of rolled scrolls on his back, ink stains on the sleeves",
+}

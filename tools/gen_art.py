@@ -7,6 +7,8 @@ Usage: .venv/bin/python tools/gen_art.py "Goblin Shaman" "a hunched goblin with 
        .venv/bin/python tools/gen_art.py --items --batch [--only Dagger]   (gear card backs, ITEMS in tools/art_prompts.py)
        .venv/bin/python tools/gen_art.py --items Dagger --count 2   (a name alone takes its subject from tools/art_prompts.py)
        .venv/bin/python tools/gen_art.py --cards --batch   (Callings, Runes, deck cards and Wounds: CARDS, in rules/art/cards/)
+       .venv/bin/python tools/gen_art.py --characters --batch [--only Hilda]   (the campaign's Bearers: CHARACTERS, from the
+         grey renders of their minis made by tools/render_minis.py, in rules/art/characters/)
        .venv/bin/python tools/gen_art.py --symbols --batch --force [--only str]   (card symbols: SYMBOLS, in rules/symbols/qwen/;
          then run tools/ink_symbols.py)
 Drawings are saved in greyscale (Pillow, in .venv). --redo sends the current drawing as the reference: inline to Model Studio,
@@ -14,6 +16,9 @@ as its Eachlabs URL (kept in rules/art/sources.json) to Eachlabs; the replaced d
 Output: rules/art/<name>.png (what tools/build_cards.py picks up), or <name>-1.png, -2.png… with --count.
 --items draws gear and gold for the card backs instead: ITEM_STYLE in place of STYLE, saved in rules/art/items/.
 --cards draws the other card backs (one figure, STYLE), saved in rules/art/cards/.
+--characters draws the campaign's Bearers for their Bearer card portraits (tools/build_cards.py --bearers): image 1 is the
+grey render of the character's mini (rules/art/characters/<name>-supplied.png, from tools/render_minis.py), whose figure is
+copied; the style reference follows as image 2. CHARACTER_STYLE is STYLE without the foes' grotesque caricature. Model Studio (--model qwen-ms) takes the local render inline; Eachlabs may not.
 --symbols draws the card symbols (SYMBOL_STYLE, square, no style reference: the sketch sheet made them thin and pale),
 saved in rules/symbols/qwen/ with their links in its sources.json; the replaced drawings go to rules/symbols/qwen/old/.
 Keys come from the environment or the git-ignored .env at the repo root: EACHLABS_API_KEY for Eachlabs, DASHSCOPE_API_KEY
@@ -43,6 +48,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ART = ROOT / "rules" / "art"
 ITEM_ART = ART / "items"
 CARD_ART = ART / "cards"
+CHARACTER_ART = ART / "characters"
 SYMBOL_ART = ROOT / "rules" / "symbols" / "qwen"
 SOURCES = ART / "sources.json"  # drawing path under rules/art/ -> Eachlabs URL of the image it came from
 API = "https://api.eachlabs.ai/v1"
@@ -82,6 +88,8 @@ STYLE = """Style:
 - grotesque caricature, oversized hands and feet
 - one full-body figure alone, short ground shadow
 - white background, no frame, no text"""
+CHARACTER_STYLE = STYLE.replace("- grotesque caricature, oversized hands and feet",  # the players' Bearers: same ink, not
+                                 "- characterful, lived-in, not grotesque")              # the foes' caricature
 ANIMAL_STYLE = """Style:
 - pen and ink, Chris Riddell
 - black line on white, no grey
@@ -109,6 +117,8 @@ SYMBOL_STYLE = """Style:
 SYMBOL_AVOID = ("colour, grey, gradients, shading, hatching, cross-hatching, thin lines, sketchy lines, fine detail, "
                 "photorealistic, 3D, bevel, frame, border, text, letters, signature, several objects")
 REF_STYLE = "Copy only the ink style of the reference, not its subjects or labels."
+CHARACTER_REF = ("Image 1 is a grey 3D model: redraw that figure, keeping its build, face, clothes, gear and pose. "
+                 "From image 2 copy only the ink style.")
 EDIT = "Edit the reference drawing. Make these changes: {change}. Keep everything else exactly as it is."
 REF = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJcSel0OCyTLDZmaKmoofuv9kZqkJggSAfbPhz7CLysw&s=10"
 
@@ -240,6 +250,7 @@ def table(items):
     import art_prompts
     return {"items": (art_prompts.ITEMS, ITEM_STYLE, ITEM_ART),
             "cards": (art_prompts.CARDS, STYLE, CARD_ART),
+            "characters": (art_prompts.CHARACTERS, CHARACTER_STYLE, CHARACTER_ART),
             "symbols": (art_prompts.SYMBOLS, SYMBOL_STYLE, SYMBOL_ART)}.get(items, (art_prompts.SUBJECTS, STYLE, ART))
 
 
@@ -250,9 +261,11 @@ def style_of(name, style):
     return ANIMAL_STYLE if name in art_prompts.ANIMALS else style
 
 
-def prompt_for(subject, model, refs, edit=None, style=STYLE):
+def prompt_for(subject, model, refs, edit=None, style=STYLE, character=False):
     if edit:  # edit = the changes, said outright: a subject that just leaves something out changes nothing
         prompt = f"{EDIT.format(change=edit)}\nDescription: {subject}."  # the drawing itself carries the style
+    elif character:  # image 1 the mini's render, image 2 the style reference
+        prompt = f"{subject}.\n{style}\n{CHARACTER_REF}"
     else:
         prompt = f"{subject}.\n{style}" + (f"\n{REF_STYLE}" if refs else "")
     if model in ("qwen", "qwen-ms") and len(prompt) > 800:
@@ -275,7 +288,10 @@ def make(name, subject, model, refs, count=1, edit=None, items=False):
                 keep.parent.mkdir(exist_ok=True)
                 keep.write_bytes(t.read_bytes())
     square = items == "symbols"
-    for url, t in zip(generate(model, prompt_for(subject, model, refs, edit, style), refs, count, square), targets):
+    character = items == "characters" and not edit
+    if character:
+        refs = [str(render_of(name)), *refs]
+    for url, t in zip(generate(model, prompt_for(subject, model, refs, edit, style, character), refs, count, square), targets):
         for attempt in range(3):
             try:
                 urllib.request.urlretrieve(url, t)
@@ -292,6 +308,14 @@ def make(name, subject, model, refs, count=1, edit=None, items=False):
     return saved
 
 
+def render_of(name):
+    """The grey render of a character's mini, the figure gen_art.py --characters redraws."""
+    p = CHARACTER_ART / f"{slug_of(name)}-supplied.png"
+    if not p.exists():
+        raise RuntimeError(f"No {p.relative_to(ROOT)}: run tools/render_minis.py --only '{name}' first")
+    return p
+
+
 def batch(names, model, refs, force, items=False):
     SUBJECTS, style, folder = table(items)
     unknown = [n for n in names if n not in SUBJECTS]
@@ -302,8 +326,10 @@ def batch(names, model, refs, force, items=False):
     if skip:
         print(f"Skipping (drawing exists, --force to redo): {', '.join(skip)}")
     todo = {n: s for n, s in todo.items() if n not in skip}
-    for n, s in todo.items():
-        prompt_for(s, model, refs, style=style_of(n, style))  # check every length before spending anything
+    for n, s in todo.items():  # check every length (and each character's render) before spending anything
+        prompt_for(s, model, refs, style=style_of(n, style), character=items == "characters")
+        if items == "characters":
+            render_of(n)
     failed = []
     for i, (n, s) in enumerate(todo.items()):
         if i and model not in MS_MODELS:
@@ -360,6 +386,8 @@ def main():
                       help="the card symbols (SYMBOLS, SYMBOL_STYLE, no style reference, rules/symbols/qwen/)")
     kind.add_argument("--cards", action="store_const", const="cards", dest="kind",
                       help="the other card backs: Callings, Runes, deck cards, Wounds (CARDS, rules/art/cards/)")
+    kind.add_argument("--characters", action="store_const", const="characters", dest="kind",
+                      help="the campaign's Bearers from their minis' renders (CHARACTERS, rules/art/characters/)")
     ap.add_argument("--force", action="store_true", help="overwrite an existing drawing")
     a = ap.parse_args()
     refs = [] if a.no_ref or (a.kind == "symbols" and not a.ref) else a.ref or [REF]
