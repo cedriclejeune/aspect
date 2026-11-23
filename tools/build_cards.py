@@ -1,6 +1,9 @@
 """Build the printable base set (cards and Slot frames) from cards/base_set.py.
 
 Usage: .venv/bin/python tools/build_cards.py [--lang fr]
+       .venv/bin/python tools/build_cards.py --bearers C1 [--lang fr]   (only a campaign's Bearer cards, with portraits)
+--bearers C1: one Bearer card per mini in Campagnes/C1/Models/, its portrait from rules/art/characters/, in
+rules/Bearers-C1-Bearer-cards.pdf (French: rules/fr/Porteurs-C1-cartes-de-Porteur.pdf).
 --lang fr: the French base set (cards/fr.py) in rules/fr/Porteurs-Set-de-base.pdf and rules/fr/Porteurs-Set-de-base-Lecture.pdf.
 Output: rules/Bearers-Base-Set.pdf to print and rules/Bearers-Base-Set-Reading.pdf to read on screen
 (and build/base-set.html, build/base-set-reading.html for inspection)
@@ -51,6 +54,7 @@ SYMBOLS = ROOT / "rules" / "symbols" / "ink"
 ART = ROOT / "rules" / "art"
 ITEM_ART = ART / "items"
 CARD_ART = ART / "cards"
+CHARACTER_ART = ART / "characters"
 
 ROWS = ["STR", "DEX", "INT", "WIL", "STRd", "DEXd", "INTd", "WILd", "HP", "SPD"]
 SYM_FILE = {"STR": "str", "DEX": "dex", "INT": "int", "WIL": "wil", "STRd": "str-def", "DEXd": "dex-def", "INTd": "int-def",
@@ -577,8 +581,8 @@ def tally_card():
     return f'<div class="card tally">{ill._svg(600, 419, ill.tally_small(0, 0, 600, 419, {}, ledger=True), "Tally card")}</div>'
 
 
-def bearer_card(back=False):
-    return f'<div class="card tally">{ill._svg(600, 419, ill.bearer_small(0, 0, 600, 419, back), "Bearer card")}</div>'
+def bearer_card(back=False, portrait=None):
+    return f'<div class="card tally">{ill._svg(600, 419, ill.bearer_small(0, 0, 600, 419, back, portrait), "Bearer card")}</div>'
 
 
 def sheets(cards, cls="", per=9):
@@ -644,6 +648,41 @@ def build_tallies():
 def build_bearers():
     """Double-width Bearer cards, one per player (P 2.5): who on the front, what drives them on the back."""
     return [(bearer_card(), bearer_card(back=True))] * bs.PLAYERS
+
+
+def portrait_image(src):
+    """A character drawing trimmed to the figure (a small white margin kept), so it fills the tall portrait box."""
+    out = BUILD / "img" / "portraits" / src.with_suffix(".jpg").name
+    if not out.exists() or out.stat().st_mtime < src.stat().st_mtime:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        im = Image.open(src).convert("L")
+        box = im.point(lambda v: 255 if v < 235 else 0).getbbox()
+        if box:
+            m = int(.03 * max(im.size))
+            im = im.crop((max(box[0] - m, 0), max(box[1] - m, 0), min(box[2] + m, im.width), min(box[3] + m, im.height)))
+        im.thumbnail((760, 1600), Image.LANCZOS)
+        im.save(out, quality=85, optimize=True)
+    return out.as_uri()
+
+
+def campaign_bearers(campaign):
+    """A campaign's Bearer cards with their portraits: one per mini in Campagnes/<campaign>/Models/, its drawing from
+    rules/art/characters/<name>.png (tools/gen_art.py --characters), or until it is drawn, its grey render
+    <name>-supplied.png (tools/render_minis.py), to check the layout."""
+    folder = ROOT / "Campagnes" / campaign / "Models"
+    names = sorted(p.name for p in folder.glob("*") if p.is_dir()) if folder.is_dir() else []
+    if not names:
+        sys.exit(f"No minis in {folder.relative_to(ROOT)}/")
+    pairs = []
+    for n in names:
+        slug = n.lower().replace(" ", "-")
+        pic = next((p for p in (CHARACTER_ART / f"{slug}.png", CHARACTER_ART / f"{slug}-supplied.png") if p.exists()), None)
+        if pic is None:
+            print(f"{n}: no portrait yet (run tools/render_minis.py, then tools/gen_art.py --characters); the box stays empty")
+        elif pic.stem.endswith("-supplied"):
+            print(f"{n}: no drawing yet, using the grey render {pic.relative_to(ROOT)}")
+        pairs.append((bearer_card(portrait=portrait_image(pic) if pic else None), bearer_card(back=True)))
+    return pairs
 
 
 def duplex_wide(pairs):
@@ -732,6 +771,15 @@ def main():
     french = "--lang" in sys.argv and sys.argv[sys.argv.index("--lang") + 1] == "fr"
     if french:
         use_french()
+    if "--bearers" in sys.argv:  # just a campaign's Bearer cards, with their portraits
+        campaign = sys.argv[sys.argv.index("--bearers") + 1]
+        pdf = (ROOT / "rules" / "fr" / f"Porteurs-{campaign}-cartes-de-Porteur.pdf" if french
+               else ROOT / "rules" / f"Bearers-{campaign}-Bearer-cards.pdf")
+        pairs = campaign_bearers(campaign)
+        render(f"bearers-{campaign}{'-fr' if french else ''}.html", f"{'Porteurs' if french else 'Bearers'} · {campaign}",
+               duplex_wide(pairs), pdf)
+        print(f"Wrote {pdf.relative_to(ROOT)}: {len(pairs)} Bearer cards, two-sided (flip on the short edge)")
+        return
     suffix = "-fr" if french else ""
     title = "Porteurs · Set de base" if french else "Bearers · Base Set"
     (cards, pairs), frames, foe_cards, tallies = build_cards(), build_frames(), build_foes(), build_bearers() + build_tallies()
