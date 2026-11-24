@@ -23,8 +23,8 @@ copied; the style reference follows as image 2. CHARACTER_STYLE is STYLE without
 saved in rules/symbols/qwen/ with their links in its sources.json; the replaced drawings go to rules/symbols/qwen/old/.
 Keys come from the environment or the git-ignored .env at the repo root: EACHLABS_API_KEY for Eachlabs, DASHSCOPE_API_KEY
 for Model Studio (and MODELSTUDIO_URL to use another workspace than MS_API).
---model picks the image model (qwen: Qwen Image 3.0 Pro, $0.075; qwen-ms: Qwen Image 3.0 on Model Studio, working since
-         2026-11-17 and preferred over Eachlabs; qwen-turbo: Qwen Image 2.1 Turbo, $0.016; qwen-pro21: Qwen Image 2.1 Pro, $0.04;
+--model picks the image model (qwen: Qwen Image 3.0 Pro, $0.075; qwen-ms, the default: Qwen Image 3.0 on Model Studio,
+         working since 2026-11-17 and preferred over Eachlabs; qwen-turbo: Qwen Image 2.1 Turbo, $0.016; qwen-pro21: Qwen Image 2.1 Pro, $0.04;
          seedream: Seedream v5 Lite, $0.035; flux3: Flux 3, $0.041; luma: Luma Uni-1, $0.042; nano: Nano Banana 2).
 Every drawing copies the ink style of REF, a Chris Riddell sketch sheet (many small figures, so no one subject gets copied);
 --ref replaces it with other images (URLs; local files are sent inline, which the API may refuse), --no-ref drops it.
@@ -172,12 +172,13 @@ def ms_ref(ref):
     return str(copy)
 
 
-def generate_ms(model, prompt, refs, count, tries=10):
+def generate_ms(model, prompt, refs, count, square=False, tries=10):
     """Model Studio answers in the same call (no prediction to poll); its image links expire after 24 hours."""
     refs = [ms_ref(r) for r in refs]
     body = {"model": MS_MODELS[model],
             "input": {"messages": [{"role": "user", "content": [{"image": ref_url(r)} for r in refs] + [{"text": prompt}]}]},
-            "parameters": {"size": "1728*2368", "n": count, "negative_prompt": AVOID, "prompt_extend": False, "watermark": False}}
+            "parameters": {"size": "2048*2048" if square else "1728*2368", "n": count,
+                           "negative_prompt": SYMBOL_AVOID if square else AVOID, "prompt_extend": False, "watermark": False}}
     req = urllib.request.Request(key("MODELSTUDIO_URL", MS_API), method="POST", data=json.dumps(body).encode(),
                                  headers={"Authorization": f"Bearer {key('DASHSCOPE_API_KEY')}", "Content-Type": "application/json"})
     print(f"Drawing with {MS_MODELS[model]} on Model Studio…", flush=True)
@@ -188,7 +189,7 @@ def generate_ms(model, prompt, refs, count, tries=10):
         if e.code == 429 and tries > 1:
             print("Rate limited, retrying in 10 s…")
             time.sleep(10)
-            return generate_ms(model, prompt, refs, count, tries - 1)
+            return generate_ms(model, prompt, refs, count, square, tries - 1)
         raise RuntimeError(f"Model Studio: HTTP {e.code} {e.read().decode(errors='replace')}")
     except (urllib.error.URLError, ConnectionError, TimeoutError) as e:
         raise RuntimeError(f"Model Studio: {e} (a call that timed out may still finish and bill)")
@@ -200,7 +201,7 @@ def generate_ms(model, prompt, refs, count, tries=10):
 
 def generate(model, prompt, refs, count, square=False):
     if model in MS_MODELS:
-        return generate_ms(model, prompt, refs, count)
+        return generate_ms(model, prompt, refs, count, square)
     text, edit, build, *ref_key = MODELS[model]
     inp = build(prompt, count)
     if square:  # the symbols: square, and their own negative prompt
@@ -378,7 +379,7 @@ def main():
     ap.add_argument("--ref", action="append", default=[], help="style reference image instead of REF (URL or file); repeatable")
     ap.add_argument("--no-ref", action="store_true", help="no style reference: text-to-image from the prompt alone")
     ap.add_argument("--count", type=int, default=1, choices=range(1, 5), help="variants to make (1-4)")
-    ap.add_argument("--model", choices=[*MODELS, *MS_MODELS], default="qwen", help="image model (default qwen)")
+    ap.add_argument("--model", choices=[*MODELS, *MS_MODELS], default="qwen-ms", help="image model (default qwen-ms)")
     kind = ap.add_mutually_exclusive_group()
     kind.add_argument("--items", action="store_const", const="items", dest="kind",
                       help="gear and gold card backs (ITEMS, ITEM_STYLE, rules/art/items/) instead of foes")
