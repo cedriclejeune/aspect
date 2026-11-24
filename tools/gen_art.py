@@ -139,7 +139,8 @@ def key(var="EACHLABS_API_KEY", default=None):
 
 def call(method, path, body=None, tries=30):
     req = urllib.request.Request(API + path, method=method, data=json.dumps(body).encode() if body else None,
-                                 headers={"Authorization": f"Bearer {key()}", "Content-Type": "application/json"})
+                                 headers={"Authorization": f"Bearer {key()}", "X-API-Key": key(),  # Eachlabs documents X-API-Key
+                                          "Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             return json.load(r)
