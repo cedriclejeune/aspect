@@ -18,6 +18,9 @@ on the ground. Grimy and lived-in, never clean or heroic.
   - Qwen 2.1 Turbo ($0.016): tamer, with thin lines and a small figure; good enough for trying out poses.
   - Flux 3 ($0.048): grey fills, a comic-book look and a cream background.
   - Luma Uni-1: its content filter refused the prompt (no charge).
+- **Backup:** `qwen-ms` (Model Studio, the default) falls back to `qwen` on Eachlabs when Model Studio fails or is out of budget,
+  if `EACHLABS_API_KEY` is set. It is the same Qwen Image 3.0 model, and it gets the same prompt, reference and avoid list, so every rule here still applies.
+  A local reference such as a mini's render goes inline, and Eachlabs may refuse it. `--no-backup` stops instead.
 - Nano Banana 2 (the first default) gave a realistic, grey, densely rendered look: too far from Riddell.
 
 ## The prompt

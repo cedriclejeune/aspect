@@ -23,6 +23,8 @@ copied; the style reference follows as image 2. CHARACTER_STYLE is STYLE without
 saved in rules/symbols/qwen/ with their links in its sources.json; the replaced drawings go to rules/symbols/qwen/old/.
 Keys come from the environment or the git-ignored .env at the repo root: EACHLABS_API_KEY for Eachlabs, DASHSCOPE_API_KEY
 for Model Studio (and MODELSTUDIO_URL to use another workspace than MS_API).
+If Model Studio fails (down, out of budget), qwen-ms falls back to qwen on Eachlabs with the same prompt, reference and
+avoid list, when EACHLABS_API_KEY is set; --no-backup stops instead.
 --model picks the image model (qwen: Qwen Image 3.0 Pro, $0.075; qwen-ms, the default: Qwen Image 3.0 on Model Studio,
          working since 2026-11-17 and preferred over Eachlabs; qwen-turbo: Qwen Image 2.1 Turbo, $0.016; qwen-pro21: Qwen Image 2.1 Pro, $0.04;
          seedream: Seedream v5 Lite, $0.035; flux3: Flux 3, $0.041; luma: Luma Uni-1, $0.042; nano: Nano Banana 2).
@@ -186,11 +188,12 @@ def generate_ms(model, prompt, refs, count, square=False, tries=10):
         with urllib.request.urlopen(req, timeout=300) as r:
             out = json.load(r)
     except urllib.error.HTTPError as e:
-        if e.code == 429 and tries > 1:
+        why = e.read().decode(errors="replace")
+        if e.code == 429 and tries > 1 and "BudgetLimit" not in why and "Arrearage" not in why:  # out of money won't pass
             print("Rate limited, retrying in 10 s…")
             time.sleep(10)
             return generate_ms(model, prompt, refs, count, square, tries - 1)
-        raise RuntimeError(f"Model Studio: HTTP {e.code} {e.read().decode(errors='replace')}")
+        raise RuntimeError(f"Model Studio: HTTP {e.code} {why}")
     except (urllib.error.URLError, ConnectionError, TimeoutError) as e:
         raise RuntimeError(f"Model Studio: {e} (a call that timed out may still finish and bill)")
     if "output" not in out:
@@ -199,9 +202,24 @@ def generate_ms(model, prompt, refs, count, square=False, tries=10):
     return [c["image"] for ch in out["output"]["choices"] for c in ch["message"]["content"] if "image" in c]
 
 
+# When Model Studio is down or out of budget, the same Qwen Image 3.0 Pro on Eachlabs, with the same prompt, reference and
+# avoid list; only if EACHLABS_API_KEY is set. --no-backup turns it off.
+BACKUP = {"qwen-ms": "qwen"}
+use_backup = True  # main() sets it from --no-backup
+
+
 def generate(model, prompt, refs, count, square=False):
     if model in MS_MODELS:
-        return generate_ms(model, prompt, refs, count, square)
+        try:
+            return generate_ms(model, prompt, refs, count, square)
+        except RuntimeError as e:
+            other = BACKUP.get(model)
+            if not use_backup or not other or key("EACHLABS_API_KEY", "-") == "-" or "still finish" in str(e):  # no double bill
+                raise
+            print(f"{e}\nFalling back to {other} on Eachlabs (same prompt, reference and avoid list)…", flush=True)
+            if any(not r.startswith(("http://", "https://")) for r in refs):
+                print("  Local reference images go inline; Eachlabs may refuse them.", flush=True)
+            return generate(other, prompt, refs, count, square)
     text, edit, build, *ref_key = MODELS[model]
     inp = build(prompt, count)
     if square:  # the symbols: square, and their own negative prompt
@@ -380,6 +398,8 @@ def main():
     ap.add_argument("--no-ref", action="store_true", help="no style reference: text-to-image from the prompt alone")
     ap.add_argument("--count", type=int, default=1, choices=range(1, 5), help="variants to make (1-4)")
     ap.add_argument("--model", choices=[*MODELS, *MS_MODELS], default="qwen-ms", help="image model (default qwen-ms)")
+    ap.add_argument("--no-backup", action="store_true",
+                    help="stop if Model Studio fails instead of falling back to the same model on Eachlabs")
     kind = ap.add_mutually_exclusive_group()
     kind.add_argument("--items", action="store_const", const="items", dest="kind",
                       help="gear and gold card backs (ITEMS, ITEM_STYLE, rules/art/items/) instead of foes")
@@ -391,6 +411,8 @@ def main():
                       help="the campaign's Bearers from their minis' renders (CHARACTERS, rules/art/characters/)")
     ap.add_argument("--force", action="store_true", help="overwrite an existing drawing")
     a = ap.parse_args()
+    global use_backup
+    use_backup = not a.no_backup
     refs = [] if a.no_ref or (a.kind == "symbols" and not a.ref) else a.ref or [REF]
     if a.redo:
         if not a.change:
