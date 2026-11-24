@@ -650,9 +650,10 @@ CHARACTERS = {  # the campaign's Bearers, drawn with gen_art.py --characters int
     "Far Reacher": "a lean, bearded warrior wearing the whole pelt of a wolf as a hooded cloak, the snarling wolf head over "
                    "his brow, a long cape flaring behind. Low lunging stance: right hand thrusts a short sword down and "
                    "forward, left arm raises a round studded shield. Scuffed boots, mud on the cape",
-    "Hilda": "a stocky dwarf woman with a broad grinning face, braids and a pointed fur cap, fur-trimmed tunic, wrapped "
-             "boots. Kneeling on one knee, both hands gripping a long-handled axe held upright beside her, a huge "
-             "iron-banded barrel strapped on her back, dents and drips of ale on it",
+    "Hilda": "a small halfling woman with a round freckled face, a big gap-toothed grin, two long braids under a "
+             "knitted cap, a tunic with zigzag trim, a belt with a pouch, rolled-up trousers, big bare hairy feet. "
+             "Standing, one hand holding up a pebble, the other holding a coiled rope, a large pack heaped with rocks "
+             "on her back, a frying pan hanging from it",
     "Kramus": "a tall, broad dwarf, bald, heavy brow, a long forked beard in braids, a long robe with a wide sash and a "
               "scale-mail apron, sandals. Standing straight, right hand holding a tall halberd upright, blade above his "
               "head, a pack of rolled scrolls on his back, ink stains on the sleeves",
