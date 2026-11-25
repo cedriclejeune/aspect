@@ -227,3 +227,11 @@ and drawings are saved in `rules/art/items/`.
   timed out and was simply rerun. Redos work there too (`--cards --redo X --change ... --model qwen-ms`).
 - **Dropped connections:** they happen; the script retries status checks and downloads.
   A job that dropped may still finish and bill.
+
+## Colour turnaround sheets (Hilda, 2026-11-24)
+
+- **Model Studio's Qwen Image 3.0 takes 3 images at most** per request.
+- **The character reference carries its rendering.** With a textured ink drawing as image 1, Qwen copied its pencil texture
+  even when told to redraw in the flat style of images 2 and 3; a full sheet as image 1 came back almost unchanged.
+- **Send one view (the front) and describe every view separately** ("VIEW 2 LEFT PROFILE, facing left: the pack sticks out
+  far behind her…"). That fixed the side the axe and pan hang on, and kept the pack visible in profile.

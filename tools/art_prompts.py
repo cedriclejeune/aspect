@@ -127,9 +127,9 @@ SUBJECTS = {
                   "its hind legs, forepaws raised, mouth open roaring",
     "Gelatinous Cube": "a gelatinous cube filling a stone corridor, a near-transparent quivering block of slime, "
                        "a skull, a few bones, a dagger, a potion flask and gold coins suspended inside it. Three-quarter "
-                       "view",
+                       "view, the cube alone in the corridor, no people inside it or near it",
     "Owlbear": "an owlbear, a huge bear's body covered in brown feathers and fur, an owl's head with a hooked beak and "
-               "round staring eyes, long claws. Front view, rearing up, wings of feathers puffed out, beak open",
+               "round staring eyes, long claws. Front view, rearing up, no wings, thick feathered arms raised, beak open",
 }
 
 # Gear: one object alone on the card back, whole and in clear view. Nothing buried, stuck in the ground, piled, coiled,
