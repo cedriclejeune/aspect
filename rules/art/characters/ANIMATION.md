@@ -8,7 +8,7 @@ kept in `style-refs/`: `close-ups.png` (a pair of flat cel-shaded character clos
 landscape with two hikers): flat colour, clean dark outlines, one hard shadow tone, muted natural palette.
 `poster.png` is a third still in the same look. `style-board.png` puts the poster and the forest side by side, so the
 three fit in one image slot (Model Studio takes at most 3 images per request). `face-selleck.png` is the face
-inspiration for Far Reacher's redesign.
+inspiration for Far Reacher's redesign,  Chadbjorn's.
 
 **Image model.** Qwen Image 3.0 on Alibaba Model Studio (`DASHSCOPE_API_KEY`), `prompt_extend: false`, colour kept
 (not through `tools/gen_art.py`, which saves greyscale). At most 3 images per request. Lessons learned are in
@@ -36,6 +36,29 @@ Negative prompt: `open mouth, teeth, rope, double-headed axe, pencil, watercolou
 Then one targeted edit (image 1 the sheet alone) to remove a second blade in the back view:
 
 > Edit the character turnaround sheet in image 1. Make only this change: in the third view (the back view), remove the extra sword blade that pokes out from under the wolf-pelt cloak on the left side of that figure, near his left boot; fill that spot with the pelt's ragged hem and the white background. He holds only one sword, in his right hand, on the right side of the back view. Keep everything else exactly as it is: same four views, same style, colours, poses and framing.
+
+### Far Reacher, redesign: `far-reacher-turnaround-selleck.png`
+
+Drawn fresh, without the old sheet. Images: 1 `style-refs/face-selleck.png` (the face), 2 `style-refs/close-ups.png`,
+3 `style-refs/style-board.png` (poster and forest side by side). Size 2688×1536.
+
+> Character turnaround sheet for 2D animation. Draw him entirely in the flat cel-shaded style of images 2 and 3: clean even dark outlines, flat colour fills, one hard-edged shadow tone, muted natural palette. Images 2 and 3 give style only: copy none of their characters, creatures or scenery. Plain white background, four full-body views in a row, same height, feet on one line, standing upright, neutral pose. A lean, muscular warrior. FACE inspired by the man in image 1: broad square jaw, strong straight nose, thick bushy moustache covering the upper lip, clean-shaven cheeks and chin, warm crinkled eyes, faint dimples, a confident closed-mouth half-smile. Thick wavy copper-red hair, shoulder length, framing his face as its own clear shape with a dark outline, plainly separate from the grey fur; moustache and eyebrows the same copper red. He wears a whole grey wolf pelt: the wolf head as a hood over his brow, its upper jaw lined with long sharp white fangs over his forehead, the pelt as a long cloak to his calves, held by a leather strap across his collarbone. Bare-chested, no shirt: lean muscular chest, belly and arms, generous curly copper-red chest hair across the chest and down the belly. Wide brown belt, tan trousers with leg wraps, leather forearm wraps, brown boots. Three small skulls hang at his right hip. One large two-handed sword, as tall as his chest: long straight blade, wide crossguard, long grip, round pommel. Its point rests on the ground beside his right foot, outside the legs; his right hand rests on the pommel; the whole sword in clear view. Left hand empty, relaxed at his side. VIEW 1 FRONT: wolf face with bared fangs above his face, bare hairy chest, the sword planted at his right. VIEW 2 LEFT PROFILE, facing left: wolf snout and fangs pointing left, left hand empty, cloak hanging behind. VIEW 3 BACK: the grey pelt covers his whole back, wolf ears on top, the pelt's tail hanging down, the sword's crossguard and pommel showing at his right side. VIEW 4 RIGHT PROFILE, facing right: the sword planted in front of his right foot, hand on the pommel, skulls at his hip, bare chest in profile, cloak behind. Only one man and one sword in each view. No text.
+
+Negative prompt: `shield, round shield, book, second sword, two swords, dagger, shirt, tunic, vest, full beard, dark hair, brown hair, hair merging with fur, toothless wolf, open mouth, second character, egg creature, poster, scenery, background, photorealistic, photo, 3D render, hatching, pencil texture, sketchy lines, gradients, text, labels, watermark, extra limbs, duplicate character`
+
+The first try (with a bone-decorated book) left the wolf without teeth: the negative prompt listed "teeth".
+Known faults: the back view has a second sword, and the sword reaches his hip, not his chest.
+
+### Chadbjorn: `chadbjorn-turnaround.png`
+
+Images: 1 `style-refs/face-chadbjorn.png` (jaw and brow only), 2 `style-refs/close-ups.png`, 3 `style-refs/style-board.png`. Size 2688×1536.
+
+> Character turnaround sheet for 2D animation, Viking age Norse setting. Draw him entirely in the flat cel-shaded style of images 2 and 3: clean even dark outlines, flat colour fills, one hard-edged shadow tone, muted natural palette. Images 2 and 3 give style only: copy none of their characters, creatures or scenery. Plain white background, four full-body views in a row, same height, feet on one line, standing upright, neutral pose, hands empty. Chadbjorn, a 15-year-old Norse boy, very tall and lanky: long thin arms and legs, narrow shoulders, bony wrists, big hands and feet he hasn't grown into, a visible Adam's apple. FACE inspired by the man in image 1, made younger, thinner and clean-shaven: a long narrow face, hollow cheeks sucked in, high sharp cheekbones, a sharply chiselled angular jawline, a cleft chin, a heavy straight brow over deep-set eyes, a straight nose. Smooth beardless teenage skin, no moustache. A vain pout: lips pushed forward and pursed together, cheeks sucked in, eyes half-closed, one eyebrow raised, very pleased with himself. HAIR: a neat golden-blond bowl cut, thick and glossy, cut in a perfectly straight fringe across the forehead just above the eyebrows and evenly all round the head above the ears. CLOTHES, Viking style: a loose white linen Norse tunic-shirt with a woven band at the collar and cuffs, its laces undone and the front hanging open to the belly over a thin, flat teenage chest, sleeves pushed to the elbows. A narrow leather belt with a small bronze buckle. Loose, baggy undyed wool trousers, wrapped from ankle to knee in pale cloth leg wraps, soft leather Norse turnshoes. VIEW 1 FRONT: the open tunic, the straight fringe, the pursed pout facing us. VIEW 2 LEFT PROFILE, facing left: the lips pushed forward in sharp profile, the hollow cheek, the rounded bowl cut, long thin body. VIEW 3 BACK: the tunic hanging from his narrow shoulders, the bowl cut's even line across the back of the head. VIEW 4 RIGHT PROFILE, facing right: the pout and jaw in profile, the leg wraps. Only one boy in each view. No text.
+
+Negative prompt: `duck, bird, beak, moustache, beard, stubble, bald, shaved head, round face, chubby cheeks, modern clothes, buttons, jeans, sneakers, horned helmet, tank top, muscular adult, bodybuilder, broad shoulders, weapon, open mouth, teeth, second character, egg creature, poster, scenery, background, photorealistic, photo, 3D render, hatching, pencil texture, sketchy lines, gradients, text, labels, watermark, extra limbs, duplicate character`
+
+"Duck face" is never written: the pout is described as a shape, and "duck, bird, beak" go in the negative prompt.
+He still frowns in the profiles.
 
 ## Storyboards and start frames
 
