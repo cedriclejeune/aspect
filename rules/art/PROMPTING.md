@@ -247,3 +247,13 @@ and drawings are saved in `rules/art/items/`.
   sending `guide.png` as image 2, "only shows the angles", kept all eight in place.
 - **`act`:** the sheet alone as image 1, one figure on white. Qwen sometimes doubles a weapon; the prompt says one of each.
 - Outputs for C1 are in the project files under `studio/model-sheets/<name>/`, with each step's prompt in a `.txt` beside it.
+- **Design sheets in (2026-11-26).** `build <Name>` reads `rules/art/characters/model-sheets.json`: the mini gives pose and
+  angles, the design sheet from ANIMATION.md gives face, hair, clothes and colours, and wins where they differ. Send the
+  design sheet as image 2 and **no style board**: with three images Qwen pasted the design sheet over the grid or left
+  figures grey; the design sheet is already in the flat style.
+- **`fix <sheet> <view> "<note>"`** redraws one of the eight cells and pastes it back. `--use clay` (default) adds that
+  view's clay for the angle; `--use colour` adds another view of the sheet as a colour guide, only for parts left grey,
+  since its gear leaks in (asked to remove a second sword, it drew a third); `--use none` for removals.
+- **`pose`** redraws the whole sheet in a new pose: most views take it, some keep the neutral pose; fix those one by one.
+- The viewer (character selector, poses, eight-angle turntable, per-view fix requests) is an Artifact built from the
+  project files by `studio/model-sheets/viewer/build.py`.

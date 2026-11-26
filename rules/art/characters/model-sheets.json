@@ -1,0 +1,13 @@
+{
+ "_note": "Characters for tools/model_sheet.py build: the mini (folder under Campagnes/C1/Models) gives the pose and the eight angles, the design sheet gives face, hair, clothes and colours. Where they disagree, the design wins; 'look' says how.",
+ "Hilda": {"design": "rules/art/characters/hilda-turnaround-flat.png",
+   "look": "Hilda, a short stocky halfling woman, round freckled face, ginger braids, red knitted beanie, green tunic with zigzag bands, brown belt and pouch, bare hairy feet. Her big brown pack heaped with grey rocks and a frying pan replaces the mini's barrel; she holds a small Nordic axe."},
+ "Far Reacher": {"design": "rules/art/characters/far-reacher-turnaround-selleck.png",
+   "look": "Far Reacher, lean muscular warrior, copper-red wavy hair, thick moustache, clean-shaven chin, bare hairy chest, grey wolf pelt with fanged wolf head as hood and long cloak, brown belt with three small skulls, tan trousers, leg wraps, brown boots. No shield: his shield hand is an empty fist. One long two-handed sword in his sword hand."},
+ "Kramus": {"design": "/mnt/project-files/studio/flat/sheets/kramus-turnaround.png",
+   "look": "Kramus, bald stocky dwarf, black patch over his left eye, long forked white beard, deep blue robe to the shins with a wide red sash, grey scale skirt, brown boots, backpack of rolled scrolls, tall double-bladed halberd."},
+ "Chadbjorn": {"design": "rules/art/characters/chadbjorn-turnaround.png",
+   "look": "Chadbjorn, a very tall lanky 15-year-old Norse boy, long narrow beardless face, sharp jaw, vain pout, glossy golden-blond bowl cut with a straight fringe (not the mini's top knot), loose white linen tunic open at the chest, narrow leather belt, baggy grey-brown trousers, linen leg wraps, soft brown shoes. Keeps the mini's sword."},
+ "Zug": {"design": null,
+   "look": "Zug, a rugged Norse adventurer, weathered face, long dark brown hair tied back with a headband, oatmeal wool tunic, brown leather belt and pouches, dark green trousers, brown boots, steel sword, leather quiver of arrows on his back, brass compass in his hand."}
+}
