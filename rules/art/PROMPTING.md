@@ -257,3 +257,5 @@ and drawings are saved in `rules/art/items/`.
 - **`pose`** redraws the whole sheet in a new pose: most views take it, some keep the neutral pose; fix those one by one.
 - The viewer (character selector, poses, eight-angle turntable, per-view fix requests) is an Artifact built from the
   project files by `studio/model-sheets/viewer/build.py`.
+- **Where the design differs from the mini** (Hilda's rock pack vs the mini's barrel), `fix --use clay` pastes the clay's
+  barrel back in grey; for a full redraw of such a view use `--use colour` instead.
