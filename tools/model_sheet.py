@@ -142,7 +142,7 @@ def build(name, redo_guides=False):
     c = json.loads(CHARS.read_text())[name]
     out = OUT / name.lower().replace(" ", "-")
     if redo_guides or not (out / "guide.png").exists():
-        guides(name, out)
+        guides(c.get("mini", name), out)  # "mini": the folder under Models/ when it isn't named like the character
     design = c.get("design")
     sheet(out, c["look"], str(ROOT / design) if design and not design.startswith("/") else design)
     cells(out / "sheet.png")
