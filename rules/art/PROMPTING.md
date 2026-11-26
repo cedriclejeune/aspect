@@ -235,3 +235,27 @@ and drawings are saved in `rules/art/items/`.
   even when told to redraw in the flat style of images 2 and 3; a full sheet as image 1 came back almost unchanged.
 - **Send one view (the front) and describe every view separately** ("VIEW 2 LEFT PROFILE, facing left: the pack sticks out
   far behind her…"). That fixed the side the axe and pan hang on, and kept the pack visible in profile.
+
+## Eight-view model sheets from a mini (`tools/model_sheet.py`, 2026-11-26)
+
+- **The clay renders are the layout.** `guides` renders the STL from eight turntable angles at one scale, feet on one line,
+  as a 2688×1536 grid of two rows of four (front, front 3/4 R, right side, back 3/4 R, back, back 3/4 L, left side,
+  front 3/4 L). Qwen redraws that grid in place: angles, pose and gear come from the mini, so they agree across views.
+- **`sheet`:** image 1 the grid, image 2 `studio/flat/sheets/style-bg.png` (style only), image 3 an optional colour picture
+  of the character (`--design`). The prompt names colours, face and hair, which the clay can't show.
+- **`edit` needs the grid too.** With the sheet alone, Qwen turned views around (a side view came back as a back view);
+  sending `guide.png` as image 2, "only shows the angles", kept all eight in place.
+- **`act`:** the sheet alone as image 1, one figure on white. Qwen sometimes doubles a weapon; the prompt says one of each.
+- Outputs for C1 are in the project files under `studio/model-sheets/<name>/`, with each step's prompt in a `.txt` beside it.
+- **Design sheets in (2026-11-26).** `build <Name>` reads `rules/art/characters/model-sheets.json`: the mini gives pose and
+  angles, the design sheet from ANIMATION.md gives face, hair, clothes and colours, and wins where they differ. Send the
+  design sheet as image 2 and **no style board**: with three images Qwen pasted the design sheet over the grid or left
+  figures grey; the design sheet is already in the flat style.
+- **`fix <sheet> <view> "<note>"`** redraws one of the eight cells and pastes it back. `--use clay` (default) adds that
+  view's clay for the angle; `--use colour` adds another view of the sheet as a colour guide, only for parts left grey,
+  since its gear leaks in (asked to remove a second sword, it drew a third); `--use none` for removals.
+- **`pose`** redraws the whole sheet in a new pose: most views take it, some keep the neutral pose; fix those one by one.
+- The viewer (character selector, poses, eight-angle turntable, per-view fix requests) is an Artifact built from the
+  project files by `studio/model-sheets/viewer/build.py`.
+- **Where the design differs from the mini** (Hilda's rock pack vs the mini's barrel), `fix --use clay` pastes the clay's
+  barrel back in grey; for a full redraw of such a view use `--use colour` instead.
