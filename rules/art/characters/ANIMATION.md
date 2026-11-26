@@ -8,7 +8,7 @@ kept in `style-refs/`: `close-ups.png` (a pair of flat cel-shaded character clos
 landscape with two hikers): flat colour, clean dark outlines, one hard shadow tone, muted natural palette.
 `poster.png` is a third still in the same look. `style-board.png` puts the poster and the forest side by side, so the
 three fit in one image slot (Model Studio takes at most 3 images per request). `face-selleck.png` is the face
-inspiration for Far Reacher's redesign,  Chadbjorn's.
+inspiration for Far Reacher's redesign, `face-chadbjorn.png` Chadbjorn's.
 
 **Image model.** Qwen Image 3.0 on Alibaba Model Studio (`DASHSCOPE_API_KEY`), `prompt_extend: false`, colour kept
 (not through `tools/gen_art.py`, which saves greyscale). At most 3 images per request. Lessons learned are in
